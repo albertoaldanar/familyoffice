@@ -48,6 +48,7 @@
     "gulp-sourcemaps": "^3.0.0",
     "hh-mm-ss": "^1.2.0",
     "leaflet": "^1.9.4",
+    "moment": "^2.30.1",
     "react": "^18.2.0",
     "react-apexcharts": "^1.4.0",
     "react-bootstrap": "^2.7.4",

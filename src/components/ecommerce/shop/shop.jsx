@@ -74,10 +74,10 @@ function Shop({ local_varaiable, AddToCart }) {
                             className="btn  btn-outline-info my-1 me-1">
                             <i className="fa fa-heart-o"></i>
                           </Link>
-                          <Link to={`${import.meta.env.BASE_URL}ecommerce/productdetails`}
+                          {/* <Link to={`${import.meta.env.BASE_URL}ecommerce/productdetails`}
                             className="btn btn-icon btn-outline-danger mt-1  mb-1 me-1">
                             <i className="fa fa-search"></i>
-                          </Link>
+                          </Link> */}
                           <Link to={`${import.meta.env.BASE_URL}ecommerce/shoppingcart`} onClick={() => { AddToCart(idx.id) }}
                             className="btn btn-icon btn-outline-warning mt-1  mb-1">
                             <i className="fa fa-cart-plus"></i>

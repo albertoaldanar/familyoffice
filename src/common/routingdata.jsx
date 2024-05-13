@@ -38,7 +38,29 @@ const  BadgesPills= React.lazy(()=>import('../components/Bootstrap/BadgesPills/B
 const  Thumbnails= React.lazy(()=>import     ('../components/Bootstrap/Thumbnails/Thumbnails'))
 const  Offcanva= React.lazy(()=>import   ('../components/Bootstrap/Offcanvas/Offcanvas'))
 const  Toasts= React.lazy(()=>import ('../components/Bootstrap/Toast/Toast'))
-
+const  Accounting= React.lazy(()=>import ('../pages/administration/accounting/accounting'))
+const  Payments= React.lazy(()=>import ('../pages/administration/payments/payments'))
+const  InsuraceDescription = React.lazy(()=>import ('../pages/administration/payments/insurances/insurancesDescription'))
+const  InsurancePayment = React.lazy(()=>import ('../pages/administration/payments/insurances/insurancePayment'))
+const  InsuranceNewPayment = React.lazy(()=>import ('../pages/administration/payments/insurances/insuranceNewPayment'))
+const  InsuranceCreate = React.lazy(()=>import ('../pages/administration/payments/insurances/insuranceCreate'))
+const  PropertyTaxDescription = React.lazy(()=>import ('../pages/administration/payments/propertyTax/propertyTaxDescription'))
+const  PropertyTaxPayment = React.lazy(()=>import ('../pages/administration/payments/propertyTax/propertyTaxPayment'))
+const  PropertyTaxNewPayment = React.lazy(()=>import ('../pages/administration/payments/propertyTax/propertyTaxNewPayment'))
+const  PropertyTaxCreate = React.lazy(()=>import ('../pages/administration/payments/propertyTax/propertyTaxCreate'))
+const  LeasingPaymentDescription = React.lazy(()=>import ('../pages/administration/payments/leasingAndRents/LeasingAndRentsDescription'))
+const  LeasingPayment = React.lazy(()=>import ('../pages/administration/payments/leasingAndRents/leasingAndRentsPayment'))
+const  LeasingNewPayment = React.lazy(()=>import ('../pages/administration/payments/leasingAndRents/leasingNewPayment'))
+const  LeasingCreate = React.lazy(()=>import ('../pages/administration/payments/leasingAndRents/leasingAndRentsCreate'))
+const  MantainanceDescription = React.lazy(()=>import ('../pages/administration/payments/mantainance/MantainanceDescription'))
+const  MantainancePayment = React.lazy(()=>import ('../pages/administration/payments/mantainance/mantainancePayment'))
+const  MantainanceNewPayment = React.lazy(()=>import ('../pages/administration/payments/mantainance/mantainanceNewPayment'))
+const  MantainanceCreate = React.lazy(()=>import ('../pages/administration/payments/mantainance/mantainanceCreate'))
+const  DebtDescription = React.lazy(()=>import ('../pages/administration/payments/debt/debtDescription'))
+const  DebtPayment = React.lazy(()=>import ('../pages/administration/payments/debt/debtPayment'))
+const  DebtNewPayment = React.lazy(()=>import ('../pages/administration/payments/debt/debtNewPayment'))
+const  DebtCreate = React.lazy(()=>import ('../pages/administration/payments/debt/debtCreate'))
+const  Collecting= React.lazy(()=>import ('../pages/administration/collecting/collecting'))
 const  MediaObject= React.lazy(()=>import('../components/Bootstrap/MediaObject/MediaObject'))
 const  Accordions= React.lazy(()=>import     ('../components/Bootstrap/Accordion/Accordion'))
 const  Tabses= React.lazy(()=>import ('../components/Bootstrap/Tabs/Tabs'))
@@ -196,7 +218,41 @@ export const Routingdata=[
 {path:`${import.meta.env.BASE_URL}pages/extension/blogpost` ,element:<Blogpost />},
 {path:`${import.meta.env.BASE_URL}pages/extension/emptypage` ,element:<Emptypage />},
 
+/* Family office */
+{path:`${import.meta.env.BASE_URL}administration/accounting` ,element : <Accounting/>},
+{path:`${import.meta.env.BASE_URL}administration/payments` ,element : <Payments/>},
 
+/* Insurances */
+{path:`${import.meta.env.BASE_URL}administration/insuraceDescription/:id` ,element : <InsuraceDescription/>},
+{path:`${import.meta.env.BASE_URL}administration/insurancePayment/:id/payment/:paymentId` ,element : <InsurancePayment/>},
+{path:`${import.meta.env.BASE_URL}administration/insuranceNewPayment/:id` ,element : <InsuranceNewPayment/>},
+{path:`${import.meta.env.BASE_URL}administration/insuranceCreate` ,element : <InsuranceCreate/>},
+
+/* PropertyTax */
+{path:`${import.meta.env.BASE_URL}administration/propertyTaxDescription/:id` ,element : <PropertyTaxDescription/>},
+{path:`${import.meta.env.BASE_URL}administration/propertyTaxPayment/:id/payment/:paymentId` ,element : <PropertyTaxPayment/>},
+{path:`${import.meta.env.BASE_URL}administration/propertyTaxNewPayment/:id` ,element : <PropertyTaxNewPayment/>},
+{path:`${import.meta.env.BASE_URL}administration/propertyTaxCreate` ,element : <PropertyTaxCreate/>},
+
+/* LeasingAndRent */
+{path:`${import.meta.env.BASE_URL}administration/leasingPaymentDescription/:id` ,element : <LeasingPaymentDescription/>},
+{path:`${import.meta.env.BASE_URL}administration/leasingPayment/:id/payment/:paymentId` ,element : <LeasingPayment/>},
+{path:`${import.meta.env.BASE_URL}administration/leasingNewPayment/:id` ,element : <LeasingNewPayment/>},
+{path:`${import.meta.env.BASE_URL}administration/leasingCreate` ,element : <LeasingCreate/>},
+
+/* Mantainance */
+{path:`${import.meta.env.BASE_URL}administration/mantainanceDescription/:id` ,element : <MantainanceDescription/>},
+{path:`${import.meta.env.BASE_URL}administration/mantainancePayment/:id/payment/:paymentId` ,element : <MantainancePayment/>},
+{path:`${import.meta.env.BASE_URL}administration/mantainanceNewPayment/:id/` ,element : <MantainanceNewPayment/>},
+{path:`${import.meta.env.BASE_URL}administration/mantainanceCreate` ,element : <MantainanceCreate/>},
+
+/* Debt */
+{path:`${import.meta.env.BASE_URL}administration/debtDescription/:id` ,element : <DebtDescription/>},
+{path:`${import.meta.env.BASE_URL}administration/debtPayment/:id/payment/:paymentId` ,element : <DebtPayment/>},
+{path:`${import.meta.env.BASE_URL}administration/debtNewPayment/:id/` ,element : <DebtNewPayment/>},
+{path:`${import.meta.env.BASE_URL}administration/debtCreate` ,element : <DebtCreate/>},
+/*Collecting*/
+{path:`${import.meta.env.BASE_URL}administration/collecting` ,element : <Collecting/>},
 /* Ecommerce */
 
 {path:`${import.meta.env.BASE_URL}ecommerce/shop` ,element:<Shop />},
