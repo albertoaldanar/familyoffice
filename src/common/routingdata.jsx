@@ -38,7 +38,11 @@ const  BadgesPills= React.lazy(()=>import('../components/Bootstrap/BadgesPills/B
 const  Thumbnails= React.lazy(()=>import     ('../components/Bootstrap/Thumbnails/Thumbnails'))
 const  Offcanva= React.lazy(()=>import   ('../components/Bootstrap/Offcanvas/Offcanvas'))
 const  Toasts= React.lazy(()=>import ('../components/Bootstrap/Toast/Toast'))
-const  Accounting= React.lazy(()=>import ('../pages/administration/accounting/accounting'))
+const  Companies= React.lazy(()=>import ('../pages/administration/accounting/companies'))
+const  CompanyCreate= React.lazy(()=>import ('../pages/administration/accounting/companyCreate'))
+const  CompanyDescription= React.lazy(()=>import ('../pages/administration/accounting/companyDescription'))
+const  CompanyReport= React.lazy(()=>import ('../pages/administration/accounting/companyReport'))
+const  CompanyReportCreate= React.lazy(()=>import ('../pages/administration/accounting/companyNewReport'))
 const  Payments= React.lazy(()=>import ('../pages/administration/payments/payments'))
 const  InsuraceDescription = React.lazy(()=>import ('../pages/administration/payments/insurances/insurancesDescription'))
 const  InsurancePayment = React.lazy(()=>import ('../pages/administration/payments/insurances/insurancePayment'))
@@ -61,6 +65,14 @@ const  DebtPayment = React.lazy(()=>import ('../pages/administration/payments/de
 const  DebtNewPayment = React.lazy(()=>import ('../pages/administration/payments/debt/debtNewPayment'))
 const  DebtCreate = React.lazy(()=>import ('../pages/administration/payments/debt/debtCreate'))
 const  Collecting= React.lazy(()=>import ('../pages/administration/collecting/collecting'))
+const  RentDescription= React.lazy(()=>import ('../pages/administration/collecting/leasingAndRents/rentsDescription'))
+const  RentCollecting= React.lazy(()=>import ('../pages/administration/collecting/leasingAndRents/rentsCollecting'))
+const  RentNewPayment= React.lazy(()=>import ('../pages/administration/collecting/leasingAndRents/rentNewPayment'))
+const  RentCreate= React.lazy(()=>import ('../pages/administration/collecting/leasingAndRents/rentCreate'))
+const  LoanDescription= React.lazy(()=>import ('../pages/administration/collecting/loans/loansDescription'))
+const  LoanNewPayment= React.lazy(()=>import ('../pages/administration/collecting/loans/loanNewPayment'))
+const  LoanCollecting= React.lazy(()=>import ('../pages/administration/collecting/loans/loanCollecting'))
+const  LoanCreate= React.lazy(()=>import ('../pages/administration/collecting/loans/loanCreate'))
 const  MediaObject= React.lazy(()=>import('../components/Bootstrap/MediaObject/MediaObject'))
 const  Accordions= React.lazy(()=>import     ('../components/Bootstrap/Accordion/Accordion'))
 const  Tabses= React.lazy(()=>import ('../components/Bootstrap/Tabs/Tabs'))
@@ -219,40 +231,58 @@ export const Routingdata=[
 {path:`${import.meta.env.BASE_URL}pages/extension/emptypage` ,element:<Emptypage />},
 
 /* Family office */
-{path:`${import.meta.env.BASE_URL}administration/accounting` ,element : <Accounting/>},
+{path:`${import.meta.env.BASE_URL}administration/accounting` ,element : <CompanyDescription/>},
 {path:`${import.meta.env.BASE_URL}administration/payments` ,element : <Payments/>},
 
-/* Insurances */
+/* Companies */
+{path:`${import.meta.env.BASE_URL}administration/companies` ,element : <Companies/>},
+{path:`${import.meta.env.BASE_URL}administration/company/:id` ,element : <CompanyDescription/>},
+{path:`${import.meta.env.BASE_URL}administration/company/:id/report/:reportId` ,element : <CompanyReport/>},
+{path:`${import.meta.env.BASE_URL}administration/companyNewReport/:id` ,element : <CompanyReportCreate/>},
+{path:`${import.meta.env.BASE_URL}administration/companyCreate` ,element : <CompanyCreate/>},
+
+/*Payment Insurances */
 {path:`${import.meta.env.BASE_URL}administration/insuraceDescription/:id` ,element : <InsuraceDescription/>},
 {path:`${import.meta.env.BASE_URL}administration/insurancePayment/:id/payment/:paymentId` ,element : <InsurancePayment/>},
 {path:`${import.meta.env.BASE_URL}administration/insuranceNewPayment/:id` ,element : <InsuranceNewPayment/>},
 {path:`${import.meta.env.BASE_URL}administration/insuranceCreate` ,element : <InsuranceCreate/>},
 
-/* PropertyTax */
+/*Payment PropertyTax */
 {path:`${import.meta.env.BASE_URL}administration/propertyTaxDescription/:id` ,element : <PropertyTaxDescription/>},
 {path:`${import.meta.env.BASE_URL}administration/propertyTaxPayment/:id/payment/:paymentId` ,element : <PropertyTaxPayment/>},
 {path:`${import.meta.env.BASE_URL}administration/propertyTaxNewPayment/:id` ,element : <PropertyTaxNewPayment/>},
 {path:`${import.meta.env.BASE_URL}administration/propertyTaxCreate` ,element : <PropertyTaxCreate/>},
 
-/* LeasingAndRent */
+/*Payment LeasingAndRent */
 {path:`${import.meta.env.BASE_URL}administration/leasingPaymentDescription/:id` ,element : <LeasingPaymentDescription/>},
 {path:`${import.meta.env.BASE_URL}administration/leasingPayment/:id/payment/:paymentId` ,element : <LeasingPayment/>},
 {path:`${import.meta.env.BASE_URL}administration/leasingNewPayment/:id` ,element : <LeasingNewPayment/>},
 {path:`${import.meta.env.BASE_URL}administration/leasingCreate` ,element : <LeasingCreate/>},
 
-/* Mantainance */
+/*Payment Mantainance */
 {path:`${import.meta.env.BASE_URL}administration/mantainanceDescription/:id` ,element : <MantainanceDescription/>},
 {path:`${import.meta.env.BASE_URL}administration/mantainancePayment/:id/payment/:paymentId` ,element : <MantainancePayment/>},
 {path:`${import.meta.env.BASE_URL}administration/mantainanceNewPayment/:id/` ,element : <MantainanceNewPayment/>},
 {path:`${import.meta.env.BASE_URL}administration/mantainanceCreate` ,element : <MantainanceCreate/>},
 
-/* Debt */
+/*Payment Debt */
 {path:`${import.meta.env.BASE_URL}administration/debtDescription/:id` ,element : <DebtDescription/>},
 {path:`${import.meta.env.BASE_URL}administration/debtPayment/:id/payment/:paymentId` ,element : <DebtPayment/>},
 {path:`${import.meta.env.BASE_URL}administration/debtNewPayment/:id/` ,element : <DebtNewPayment/>},
 {path:`${import.meta.env.BASE_URL}administration/debtCreate` ,element : <DebtCreate/>},
-/*Collecting*/
+
+/*Collecting loan*/
 {path:`${import.meta.env.BASE_URL}administration/collecting` ,element : <Collecting/>},
+{path:`${import.meta.env.BASE_URL}administration/loanDescription/:id` ,element : <LoanDescription/>},
+{path:`${import.meta.env.BASE_URL}administration/loanNewPayment/:id` ,element : <LoanNewPayment/>},
+{path:`${import.meta.env.BASE_URL}administration/loanCollecting/:id/payment/:paymentId` ,element : <LoanCollecting/>},
+{path:`${import.meta.env.BASE_URL}administration/loanCreate` ,element : <LoanCreate/>},
+/*Collecting rent*/
+{path:`${import.meta.env.BASE_URL}administration/rentDescription/:id` ,element : <RentDescription/>},
+{path:`${import.meta.env.BASE_URL}administration/rentCollecting/:id/payment/:paymentId` ,element : <RentCollecting/>},
+{path:`${import.meta.env.BASE_URL}administration/rentNewPayment/:id` ,element : <RentNewPayment/>},
+{path:`${import.meta.env.BASE_URL}administration/rentCreate` ,element : <RentCreate/>},
+
 /* Ecommerce */
 
 {path:`${import.meta.env.BASE_URL}ecommerce/shop` ,element:<Shop />},

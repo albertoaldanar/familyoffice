@@ -1,11 +1,14 @@
 import React, { Fragment } from "react";
 import {
+  Badge,
   Button,
   Card,
   Col,
   Table,
 } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import { arrendamientos } from "../collectingData";
+import { nextPaymentFormatDate } from "../../payments/paymentUtils";
 
 export default function LeasingAndRents() {
   return (
@@ -30,7 +33,10 @@ export default function LeasingAndRents() {
           size="sm"
           className=" mb-1"
         >
-          + Añadir arrendamiento
+         {/*// @ts-ignore */}
+         <Link style={{color: 'white'}} to={`${import.meta.env.BASE_URL}administration/rentCreate`}>
+            + Añadir arrendamiento
+          </Link>
         </Button>
       </div>
       <Card.Title style={{ marginLeft: 15, marginBottom: 20 }}>
@@ -58,8 +64,23 @@ export default function LeasingAndRents() {
                     </td>
                     <td>{idx.arrendatario}</td>
                     <td>{idx.concepto}</td>
-                    <td>{idx.monto}</td>
-                    <td>{idx.proxpago}</td>
+                    <td>$ {idx.monto} {idx.moneda}</td>
+                    <td>
+                      {
+                        nextPaymentFormatDate(idx.pagos) === 'Vencido' ? 
+                          (
+                            <div style={{marginTop: 2}}>
+                              <Badge
+                                bg="danger-transparent"
+                                className={`me-2 my-1 Primary`}
+                              >
+                                Vencido
+                              </Badge> 
+                            </div>
+                          ) : 
+                          nextPaymentFormatDate(idx.pagos)
+                      }
+                    </td>
                     <td
                       style={{
                         cursor: "pointer",
@@ -67,7 +88,10 @@ export default function LeasingAndRents() {
                         color: "#5488d2",
                       }}
                     >
-                      Ver
+                      {/*// @ts-ignore */}
+                      <Link to={`${import.meta.env.BASE_URL}administration/rentDescription/${idx.id}`}>
+                        Ver
+                      </Link>
                     </td>
                   </tr>
                 ))}

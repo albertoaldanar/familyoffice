@@ -15,9 +15,9 @@ const MenuItems = [
         color:'',
         badgetxt:'',      
         children: [
-          { path: `${import.meta.env.BASE_URL}administration/accounting`, type: 'link', active: false, selected: false, title: 'Contabilidad' },
+          { path: `${import.meta.env.BASE_URL}administration/companies`, type: 'link', active: false, selected: false, title: 'Empresas' },
           { path: `${import.meta.env.BASE_URL}dashboard/ecommerce`, type: 'link', active: false, selected: false, title: 'Fiscal' },
-          { path: `${import.meta.env.BASE_URL}dashboard/analytics`, type: 'link', active: false, selected: false, title: 'Servicios' },
+          { path: `${import.meta.env.BASE_URL}dashboard/analytics`, type: 'link', active: false, selected: false, title: 'Servicios / Directorio' },
           { path: `${import.meta.env.BASE_URL}administration/payments`, type: 'link', active: false, selected: false, title: 'Pagos' },
           { path: `${import.meta.env.BASE_URL}administration/collecting`, type: 'link', active: false, selected: false, title: 'Cobranza' }
         ]
@@ -39,6 +39,7 @@ const MenuItems = [
         badgetxt:'',      
         children: [
           { path: `${import.meta.env.BASE_URL}apps/cardsdesign`, type: 'link', active: false, selected: false, title: 'Gestion familiar' },
+          { path: `${import.meta.env.BASE_URL}pages/profile`, type: 'link', active: false, selected: false, title: 'Estructura patrimonial' },
           { path: `${import.meta.env.BASE_URL}apps/defaultcalender`, type: 'link', active: false, selected: false, title: 'Lega/Documentos' },
           { path: `${import.meta.env.BASE_URL}apps/fulcalender`, type: 'link', active: false, selected: false, title: 'Reportes' },
           // { path: `${import.meta.env.BASE_URL}apps/chat`, type: 'link', active: false, selected: false, title: 'Chat' },
@@ -173,7 +174,6 @@ const MenuItems = [
         color:'',
         badgetxt:'',      
         children: [
-          { path: `${import.meta.env.BASE_URL}pages/profile`, type: 'link', active: false, selected: false, title: 'Estructura patrimonial' },
           { path: `${import.meta.env.BASE_URL}pages/notificationslist`, type: 'link', active: false, selected: false, title: 'Bursatil' },
           { path: `${import.meta.env.BASE_URL}pages/timeline`, type: 'link', active: false, selected: false, title: 'Capital Privado' },
           { path: `${import.meta.env.BASE_URL}pages/mailcompose`, type: 'link', active: false, selected: false, title: 'Prestamos' },

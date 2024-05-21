@@ -1,11 +1,17 @@
 import React, { Fragment } from "react";
 import {
   Button,
+  Badge,
   Card,
   Col,
   Table,
 } from "react-bootstrap";
-import { prestamosIntrafamiliares, prestamosTerceros } from "../collectingData";
+import { prestamos } from "../collectingData";
+import { nextPaymentFormatDate } from "../../payments/paymentUtils";
+import { Link } from "react-router-dom";
+
+const prestamosIntrafamiliares = prestamos.filter(prestamo => prestamo.tipo === 'Intrafamiliar');
+const prestamosTerceros = prestamos.filter(prestamo => prestamo.tipo === 'Tercero');
 
 export default function LoansCollecting() {
   return (
@@ -30,7 +36,10 @@ export default function LoansCollecting() {
           size="sm"
           className=" mb-1"
         >
-          + Añadir prestamo
+          {/*// @ts-ignore */}
+          <Link style={{color: 'white'}} to={`${import.meta.env.BASE_URL}administration/loanCreate`}>
+              + Añadir prestamo
+            </Link>
         </Button>
       </div>
       <Card.Title style={{ marginLeft: 15, marginBottom: 20 }}>
@@ -57,11 +66,26 @@ export default function LoansCollecting() {
                     <td>
                       {idx.deudor}
                     </td>
-                    <td>{idx.monto}</td>
-                    <td>{idx.pagado}</td>
-                    <td>{idx.pagado}</td>
+                    <td>$ {idx.monto} {idx.moneda}</td>
+                    <td>$ {idx.pagado} {idx.moneda}</td>
+                    <td>$ {idx.pagado} {idx.moneda}</td>
                     <td>{idx.interes}</td>
-                    <td>{idx.proxCobro}</td>
+                    <td>
+                      {
+                        nextPaymentFormatDate(idx.pagos) === 'Vencido' ? 
+                          (
+                            <div style={{marginTop: 2}}>
+                              <Badge
+                                bg="danger-transparent"
+                                className={`me-2 my-1 Primary`}
+                              >
+                                Vencido
+                              </Badge> 
+                            </div>
+                          ) : 
+                          nextPaymentFormatDate(idx.pagos)
+                      }
+                    </td>
                     <td
                       style={{
                         cursor: "pointer",
@@ -69,7 +93,10 @@ export default function LoansCollecting() {
                         color: "#5488d2",
                       }}
                     >
-                      Ver
+                      {/*// @ts-ignore */}
+                      <Link to={`${import.meta.env.BASE_URL}administration/loanDescription/${idx.id}`}>
+                        Ver
+                      </Link>
                     </td>
                   </tr>
                 ))}
@@ -103,11 +130,26 @@ export default function LoansCollecting() {
                     <td>
                       {idx.deudor}
                     </td>
-                    <td>{idx.monto}</td>
-                    <td>{idx.pagado}</td>
-                    <td>{idx.pagado}</td>
+                    <td>$ {idx.monto} {idx.moneda}</td>
+                    <td>$ {idx.pagado} {idx.moneda}</td>
+                    <td>$ {idx.pagado} {idx.moneda}</td>
                     <td>{idx.interes}</td>
-                    <td>{idx.proxCobro}</td>
+                    <td>
+                      {
+                        nextPaymentFormatDate(idx.pagos) === 'Vencido' ? 
+                          (
+                            <div style={{marginTop: 2}}>
+                              <Badge
+                                bg="danger-transparent"
+                                className={`me-2 my-1 Primary`}
+                              >
+                                Vencido
+                              </Badge> 
+                            </div>
+                          ) : 
+                          nextPaymentFormatDate(idx.pagos)
+                      }
+                    </td>
                     <td
                       style={{
                         cursor: "pointer",
@@ -115,7 +157,10 @@ export default function LoansCollecting() {
                         color: "#5488d2",
                       }}
                     >
-                      Ver
+                       {/*// @ts-ignore */}
+                      <Link to={`${import.meta.env.BASE_URL}administration/loanDescription/${idx.id}`}>
+                        Ver
+                      </Link>
                     </td>
                   </tr>
                 ))}

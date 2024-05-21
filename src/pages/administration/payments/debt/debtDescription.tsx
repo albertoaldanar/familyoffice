@@ -77,7 +77,7 @@ export default function DebtDescription(props) {
             {debt.pagos.map((idx, tb8) => (
               <tr key={tb8}>
                 <td>{idx.anio}</td>
-                {debt.frecuenciaDePago !== "Anual" && <th>{idx.mes}</th>}
+                {debt.frecuenciaDePago !== "Anual" && <td>{idx.mes}</td>}
                 <td>{idx.limitePago}</td>
                 <td>${idx.monto} {debt.moneda}</td>
                 <td>

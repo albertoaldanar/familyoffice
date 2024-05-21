@@ -76,7 +76,7 @@ export default function MantainanceDescription(props) {
             {mantainance.pagos.map((idx, tb8) => (
               <tr key={tb8}>
                 <td>{idx.anio}</td>
-                {mantainance.frecuenciaDePago !== "Anual" && <th>{idx.mes}</th>}
+                {mantainance.frecuenciaDePago !== "Anual" && <td>{idx.mes}</td>}
                 <td>{idx.limitePago}</td>
                 <td>${idx.monto} {mantainance.moneda}</td>
                 <td>

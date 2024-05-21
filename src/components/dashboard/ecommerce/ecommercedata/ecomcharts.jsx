@@ -22,11 +22,11 @@ export class Statistics extends Component {
     this.state = {
 
       series: [{
-        name: 'Updates',
+        name: 'Ventas',
         data: [45, 52, 38, 24, 33, 26, 21, 20, 6, 8, 15, 10]
       },
       {
-        name: 'Revenue',
+        name: 'Egresos',
         data: [35, 41, 62, 42, 13, 18, 29, 37, 36, 51, 32, 35]
       },
       {
@@ -37,7 +37,7 @@ export class Statistics extends Component {
 
       options: {
         chart: {
-          height: 310,
+          height: 250,
           type: 'line',
           zoom: {
             enabled: false
@@ -67,8 +67,8 @@ export class Statistics extends Component {
         },
         colors: ['#5797fc', '#5eba00', '#ffc107'],
         xaxis: {
-          categories: ['01 Jan', '02 Feb', '03 Mar', '04 Apr', '05 May', '06 Jun', '07 Jul', '08 Aug', '09 Sep',
-            '10 Oct', '11 Nov', '12 Dec'
+          categories: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Aug', 'Sep',
+            'Oct', 'Nov', 'Dic'
           ],
           axisBorder: {
             show: true,

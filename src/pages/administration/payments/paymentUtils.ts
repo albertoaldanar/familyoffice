@@ -81,7 +81,6 @@ export function nextPaymentFormatDate(payments: any[]): string {
     if (isElementNotPayed) {
       paymentElement = payment;
       status = "notPayed";
-      console.log('not payed')
       return;
     }
   });
@@ -92,7 +91,6 @@ export function nextPaymentFormatDate(payments: any[]): string {
   }
 
   if (status === "payed") {
-    console.log('payed')
     if(paymentElement.proximoPago){
       return isDateDefeated(paymentElement.proximoPago) ? 'Vencido' : formatDate(paymentElement.proximoPago, 'days');
     } 

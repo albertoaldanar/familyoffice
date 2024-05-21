@@ -5,7 +5,6 @@ import {
   Col,
   Table,
 } from "react-bootstrap";
-import { prestamosIntrafamiliares, prestamosTerceros } from "../collectingData";
 import { dividends } from "../collectingData";
 
 export default function BenefitsCollecting() {
@@ -43,10 +42,10 @@ export default function BenefitsCollecting() {
             <Table className="table border text-nowrap text-md-nowrap mb-0">
               <thead className="bg-light">
                 <tr>
-                  <th>Fecha de pago</th>
+                  {/* <th>Fecha de pago</th> */}
                   <th>Se pago a:</th>
-                  <th>Empresa/Entidad</th>
-                  <th>Monto</th>
+                  {/* <th>Empresa/Entidad</th> */}
+                  {/* <th>Monto</th> */}
                   <th>Prox cobro</th>
                   <th></th>
                 </tr>
@@ -54,12 +53,12 @@ export default function BenefitsCollecting() {
               <tbody> 
                 {dividends.map((idx, tb8) => (
                   <tr key={tb8}>
-                    <td>
+                    {/* <td>
                       {idx.fechaCobro}
-                    </td>
+                    </td> */}
                     <td>{idx.sePagoA}</td>
-                    <td>{idx.empresa}</td>
-                    <td>{idx.monto}</td>
+                    {/* <td>{idx.empresa}</td> */}
+                    {/* <td>{idx.monto}</td> */}
                     <td>{idx.proxCobro}</td>
                     <td
                       style={{

@@ -5,7 +5,6 @@ import {
   Col,
   Table,
 } from "react-bootstrap";
-import { prestamosIntrafamiliares, prestamosTerceros } from "../collectingData";
 import { dividends } from "../collectingData";
 
 export default function DividendsCollecting() {

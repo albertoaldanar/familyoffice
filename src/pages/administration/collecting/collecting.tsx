@@ -40,9 +40,9 @@ export default function Collecting() {
                     <Nav.Item as="li" style={{ marginRight: 10 }}>
                       <Nav.Link eventKey="second">Arrendamiento </Nav.Link>
                     </Nav.Item>
-                    <Nav.Item as="li" style={{ marginRight: 10 }}>
+                    {/* <Nav.Item as="li" style={{ marginRight: 10 }}>
                       <Nav.Link eventKey="third">Dividendos</Nav.Link>
-                    </Nav.Item>
+                    </Nav.Item> */}
                     <Nav.Item as="li" style={{ marginRight: 10 }}>
                       <Nav.Link eventKey="fourth">Regalias</Nav.Link>
                     </Nav.Item>
@@ -57,9 +57,9 @@ export default function Collecting() {
                 <Tab.Pane eventKey="second">
                   <LeasingAndRents />
                 </Tab.Pane>
-                <Tab.Pane eventKey="third">
+                {/* <Tab.Pane eventKey="third">
                   <DividendsCollecting /> 
-                </Tab.Pane>
+                </Tab.Pane> */}
                 <Tab.Pane eventKey="fourth">
                   <BenefitsCollecting />
                 </Tab.Pane>
