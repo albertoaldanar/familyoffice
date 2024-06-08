@@ -11,14 +11,15 @@ import ReactFlow, {
   useEdgesState,
   addEdge,
 } from "reactflow";
-import "reactflow/dist/style.css";
+import 'reactflow/dist/base.css';
 
 export default function Companies() {
   const initialNodes = [
-    { id: "1", position: { x: 0, y: 0 }, data: { label: "1" } },
-    { id: "2", position: { x: 0, y: 100 }, data: { label: "2" } },
+    { id: "1", position: { x: 0, y: 0 }, data: { label: "Empresas familia Aldana" } },
+    { id: "2", position: { x: 0, y: 0 }, data: { label: "Aldana Clima Integral" } },
+    { id: "3", position: { x: 0, y: 100 }, data: { label: "Celsius SA de CV" } },
   ];
-  const initialEdges = [{ id: "e1-2", source: "1", target: "2" }];
+  const initialEdges = [{ id: "e1", source: "1", target: "2" }, { id: "e1-2", source: "1", target: "3" }];
 
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
@@ -27,30 +28,22 @@ export default function Companies() {
     (params) => setEdges((eds) => addEdge(params, eds)),
     [setEdges]
   );
+ 
 
-  {
-    /* <ReactFlowProvider>
-      <ReactFlow
-          nodes={nodes}
-          edges={edges}
-          // onNodesChange={onNodesChange}
-          // onEdgesChange={onEdgesChange}
-          // onConnect={onConnect}
-      />
-    </ReactFlowProvider> */
-  }
   const breadcrumbs = ["Administración", "Empresas"];
 
   const renderCompanies = () => {
-    return companies.map((comp) => {
       return (
-        <div>
-          <img src={company} style={{ width: "50px" }} />
-          {comp.nombre}
-          {comp.nombre}
-        </div>
+        <ReactFlowProvider>
+          <ReactFlow
+              nodes={nodes}
+              edges={edges}
+              onNodesChange={onNodesChange}
+              onEdgesChange={onEdgesChange}
+              onConnect={onConnect}
+          />
+      </ReactFlowProvider>
       );
-    });
   };
 
   const renderTable = () => {
@@ -124,10 +117,10 @@ export default function Companies() {
               </Link>
             </Button>
           </div>
+{/* 
+          {renderCompanies()} */}
           
-          <div style={{display: 'flex', flexDirection: 'row'}}>
-            {renderTable()}
-          </div>
+          {renderTable()}
 
         </Card>
       </Row>

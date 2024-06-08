@@ -23,6 +23,11 @@ export default function CompanyDescription() {
   const companySelected = companies.find(
     (company) => company.id === Number(params.id)
   );
+
+  if (!companySelected) {
+    return <p>Not Found</p>;
+  }
+
   const currentYear = new Date().getFullYear();
   const isDefaultCurrentYear = companySelected.reports.find(
     (report) => report.year === currentYear.toString()
@@ -64,135 +69,186 @@ export default function CompanyDescription() {
     }
   }
   
-  function currencyFormat(num) {
-    return '$' + num.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
- }
+  function currencyFormat(num: number) {
+    return '$' + num.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+  }
 
   const renderLegal = () => {
     return (
+      <>
       <Row>
         <Form.Group as={Col} md="4" className="form-group">
           <Form.Label className="form-label my-3">Acta constitutiva</Form.Label>
           {companySelected.actaConstitutiva ? (
             <FileView title="Declaracion ISR" fileName={companySelected.actaConstitutiva} />
           ) : (
-            <FileUpload />
+            <div>
+              <FileUpload />
+              <p style={{fontSize: 10, textDecoration: 'underline', cursor: 'pointer', marginTop: -15, color: "#A0A0A0",}}>Descargar formato guia</p>
+            </div>
           )}
         </Form.Group>
 
         <Form.Group as={Col} md="4" className="form-group">
-          <Form.Label className="form-label my-3">Acta de asamble</Form.Label>
+          <Form.Label className="form-label my-3">Acta de asamblea ordinaria</Form.Label>
           {companySelected.actaAsamblea ? (
             <FileView title="Declaracion ISR" fileName={companySelected.actaAsamblea} />
           ) : (
-            <FileUpload />
+            <div>
+              <FileUpload />
+              <p style={{fontSize: 10, textDecoration: 'underline', cursor: 'pointer', marginTop: -15, color: "#A0A0A0",}}>Descargar formato guia</p>
+            </div>
           )}
         </Form.Group>
 
         <Form.Group as={Col} md="4" className="form-group">
-          <Form.Label className="form-label my-3">Otro</Form.Label>
-          {companySelected.otro ? (
-            <FileView title="Declaracion ISR" fileName={companySelected.otro} />
+          <Form.Label className="form-label my-3">Acta de asamblea extraordinaria</Form.Label>
+          {companySelected.actaAsambleaExtraordinaria ? (
+            <FileView title="Acta asamble extraordinaria" fileName={companySelected.actaAsambleaExtraordinaria} />
           ) : (
-            <FileUpload />
+            <div>
+              <FileUpload />
+              <p style={{fontSize: 10, textDecoration: 'underline', cursor: 'pointer', marginTop: -15, color: "#A0A0A0",}}>Descargar formato guia</p>
+            </div>
+          )}
+        </Form.Group>
+
+        <Row style={{marginTop: 40}}>
+        <Form.Group as={Col} md="4" className="form-group">
+          <Form.Label className="form-label my-3">Poderes</Form.Label>
+          {companySelected.poderes ? (
+            <FileView title="Declaracion ISR" fileName={companySelected.poderes} />
+          ) : (
+            <div>
+              <FileUpload />
+              <p style={{fontSize: 10, textDecoration: 'underline', cursor: 'pointer', marginTop: -15, color: "#A0A0A0",}}>Descargar formato guia</p>
+            </div>
+          )}
+        </Form.Group>
+
+        <Form.Group as={Col} md="4" className="form-group">
+          <Form.Label className="form-label my-3">Actas de dividendos</Form.Label>
+          {companySelected.actasDividendos ? (
+            <FileView title="Declaracion ISR" fileName={companySelected.actasDividendos} />
+          ) : (
+            <div>
+              <FileUpload />
+              <p style={{fontSize: 10, textDecoration: 'underline', cursor: 'pointer', marginTop: -15, color: "#A0A0A0",}}>Descargar formato guia</p>
+            </div>
+          )}
+        </Form.Group>
+
+        <Form.Group as={Col} md="4" className="form-group">
+          <Form.Label className="form-label my-3">Constancia de Identificacion fiscal</Form.Label>
+          {companySelected.cif ? (
+            <FileView title="Declaracion ISR" fileName={companySelected.cif} />
+          ) : (
+            <div>
+              <FileUpload />
+              <p style={{fontSize: 10, textDecoration: 'underline', cursor: 'pointer', marginTop: -15, color: "#A0A0A0",}}>Descargar formato guia</p>
+            </div>
           )}
         </Form.Group>
       </Row>
+      </Row>
+      </>
     );
   };
 
   const renderCompany = () => {
-    console.log("company", companySelected);
     if (companySelected.reports.length > 0) {
       let yearsReport = companySelected.reports.find(
         (rep) => rep.year === yearSelected
       );
 
-      if (yearsReport !== undefined) {
-        const reports = yearsReport.accounting;
-
-        return (
-          <div className="table-responsive">
-            <Table className="table border text-nowrap text-md-nowrap mb-0">
-              <thead className="bg-light">
-                <tr>
-                  <th>Mes</th>
-                  <th>Cumplimiento</th>
-                  <th>Utilidad neta</th>
-                  <th>Declaración ISR</th>
-                  <th>Declaración IVA</th>
-                  <th>DIOT</th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody>
-                {reports.map((report) => (
-                  <tr key={report.isr}>
-                    <td>{report.month}</td>
-                    <td style={{ textAlign: "center" }}>
-                      {(() => {
-                        const accountingTasks = [
-                          report.isr,
-                          report.diot,
-                          report.iva,
-                          report.utilidad,
-                        ];
-                        const numberOfUploads = accountingTasks.filter(
-                          (task) => task.length
-                        ).length;
-                        return `${numberOfUploads}/4`;
-                      })()}
-                    </td>
-                    <td>{currencyFormat(parseFloat((report.utilidad)))} {companySelected.moneda}</td>
-                    <td
-                      style={{
-                        cursor: "pointer",
-                        textDecoration: "underline",
-                        color: "#5488d2",
-                      }}
-                    >
-                      {addEllipsis(report.isr)}
-                    </td>
-                    <td
-                      style={{
-                        cursor: "pointer",
-                        textDecoration: "underline",
-                        color: "#5488d2",
-                      }}
-                    >
-                      {addEllipsis(report.iva)}
-                    </td>
-                    <td
-                      style={{
-                        cursor: "pointer",
-                        textDecoration: "underline",
-                        color: "#5488d2",
-                      }}
-                    >
-                      {addEllipsis(report.diot)}
-                    </td>
-                    <td
-                      style={{
-                        cursor: "pointer",
-                        textDecoration: "underline",
-                        color: "#5488d2",
-                      }}
-                    >
-                      {/*// @ts-ignore */}
-                      <Link to={`${import.meta.env.BASE_URL}administration/company/${companySelected.id}/report/${report.id}`}>
-                        Ver
-                      </Link>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </Table>
-          </div>
-        );
+      if (!yearsReport) {
+        return <p>Not Found</p>;
       }
+
+      const reports = yearsReport.accounting;
+
+      return (
+        <div className="table-responsive">
+          <Table className="table border text-nowrap text-md-nowrap mb-0">
+            <thead className="bg-light">
+              <tr>
+                <th>Mes</th>
+                <th>Cumplimiento</th>
+                <th>Utilidad neta</th>
+                <th>Declaración ISR</th>
+                <th>Declaración IVA</th>
+                <th>DIOT</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              {reports.map((report) => (
+                <tr key={report.isr}>
+                  <td>{report.month}</td>
+                  <td style={{ textAlign: "center" }}>
+                    {(() => {
+                      const accountingTasks = [
+                        report.isr,
+                        report.diot,
+                        report.iva,
+                        report.utilidad,
+                      ];
+                      const numberOfUploads = accountingTasks.filter(
+                        (task) => task.length
+                      ).length;
+                      return `${numberOfUploads}/4`;
+                    })()}
+                  </td>
+                  <td>{currencyFormat(parseFloat((report.utilidad)))} {companySelected.moneda}</td>
+                  <td
+                    style={{
+                      cursor: "pointer",
+                      textDecoration: "underline",
+                      color: "#5488d2",
+                    }}
+                  >
+                    {addEllipsis(report.isr)}
+                  </td>
+                  <td
+                    style={{
+                      cursor: "pointer",
+                      textDecoration: "underline",
+                      color: "#5488d2",
+                    }}
+                  >
+                    {addEllipsis(report.iva)}
+                  </td>
+                  <td
+                    style={{
+                      cursor: "pointer",
+                      textDecoration: "underline",
+                      color: "#5488d2",
+                    }}
+                  >
+                    {addEllipsis(report.diot)}
+                  </td>
+                  <td
+                    style={{
+                      cursor: "pointer",
+                      textDecoration: "underline",
+                      color: "#5488d2",
+                    }}
+                  >
+                    {/*// @ts-ignore */}
+                    <Link to={`${import.meta.env.BASE_URL}administration/company/${companySelected.id}/report/${report.id}`}>
+                      Ver
+                    </Link>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </Table>
+        </div>
+      );
     }
+    return <p>Not Found</p>;
   };
-  // administration/company/:id/report/:reportId
+
   const renderYearsDropdown = () => {
     return (
       <div>

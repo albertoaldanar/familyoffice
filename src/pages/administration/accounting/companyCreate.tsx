@@ -215,15 +215,64 @@ export default function CompanyCreate(props) {
                 <Form.Label className="form-label my-3">
                   Acta constitutiva
                 </Form.Label>
-
-                <FileUpload />
+                <div>
+                  <FileUpload />
+                  <p style={{fontSize: 10, textDecoration: 'underline', cursor: 'pointer', marginTop: -15, color: "#A0A0A0",}}>Descargar formato guia</p>
+                </div>
               </Form.Group>
 
               <Form.Group as={Col} md="6" className="form-group">
                 <Form.Label className="form-label my-3">
-                  Acta de asamblea
+                  Acta de asamblea ordinaria
                 </Form.Label>
-                <FileUpload />
+                <div>
+                  <FileUpload />
+                  <p style={{fontSize: 10, textDecoration: 'underline', cursor: 'pointer', marginTop: -15, color: "#A0A0A0",}}>Descargar formato guia</p>
+                </div>
+              </Form.Group>
+            </Row>
+
+            <Row style={{ marginTop: 20 }}>
+              <Form.Group as={Col} md="6" className="form-group">
+                <Form.Label className="form-label my-3">
+                Acta de asamblea extraordinaria
+                </Form.Label>
+                <div>
+                  <FileUpload />
+                  <p style={{fontSize: 10, textDecoration: 'underline', cursor: 'pointer', marginTop: -15, color: "#A0A0A0",}}>Descargar formato guia</p>
+                </div>
+              </Form.Group>
+
+              <Form.Group as={Col} md="6" className="form-group">
+                <Form.Label className="form-label my-3">
+                  Poderes
+                </Form.Label>
+                <div>
+                  <FileUpload />
+                  <p style={{fontSize: 10, textDecoration: 'underline', cursor: 'pointer', marginTop: -15, color: "#A0A0A0",}}>Descargar formato guia</p>
+                </div>
+              </Form.Group>
+            </Row>
+
+            <Row style={{ marginTop: 20 }}>
+              <Form.Group as={Col} md="6" className="form-group">
+                <Form.Label className="form-label my-3">
+                  Actas de dividendos
+                </Form.Label>
+                <div>
+                  <FileUpload />
+                  <p style={{fontSize: 10, textDecoration: 'underline', cursor: 'pointer', marginTop: -15, color: "#A0A0A0",}}>Descargar formato guia</p>
+                </div>
+              </Form.Group>
+
+              <Form.Group as={Col} md="6" className="form-group">
+                <Form.Label className="form-label my-3">
+                CIF (Constancia de Identificación Fiscal)
+                </Form.Label>
+                <div>
+                  <FileUpload />
+                  <p style={{fontSize: 10, textDecoration: 'underline', cursor: 'pointer', marginTop: -15, color: "#A0A0A0",}}>Descargar formato guia</p>
+                </div>
               </Form.Group>
             </Row>
             <div

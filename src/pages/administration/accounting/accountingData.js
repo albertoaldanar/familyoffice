@@ -6,7 +6,14 @@ export const companies = [
     moneda: 'MXN',
     actaConstitutiva: 'https://www.google.drive/1423nger', 
     actaAsamblea: 'https://www.google.drive/1423nger', 
-    otro: '',
+    actaAsambleaExtraordinaria: 'https://www.google.drive/1423nger', 
+    poderes: 'https://www.google.drive/jgierei2322',
+    actasDividendos: '',
+    cif: '',
+    // reports: {
+    //   mensuales: [], 
+    //   anuales: []
+    // }
     reports: [
       {
         year: "2025",
@@ -93,7 +100,10 @@ export const companies = [
     moneda: 'MXN',
     actaConstitutiva: 'https://www.google.drive/1423nger', 
     actaAsamblea: 'https://www.google.drive/1423nger', 
-    otro: '',
+    actaAsambleaExtraordinaria: 'https://www.google.drive/1423nger', 
+    poderes: '',
+    actasDividendos: '',
+    cif: '',
     reports: [
       {
         year: "2024",

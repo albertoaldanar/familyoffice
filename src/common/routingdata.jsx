@@ -73,6 +73,15 @@ const  LoanDescription= React.lazy(()=>import ('../pages/administration/collecti
 const  LoanNewPayment= React.lazy(()=>import ('../pages/administration/collecting/loans/loanNewPayment'))
 const  LoanCollecting= React.lazy(()=>import ('../pages/administration/collecting/loans/loanCollecting'))
 const  LoanCreate= React.lazy(()=>import ('../pages/administration/collecting/loans/loanCreate'))
+const  Taxes= React.lazy(()=>import ('../pages/administration/taxes/taxes'))
+const  TaxDescription= React.lazy(()=>import ('../pages/administration/taxes/taxesDescription'))
+const  TaxReport= React.lazy(()=>import ('../pages/administration/taxes/taxesReport'))
+const  TaxNewReport= React.lazy(()=>import ('../pages/administration/taxes/taxesNewReport'))
+const  Providers= React.lazy(()=>import ('../pages/administration/providers/providers'))
+const  ProviderCreate= React.lazy(()=>import ('../pages/administration/providers/providersCreate'))
+const  ProviderService= React.lazy(()=>import ('../pages/administration/providers/providerService'))
+const  ProviderNewService= React.lazy(()=>import ('../pages/administration/providers/providerNewService'))
+const  ProviderDescription= React.lazy(()=>import ('../pages/administration/providers/providerDescription'))
 const  MediaObject= React.lazy(()=>import('../components/Bootstrap/MediaObject/MediaObject'))
 const  Accordions= React.lazy(()=>import     ('../components/Bootstrap/Accordion/Accordion'))
 const  Tabses= React.lazy(()=>import ('../components/Bootstrap/Tabs/Tabs'))
@@ -283,6 +292,18 @@ export const Routingdata=[
 {path:`${import.meta.env.BASE_URL}administration/rentNewPayment/:id` ,element : <RentNewPayment/>},
 {path:`${import.meta.env.BASE_URL}administration/rentCreate` ,element : <RentCreate/>},
 
+/* Taxes */
+{path:`${import.meta.env.BASE_URL}administration/taxes` ,element : <Taxes/>},
+{path:`${import.meta.env.BASE_URL}administration/taxes/:id` ,element : <TaxDescription/>},
+{path:`${import.meta.env.BASE_URL}administration/taxes/:id/type/:type/report/:reportId` ,element : <TaxReport/>},
+{path:`${import.meta.env.BASE_URL}administration/taxes/:id/type/:type/newReport` ,element : <TaxNewReport/>},
+
+/* Providers */
+{path:`${import.meta.env.BASE_URL}administration/providers` ,element : <Providers/>},
+{path:`${import.meta.env.BASE_URL}administration/providerCreate` ,element : <ProviderCreate/>},
+{path:`${import.meta.env.BASE_URL}administration/providerDescription/:id/provider/:providerId` ,element : <ProviderDescription/>},
+{path:`${import.meta.env.BASE_URL}administration/providerNewService/:id/provider/:providerId` ,element : <ProviderNewService/>},
+{path:`${import.meta.env.BASE_URL}administration/providerService/:id/provider/:providerId/service/:serviceId` ,element : <ProviderService/>},
 /* Ecommerce */
 
 {path:`${import.meta.env.BASE_URL}ecommerce/shop` ,element:<Shop />},

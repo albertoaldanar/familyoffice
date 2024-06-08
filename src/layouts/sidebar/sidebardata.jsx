@@ -16,8 +16,8 @@ const MenuItems = [
         badgetxt:'',      
         children: [
           { path: `${import.meta.env.BASE_URL}administration/companies`, type: 'link', active: false, selected: false, title: 'Empresas' },
-          { path: `${import.meta.env.BASE_URL}dashboard/ecommerce`, type: 'link', active: false, selected: false, title: 'Fiscal' },
-          { path: `${import.meta.env.BASE_URL}dashboard/analytics`, type: 'link', active: false, selected: false, title: 'Servicios / Directorio' },
+          { path: `${import.meta.env.BASE_URL}administration/taxes`, type: 'link', active: false, selected: false, title: 'Fiscal' },
+          { path: `${import.meta.env.BASE_URL}administration/providers`, type: 'link', active: false, selected: false, title: 'Proveedores / Servicios' },
           { path: `${import.meta.env.BASE_URL}administration/payments`, type: 'link', active: false, selected: false, title: 'Pagos' },
           { path: `${import.meta.env.BASE_URL}administration/collecting`, type: 'link', active: false, selected: false, title: 'Cobranza' }
         ]
@@ -33,7 +33,7 @@ const MenuItems = [
         Name:'',
         active: false,
         selected: false,
-        title: 'Governanza',
+        title: 'Gobernanza',
         class:'',
         color:'',
         badgetxt:'',      
@@ -41,7 +41,7 @@ const MenuItems = [
           { path: `${import.meta.env.BASE_URL}apps/cardsdesign`, type: 'link', active: false, selected: false, title: 'Gestion familiar' },
           { path: `${import.meta.env.BASE_URL}pages/profile`, type: 'link', active: false, selected: false, title: 'Estructura patrimonial' },
           { path: `${import.meta.env.BASE_URL}apps/defaultcalender`, type: 'link', active: false, selected: false, title: 'Lega/Documentos' },
-          { path: `${import.meta.env.BASE_URL}apps/fulcalender`, type: 'link', active: false, selected: false, title: 'Reportes' },
+          { path: `${import.meta.env.BASE_URL}apps/fulcalender`, type: 'link', active: false, selected: false, title: 'Consejos y comites ' },
           // { path: `${import.meta.env.BASE_URL}apps/chat`, type: 'link', active: false, selected: false, title: 'Chat' },
           // { path: `${import.meta.env.BASE_URL}apps/notifications`, type: 'link', active: false, selected: false, title: 'Notifications' },
           // { path: `${import.meta.env.BASE_URL}apps/sweetalerts`, type: 'link', active: false, selected: false, title: 'Sweet alerts' },
