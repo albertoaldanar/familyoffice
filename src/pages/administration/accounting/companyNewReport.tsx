@@ -10,6 +10,7 @@ import {
 } from "react-bootstrap";
 import Select from "react-select";
 import FileUpload from "./components/fileUpload";
+import NotFoundSearch from "../../shared/notFoundSearch";
 import { Link } from "react-router-dom";
 import { companies } from "./accountingData";
 import { useParams } from "react-router-dom";
@@ -19,6 +20,14 @@ export default function CompanyNewReport(props) {
   const companySelected = companies.find(
     (company) => company.id === Number(params.id)
   );
+
+  if (!companySelected) {
+    return <NotFoundSearch />
+  }
+
+  if (params.type !== 'mensual' && params.type !== 'anual') {
+    return <NotFoundSearch />
+  }
 
   const [year, setYear] = useState({
     value: '',
@@ -60,7 +69,7 @@ export default function CompanyNewReport(props) {
       <Row>
         <Card style={{ padding: 30, marginTop: 50 }}>
           <Card.Title style={{ marginBottom: 50 }}>
-            Nuevo Reporte {companySelected.nombre}
+            Nuevo Reporte {params.type} {companySelected.nombre}
           </Card.Title>
           <Form noValidate validated={false} onSubmit={() => {}}>
             <Row className="mb-3">
@@ -84,27 +93,30 @@ export default function CompanyNewReport(props) {
                 </Form.Control.Feedback>
               </Form.Group>
 
-              <Form.Group
-                as={Col}
-                md="4"
-                controlId="validationCustom04"
-                className="form-group"
-              >
-                <Form.Label>Mes</Form.Label>
-                <Select
-                  options={OptionsMonths}
-                  classNamePrefix="Select2"
-                  onChange={(value) => setMonth(value)}
-                  value={month}
-                  className="multi-select"
-                  placeholder="Mes"
-                />
-
-                <Form.Control.Feedback type="invalid">
-                  Please provide a valid state.
-                </Form.Control.Feedback>
-              </Form.Group>
-
+              {
+                params.type === 'mensual' && (
+                  <Form.Group
+                    as={Col}
+                    md="4"
+                    controlId="validationCustom04"
+                    className="form-group"
+                  >
+                  <Form.Label>Mes</Form.Label>
+                  <Select
+                    options={OptionsMonths}
+                    classNamePrefix="Select2"
+                    onChange={(value) => setMonth(value)}
+                    value={month}
+                    className="multi-select"
+                    placeholder="Mes"
+                  />
+  
+                  <Form.Control.Feedback type="invalid">
+                    Please provide a valid state.
+                  </Form.Control.Feedback>
+                </Form.Group>
+                )
+              }
             </Row>
 
             <Row className="mb-3">

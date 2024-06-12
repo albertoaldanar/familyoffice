@@ -62,7 +62,7 @@ export default function Companies() {
               <tbody>
                 {companies.map((idx, tb8) => (
                   <tr key={tb8}>
-                    <td>{idx.nombre}</td>
+                    <td>{idx.razonSocial}</td>
                     <td>{idx.rfc}</td>
                     <td
                       style={{

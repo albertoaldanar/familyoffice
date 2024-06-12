@@ -11,6 +11,7 @@ import {
 import Select from "react-select";
 import { Link } from "react-router-dom";
 import FileView from "./components/fileView";
+import NotFoundSearch from "../../shared/notFoundSearch";
 import FileUpload from "./components/fileUpload";
 import { companies } from "./accountingData";
 import { useParams } from "react-router-dom";
@@ -21,11 +22,23 @@ export default function CompanyReport(props) {
     (company) => company.id === Number(params.id)
   );
 
-  const reportSelected = companySelected.reports
+  if (!companySelected) {
+   return <NotFoundSearch/>
+  }
+
+  if (params.type !== 'mensuales' && params.type !== 'anuales') {
+   return <NotFoundSearch/>
+  }
+
+  const reportSelected = params.type === 'mensuales' ? companySelected.reports.mensuales
     .map((rep) =>
       rep.accounting.find((acc) => acc.id === Number(params.reportId))
     )
-    .find((acc) => acc !== undefined && acc !== null);
+    .find((acc) => acc !== undefined && acc !== null) : companySelected.reports.anuales.find((acc) => acc.id === Number(params.reportId))
+
+    if (!reportSelected) {
+     return <NotFoundSearch/>
+    }
 
   const [year, setYear] = useState({
     value: reportSelected.year,
@@ -62,17 +75,12 @@ export default function CompanyReport(props) {
     { value: "Diciembre", label: "Diciembre" },
   ];
 
-
-  const renderLegal = () => {
-    
-  }
-
   return (
     <Fragment>
       <Row>
         <Card style={{ padding: 30, marginTop: 50 }}>
           <Card.Title style={{ marginBottom: 50 }}>
-            Reporte {companySelected.nombre} - {reportSelected.month} del{" "}
+            Reporte {params.type === 'mensuales' ? 'mensual': 'anual'} {companySelected.nombre} - {reportSelected.month} del{" "}
             {reportSelected.year}
           </Card.Title>
           <Form noValidate validated={false} onSubmit={() => {}}>
@@ -96,27 +104,31 @@ export default function CompanyReport(props) {
                   Please provide a valid state.
                 </Form.Control.Feedback>
               </Form.Group>
+              {
+                 params.type === 'mensuales' && (
+                  <Form.Group
+                    as={Col}
+                    md="4"
+                    controlId="validationCustom04"
+                    className="form-group"
+                  >
+                    <Form.Label>Mes</Form.Label>
+                    <Select
+                      options={OptionsMonths}
+                      classNamePrefix="Select2"
+                      onChange={(value) => setMonth(value)}
+                      value={month}
+                      className="multi-select"
+                      placeholder="Mes"
+                    />
+    
+                    <Form.Control.Feedback type="invalid">
+                      Please provide a valid state.
+                    </Form.Control.Feedback>
+                  </Form.Group>
+                 )
+              }
 
-              <Form.Group
-                as={Col}
-                md="4"
-                controlId="validationCustom04"
-                className="form-group"
-              >
-                <Form.Label>Mes</Form.Label>
-                <Select
-                  options={OptionsMonths}
-                  classNamePrefix="Select2"
-                  onChange={(value) => setMonth(value)}
-                  value={month}
-                  className="multi-select"
-                  placeholder="Mes"
-                />
-
-                <Form.Control.Feedback type="invalid">
-                  Please provide a valid state.
-                </Form.Control.Feedback>
-              </Form.Group>
             </Row>
 
             <Row className="mb-3">
