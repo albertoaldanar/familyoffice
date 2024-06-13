@@ -17,6 +17,7 @@ import FileUpload from "./components/fileUpload";
 import ResultsChart from "./components/resultsChart";
 import NotFoundSearch from "../../shared/notFoundSearch";
 import { useParams, Link } from "react-router-dom";
+import { daysToAnualTax, daysUntilNextMonth17 } from "../taxes/taxesUtils";
 
 export default function CompanyDescription() {
   const breadcrumbs = ["Administración", "Empresa"];
@@ -57,10 +58,6 @@ export default function CompanyDescription() {
 
   const accountingYearsSet: Set<string> = new Set();
 
-  const accountingYears: string[] = Array.from(accountingYearsSet).sort(
-    (a, b) => parseInt(a) - parseInt(b)
-  );
-
   const years = anualReports.length ? anualReports.map(anual => anual.year) : [];
 
   if(mensualesReports.length){
@@ -78,6 +75,10 @@ export default function CompanyDescription() {
       });
     });
   }
+
+  const accountingYears: string[] = Array.from(accountingYearsSet).sort(
+    (a, b) => parseInt(a) - parseInt(b)
+  );
 
   if(anualReports.length){
     anualReports.forEach((report) => {
@@ -450,10 +451,12 @@ export default function CompanyDescription() {
   }
 
   const renderTaxReports = () => {
+    const today = new Date();
+
     return (
       <div style={{marginTop: 10}}>
         <Tab.Container id="left-tabs-example" defaultActiveKey="first-tax">
-        <div className="tabs-menu2" style={{marginBottom: 10}}>
+        <div className="tabs-menu2" style={{marginBottom: 5}}>
           <Nav variant="pills" as="ul" className="nav panel-tabs mr-auto custom-nav">
             <Nav.Item as="li" style={{ marginRight: 10 }}>
               <Nav.Link eventKey="first-tax" href="#">
@@ -468,12 +471,13 @@ export default function CompanyDescription() {
           <Tab.Content className="panel-body">
             <Tab.Pane eventKey="first-tax">
               <>
+                <p style={{ fontStyle: 'italic' }}>Fecha limite prox declaracion anual: {daysUntilNextMonth17(today)}</p>
                 <div
                   style={{
                     display: "flex",
                     flexDirection: "row",
                     justifyContent: "space-between",
-                    marginTop: 7,
+                    marginTop: 20,
                     marginBottom: 7,
                   }}
                 >
@@ -491,11 +495,13 @@ export default function CompanyDescription() {
                     </Button>
                   </div>
                 </div>
+              
                 {renderCompany()}
               </>
             </Tab.Pane>
 
             <Tab.Pane eventKey="second-tax">
+                <p style={{ fontStyle: 'italic' }}>Fecha limite prox declaracion anual: {daysToAnualTax(today)}</p>
                 <div
                   style={{
                     display: "flex",
@@ -526,6 +532,7 @@ export default function CompanyDescription() {
   };
 
   const renderYearsDropdown = () => {
+    console.log('accountingYears', accountingYears);
     return (
       <div>
         <Dropdown className="h-3">
@@ -580,10 +587,10 @@ export default function CompanyDescription() {
                   }}
                 >
                   <div></div>
-                  {anualReports.length > 0 && renderYearsDropdown()}
+                  {mensualesReports.length > 0 && renderYearsDropdown()}
                 </div>
                 {
-                  anualReports.length > 0 ? (
+                  mensualesReports.length > 0 ? (
                     <ResultsChart
                       categories={months}
                       utilidad={utilidadArray}

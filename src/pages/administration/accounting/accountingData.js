@@ -271,7 +271,24 @@ export const companies = [
     actasDividendos: "",
     cif: "",
     reports: {
-      mensuales: [],
+      mensuales: [
+        {
+          year: "2024",
+          accounting: [
+            {
+              id: 995,
+              month: "Mayo",
+              year: "2024",
+              utilidad: "425000.00",
+              ventas: "925000.00",
+              egresos: "280000.00",
+              isr: "https://www.google.drive/1423nger",
+              iva: "https://www.google.drive/1423nger",
+              diot: "https://www.google.drive/1423nger",
+            },
+          ],
+        },
+      ],
       anuales: []
     },
   },
