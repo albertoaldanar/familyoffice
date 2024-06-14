@@ -1,0 +1,34 @@
+.governance-custom-node {
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: #fff;
+    margin-left: 20px;
+    margin-right: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    &__label {
+      font-weight: bold;
+    }
+  
+    &__details {
+      margin-top: 5px;
+    }
+}
+
+.governance-custom-node-interior {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.governance-custom-node-add-member {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.governance-custom-node-view {
+    text-decoration: underline;
+    cursor: pointer;
+}

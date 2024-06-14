@@ -38,7 +38,7 @@ const MenuItems = [
         color:'',
         badgetxt:'',      
         children: [
-          { path: `${import.meta.env.BASE_URL}apps/cardsdesign`, type: 'link', active: false, selected: false, title: 'Gestion familiar' },
+          { path: `${import.meta.env.BASE_URL}governance/familyStructure`, type: 'link', active: false, selected: false, title: 'Estructura familiar' },
           { path: `${import.meta.env.BASE_URL}pages/profile`, type: 'link', active: false, selected: false, title: 'Estructura patrimonial' },
           { path: `${import.meta.env.BASE_URL}apps/defaultcalender`, type: 'link', active: false, selected: false, title: 'Lega/Documentos' },
           { path: `${import.meta.env.BASE_URL}apps/fulcalender`, type: 'link', active: false, selected: false, title: 'Consejos y comites ' },

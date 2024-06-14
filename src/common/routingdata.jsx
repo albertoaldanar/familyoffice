@@ -38,6 +38,8 @@ const  BadgesPills= React.lazy(()=>import('../components/Bootstrap/BadgesPills/B
 const  Thumbnails= React.lazy(()=>import     ('../components/Bootstrap/Thumbnails/Thumbnails'))
 const  Offcanva= React.lazy(()=>import   ('../components/Bootstrap/Offcanvas/Offcanvas'))
 const  Toasts= React.lazy(()=>import ('../components/Bootstrap/Toast/Toast'))
+/* FAMILY OFFICE */
+/****************************** ADMINISTRATION ****************************************/
 const  Companies= React.lazy(()=>import ('../pages/administration/accounting/companies'))
 const  CompanyCreate= React.lazy(()=>import ('../pages/administration/accounting/companyCreate'))
 const  CompanyDescription= React.lazy(()=>import ('../pages/administration/accounting/companyDescription'))
@@ -82,6 +84,8 @@ const  ProviderCreate= React.lazy(()=>import ('../pages/administration/providers
 const  ProviderService= React.lazy(()=>import ('../pages/administration/providers/providerService'))
 const  ProviderNewService= React.lazy(()=>import ('../pages/administration/providers/providerNewService'))
 const  ProviderDescription= React.lazy(()=>import ('../pages/administration/providers/providerDescription'))
+/****************************** GOVERNANCE ****************************************/
+const  FamilyStructure= React.lazy(()=>import ('../pages/governance/familyStructure/familyStructure'))
 const  MediaObject= React.lazy(()=>import('../components/Bootstrap/MediaObject/MediaObject'))
 const  Accordions= React.lazy(()=>import     ('../components/Bootstrap/Accordion/Accordion'))
 const  Tabses= React.lazy(()=>import ('../components/Bootstrap/Tabs/Tabs'))
@@ -239,6 +243,7 @@ export const Routingdata=[
 {path:`${import.meta.env.BASE_URL}pages/extension/blogpost` ,element:<Blogpost />},
 {path:`${import.meta.env.BASE_URL}pages/extension/emptypage` ,element:<Emptypage />},
 
+/****************************** ADMINISTRATION ****************************************/
 /* Family office */
 {path:`${import.meta.env.BASE_URL}administration/accounting` ,element : <CompanyDescription/>},
 {path:`${import.meta.env.BASE_URL}administration/payments` ,element : <Payments/>},
@@ -304,7 +309,9 @@ export const Routingdata=[
 {path:`${import.meta.env.BASE_URL}administration/providerDescription/:id/provider/:providerId` ,element : <ProviderDescription/>},
 {path:`${import.meta.env.BASE_URL}administration/providerNewService/:id/provider/:providerId` ,element : <ProviderNewService/>},
 {path:`${import.meta.env.BASE_URL}administration/providerService/:id/provider/:providerId/service/:serviceId` ,element : <ProviderService/>},
-/* Ecommerce */
+/****************************** GOVERNANCE ****************************************/
+/* Family structure */
+{path:`${import.meta.env.BASE_URL}governance/familyStructure` ,element : <FamilyStructure/>},
 
 {path:`${import.meta.env.BASE_URL}ecommerce/shop` ,element:<Shop />},
 {path:`${import.meta.env.BASE_URL}ecommerce/productdetails` ,element:<ProductDetails />},
