@@ -17,6 +17,25 @@
     }
 }
 
+.governance-custom-node-couple {
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background: #dcdcdc;
+  margin-left: 20px;
+  margin-right: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  &__label {
+    font-weight: bold;
+  }
+
+  &__details {
+    margin-top: 5px;
+  }
+}
+
 .governance-custom-node-interior {
     display: flex;
     flex-direction: row;

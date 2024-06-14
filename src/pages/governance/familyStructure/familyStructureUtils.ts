@@ -38,6 +38,40 @@ export const generateNodesAndEdges = (family) => {
     };
   });
 
+  const coupleNodes = [];
+  const couples = family.members.reduce((acc, member) => {
+    if (member.coupleId) {
+      const coupleId = member.coupleId < member.id ? `${member.coupleId}-${member.id}` : `${member.id}-${member.coupleId}`;
+      acc[coupleId] = acc[coupleId] || [];
+      acc[coupleId].push(member);
+    }
+    return acc;
+  }, {});
+  //@ts-ignore
+  Object.entries(couples).forEach(([coupleId, [member1, member2]]) => {
+    const positionX = (nodePositions[member1.id].x + nodePositions[member2.id].x) / 2;
+    const positionY = nodePositions[member1.id].y;
+
+    coupleNodes.push({
+      id: `couple-${coupleId}`,
+      position: { x: positionX, y: positionY },
+      data: { name: 'Couple' },
+      type: 'customNode',
+    });
+
+    initialEdges.push({
+      id: `e${member1.id}-couple-${coupleId}`,
+      source: member1.id,
+      target: `couple-${coupleId}`,
+    });
+
+    initialEdges.push({
+      id: `e${member2.id}-couple-${coupleId}`,
+      source: member2.id,
+      target: `couple-${coupleId}`,
+    });
+  });
+
   const lastNameNode = {
     id: 'root',
     position: { x: 500, y: 30 },
@@ -45,7 +79,7 @@ export const generateNodesAndEdges = (family) => {
     type: 'customNode',
   };
 
-  initialNodes.push(lastNameNode, ...memberNodes);
+  initialNodes.push(lastNameNode, ...memberNodes, ...coupleNodes);
 
   family.members.forEach((member) => {
     if (member.source) {

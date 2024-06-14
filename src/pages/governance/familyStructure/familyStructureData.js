@@ -7,22 +7,24 @@ export const family = {
       dob: '06/02/1963',
       regimenFiscal: 'Regimen de Dividendos',
       generation: 1,
-      source: 'root'
-    }, 
+      source: 'root',
+      coupleId: '43',  // Link to the couple node
+    },
     {
       id: '43',
       name: 'Patricia Ríos Collantes',
       dob: '12/07/1963',
       regimenFiscal: 'Regimen de Dividendos',
       generation: 1,
-      source: 'root'
-    }, 
+      source: 'root',
+      coupleId: '23',  // Link to the couple node
+    },
     {
       id: '13',
       name: 'Alejandra Aldana Ríos',
       dob: '25/10/1991',
       regimenFiscal: 'Régimen Simplificado de Confianza (RESICO)',
-      source: '23', 
+      source: 'couple-23-43',  // Link to the couple node
       generation: 2,
     },
     {
@@ -30,7 +32,7 @@ export const family = {
       name: 'Alberto Aldana Ríos',
       dob: '16/02/1994',
       regimenFiscal: 'Regimen de Introducción Fiscal (RIF)',
-      source: '23',
+      source: 'couple-23-43',
       generation: 2,
     },
     {
@@ -38,18 +40,18 @@ export const family = {
       name: 'Ana Sofia Aldana Ríos',
       dob: '18/03/1998',
       regimenFiscal: 'Régimen Simplificado de Confianza (RESICO)',
-      source: '23', 
+      source: 'couple-23-43',
       generation: 2,
-    }, 
+    },
     {
       id: '19',
       name: 'Gustavo Miranda Aldana',
       dob: '06/05/2012',
       regimenFiscal: null,
-      source: '13', 
+      source: '13',
       generation: 3,
     },
-  ]
+  ],
 }
 
 
