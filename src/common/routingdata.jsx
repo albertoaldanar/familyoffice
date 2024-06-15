@@ -86,6 +86,7 @@ const  ProviderNewService= React.lazy(()=>import ('../pages/administration/provi
 const  ProviderDescription= React.lazy(()=>import ('../pages/administration/providers/providerDescription'))
 /****************************** GOVERNANCE ****************************************/
 const  FamilyStructure= React.lazy(()=>import ('../pages/governance/familyStructure/familyStructure'))
+const  FamilyMemberCreate= React.lazy(()=>import ('../pages/governance/familyStructure/familyMemberCreate'))
 const  MediaObject= React.lazy(()=>import('../components/Bootstrap/MediaObject/MediaObject'))
 const  Accordions= React.lazy(()=>import     ('../components/Bootstrap/Accordion/Accordion'))
 const  Tabses= React.lazy(()=>import ('../components/Bootstrap/Tabs/Tabs'))
@@ -312,6 +313,7 @@ export const Routingdata=[
 /****************************** GOVERNANCE ****************************************/
 /* Family structure */
 {path:`${import.meta.env.BASE_URL}governance/familyStructure` ,element : <FamilyStructure/>},
+{path:`${import.meta.env.BASE_URL}governance/familyMemberCreate/source/:source/gen/:gen` ,element : <FamilyMemberCreate/>},
 
 {path:`${import.meta.env.BASE_URL}ecommerce/shop` ,element:<Shop />},
 {path:`${import.meta.env.BASE_URL}ecommerce/productdetails` ,element:<ProductDetails />},

@@ -33,7 +33,7 @@ export const generateNodesAndEdges = (family) => {
     return {
       id: member.id,
       position: { x: positionX, y: positionY },
-      data: { name: member.name, dob: member.dob, regimenFiscal: member.regimenFiscal },
+      data: { name: member.name, dob: member.dob, regimenFiscal: member.regimenFiscal, id: member.id, generation: member.generation},
       type: 'customNode',
     };
   });
@@ -75,7 +75,7 @@ export const generateNodesAndEdges = (family) => {
   const lastNameNode = {
     id: 'root',
     position: { x: 500, y: 30 },
-    data: { name: family.lastName },
+    data: { name: family.lastName, generation: 0, id: 'root' },
     type: 'customNode',
   };
 

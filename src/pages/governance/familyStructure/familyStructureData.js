@@ -26,6 +26,7 @@ export const family = {
       regimenFiscal: 'Régimen Simplificado de Confianza (RESICO)',
       source: 'couple-23-43',  // Link to the couple node
       generation: 2,
+      coupleId: null,
     },
     {
       id: '12',
@@ -34,6 +35,7 @@ export const family = {
       regimenFiscal: 'Regimen de Introducción Fiscal (RIF)',
       source: 'couple-23-43',
       generation: 2,
+      coupleId: null,
     },
     {
       id: '9',
@@ -42,6 +44,7 @@ export const family = {
       regimenFiscal: 'Régimen Simplificado de Confianza (RESICO)',
       source: 'couple-23-43',
       generation: 2,
+      coupleId: null,
     },
     {
       id: '19',
@@ -50,6 +53,7 @@ export const family = {
       regimenFiscal: null,
       source: '13',
       generation: 3,
+      coupleId: null,
     },
   ],
 }
