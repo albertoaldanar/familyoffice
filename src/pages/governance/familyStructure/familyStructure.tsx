@@ -12,10 +12,10 @@ import ReactFlow, {
 import { CustomNode } from "./components/customeNode";
 import { generateNodesAndEdges } from "./familyStructureUtils";
 import "reactflow/dist/base.css";
-import { family, familyS } from "./familyStructureData";
+import { family, familyS, familyG } from "./familyStructureData";
 
 export default function FamilyStructure() {
-  const { initialNodes, initialEdges } = generateNodesAndEdges(family);
+  const { initialNodes, initialEdges } = generateNodesAndEdges(familyS);
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
 

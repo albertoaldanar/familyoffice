@@ -49,8 +49,8 @@ export const generateNodesAndEdges = (family) => {
   }, {});
   //@ts-ignore
   Object.entries(couples).forEach(([coupleId, [member1, member2]]) => {
-    const positionX = (nodePositions[member1.id].x + nodePositions[member2.id].x) / 2;
-    const positionY = nodePositions[member1.id].y;
+    const positionX = (nodePositions[member1.id].x + nodePositions[member2.id].x) / 1.7;
+    const positionY = nodePositions[member1.id].y + 100;
 
     coupleNodes.push({
       id: `couple-${coupleId}`,

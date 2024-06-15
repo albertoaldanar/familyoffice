@@ -127,7 +127,7 @@ export default function CompanyCreate(props) {
               >
                 <Form.Label>Valuación actual</Form.Label>
                 <InputGroup hasValidation>
-                  <InputGroup.Text id="inputGroupPrepend">$</InputGroup.Text>
+                  <InputGroup.Text id="inputGroupPrepend-1">$</InputGroup.Text>
                   <Form.Control
                     type="numeric"
                     aria-describedby="inputGroupPrepend"
@@ -135,7 +135,7 @@ export default function CompanyCreate(props) {
                     onChange={(text) => setTodayValue(text.target.value)}
                     value={todayValue}
                   />
-                  <InputGroup.Text id="inputGroupPrepend">
+                  <InputGroup.Text id="inputGroupPrepend-2">
                     {currency.value}
                   </InputGroup.Text>
                   <Form.Control.Feedback type="invalid">
@@ -157,7 +157,7 @@ export default function CompanyCreate(props) {
                 <InputGroup hasValidation>
                   <Form.Control
                     type="numeric"
-                    aria-describedby="inputGroupPrepend"
+                    aria-describedby="inputGroupPrepend-3"
                     required
                     onChange={(text) => setPercentage(text.target.value)}
                     value={percentage}
