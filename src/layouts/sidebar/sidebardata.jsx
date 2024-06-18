@@ -41,7 +41,7 @@ const MenuItems = [
           { path: `${import.meta.env.BASE_URL}governance/familyStructure`, type: 'link', active: false, selected: false, title: 'Estructura familiar' },
           { path: `${import.meta.env.BASE_URL}pages/profile`, type: 'link', active: false, selected: false, title: 'Estructura patrimonial' },
           { path: `${import.meta.env.BASE_URL}apps/defaultcalender`, type: 'link', active: false, selected: false, title: 'Lega/Documentos' },
-          { path: `${import.meta.env.BASE_URL}apps/fulcalender`, type: 'link', active: false, selected: false, title: 'Consejos y comites ' },
+          { path: `${import.meta.env.BASE_URL}governance/councilAndCommittee`, type: 'link', active: false, selected: false, title: 'Concejos y comites ' },
           // { path: `${import.meta.env.BASE_URL}apps/chat`, type: 'link', active: false, selected: false, title: 'Chat' },
           // { path: `${import.meta.env.BASE_URL}apps/notifications`, type: 'link', active: false, selected: false, title: 'Notifications' },
           // { path: `${import.meta.env.BASE_URL}apps/sweetalerts`, type: 'link', active: false, selected: false, title: 'Sweet alerts' },

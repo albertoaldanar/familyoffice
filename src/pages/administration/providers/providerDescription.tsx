@@ -1,15 +1,19 @@
-import React, { Fragment } from "react";
-import { Button, Card, Col, Table, Row, Badge } from "react-bootstrap";
+import React, { Fragment, useState } from "react";
+import { Button, Card, Col, Table, Row, Badge, Form, FormCheck } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
 import Pageheader from "../../../layouts/pageheader/pageheader";
 import { providers } from "./providersData";
 
 export default function ProviderDescription() {
   const breadcrumbs = ["Administración", "Cobranza", "Arrendamientos"];
+  const [isProviderMemberIC, setIsProviderMemberIC] = useState(true);
+  const [isProviderisMemberFC, setIsProviderisMemberFC] = useState(true);
   const params = useParams();
   const providerCategorySelected = providers.find(
     (prov) => prov.id === Number(params.id)
   );
+
+  console.log('params', params);
 
   if (!providerCategorySelected) {
     return <p>Not Found</p>;
@@ -32,41 +36,46 @@ export default function ProviderDescription() {
   }
 
   const renderProviderServices = () => {
-    return (
-      <div className="table-responsive" style={{ marginTop: 15 }}>
-        <Table className="table border text-nowrap text-md-nowrap mb-0">
-          <thead className="bg-light">
-            <tr>
-              <th>Fecha</th>
-              <th>Concepto</th>
-              <th>Documento o Entregable</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            {providerSelected.registroDeServicios.map((idx, tb8) => (
-              <tr key={tb8}>
-                <td>{idx.fecha}</td>
-                <td>{idx.concepto}</td>
-                <td>{addEllipsis(idx.documentoOEntrgable)}</td>
-                <td
-                  style={{
-                    cursor: "pointer",
-                    textDecoration: "underline",
-                    color: "#5488d2",
-                  }}
-                >
-                  {/*// @ts-ignore */}
-                  <Link to={`${import.meta.env.BASE_URL}administration/providerService/${providerCategorySelected.id}/provider/${providerSelected.id}/service/${idx.id}`}>
-                    Ver
-                  </Link>
-                </td>
+
+    if(providerSelected.registroDeServicios.length){
+      return (
+        <div className="table-responsive" style={{ marginTop: 15 }}>
+          <Table className="table border text-nowrap text-md-nowrap mb-0">
+            <thead className="bg-light">
+              <tr>
+                <th>Fecha</th>
+                <th>Concepto</th>
+                <th>Documento o Entregable</th>
+                <th></th>
               </tr>
-            ))}
-          </tbody>
-        </Table>
-      </div>
-    );
+            </thead>
+            <tbody>
+              {providerSelected.registroDeServicios.map((idx, tb8) => (
+                <tr key={tb8}>
+                  <td>{idx.fecha}</td>
+                  <td>{idx.concepto}</td>
+                  <td>{addEllipsis(idx.documentoOEntrgable)}</td>
+                  <td
+                    style={{
+                      cursor: "pointer",
+                      textDecoration: "underline",
+                      color: "#5488d2",
+                    }}
+                  >
+                    {/*// @ts-ignore */}
+                    <Link to={`${import.meta.env.BASE_URL}administration/providerService/${providerCategorySelected.id}/provider/${providerSelected.id}/service/${idx.id}`}>
+                      Ver
+                    </Link>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </Table>
+        </div>
+      );
+    } 
+
+    return <p style={{textAlign: 'center', marginTop: 40}}>Aún no se ha registrado servicios para este proveedor</p>;
   };
 
   return (
@@ -116,7 +125,41 @@ export default function ProviderDescription() {
                 <dd>{providerSelected.telefono}</dd>
               </dl>
             </div>
+
           </div>
+          {
+              providerSelected.isMemberFC && (
+                <Row style={{ marginTop: -10, marginBottom: 20 }}>
+                  <Form.Group className="mb-3 form-group">
+                    <Form.Check
+                      required
+                      checked={isProviderisMemberFC}
+                      onChange={(e) => setIsProviderisMemberFC(e.target.checked)}
+                      label={`Este proveedor es parte del consejo Familiar (si deseas retirarlo haz uncheck en el checkbox)`}
+                      feedback="You must agree before submitting."
+                      feedbackType="invalid"
+                    />
+                  </Form.Group>
+                </Row>
+              )
+            }
+
+            {
+              providerSelected.isMemberIC && (
+                <Row style={{ marginTop: -10, marginBottom: 20 }}>
+                <Form.Group className="mb-3 form-group">
+                  <Form.Check
+                    required
+                    checked={isProviderMemberIC}
+                    onChange={(e) => setIsProviderMemberIC(e.target.checked)}
+                    label={`Este proveedor es parte del comite de inversión (si deseas retirarlo haz uncheck en el checkbox)`}
+                    feedback="You must agree before submitting."
+                    feedbackType="invalid"
+                  />
+                </Form.Group>
+              </Row>
+              )
+            }
           <dl className="product-gallery-data1">
             <div
               style={{

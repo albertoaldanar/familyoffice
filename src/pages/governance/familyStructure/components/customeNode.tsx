@@ -12,18 +12,22 @@ export const CustomNode = ({ data }) => {
             style={{ marginBottom: -8 }}
             className="governance-custom-node-interior"
           >
-            <i
-              style={{
-                cursor: "pointer",
-                marginTop: 5,
-                fontSize: 12,
-              }}
-              className="fa fa-edit"
-              data-bs-toggle="tooltip"
-              title="fa fa-edit"
-            ></i>
             {/*// @ts-ignore */}
-            <Link style={{color: 'black'}} to={`${import.meta.env.BASE_URL}governance/familyMemberCreate/source/${data.id}/gen/${data.generation}`}>
+            <Link style={{ color: "black" }} to={`${import.meta.env.BASE_URL}governance/familyMember/${data.id}`}>
+              <i
+                style={{
+                  cursor: "pointer",
+                  marginTop: 5,
+                  fontSize: 12,
+                }}
+                className="fa fa-edit"
+                data-bs-toggle="tooltip"
+                title="fa fa-edit"
+              ></i>
+            </Link>
+
+            {/*// @ts-ignore */}
+            <Link style={{ color: "black" }} to={`${import.meta.env.BASE_URL}governance/familyMemberCreate/source/${data.id}/gen/${data.generation}`}>
               <p className="governance-custom-node-add-member">+</p>
             </Link>
           </div>

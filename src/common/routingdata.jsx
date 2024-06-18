@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react'
 import ReactDOM from'react-dom/client'
+import CouncilAndCommitteAddMember from '../pages/governance/councilAndCommittee/councilAndCommitteAddMember'
 const  Cardsdesign= React.lazy(()=>import('../components/Apps/Cardsdesign/Cardsdesign'))
 const  Chat= React.lazy(()=>import('../components/Apps/Chat/Chat'))
 const  Contentscrollbar= React.lazy(()=>import('../components/Apps/ContentScrollbar/ContentScrollbar'))
@@ -87,6 +88,9 @@ const  ProviderDescription= React.lazy(()=>import ('../pages/administration/prov
 /****************************** GOVERNANCE ****************************************/
 const  FamilyStructure= React.lazy(()=>import ('../pages/governance/familyStructure/familyStructure'))
 const  FamilyMemberCreate= React.lazy(()=>import ('../pages/governance/familyStructure/familyMemberCreate'))
+const  FamilyMember= React.lazy(()=>import ('../pages/governance/familyStructure/familyMember'))
+const  CouncilAndCommitties= React.lazy(()=>import ('../pages/governance/councilAndCommittee/councilAndCommittee'))
+const  CouncilAndCommittiesAddMember= React.lazy(()=>import ('../pages/governance/councilAndCommittee/councilAndCommitteAddMember'))
 const  MediaObject= React.lazy(()=>import('../components/Bootstrap/MediaObject/MediaObject'))
 const  Accordions= React.lazy(()=>import     ('../components/Bootstrap/Accordion/Accordion'))
 const  Tabses= React.lazy(()=>import ('../components/Bootstrap/Tabs/Tabs'))
@@ -306,7 +310,7 @@ export const Routingdata=[
 
 /* Providers */
 {path:`${import.meta.env.BASE_URL}administration/providers` ,element : <Providers/>},
-{path:`${import.meta.env.BASE_URL}administration/providerCreate` ,element : <ProviderCreate/>},
+{path:`${import.meta.env.BASE_URL}administration/providerCreate/:type` ,element : <ProviderCreate/>},
 {path:`${import.meta.env.BASE_URL}administration/providerDescription/:id/provider/:providerId` ,element : <ProviderDescription/>},
 {path:`${import.meta.env.BASE_URL}administration/providerNewService/:id/provider/:providerId` ,element : <ProviderNewService/>},
 {path:`${import.meta.env.BASE_URL}administration/providerService/:id/provider/:providerId/service/:serviceId` ,element : <ProviderService/>},
@@ -314,6 +318,10 @@ export const Routingdata=[
 /* Family structure */
 {path:`${import.meta.env.BASE_URL}governance/familyStructure` ,element : <FamilyStructure/>},
 {path:`${import.meta.env.BASE_URL}governance/familyMemberCreate/source/:source/gen/:gen` ,element : <FamilyMemberCreate/>},
+{path:`${import.meta.env.BASE_URL}governance/familyMember/:id` ,element : <FamilyMember/>},
+/* Councils and committees */
+{path:`${import.meta.env.BASE_URL}governance/councilAndCommittee` ,element : <CouncilAndCommitties/>},
+{path:`${import.meta.env.BASE_URL}governance/councilAndCommittee/addMember/:type` ,element : <CouncilAndCommittiesAddMember/>},
 
 {path:`${import.meta.env.BASE_URL}ecommerce/shop` ,element:<Shop />},
 {path:`${import.meta.env.BASE_URL}ecommerce/productdetails` ,element:<ProductDetails />},

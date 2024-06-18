@@ -5,38 +5,49 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 //@ts-ignore
-import download from '../../../assets/images/familyOffice/download.png';
+import download from "../../../assets/images/familyOffice/download.png";
 import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import dayjs, { Dayjs } from "dayjs";
 import FileUpload from "../../administration/providers/components/fileUpload";
+import FileView from "../../administration/accounting/components/fileView";
 import Pageheader from "../../../layouts/pageheader/pageheader";
 import { taxesRules } from "../../administration/taxes/taxesUtils";
 import { family } from "./familyStructureData";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
-export default function FamilyMemberCreate(props) {
+export default function FamilyMember(props) {
   const breadcrumbs = ["Gobernanza", "Miembro Familiar"];
   const params = useParams();
-  const memberSelected = params.source == 'root' ? 'root' : family.members.find((memb) => memb.id === params.source);
+  const memberSelected = family.members.find((memb) => memb.id === params.id);
+  
+  console.log("memberSelected---", memberSelected);
 
-  const [memberName, setMemberName] = useState("");
-  const [rfc, setRFC] = useState("");
+  if (!memberSelected) {
+    return <p>Not Found</p>;
+  }
+
+  const [memberName, setMemberName] = useState(memberSelected.name);
+  const [isProviderMemberIC, setIsProviderMemberIC] = useState(memberSelected.isMemberIC);
+  const [isProviderisMemberFC, setIsProviderisMemberFC] = useState(memberSelected.isMemberFC);
+  const [rfc, setRFC] = useState(memberSelected.rfc);
+
   const [regimen, setRegimen] = useState({
-    value: "",
-    label: "",
+    value: memberSelected.regimenFiscal,
+    label: memberSelected.regimenFiscal,
   });
   const [relationship, setRelationship] = useState({
     value: "",
     label: "",
   });
-  const [address, setAddress] = useState("");
-  const [dateOfBirth, setDateOfBirth] = useState<Dayjs | null>(dayjs(""));
-  const [isDescendantOfCouple, setIsDescendantOfCouple] = useState(true);
+  const [address, setAddress] = useState(memberSelected.address);
+  const [dateOfBirth, setDateOfBirth] = useState<Dayjs | null>(
+    dayjs(memberSelected.dob)
+  );
 
   const [gender, setGender] = useState({
-    value: "",
-    label: "",
+    value: memberSelected.gender,
+    label: memberSelected.gender,
   });
 
   const OptionsGender = [
@@ -49,66 +60,47 @@ export default function FamilyMemberCreate(props) {
     { value: "Pareja", label: "Pareja" },
   ];
 
-  const onlyDescendantOption = OptionsRelationship.filter(option => option.value !== "Pareja");
+  const onlyDescendantOption = OptionsRelationship.filter(
+    (option) => option.value !== "Pareja"
+  );
 
-  const OptionsRegimen = taxesRules.map(rule => ({
+  const OptionsRegimen = taxesRules.map((rule) => ({
     value: rule.regimen,
-    label: rule.regimen
+    label: rule.regimen,
   }));
-
-  const nameOfCouple = memberSelected !=='root' && memberSelected.coupleId ? family.members.find((memb) => memb.id === memberSelected.coupleId).name : null;
 
   return (
     <Fragment>
       <Pageheader items={breadcrumbs} />
       <Row>
-        <Card style={{ padding: 30}}>
+        <Card style={{ padding: 30 }}>
           <Card.Title style={{ marginBottom: 35 }}>
-            Añadir nuevo miembro familiar
+            Ver/editar miembro familiar
           </Card.Title>
           <Form noValidate validated={false} onSubmit={() => {}}>
-            {
-              memberSelected !=='root' && (
-                <Row style={{ marginBottom: 10, display: 'flex', flexDirection: 'row' }}>
-                <Form.Group
-                  as={Col}
-                  md="4"
-                  controlId="validationCustom01"
-                  className="form-group"
-                  
-                >
-                  <Form.Label>Relación</Form.Label>
-                  <Select
-                    options={memberSelected.coupleId ? onlyDescendantOption : OptionsRelationship}
-                    classNamePrefix="Select2"
-                    className="multi-select"
-                    onChange={(value) => setRelationship(value)}
-                    placeholder=""
-                    value={relationship}
-                  />
-                  <p style={{marginTop: 10, fontSize: 12, fontStyle: 'italic'}}> de {memberSelected.name}</p>
-                </Form.Group>
-              </Row>
-              ) 
-            }
-            {
-              nameOfCouple && (
-                <Row style={{ marginTop: -10, marginBottom: 20 }}>
-                  <Form.Group className="mb-3 form-group">
-                    <Form.Check
-                      required
-                      checked={isDescendantOfCouple}
-                      onChange={(e) => setIsDescendantOfCouple(e.target.checked)}
-                      label={`El nuevo miembro también es descendiente de ${nameOfCouple}`}
-                      feedback="You must agree before submitting."
-                      feedbackType="invalid"
-                    />
-                  </Form.Group>
-                </Row>
-              )
-            }
+            <Row style={{ marginBottom: 20}}>
+              <Form.Group className="mb-3 form-group">
+                <Form.Check
+                  required
+                  checked={isProviderisMemberFC}
+                  onChange={(e) => setIsProviderisMemberFC(e.target.checked)}
+                  label={`Este miembro de la familia es parte del consejo Familiar`}
+                  feedback="You must agree before submitting."
+                  feedbackType="invalid"
+                />
+              </Form.Group>
 
-
+              <Form.Group className="mb-3 form-group">
+                <Form.Check
+                  required
+                  checked={isProviderMemberIC}
+                  onChange={(e) => setIsProviderMemberIC(e.target.checked)}
+                  label={`Este miembro de la familia es parte del comite de inversión`}
+                  feedback="You must agree before submitting."
+                  feedbackType="invalid"
+                />
+              </Form.Group>
+            </Row>
             <Row style={{ marginBottom: 10 }}>
               <Form.Group
                 as={Col}
@@ -147,7 +139,7 @@ export default function FamilyMemberCreate(props) {
                   value={gender}
                 />
               </Form.Group>
-            </Row>
+            </Row>            
 
             <Row style={{ marginTop: 20 }}>
               <Form.Group
@@ -228,18 +220,25 @@ export default function FamilyMemberCreate(props) {
                 <Form.Label className="form-label my-3">
                   Copia pasaporte
                 </Form.Label>
-                <div>
+                {memberSelected.pasport ? (
+                  <FileView title="pasport" fileName={memberSelected.pasport} />
+                ) : (
                   <FileUpload />
-                </div>
+                )}
               </Form.Group>
 
               <Form.Group as={Col} md="6" className="form-group">
                 <Form.Label className="form-label my-3">
                   Copia Acta de nacimiento
                 </Form.Label>
-                <div>
+                {memberSelected.birthCertificate ? (
+                  <FileView
+                    title="birthCertificate"
+                    fileName={memberSelected.birthCertificate}
+                  />
+                ) : (
                   <FileUpload />
-                </div>
+                )}
               </Form.Group>
             </Row>
 
@@ -257,9 +256,14 @@ export default function FamilyMemberCreate(props) {
                 <Form.Label className="form-label my-3">
                   Copia Acta de nacimiento
                 </Form.Label>
-                <div>
+                {memberSelected.birthCertificate ? (
+                  <FileView
+                    title="birthCertificate"
+                    fileName={memberSelected.birthCertificate}
+                  />
+                ) : (
                   <FileUpload />
-                </div>
+                )}
               </Form.Group>
             </Row>
             <div
@@ -272,7 +276,7 @@ export default function FamilyMemberCreate(props) {
             >
               <div></div>
               <Button variant="primary" className=" mb-1" type="submit">
-                Crear
+                Guardar
               </Button>
             </div>
           </Form>

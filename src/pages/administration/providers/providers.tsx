@@ -61,9 +61,8 @@ export default function Companies() {
 
   return (
     <Fragment>
-      <Pageheader items={breadcrumbs} />
       <Row>
-        <Card style={{ minHeight: 400 }}>
+        <Card style={{ minHeight: 400, marginTop: 20 }}>
           <div
             style={{
               justifyContent: "space-between",
@@ -86,7 +85,7 @@ export default function Companies() {
               className=" mb-1"
             >
               {/*// @ts-ignore */}
-              <Link style={{ color: "white" }} to={`${import.meta.env.BASE_URL}administration/providerCreate/`}>
+              <Link style={{ color: "white" }} to={`${import.meta.env.BASE_URL}administration/providerCreate/standar`}>
                 + Añadir proveedor
               </Link>
             </Button>

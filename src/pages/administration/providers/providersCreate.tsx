@@ -15,14 +15,13 @@ export default function ProviderCreate(props) {
   const [phone, setPhone] = useState("");
 
   const params = useParams();
-  const type = params.providerType !== undefined ? params.providerType : "";
-
-  console.log('te', type);
 
   const [providerType, setProviderType] = useState({
-    value: type,
-    label: type,
+    value: '',
+    label: '',
   });
+
+  const addType = params.type === "consejoFamiliar" ?  "Consejo Familiar" : params.type === "comiteInversion" ? 'Comite de Inversión' : null;
 
   const OptionsProvider = [
     { value: "Asesor Inmobiliario", label: "Asesor Inmobiliario" },
@@ -36,11 +35,14 @@ export default function ProviderCreate(props) {
     <Fragment>
       <Row>
         <Card style={{ padding: 30, marginTop: 50 }}>
-          <Card.Title style={{ marginBottom: 35 }}>
+          <Card.Title style={{ marginBottom: 10 }}>
             Nuevo Registro de proveedor de servicio
           </Card.Title>
           <Form noValidate validated={false} onSubmit={() => {}}>
-          <Row style={{ marginTop: 20, marginBottom: 20 }}>
+          {
+            addType && <p style={{color: 'gray', marginBottom: 10, fontStyle: 'italic', fontSize: 12}}>Este proveedor se añadira a {addType} automaticamente despues de ser creado aqui</p>
+          }
+          <Row style={{ marginTop: 25, marginBottom: 20 }}>
               <Form.Group
                 as={Col}
                 md="6"
