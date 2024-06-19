@@ -7,6 +7,7 @@ import {
 } from "react-bootstrap";
 import Structure from "./components/structure";
 import { councilAndCommittieesData } from "./councilAndCommitteeData";
+import { Meetings } from "./components/meetings/meetings";
 
 export default function CouncilAndCommittee() {
   const renderFamilyCouncil = () => {
@@ -31,11 +32,11 @@ export default function CouncilAndCommittee() {
         </div>
           <Tab.Content className="panel-body">
             <Tab.Pane eventKey="first-council">
-                <Structure structureName='Concejo familiar' type='consejoFamiliar' data={councilAndCommittieesData.familyCouncil} />
+                <Structure structureName='Concejo familiar' type='consejoFamiliar' data={councilAndCommittieesData.familyCouncil.members} />
             </Tab.Pane>
 
             <Tab.Pane eventKey="second-council">
-              <></>
+              <Meetings meetingType='familyCouncil' />
             </Tab.Pane>
           </Tab.Content>
         </Tab.Container>
@@ -65,11 +66,11 @@ export default function CouncilAndCommittee() {
         </div>
           <Tab.Content className="panel-body">
             <Tab.Pane eventKey="first-committee">
-                <Structure type='comiteInversion' structureName='Comite de inversión' data={councilAndCommittieesData.investmentCommittee} />
+                <Structure type='comiteInversion' structureName='Comite de inversión' data={councilAndCommittieesData.investmentCommittee.members} />
             </Tab.Pane>
 
-            <Tab.Pane eventKey="second-finance">
-              <></>
+            <Tab.Pane eventKey="second-committee">
+              <Meetings meetingType='investmentCommittee' />
             </Tab.Pane>
           </Tab.Content>
         </Tab.Container>
