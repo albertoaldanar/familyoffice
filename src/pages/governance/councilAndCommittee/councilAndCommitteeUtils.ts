@@ -64,7 +64,6 @@ export const formatAvailableFamilyMember = (familyList, membershipType) => {
 };
 
 export const formatMember = (memberList) => {
-  // const membership = membershipType === 'consejoFamiliar' ? 'isMemberFC': 'isMemberIC';
   if(!memberList.length){
     return [];
   }
@@ -110,3 +109,96 @@ export function hasDateTimePassed(date: string, time: string): boolean {
 
   return inputDateTime < currentDateTime;
 }
+
+export const findMostFrequentChoice = (participants): string => {
+  const choiceCount: { [key: string]: number } = {};
+
+  participants.forEach(participant => {
+    const choice = participant.choiceSelected;
+    if (choiceCount[choice]) {
+      choiceCount[choice]++;
+    } else {
+      choiceCount[choice] = 1;
+    }
+  });
+
+  let mostFrequentChoice = '';
+  let maxCount = 0;
+
+  for (const choice in choiceCount) {
+    if (choiceCount[choice] > maxCount) {
+      maxCount = choiceCount[choice];
+      mostFrequentChoice = choice;
+    }
+  }
+
+  return `${mostFrequentChoice} (${maxCount} votos)`;
+};
+
+export function daysLeftUntil(deadlineDate: string): string {
+  const [day, month, year] = deadlineDate.split('/').map(Number);
+  
+  const deadline = new Date(year, month - 1, day);
+  const today = new Date();
+  const differenceInTime = deadline.getTime() - today.getTime();
+  
+  const daysLeft = Math.ceil(differenceInTime / (1000 * 3600 * 24));
+  
+  if (daysLeft < 0) {
+    return "The deadline has already passed.";
+  } else if (daysLeft === 0) {
+    return "The deadline is today.";
+  } else {
+    return `${daysLeft} dias.`;
+  }
+}
+export const calculateVotePercentages = (participants) => {
+  const totalVotes = participants.length;
+  const voteCounts: { [choice: string]: number } = {};
+
+  participants.forEach(participant => {
+    const choice = participant.choiceSelected || 'Sin respuesta';
+    if (voteCounts[choice]) {
+      voteCounts[choice]++;
+    } else {
+      voteCounts[choice] = 1;
+    }
+  });
+
+  const votePercentages = Object.entries(voteCounts).map(([choice, count]) => ({
+    response: choice,
+    percentage: (count / totalVotes) * 100
+  }));
+
+  return votePercentages;
+};
+
+export const calculateMostVoted = (participants) => {
+  const voteCounts = {};
+
+  participants.forEach((participant) => {
+    const choice = participant.choiceSelected || 'Sin respuesta';
+    if (voteCounts[choice]) {
+      voteCounts[choice]++;
+    } else {
+      voteCounts[choice] = 1;
+    }
+  });
+
+  let mostVoted = '';
+  let maxVotes = 0;
+  let tie = false;
+
+  for (const [choice, count] of Object.entries(voteCounts)) {
+    if (count > maxVotes) {
+      //@ts-ignore
+      maxVotes = count;
+      mostVoted = choice;
+      tie = false; // Reset tie if a new maximum is found
+    } else if (count === maxVotes) {
+      tie = true; // Set tie to true if there is a tie in votes
+    }
+  }
+
+  return tie ? 'TIE' : mostVoted;
+};

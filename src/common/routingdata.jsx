@@ -93,6 +93,8 @@ const  CouncilAndCommitties= React.lazy(()=>import ('../pages/governance/council
 const  CouncilAndCommittiesAddMember= React.lazy(()=>import ('../pages/governance/councilAndCommittee/councilAndCommitteAddMember'))
 const  MeetingCreate= React.lazy(()=>import ('../pages/governance/councilAndCommittee/components/meetings/meetingCreate'))
 const  MeetingDescription= React.lazy(()=>import ('../pages/governance/councilAndCommittee/components/meetings/meetingDescription'))
+const  VoatingCreate= React.lazy(()=>import ('../pages/governance/councilAndCommittee/components/voting/voatingCreate'));
+const  VoatingDescription= React.lazy(()=>import ('../pages/governance/councilAndCommittee/components/voting/voatingDescription'))
 const  MediaObject= React.lazy(()=>import('../components/Bootstrap/MediaObject/MediaObject'))
 const  Accordions= React.lazy(()=>import     ('../components/Bootstrap/Accordion/Accordion'))
 const  Tabses= React.lazy(()=>import ('../components/Bootstrap/Tabs/Tabs'))
@@ -326,6 +328,8 @@ export const Routingdata=[
 {path:`${import.meta.env.BASE_URL}governance/councilAndCommittee/addMember/:type` ,element : <CouncilAndCommittiesAddMember/>},
 {path:`${import.meta.env.BASE_URL}governance/councilAndCommittee/meetingCreate/:type` ,element : <MeetingCreate/>},
 {path:`${import.meta.env.BASE_URL}governance/councilAndCommittee/meetingDescription/type/:type/id/:id` ,element : <MeetingDescription/>},
+{path:`${import.meta.env.BASE_URL}governance/councilAndCommittee/voatingCreate/:type` ,element : <VoatingCreate/>},
+{path:`${import.meta.env.BASE_URL}governance/councilAndCommittee/voatingDescription/type/:type/id/:id` ,element : <VoatingDescription/>},
 
 {path:`${import.meta.env.BASE_URL}ecommerce/shop` ,element:<Shop />},
 {path:`${import.meta.env.BASE_URL}ecommerce/productdetails` ,element:<ProductDetails />},

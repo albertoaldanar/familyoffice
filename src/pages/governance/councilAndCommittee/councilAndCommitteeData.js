@@ -1,3 +1,9 @@
+export const currentUser = {
+  id: "12",
+  name: "Alberto Aldana Ríos",
+  role: "Miembro Familiar",
+}
+
 export const councilAndCommittieesData = {
   investmentCommittee: {
     members: [
@@ -76,28 +82,81 @@ export const councilAndCommittieesData = {
         `,
       },
     ],
+    votings: [
+      {
+        id: 223,
+        title: "Invertir en bienes raices Mazatlán",
+        isVotingFinished: true,
+        hiddenVotes: false,
+        createdBy: {
+          name: "Raul Aldana Fariñas",
+          role: "Asesor financiero",
+          id: "34",
+        },
+        participants: [
+          {
+            name: "Francisco Aldana Fariñas",
+            role: "Miembro Familiar",
+            id: "23",
+            choiceSelected: 'Si'
+          },
+          {
+            name: "Alberto Aldana Ríos",
+            role: "Miembro Familiar",
+            id: "12",
+            choiceSelected: 'No'
+          },
+          {
+            name: "Raul Aldana Fariñas",
+            role: "Asesor financiero",
+            id: "34",
+            providerCategory: 50,
+            choiceSelected: 'No'
+          },
+          {
+            name: "David Aldana Cañedo",
+            role: "Asesor Family Office",
+            id: "24",
+            providerCategory: 50,
+            choiceSelected: 'No'
+          },
+        ],
+        deadlineDate: "28/06/2024",
+        options:[
+          'Si', 
+          'No', 
+          'Voto nulo'
+        ],
+        description: `
+          Esta votación es para decidir se se utilizara el capital de la familia para invertir en los siguientes desarrollos en Mazatlá, sinaloa
+          - Estellare: $20,000,000 MXN
+          - Centro comercial la marina: $15,000,000 MXN
+          - Departamentos el CID la marina: $8,000,000 MXN
+        `,
+      },
+    ],
   },
   familyCouncil: {
     members: [
       {
         id: "23",
         name: "Francisco Alberto Aldana Rios",
-        role: "Miembro Familiar",
+        role: "Miembro Familiar"
       },
       {
         id: "43",
         name: "Patricia Ríos Collantes",
-        role: "Miembro Familiar",
+        role: "Miembro Familiar"
       },
       {
         id: "13",
         name: "Alejandra Aldana Ríos",
-        role: "Miembro Familiar",
+        role: "Miembro Familiar"
       },
       {
         id: "12",
         name: "Alberto Aldana Ríos",
-        role: "Miembro Familiar",
+        role: "Miembro Familiar"
       },
       {
         id: "9",
@@ -113,10 +172,79 @@ export const councilAndCommittieesData = {
       {
         name: "Santiago Ortiz",
         role: "Account manager Family Office",
+        choiceSelected: 'EN CONTRA',
         id: "254",
         providerCategory: 50,
       },
     ],
-    meetings: []
+    meetings: [],
+    votings: [
+      {
+        id: 82,
+        title: "Vender empresa familiar de abuelo",
+        isVotingFinished: true,
+        hiddenVotes: false,
+        createdBy: {
+          name: "Santiago Ortiz",
+          role: "Account manager Family Office",
+          id: "254",
+        },
+        participants: [
+          {
+            id: "23",
+            name: "Francisco Alberto Aldana Rios",
+            role: "Miembro Familiar",
+            choiceSelected: 'A FAVOR'
+          },
+          {
+            id: "43",
+            name: "Patricia Ríos Collantes",
+            role: "Miembro Familiar",
+            choiceSelected: 'A FAVOR'
+          },
+          {
+            id: "13",
+            name: "Alejandra Aldana Ríos",
+            role: "Miembro Familiar",
+            choiceSelected: 'A FAVOR'
+          },
+          {
+            id: "12",
+            name: "Alberto Aldana Ríos",
+            role: "Miembro Familiar",
+            choiceSelected: 'A FAVOR'
+          },
+          {
+            id: "9",
+            name: "Ana Sofia Aldana Ríos",
+            role: "Miembro Familiar",
+            choiceSelected: 'EN CONTRA'
+          },
+          {
+            name: "David Aldana Cañedo",
+            role: "Asesor Family Office",
+            choiceSelected: 'A FAVOR',
+            id: "24",
+            providerCategory: 50,
+          },
+          {
+            name: "Santiago Ortiz",
+            role: "Account manager Family Office",
+            choiceSelected: 'EN CONTRA',
+            id: "254",
+            providerCategory: 50,
+          },
+        ],
+        deadlineDate: "28/06/2024",
+        options:[
+          'A FAVOR', 
+          'EN CONTRA', 
+        ],
+        description: `
+          Esta votación es para decidir si se vendera la empresa familiar del abuelo y repartir en partes iguales el valor de la venta
+          - La oferta formal es por 45,000,000 MXN de Grupo Martinez
+        `,
+      },
+    ],
   },
 };

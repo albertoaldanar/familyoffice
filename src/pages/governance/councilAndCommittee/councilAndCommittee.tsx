@@ -8,6 +8,7 @@ import {
 import Structure from "./components/structure";
 import { councilAndCommittieesData } from "./councilAndCommitteeData";
 import { Meetings } from "./components/meetings/meetings";
+import { Votings } from "./components/voting/voting";
 
 export default function CouncilAndCommittee() {
   const renderFamilyCouncil = () => {
@@ -37,6 +38,10 @@ export default function CouncilAndCommittee() {
 
             <Tab.Pane eventKey="second-council">
               <Meetings meetingType='familyCouncil' />
+            </Tab.Pane>
+
+            <Tab.Pane eventKey="third-council">
+              <Votings votingType='familyCouncil' />
             </Tab.Pane>
           </Tab.Content>
         </Tab.Container>
@@ -71,6 +76,10 @@ export default function CouncilAndCommittee() {
 
             <Tab.Pane eventKey="second-committee">
               <Meetings meetingType='investmentCommittee' />
+            </Tab.Pane>
+
+            <Tab.Pane eventKey="third-committee">
+              <Votings votingType='investmentCommittee' />
             </Tab.Pane>
           </Tab.Content>
         </Tab.Container>

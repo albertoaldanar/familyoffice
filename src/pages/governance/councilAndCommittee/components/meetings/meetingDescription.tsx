@@ -326,7 +326,7 @@ export default function MeetingDescription(props) {
             >
               <div></div>
               <Button variant="primary" className=" mb-1" type="submit">
-                Crear
+                Guardar
               </Button>
             </div>
           </Form>
