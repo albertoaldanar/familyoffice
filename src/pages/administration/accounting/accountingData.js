@@ -11,7 +11,8 @@ export const companies = [
     razonSocial: "Aldana Clima Integral SA de CV",
     valuacion: "10,000,000.00",
     direccionFiscal: "Col Los pinos 233 Colonia Mutualismo CP 233",
-    fundacion: "12/16/1995",
+    fundacion: "10/10/1995",
+    percentage: '100',
     actasDividendos: "",
     cif: "",
     reports: {
@@ -134,7 +135,8 @@ export const companies = [
     moneda: "MXN",
     razonSocial: "Airenlinea SA de CV",
     valuacion: "10,000,000.00",
-    fundacion: "12/16/2005",
+    fundacion: "10/10/2005",
+    percentage: '100',
     direccionFiscal: "Col Los pinos 233 Colonia Mutualismo CP 233",
     actaConstitutiva: "https://www.google.drive/1423nger",
     actaAsamblea: "https://www.google.drive/1423nger",
@@ -267,8 +269,9 @@ export const companies = [
     razonSocial: "Servicios de diseños de ingenieria SA de CV",
     valuacion: "10,000,000.00",
     direccionFiscal: "Col Los pinos 233 Colonia Mutualismo CP 233",
-    fundacion: "12/16/1995",
+    fundacion: "10/10/1995",
     actasDividendos: "",
+    percentage: '100',
     cif: "",
     reports: {
       mensuales: [

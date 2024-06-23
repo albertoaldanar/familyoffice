@@ -74,9 +74,8 @@ export default function Taxes() {
 
   return (
     <Fragment>
-      <Pageheader items={breadcrumbs} />
       <Row>
-        <Card style={{ minHeight: 400, paddingLeft: 20, paddingRight: 20 }}>
+        <Card style={{ minHeight: 400, paddingLeft: 20, paddingRight: 20, marginTop: 20 }}>
           <div
             style={{
               justifyContent: "space-between",

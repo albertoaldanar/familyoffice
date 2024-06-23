@@ -25,9 +25,8 @@ export default function Payments() {
 
   return (
     <Fragment>
-      <Pageheader items={breadcrumbs} />
       <Row>
-        <Card>
+        <Card style={{marginTop: 20}}>
           <div className="">
             <Tab.Container id="left-tabs-example" defaultActiveKey="first">
               <div style={{ padding: 20 }}>

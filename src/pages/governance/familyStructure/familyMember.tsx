@@ -71,9 +71,8 @@ export default function FamilyMember(props) {
 
   return (
     <Fragment>
-      <Pageheader items={breadcrumbs} />
       <Row>
-        <Card style={{ padding: 30 }}>
+        <Card style={{ padding: 30 , marginTop: 20}}>
           <Card.Title style={{ marginBottom: 35 }}>
             Ver/editar miembro familiar
           </Card.Title>

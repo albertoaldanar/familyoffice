@@ -54,19 +54,19 @@ export const wealthStructure = {
       value: '10,000,000.00',
       source: 1,
     },
-    {
-      id: 94,
-      coreId: 33,
-      name: 'MGH SA de CV',
-      value: '10,000,000.00',
-      source: 1,
-    },
-    {
-      id: 18,
-      coreId: 39,
-      name: 'Departamento la marina',
-      value: '2,500,000.00',
-      source: 2,
-    },
+    // {
+    //   id: 94,
+    //   coreId: 33,
+    //   name: 'MGH SA de CV',
+    //   value: '10,000,000.00',
+    //   source: 1,
+    // },
+    // {
+    //   id: 18,
+    //   coreId: 39,
+    //   name: 'Departamento la marina',
+    //   value: '2,500,000.00',
+    //   source: 2,
+    // },
   ],
 };

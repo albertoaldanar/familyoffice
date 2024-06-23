@@ -5,16 +5,12 @@ import { Link } from "react-router-dom";
 
 export const CustomNode = ({ data }) => {
   const isNodeRoot = data.role === "root";
-  console.log("data", data);
-
-  'wealthItem/company/23'
-  'wealthItem/realState/13'
   // const isNodeFamilyMember = data.role === 'Miembro Familiar';
   // // @ts-ignore
   let wealthItemUrl;
   let wealthCategoryUrl;
 
-  if (!data.coreId){
+  if (!data.coreId) {
     switch (data.name) {
       case "Empresas":
         //@ts-ignore
@@ -34,6 +30,31 @@ export const CustomNode = ({ data }) => {
         break;
       case "Tesoreria":
         wealthCategoryUrl = "treasuryCreate";
+        break;
+      default:
+        break;
+    }
+  } else {
+    //@ts-ignore
+    const baseUrl = `${import.meta.env.BASE_URL}governance/wealthItem`;
+    switch (data.source) {
+      case 1:
+        wealthItemUrl = `${baseUrl}/type/company/id/${data.coreId}`;
+        break;
+      case "Bienes raices":
+        wealthItemUrl = "realStateCreate";
+        break;
+      case "Capital privado":
+        wealthItemUrl = "privateCapitalCreate";
+        break;
+      case "Vehiculos":
+        wealthItemUrl = "vehicleCreate";
+        break;
+      case "Inversiones":
+        wealthItemUrl = "investmentCreate";
+        break;
+      case "Tesoreria":
+        wealthItemUrl = "treasuryCreate";
         break;
       default:
         break;
@@ -58,7 +79,10 @@ export const CustomNode = ({ data }) => {
           >
             <div></div>
             {/*// @ts-ignore */}
-            <Link style={{ color: "black", marginBottom: 2 }} to={""}>
+            <Link
+              style={{ color: "black", marginBottom: 2 }}
+              to={wealthItemUrl}
+            >
               <i
                 style={{
                   cursor: "pointer",
@@ -85,7 +109,10 @@ export const CustomNode = ({ data }) => {
         >
           <div></div>
           {/*// @ts-ignore */}
-          <Link style={{ color: "black", marginBottom: 2 }} to={wealthCategoryUrl}>
+          <Link
+            style={{ color: "black", marginBottom: 2 }}
+            to={wealthCategoryUrl}
+          >
             <i
               style={{
                 cursor: "pointer",

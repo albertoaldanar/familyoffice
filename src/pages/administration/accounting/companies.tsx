@@ -55,15 +55,19 @@ export default function Companies() {
               <thead className="bg-light">
                 <tr>
                   <th>Nombre</th>
+                  <th>Razon social</th>
                   <th>RFC</th>
+                  <th>Valuación</th>
                   <th></th>
                 </tr>
               </thead>
               <tbody>
                 {companies.map((idx, tb8) => (
                   <tr key={tb8}>
+                    <td>{idx.nombre}</td>
                     <td>{idx.razonSocial}</td>
                     <td>{idx.rfc}</td>
+                    <td>${idx.valuacion} {idx.moneda}</td>
                     <td
                       style={{
                         cursor: "pointer",
@@ -87,9 +91,8 @@ export default function Companies() {
   };
   return (
     <Fragment>
-      <Pageheader items={breadcrumbs} />
       <Row>
-        <Card style={{minHeight: 400}}>
+        <Card style={{minHeight: 400, marginTop: 20}}>
           <div
             style={{
               justifyContent: "space-between",

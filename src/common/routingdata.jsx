@@ -96,6 +96,7 @@ const  MeetingDescription= React.lazy(()=>import ('../pages/governance/councilAn
 const  VoatingCreate= React.lazy(()=>import ('../pages/governance/councilAndCommittee/components/voting/voatingCreate'));
 const  VoatingDescription= React.lazy(()=>import ('../pages/governance/councilAndCommittee/components/voting/voatingDescription'))
 const  WealthStructure= React.lazy(()=>import ('../pages/governance/wealthStructure/wealthStructure'))
+const  WealthItem= React.lazy(()=>import ('../pages/governance/wealthStructure/wealthItemDescription/wealthItemDescription'))
 const  MediaObject= React.lazy(()=>import('../components/Bootstrap/MediaObject/MediaObject'))
 const  Accordions= React.lazy(()=>import     ('../components/Bootstrap/Accordion/Accordion'))
 const  Tabses= React.lazy(()=>import ('../components/Bootstrap/Tabs/Tabs'))
@@ -333,7 +334,7 @@ export const Routingdata=[
 {path:`${import.meta.env.BASE_URL}governance/councilAndCommittee/voatingDescription/type/:type/id/:id` ,element : <VoatingDescription/>},
 /* Wealth structure */
 {path:`${import.meta.env.BASE_URL}governance/wealthStructure` ,element : <WealthStructure/>},
-
+{path:`${import.meta.env.BASE_URL}governance/wealthItem/type/:type/id/:id` ,element : <WealthItem/>},
 {path:`${import.meta.env.BASE_URL}ecommerce/shop` ,element:<Shop />},
 {path:`${import.meta.env.BASE_URL}ecommerce/productdetails` ,element:<ProductDetails />},
 {path:`${import.meta.env.BASE_URL}ecommerce/productdetails/:id` ,element:<ProductDetails />},

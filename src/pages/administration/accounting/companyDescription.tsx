@@ -627,9 +627,8 @@ export default function CompanyDescription() {
 
   return (
     <Fragment>
-      <Pageheader items={breadcrumbs} />
       <Row>
-        <Card style={{ paddingBottom: 20 }}>
+        <Card style={{ paddingBottom: 20, marginTop: 20, minHeight: 550 }}>
           <Card.Title
             style={{ marginLeft: 15, marginBottom: 0, marginTop: 35 }}
           >
