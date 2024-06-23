@@ -37,7 +37,7 @@ export default function CompanyCreate(props) {
     <Fragment>
 
       <Row>
-        <Card style={{ padding: 30, marginTop: 50 }}>
+        <Card style={{ padding: 30, marginTop: 20 }}>
           <Card.Title style={{ marginBottom: 35 }}>
             Nuevo Registro de Empresa
           </Card.Title>

@@ -39,7 +39,7 @@ const MenuItems = [
         badgetxt:'',      
         children: [
           { path: `${import.meta.env.BASE_URL}governance/familyStructure`, type: 'link', active: false, selected: false, title: 'Estructura familiar' },
-          { path: `${import.meta.env.BASE_URL}pages/profile`, type: 'link', active: false, selected: false, title: 'Estructura patrimonial' },
+          { path: `${import.meta.env.BASE_URL}governance/wealthStructure`, type: 'link', active: false, selected: false, title: 'Estructura patrimonial' },
           { path: `${import.meta.env.BASE_URL}apps/defaultcalender`, type: 'link', active: false, selected: false, title: 'Legal/Documentos' },
           { path: `${import.meta.env.BASE_URL}governance/councilAndCommittee`, type: 'link', active: false, selected: false, title: 'Concejos y comites ' },
           // { path: `${import.meta.env.BASE_URL}apps/chat`, type: 'link', active: false, selected: false, title: 'Chat' },
