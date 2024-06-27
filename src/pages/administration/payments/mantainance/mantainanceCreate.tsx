@@ -3,13 +3,16 @@ import { Button, Card, Col, Row, Form, InputGroup } from "react-bootstrap";
 import Select from "react-select";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import { formatRealstateData, formatVehicleData } from "../paymentUtils";
+import { otherWealthData } from "../../../governance/wealthStructure/wealthStructureData";
+import { realstateData } from "../../../investments/realState/realStateData";
 
 export default function MantainanceCreate(props) {
   const [mantainanceType, setMantainanceType] = useState({
     value: "",
     label: "",
   });
-
+  const [otherType, setOtherType] = useState("");
   const [concept, setConcept] = useState("");
   const [description, setDescription] = useState("");
   const [payTo, setPayTo] = useState("");
@@ -51,17 +54,9 @@ export default function MantainanceCreate(props) {
     { value: "Ana Sofia Aldana Rios", label: "Ana Sofia Aldana Rios" },
   ];
 
-  const OptionsProperties = [
-    { value: "Casa la Primavera", label: "Casa la Primavera" },
-    { value: "Departamento Los cabos", label: "Departamento Los cabos" },
-    { value: "Casa San diego", label: "Casa San Diego" },
-  ];
+  const OptionsProperties = formatRealstateData(realstateData);
 
-  const OptionsVehicles = [
-    { value: "Audi A5", label: "Audi A5" },
-    { value: "Nissan Xtrail", label: "Nissan Xtrail" },
-    { value: "Audi Q5", label: "Audi Q5" },
-  ];
+  const OptionsVehicles = formatVehicleData(otherWealthData.vehicles)
 
   const OptionsPaymentFrequency = [
     { value: "Mensual", label: "Mensual" },
@@ -78,62 +73,11 @@ export default function MantainanceCreate(props) {
   const OptionsMantainanceType = [
     { value: "Inmobiliario", label: "Mantenimiento Inmobiliario" },
     { value: "Vehicular", label: "Mantenimiento Vehicular" },
+    { value: "Otro", label: "Otro" },
   ];
 
   const handleTypeOfInsurance = () => {
-    if (mantainanceType.value === "Vida") {
-      return (
-        <Row className="mb-3">
-          <Form.Group
-            as={Col}
-            md="3"
-            controlId="validationCustom04"
-            className="form-group"
-          >
-            <Form.Label>Persona asegurada</Form.Label>
-            <div style={{ marginTop: 20 }}>
-              <Form.Group className="mb-3 form-group">
-                <Form.Check
-                  required
-                  checked={isFamilyMember}
-                  style={{ fontSize: 12, color: "gray", marginTop: -10 }}
-                  onChange={(e) => setIsFamilyMember(e.target.checked)}
-                  label="Miembro de organigrama familiar"
-                  feedback="You must agree before submitting."
-                  feedbackType="invalid"
-                />
-              </Form.Group>
-            </div>
-            {isFamilyMember ? (
-              <Select
-                options={Options}
-                classNamePrefix="Select2"
-                className="multi-select"
-                onChange={(value) => setPersonaAsegurada(value)}
-                placeholder="Año"
-                value={personaAsegurada}
-              />
-            ) : (
-              <>
-                <InputGroup hasValidation>
-                  <Form.Control
-                    type="numeric"
-                    placeholder="Nombre completo"
-                    aria-describedby="inputGroupPrepend"
-                    required
-                    onChange={(text) => setNotFamilyMember(text.target.value)}
-                    value={notFamilyMember}
-                  />
-                  <Form.Control.Feedback type="invalid">
-                    Favor de añadir el monto del pago
-                  </Form.Control.Feedback>
-                </InputGroup>
-              </>
-            )}
-          </Form.Group>
-        </Row>
-      );
-    } else if (mantainanceType.value === "Inmobiliario") {
+    if (mantainanceType.value === "Inmobiliario") {
       return (
         <Row className="mb-3">
           <Form.Group
@@ -255,13 +199,30 @@ export default function MantainanceCreate(props) {
       );
     }
 
-    return;
+    return (
+      <Form.Group
+        as={Col}
+        md="10"
+        controlId="validationCustom01"
+        className="form-group"
+      >
+        <Form.Label>Tipo de mantenimiento</Form.Label>
+        <Form.Control
+          type="numeric"
+          placeholder=""
+          aria-describedby="inputGroupPrepend"
+          required
+          onChange={(text) => setOtherType(text.target.value)}
+          value={otherType}
+        />
+      </Form.Group>
+    )
   };
 
   return (
     <Fragment>
       <Row>
-        <Card style={{ padding: 30, marginTop: 50 }}>
+        <Card style={{ padding: 30, marginTop: 20 }}>
           <Card.Title style={{ marginBottom: 35 }}>
             Nuevo Registro de Mantenimiento
           </Card.Title>

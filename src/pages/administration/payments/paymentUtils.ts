@@ -99,3 +99,35 @@ export function nextPaymentFormatDate(payments: any[]): string {
     return isDateDefeated(paymentElement.limitePago) ? 'Vencido' : formatDate(paymentElement.limitePago, 'days');
   }
 }
+
+export const formatRealstateData = (data) => {
+  return data.map(item => ({
+    label: item.nombre,
+    value: item.id,
+  }));
+};
+
+export const formatFamilyMembers = (family) => {
+  return family.members.map(member => ({
+    label: member.name,
+    value: member.id,
+  }));
+};
+
+export const formatRealstateDataPropertyTax = (data, propertyTaxData) => {
+  const ids = new Set(data.map(item => item.id));
+
+  return propertyTaxData
+    .filter(item => !ids.has(item.linkedItemId))
+    .map(item => ({
+      label: item.nombre,
+      value: item.id.toString(),
+    }));
+};
+
+export const formatVehicleData = (data) => {
+  return data.map(item => ({
+    label: `${item.brand} - ${item.model}`,
+    value: item.id.toString(),
+  }));
+};

@@ -15,7 +15,10 @@ import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import dayjs, { Dayjs } from "dayjs";
 import { Link } from "react-router-dom";
-import { useParams } from "react-router-dom";
+import { realstateData } from "../../../investments/realState/realStateData";
+import { otherWealthData } from "../../../governance/wealthStructure/wealthStructureData";
+import { family } from "../../../governance/familyStructure/familyStructureData";
+import { formatRealstateData, formatFamilyMembers, formatVehicleData } from "../paymentUtils";
 
 export default function InsuranceCreate(props) {
   const [insuranceType, setInsuranceType] = useState({
@@ -57,23 +60,11 @@ export default function InsuranceCreate(props) {
   const [vigenciaAl, setVigenciaAl] = useState<Dayjs | null>(dayjs(""));
   const [isFamilyMember, setIsFamilyMember] = useState(true);
 
-  const Options = [
-    { value: "Alberto Aldana Rios", label: "Alberto Aldana Rios" },
-    { value: "Alejandra Aldana Rios", label: "Alejandra Aldana Rios" },
-    { value: "Ana Sofia Aldana Rios", label: "Ana Sofia Aldana Rios" },
-  ];
+  const Options = formatFamilyMembers(family);
 
-  const OptionsProperties = [
-    { value: "Casa la Primavera", label: "Casa la Primavera" },
-    { value: "Departamento Los cabos", label: "Departamento Los cabos" },
-    { value: "Casa San diego", label: "Casa San Diego" },
-  ];
+  const OptionsProperties = formatRealstateData(realstateData);
 
-  const OptionsVehicles = [
-    { value: "Audi A5", label: "Audi A5" },
-    { value: "Nissan Xtrail", label: "Nissan Xtrail" },
-    { value: "Audi Q5", label: "Audi Q5" },
-  ];
+  const OptionsVehicles = formatVehicleData(otherWealthData.vehicles)
 
   const OptionsPaymentFrequency = [
     { value: "Mensual", label: "Mensual" },
@@ -271,7 +262,7 @@ export default function InsuranceCreate(props) {
   return (
     <Fragment>
       <Row>
-        <Card style={{ padding: 30, marginTop: 50 }}>
+        <Card style={{ padding: 30, marginTop: 20 }}>
           <Card.Title style={{ marginBottom: 35 }}>
             Nuevo Registro de Seguro
           </Card.Title>

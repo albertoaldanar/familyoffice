@@ -3,20 +3,17 @@ import { Card, Row, Tab, Nav } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { companies } from "../../../administration/accounting/accountingData";
 import NotFoundSearch from "../../../shared/notFoundSearch";
-import CompanyItem from "./components/companyItem";
-import RealStateItem from "./components/realStateItem";
+import RealStateItemCreate from "./components/realStateItemCreate";
 
-export default function WealthDescription() {
+export default function WealthItemCreate() {
   const params = useParams();
-  const { type, id } = params;
+  const { type } = params;
 
   let componentToRender;
+  //@ts-ignore
   switch (type) {
-    case "company":
-      componentToRender = <CompanyItem id={id} />;
-      break;
     case "realState":
-      componentToRender = <RealStateItem id={id} />;
+      componentToRender = <RealStateItemCreate />;
       break;
     default:
       componentToRender = <NotFoundSearch />;

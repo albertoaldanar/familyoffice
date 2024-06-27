@@ -154,9 +154,8 @@ export default function DebtDescription(props) {
 
   return (
     <Fragment>
-      <Pageheader items={breadcrumbs} />
       <Row>
-        <Card style={{ padding: 30 }}>
+        <Card style={{ padding: 30, marginTop: 20 }}>
           <h4 className="mb-3 fw-semibold">
             Credito {debt.tipoCredito} - {debt.concepto}
           </h4>

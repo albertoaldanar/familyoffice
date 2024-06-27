@@ -11,13 +11,14 @@ export const CustomNode = ({ data }) => {
   let wealthCategoryUrl;
 
   if (!data.coreId) {
+    //@ts-ignore
+    const baseUrl = `${import.meta.env.BASE_URL}`;
     switch (data.name) {
       case "Empresas":
-        //@ts-ignore
-        wealthCategoryUrl = `${import.meta.env.BASE_URL}administration/companyCreate`;
+        wealthCategoryUrl = `${baseUrl}administration/companyCreate`;
         break;
       case "Bienes raices":
-        wealthCategoryUrl = "realStateCreate";
+        wealthCategoryUrl = `${baseUrl}governance/wealthItemCreate/realState`;
         break;
       case "Capital privado":
         wealthCategoryUrl = "privateCapitalCreate";
@@ -41,8 +42,8 @@ export const CustomNode = ({ data }) => {
       case 1:
         wealthItemUrl = `${baseUrl}/type/company/id/${data.coreId}`;
         break;
-      case "Bienes raices":
-        wealthItemUrl = "realStateCreate";
+      case 2:
+        wealthItemUrl = `${baseUrl}/type/realState/id/${data.coreId}`;
         break;
       case "Capital privado":
         wealthItemUrl = "privateCapitalCreate";

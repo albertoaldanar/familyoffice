@@ -9,6 +9,9 @@ import {
   InputGroup,
 } from "react-bootstrap";
 import Select from "react-select";
+import { realstateData } from "../../../investments/realState/realStateData";
+import { formatRealstateDataPropertyTax } from "../paymentUtils";
+import { prediales } from "../paymentsData";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
@@ -34,12 +37,7 @@ export default function PropertyTaxCreate(props) {
   const [amount, setAmount] = useState('');
 
   const [isPropertyMember, setIsPropertyMember] = useState(true);
-
-  const OptionsProperties = [
-    { value: "Casa la Primavera", label: "Casa la Primavera" },
-    { value: "Departamento Los cabos", label: "Departamento Los cabos" },
-    { value: "Casa San diego", label: "Casa San Diego" },
-  ];
+  const OptionsProperties = formatRealstateDataPropertyTax(realstateData, prediales);
 
   const Optionscurrency = [
     { value: "MXN", label: "MXN" },

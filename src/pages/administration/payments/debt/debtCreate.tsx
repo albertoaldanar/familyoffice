@@ -8,21 +8,44 @@ import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import dayjs, { Dayjs } from "dayjs";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import { calculateTotalWithPercentage, calculateDifference } from "../paymentUtils";
+import { realstateData } from "../../../investments/realState/realStateData";
+import { otherWealthData } from "../../../governance/wealthStructure/wealthStructureData";
+import { formatRealstateData, formatVehicleData } from "../paymentUtils";
 
 export default function DebtCreate(props) {
-  const [debtType, setDebtType] = useState("");
   const [debtSource, setDebtSource] = useState({
     value: "",
     label: "",
   });
 
+  const [debtType, setDebtType] = useState({
+    value: "",
+    label: "",
+  });
+
+  const [selectedProperty, setSelectedProperty] = useState({
+    value: "",
+    label: "",
+  });
+
+  const [selectedVehicle, setSelectedVehicle] = useState({
+    value: "",
+    label: "",
+  });
+
+  const OptionsVehicles = formatVehicleData(otherWealthData.vehicles)
+
   const [concept, setConcept] = useState("");
   const [payTo, setPayTo] = useState("");
   const [amount, setAmount] = useState("");
+  const [otherType, setOtherType] = useState("");
   const [interestRate, setInterestRate] = useState("");
   const [alreadyPayed, setAlreadyPayed] = useState("");
   const [amountToPay, setAmountToPay] = useState("");
+  const [notProperyMember, setNotPropertyMember] = useState("");
+  const [notProperyMemberAddress, setNotPropertyMemberAddress] = useState("");
+  const [isWealthStructureMember, setIsWealthStructureMember] = useState(true);
+  const [notVehicleMember, setNotVehicleMember] = useState("");
   const [vigenciaDel, setVigenciaDel] = useState<Dayjs | null>(dayjs(""));
   const [vigenciaAl, setVigenciaAl] = useState<Dayjs | null>(dayjs(""));
   const [paymentFrequency, setPaymentFrequency] = useState({
@@ -41,6 +64,14 @@ export default function DebtCreate(props) {
     { value: "MensualNR", label: "Mensual no recurrente" },
   ];
 
+  const OptionsLoan = [
+    { value: "Inmobiliario", label: "Prestamo Hipotecario" },
+    { value: "Vehicular", label: "Prestamo Vehicular" },
+    { value: "Otro", label: "Otro" },
+  ];
+
+  const OptionsProperties = formatRealstateData(realstateData);
+
   const Optionscurrency = [
     { value: "MXN", label: "MXN" },
     { value: "USD", label: "USD" },
@@ -52,12 +83,153 @@ export default function DebtCreate(props) {
     { value: "Prestamo de tercero", label: "Prestamo de tercero" },
   ];
 
-  // const amountToPay = calculateDifference(calculateTotalWithPercentage(amount, interestRate), alreadyPayed );
+  const handleTypeOfDebt = () => {
+    if (debtType.value === "Inmobiliario") {
+      return (
+        <Row className="mb-3">
+          <Form.Group
+            as={Col}
+            md="4"
+            controlId="validationCustom04"
+            className="form-group"
+          >
+            <Form.Label>Inmueble asegurado</Form.Label>
+            <div style={{ marginTop: 20 }}>
+              <Form.Group className="mb-3 form-group">
+                <Form.Check
+                  required
+                  checked={isWealthStructureMember}
+                  style={{ fontSize: 12, color: "gray", marginTop: -10 }}
+                  onChange={(e) => setIsWealthStructureMember(e.target.checked)}
+                  label="El inmueble esta registrado en mi estructura patrimonial"
+                  feedback="You must agree before submitting."
+                  feedbackType="invalid"
+                />
+              </Form.Group>
+            </div>
+            {isWealthStructureMember ? (
+              <Select
+                options={OptionsProperties}
+                classNamePrefix="Select2"
+                className="multi-select"
+                onChange={(value) => setSelectedProperty(value)}
+                placeholder="Año"
+                value={selectedProperty}
+              />
+            ) : (
+              <>
+                <InputGroup hasValidation>
+                  <Form.Control
+                    type="numeric"
+                    placeholder="Nombre de inmueble"
+                    aria-describedby="inputGroupPrepend"
+                    required
+                    onChange={(text) => setNotPropertyMember(text.target.value)}
+                    value={notProperyMember}
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    Favor de añadir el monto del pago
+                  </Form.Control.Feedback>
+                </InputGroup>
+
+                <InputGroup hasValidation style={{ marginTop: 10 }}>
+                  <Form.Control
+                    type="numeric"
+                    placeholder="Dirección de propiedad"
+                    aria-describedby="inputGroupPrepend"
+                    required
+                    onChange={(text) =>
+                      setNotPropertyMemberAddress(text.target.value)
+                    }
+                    value={notProperyMemberAddress}
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    Favor de añadir el monto del pago
+                  </Form.Control.Feedback>
+                </InputGroup>
+              </>
+            )}
+          </Form.Group>
+        </Row>
+      );
+    } else if (debtType.value === "Vehicular") {
+      return (
+        <Row className="mb-3">
+          <Form.Group
+            as={Col}
+            md="4"
+            controlId="validationCustom04"
+            className="form-group"
+          >
+            <Form.Label>Vehiculo asegurado</Form.Label>
+            <div style={{ marginTop: 20 }}>
+              <Form.Group className="mb-3 form-group">
+                <Form.Check
+                  required
+                  checked={isWealthStructureMember}
+                  style={{ fontSize: 12, color: "gray", marginTop: -10 }}
+                  onChange={(e) => setIsWealthStructureMember(e.target.checked)}
+                  label="El vehiculo esta registrado en mi estructura patrimonial"
+                  feedback="You must agree before submitting."
+                  feedbackType="invalid"
+                />
+              </Form.Group>
+            </div>
+            {isWealthStructureMember ? (
+              <Select
+                options={OptionsVehicles}
+                classNamePrefix="Select2"
+                className="multi-select"
+                onChange={(value) => setSelectedVehicle(value)}
+                placeholder="Año"
+                value={selectedVehicle}
+              />
+            ) : (
+              <>
+                <InputGroup hasValidation>
+                  <Form.Control
+                    type="numeric"
+                    placeholder="Nombre del Vehiculo"
+                    aria-describedby="inputGroupPrepend"
+                    required
+                    onChange={(text) => setNotVehicleMember(text.target.value)}
+                    value={notVehicleMember}
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    Favor de añadir el monto del pago
+                  </Form.Control.Feedback>
+                </InputGroup>
+              </>
+            )}
+          </Form.Group>
+        </Row>
+      );
+    }
+
+    return (
+      <Form.Group
+        as={Col}
+        md="10"
+        controlId="validationCustom01"
+        className="form-group"
+      >
+        <Form.Label>Tipo de prestamo</Form.Label>
+        <Form.Control
+          type="numeric"
+          placeholder=""
+          aria-describedby="inputGroupPrepend"
+          required
+          onChange={(text) => setOtherType(text.target.value)}
+          value={otherType}
+        />
+      </Form.Group>
+    )
+  };
 
   return (
     <Fragment>
       <Row>
-        <Card style={{ padding: 30, marginTop: 50 }}>
+        <Card style={{ padding: 30, marginTop: 20 }}>
           <Card.Title style={{ marginBottom: 35 }}>
             Nuevo Registro de Deuda
           </Card.Title>
@@ -79,6 +251,7 @@ export default function DebtCreate(props) {
                   value={debtSource}
                 />
               </Form.Group>
+
               <Form.Group
                 as={Col}
                 md="4"
@@ -86,20 +259,19 @@ export default function DebtCreate(props) {
                 className="form-group"
               >
                 <Form.Label>Tipo de prestamo</Form.Label>
-                <InputGroup>
-                  <Form.Control
-                    type="numeric"
-                    placeholder="Ej. (Hipotecario, vehicular) etc."
-                    aria-describedby="inputGroupPrepend"
-                    required
-                    onChange={(text) => setDebtType(text.target.value)}
-                    value={debtType}
-                  />
-                  <Form.Control.Feedback type="invalid">
-                    Favor de añadir el monto del pago
-                  </Form.Control.Feedback>
-                </InputGroup>
+                <Select
+                  options={OptionsLoan}
+                  classNamePrefix="Select2"
+                  className="multi-select"
+                  onChange={(value) => setDebtType(value)}
+                  placeholder=""
+                  value={debtType}
+                />
               </Form.Group>
+            </Row>
+
+            <Row style={{ marginTop: 20 }}>
+              {handleTypeOfDebt()}
             </Row>
 
             <Row style={{ marginTop: 20 }}>

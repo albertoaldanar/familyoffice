@@ -3,12 +3,8 @@ import { Badge, Button, Card, Col, Table, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { taxes } from "./taxesData";
 import { taxesRules, daysUntilRIFDeclarationDeadline, daysToAnualTax, closestReportDayForMultipleReports } from "./taxesUtils";
-//@ts-ignore
-import Pageheader from "../../../layouts/pageheader/pageheader";
 
 export default function Taxes() {
-  const breadcrumbs = ["Administración", "Fiscal"];
-
   const validateDaysToReport = (tax) => {
     let reportFrequence = taxesRules.find(taxRule => tax.regimenFiscal === taxRule.regimen).declaracion;
     const today = new Date();
@@ -75,7 +71,7 @@ export default function Taxes() {
   return (
     <Fragment>
       <Row>
-        <Card style={{ minHeight: 400, paddingLeft: 20, paddingRight: 20, marginTop: 20 }}>
+        <Card style={{ minHeight: 500, paddingLeft: 20, paddingRight: 20, marginTop: 20 }}>
           <div
             style={{
               justifyContent: "space-between",

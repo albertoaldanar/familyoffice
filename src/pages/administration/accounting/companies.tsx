@@ -48,7 +48,7 @@ export default function Companies() {
 
   const renderTable = () => {
     return (
-      <Col xl={12}>
+      <Col xl={12} style={{marginTop: 20}}>
         <Card>
           <div className="table-responsive">
             <Table className="table border text-nowrap text-md-nowrap mb-0">
@@ -92,13 +92,14 @@ export default function Companies() {
   return (
     <Fragment>
       <Row>
-        <Card style={{minHeight: 400, marginTop: 20}}>
+        <Card style={{minHeight: 500, marginTop: 20}}>
           <div
             style={{
               justifyContent: "space-between",
               display: "flex",
               flexDirection: "row",
               marginBottom: 15,
+              marginTop: 10
             }}
           >
             <Card.Title style={{ marginLeft: 15, marginTop: 30 }}>
@@ -120,8 +121,8 @@ export default function Companies() {
               </Link>
             </Button>
           </div>
-{/* 
-          {renderCompanies()} */}
+
+          {/* {renderCompanies()} */}
           
           {renderTable()}
 

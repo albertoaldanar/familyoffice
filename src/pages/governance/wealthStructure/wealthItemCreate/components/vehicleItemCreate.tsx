@@ -4,33 +4,34 @@ import Select from "react-select";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+//@ts-ignore
+import download from '../../../assets/images/familyOffice/download.png';
 import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import dayjs, { Dayjs } from "dayjs";
+//@ts-ignore
+import FileUpload from "../../../../administration/accounting/components/fileUpload";
+
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
-export default function LeasingAndRentsCreate(props) {
-  const [leasingType, setleasingType] = useState("");
-  const [concept, setConcept] = useState("");
-  const [payTo, setPayTo] = useState("");
-  const [amount, setAmount] = useState("");
-  const [vigenciaDel, setVigenciaDel] = useState<Dayjs | null>(dayjs(""));
-  const [vigenciaAl, setVigenciaAl] = useState<Dayjs | null>(dayjs(""));
-  const [paymentFrequency, setPaymentFrequency] = useState({
-    value: "",
-    label: "",
-  });
+export default function VehicleItemCreate(props) {
+  const [propertyName, setPropertyName] = useState("");
+  const [location, setLocation] = useState("");
+  const [city, setCity] = useState("");
+  const [percentage, setPercentage] = useState("");
+  const [todayValue, setTodayValue] = useState("");
+  const [mt2, setMt2] = useState("");
+  const [foundationDate, setfoundationDate] = useState<Dayjs | null>(dayjs(""));
 
   const [currency, setCurrency] = useState({
     value: "",
     label: "",
   });
 
-  const OptionsPaymentFrequency = [
-    { value: "Mensual", label: "Mensual" },
-    { value: "Anual", label: "Anual" },
-    { value: "MensualNR", label: "Mensual no recurrente" },
-  ];
+  const [propertyType, setPropertyType] = useState({
+    value: "",
+    label: "",
+  });
 
   const Optionscurrency = [
     { value: "MXN", label: "MXN" },
@@ -38,19 +39,21 @@ export default function LeasingAndRentsCreate(props) {
     { value: "EUR", label: "EUR" },
   ];
 
-  const OptionsMantainanceType = [
-    { value: "Inmobiliario", label: "Mantenimiento Inmobiliario" },
-    { value: "Vehicular", label: "Mantenimiento Vehicular" },
+  const OptionsProperyType = [
+    { value: "Casa", label: "Casa" },
+    { value: "Departamento", label: "Departamento" },
+    { value: "Oficinas", label: "Oficinas" },
+    { value: "Terreno", label: "Terreno" },
   ];
 
   return (
     <Fragment>
-      <Row>
-        <Card style={{ padding: 30, marginTop: 20 }}>
+
+      <Row style={{padding: 20}}>
           <Card.Title style={{ marginBottom: 35 }}>
-            Nuevo Registro de Arrendamiento
+            Nuevo Registro de vehiculo
           </Card.Title>
-          <Form noValidate validated={false} onSubmit={() => {}}>
+          {/* <Form noValidate validated={false} onSubmit={() => {}}> */}
             <Row style={{ marginBottom: 10 }}>
               <Form.Group
                 as={Col}
@@ -58,78 +61,88 @@ export default function LeasingAndRentsCreate(props) {
                 controlId="validationCustom01"
                 className="form-group"
               >
-                <Form.Label>Tipo de arrendamiento</Form.Label>
-                <InputGroup hasValidation style={{ marginTop: 10 }}>
+                <Form.Label>Nombre de propiedad</Form.Label>
+                <InputGroup hasValidation>
                   <Form.Control
                     type="numeric"
-                    placeholder="Ej. (Inmobiliario, vehicular) etc."
+                    placeholder=""
                     aria-describedby="inputGroupPrepend"
                     required
-                    onChange={(text) => setleasingType(text.target.value)}
-                    value={leasingType}
+                    onChange={(text) => setPropertyName(text.target.value)}
+                    value={propertyName}
                   />
                   <Form.Control.Feedback type="invalid">
                     Favor de añadir el monto del pago
                   </Form.Control.Feedback>
                 </InputGroup>
               </Form.Group>
-            </Row>
-
-            <Row style={{ marginTop: 20 }}>
               <Form.Group
                 as={Col}
-                md="3"
+                md="4"
                 controlId="validationCustom01"
                 className="form-group"
               >
-                <Form.Label>Concepto</Form.Label>
+                <Form.Label>Direccion de propiedad</Form.Label>
                 <Form.Control
                   type="numeric"
                   placeholder=""
                   aria-describedby="inputGroupPrepend"
                   required
-                  onChange={(text) => setConcept(text.target.value)}
-                  value={concept}
+                  onChange={(text) => setLocation(text.target.value)}
+                  value={location}
                 />
               </Form.Group>
 
               <Form.Group
                 as={Col}
-                md="3"
+                md="4"
                 controlId="validationCustom01"
                 className="form-group"
               >
-                <Form.Label>Arrendador</Form.Label>
+                <Form.Label>Ciudad</Form.Label>
                 <Form.Control
                   type="numeric"
                   placeholder=""
                   aria-describedby="inputGroupPrepend"
                   required
-                  onChange={(text) => setPayTo(text.target.value)}
-                  value={payTo}
+                  onChange={(text) => setCity(text.target.value)}
+                  value={city}
                 />
               </Form.Group>
             </Row>
+
             <Row style={{ marginTop: 20 }}>
               <Form.Group
                 as={Col}
-                md="3"
-                controlId="validationCustom01"
+                md="4"
+                controlId="validationCustomUsername"
                 className="form-group"
               >
-                <Form.Label>Frecuencia de pago</Form.Label>
-                <Select
-                  options={OptionsPaymentFrequency}
-                  classNamePrefix="Select2"
-                  className="multi-select"
-                  onChange={(value) => setPaymentFrequency(value)}
-                  placeholder=""
-                  value={paymentFrequency}
-                />
+                <Form.Label>Valuación actual</Form.Label>
+                <InputGroup hasValidation>
+                  <InputGroup.Text id="inputGroupPrepend-1">$</InputGroup.Text>
+                  <Form.Control
+                    type="numeric"
+                    aria-describedby="inputGroupPrepend"
+                    required
+                    onChange={(text) => setTodayValue(text.target.value)}
+                    value={todayValue}
+                  />
+                  <InputGroup.Text id="inputGroupPrepend-2">
+                    {currency.value}
+                  </InputGroup.Text>
+                  <Form.Control.Feedback type="invalid">
+                    Favor de añadir el monto del pago
+                  </Form.Control.Feedback>
+                </InputGroup>
+                <p style={{ marginTop: 7, fontSize: 11, color: "gray" }}>
+                  Una valuación acertada y reciente es importante para un
+                  calculo mas acertado en el total del valor patrimonial
+                </p>
               </Form.Group>
               <Form.Group
                 as={Col}
-                md="3"
+                md="4"
                 controlId="validationCustom01"
                 className="form-group"
               >
@@ -143,55 +156,46 @@ export default function LeasingAndRentsCreate(props) {
                   value={currency}
                 />
               </Form.Group>
+
               <Form.Group
                 as={Col}
                 md="4"
                 controlId="validationCustomUsername"
                 className="form-group"
               >
-                <Form.Label>Monto</Form.Label>
+                <Form.Label>Porcentaje de propiedad</Form.Label>
                 <InputGroup hasValidation>
-                  <InputGroup.Text id="inputGroupPrepend">$</InputGroup.Text>
                   <Form.Control
                     type="numeric"
-                    placeholder="Monto"
-                    aria-describedby="inputGroupPrepend"
+                    aria-describedby="inputGroupPrepend-3"
                     required
-                    onChange={(text) => setAmount(text.target.value)}
-                    value={amount}
+                    onChange={(text) => setPercentage(text.target.value)}
+                    value={percentage}
                   />
-                  <InputGroup.Text id="inputGroupPrepend">
-                    {currency.value}
-                  </InputGroup.Text>
+                  <InputGroup.Text id="inputGroupPrepend">%</InputGroup.Text>
                   <Form.Control.Feedback type="invalid">
                     Favor de añadir el monto del pago
                   </Form.Control.Feedback>
                 </InputGroup>
-                <p style={{ marginTop: 7, fontSize: 11, color: "gray" }}>
-                  Si los pagos no tendran un monto fijo, este campo se puede
-                  dejar en blanco y se asignara un monto a cada registro de pago
-                </p>
               </Form.Group>
             </Row>
 
             <Row style={{ marginTop: 20 }}>
               <Form.Group
-                as={Col}
-                md="4"
-                controlId="validationCustom01"
-                className="form-group"
-              >
-                <Form.Label>Plazo del</Form.Label>
-                <LocalizationProvider dateAdapter={AdapterDayjs}>
-                  <DemoContainer components={["DatePicker"]}>
-                    <DatePicker
-                      format="DD/MM/YYYY"
-                      onChange={(value) => setVigenciaDel(value)}
-                      value={dayjs(vigenciaDel)}
-                      defaultValue={dayjs(vigenciaDel)}
-                    />
-                  </DemoContainer>
-                </LocalizationProvider>
+                  as={Col}
+                  md="4"
+                  controlId="validationCustom01"
+                  className="form-group"
+                >
+                <Form.Label>Tipo de propiedad</Form.Label>
+                <Select
+                  options={OptionsProperyType}
+                  classNamePrefix="Select2"
+                  className="multi-select"
+                  onChange={(value) => setPropertyType(value)}
+                  placeholder=""
+                  value={propertyType}
+                />
               </Form.Group>
 
               <Form.Group
@@ -200,32 +204,35 @@ export default function LeasingAndRentsCreate(props) {
                 controlId="validationCustom01"
                 className="form-group"
               >
-                <Form.Label>Al</Form.Label>
-                <LocalizationProvider dateAdapter={AdapterDayjs}>
-                  <DemoContainer components={["DatePicker"]}>
-                    <DatePicker
-                      format="DD/MM/YYYY"
-                      onChange={(value) => setVigenciaAl(value)}
-                      value={dayjs(vigenciaAl)}
-                      defaultValue={dayjs(vigenciaAl)}
-                    />
-                  </DemoContainer>
-                </LocalizationProvider>
+                <Form.Label>Metros cuadrados</Form.Label>
+                <InputGroup hasValidation>
+                  <Form.Control
+                    type="numeric"
+                    aria-describedby="inputGroupPrepend"
+                    required
+                    onChange={(text) => setMt2(text.target.value)}
+                    value={mt2}
+                  />
+                  <InputGroup.Text id="inputGroupPrepend-2">
+                    Mt2
+                  </InputGroup.Text>
+                </InputGroup>
               </Form.Group>
             </Row>
 
             <Row style={{ marginTop: 20 }}>
               <Form.Group as={Col} md="6" className="form-group">
                 <Form.Label className="form-label my-3">
-                  Contrato de arrendamiento
+                  Escrituras
                 </Form.Label>
+                  <FileUpload />
+              </Form.Group>
 
-                <Form.Control
-                  type="file"
-                  className="border-right-0 browse-file"
-                  placeholder="Cargar poliza"
-                  readOnly
-                />
+              <Form.Group as={Col} md="6" className="form-group">
+                <Form.Label className="form-label my-3">
+                  Imagenes de propieda
+                </Form.Label>
+                <FileUpload />
               </Form.Group>
             </Row>
             <div
@@ -241,8 +248,7 @@ export default function LeasingAndRentsCreate(props) {
                 Crear
               </Button>
             </div>
-          </Form>
-        </Card>
+          {/* </Form> */}
       </Row>
     </Fragment>
   );
