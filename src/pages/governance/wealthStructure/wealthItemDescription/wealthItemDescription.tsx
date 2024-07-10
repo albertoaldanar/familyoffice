@@ -5,6 +5,7 @@ import { companies } from "../../../administration/accounting/accountingData";
 import NotFoundSearch from "../../../shared/notFoundSearch";
 import CompanyItem from "./components/companyItem";
 import RealStateItem from "./components/realStateItem";
+import VehicleItem from "./components/vehicleItem";
 
 export default function WealthDescription() {
   const params = useParams();
@@ -17,6 +18,9 @@ export default function WealthDescription() {
       break;
     case "realState":
       componentToRender = <RealStateItem id={id} />;
+      break;
+    case "vehicle":
+      componentToRender = <VehicleItem id={id} />;
       break;
     default:
       componentToRender = <NotFoundSearch />;

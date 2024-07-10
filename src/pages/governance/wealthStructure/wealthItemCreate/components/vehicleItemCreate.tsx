@@ -15,20 +15,14 @@ import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
 export default function VehicleItemCreate(props) {
-  const [propertyName, setPropertyName] = useState("");
-  const [location, setLocation] = useState("");
-  const [city, setCity] = useState("");
-  const [percentage, setPercentage] = useState("");
-  const [todayValue, setTodayValue] = useState("");
-  const [mt2, setMt2] = useState("");
-  const [foundationDate, setfoundationDate] = useState<Dayjs | null>(dayjs(""));
-
+  const [model, setModel] = useState("");
+  const [brand, setBrand] = useState("");
+  const [year, setYear] = useState("");
+  const [color, setColor] = useState("");
+  const [platesNumber, setPlatesNumber] = useState("");
+  const [price, setPrice] = useState("");
+  const [invoice, setInvoice] = useState("");
   const [currency, setCurrency] = useState({
-    value: "",
-    label: "",
-  });
-
-  const [propertyType, setPropertyType] = useState({
     value: "",
     label: "",
   });
@@ -39,40 +33,31 @@ export default function VehicleItemCreate(props) {
     { value: "EUR", label: "EUR" },
   ];
 
-  const OptionsProperyType = [
-    { value: "Casa", label: "Casa" },
-    { value: "Departamento", label: "Departamento" },
-    { value: "Oficinas", label: "Oficinas" },
-    { value: "Terreno", label: "Terreno" },
-  ];
-
   return (
     <Fragment>
-
       <Row style={{padding: 20}}>
           <Card.Title style={{ marginBottom: 35 }}>
-            Nuevo Registro de vehiculo
+            Nuevo Registro de Vehículo
           </Card.Title>
-          {/* <Form noValidate validated={false} onSubmit={() => {}}> */}
-            <Row style={{ marginBottom: 10 }}>
+          <Row style={{ marginBottom: 10 }}>
               <Form.Group
                 as={Col}
                 md="4"
                 controlId="validationCustom01"
                 className="form-group"
               >
-                <Form.Label>Nombre de propiedad</Form.Label>
+                <Form.Label>Modelo</Form.Label>
                 <InputGroup hasValidation>
                   <Form.Control
-                    type="numeric"
+                    type="text"
                     placeholder=""
                     aria-describedby="inputGroupPrepend"
                     required
-                    onChange={(text) => setPropertyName(text.target.value)}
-                    value={propertyName}
+                    onChange={(text) => setModel(text.target.value)}
+                    value={model}
                   />
                   <Form.Control.Feedback type="invalid">
-                    Favor de añadir el monto del pago
+                    Favor de añadir el modelo
                   </Form.Control.Feedback>
                 </InputGroup>
               </Form.Group>
@@ -82,14 +67,14 @@ export default function VehicleItemCreate(props) {
                 controlId="validationCustom01"
                 className="form-group"
               >
-                <Form.Label>Direccion de propiedad</Form.Label>
+                <Form.Label>Marca</Form.Label>
                 <Form.Control
-                  type="numeric"
+                  type="text"
                   placeholder=""
                   aria-describedby="inputGroupPrepend"
                   required
-                  onChange={(text) => setLocation(text.target.value)}
-                  value={location}
+                  onChange={(text) => setBrand(text.target.value)}
+                  value={brand}
                 />
               </Form.Group>
 
@@ -99,50 +84,21 @@ export default function VehicleItemCreate(props) {
                 controlId="validationCustom01"
                 className="form-group"
               >
-                <Form.Label>Ciudad</Form.Label>
+                <Form.Label>Año</Form.Label>
                 <Form.Control
-                  type="numeric"
+                  type="text"
                   placeholder=""
                   aria-describedby="inputGroupPrepend"
                   required
-                  onChange={(text) => setCity(text.target.value)}
-                  value={city}
+                  onChange={(text) => setYear(text.target.value)}
+                  value={year}
                 />
               </Form.Group>
             </Row>
-
             <Row style={{ marginTop: 20 }}>
-              <Form.Group
+            <Form.Group
                 as={Col}
-                md="4"
-                controlId="validationCustomUsername"
-                className="form-group"
-              >
-                <Form.Label>Valuación actual</Form.Label>
-                <InputGroup hasValidation>
-                  <InputGroup.Text id="inputGroupPrepend-1">$</InputGroup.Text>
-                  <Form.Control
-                    type="numeric"
-                    aria-describedby="inputGroupPrepend"
-                    required
-                    onChange={(text) => setTodayValue(text.target.value)}
-                    value={todayValue}
-                  />
-                  <InputGroup.Text id="inputGroupPrepend-2">
-                    {currency.value}
-                  </InputGroup.Text>
-                  <Form.Control.Feedback type="invalid">
-                    Favor de añadir el monto del pago
-                  </Form.Control.Feedback>
-                </InputGroup>
-                <p style={{ marginTop: 7, fontSize: 11, color: "gray" }}>
-                  Una valuación acertada y reciente es importante para un
-                  calculo mas acertado en el total del valor patrimonial
-                </p>
-              </Form.Group>
-              <Form.Group
-                as={Col}
-                md="4"
+                md="6"
                 controlId="validationCustom01"
                 className="form-group"
               >
@@ -159,20 +115,23 @@ export default function VehicleItemCreate(props) {
 
               <Form.Group
                 as={Col}
-                md="4"
+                md="6"
                 controlId="validationCustomUsername"
                 className="form-group"
               >
-                <Form.Label>Porcentaje de propiedad</Form.Label>
+                <Form.Label>Valor de compra</Form.Label>
                 <InputGroup hasValidation>
+                  <InputGroup.Text id="inputGroupPrepend-1">$</InputGroup.Text>
                   <Form.Control
                     type="numeric"
-                    aria-describedby="inputGroupPrepend-3"
+                    aria-describedby="inputGroupPrepend"
                     required
-                    onChange={(text) => setPercentage(text.target.value)}
-                    value={percentage}
+                    onChange={(text) => setPrice(text.target.value)}
+                    value={price}
                   />
-                  <InputGroup.Text id="inputGroupPrepend">%</InputGroup.Text>
+                  <InputGroup.Text id="inputGroupPrepend-2">
+                    {currency.value}
+                  </InputGroup.Text>
                   <Form.Control.Feedback type="invalid">
                     Favor de añadir el monto del pago
                   </Form.Control.Feedback>
@@ -180,61 +139,67 @@ export default function VehicleItemCreate(props) {
               </Form.Group>
             </Row>
 
-            <Row style={{ marginTop: 20 }}>
+            <Row style={{ marginTop: 40 }}>
               <Form.Group
-                  as={Col}
-                  md="4"
-                  controlId="validationCustom01"
-                  className="form-group"
-                >
-                <Form.Label>Tipo de propiedad</Form.Label>
-                <Select
-                  options={OptionsProperyType}
-                  classNamePrefix="Select2"
-                  className="multi-select"
-                  onChange={(value) => setPropertyType(value)}
-                  placeholder=""
-                  value={propertyType}
-                />
+                as={Col}
+                md="6"
+                controlId="validationCustomUsername"
+                className="form-group"
+              >
+                <Form.Label>Color</Form.Label>
+                <InputGroup hasValidation>
+                  <Form.Control
+                    type="text"
+                    aria-describedby="inputGroupPrepend"
+                    required
+                    onChange={(text) => setColor(text.target.value)}
+                    value={color}
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    Favor de añadir el color
+                  </Form.Control.Feedback>
+                </InputGroup>
               </Form.Group>
 
               <Form.Group
                 as={Col}
-                md="4"
-                controlId="validationCustom01"
+                md="6"
+                controlId="validationCustomUsername"
                 className="form-group"
               >
-                <Form.Label>Metros cuadrados</Form.Label>
+                <Form.Label>Número de Placas</Form.Label>
                 <InputGroup hasValidation>
                   <Form.Control
-                    type="numeric"
+                    type="text"
                     aria-describedby="inputGroupPrepend"
                     required
-                    onChange={(text) => setMt2(text.target.value)}
-                    value={mt2}
+                    onChange={(text) => setPlatesNumber(text.target.value)}
+                    value={platesNumber}
                   />
-                  <InputGroup.Text id="inputGroupPrepend-2">
-                    Mt2
-                  </InputGroup.Text>
+                  <Form.Control.Feedback type="invalid">
+                    Favor de añadir el número de placas
+                  </Form.Control.Feedback>
                 </InputGroup>
               </Form.Group>
             </Row>
 
+
             <Row style={{ marginTop: 20 }}>
               <Form.Group as={Col} md="6" className="form-group">
                 <Form.Label className="form-label my-3">
-                  Escrituras
+                  Factura
                 </Form.Label>
                   <FileUpload />
               </Form.Group>
 
               <Form.Group as={Col} md="6" className="form-group">
                 <Form.Label className="form-label my-3">
-                  Imagenes de propieda
+                  Tarjeta de circulación
                 </Form.Label>
-                <FileUpload />
+                  <FileUpload />
               </Form.Group>
             </Row>
+
             <div
               style={{
                 display: "flex",
@@ -248,7 +213,6 @@ export default function VehicleItemCreate(props) {
                 Crear
               </Button>
             </div>
-          {/* </Form> */}
       </Row>
     </Fragment>
   );

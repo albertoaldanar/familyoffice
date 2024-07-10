@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { arrendamientos } from "../paymentsData";
 import { isDateDefeated } from "../paymentUtils";
+import { nextPaymentFormatDate } from "../paymentUtils";
 
 export default function LeasingAndRentPaymentDescription(props) {
   const breadcrumbs = ["Administración", "Pagos", "Seguro"];
@@ -113,9 +114,8 @@ export default function LeasingAndRentPaymentDescription(props) {
 
   return (
     <Fragment>
-      <Pageheader items={breadcrumbs} />
       <Row>
-        <Card style={{ padding: 30 }}>
+        <Card style={{ padding: 30, marginTop: 20 }}>
           <h4 className="mb-3 fw-semibold">
             Arrendamiento {leasing.tipo} - {leasing.concepto}
           </h4>
@@ -158,6 +158,24 @@ export default function LeasingAndRentPaymentDescription(props) {
                 <dd>{leasing.frecuenciaDePago}</dd>
               </dl>
             </div>
+
+            <dl style={{ marginTop: 15, marginLeft: 150 }}>
+              <dt>Estatus de pago</dt>
+              <dd>
+                {nextPaymentFormatDate(leasing.pagos) === "Vencido" ? (
+                  <div style={{ marginTop: 2 }}>
+                    <Badge
+                      bg="danger-transparent"
+                      className={`me-2 my-1 Primary`}
+                    >
+                      Vencido
+                    </Badge>
+                  </div>
+                ) : (
+                  nextPaymentFormatDate(leasing.pagos)
+                )}
+              </dd>
+            </dl>
           </div>
           <dl className="product-gallery-data1">
             <div

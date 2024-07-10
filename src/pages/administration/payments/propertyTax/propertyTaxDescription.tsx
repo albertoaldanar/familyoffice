@@ -6,12 +6,15 @@ import { Link } from "react-router-dom";
 import { prediales } from "../paymentsData";
 import { useParams } from "react-router-dom";
 import { isDateDefeated } from "../paymentUtils";
+import { nextPaymentFormatDate } from "../paymentUtils";
 
 export default function PropertTaxDescription(props) {
   const breadcrumbs = ["Administración", "Pagos", "Seguro"];
 
   const params = useParams();
-  const taxProperty = prediales.find(predial => predial.id === Number(params.id));
+  const taxProperty = prediales.find(
+    (predial) => predial.id === Number(params.id)
+  );
 
   function addEllipsis(str: string): string {
     if (str.length > 20) {
@@ -22,41 +25,32 @@ export default function PropertTaxDescription(props) {
   }
 
   const renderStatus = (isPayed: boolean, limitePago: string) => {
-    if(!isPayed){
-      if(isDateDefeated(limitePago)){
+    if (!isPayed) {
+      if (isDateDefeated(limitePago)) {
         return (
           <div>
-            <Badge
-              bg="danger-transparent"
-              className={`me-2 my-1 Primary`}
-            >
+            <Badge bg="danger-transparent" className={`me-2 my-1 Primary`}>
               Vencido
             </Badge>
           </div>
-        )
+        );
       } else {
         return (
-          <Badge
-            bg="info-transparent"
-            className={`me-2 my-1 Primary`}
-          >
+          <Badge bg="info-transparent" className={`me-2 my-1 Primary`}>
             Por pagar
           </Badge>
-        )
+        );
       }
     }
 
     return (
       <div>
-        <Badge
-          bg="secondary-transparent"
-          className={`me-2 my-1 Primary`}
-        >
+        <Badge bg="secondary-transparent" className={`me-2 my-1 Primary`}>
           Pagado
         </Badge>
       </div>
-    )
-  }
+    );
+  };
 
   const renderInsurancePayments = () => {
     return (
@@ -81,10 +75,16 @@ export default function PropertTaxDescription(props) {
                 <td>{idx.vigenciaDel}</td>
                 <td>{idx.vigenciaAl}</td>
                 <td>{idx.limitePago}</td>
-                <td>${idx.monto} {taxProperty.moneda}</td>
+                <td>
+                  ${idx.monto} {taxProperty.moneda}
+                </td>
                 <td>
                   {/*// @ts-ignore */}
-                  {renderStatus((idx.fechaDePago && (idx.comprobantePago || idx.facturaOrecibo)), idx.limitePago)}
+                  {renderStatus(
+                    idx.fechaDePago &&
+                      (idx.comprobantePago || idx.facturaOrecibo),
+                    idx.limitePago
+                  )}
                 </td>
                 <td
                   style={{
@@ -102,8 +102,9 @@ export default function PropertTaxDescription(props) {
                   }}
                 >
                   {/*// @ts-ignore */}
-                  <Link state={{name: 'alberto'}} to={`${import.meta.env.BASE_URL}administration/propertyTaxPayment/${taxProperty.id}/payment/${idx.id}`}>
-                  Ver
+                  <Link state={{ name: "alberto" }} to={`${import.meta.env.BASE_URL}administration/propertyTaxPayment/${taxProperty.id}/payment/${idx.id}`}
+                  >
+                    Ver
                   </Link>
                 </td>
               </tr>
@@ -116,24 +117,50 @@ export default function PropertTaxDescription(props) {
 
   return (
     <Fragment>
-      <Pageheader items={breadcrumbs} />
       <Row>
-        <Card style={{ padding: 30 }}>
-          <h4 className="mb-3 fw-semibold">
-            Predial - {taxProperty.nombre}
-          </h4>
-          <dl style={{ marginTop: 15 }} className="product-gallery-data1">
-            <dt>Dirección de propiedad</dt>
-            <dd>{taxProperty.direccion}</dd>
-          </dl>
+        <Card style={{ padding: 30, marginTop: 20, minHeight: 550 }}>
+          <h4 className="mb-3 fw-semibold">Predial - {taxProperty.nombre}</h4>
+          <div style={{display: 'flex', flexDirection: 'row'}}> 
+
+            <div>
+              <dl style={{ marginTop: 15 }} className="product-gallery-data1">
+                <dt>Dirección de propiedad</dt>
+                <dd>{taxProperty.direccion}</dd>
+              </dl>
+              <dl className="product-gallery-data1">
+                <dt>Vigencia</dt>
+                <dd>
+                  Del {taxProperty.vigenciaDel} al {taxProperty.vigenciaAl}{" "}
+                </dd>
+              </dl>
+            </div>
+
+            <dl style={{ marginTop: 15, marginLeft: 60 }}>
+              <dt>Estatus de pago</dt>
+              <dd>
+                {nextPaymentFormatDate(taxProperty.pagos) === "Vencido" ? (
+                  <div style={{ marginTop: 2 }}>
+                    <Badge
+                      bg="danger-transparent"
+                      className={`me-2 my-1 Primary`}
+                    >
+                      Vencido
+                    </Badge>
+                  </div>
+                ) : (
+                  nextPaymentFormatDate(taxProperty.pagos)
+                )}
+              </dd>
+            </dl>
+          </div>
           <dl className="product-gallery-data1">
-            <dt>Vigencia</dt>
-            <dd>
-              Del {taxProperty.vigenciaDel} al {taxProperty.vigenciaAl}{" "}
-            </dd>
-          </dl>
-          <dl className="product-gallery-data1">
-            <div style={{display: 'flex', justifyContent: 'space-between', flexDirection: 'row'}}>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                flexDirection: "row",
+              }}
+            >
               <dt>Registro de pagos</dt>
               <Button
                 style={{
@@ -143,10 +170,10 @@ export default function PropertTaxDescription(props) {
                 size="sm"
                 className=" mb-1"
               >
-                  {/*// @ts-ignore */}
-                  <Link style={{color: 'white'}} to={`${import.meta.env.BASE_URL}administration/propertyTaxNewPayment/${taxProperty.id}`}>
-                    + Añadir pago
-                  </Link>
+                {/*// @ts-ignore */}
+                <Link style={{ color: "white" }} to={`${import.meta.env.BASE_URL}administration/propertyTaxNewPayment/${taxProperty.id}`}>
+                  + Añadir pago
+                </Link>
               </Button>
             </div>
             {renderInsurancePayments()}

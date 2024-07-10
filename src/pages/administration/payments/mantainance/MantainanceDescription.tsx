@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { mantenimientos } from "../paymentsData";
 import { useParams } from "react-router-dom";
 import { isDateDefeated } from "../paymentUtils";
+import { nextPaymentFormatDate } from "../paymentUtils";
 
 export default function MantainanceDescription(props) {
   const breadcrumbs = ["Administración", "Pagos", "Seguro"];
@@ -113,9 +114,8 @@ export default function MantainanceDescription(props) {
 
   return (
     <Fragment>
-      <Pageheader items={breadcrumbs} />
       <Row>
-        <Card style={{ padding: 30 }}>
+        <Card style={{ padding: 30, marginTop: 20 }}>
           <h4 className="mb-3 fw-semibold">
             Mantenimiento {mantainance.tipo} - {mantainance.concepto}
           </h4>
@@ -139,6 +139,25 @@ export default function MantainanceDescription(props) {
                 <dd>{mantainance.frecuenciaDePago}</dd>
               </dl>
             </div>
+
+
+            <dl style={{ marginTop: 15, marginLeft: 150 }}>
+              <dt>Estatus de pago</dt>
+              <dd>
+                {nextPaymentFormatDate(mantainance.pagos) === "Vencido" ? (
+                  <div style={{ marginTop: 2 }}>
+                    <Badge
+                      bg="danger-transparent"
+                      className={`me-2 my-1 Primary`}
+                    >
+                      Vencido
+                    </Badge>
+                  </div>
+                ) : (
+                  nextPaymentFormatDate(mantainance.pagos)
+                )}
+              </dd>
+            </dl>
           </div>
           <dl className="product-gallery-data1">
             <div

@@ -4,6 +4,7 @@ import { createSearchParams } from "react-router-dom";
 import Pageheader from "../../../../layouts/pageheader/pageheader";
 import { Link } from "react-router-dom";
 import { useParams } from 'react-router-dom';
+import { nextPaymentFormatDate } from "../paymentUtils";
 import { seguros } from "../paymentsData";
 import { isDateDefeated } from "../paymentUtils";
 
@@ -135,23 +136,46 @@ export default function InsurancesDescription(props) {
       {
         insurance !== undefined ? (
           <>  
-            <Pageheader items={breadcrumbs} />
               <Row>
-                <Card style={{ padding: 30 }}>
+                <Card style={{ padding: 30, marginTop: 20 }}>
                   <h4 className="mb-3 fw-semibold">
                     Seguro {insurance.tipo} - {insurance.nombre}
                   </h4>
-                  <dl style={{ marginTop: 15 }} className="product-gallery-data1">
-                    <dt>Aseguradora</dt>
-                    <dd>{insurance.nombreAseguradora}</dd>
-                  </dl>
-                  <dl className="product-gallery-data1">
-                    <dt>Vigencia</dt>
-                    <dd>
-                      Del {insurance.vigenciaDel} al {insurance.vigenciaAl}{" "}
-                    </dd>
-                  </dl>
-                  <dl className="product-gallery-data1">
+                  <div style={{display: 'flex', flexDirection: 'row'}}> 
+                    <div>
+                      <dl style={{ marginTop: 15 }} className="product-gallery-data1">
+                        <dt>Aseguradora</dt>
+                        <dd>{insurance.nombreAseguradora}</dd>
+                      </dl>
+                      <dl className="product-gallery-data1">
+                        <dt>Vigencia</dt>
+                        <dd>
+                          Del {insurance.vigenciaDel} al {insurance.vigenciaAl}{" "}
+                        </dd>
+                      </dl>
+                    </div>
+
+                    <dl style={{ marginTop: 15, marginLeft: 60 }}>
+                      <dt>Estatus de pago</dt>
+                      <dd>
+                      {
+                        nextPaymentFormatDate(insurance.pagos) === 'Vencido' ? 
+                          (
+                            <div style={{marginTop: 2}}>
+                              <Badge
+                                bg="danger-transparent"
+                                className={`me-2 my-1 Primary`}
+                              >
+                                Vencido
+                              </Badge> 
+                            </div>
+                          ) : 
+                          nextPaymentFormatDate(insurance.pagos)
+                      }
+                      </dd>
+                    </dl>
+                  </div>
+                  <dl className="product-gallery-data1" style={{marginTop: 30}}>
                     <div style={{display: 'flex', justifyContent: 'space-between', flexDirection: 'row'}}>
                       <dt>Registro de pagos</dt>
                       <Button

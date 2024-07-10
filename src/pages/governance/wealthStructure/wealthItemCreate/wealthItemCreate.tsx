@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { companies } from "../../../administration/accounting/accountingData";
 import NotFoundSearch from "../../../shared/notFoundSearch";
 import RealStateItemCreate from "./components/realStateItemCreate";
+import VehicleItemCreate from "./components/vehicleItemCreate";
 
 export default function WealthItemCreate() {
   const params = useParams();
@@ -15,6 +16,9 @@ export default function WealthItemCreate() {
     case "realState":
       componentToRender = <RealStateItemCreate />;
       break;
+    case "vehicle":
+        componentToRender = <VehicleItemCreate />;
+        break;
     default:
       componentToRender = <NotFoundSearch />;
       break;

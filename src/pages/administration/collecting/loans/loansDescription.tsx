@@ -7,6 +7,7 @@ import { calculateTotalWithPercentage, calculateDifference, getMemberPercentage 
 import { prestamos } from "../collectingData";
 import { useParams } from "react-router-dom";
 import { isDateDefeated } from "../../payments/paymentUtils";
+import { nextPaymentFormatDate } from "../../payments/paymentUtils";
 
 export default function LoansDescription(props) {
   const breadcrumbs = ["Administración", "Cobranza", "Deudas"];
@@ -204,6 +205,24 @@ export default function LoansDescription(props) {
                 </dd>
               </dl>
             </div>
+
+            <dl style={{ marginTop: 15, marginLeft: 150 }}>
+              <dt>Estatus de pago</dt>
+              <dd>
+                {nextPaymentFormatDate(debt.pagos) === "Vencido" ? (
+                  <div style={{ marginTop: 2 }}>
+                    <Badge
+                      bg="danger-transparent"
+                      className={`me-2 my-1 Primary`}
+                    >
+                      Vencido
+                    </Badge>
+                  </div>
+                ) : (
+                  nextPaymentFormatDate(debt.pagos)
+                )}
+              </dd>
+            </dl>
           </div>
           <dl className="product-gallery-data1">
             <div

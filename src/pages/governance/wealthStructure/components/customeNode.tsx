@@ -24,7 +24,7 @@ export const CustomNode = ({ data }) => {
         wealthCategoryUrl = "privateCapitalCreate";
         break;
       case "Vehiculos":
-        wealthCategoryUrl = "vehicleCreate";
+        wealthCategoryUrl = `${baseUrl}governance/wealthItemCreate/vehicle`;
         break;
       case "Inversiones":
         wealthCategoryUrl = "investmentCreate";
@@ -48,8 +48,8 @@ export const CustomNode = ({ data }) => {
       case "Capital privado":
         wealthItemUrl = "privateCapitalCreate";
         break;
-      case "Vehiculos":
-        wealthItemUrl = "vehicleCreate";
+      case 4:
+        wealthItemUrl =  `${baseUrl}/type/vehicle/id/${data.coreId}`;
         break;
       case "Inversiones":
         wealthItemUrl = "investmentCreate";

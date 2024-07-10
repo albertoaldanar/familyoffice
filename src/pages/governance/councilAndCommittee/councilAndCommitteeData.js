@@ -183,7 +183,7 @@ export const councilAndCommittieesData = {
         id: 82,
         title: "Vender empresa familiar de abuelo",
         isVotingFinished: true,
-        hiddenVotes: false,
+        hiddenVotes: true,
         createdBy: {
           name: "Santiago Ortiz",
           role: "Account manager Family Office",
