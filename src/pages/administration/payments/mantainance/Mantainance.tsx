@@ -34,8 +34,8 @@ export default function Mantainance() {
           className=" mb-1"
         >
          {/*// @ts-ignore */}
-         <Link style={{color: 'white'}} to={`${import.meta.env.BASE_URL}administration/mantainanceCreate`}>
-            + Añadir arrendamiento
+         <Link style={{color: 'white'}} to={`${import.meta.env.BASE_URL}administration/mantainanceCreate/type/null/itemId/null`}>
+            + Añadir mantenimiento
           </Link>
         </Button>
       </div>

@@ -40,16 +40,6 @@ export default function MeetingCreate(props) {
 
   const membersList = formatMember(councilAndCommittieesData[params.type].members);
 
-  // const [councilType, setCouncilType] = useState({
-  //   value: addType,
-  //   label: addType,
-  // });
-
-  // const OptionsCouncils = [
-  //   { value: "Consejo Familiar", label: "Consejo Familiar" },
-  //   { value: "Comite de Inversión", label: "Comite de Inversión" },
-  // ];
-
   const OptionsModality = [
     { value: "En linea", label: "En Linea" },
     { value: "Presencial", label: "Presencial" },
@@ -63,24 +53,6 @@ export default function MeetingCreate(props) {
             Nueva reunion de {addType}
           </Card.Title>
           <Form noValidate validated={false} onSubmit={() => {}}>
-            {/* <Row style={{ marginTop: 20 }}>
-              <Form.Group
-                as={Col}
-                md="8"
-                controlId="validationCustom01"
-                className="form-group"
-              >
-                <Form.Label>Reunion de:</Form.Label>
-                <Select
-                  options={OptionsCouncils}
-                  classNamePrefix="Select2"
-                  className="multi-select"
-                  onChange={(value) => setCouncilType(value)}
-                  placeholder=""
-                  value={councilType}
-                />
-              </Form.Group>
-            </Row> */}
             <Row style={{ marginTop: 20 }}>
               <Form.Group
                 as={Col}

@@ -288,7 +288,7 @@ export default function FamilyMember(props) {
     return (
       <div style={{display: 'flex', flexDirection: 'row', marginLeft: 10}}>
         <div style={{display: 'flex', flexDirection: 'column' }}>
-          <p style={{fontSize: 15}}>Pagos</p>
+          <p style={{fontSize: 15, fontWeight: '700', fontStyle: 'italic'}}>Pagos</p>
           {
             insuranceLinked ? (
               <Link
@@ -301,10 +301,21 @@ export default function FamilyMember(props) {
                   color: "#5488d2",
                 }}
               >
-                Pago de seguro
+                Pago de seguro de vida
               </Link>
             ) : (
-              <p style={{color: 'gray', fontStyle: 'italic'}}>No hay pagos por hacer</p>
+              <Link
+                // @ts-ignore */
+                to={`${import.meta.env.BASE_URL}administration/insuranceCreate/type/familyMember/itemId/${memberSelected.id}`}
+                style={{
+                  fontSize: 12,
+                  textDecoration: "underline",
+                  cursor: "pointer",
+                  color: "gray",
+                }}
+              >
+                + Administrar seguro de vida
+              </Link>
             )
           }
         </div>

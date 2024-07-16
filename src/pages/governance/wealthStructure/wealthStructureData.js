@@ -27,8 +27,18 @@ export const wealthStructure = {
       source: "root",
     },
     {
-      name: "Tesoreria",
+      name: "Cuantas bancarias",
       id: 6,
+      source: "root",
+    },
+    {
+      name: "Arte, colecciones y otros",
+      id: 7,
+      source: "root",
+    },
+    {
+      name: "Prestamos por cobrar",
+      id: 8,
       source: "root",
     },
   ],
@@ -110,4 +120,17 @@ export const otherWealthData = {
       invoice: 'https://googledrive.com/erg3440398f4fmv'
     },
   ],
+  artAndOthers: [
+    {
+      id: 43,
+      type: 'Arte',
+      name: 'Coleccion de arte de Gerhard Richter', 
+      value: '5000000',
+      currency: 'MXN',
+      photo: 'https://googledrive.com/erg3440398f4fmv',
+      certificate: 'https://googledrive.com/erg3440398f4fmv',
+      ownersId: [],
+
+    }
+  ]
 };

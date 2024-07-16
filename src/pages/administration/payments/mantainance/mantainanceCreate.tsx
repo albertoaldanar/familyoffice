@@ -8,32 +8,23 @@ import { otherWealthData } from "../../../governance/wealthStructure/wealthStruc
 import { realstateData } from "../../../investments/realState/realStateData";
 
 export default function MantainanceCreate(props) {
-  const [mantainanceType, setMantainanceType] = useState({
-    value: "",
-    label: "",
-  });
+  const params = useParams();
+  const typeSelected = params.type === 'realState' ? { value: "Inmobiliario", label: "Mantenimiento Inmobiliario" } : params.type === 'vehicle' ? { value: "Vehicular", label: "Mantenimiento Vehicular" }: { value: '', label: '' } ;
+
+  const propertySelected = params.itemId === null ? null : realstateData.find(property => property.id === Number(params.itemId));
+  const propertySelectedValue = propertySelected && params.type === 'realState' ? formatRealstateData([propertySelected]) : { value: "", label: "" };
+
+  const vehicleSelected = params.itemId === null ? null : otherWealthData.vehicles.find(property => property.id === Number(params.itemId));
+  const vehicleSelectedValue = vehicleSelected && params.type === 'vehicle' ? formatVehicleData([vehicleSelected]) : { value: "", label: "" };
+
+  const [mantainanceType, setMantainanceType] = useState(typeSelected);
   const [otherType, setOtherType] = useState("");
   const [concept, setConcept] = useState("");
   const [description, setDescription] = useState("");
   const [payTo, setPayTo] = useState("");
   const [amount, setAmount] = useState("");
-
-  const [personaAsegurada, setPersonaAsegurada] = useState({
-    value: "",
-    label: "",
-  });
-
-  const [selectedProperty, setSelectedProperty] = useState({
-    value: "",
-    label: "",
-  });
-
-  const [selectedVehicle, setSelectedVehicle] = useState({
-    value: "",
-    label: "",
-  });
-
-  const [notFamilyMember, setNotFamilyMember] = useState("");
+  const [selectedProperty, setSelectedProperty] = useState(propertySelectedValue);
+  const [selectedVehicle, setSelectedVehicle] = useState(vehicleSelectedValue);
   const [notProperyMember, setNotPropertyMember] = useState("");
   const [notProperyMemberAddress, setNotPropertyMemberAddress] = useState("");
   const [notVehicleMember, setNotVehicleMember] = useState("");

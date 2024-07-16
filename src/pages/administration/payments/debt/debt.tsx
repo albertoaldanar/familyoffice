@@ -38,7 +38,7 @@ export default function Debt() {
           className=" mb-1"
         >
          {/*// @ts-ignore */}
-         <Link style={{color: 'white'}} to={`${import.meta.env.BASE_URL}administration/debtCreate`}>
+         <Link style={{color: 'white'}} to={`${import.meta.env.BASE_URL}administration/debtCreate/type/null/itemId/null`}>
             + Añadir deuda
           </Link>
         </Button>

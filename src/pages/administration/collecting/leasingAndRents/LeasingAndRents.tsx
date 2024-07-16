@@ -34,7 +34,7 @@ export default function LeasingAndRents() {
           className=" mb-1"
         >
          {/*// @ts-ignore */}
-         <Link style={{color: 'white'}} to={`${import.meta.env.BASE_URL}administration/rentCreate`}>
+         <Link style={{color: 'white'}} to={`${import.meta.env.BASE_URL}administration/rentCreate/type/null/itemId/null`}>
             + Añadir arrendamiento
           </Link>
         </Button>

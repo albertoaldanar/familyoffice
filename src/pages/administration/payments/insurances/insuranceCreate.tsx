@@ -14,35 +14,30 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import dayjs, { Dayjs } from "dayjs";
-import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { realstateData } from "../../../investments/realState/realStateData";
 import { otherWealthData } from "../../../governance/wealthStructure/wealthStructureData";
 import { family } from "../../../governance/familyStructure/familyStructureData";
 import { formatRealstateData, formatFamilyMembers, formatVehicleData } from "../paymentUtils";
 
 export default function InsuranceCreate(props) {
-  const [insuranceType, setInsuranceType] = useState({
-    value: "",
-    label: "",
-  });
+  const params = useParams();
+  const typeSelected = params.type === 'realState' ? { value: "Inmobiliario", label: "Seguro Inmobiliario" } : params.type === 'vehicle' ?  { value: "Vehicular", label: "Seguro Vehicular" } : params.type === 'familyMember' ? { value: "Vida", label: "Seguro de vida" } : { value: '', label: '' } ;
 
+  const propertySelected = params.itemId === null ? null : realstateData.find(property => property.id === Number(params.itemId));
+  const propertySelectedValue = propertySelected && params.type === 'realState' ? formatRealstateData([propertySelected]) : { value: "", label: "" };
+
+  const vehicleSelected = params.itemId === null ? null : otherWealthData.vehicles.find(property => property.id === Number(params.itemId));
+  const vehicleSelectedValue = vehicleSelected && params.type === 'vehicle' ? formatVehicleData([vehicleSelected]) : { value: "", label: "" };
+
+  const familyMemberSelected = params.itemId === null ? null : family.members.find(member => member.id === params.itemId);
+  const familyMemberSelectedValue = familyMemberSelected && params.type === 'familyMember' ? formatFamilyMembers([familyMemberSelected]) : { value: "", label: "" };
+
+  const [insuranceType, setInsuranceType] = useState(typeSelected);
+  const [personaAsegurada, setPersonaAsegurada] = useState(familyMemberSelectedValue);
+  const [selectedProperty, setSelectedProperty] = useState(propertySelectedValue);
+  const [selectedVehicle, setSelectedVehicle] = useState(vehicleSelectedValue);
   const [insuranceCompany, setInsuranceCompany] = useState("");
-
-  const [personaAsegurada, setPersonaAsegurada] = useState({
-    value: "",
-    label: "",
-  });
-
-  const [selectedProperty, setSelectedProperty] = useState({
-    value: "",
-    label: "",
-  });
-
-  const [selectedVehicle, setSelectedVehicle] = useState({
-    value: "",
-    label: "",
-  });
-
   const [notFamilyMember, setNotFamilyMember] = useState("");
   const [notProperyMember, setNotPropertyMember] = useState("");
   const [notProperyMemberAddress, setNotPropertyMemberAddress] = useState("");
@@ -60,7 +55,7 @@ export default function InsuranceCreate(props) {
   const [vigenciaAl, setVigenciaAl] = useState<Dayjs | null>(dayjs(""));
   const [isFamilyMember, setIsFamilyMember] = useState(true);
 
-  const Options = formatFamilyMembers(family);
+  const Options = formatFamilyMembers(family.members);
 
   const OptionsProperties = formatRealstateData(realstateData);
 

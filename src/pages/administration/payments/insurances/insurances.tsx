@@ -39,7 +39,7 @@ export default function InsurancePayment() {
           className=" mb-1"
         >
          {/*// @ts-ignore */}
-          <Link style={{color: 'white'}} to={`${import.meta.env.BASE_URL}administration/insuranceCreate`}>
+          <Link style={{color: 'white'}} to={`${import.meta.env.BASE_URL}administration/insuranceCreate/type/null/itemId/null`}>
             + Añadir tipo de seguro
           </Link>
           

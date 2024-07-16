@@ -271,13 +271,13 @@ export const Routingdata=[
 {path:`${import.meta.env.BASE_URL}administration/insuraceDescription/:id` ,element : <InsuraceDescription/>},
 {path:`${import.meta.env.BASE_URL}administration/insurancePayment/:id/payment/:paymentId` ,element : <InsurancePayment/>},
 {path:`${import.meta.env.BASE_URL}administration/insuranceNewPayment/:id` ,element : <InsuranceNewPayment/>},
-{path:`${import.meta.env.BASE_URL}administration/insuranceCreate` ,element : <InsuranceCreate/>},
+{path:`${import.meta.env.BASE_URL}administration/insuranceCreate/type/:type/itemId/:itemId` ,element : <InsuranceCreate/>},
 
 /*Payment PropertyTax */
 {path:`${import.meta.env.BASE_URL}administration/propertyTaxDescription/:id` ,element : <PropertyTaxDescription/>},
 {path:`${import.meta.env.BASE_URL}administration/propertyTaxPayment/:id/payment/:paymentId` ,element : <PropertyTaxPayment/>},
 {path:`${import.meta.env.BASE_URL}administration/propertyTaxNewPayment/:id` ,element : <PropertyTaxNewPayment/>},
-{path:`${import.meta.env.BASE_URL}administration/propertyTaxCreate` ,element : <PropertyTaxCreate/>},
+{path:`${import.meta.env.BASE_URL}administration/propertyTaxCreate/:id` ,element : <PropertyTaxCreate/>},
 
 /*Payment LeasingAndRent */
 {path:`${import.meta.env.BASE_URL}administration/leasingPaymentDescription/:id` ,element : <LeasingPaymentDescription/>},
@@ -289,13 +289,13 @@ export const Routingdata=[
 {path:`${import.meta.env.BASE_URL}administration/mantainanceDescription/:id` ,element : <MantainanceDescription/>},
 {path:`${import.meta.env.BASE_URL}administration/mantainancePayment/:id/payment/:paymentId` ,element : <MantainancePayment/>},
 {path:`${import.meta.env.BASE_URL}administration/mantainanceNewPayment/:id/` ,element : <MantainanceNewPayment/>},
-{path:`${import.meta.env.BASE_URL}administration/mantainanceCreate` ,element : <MantainanceCreate/>},
+{path:`${import.meta.env.BASE_URL}administration/mantainanceCreate/type/:type/itemId/:itemId` ,element : <MantainanceCreate/>},
 
 /*Payment Debt */
 {path:`${import.meta.env.BASE_URL}administration/debtDescription/:id` ,element : <DebtDescription/>},
 {path:`${import.meta.env.BASE_URL}administration/debtPayment/:id/payment/:paymentId` ,element : <DebtPayment/>},
 {path:`${import.meta.env.BASE_URL}administration/debtNewPayment/:id/` ,element : <DebtNewPayment/>},
-{path:`${import.meta.env.BASE_URL}administration/debtCreate` ,element : <DebtCreate/>},
+{path:`${import.meta.env.BASE_URL}administration/debtCreate/type/:type/itemId/:itemId` ,element : <DebtCreate/>},
 
 /*Collecting loan*/
 {path:`${import.meta.env.BASE_URL}administration/collecting` ,element : <Collecting/>},
@@ -307,7 +307,7 @@ export const Routingdata=[
 {path:`${import.meta.env.BASE_URL}administration/rentDescription/:id` ,element : <RentDescription/>},
 {path:`${import.meta.env.BASE_URL}administration/rentCollecting/:id/payment/:paymentId` ,element : <RentCollecting/>},
 {path:`${import.meta.env.BASE_URL}administration/rentNewPayment/:id` ,element : <RentNewPayment/>},
-{path:`${import.meta.env.BASE_URL}administration/rentCreate` ,element : <RentCreate/>},
+{path:`${import.meta.env.BASE_URL}administration/rentCreate/type/:type/itemId/:itemId` ,element : <RentCreate/>},
 
 /* Taxes */
 {path:`${import.meta.env.BASE_URL}administration/taxes` ,element : <Taxes/>},

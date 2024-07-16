@@ -16,24 +16,22 @@ import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
 export default function RentsCreate(props) {
+  const params = useParams();
+  const typeSelected = params.type === 'realState' ? { value: "Inmobiliario", label: "Renta Inmobiliario" } : params.type === 'vehicle' ?   { value: "Vehicular", label: "Renta Vehicular" }: { value: '', label: '' } ;
+
+  const propertySelected = params.itemId === null ? null : realstateData.find(property => property.id === Number(params.itemId));
+  const propertySelectedValue = propertySelected && params.type === 'realState' ? formatRealstateData([propertySelected]) : { value: "", label: "" };
+
+  const vehicleSelected = params.itemId === null ? null : otherWealthData.vehicles.find(property => property.id === Number(params.itemId));
+  const vehicleSelectedValue = vehicleSelected && params.type === 'vehicle' ? formatVehicleData([vehicleSelected]) : { value: "", label: "" };
+
   const [leasingType, setleasingType] = useState("");
   const [concept, setConcept] = useState("");
   const [payTo, setPayTo] = useState("");
   const [amount, setAmount] = useState("");
-  const [rentType, setRentType] = useState({
-    value: "",
-    label: "",
-  });
-
-  const [selectedVehicle, setSelectedVehicle] = useState({
-    value: "",
-    label: "",
-  });
-
-  const [selectedProperty, setSelectedProperty] = useState({
-    value: "",
-    label: "",
-  });
+  const [rentType, setRentType] = useState(typeSelected);
+  const [selectedVehicle, setSelectedVehicle] = useState(vehicleSelectedValue);
+  const [selectedProperty, setSelectedProperty] = useState(propertySelectedValue);
   const [notProperyMember, setNotPropertyMember] = useState("");
   const [notProperyMemberAddress, setNotPropertyMemberAddress] = useState("");
   const [isWealthStructureMember, setIsWealthStructureMember] = useState(true);

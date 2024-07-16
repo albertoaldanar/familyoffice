@@ -246,86 +246,143 @@ export default function VehicleItem(props) {
 
     return (
       <div style={{display: 'flex', flexDirection: 'row', marginLeft: 10}}>
-        <div style={{display: 'flex', flexDirection: 'column' }}>
-          <p style={{fontSize: 15}}>Pagos</p>
-          {
-            mantainanceLinked && (
-              <div style={{marginTop: 10}}>
+        <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-evenly', width: '25%'}}>
+          <p style={{fontSize: 15, fontWeight: '700', fontStyle: 'italic'}}>Pagos</p>
+
+
+          <div style={{marginBottom: 20}}>
+            <p style={{fontSize: 13, marginRight: 10,  marginBottom: -5}}>Mantenimiento:</p>
+            {
+              mantainanceLinked ? (
+                  <Link
+                    // @ts-ignore */
+                    to={`${import.meta.env.BASE_URL}administration/mantainanceDescription/${mantainanceLinked.id}`}
+                    style={{
+                      fontSize: 12,
+                      textDecoration: "underline",
+                      cursor: "pointer",
+                      color: "#5488d2",
+                    }}
+                  >
+                    Ver pagos de mantenimiento
+                  </Link>
+              ) : (
+                <Link
+                // @ts-ignore */
+                to={`${import.meta.env.BASE_URL}administration/mantainanceCreate/type/vehicle/itemId/${vehicleSelected.id}`}
+                style={{
+                  fontSize: 12,
+                  textDecoration: "underline",
+                  cursor: "pointer",
+                  color: "gray",
+                }}
+              >
+                + Administrar mantenimientos
+              </Link>
+              )
+            }
+          </div>
+          <div style={{marginBottom: 20}}>
+            <p style={{fontSize: 13, marginRight: 10,  marginBottom: -5}}>Credito:</p>
+            {
+              creditLinked ? (
+                  <Link
+                    // @ts-ignore */
+                    to={`${import.meta.env.BASE_URL}administration/debtDescription/${creditLinked.id}`}
+                    style={{
+                      fontSize: 12,
+                      textDecoration: "underline",
+                      cursor: "pointer",
+                      color: "#5488d2",
+                    }}
+                  >
+                    Ver pago de credito vehicular
+                  </Link>
+              ) : (
+                <Link
+                // @ts-ignore */
+                to={`${import.meta.env.BASE_URL}administration/debtCreate/type/vehicle/itemId/${vehicleSelected.id}`}
+                style={{
+                  fontSize: 12,
+                  textDecoration: "underline",
+                  cursor: "pointer",
+                  color: "gray",
+                }}
+              >
+                + Administrar credito
+              </Link>
+              )
+            }
+           </div>
+           <div style={{marginBottom: 20}}>
+            <p style={{fontSize: 13, marginRight: 10, marginBottom: -5}}>Seguro:</p>
+            {
+              insuranceLinked ? (
+                  <Link
+                    // @ts-ignore */
+                    to={`${import.meta.env.BASE_URL}administration/insuraceDescription/${insuranceLinked.id}`}
+                    style={{
+                      fontSize: 12,
+                      textDecoration: "underline",
+                      cursor: "pointer",
+                      color: "#5488d2",
+                    }}
+                  >
+                    Ver pagos de seguro vehicular
+                  </Link>
+              ) : (
                 <Link
                   // @ts-ignore */
-                  to={`${import.meta.env.BASE_URL}administration/mantainanceDescription/${mantainanceLinked.id}`}
+                  to={`${import.meta.env.BASE_URL}administration/insuranceCreate/type/vehicle/itemId/${vehicleSelected.id}`}
                   style={{
-                    fontSize: 13,
+                    fontSize: 12,
                     textDecoration: "underline",
                     cursor: "pointer",
-                    color: "#5488d2",
+                    color: "gray",
                   }}
                 >
-                  Pago de mantenimiento
+                  + Administrar seguro
                 </Link>
-              </div>
-            )
-          }
-
-          {
-            creditLinked && (
-              <div style={{marginTop: 10}}>
-                <Link
-                  // @ts-ignore */
-                  to={`${import.meta.env.BASE_URL}administration/debtDescription/${creditLinked.id}`}
-                  style={{
-                    fontSize: 13,
-                    textDecoration: "underline",
-                    cursor: "pointer",
-                    color: "#5488d2",
-                  }}
-                >
-                  Pago de credito vehicular
-                </Link>
-              </div>
-
-            )
-          }
-
-          {
-            insuranceLinked && (
-              <div style={{marginTop: 10}}>
-                <Link
-                  // @ts-ignore */
-                  to={`${import.meta.env.BASE_URL}administration/insuraceDescription/${insuranceLinked.id}`}
-                  style={{
-                    fontSize: 13,
-                    textDecoration: "underline",
-                    cursor: "pointer",
-                    color: "#5488d2",
-                  }}
-                >
-                  Pago de seguro vehicular
-                </Link>
-              </div>
-
-            )
-          }
+              )
+            }
+          </div>
         </div>
        
         <div style={{display: 'flex', flexDirection: 'column', marginLeft: 60 }}>
-          <p style={{fontSize: 15}}>Cobranza</p>
-          {
-            rentLinked && (
-              <Link
-                // @ts-ignore */
-                to={`${import.meta.env.BASE_URL}administration/rentDescription/${rentLinked.id}`}
-                style={{
-                  fontSize: 13,
-                  textDecoration: "underline",
-                  cursor: "pointer",
-                  color: "#5488d2",
-                }}
-              >
-                Cobranza de arrendamiento vehicular
-              </Link>
-            )
-          }
+        <p style={{fontSize: 15, fontWeight: '700', fontStyle: 'italic'}}>Cobranza</p>
+
+          <div style={{marginBottom: 20}}>
+            <p style={{fontSize: 13, marginRight: 10, marginBottom: -5}}>Arrendamiento:</p>
+            {
+              rentLinked ? (
+                <Link
+                  // @ts-ignore */
+                  to={`${import.meta.env.BASE_URL}administration/rentDescription/${rentLinked.id}`}
+                  style={{
+                    fontSize: 13,
+                    textDecoration: "underline",
+                    cursor: "pointer",
+                    color: "#5488d2",
+                  }}
+                >
+                  Cobranza de arrendamiento vehicular
+                </Link>
+              ) : (
+                <Link
+                  // @ts-ignore */
+                  to={`${import.meta.env.BASE_URL}administration/rentCreate/type/vehicle/itemId/${vehicleSelected.id}`}
+                  style={{
+                    fontSize: 12,
+                    textDecoration: "underline",
+                    cursor: "pointer",
+                    color: "gray",
+                  }}
+                >
+                  + Administrar arrendamiento
+                </Link>
+              )
+            }
+          </div>
         </div>
       </div>
     );

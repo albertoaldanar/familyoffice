@@ -32,6 +32,9 @@ export const CustomNode = ({ data }) => {
       case "Tesoreria":
         wealthCategoryUrl = "treasuryCreate";
         break;
+      case "Arte, colecciones y otros":
+        wealthCategoryUrl = `${baseUrl}governance/wealthItemCreate/artAndOthers`;
+        break;
       default:
         break;
     }

@@ -13,7 +13,7 @@ export default function Structure(props) {
   };
 
   const renderWealthStructure = () => {
-    const defaultViewport = { x: 120, y: 0, zoom: 0.8 };
+    const defaultViewport = { x: 200, y: 0, zoom: 0.6 };
 
     return (
       <ReactFlowProvider>

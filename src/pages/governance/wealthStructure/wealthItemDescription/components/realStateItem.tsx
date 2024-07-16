@@ -10,13 +10,8 @@ import {
   Tab,
 } from "react-bootstrap";
 import Select from "react-select";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 //@ts-ignore
 import download from "../../../assets/images/familyOffice/download.png";
-import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
-import dayjs, { Dayjs } from "dayjs";
 import FileUpload from "../../../../administration/accounting/components/fileUpload";
 import FileView from "../../../../administration/accounting/components/fileView";
 import { arrendamientos } from "../../../../administration/collecting/collectingData";
@@ -31,8 +26,6 @@ export default function RealStateItem(props) {
   const realStateSelected = realstateData.find(
     (realState) => realState.id === Number(props.id)
   );
-
-  console.log("realStateSelected", realStateSelected);
 
   if (!realStateSelected) {
     return <NotFoundSearch />;
@@ -269,10 +262,13 @@ export default function RealStateItem(props) {
     console.log('mantainanceLinked', rentLinked)
     return (
       <div style={{display: 'flex', flexDirection: 'row', marginLeft: 10}}>
-        <div style={{display: 'flex', flexDirection: 'column' }}>
-          <p style={{fontSize: 15}}>Pagos</p>
-          {
-            predialLinked && (
+        <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-evenly', width: '25%'}}>
+          <p style={{fontSize: 15, fontWeight: '700', fontStyle: 'italic'}}>Pagos</p>
+
+          <div style={{marginBottom: 20}}>
+            <p style={{fontSize: 13, marginRight: 10,  marginBottom: -5}}>Predial:</p>
+            {
+              predialLinked ? (
               <Link
                 // @ts-ignore */
                 to={`${import.meta.env.BASE_URL}administration/propertyTaxDescription/${predialLinked.id}`}
@@ -285,88 +281,156 @@ export default function RealStateItem(props) {
               >
                 Pago de predial
               </Link>
-            )
-          }
+              ) : (
+                <Link
+                // @ts-ignore */
+                to={`${import.meta.env.BASE_URL}administration/propertyTaxCreate/${realStateSelected.id}`}
+                style={{
+                  fontSize: 12,
+                  textDecoration: "underline",
+                  cursor: "pointer",
+                  color: "gray",
+                }}
+              >
+                + Administrar predial
+              </Link>
+              )
+            }
+          </div>
 
-          {
-            mantainanceLinked && (
-              <div style={{marginTop: 10}}>
+          <div style={{marginBottom: 20}}>
+            <p style={{fontSize: 13, marginRight: 10,  marginBottom: -5}}>Mantenimiento:</p>
+            {
+              mantainanceLinked ? (
+                  <Link
+                    // @ts-ignore */
+                    to={`${import.meta.env.BASE_URL}administration/mantainanceDescription/${mantainanceLinked.id}`}
+                    style={{
+                      fontSize: 12,
+                      textDecoration: "underline",
+                      cursor: "pointer",
+                      color: "#5488d2",
+                    }}
+                  >
+                    Ver pagos de mantenimiento
+                  </Link>
+              ) : (
+                <Link
+                // @ts-ignore */
+                to={`${import.meta.env.BASE_URL}administration/mantainanceCreate/type/realState/itemId/${realStateSelected.id}`}
+                style={{
+                  fontSize: 12,
+                  textDecoration: "underline",
+                  cursor: "pointer",
+                  color: "gray",
+                }}
+              >
+                + Administrar mantenimientos
+              </Link>
+              )
+            }
+          </div>
+          <div style={{marginBottom: 20}}>
+            <p style={{fontSize: 13, marginRight: 10,  marginBottom: -5}}>Credito:</p>
+            {
+              creditLinked ? (
+                  <Link
+                    // @ts-ignore */
+                    to={`${import.meta.env.BASE_URL}administration/debtDescription/${creditLinked.id}`}
+                    style={{
+                      fontSize: 12,
+                      textDecoration: "underline",
+                      cursor: "pointer",
+                      color: "#5488d2",
+                    }}
+                  >
+                    Ver pago de credito hipotecario
+                  </Link>
+              ) : (
+                <Link
+                // @ts-ignore */
+                to={`${import.meta.env.BASE_URL}administration/debtCreate/type/realState/itemId/${realStateSelected.id}`}
+                style={{
+                  fontSize: 12,
+                  textDecoration: "underline",
+                  cursor: "pointer",
+                  color: "gray",
+                }}
+              >
+                + Administrar credito
+              </Link>
+              )
+            }
+          </div>
+           <div style={{marginBottom: 20}}>
+            <p style={{fontSize: 13, marginRight: 10, marginBottom: -5}}>Seguro:</p>
+            {
+              insuranceLinked ? (
+                  <Link
+                    // @ts-ignore */
+                    to={`${import.meta.env.BASE_URL}administration/insuraceDescription/${insuranceLinked.id}`}
+                    style={{
+                      fontSize: 12,
+                      textDecoration: "underline",
+                      cursor: "pointer",
+                      color: "#5488d2",
+                    }}
+                  >
+                    Ver pagos de seguro inmobiliario 
+                  </Link>
+              ) : (
                 <Link
                   // @ts-ignore */
-                  to={`${import.meta.env.BASE_URL}administration/mantainanceDescription/${mantainanceLinked.id}`}
+                  to={`${import.meta.env.BASE_URL}administration/insuranceCreate/type/realState/itemId/${realStateSelected.id}`}
                   style={{
-                    fontSize: 13,
+                    fontSize: 12,
                     textDecoration: "underline",
                     cursor: "pointer",
-                    color: "#5488d2",
+                    color: "gray",
                   }}
                 >
-                  Pago de mantenimiento
+                  + Administrar seguro
                 </Link>
-              </div>
-
-            )
-          }
-
-          {
-            creditLinked && (
-              <div style={{marginTop: 10}}>
-                <Link
-                  // @ts-ignore */
-                  to={`${import.meta.env.BASE_URL}administration/debtDescription/${creditLinked.id}`}
-                  style={{
-                    fontSize: 13,
-                    textDecoration: "underline",
-                    cursor: "pointer",
-                    color: "#5488d2",
-                  }}
-                >
-                  Pago de credito hipotecario
-                </Link>
-              </div>
-
-            )
-          }
-
-          {
-            insuranceLinked && (
-              <div style={{marginTop: 10}}>
-                <Link
-                  // @ts-ignore */
-                  to={`${import.meta.env.BASE_URL}administration/insuraceDescription/${insuranceLinked.id}`}
-                  style={{
-                    fontSize: 13,
-                    textDecoration: "underline",
-                    cursor: "pointer",
-                    color: "#5488d2",
-                  }}
-                >
-                  Pago de credito hipotecario
-                </Link>
-              </div>
-
-            )
-          }
+              )
+            }
+          </div>
         </div>
        
         <div style={{display: 'flex', flexDirection: 'column', marginLeft: 60 }}>
-          <p style={{fontSize: 15}}>Cobranza</p>
-          {
-            rentLinked && (
-              <Link
-                // @ts-ignore */
-                to={`${import.meta.env.BASE_URL}administration/rentDescription/${rentLinked.id}`}
-                style={{
-                  fontSize: 13,
-                  textDecoration: "underline",
-                  cursor: "pointer",
-                  color: "#5488d2",
-                }}
-              >
-                Cobranza de renta
-              </Link>
-            )
-          }
+          <p style={{fontSize: 15, fontWeight: '700', fontStyle: 'italic'}}>Cobranza</p>
+
+          <div style={{marginBottom: 20}}>
+            <p style={{fontSize: 13, marginRight: 10, marginBottom: -5}}>Arrendamiento:</p>
+            {
+              rentLinked ? (
+                <Link
+                  // @ts-ignore */
+                  to={`${import.meta.env.BASE_URL}administration/rentDescription/${rentLinked.id}`}
+                  style={{
+                    fontSize: 13,
+                    textDecoration: "underline",
+                    cursor: "pointer",
+                    color: "#5488d2",
+                  }}
+                >
+                  Cobranza de arrendamiento vehicular
+                </Link>
+              ) : (
+                <Link
+                  // @ts-ignore */
+                  to={`${import.meta.env.BASE_URL}administration/rentCreate/type/realState/itemId/${realStateSelected.id}`}
+                  style={{
+                    fontSize: 12,
+                    textDecoration: "underline",
+                    cursor: "pointer",
+                    color: "gray",
+                  }}
+                >
+                  + Administrar arrendamiento
+                </Link>
+              )
+            }
+          </div>
         </div>
       </div>
     );

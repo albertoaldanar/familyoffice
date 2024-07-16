@@ -1,43 +1,38 @@
 import React, { Fragment, useState } from "react";
-import {
-  Button,
-  Card,
-  Col,
-  Row,
-  Badge,
-  Form,
-  InputGroup,
-} from "react-bootstrap";
+import { Button, Card, Col, Row, Form, InputGroup } from "react-bootstrap";
 import Select from "react-select";
-import { realstateData } from "../../../investments/realState/realStateData";
 import { formatRealstateDataPropertyTax } from "../paymentUtils";
 import { prediales } from "../paymentsData";
-import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import { realstateData } from "../../../investments/realState/realStateData";
 
 export default function PropertyTaxCreate(props) {
   const [notMemberPropertyName, setNotMemberPropertyName] = useState("");
   const [notMemberPropertyAddress, setNotMemberPropertyAddress] = useState("");
+  const params = useParams();
+
+  const propertySelected = params.id === null ? null : realstateData.find(property => property.id === Number(params.id));
+  const propertySelectedValue = propertySelected ? { value: propertySelected.nombre, label: propertySelected.nombre} : { value: "", label: "" };
 
   const [personaAsegurada, setPersonaAsegurada] = useState({
     value: "",
     label: "",
   });
 
-  const [selectedProperty, setSelectedProperty] = useState({
-    value: "",
-    label: "",
-  });
+  const [selectedProperty, setSelectedProperty] = useState(propertySelectedValue);
 
   const [currency, setCurrency] = useState({
     value: "",
     label: "",
   });
 
-  const [amount, setAmount] = useState('');
+  const [amount, setAmount] = useState("");
 
   const [isPropertyMember, setIsPropertyMember] = useState(true);
-  const OptionsProperties = formatRealstateDataPropertyTax(realstateData, prediales);
+  const OptionsProperties = formatRealstateDataPropertyTax(
+    realstateData,
+    prediales
+  );
 
   const Optionscurrency = [
     { value: "MXN", label: "MXN" },
@@ -52,14 +47,9 @@ export default function PropertyTaxCreate(props) {
           <Card.Title style={{ marginBottom: 35 }}>
             Nuevo Registro de Predial
           </Card.Title>
-          <Form
-           noValidate validated={false} onSubmit={() => {}}>
+          <Form noValidate validated={false} onSubmit={() => {}}>
             <Row style={{ marginBottom: 10 }}>
-              <Form.Group                 
-                as={Col}
-                md="6" 
-                className="mb-3 form-group"
-              >
+              <Form.Group as={Col} md="6" className="mb-3 form-group">
                 <Form.Check
                   required
                   checked={isPropertyMember}
@@ -69,42 +59,42 @@ export default function PropertyTaxCreate(props) {
                   feedback="You must agree before submitting."
                   feedbackType="invalid"
                 />
-                {
-                  isPropertyMember ? (
-                    <Select
-                      options={OptionsProperties}
-                      classNamePrefix="Select2"
-                      className="multi-select"
-                      onChange={(value) => setSelectedProperty(value)}
-                      placeholder="Año"
-                      value={selectedProperty}
+                {isPropertyMember ? (
+                  <Select
+                    options={OptionsProperties}
+                    classNamePrefix="Select2"
+                    className="multi-select"
+                    onChange={(value) => setSelectedProperty(value)}
+                    placeholder="Año"
+                    value={selectedProperty}
+                  />
+                ) : (
+                  <div style={{ marginTop: 10 }}>
+                    <Form.Control
+                      type="numeric"
+                      placeholder="Nombre de propiedad"
+                      aria-describedby="inputGroupPrepend"
+                      required
+                      onChange={(text) =>
+                        setNotMemberPropertyName(text.target.value)
+                      }
+                      value={notMemberPropertyName}
                     />
-                  ) : (
-                    <div style={{marginTop: 10}}>
+                    <div style={{ marginTop: 10 }}>
                       <Form.Control
                         type="numeric"
-                        placeholder="Nombre de propiedad"
+                        placeholder="Dirección de propiedad"
                         aria-describedby="inputGroupPrepend"
                         required
-                        onChange={(text) => setNotMemberPropertyName(text.target.value)}
-                        value={notMemberPropertyName}
+                        onChange={(text) =>
+                          setNotMemberPropertyAddress(text.target.value)
+                        }
+                        value={notMemberPropertyAddress}
                       />
-                      <div style={{marginTop: 10}}>
-                        <Form.Control
-                          type="numeric"
-                          placeholder="Dirección de propiedad"
-                          aria-describedby="inputGroupPrepend"
-                          required
-                          onChange={(text) => setNotMemberPropertyAddress(text.target.value)}
-                          value={notMemberPropertyAddress}
-                        />
-                      </div>
                     </div>
-                  )
-
-              }
+                  </div>
+                )}
               </Form.Group>
-
             </Row>
 
             <Row style={{ marginTop: 20 }}>

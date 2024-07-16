@@ -1,7 +1,7 @@
 import React, { useState, Fragment } from "react";
 import { Card, Row, Tab, Nav } from "react-bootstrap";
 import { useParams } from "react-router-dom";
-import { companies } from "../../../administration/accounting/accountingData";
+import ArtAndOthersCreate from "./components/artAndOthersCreate";
 import NotFoundSearch from "../../../shared/notFoundSearch";
 import RealStateItemCreate from "./components/realStateItemCreate";
 import VehicleItemCreate from "./components/vehicleItemCreate";
@@ -18,6 +18,9 @@ export default function WealthItemCreate() {
       break;
     case "vehicle":
         componentToRender = <VehicleItemCreate />;
+        break;
+    case "artAndOthers":
+        componentToRender = <ArtAndOthersCreate />;
         break;
     default:
       componentToRender = <NotFoundSearch />;

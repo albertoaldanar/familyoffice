@@ -13,27 +13,24 @@ import { otherWealthData } from "../../../governance/wealthStructure/wealthStruc
 import { formatRealstateData, formatVehicleData } from "../paymentUtils";
 
 export default function DebtCreate(props) {
+  const params = useParams();
+  const typeSelected = params.type === 'realState' ? { value: "Inmobiliario", label: "Prestamo Hipotecario" } : params.type === 'vehicle' ?  { value: "Vehicular", label: "Prestamo Vehicular" }: { value: '', label: '' } ;
+
+  const propertySelected = params.itemId === null ? null : realstateData.find(property => property.id === Number(params.itemId));
+  const propertySelectedValue = propertySelected && params.type === 'realState' ? formatRealstateData([propertySelected]) : { value: "", label: "" };
+
+  const vehicleSelected = params.itemId === null ? null : otherWealthData.vehicles.find(property => property.id === Number(params.itemId));
+  const vehicleSelectedValue = vehicleSelected && params.type === 'vehicle' ? formatVehicleData([vehicleSelected]) : { value: "", label: "" };
+
   const [debtSource, setDebtSource] = useState({
     value: "",
     label: "",
   });
 
-  const [debtType, setDebtType] = useState({
-    value: "",
-    label: "",
-  });
-
-  const [selectedProperty, setSelectedProperty] = useState({
-    value: "",
-    label: "",
-  });
-
-  const [selectedVehicle, setSelectedVehicle] = useState({
-    value: "",
-    label: "",
-  });
-
-  const OptionsVehicles = formatVehicleData(otherWealthData.vehicles)
+  const [debtType, setDebtType] = useState(typeSelected);
+  const [selectedProperty, setSelectedProperty] = useState(propertySelectedValue);
+  const [selectedVehicle, setSelectedVehicle] = useState(vehicleSelectedValue);
+  const OptionsVehicles = formatVehicleData(otherWealthData.vehicles);
 
   const [concept, setConcept] = useState("");
   const [payTo, setPayTo] = useState("");

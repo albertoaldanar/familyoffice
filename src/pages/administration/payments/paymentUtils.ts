@@ -108,7 +108,7 @@ export const formatRealstateData = (data) => {
 };
 
 export const formatFamilyMembers = (family) => {
-  return family.members.map(member => ({
+  return family.map(member => ({
     label: member.name,
     value: member.id,
   }));
