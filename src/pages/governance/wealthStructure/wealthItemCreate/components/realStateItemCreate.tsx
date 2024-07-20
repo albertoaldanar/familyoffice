@@ -1,23 +1,21 @@
 import React, { Fragment, useState } from "react";
 import { Button, Card, Col, Row, Form, InputGroup } from "react-bootstrap";
 import Select from "react-select";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-//@ts-ignore
-import download from '../../../assets/images/familyOffice/download.png';
-import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
+import { MultiSelect } from "react-multi-select-component";
 import dayjs, { Dayjs } from "dayjs";
 //@ts-ignore
 import FileUpload from "../../../../administration/accounting/components/fileUpload";
-
+import { formatMember } from "../../../councilAndCommittee/councilAndCommitteeUtils";
+import { family } from "../../../familyStructure/familyStructureData";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
 export default function RealStateItemCreate(props) {
+  const membersList = formatMember(family.members);
   const [propertyName, setPropertyName] = useState("");
   const [location, setLocation] = useState("");
   const [city, setCity] = useState("");
+  const [members, setMembers] = useState([]);
   const [percentage, setPercentage] = useState("");
   const [todayValue, setTodayValue] = useState("");
   const [mt2, setMt2] = useState("");
@@ -48,7 +46,6 @@ export default function RealStateItemCreate(props) {
 
   return (
     <Fragment>
-
       <Row style={{padding: 20}}>
           <Card.Title style={{ marginBottom: 35 }}>
             Nuevo Registro de propiedad
@@ -110,6 +107,30 @@ export default function RealStateItemCreate(props) {
                 />
               </Form.Group>
             </Row>
+
+            <Row style={{ marginTop: 20 }}>
+              <Form.Group
+                as={Col}
+                md="6"
+                controlId="validationCustom01"
+                className="form-group"
+              >
+                <Form.Label>Miembro(s) propietarios</Form.Label>
+                <MultiSelect
+                  options={membersList}
+                  value={members}
+                  onChange={setMembers}
+                  labelledBy="Select"
+                  overrideStrings={{
+                    selectSomeItems: "Selecciona propietario(s)",
+                    allItemsAreSelected: "Todos los miembros",
+                    selectAll: "Seleccionar todos",
+                  }}
+                  disableSearch
+                />
+              </Form.Group>
+            </Row>
+
 
             <Row style={{ marginTop: 20 }}>
               <Form.Group

@@ -32,8 +32,6 @@ export default function VehicleItem(props) {
     (vehicle) => vehicle.id === Number(props.id)
   );
 
-  console.log("vehicle selected", vehicleSelected);
-
   if (!vehicleSelected) {
     return <NotFoundSearch />;
   }

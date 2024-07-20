@@ -23,6 +23,7 @@ import Pageheader from "../../../layouts/pageheader/pageheader";
 import { taxesRules } from "../../administration/taxes/taxesUtils";
 import { seguros } from "../../administration/payments/paymentsData";
 import { family } from "./familyStructureData";
+import { taxes } from "../../administration/taxes/taxesData";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
@@ -284,6 +285,7 @@ export default function FamilyMember(props) {
 
   const renderResponsabilities = () => {
     const insuranceLinked = seguros.find(seg => seg.linkedItemId === Number(params.id) && seg.tipo === 'Vida');
+    // const taxesLinked = taxes.find(tax => tax.coreId === params.id);
 
     return (
       <div style={{display: 'flex', flexDirection: 'row', marginLeft: 10}}>

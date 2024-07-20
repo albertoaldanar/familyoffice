@@ -35,6 +35,9 @@ export const CustomNode = ({ data }) => {
       case "Arte, colecciones y otros":
         wealthCategoryUrl = `${baseUrl}governance/wealthItemCreate/artAndOthers`;
         break;
+      case "Prestamos por cobrar":
+        wealthCategoryUrl = `${baseUrl}administration/loanCreate`;
+        break;
       default:
         break;
     }
@@ -60,6 +63,12 @@ export const CustomNode = ({ data }) => {
       case "Tesoreria":
         wealthItemUrl = "treasuryCreate";
         break;
+      case 7:
+        wealthItemUrl =  `${baseUrl}/type/artAndOthers/id/${data.coreId}`;
+        break;
+      case 8:
+        //@ts-ignore
+        wealthItemUrl = `${import.meta.env.BASE_URL}administration/loanDescription/${data.coreId}`;
       default:
         break;
     }

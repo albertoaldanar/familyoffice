@@ -78,6 +78,21 @@ export const wealthStructure = {
       value: "2,500,000.00",
       source: 2,
     },
+    {
+      id: 88,
+      coreId: 1,
+      name: "Prestamo Celsius SA de CV",
+      value: "2,000,000.00",
+      source: 8,
+    },
+    {
+      id: 32,
+      coreId: 43,
+      name: "Coleccion de arte de Gerhard Richter",
+      value: "2,000,000.00",
+      source: 7,
+    },
+    
   ],
 };
 
@@ -129,8 +144,7 @@ export const otherWealthData = {
       currency: 'MXN',
       photo: 'https://googledrive.com/erg3440398f4fmv',
       certificate: 'https://googledrive.com/erg3440398f4fmv',
-      ownersId: [],
-
+      ownersIds: ['23'],
     }
   ]
 };
