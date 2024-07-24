@@ -12,7 +12,25 @@ export const companies = [
     valuacion: "10,000,000.00",
     direccionFiscal: "Col Los pinos 233 Colonia Mutualismo CP 233",
     fundacion: "10/10/1995",
-    percentage: '100',
+    percentage: "100",
+    nationality: "Mexicana",
+    regimenCapital: "SA de CV",
+    owners: [
+      {
+        type: "family",
+        pct: '40',
+        coreId: '23',
+        name: "Patricia Ríos Collantes",
+        capitalSocial: "1000000",
+      },
+      {
+        type: "family",
+        pct: '50',
+        coreId: '43',
+        name: "Francisco Aldana Fariñas",
+        capitalSocial: "1500000",
+      },
+    ],
     actasDividendos: "",
     cif: "",
     reports: {
@@ -124,8 +142,8 @@ export const companies = [
           isr: "https://www.google.drive/1423nger",
           iva: "https://www.google.drive/1423nger",
           diot: "https://www.google.drive/1423nger",
-        }
-      ]
+        },
+      ],
     },
   },
   {
@@ -134,9 +152,28 @@ export const companies = [
     rfc: "BVA4930245",
     moneda: "MXN",
     razonSocial: "Airenlinea SA de CV",
+    nationality: "Mexicana",
+    regimenCapital: "SA de CV",
+    capitalSocial: "2,300,000.00",
+    owners: [
+      {
+        type: "family",
+        pct: '40',
+        coreId: '23',
+        name: "Patricia Rios Collantes",
+        capitalSocial: "1000000",
+      },
+      {
+        type: "family",
+        pct: '50',
+        coreId: '43',
+        name: "Alberto Aldana Fariñas",
+        capitalSocial: "1500000",
+      },
+    ],
     valuacion: "10,000,000.00",
     fundacion: "10/10/2005",
-    percentage: '100',
+    percentage: "100",
     direccionFiscal: "Col Los pinos 233 Colonia Mutualismo CP 233",
     actaConstitutiva: "https://www.google.drive/1423nger",
     actaAsamblea: "https://www.google.drive/1423nger",
@@ -253,9 +290,9 @@ export const companies = [
           isr: "https://www.google.drive/1423nger",
           iva: "https://www.google.drive/1423nger",
           diot: "https://www.google.drive/1423nger",
-        }
-      ]
-    }
+        },
+      ],
+    },
   },
   {
     id: 85,
@@ -270,8 +307,27 @@ export const companies = [
     valuacion: "10,000,000.00",
     direccionFiscal: "Col Los pinos 233 Colonia Mutualismo CP 233",
     fundacion: "10/10/1995",
+    nationality: "Americana",
+    regimenCapital: "SA de CV",
+    capitalSocial: "2,300,000.00",
     actasDividendos: "",
-    percentage: '100',
+    owners: [
+      {
+        type: "company",
+        pct: '55',
+        coreId: 23,
+        name: "Aldana Clima Integral",
+        capitalSocial: "2000000",
+      },
+      {
+        type: "family",
+        pct: '45',
+        coreId: '23',
+        name: "Alberto Aldana Fariñas",
+        capitalSocial: "1500000",
+      },
+    ],
+    percentage: "100",
     cif: "",
     reports: {
       mensuales: [
@@ -292,7 +348,7 @@ export const companies = [
           ],
         },
       ],
-      anuales: []
+      anuales: [],
     },
   },
 ];

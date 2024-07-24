@@ -24,8 +24,8 @@ export default function Taxes() {
 
   const renderTable = () => {
     return (
-      <div className="table-responsive">
-        <Table className="table border text-nowrap text-md-nowrap mb-0" style={{marginTop: 40}}>
+      <div className="table-responsive" style={{marginBottom: 20}}>
+        <Table className="table border text-nowrap text-md-nowrap mb-0" style={{marginTop: 20}}>
           <thead className="bg-light">
             <tr>
               <th>Nombre</th>
@@ -71,7 +71,6 @@ export default function Taxes() {
   return (
     <Fragment>
       <Row>
-        <Card style={{ minHeight: 500, paddingLeft: 20, paddingRight: 20, marginTop: 20 }}>
           <div
             style={{
               justifyContent: "space-between",
@@ -80,16 +79,15 @@ export default function Taxes() {
               marginTop: 10,
             }}
           >
-            <Card.Title style={{ marginLeft: 15, marginTop: 30 }}>
+            <Card.Title style={{ marginLeft: 15, marginTop: -20 }}>
               Gestión fiscal
             </Card.Title>
           </div>
 
           <p style={{marginTop: 15, marginLeft: 15, color: 'gray', fontSize: 12}}>Solo las personas fisicas del organigrama familiar que pertenezcan a un regimen fiscal como persona fisica, apareceran aqui.</p>
-          <p style={{ marginLeft: 15, color: 'gray', marginTop: -10, fontSize: 12}}>Si quieres añadir a una persona mas, añade un regimen en su perfil de miembro de organigrama familiar.</p>
+          <p style={{ marginLeft: 15, color: 'gray', marginTop: -20, fontSize: 12}}>Si quieres añadir a una persona mas, añade un regimen en su perfil de miembro de organigrama familiar.</p>
 
           {renderTable()}
-        </Card>
       </Row>
     </Fragment>
   );

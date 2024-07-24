@@ -15,7 +15,6 @@ const FileView: React.FC<FileViewProps> = ({ fileName }) => {
         style={{
           display: "flex",
           flexDirection: "row",
-          marginLeft: "10%",
           marginTop: 25,
         }}
       >
@@ -29,8 +28,8 @@ const FileView: React.FC<FileViewProps> = ({ fileName }) => {
           {fileName}
         </p> */}
 
-        <img src={doc} alt={fileName} style={{ width: "100px" }} />
-        <div >
+        <img src={doc} alt={fileName} style={{ width: 100 }} />
+        <div>
           <Dropdown className="float-end ms-auto">
             <Dropdown.Toggle
               as="a"

@@ -262,7 +262,7 @@ export const Routingdata=[
 
 /* Companies */
 {path:`${import.meta.env.BASE_URL}administration/companies` ,element : <Companies/>},
-{path:`${import.meta.env.BASE_URL}administration/company/:id` ,element : <CompanyDescription/>},
+{path:`${import.meta.env.BASE_URL}administration/company/:id/:type` ,element : <CompanyDescription/>},
 {path:`${import.meta.env.BASE_URL}administration/company/:id/report/:reportId/type/:type` ,element : <CompanyReport/>},
 {path:`${import.meta.env.BASE_URL}administration/companyNewReport/:id/type/:type` ,element : <CompanyReportCreate/>},
 {path:`${import.meta.env.BASE_URL}administration/companyCreate` ,element : <CompanyCreate/>},

@@ -1,5 +1,35 @@
 export const family = {
   lastName: 'Familia Aldana Ríos',
+  documents:{
+    vfo: {
+      elp: 'https://www.google.drive/1423nger', 
+      investmentPolicy: 'https://www.google.drive/1423nger'
+    },
+    family: {
+      testamento: '',
+      protocoloFam: 'https://www.google.drive/1423nger',
+      actasAsamblea: [
+        {
+          nombre: 'Acta de asamblea 1',
+          url: 'https://www.google.drive/1423nger'
+        }, 
+        {
+          nombre: 'Acta de asamblea 2',
+          url: 'https://www.google.drive/1423nger'
+        },
+      ],
+      fideicomisos: [
+        {
+          nombre: 'Fiso',
+          url: 'https://www.google.drive/1423nger'
+        }, 
+        {
+          nombre: 'Fiso USA',
+          url: 'https://www.google.drive/1423nger'
+        }
+      ]
+    }
+  },
   members: [
     {
       id: '23',

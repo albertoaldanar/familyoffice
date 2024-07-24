@@ -332,8 +332,6 @@ export default function Taxes() {
     }
   };
 
-  console.log("taxRuleForUser", taxRuleForUser);
-
   return (
     <Fragment>
       <Row>

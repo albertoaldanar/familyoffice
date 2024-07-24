@@ -346,11 +346,11 @@ export default function FamilyMember(props) {
                 <Nav as="ul" className="nav panel-tabs">
                   <Nav.Item as="li" style={{ marginRight: 10 }}>
                     <Nav.Link eventKey="first" href="#">
-                      Información
+                      Documentos
                     </Nav.Link>
                   </Nav.Item>
                   <Nav.Item as="li" style={{ marginRight: 10 }}>
-                    <Nav.Link eventKey="second">Documentos</Nav.Link>
+                    <Nav.Link eventKey="second">Información</Nav.Link>
                   </Nav.Item>
                   <Nav.Item as="li" style={{ marginRight: 10 }}>
                     <Nav.Link eventKey="third">Responsabilidades</Nav.Link>
@@ -360,9 +360,9 @@ export default function FamilyMember(props) {
             </div>
 
             <Tab.Content className="panel-body">
-              <Tab.Pane eventKey="first">{renderDescription()}</Tab.Pane>
+              <Tab.Pane eventKey="first">{renderDocuments()}</Tab.Pane>
 
-              <Tab.Pane eventKey="second">{renderDocuments()}</Tab.Pane>
+              <Tab.Pane eventKey="second">{renderDescription()}</Tab.Pane>
               <Tab.Pane eventKey="third">{renderResponsabilities()}</Tab.Pane>
             </Tab.Content>
           </Tab.Container>

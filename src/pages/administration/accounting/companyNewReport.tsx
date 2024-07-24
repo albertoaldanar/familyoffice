@@ -212,14 +212,6 @@ export default function CompanyNewReport(props) {
 
                 <FileUpload/>
               </Form.Group>
-
-              <Form.Group as={Col} md="4" className="form-group">
-                <Form.Label className="form-label my-3">
-                  DIOT
-                </Form.Label>
-
-               <FileUpload/>
-              </Form.Group>
             </Row>
 
             <div

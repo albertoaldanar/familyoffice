@@ -1,51 +1,9 @@
-import React, { Fragment, useCallback } from "react";
+import React, { Fragment } from "react";
 import { Badge, Button, Card, Col, Table, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { companies } from "./accountingData";
-//@ts-ignore
-import company from "../../../assets/images/familyOffice/company.png";
-import Pageheader from "../../../layouts/pageheader/pageheader";
-import ReactFlow, {
-  ReactFlowProvider,
-  useNodesState,
-  useEdgesState,
-  addEdge,
-} from "reactflow";
-import 'reactflow/dist/base.css';
 
 export default function Companies() {
-  const initialNodes = [
-    { id: "1", position: { x: 0, y: 0 }, data: { label: "Empresas familia Aldana" } },
-    { id: "2", position: { x: 0, y: 0 }, data: { label: "Aldana Clima Integral" } },
-    { id: "3", position: { x: 0, y: 100 }, data: { label: "Celsius SA de CV" } },
-  ];
-  const initialEdges = [{ id: "e1", source: "1", target: "2" }, { id: "e1-2", source: "1", target: "3" }];
-
-  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
-  const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
-
-  const onConnect = useCallback(
-    (params) => setEdges((eds) => addEdge(params, eds)),
-    [setEdges]
-  );
- 
-
-  const breadcrumbs = ["Administración", "Empresas"];
-
-  const renderCompanies = () => {
-      return (
-        <ReactFlowProvider>
-          <ReactFlow
-              nodes={nodes}
-              edges={edges}
-              onNodesChange={onNodesChange}
-              onEdgesChange={onEdgesChange}
-              onConnect={onConnect}
-          />
-      </ReactFlowProvider>
-      );
-  };
-
   const renderTable = () => {
     return (
       <Col xl={12} style={{marginTop: 20}}>
@@ -76,7 +34,7 @@ export default function Companies() {
                       }}
                     >
                       {/*// @ts-ignore */}
-                      <Link to={`${import.meta.env.BASE_URL}administration/company/${idx.id}`}>
+                      <Link to={`${import.meta.env.BASE_URL}administration/company/${idx.id}/company`}>
                         Ver
                       </Link>
                     </td>
@@ -89,6 +47,7 @@ export default function Companies() {
       </Col>
     );
   };
+
   return (
     <Fragment>
       <Row>
@@ -121,11 +80,8 @@ export default function Companies() {
               </Link>
             </Button>
           </div>
-
-          {/* {renderCompanies()} */}
           
           {renderTable()}
-
         </Card>
       </Row>
     </Fragment>
