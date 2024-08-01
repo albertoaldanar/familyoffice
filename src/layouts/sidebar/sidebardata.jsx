@@ -16,8 +16,8 @@ const MenuItems = [
         badgetxt:'',      
         children: [
           { path: `${import.meta.env.BASE_URL}governance/familyStructure`, type: 'link', active: false, selected: false, title: 'Miembros familiares' },
-          { path: `${import.meta.env.BASE_URL}administration/companies`, type: 'link', active: false, selected: false, title: 'Empresas' },
-          { path: `${import.meta.env.BASE_URL}administration/taxes`, type: 'link', active: false, selected: false, title: 'Activos fijos' },
+          { path: `${import.meta.env.BASE_URL}administration/companies`, type: 'link', active: false, selected: false, title: 'Empresas y fideicomisos' },
+          { path: `${import.meta.env.BASE_URL}administration/assets`, type: 'link', active: false, selected: false, title: 'Activos fijos' },
           { path: `${import.meta.env.BASE_URL}administration/payments`, type: 'link', active: false, selected: false, title: 'Tabla de cumplimientos' },
           { path: `${import.meta.env.BASE_URL}administration/collecting`, type: 'link', active: false, selected: false, title: 'Cobranza' },
           { path: `${import.meta.env.BASE_URL}administration/providers`, type: 'link', active: false, selected: false, title: 'Proveedores / Servicios' },

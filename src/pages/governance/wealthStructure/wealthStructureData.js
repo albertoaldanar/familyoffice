@@ -53,8 +53,8 @@ export const wealthStructure = {
     {
       id: 15,
       coreId: 1,
-      name: 'Audi A3',
-      value: '600000',
+      name: "Audi A3",
+      value: "600000",
       source: 4,
     },
     // {
@@ -92,7 +92,6 @@ export const wealthStructure = {
       value: "2,000,000.00",
       source: 7,
     },
-    
   ],
 };
 
@@ -104,11 +103,19 @@ export const otherWealthData = {
       brand: "Audi",
       year: "2023",
       color: "Gris",
-      value: '600000',
-      circulationCard: 'https://googledrive.com/erg3440398f4fmv',
-      currency: 'MXN',
+      value: "600000",
+      circulationCard: "https://googledrive.com/erg3440398f4fmv",
+      currency: "MXN",
       platesNumber: "XBJ21NB3",
-      invoice: 'https://googledrive.com/erg3440398f4fmv'
+      invoice: "https://googledrive.com/erg3440398f4fmv",
+      owners: [
+        {
+          type: "family",
+          pct: "100",
+          coreId: "12",
+          name: "Alberto Aldana Rios",
+        },
+      ],
     },
     {
       id: 3,
@@ -116,35 +123,58 @@ export const otherWealthData = {
       brand: "HAN",
       year: "2024",
       color: "Gris",
-      value: '1200000',
-      circulationCard: '',
-      currency: 'MXN',
+      value: "1200000",
+      circulationCard: "",
+      currency: "MXN",
       platesNumber: "ABJ2NB3",
-      invoice: 'https://googledrive.com/erg3440398f4fmv'
+      invoice: "https://googledrive.com/erg3440398f4fmv",
+      owners: [
+        {
+          type: "family",
+          pct: "100",
+          coreId: "43",
+          name: "Francisco Aldana Fariñas",
+        },
+      ],
     },
     {
       id: 23,
       model: "Frontier",
       brand: "Nissan",
-      value: '640000',
-      currency: 'MXN',
-      circulationCard: '',
+      value: "640000",
+      currency: "MXN",
+      circulationCard: "",
       year: "2015",
       color: "Gris",
       platesNumber: "AARBYNB1",
-      invoice: 'https://googledrive.com/erg3440398f4fmv'
+      invoice: "https://googledrive.com/erg3440398f4fmv",
+      owners: [
+        {
+          type: "company",
+          pct: "100",
+          coreId: 23,
+          name: "Aldana Clima Integral",
+        },
+      ],
     },
   ],
   artAndOthers: [
     {
       id: 43,
-      type: 'Arte',
-      name: 'Coleccion de arte de Gerhard Richter', 
-      value: '5000000',
-      currency: 'MXN',
-      photo: 'https://googledrive.com/erg3440398f4fmv',
-      certificate: 'https://googledrive.com/erg3440398f4fmv',
-      ownersIds: ['23'],
-    }
-  ]
+      type: "Arte",
+      name: "Coleccion de arte de Gerhard Richter",
+      value: "5000000",
+      currency: "MXN",
+      photo: "https://googledrive.com/erg3440398f4fmv",
+      certificate: "https://googledrive.com/erg3440398f4fmv",
+      owners: [
+        {
+          type: "family",
+          pct: "100",
+          coreId: "43",
+          name: "Francisco Aldana Fariñas",
+        },
+      ],
+    },
+  ],
 };

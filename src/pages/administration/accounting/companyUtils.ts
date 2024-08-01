@@ -22,7 +22,7 @@ export const formatOwnersData = (companySelected) => {
         label: owner.name,
         value: owner.coreId,
         pct: owner.pct,
-        capitalSocial: owner.capitalSocial
+        capitalSocial: owner.capitalSocial || null
       };
   
       if (owner.type === "family") {
@@ -33,4 +33,4 @@ export const formatOwnersData = (companySelected) => {
     });
   
     return formattedData;
-  };
+};

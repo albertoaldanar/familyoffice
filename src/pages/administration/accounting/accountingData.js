@@ -25,7 +25,7 @@ export const companies = [
       },
       {
         type: "family",
-        pct: '50',
+        pct: '60',
         coreId: '43',
         name: "Francisco Aldana Fariñas",
         capitalSocial: "1500000",

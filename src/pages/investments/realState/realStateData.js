@@ -15,6 +15,14 @@ export const realstateData = [
       "https://img.zumpercdn.com/209027862/1280x960",
       "https://media.istockphoto.com/id/1165384568/photo/europe-modern-complex-of-residential-buildings.jpg?s=612x612&w=0&k=20&c=iW4NBiMPKEuvaA7h8wIsPHikhS64eR-5EVPfjQ9GPOA=",
     ],
+    owners: [
+      {
+        type: "family",
+        pct: '100',
+        coreId: '43',
+        name: "Alberto Aldana Fariñas",
+      },
+    ],
   },
   {
     id: 29,
@@ -32,6 +40,22 @@ export const realstateData = [
       "https://img.zumpercdn.com/209027862/1280x960",
       "https://media.istockphoto.com/id/1165384568/photo/europe-modern-complex-of-residential-buildings.jpg?s=612x612&w=0&k=20&c=iW4NBiMPKEuvaA7h8wIsPHikhS64eR-5EVPfjQ9GPOA=",
     ],
+    owners: [
+      {
+        type: "family",
+        pct: '50',
+        coreId: '23',
+        name: "Patricia Rios Collantes",
+        capitalSocial: "1000000",
+      },
+      {
+        type: "family",
+        pct: '50',
+        coreId: '43',
+        name: "Alberto Aldana Fariñas",
+        capitalSocial: "1500000",
+      },
+    ],
   },
   {
     id: 42,
@@ -44,6 +68,14 @@ export const realstateData = [
     percentage: "100",
     mt2: "2250",
     propertyType: "Oficinas",
+    owners: [
+      {
+        type: "family",
+        pct: '100',
+        coreId: '23',
+        name: "Patricia Rios Collantes",
+      },
+    ],
     images: [
       "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pexels.com%2Fsearch%2Fapartment%2520building%2F&psig=AOvVaw1zYHqxmpBoPCXfkEVBI9UX&ust=1719262565828000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCNjk16XO8oYDFQAAAAAdAAAAABAE",
       "https://img.zumpercdn.com/209027862/1280x960",

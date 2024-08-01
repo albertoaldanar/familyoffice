@@ -11,7 +11,7 @@ import {
 } from "react-bootstrap";
 import Select from "react-select";
 //@ts-ignore
-import download from "../../../assets/images/familyOffice/download.png";
+import { MultiSelect } from "react-multi-select-component";
 import FileUpload from "../../../../administration/accounting/components/fileUpload";
 import FileView from "../../../../administration/accounting/components/fileView";
 import { arrendamientos } from "../../../../administration/collecting/collectingData";
@@ -20,7 +20,10 @@ import NotFoundSearch from "../../../../shared/notFoundSearch";
 import { prediales, mantenimientos, creditos, seguros } from "../../../../administration/payments/paymentsData";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import { formateDateForUI } from "../../../../administration/payments/paymentUtils";
+import { family } from "../../../familyStructure/familyStructureData";
+import { companies } from "../../../../administration/accounting/accountingData";
+import { formatCompany, formatOwnersData } from "../../../../administration/accounting/companyUtils";
+import { formatMember } from "../../../councilAndCommittee/councilAndCommitteeUtils";
 
 export default function RealStateItem(props) {
   const realStateSelected = realstateData.find(
@@ -31,12 +34,18 @@ export default function RealStateItem(props) {
     return <NotFoundSearch />;
   }
 
+  const familyList = formatMember(family.members);
+  const companiesList = formatCompany(companies);
+  const ownerData = formatOwnersData(realStateSelected);
+
   const [propertyName, setPropertyName] = useState(realStateSelected.nombre);
   const [location, setLocation] = useState(realStateSelected.location);
   const [city, setCity] = useState(realStateSelected.ciudad);
   const [percentage, setPercentage] = useState(realStateSelected.percentage);
   const [todayValue, setTodayValue] = useState(realStateSelected.valuacion);
   const [mt2, setMt2] = useState(realStateSelected.mt2);
+  const [ownerFamilyMembers, setOwnerFamilyMembers] = useState(ownerData.family);
+  const [ownerCompanies, setOwnerCompanies] = useState(ownerData.company);
 
   const [currency, setCurrency] = useState({
     value: realStateSelected.moneda,
@@ -259,7 +268,6 @@ export default function RealStateItem(props) {
     const insuranceLinked = seguros.find(seg => seg.linkedItemId === Number(props.id) && seg.tipo === 'Inmueble');
     const rentLinked = arrendamientos.find(arr => arr.linkedItemId === Number(props.id) && arr.tipo === 'Inmobiliario');
 
-    console.log('mantainanceLinked', rentLinked)
     return (
       <div style={{display: 'flex', flexDirection: 'row', marginLeft: 10}}>
         <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-evenly', width: '25%'}}>
@@ -436,6 +444,221 @@ export default function RealStateItem(props) {
     );
   };
 
+  const handleInputChange = (memberIndex, attributeName, value, type) => {
+    if (type === "family") {
+      setOwnerFamilyMembers((prevState) => {
+        const updatedMembers = [...prevState];
+        updatedMembers[memberIndex] = {
+          ...updatedMembers[memberIndex],
+          [attributeName]: value,
+        };
+        return updatedMembers;
+      });
+    } else if (type === "company") {
+      setOwnerCompanies((prevState) => {
+        const updatedCompanies = [...prevState];
+        updatedCompanies[memberIndex] = {
+          ...updatedCompanies[memberIndex],
+          [attributeName]: value,
+        };
+        return updatedCompanies;
+      });
+    }
+  };
+
+  const renderOwners = () => {
+    return (
+      <>
+        <Row>
+          <Form.Group
+            as={Col}
+            md="8"
+            controlId="validationCustom01"
+            className="form-group"
+          >
+            <Form.Label>Porcentajes de propietarios</Form.Label>
+          </Form.Group>
+        </Row>
+
+        <Row>
+          <Form.Group
+            as={Col}
+            md="4"
+            controlId="validationCustom01"
+            className="form-group"
+          >
+            <p style={{ color: "gray", fontSize: 13 }}>Miembros familiares</p>
+            <MultiSelect
+              options={familyList}
+              value={ownerFamilyMembers}
+              onChange={setOwnerFamilyMembers}
+              labelledBy="Select"
+              overrideStrings={{
+                selectSomeItems: "Selecciona miembros accionistas",
+                allItemsAreSelected: "Todos los miembros",
+                selectAll: "Seleccionar todos",
+              }}
+              disableSearch
+            />
+
+            {renderOptionsSelected("family")}
+          </Form.Group>
+          <Form.Group
+            as={Col}
+            md="4"
+            controlId="validationCustom01"
+            className="form-group"
+          >
+            <p style={{ color: "gray", fontSize: 13 }}>Empresas</p>
+            <MultiSelect
+              options={companiesList}
+              value={ownerCompanies}
+              onChange={setOwnerCompanies}
+              labelledBy="Select"
+              overrideStrings={{
+                selectSomeItems: "Selecciona empresas accionistas",
+                allItemsAreSelected: "Todos los miembros",
+                selectAll: "Seleccionar todos",
+              }}
+              disableSearch
+            />
+
+            {renderOptionsSelected("company")}
+          </Form.Group>
+
+          <Form.Group
+            as={Col}
+            md="4"
+            controlId="validationCustom01"
+            className="form-group"
+          >
+            <p style={{ color: "gray", fontSize: 13 }}>Fideicomisos</p>
+            <MultiSelect
+              options={familyList}
+              value={ownerFamilyMembers}
+              onChange={setOwnerFamilyMembers}
+              labelledBy="Select"
+              overrideStrings={{
+                selectSomeItems: "Selecciona empresas accionistas",
+                allItemsAreSelected: "Todos los miembros",
+                selectAll: "Seleccionar todos",
+              }}
+              disableSearch
+            />
+          </Form.Group>
+        </Row>
+      </>
+    );
+  };
+
+  const renderOptionsSelected = (type) => {
+    if (type === "family") {
+      if (ownerFamilyMembers.length) {
+        return ownerFamilyMembers.map((member, index) => {
+          return (
+            <div key={index} style={{ marginTop: 15 }}>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                }}
+              >
+                <div></div>
+                <p
+                  style={{
+                    marginTop: 3,
+                    fontWeight: "500",
+                    fontSize: 13,
+                    marginBottom: -3,
+                  }}
+                >
+                  {member.label}
+                </p>
+              </div>
+
+              <p
+                style={{
+                  color: "gray",
+                  fontSize: 12,
+                  marginTop: 3,
+                  marginBottom: 4,
+                }}
+              >
+                Porcentaje
+              </p>
+              <InputGroup hasValidation style={{ marginBottom: 8 }}>
+                <Form.Control
+                  type="numeric"
+                  aria-describedby="inputGroupPrepend-3"
+                  required
+                  onChange={(e) =>
+                    handleInputChange(index, "pct", e.target.value, "family")
+                  }
+                  value={member.pct || ""}
+                />
+                <InputGroup.Text id="inputGroupPrepend">%</InputGroup.Text>
+              </InputGroup>
+            </div>
+          );
+        });
+      }
+    } else if (type === "company") {
+      if (ownerCompanies.length) {
+        return ownerCompanies.map((company, index) => {
+          return (
+            <div key={index} style={{ marginTop: 15 }}>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                }}
+              >
+                <div></div>
+                <p
+                  style={{
+                    marginTop: 3,
+                    fontWeight: "500",
+                    fontSize: 13,
+                    marginBottom: -3,
+                  }}
+                >
+                  {company.label}
+                </p>
+              </div>
+
+              <p
+                style={{
+                  color: "gray",
+                  fontSize: 12,
+                  marginTop: 3,
+                  marginBottom: 4,
+                }}
+              >
+                Porcentaje
+              </p>
+              <InputGroup hasValidation style={{ marginBottom: 8 }}>
+                <Form.Control
+                  type="numeric"
+                  aria-describedby="inputGroupPrepend-3"
+                  required
+                  onChange={(e) =>
+                    handleInputChange(index, "pct", e.target.value, "company")
+                  }
+                  value={company.pct || ""}
+                />
+                <InputGroup.Text id="inputGroupPrepend">%</InputGroup.Text>
+              </InputGroup>
+            </div>
+          );
+        });
+      }
+    }
+
+    return;
+  };
+
   return (
     <Fragment>
       <Row style={{ marginTop: 10, padding: 20 }}>
@@ -463,15 +686,18 @@ export default function RealStateItem(props) {
                 <Nav.Item as="li" style={{ marginRight: 10 }}>
                   <Nav.Link eventKey="third">Responsabilidades</Nav.Link>
                 </Nav.Item>
+                <Nav.Item as="li" style={{ marginRight: 10 }}>
+                  <Nav.Link eventKey="fourth">Propietario(s)</Nav.Link>
+                </Nav.Item>
               </Nav>
             </div>
           </div>
 
           <Tab.Content className="panel-body">
             <Tab.Pane eventKey="first">{renderDescription()}</Tab.Pane>
-
             <Tab.Pane eventKey="second">{renderDocuments()}</Tab.Pane>
             <Tab.Pane eventKey="third">{renderResponsabilities()}</Tab.Pane>
+            <Tab.Pane eventKey="fourth">{renderOwners()}</Tab.Pane>
           </Tab.Content>
         </Tab.Container>
         <div

@@ -308,54 +308,7 @@ export default function CompanyCreate(props) {
               </Form.Group>
             </Row>
 
-            <Row style={{ marginTop: 20 }}>
-              <Form.Group
-                as={Col}
-                md="4"
-                controlId="validationCustom01"
-                className="form-group"
-              >
-                <Form.Label>Moneda de operación</Form.Label>
-                <Select
-                  options={Optionscurrency}
-                  classNamePrefix="Select2"
-                  className="multi-select"
-                  onChange={(value) => setCurrency(value)}
-                  placeholder=""
-                  value={currency}
-                />
-              </Form.Group>
-              <Form.Group
-                as={Col}
-                md="4"
-                controlId="validationCustomUsername"
-                className="form-group"
-              >
-                <Form.Label>Valuación actual</Form.Label>
-                <InputGroup hasValidation>
-                  <InputGroup.Text id="inputGroupPrepend-1">$</InputGroup.Text>
-                  <Form.Control
-                    type="numeric"
-                    aria-describedby="inputGroupPrepend"
-                    required
-                    onChange={(text) => setTodayValue(text.target.value)}
-                    value={todayValue}
-                  />
-                  <InputGroup.Text id="inputGroupPrepend-2">
-                    {currency.value}
-                  </InputGroup.Text>
-                  <Form.Control.Feedback type="invalid">
-                    Favor de añadir el monto del pago
-                  </Form.Control.Feedback>
-                </InputGroup>
-                <p style={{ marginTop: 7, fontSize: 11, color: "gray" }}>
-                  Una valuación acertada y reciente es importante para un
-                  calculo mas acertado en el total del valor patrimonial
-                </p>
-              </Form.Group>
-            </Row>
-
-            <Row style={{ marginTop: 20 }}>
+            <Row style={{ marginTop: 20, marginBottom: -10 }}>
               <Form.Group
                 as={Col}
                 md="8"
@@ -435,6 +388,53 @@ export default function CompanyCreate(props) {
                 />
               </Form.Group>
             </Row>
+
+            <Row style={{ marginTop: 30 }}>
+              <Form.Group
+                as={Col}
+                md="4"
+                controlId="validationCustom01"
+                className="form-group"
+              >
+                <Form.Label>Moneda de operación</Form.Label>
+                <Select
+                  options={Optionscurrency}
+                  classNamePrefix="Select2"
+                  className="multi-select"
+                  onChange={(value) => setCurrency(value)}
+                  placeholder=""
+                  value={currency}
+                />
+              </Form.Group>
+              <Form.Group
+                as={Col}
+                md="4"
+                controlId="validationCustomUsername"
+                className="form-group"
+              >
+                <Form.Label>Valuación actual</Form.Label>
+                <InputGroup hasValidation>
+                  <InputGroup.Text id="inputGroupPrepend-1">$</InputGroup.Text>
+                  <Form.Control
+                    type="numeric"
+                    aria-describedby="inputGroupPrepend"
+                    required
+                    onChange={(text) => setTodayValue(text.target.value)}
+                    value={todayValue}
+                  />
+                  <InputGroup.Text id="inputGroupPrepend-2">
+                    {currency.value}
+                  </InputGroup.Text>
+                  <Form.Control.Feedback type="invalid">
+                    Favor de añadir el monto del pago
+                  </Form.Control.Feedback>
+                </InputGroup>
+                <p style={{ marginTop: 7, fontSize: 11, color: "gray" }}>
+                  Una valuación acertada y reciente es importante para un
+                  calculo mas acertado en el total del valor patrimonial
+                </p>
+              </Form.Group>
+            </Row>            
 
             <Row style={{ marginTop: 20 }}>
               <Form.Group

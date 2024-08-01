@@ -76,6 +76,7 @@ const  LoanDescription= React.lazy(()=>import ('../pages/administration/collecti
 const  LoanNewPayment= React.lazy(()=>import ('../pages/administration/collecting/loans/loanNewPayment'))
 const  LoanCollecting= React.lazy(()=>import ('../pages/administration/collecting/loans/loanCollecting'))
 const  LoanCreate= React.lazy(()=>import ('../pages/administration/collecting/loans/loanCreate'))
+const  Assets = React.lazy(()=>import ('../pages/administration/assets/assets'))
 const  Taxes= React.lazy(()=>import ('../pages/administration/taxes/taxes'))
 const  TaxDescription= React.lazy(()=>import ('../pages/administration/taxes/taxesDescription'))
 const  TaxReport= React.lazy(()=>import ('../pages/administration/taxes/taxesReport'))
@@ -321,6 +322,9 @@ export const Routingdata=[
 {path:`${import.meta.env.BASE_URL}administration/providerDescription/:id/provider/:providerId` ,element : <ProviderDescription/>},
 {path:`${import.meta.env.BASE_URL}administration/providerNewService/:id/provider/:providerId` ,element : <ProviderNewService/>},
 {path:`${import.meta.env.BASE_URL}administration/providerService/:id/provider/:providerId/service/:serviceId` ,element : <ProviderService/>},
+
+/* Assets */
+{path:`${import.meta.env.BASE_URL}administration/assets` ,element : <Assets/>},
 /****************************** GOVERNANCE ****************************************/
 /* Family structure */
 {path:`${import.meta.env.BASE_URL}governance/familyStructure` ,element : <FamilyStructure/>},
