@@ -702,6 +702,31 @@ export default function CompanyDescription() {
     );
   };
 
+  const renderBankAccounts = () => {
+    if(companySelected.bankAccounts.length === 0){
+      return   <p style={{
+        color: "gray",
+        fontSize: 12
+      }}>
+        Aún no hay cuentas bancarias registradas, las cuentas bancarias se registran en la pestaña de activos fijos
+      </p>
+    }
+    return companySelected.bankAccounts.map((account) => {
+      return (
+        <p style={{
+          cursor: "pointer",
+          textDecoration: "underline",
+          color: "#5488d2",
+        }}>
+          {/*// @ts-ignore */}
+          <Link to={`${import.meta.env.BASE_URL}governance/wealthItem/type/bankAccount/id/${account.id}`}>
+            {account.bank} - {account.accountNumber}
+          </Link>
+        </p>
+      )
+    })
+  }
+
   const renderAnualTaxReport = () => {
     if (companySelected.reports.anuales.length > 0) {
       return (
@@ -882,6 +907,10 @@ export default function CompanyDescription() {
   const renderDescription = () => {
     return (
       <div>
+        <Row>
+          <Form.Label>Cuentas bancarias</Form.Label>
+          {renderBankAccounts()}
+        </Row>
         <Row style={{ marginBottom: 20, marginTop: 20 }}>
           <Form.Group
             as={Col}

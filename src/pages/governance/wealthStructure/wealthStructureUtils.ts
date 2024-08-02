@@ -111,3 +111,16 @@ export const generateNodesAndEdges = (wealthStructure) => {
 
   return { initialNodes, initialEdges };
 };
+
+export const bankAccountOwnersFormat = (bankAccount) => {
+  if(!bankAccount.length){
+    return [];
+  }
+
+  if (bankAccount) {
+    return bankAccount.map((member) => ({
+        value: member.name,
+        label: member.name,
+      }));
+  }
+};

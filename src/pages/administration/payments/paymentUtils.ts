@@ -131,3 +131,13 @@ export const formatVehicleData = (data) => {
     value: item.id.toString(),
   }));
 };
+
+export const formatCurrency = (value: string, currency: string) => {
+  const formattedValue = new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: currency,
+      minimumFractionDigits: 2
+  }).format(Number(value));
+
+  return `${formattedValue} ${currency}`;
+}

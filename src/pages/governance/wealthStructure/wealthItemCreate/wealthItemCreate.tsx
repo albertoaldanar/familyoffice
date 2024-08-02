@@ -2,6 +2,7 @@ import React, { useState, Fragment } from "react";
 import { Card, Row, Tab, Nav } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import ArtAndOthersCreate from "./components/artAndOthersCreate";
+import BanksAccountsCreate from "./components/bankAccountsCreate";
 import NotFoundSearch from "../../../shared/notFoundSearch";
 import RealStateItemCreate from "./components/realStateItemCreate";
 import VehicleItemCreate from "./components/vehicleItemCreate";
@@ -21,6 +22,9 @@ export default function WealthItemCreate() {
         break;
     case "artAndOthers":
         componentToRender = <ArtAndOthersCreate />;
+        break;
+    case "bankAccount":
+        componentToRender = <BanksAccountsCreate />;
         break;
     default:
       componentToRender = <NotFoundSearch />;

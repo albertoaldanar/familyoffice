@@ -177,4 +177,42 @@ export const otherWealthData = {
       ],
     },
   ],
+  bankAccounts: [
+    {
+      id: 1,
+      owners: [
+        {
+          type: "Persona física",
+          pct: "100",
+          coreId: "43",
+          name: "Francisco Aldana Fariñas",
+        },
+      ],
+      bank: "Santander",
+      accountNumber: "100434346583",
+      country: "México",
+      accountType: "Inversión",
+      value: "1000000",
+      currency: "MXN",
+      lastUpdate: "30/05/2024",
+    },
+    {
+      id: 2,
+      owners: [
+        {
+          type: "Persona moral",
+          pct: "100",
+          coreId: 23,
+          name: "Aldana Clima Integreal",
+        },
+      ],
+      bank: "BBVA",
+      accountNumber: "34333311021",
+      country: "México",
+      accountType: "Corriente",
+      value: "30000",
+      currency: "MXN",
+      lastUpdate: "30/05/2024",
+    },
+  ],
 };

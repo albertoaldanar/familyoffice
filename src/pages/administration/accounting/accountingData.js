@@ -15,6 +15,13 @@ export const companies = [
     percentage: "100",
     nationality: "Mexicana",
     regimenCapital: "SA de CV",
+    bankAccounts: [
+      {
+        id: 2,
+        bank: 'BBVA',
+        accountNumber: "34333311021",
+      }
+    ],
     owners: [
       {
         type: "family",
@@ -154,6 +161,7 @@ export const companies = [
     razonSocial: "Airenlinea SA de CV",
     nationality: "Mexicana",
     regimenCapital: "SA de CV",
+    bankAccounts: [],
     capitalSocial: "2,300,000.00",
     owners: [
       {
@@ -309,6 +317,7 @@ export const companies = [
     fundacion: "10/10/1995",
     nationality: "Americana",
     regimenCapital: "SA de CV",
+    bankAccounts: [],
     capitalSocial: "2,300,000.00",
     actasDividendos: "",
     owners: [

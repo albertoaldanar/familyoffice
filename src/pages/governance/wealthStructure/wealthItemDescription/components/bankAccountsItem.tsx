@@ -8,37 +8,61 @@ import { formatMember } from "../../../councilAndCommittee/councilAndCommitteeUt
 import { family } from "../../../familyStructure/familyStructureData";
 import { companies } from "../../../../administration/accounting/accountingData";
 import { formatCompany } from "../../../../administration/accounting/companyUtils";
+import NotFoundSearch from "../../../../shared/notFoundSearch";
+import { otherWealthData } from "../../wealthStructureData";
+import { bankAccountOwnersFormat } from "../../wealthStructureUtils";
 import { Link } from "react-router-dom";
 
-export default function BanksAccountsCreate(props) {
+export default function BanksAccountsItem(props) {
+  const accountSelected = otherWealthData.bankAccounts.find(
+    (account) => account.id === Number(props.id)
+  );
+
+  if (!accountSelected) {
+    return <NotFoundSearch />;
+  }
+
+  const isCompanyOwned = accountSelected.owners[0].type === "Persona moral";
+
   const membersList = formatMember(family.members);
   const companiesList = formatCompany(companies);
-  const [bank, setBank] = useState("");
-  const [todayValue, setTodayValue] = useState("");
-  const [members, setMembers] = useState([]);
-  const [accountNumber, setAccountNumber] = useState("");
-  const [ownerCompanies, setOwnerCompanies] = useState({
-    value: "",
-    label: "",
-  });
+  const [bank, setBank] = useState(accountSelected.bank);
+  const [todayValue, setTodayValue] = useState(accountSelected.value);
+  const [members, setMembers] = useState(
+    !isCompanyOwned
+    ? bankAccountOwnersFormat(accountSelected.owners)
+    : []
+  );
+  const [accountNumber, setAccountNumber] = useState(
+    accountSelected.accountNumber
+  );
+  const [ownerCompanies, setOwnerCompanies] = useState(
+    isCompanyOwned
+      ? {
+          value: accountSelected.owners[0].name,
+          label: accountSelected.owners[0].name,
+        }
+      : { value: "", label: "" }
+  );
+
   const [countryAccount, setCountryAccount] = useState({
-    value: "",
-    label: "",
+    value: accountSelected.country,
+    label: accountSelected.country,
   });
 
   const [ownerAccountType, setOwnerAccountType] = useState({
-    value: "",
-    label: "",
+    value: accountSelected.owners[0].type,
+    label: accountSelected.owners[0].type,
   });
 
   const [currency, setCurrency] = useState({
-    value: "",
-    label: "",
+    value: accountSelected.currency,
+    label: accountSelected.currency,
   });
 
   const [accountType, setAccountType] = useState({
-    value: "",
-    label: "",
+    value: accountSelected.accountType,
+    label: accountSelected.accountType,
   });
 
   const Optionscurrency = [
@@ -118,7 +142,8 @@ export default function BanksAccountsCreate(props) {
     <Fragment>
       <Row style={{ padding: 20 }}>
         <Card.Title style={{ marginBottom: 35 }}>
-          Nuevo Registro cuenta bancaria
+          Cuenta bancaria {accountSelected.bank} -
+          {accountSelected.accountNumber}
         </Card.Title>
 
         <Row style={{ marginTop: 10 }}>
@@ -259,6 +284,12 @@ export default function BanksAccountsCreate(props) {
           </Form.Group>
         </Row>
 
+        <Row style={{ marginTop: 20 }}>
+          <Form.Label>Ultima actualización</Form.Label>
+          <p style={{color: "gray",fontSize: 12}}>
+            {accountSelected.lastUpdate}
+          </p>
+        </Row>
         <div
           style={{
             display: "flex",
