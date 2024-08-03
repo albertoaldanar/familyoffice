@@ -91,6 +91,8 @@ const  FamilyStructure= React.lazy(()=>import ('../pages/governance/familyStruct
 const  FamilyMemberCreate= React.lazy(()=>import ('../pages/governance/familyStructure/familyMemberCreate'))
 const  FamilyMember= React.lazy(()=>import ('../pages/governance/familyStructure/familyMember'))
 const  CouncilAndCommitties= React.lazy(()=>import ('../pages/governance/councilAndCommittee/councilAndCommittee'))
+const  FamilyCouncil= React.lazy(()=>import ('../pages/governance/councilAndCommittee/familyCouncil'))
+const  InvestmentCommitte= React.lazy(()=>import ('../pages/governance/councilAndCommittee/investmentCommittee'))
 const  CouncilAndCommittiesAddMember= React.lazy(()=>import ('../pages/governance/councilAndCommittee/councilAndCommitteAddMember'))
 const  MeetingCreate= React.lazy(()=>import ('../pages/governance/councilAndCommittee/components/meetings/meetingCreate'))
 const  MeetingDescription= React.lazy(()=>import ('../pages/governance/councilAndCommittee/components/meetings/meetingDescription'))
@@ -332,6 +334,8 @@ export const Routingdata=[
 {path:`${import.meta.env.BASE_URL}governance/familyMember/:id` ,element : <FamilyMember/>},
 /* Councils and committees */
 {path:`${import.meta.env.BASE_URL}governance/councilAndCommittee` ,element : <CouncilAndCommitties/>},
+{path:`${import.meta.env.BASE_URL}governance/familyCouncil` ,element : <FamilyCouncil/>},
+{path:`${import.meta.env.BASE_URL}governance/investmentCommittee` ,element : <InvestmentCommitte/>},
 {path:`${import.meta.env.BASE_URL}governance/councilAndCommittee/addMember/:type` ,element : <CouncilAndCommittiesAddMember/>},
 {path:`${import.meta.env.BASE_URL}governance/councilAndCommittee/meetingCreate/:type` ,element : <MeetingCreate/>},
 {path:`${import.meta.env.BASE_URL}governance/councilAndCommittee/meetingDescription/type/:type/id/:id` ,element : <MeetingDescription/>},

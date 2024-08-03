@@ -49,7 +49,7 @@ export default function FamilyStructure() {
         <p
           style={{
             fontSize: 15,
-            marginTop: 40,
+            marginTop: 20,
           }}
         >
           1) Estrategia de largo plazo e Investment Policy:
@@ -93,7 +93,7 @@ export default function FamilyStructure() {
           <p
             style={{
               fontSize: 15,
-              marginTop: 40,
+              marginTop: 20,
             }}
           >
             1) Testamento y protocolo familiar:

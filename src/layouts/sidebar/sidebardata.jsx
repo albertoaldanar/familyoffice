@@ -40,9 +40,8 @@ const MenuItems = [
         color:'',
         badgetxt:'',      
         children: [
-          { path: `${import.meta.env.BASE_URL}governance/wealthStructure`, type: 'link', active: false, selected: false, title: 'Estructura patrimonial' },
-          { path: `${import.meta.env.BASE_URL}apps/defaultcalender`, type: 'link', active: false, selected: false, title: 'Legal/Documentos' },
-          { path: `${import.meta.env.BASE_URL}governance/councilAndCommittee`, type: 'link', active: false, selected: false, title: 'Concejos y comites ' },
+          { path: `${import.meta.env.BASE_URL}governance/familyCouncil`, type: 'link', active: false, selected: false, title: 'Concejo Familiar' },
+          { path: `${import.meta.env.BASE_URL}governance/investmentCommittee`, type: 'link', active: false, selected: false, title: 'Comité de inversión' },
           // { path: `${import.meta.env.BASE_URL}apps/chat`, type: 'link', active: false, selected: false, title: 'Chat' },
           // { path: `${import.meta.env.BASE_URL}apps/notifications`, type: 'link', active: false, selected: false, title: 'Notifications' },
           // { path: `${import.meta.env.BASE_URL}apps/sweetalerts`, type: 'link', active: false, selected: false, title: 'Sweet alerts' },

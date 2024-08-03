@@ -5,9 +5,28 @@ export const companies = [
     rfc: "BVA4930245",
     moneda: "MXN",
     actaConstitutiva: "https://www.google.drive/1423nger",
-    actaAsamblea: "https://www.google.drive/1423nger",
-    actaAsambleaExtraordinaria: "https://www.google.drive/1423nger",
-    poderes: "https://www.google.drive/jgierei2322",
+    actasAsamblea: [
+      {
+        name: 'AAO 2024',
+        url: '"https://www.google.drive/1423nger"'
+      },
+    ],
+    actaAsambleaExtraordinaria: [
+    ],
+    poderes:[
+      {
+        name: 'Poderes 2022',
+        url: '"https://www.google.drive/1423nger"'
+      },
+      {
+        name: 'Poderes 2023',
+        url: '"https://www.google.drive/1423nger"'
+      },
+      {
+        name: 'Poderes 2024',
+        url: '"https://www.google.drive/1423nger"'
+      }
+    ],
     razonSocial: "Aldana Clima Integral SA de CV",
     valuacion: "10,000,000.00",
     direccionFiscal: "Col Los pinos 233 Colonia Mutualismo CP 233",
@@ -38,7 +57,16 @@ export const companies = [
         capitalSocial: "1500000",
       },
     ],
-    actasDividendos: "",
+    actasDividendos: [
+      {
+        name: 'AD 2023',
+        url: '"https://www.google.drive/1423nger"'
+      },
+      {
+        name: 'Actas dividendos 2024',
+        url: '"https://www.google.drive/1423nger"'
+      },
+    ],
     cif: "",
     reports: {
       mensuales: [
@@ -184,10 +212,50 @@ export const companies = [
     percentage: "100",
     direccionFiscal: "Col Los pinos 233 Colonia Mutualismo CP 233",
     actaConstitutiva: "https://www.google.drive/1423nger",
-    actaAsamblea: "https://www.google.drive/1423nger",
-    actaAsambleaExtraordinaria: "https://www.google.drive/1423nger",
-    poderes: "",
-    actasDividendos: "",
+    actasAsamblea: [
+      {
+        name: 'AAO 2024',
+        url: '"https://www.google.drive/1423nger"'
+      },
+    ],
+    actaAsambleaExtraordinaria: [
+      {
+        name: 'AAE 2022',
+        url: '"https://www.google.drive/1423nger"'
+      },
+      {
+        name: 'AAE 2023',
+        url: '"https://www.google.drive/1423nger"'
+      },
+      {
+        name: 'AAE 2024',
+        url: '"https://www.google.drive/1423nger"'
+      }
+    ],
+    poderes:[
+      {
+        name: 'Poderes 2022',
+        url: '"https://www.google.drive/1423nger"'
+      },
+      {
+        name: 'Poderes 2023',
+        url: '"https://www.google.drive/1423nger"'
+      },
+      {
+        name: 'Poderes 2024',
+        url: '"https://www.google.drive/1423nger"'
+      }
+    ],
+    actasDividendos: [
+      {
+        name: 'AD 2023',
+        url: '"https://www.google.drive/1423nger"'
+      },
+      {
+        name: 'Actas dividendos 2024',
+        url: '"https://www.google.drive/1423nger"'
+      },
+    ],
     cif: "",
     reports: {
       mensuales: [
@@ -307,19 +375,58 @@ export const companies = [
     nombre: "D&A Engineering Designs",
     rfc: "BVA4930245",
     moneda: "MXN",
-    actaConstitutiva: "https://www.google.drive/1423nger",
-    actaAsamblea: "https://www.google.drive/1423nger",
-    actaAsambleaExtraordinaria: "https://www.google.drive/1423nger",
-    poderes: "https://www.google.drive/jgierei2322",
+    actasAsamblea: [
+      {
+        name: 'AAO 2024',
+        url: '"https://www.google.drive/1423nger"'
+      },
+    ],
+    actaAsambleaExtraordinaria: [
+      {
+        name: 'AAE 2022',
+        url: '"https://www.google.drive/1423nger"'
+      },
+      {
+        name: 'AAE 2023',
+        url: '"https://www.google.drive/1423nger"'
+      },
+      {
+        name: 'AAE 2024',
+        url: '"https://www.google.drive/1423nger"'
+      }
+    ],
+    poderes:[
+      {
+        name: 'Poderes 2022',
+        url: '"https://www.google.drive/1423nger"'
+      },
+      {
+        name: 'Poderes 2023',
+        url: '"https://www.google.drive/1423nger"'
+      },
+      {
+        name: 'Poderes 2024',
+        url: '"https://www.google.drive/1423nger"'
+      }
+    ],
+    actasDividendos: [
+      {
+        name: 'AD 2023',
+        url: '"https://www.google.drive/1423nger"'
+      },
+      {
+        name: 'Actas dividendos 2024',
+        url: '"https://www.google.drive/1423nger"'
+      },
+    ],
     razonSocial: "Servicios de diseños de ingenieria SA de CV",
     valuacion: "10,000,000.00",
     direccionFiscal: "Col Los pinos 233 Colonia Mutualismo CP 233",
     fundacion: "10/10/1995",
-    nationality: "Americana",
+    nationality: "Canada",
     regimenCapital: "SA de CV",
     bankAccounts: [],
     capitalSocial: "2,300,000.00",
-    actasDividendos: "",
     owners: [
       {
         type: "company",

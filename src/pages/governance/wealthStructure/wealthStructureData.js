@@ -215,4 +215,42 @@ export const otherWealthData = {
       lastUpdate: "30/05/2024",
     },
   ],
+  privateEquity: [
+    {
+      id: 2,
+      fundName: 'Fondo ABC',
+      investment: '10000000',
+      currency: 'MXN',
+      investmentYear: '2020',
+      fundType: 'Venture Capital',
+      industry: 'Startups',
+      location: 'Mexico',
+      owners: [
+        {
+          type: "Persona moral",
+          pct: "100",
+          coreId: 23,
+          name: "Aldana Clima Integreal",
+        },
+      ],
+    },
+    {
+      id: 6,
+      fundName: 'BR capital',
+      investment: '90000',
+      currency: 'USD',
+      investmentYear: '2023',
+      fundType: 'Private Equity',
+      industry: 'Real State',
+      location: 'Europa',
+      owners: [
+        {
+          type: "Persona física",
+          pct: "100",
+          coreId: "43",
+          name: "Francisco Aldana Fariñas",
+        },
+      ],
+    }
+  ]
 };

@@ -6,6 +6,7 @@ import BanksAccountsCreate from "./components/bankAccountsCreate";
 import NotFoundSearch from "../../../shared/notFoundSearch";
 import RealStateItemCreate from "./components/realStateItemCreate";
 import VehicleItemCreate from "./components/vehicleItemCreate";
+import PrivateEquityCreate from "./components/privateEquityCreate";
 
 export default function WealthItemCreate() {
   const params = useParams();
@@ -25,6 +26,9 @@ export default function WealthItemCreate() {
         break;
     case "bankAccount":
         componentToRender = <BanksAccountsCreate />;
+        break;
+    case "privateEquity":
+        componentToRender = <PrivateEquityCreate />;
         break;
     default:
       componentToRender = <NotFoundSearch />;

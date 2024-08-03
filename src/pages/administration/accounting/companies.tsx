@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import { Badge, Button, Card, Col, Table, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { renderFlag } from "./companyUtils";
 import { companies } from "./accountingData";
 
 export default function Companies() {
@@ -12,20 +13,30 @@ export default function Companies() {
             <Table className="table border text-nowrap text-md-nowrap mb-0">
               <thead className="bg-light">
                 <tr>
-                  <th>Nombre</th>
                   <th>Razon social</th>
-                  <th>RFC</th>
                   <th>Valuación</th>
+                  <th>RFC</th>
+                  <th>País</th>
+                  <th>Accionistas</th>
                   <th></th>
                 </tr>
               </thead>
               <tbody>
                 {companies.map((idx, tb8) => (
                   <tr key={tb8}>
-                    <td>{idx.nombre}</td>
                     <td>{idx.razonSocial}</td>
-                    <td>{idx.rfc}</td>
                     <td>${idx.valuacion} {idx.moneda}</td>
+                    <td>{idx.rfc}</td>
+                    <td>{renderFlag(idx.nationality)}</td>
+                    <td>
+                    <div style={{ display: "flex", flexDirection: "column" }}>
+                      {idx.owners.map((owner, index) => (
+                        <div key={index} style={{fontSize: 13}}>
+                          {owner.name}: {owner.pct}% <br />
+                        </div>
+                      ))}
+                    </div>
+                  </td>
                     <td
                       style={{
                         cursor: "pointer",

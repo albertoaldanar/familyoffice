@@ -9,6 +9,7 @@ import { MultiSelect } from "react-multi-select-component";
 import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import dayjs, { Dayjs } from "dayjs";
 import FileUpload from "./components/fileUpload";
+import FileView from "./components/fileView";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { family } from "../../governance/familyStructure/familyStructureData";
@@ -34,7 +35,6 @@ export default function CompanyCreate(props) {
 
   const familyList = formatMember(family.members);
   const companiesList = formatCompany(companies);
-  console.log("values seleccted", ownerFamilyMembers);
 
   const Optionscurrency = [
     { value: "MXN", label: "MXN" },
@@ -42,12 +42,7 @@ export default function CompanyCreate(props) {
     { value: "EUR", label: "EUR" },
   ];
 
-  const handleInputChange = (
-    memberIndex,
-    attributeName,
-    value,
-    type
-  ) => {
+  const handleInputChange = (memberIndex, attributeName, value, type) => {
     if (type === "family") {
       setOwnerFamilyMembers((prevState) => {
         const updatedMembers = [...prevState];
@@ -111,12 +106,7 @@ export default function CompanyCreate(props) {
                   aria-describedby="inputGroupPrepend-3"
                   required
                   onChange={(e) =>
-                    handleInputChange(
-                      index,
-                      "pct",
-                      e.target.value,
-                      "family"
-                    )
+                    handleInputChange(index, "pct", e.target.value, "family")
                   }
                   value={member.pct || ""}
                 />
@@ -195,12 +185,7 @@ export default function CompanyCreate(props) {
                   aria-describedby="inputGroupPrepend-3"
                   required
                   onChange={(e) =>
-                    handleInputChange(
-                      index,
-                      "pct",
-                      e.target.value,
-                      "company"
-                    )
+                    handleInputChange(index, "pct", e.target.value, "company")
                   }
                   value={company.pct || ""}
                 />
@@ -434,7 +419,7 @@ export default function CompanyCreate(props) {
                   calculo mas acertado en el total del valor patrimonial
                 </p>
               </Form.Group>
-            </Row>            
+            </Row>
 
             <Row style={{ marginTop: 20 }}>
               <Form.Group
@@ -478,9 +463,14 @@ export default function CompanyCreate(props) {
 
             <Row style={{ marginTop: 20 }}>
               <Form.Group as={Col} md="6" className="form-group">
-                <Form.Label className="form-label my-3">
-                  Acta constitutiva
-                </Form.Label>
+                <p
+                  style={{
+                    fontSize: 16,
+                    marginTop: 20,
+                  }}
+                >
+                   1) Acta constitutiva:
+                </p>
                 <div>
                   <FileUpload />
                   <p
@@ -498,49 +488,14 @@ export default function CompanyCreate(props) {
               </Form.Group>
 
               <Form.Group as={Col} md="6" className="form-group">
-                <Form.Label className="form-label my-3">
-                  Acta de asamblea ordinaria
-                </Form.Label>
-                <div>
-                  <FileUpload />
-                  <p
-                    style={{
-                      fontSize: 10,
-                      textDecoration: "underline",
-                      cursor: "pointer",
-                      marginTop: -15,
-                      color: "#A0A0A0",
-                    }}
-                  >
-                    Descargar formato guia
-                  </p>
-                </div>
-              </Form.Group>
-            </Row>
-
-            <Row style={{ marginTop: 20 }}>
-              <Form.Group as={Col} md="6" className="form-group">
-                <Form.Label className="form-label my-3">
-                  Acta de asamblea extraordinaria
-                </Form.Label>
-                <div>
-                  <FileUpload />
-                  <p
-                    style={{
-                      fontSize: 10,
-                      textDecoration: "underline",
-                      cursor: "pointer",
-                      marginTop: -15,
-                      color: "#A0A0A0",
-                    }}
-                  >
-                    Descargar formato guia
-                  </p>
-                </div>
-              </Form.Group>
-
-              <Form.Group as={Col} md="6" className="form-group">
-                <Form.Label className="form-label my-3">Poderes</Form.Label>
+                <p
+                  style={{
+                    fontSize: 16,
+                    marginTop: 20,
+                  }}
+                >
+                    2) CIF (Constancia de Identificacion fiscal)
+                </p>
                 <div>
                   <FileUpload />
                   <p
@@ -560,9 +515,76 @@ export default function CompanyCreate(props) {
 
             <Row style={{ marginTop: 20 }}>
               <Form.Group as={Col} md="6" className="form-group">
-                <Form.Label className="form-label my-3">
-                  Actas de dividendos
-                </Form.Label>
+                <p
+                  style={{
+                    fontSize: 16,
+                    marginTop: 20,
+                  }}
+                >
+                   3) Actas de asamblea ordinaras
+                </p>
+                <Row style={{ marginTop: 10, marginBottom: 20 }}>
+                  {family.documents.family.actasAsamblea.length ? (
+                    family.documents.family.actasAsamblea.map((acta, index) => (
+                      <Form.Group as={Col} md="4" className="form-group">
+                        <Form.Label
+                          className="form-label my-3"
+                          style={{ color: "gray", fontSize: 13 }}
+                        >
+                          {" "}
+                          {acta.nombre}
+                        </Form.Label>
+                        <FileView
+                          key={index}
+                          title={acta.nombre}
+                          fileName={acta.url}
+                        />
+                      </Form.Group>
+                    ))
+                  ) : (
+                    <p
+                      style={{
+                        fontSize: 13,
+                        fontStyle: "italic",
+                        color: "gray",
+                        textAlign: "center",
+                      }}
+                    ></p>
+                  )}
+                </Row>
+                <div>
+                <p style={{ fontSize: 10, color: "gray", marginBottom: -1 }}>
+                  + Añadir nueva actas de asamblea ordinaras
+                </p>
+                  <FileUpload />
+                  <p
+                    style={{
+                      fontSize: 10,
+                      textDecoration: "underline",
+                      cursor: "pointer",
+                      marginTop: -15,
+                      color: "#A0A0A0",
+                    }}
+                  >
+                    Descargar formato guia
+                  </p>
+                </div>
+              </Form.Group>
+            </Row>
+
+            <Row style={{ marginTop: 20 }}>
+              <Form.Group as={Col} md="6" className="form-group">
+                <p
+                  style={{
+                    fontSize: 16,
+                    marginTop: 20,
+                  }}
+                >
+                   4) Poderes
+                </p>
+                <p style={{ fontSize: 10, color: "gray", marginBottom: -1 }}>
+                  + Añadir nueva acta de poderes
+                </p>
                 <div>
                   <FileUpload />
                   <p
@@ -578,11 +600,52 @@ export default function CompanyCreate(props) {
                   </p>
                 </div>
               </Form.Group>
+            </Row>
 
+            <Row style={{ marginTop: 20 }}>
               <Form.Group as={Col} md="6" className="form-group">
-                <Form.Label className="form-label my-3">
-                  CIF (Constancia de Identificación Fiscal)
-                </Form.Label>
+                <p
+                  style={{
+                    fontSize: 16,
+                    marginTop: 20,
+                  }}
+                >
+                   5) Actas de dividendos
+                </p>
+                
+                <div>
+                <p style={{ fontSize: 10, color: "gray", marginBottom: -1 }}>
+                  + Añadir nueva acta de dividendos
+                </p>
+                  <FileUpload />
+                  <p
+                    style={{
+                      fontSize: 10,
+                      textDecoration: "underline",
+                      cursor: "pointer",
+                      marginTop: -15,
+                      color: "#A0A0A0",
+                    }}
+                  >
+                    Descargar formato guia
+                  </p>
+                </div>
+              </Form.Group>
+            </Row>
+
+            <Row style={{ marginTop: 20 }}>
+              <Form.Group as={Col} md="6" className="form-group">
+                <p
+                  style={{
+                    fontSize: 15,
+                    marginTop: 20,
+                  }}
+                >
+                  6) Actas de asamblea extraordinaria
+                </p>
+                <p style={{ fontSize: 10, color: "gray", marginBottom: -1 }}>
+                  + Añadir actas de asamblea extraordinaria
+                </p>
                 <div>
                   <FileUpload />
                   <p

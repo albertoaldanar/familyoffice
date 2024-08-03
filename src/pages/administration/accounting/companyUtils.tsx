@@ -1,3 +1,10 @@
+//@ts-ignore
+import usa from '../../../assets/images/flags/us.svg';
+//@ts-ignore
+import mx from '../../../assets/images/flags/mx.svg';
+//@ts-ignore
+import ca from '../../../assets/images/flags/ca.svg';
+
 export const formatCompany = (companies) => {
     if(!companies.length){
       return [];
@@ -33,4 +40,14 @@ export const formatOwnersData = (companySelected) => {
     });
   
     return formattedData;
+};
+
+export const renderFlag = (nationality: string) => {
+  if(nationality === 'USA'){
+    return <img style={{width: 25, height: 25, borderRadius: 10}} src={usa} alt="usa" />
+  } else if(nationality === 'Mexicana'){
+    return <img style={{width: 25, height: 25, borderRadius: 10}} src={mx} alt="mx" />
+  } else if(nationality === 'Canada'){
+    return <img style={{width: 25, height: 25, borderRadius: 10}} src={ca} alt="canada" />
+  } 
 };

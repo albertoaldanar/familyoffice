@@ -442,26 +442,206 @@ export default function CompanyDescription() {
     return;
   };
 
+  // const renderLegal = () => {
+  //   return (
+  //     <>
+  //       <Row>
+  //         <Form.Group as={Col} md="4" className="form-group">
+  //           <Form.Label className="form-label my-3">
+  //             Acta constitutiva
+  //           </Form.Label>
+  //           {companySelected.actaConstitutiva ? (
+  //             <FileView
+  //               title="Declaracion ISR"
+  //               fileName={companySelected.actaConstitutiva}
+  //             />
+  //           ) : (
+  //             <div>
+  //               <FileUpload />
+  //               <p
+  //                 style={{
+  //                   fontSize: 10,
+  //                   textDecoration: "underline",
+  //                   cursor: "pointer",
+  //                   marginTop: -15,
+  //                   color: "#A0A0A0",
+  //                 }}
+  //               >
+  //                 Descargar formato guia
+  //               </p>
+  //             </div>
+  //           )}
+  //         </Form.Group>
+
+  //         <Form.Group as={Col} md="4" className="form-group">
+  //           <Form.Label className="form-label my-3">
+  //             Acta de asamblea ordinaria
+  //           </Form.Label>
+  //           {companySelected.actaAsamblea ? (
+  //             <FileView
+  //               title="Declaracion ISR"
+  //               fileName={companySelected.actaAsamblea}
+  //             />
+  //           ) : (
+  //             <div>
+  //               <FileUpload />
+  //               <p
+  //                 style={{
+  //                   fontSize: 10,
+  //                   textDecoration: "underline",
+  //                   cursor: "pointer",
+  //                   marginTop: -15,
+  //                   color: "#A0A0A0",
+  //                 }}
+  //               >
+  //                 Descargar formato guia
+  //               </p>
+  //             </div>
+  //           )}
+  //         </Form.Group>
+
+  //         <Form.Group as={Col} md="4" className="form-group">
+  //           <Form.Label className="form-label my-3">
+  //             Acta de asamblea extraordinaria
+  //           </Form.Label>
+  //           {companySelected.actaAsambleaExtraordinaria ? (
+  //             <FileView
+  //               title="Acta asamble extraordinaria"
+  //               fileName={companySelected.actaAsambleaExtraordinaria}
+  //             />
+  //           ) : (
+  //             <div>
+  //               <FileUpload />
+  //               <p
+  //                 style={{
+  //                   fontSize: 10,
+  //                   textDecoration: "underline",
+  //                   cursor: "pointer",
+  //                   marginTop: -15,
+  //                   color: "#A0A0A0",
+  //                 }}
+  //               >
+  //                 Descargar formato guia
+  //               </p>
+  //             </div>
+  //           )}
+  //         </Form.Group>
+
+  //         <Row style={{ marginTop: 40 }}>
+  //           <Form.Group as={Col} md="4" className="form-group">
+  //             <Form.Label className="form-label my-3">Poderes</Form.Label>
+  //             {companySelected.poderes ? (
+  //               <FileView
+  //                 title="Declaracion ISR"
+  //                 fileName={companySelected.poderes}
+  //               />
+  //             ) : (
+  //               <div>
+  //                 <FileUpload />
+  //                 <p
+  //                   style={{
+  //                     fontSize: 10,
+  //                     textDecoration: "underline",
+  //                     cursor: "pointer",
+  //                     marginTop: -15,
+  //                     color: "#A0A0A0",
+  //                   }}
+  //                 >
+  //                   Descargar formato guia
+  //                 </p>
+  //               </div>
+  //             )}
+  //           </Form.Group>
+
+  //           <Form.Group as={Col} md="4" className="form-group">
+  //             <Form.Label className="form-label my-3">
+  //               Actas de dividendos
+  //             </Form.Label>
+  //             {companySelected.actasDividendos ? (
+  //               <FileView
+  //                 title="Declaracion ISR"
+  //                 fileName={companySelected.actasDividendos}
+  //               />
+  //             ) : (
+  //               <div>
+  //                 <FileUpload />
+  //                 <p
+  //                   style={{
+  //                     fontSize: 10,
+  //                     textDecoration: "underline",
+  //                     cursor: "pointer",
+  //                     marginTop: -15,
+  //                     color: "#A0A0A0",
+  //                   }}
+  //                 >
+  //                   Descargar formato guia
+  //                 </p>
+  //               </div>
+  //             )}
+  //           </Form.Group>
+
+  //           <Form.Group as={Col} md="4" className="form-group">
+  //             <Form.Label className="form-label my-3">
+  //               Constancia de Identificacion fiscal
+  //             </Form.Label>
+  //             {companySelected.cif ? (
+  //               <FileView
+  //                 title="Declaracion ISR"
+  //                 fileName={companySelected.cif}
+  //               />
+  //             ) : (
+  //               <div>
+  //                 <FileUpload />
+  //                 <p
+  //                   style={{
+  //                     fontSize: 10,
+  //                     textDecoration: "underline",
+  //                     cursor: "pointer",
+  //                     marginTop: -15,
+  //                     color: "#A0A0A0",
+  //                   }}
+  //                 >
+  //                   Descargar formato guia
+  //                 </p>
+  //               </div>
+  //             )}
+  //           </Form.Group>
+  //         </Row>
+  //       </Row>
+  //     </>
+  //   );
+  // };
+
   const renderLegal = () => {
     return (
       <>
         <Row>
+          <p
+            style={{
+              fontSize: 15,
+              marginTop: 20,
+            }}
+          >
+            1) Acta constitutiva y CIF:
+          </p>
           <Form.Group as={Col} md="4" className="form-group">
-            <Form.Label className="form-label my-3">
+            <Form.Label
+              className="form-label my-3"
+              style={{ fontSize: 13, color: "gray" }}
+            >
               Acta constitutiva
             </Form.Label>
             {companySelected.actaConstitutiva ? (
               <FileView
-                title="Declaracion ISR"
+                title="Acta constitutiva"
                 fileName={companySelected.actaConstitutiva}
               />
             ) : (
-              <div>
+              <>
                 <FileUpload />
                 <p
                   style={{
                     fontSize: 10,
-                    textDecoration: "underline",
                     cursor: "pointer",
                     marginTop: -15,
                     color: "#A0A0A0",
@@ -469,26 +649,28 @@ export default function CompanyDescription() {
                 >
                   Descargar formato guia
                 </p>
-              </div>
+              </>
             )}
           </Form.Group>
 
           <Form.Group as={Col} md="4" className="form-group">
-            <Form.Label className="form-label my-3">
-              Acta de asamblea ordinaria
+            <Form.Label
+              className="form-label my-3"
+              style={{ fontSize: 13, color: "gray" }}
+            >
+             CIF (Cedula de Identificación fiscal)
             </Form.Label>
-            {companySelected.actaAsamblea ? (
+            {companySelected.cif ? (
               <FileView
-                title="Declaracion ISR"
-                fileName={companySelected.actaAsamblea}
+                title="CIF"
+                fileName={companySelected.cif }
               />
             ) : (
-              <div>
+              <>
                 <FileUpload />
                 <p
                   style={{
                     fontSize: 10,
-                    textDecoration: "underline",
                     cursor: "pointer",
                     marginTop: -15,
                     color: "#A0A0A0",
@@ -496,117 +678,167 @@ export default function CompanyDescription() {
                 >
                   Descargar formato guia
                 </p>
-              </div>
+              </>
             )}
           </Form.Group>
+        </Row>
 
-          <Form.Group as={Col} md="4" className="form-group">
-            <Form.Label className="form-label my-3">
-              Acta de asamblea extraordinaria
-            </Form.Label>
-            {companySelected.actaAsambleaExtraordinaria ? (
-              <FileView
-                title="Acta asamble extraordinaria"
-                fileName={companySelected.actaAsambleaExtraordinaria}
-              />
-            ) : (
-              <div>
-                <FileUpload />
-                <p
-                  style={{
-                    fontSize: 10,
-                    textDecoration: "underline",
-                    cursor: "pointer",
-                    marginTop: -15,
-                    color: "#A0A0A0",
-                  }}
+        <Row style={{ marginBottom: 50 }}>
+          <p
+            style={{
+              fontSize: 15,
+              marginTop: 40,
+            }}
+          >
+            2) Actas de Asamblea Ordinaria:
+          </p>
+          {companySelected.actasAsamblea.length ? (
+            companySelected.actasAsamblea.map((acta, index) => (
+              <Form.Group as={Col} md="4" className="form-group">
+                <Form.Label
+                  className="form-label my-3"
+                  style={{ color: "gray", fontSize: 13 }}
                 >
-                  Descargar formato guia
-                </p>
-              </div>
-            )}
-          </Form.Group>
-
-          <Row style={{ marginTop: 40 }}>
-            <Form.Group as={Col} md="4" className="form-group">
-              <Form.Label className="form-label my-3">Poderes</Form.Label>
-              {companySelected.poderes ? (
+                  {" "}
+                  {acta.name}
+                </Form.Label>
+                <FileView key={index} title={acta.name} fileName={acta.url} />
+              </Form.Group>
+            ))
+          ) : (
+            <p
+              style={{
+                fontSize: 13,
+                fontStyle: "italic",
+                color: "gray",
+                textAlign: "center",
+              }}
+            ></p>
+          )}
+          <div style={{width: '70%'}}>
+            <p style={{ fontSize: 10, color: "gray", marginBottom: -1 }}>
+              + Añadir nueva acta de asamblea
+            </p>
+            <FileUpload />
+          </div>
+          <p
+            style={{
+              fontSize: 15,
+              marginTop: 40,
+            }}
+          >
+            3) Poderes:
+          </p>
+          {companySelected.poderes.length ? (
+            companySelected.poderes.map((poder, index) => (
+              <Form.Group as={Col} md="4" className="form-group">
+                <Form.Label
+                  className="form-label my-3"
+                  style={{ color: "gray", fontSize: 13 }}
+                >
+                  {" "}
+                  {poder.name}
+                </Form.Label>
                 <FileView
-                  title="Declaracion ISR"
-                  fileName={companySelected.poderes}
+                  key={index}
+                  title={poder.name}
+                  fileName={poder.url}
                 />
-              ) : (
-                <div>
-                  <FileUpload />
-                  <p
-                    style={{
-                      fontSize: 10,
-                      textDecoration: "underline",
-                      cursor: "pointer",
-                      marginTop: -15,
-                      color: "#A0A0A0",
-                    }}
-                  >
-                    Descargar formato guia
-                  </p>
-                </div>
-              )}
-            </Form.Group>
+              </Form.Group>
+            ))
+          ) : (
+            <p
+              style={{
+                fontSize: 13,
+                fontStyle: "italic",
+                color: "gray",
+                textAlign: "center",
+              }}
+            ></p>
+          )}
 
-            <Form.Group as={Col} md="4" className="form-group">
-              <Form.Label className="form-label my-3">
-                Actas de dividendos
-              </Form.Label>
-              {companySelected.actasDividendos ? (
-                <FileView
-                  title="Declaracion ISR"
-                  fileName={companySelected.actasDividendos}
-                />
-              ) : (
-                <div>
-                  <FileUpload />
-                  <p
-                    style={{
-                      fontSize: 10,
-                      textDecoration: "underline",
-                      cursor: "pointer",
-                      marginTop: -15,
-                      color: "#A0A0A0",
-                    }}
-                  >
-                    Descargar formato guia
-                  </p>
-                </div>
-              )}
-            </Form.Group>
+          <div style={{width: '70%'}}>
+            <p style={{ fontSize: 10, color: "gray", marginBottom: -1 }}>
+              + Añadir nueva acta de poder
+            </p>
+            <FileUpload />
+          </div>
 
-            <Form.Group as={Col} md="4" className="form-group">
-              <Form.Label className="form-label my-3">
-                Constancia de Identificacion fiscal
-              </Form.Label>
-              {companySelected.cif ? (
-                <FileView
-                  title="Declaracion ISR"
-                  fileName={companySelected.cif}
-                />
-              ) : (
-                <div>
-                  <FileUpload />
-                  <p
-                    style={{
-                      fontSize: 10,
-                      textDecoration: "underline",
-                      cursor: "pointer",
-                      marginTop: -15,
-                      color: "#A0A0A0",
-                    }}
-                  >
-                    Descargar formato guia
-                  </p>
-                </div>
-              )}
-            </Form.Group>
-          </Row>
+          <p
+            style={{
+              fontSize: 15,
+              marginTop: 40,
+            }}
+          >
+            5) Actas de dividendos:
+          </p>
+          {companySelected.actasDividendos.length ? (
+            companySelected.actasDividendos.map((acta, index) => (
+              <Form.Group as={Col} md="4" className="form-group">
+                <Form.Label
+                  className="form-label my-3"
+                  style={{ color: "gray", fontSize: 13 }}
+                >
+                  {" "}
+                  {acta.name}
+                </Form.Label>
+                <FileView key={index} title={acta.name} fileName={acta.url} />
+              </Form.Group>
+            ))
+          ) : (
+            <p
+              style={{
+                fontSize: 13,
+                fontStyle: "italic",
+                color: "gray",
+                textAlign: "center",
+              }}
+            ></p>
+          )}
+          <div style={{width: '70%'}}>
+            <p style={{ fontSize: 10, color: "gray", marginBottom: -1 }}>
+              + Añadir nueva acta de dividendos
+            </p>
+            <FileUpload />
+          </div>
+
+          <p
+            style={{
+              fontSize: 15,
+              marginTop: 40,
+            }}
+          >
+            6) Actas de asamblea extraordinaria:
+          </p>
+          {companySelected.actaAsambleaExtraordinaria.length ? (
+            companySelected.actaAsambleaExtraordinaria.map((acta, index) => (
+              <Form.Group as={Col} md="4" className="form-group">
+                <Form.Label
+                  className="form-label my-3"
+                  style={{ color: "gray", fontSize: 13 }}
+                >
+                  {" "}
+                  {acta.name}
+                </Form.Label>
+                <FileView key={index} title={acta.name} fileName={acta.url} />
+              </Form.Group>
+            ))
+          ) : (
+            <p
+              style={{
+                fontSize: 13,
+                fontStyle: "italic",
+                color: "gray",
+                textAlign: "center",
+              }}
+            ></p>
+          )}
+          <div style={{width: '70%'}}>
+            <p style={{ fontSize: 10, color: "gray", marginBottom: -1 }}>
+              + Añadir nueva acta de asamblea extraordinaria
+            </p>
+            <FileUpload />
+          </div>
         </Row>
       </>
     );

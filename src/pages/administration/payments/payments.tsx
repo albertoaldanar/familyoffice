@@ -9,6 +9,7 @@ import LeasingAndRents from "./leasingAndRents/LeasingAndRents";
 import Taxes from "../taxes/taxes";
 import { companies } from "../accounting/accountingData";
 import { daysToAnualTax, daysUntilNextMonth17 } from "../taxes/taxesUtils";
+import { renderFlag } from "../accounting/companyUtils";
 
 export default function Payments() {
   const renderPayments = () => {
@@ -78,6 +79,7 @@ export default function Payments() {
                   <th>Nombre</th>
                   <th>Razon social</th>
                   <th>RFC</th>
+                  <th>País</th>
                   <th>Valuación</th>
                   <th></th>
                 </tr>
@@ -88,6 +90,7 @@ export default function Payments() {
                     <td>{idx.nombre}</td>
                     <td>{idx.razonSocial}</td>
                     <td>{idx.rfc}</td>
+                    <td>{renderFlag(idx.nationality)}</td>
                     <td>${idx.valuacion} {idx.moneda}</td>
                     <td
                       style={{

@@ -17,6 +17,10 @@ export const family = {
           nombre: 'Acta de asamblea 2',
           url: 'https://www.google.drive/1423nger'
         },
+        {
+          nombre: 'Acta de asamblea 2',
+          url: 'https://www.google.drive/1423nger'
+        },
       ],
       fideicomisos: [
         {
