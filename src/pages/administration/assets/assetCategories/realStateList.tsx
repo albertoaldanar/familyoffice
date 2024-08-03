@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { renderFlag } from "../../accounting/companyUtils";
 
 export default function RealStateList(props) {
   if (!props.data || props.data.length === 0) {
@@ -42,6 +43,7 @@ export default function RealStateList(props) {
             <tr>
               <th>Nombre</th>
               <th>Ciudad</th>
+              <th>País</th>
               <th>Valuación</th>
               <th>Tipo de propiedad</th>
               <th>Propietarios</th>
@@ -53,6 +55,7 @@ export default function RealStateList(props) {
               <tr key={tb8}>
                 <td>{idx.nombre}</td>
                 <td>{idx.ciudad}</td>
+                <td>{renderFlag(idx.country)}</td>
                 <td>
                   ${idx.valuacion} {idx.moneda}
                 </td>

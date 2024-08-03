@@ -164,7 +164,8 @@ export const otherWealthData = {
       type: "Arte",
       name: "Coleccion de arte de Gerhard Richter",
       value: "5000000",
-      currency: "MXN",
+      currency: "EUR",
+      country: 'España',
       photo: "https://googledrive.com/erg3440398f4fmv",
       certificate: "https://googledrive.com/erg3440398f4fmv",
       owners: [

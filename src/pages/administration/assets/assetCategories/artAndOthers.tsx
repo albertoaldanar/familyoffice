@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { renderFlag } from "../../accounting/companyUtils";
 
 export default function ArtAndOthers(props) {
   if (!props.data || props.data.length === 0) {
@@ -43,6 +44,7 @@ export default function ArtAndOthers(props) {
               <th>Nombre</th>
               <th>Valuación</th>
               <th>Tipo</th>
+              <th>País</th>
               <th>Propietarios</th>
               <th></th>
             </tr>
@@ -55,6 +57,7 @@ export default function ArtAndOthers(props) {
                   ${idx.value} {idx.currency}
                 </td>
                 <td>{idx.type}</td>
+                <td>{renderFlag(idx.country)}</td>
                 <td>
                   <div style={{ display: "flex", flexDirection: "column" }}>
                     {idx.owners.map((owner, index) => (

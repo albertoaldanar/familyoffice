@@ -4,6 +4,8 @@ import usa from '../../../assets/images/flags/us.svg';
 import mx from '../../../assets/images/flags/mx.svg';
 //@ts-ignore
 import ca from '../../../assets/images/flags/ca.svg';
+//@ts-ignore
+import es from '../../../assets/images/flags/es.svg';
 
 export const formatCompany = (companies) => {
     if(!companies.length){
@@ -45,9 +47,13 @@ export const formatOwnersData = (companySelected) => {
 export const renderFlag = (nationality: string) => {
   if(nationality === 'USA'){
     return <img style={{width: 25, height: 25, borderRadius: 10}} src={usa} alt="usa" />
-  } else if(nationality === 'Mexicana'){
+  } else if(nationality === 'Mexicana' || nationality === 'México'){
     return <img style={{width: 25, height: 25, borderRadius: 10}} src={mx} alt="mx" />
   } else if(nationality === 'Canada'){
     return <img style={{width: 25, height: 25, borderRadius: 10}} src={ca} alt="canada" />
+  } else if(nationality === 'España'){
+    return <img style={{width: 25, height: 25, borderRadius: 10}} src={es} alt="españa" />
   } 
+
+  return;
 };

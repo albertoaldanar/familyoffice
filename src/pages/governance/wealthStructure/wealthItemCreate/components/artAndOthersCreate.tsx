@@ -19,6 +19,11 @@ export default function ArtAndOthersCreate(props) {
   const [ownerFamilyMembers, setOwnerFamilyMembers] = useState([]);
   const [ownerCompanies, setOwnerCompanies] = useState([]);
 
+  const [country, setCountry] = useState({
+    value: "",
+    label: "",
+  });
+
   const [currency, setCurrency] = useState({
     value: "",
     label: "",
@@ -39,6 +44,13 @@ export default function ArtAndOthersCreate(props) {
     { value: "Arte", label: "Arte" },
     { value: "Joyeria", label: "Joyeria" },
     { value: "Colecciones", label: "Colecciones" },
+  ];
+
+  const Optionscountry = [
+    { value: "México", label: "México" },
+    { value: "USA", label: "USA" },
+    { value: "Canada", label: "Canada" },
+    { value: "España", label: "España" },
   ];
 
   const handleInputChange = (
@@ -197,7 +209,7 @@ export default function ArtAndOthersCreate(props) {
             <Row style={{ marginBottom: 10 }}>
               <Form.Group
                 as={Col}
-                md="6"
+                md="4"
                 controlId="validationCustom01"
                 className="form-group"
               >
@@ -219,7 +231,7 @@ export default function ArtAndOthersCreate(props) {
              
               <Form.Group
                   as={Col}
-                  md="6"
+                  md="4"
                   controlId="validationCustom01"
                   className="form-group"
                 >
@@ -231,6 +243,22 @@ export default function ArtAndOthersCreate(props) {
                   onChange={(value) => setPropertyType(value)}
                   placeholder=""
                   value={propertyType}
+                />
+              </Form.Group>
+              <Form.Group
+                  as={Col}
+                  md="4"
+                  controlId="validationCustom01"
+                  className="form-group"
+                >
+                <Form.Label>País de ubicación</Form.Label>
+                <Select
+                  options={Optionscountry}
+                  classNamePrefix="Select2"
+                  className="multi-select"
+                  onChange={(value) => setCountry(value)}
+                  placeholder=""
+                  value={country}
                 />
               </Form.Group>
             </Row>

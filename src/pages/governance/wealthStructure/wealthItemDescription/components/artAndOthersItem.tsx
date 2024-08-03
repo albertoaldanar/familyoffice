@@ -17,7 +17,10 @@ import NotFoundSearch from "../../../../shared/notFoundSearch";
 import { otherWealthData } from "../../wealthStructureData";
 import { family } from "../../../familyStructure/familyStructureData";
 import { companies } from "../../../../administration/accounting/accountingData";
-import { formatCompany, formatOwnersData } from "../../../../administration/accounting/companyUtils";
+import {
+  formatCompany,
+  formatOwnersData,
+} from "../../../../administration/accounting/companyUtils";
 import { formatMember } from "../../../councilAndCommittee/councilAndCommitteeUtils";
 
 export default function ArtAndOthersItem(props) {
@@ -35,7 +38,9 @@ export default function ArtAndOthersItem(props) {
 
   const [artName, setArtName] = useState(artSelected.name);
   const [value, setValue] = useState(artSelected.value);
-  const [ownerFamilyMembers, setOwnerFamilyMembers] = useState(ownerData.family);
+  const [ownerFamilyMembers, setOwnerFamilyMembers] = useState(
+    ownerData.family
+  );
   const [ownerCompanies, setOwnerCompanies] = useState(ownerData.company);
   const [currency, setCurrency] = useState({
     value: artSelected.currency,
@@ -45,7 +50,11 @@ export default function ArtAndOthersItem(props) {
     value: artSelected.type,
     label: artSelected.type,
   });
-  
+
+  const [country, setCountry] = useState({
+    value: artSelected.country,
+    label: artSelected.country,
+  });
 
   const Optionscurrency = [
     { value: "MXN", label: "MXN" },
@@ -57,6 +66,13 @@ export default function ArtAndOthersItem(props) {
     { value: "Arte", label: "Arte" },
     { value: "Joyeria", label: "Joyeria" },
     { value: "Colecciones", label: "Colecciones" },
+  ];
+
+  const Optionscountry = [
+    { value: "México", label: "México" },
+    { value: "USA", label: "USA" },
+    { value: "Canada", label: "Canada" },
+    { value: "España", label: "España" },
   ];
 
   const familyMembersOptions = family.members.map((member) => ({
@@ -104,6 +120,23 @@ export default function ArtAndOthersItem(props) {
               onChange={(value) => setPropertyType(value)}
               placeholder=""
               value={propertyType}
+            />
+          </Form.Group>
+
+          <Form.Group
+            as={Col}
+            md="4"
+            controlId="validationCustom01"
+            className="form-group"
+          >
+            <Form.Label>País de ubicación</Form.Label>
+            <Select
+              options={Optionscountry}
+              classNamePrefix="Select2"
+              className="multi-select"
+              onChange={(value) => setCountry(value)}
+              placeholder=""
+              value={country}
             />
           </Form.Group>
         </Row>
@@ -160,7 +193,7 @@ export default function ArtAndOthersItem(props) {
 
   const renderDocuments = () => {
     return (
-      <Row style={{marginTop: -20}}>
+      <Row style={{ marginTop: -20 }}>
         <Form.Group as={Col} md="4" className="form-group">
           <Form.Label className="form-label my-3">Foto</Form.Label>
           {artSelected.photo ? (
@@ -209,7 +242,7 @@ export default function ArtAndOthersItem(props) {
 
   const renderOwners = () => {
     return (
-      <div style={{marginTop: -20}}>
+      <div style={{ marginTop: -20 }}>
         <Row>
           <Form.Group
             as={Col}

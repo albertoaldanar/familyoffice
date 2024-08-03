@@ -47,6 +47,11 @@ export default function RealStateItem(props) {
   const [ownerFamilyMembers, setOwnerFamilyMembers] = useState(ownerData.family);
   const [ownerCompanies, setOwnerCompanies] = useState(ownerData.company);
 
+  const [country, setCountry] = useState({
+    value: realStateSelected.country,
+    label: realStateSelected.country,
+  });
+
   const [currency, setCurrency] = useState({
     value: realStateSelected.moneda,
     label: realStateSelected.moneda,
@@ -61,6 +66,13 @@ export default function RealStateItem(props) {
     { value: "MXN", label: "MXN" },
     { value: "USD", label: "USD" },
     { value: "EUR", label: "EUR" },
+  ];
+
+  const Optionscountry = [
+    { value: "México", label: "México" },
+    { value: "USA", label: "USA" },
+    { value: "Canada", label: "Canada" },
+    { value: "España", label: "España" },
   ];
 
   const OptionsProperyType = [
@@ -182,20 +194,15 @@ export default function RealStateItem(props) {
             controlId="validationCustomUsername"
             className="form-group"
           >
-            <Form.Label>Porcentaje de propiedad</Form.Label>
-            <InputGroup hasValidation>
-              <Form.Control
-                type="numeric"
-                aria-describedby="inputGroupPrepend-3"
-                required
-                onChange={(text) => setPercentage(text.target.value)}
-                value={percentage}
-              />
-              <InputGroup.Text id="inputGroupPrepend">%</InputGroup.Text>
-              <Form.Control.Feedback type="invalid">
-                Favor de añadir el monto del pago
-              </Form.Control.Feedback>
-            </InputGroup>
+            <Form.Label>País</Form.Label>
+            <Select
+              options={Optionscountry}
+              classNamePrefix="Select2"
+              className="multi-select"
+              onChange={(value) => setCountry(value)}
+              placeholder=""
+              value={country}
+            />
           </Form.Group>
         </Row>
 

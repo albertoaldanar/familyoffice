@@ -25,7 +25,10 @@ export default function RealStateItemCreate(props) {
   const [mt2, setMt2] = useState("");
   const [ownerFamilyMembers, setOwnerFamilyMembers] = useState([]);
   const [ownerCompanies, setOwnerCompanies] = useState([]);
-  const [foundationDate, setfoundationDate] = useState<Dayjs | null>(dayjs(""));
+  const [country, setCountry] = useState({
+    value: "",
+    label: "",
+  });
 
   const [currency, setCurrency] = useState({
     value: "",
@@ -49,7 +52,13 @@ export default function RealStateItemCreate(props) {
     { value: "Oficinas", label: "Oficinas" },
     { value: "Terreno", label: "Terreno" },
   ];
-  
+
+  const Optionscountry = [
+    { value: "México", label: "México" },
+    { value: "USA", label: "USA" },
+    { value: "Canada", label: "Canada" },
+    { value: "España", label: "España" },
+  ];
 
   const handleInputChange = (
     memberIndex,
@@ -340,6 +349,22 @@ export default function RealStateItemCreate(props) {
             </Row>
 
             <Row style={{ marginTop: 30 }}>
+            <Form.Group
+                as={Col}
+                md="4"
+                controlId="validationCustom01"
+                className="form-group"
+              >
+                <Form.Label>Moneda</Form.Label>
+                <Select
+                  options={Optionscurrency}
+                  classNamePrefix="Select2"
+                  className="multi-select"
+                  onChange={(value) => setCurrency(value)}
+                  placeholder=""
+                  value={currency}
+                />
+              </Form.Group>
               <Form.Group
                 as={Col}
                 md="4"
@@ -368,20 +393,21 @@ export default function RealStateItemCreate(props) {
                   calculo mas acertado en el total del valor patrimonial
                 </p>
               </Form.Group>
+
               <Form.Group
-                as={Col}
-                md="4"
-                controlId="validationCustom01"
-                className="form-group"
-              >
-                <Form.Label>Moneda</Form.Label>
+                  as={Col}
+                  md="4"
+                  controlId="validationCustom01"
+                  className="form-group"
+                >
+                <Form.Label>País</Form.Label>
                 <Select
-                  options={Optionscurrency}
+                  options={Optionscountry}
                   classNamePrefix="Select2"
                   className="multi-select"
-                  onChange={(value) => setCurrency(value)}
+                  onChange={(value) => setCountry(value)}
                   placeholder=""
-                  value={currency}
+                  value={country}
                 />
               </Form.Group>
             </Row>

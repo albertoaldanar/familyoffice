@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Table } from "react-bootstrap";
 import { formatCurrency } from "../../payments/paymentUtils";
+import { renderFlag } from "../../accounting/companyUtils";
 import { Link } from "react-router-dom";
 
 export default function BankAccountsList(props) {
@@ -45,8 +46,8 @@ export default function BankAccountsList(props) {
               <th>Entidad bancaria</th>
               <th>Valor</th>
               <th>Numero de cuenta</th>
-              <th>Tipo de cuenta</th>
               <th>País</th>
+              <th>Tipo de cuenta</th>
               <th></th>
             </tr>
           </thead>
@@ -65,9 +66,8 @@ export default function BankAccountsList(props) {
                 <td>{idx.bank}</td>
                 <td>{formatCurrency(idx.value, idx.currency)}</td>
                 <td>{idx.accountNumber}</td>
-
+                <td>{renderFlag(idx.country)}</td>
                 <td>{idx.accountType}</td>
-                <td>{idx.country}</td>
                 <td
                   style={{
                     cursor: "pointer",
