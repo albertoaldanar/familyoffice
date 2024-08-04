@@ -74,8 +74,6 @@ export default function CompanyDescription() {
     dayjs(foundationDateFormatted)
   );
 
-  console.log('ownerCompanies-', ownerFamilyMembers);
-
   const [currency, setCurrency] = useState({
     value: companySelected.moneda,
     label: companySelected.moneda,
@@ -97,7 +95,6 @@ export default function CompanyDescription() {
     { value: "USA", label: "USA" },
     { value: "CANDA", label: "CANDA" },
   ];
-
 
   const currentYear = new Date().getFullYear();
   const mensualesReports = companySelected.reports.mensuales;

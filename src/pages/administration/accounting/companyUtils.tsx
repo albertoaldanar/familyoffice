@@ -57,3 +57,12 @@ export const renderFlag = (nationality: string) => {
 
   return;
 };
+
+
+export const countryOptions = [
+  { value: "México", label: "México" },
+  { value: "USA", label: "USA" },
+  { value: "Canada", label: "Canada" },
+  { value: "España", label: "España" },
+  { value: "Inglaterra", label: "Inglaterra" },
+];

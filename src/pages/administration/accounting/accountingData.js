@@ -7,25 +7,24 @@ export const companies = [
     actaConstitutiva: "https://www.google.drive/1423nger",
     actasAsamblea: [
       {
-        name: 'AAO 2024',
-        url: '"https://www.google.drive/1423nger"'
+        name: "AAO 2024",
+        url: '"https://www.google.drive/1423nger"',
       },
     ],
-    actaAsambleaExtraordinaria: [
-    ],
-    poderes:[
+    actaAsambleaExtraordinaria: [],
+    poderes: [
       {
-        name: 'Poderes 2022',
-        url: '"https://www.google.drive/1423nger"'
+        name: "Poderes 2022",
+        url: '"https://www.google.drive/1423nger"',
       },
       {
-        name: 'Poderes 2023',
-        url: '"https://www.google.drive/1423nger"'
+        name: "Poderes 2023",
+        url: '"https://www.google.drive/1423nger"',
       },
       {
-        name: 'Poderes 2024',
-        url: '"https://www.google.drive/1423nger"'
-      }
+        name: "Poderes 2024",
+        url: '"https://www.google.drive/1423nger"',
+      },
     ],
     razonSocial: "Aldana Clima Integral SA de CV",
     valuacion: "10,000,000.00",
@@ -37,34 +36,34 @@ export const companies = [
     bankAccounts: [
       {
         id: 2,
-        bank: 'BBVA',
+        bank: "BBVA",
         accountNumber: "34333311021",
-      }
+      },
     ],
     owners: [
       {
         type: "family",
-        pct: '40',
-        coreId: '23',
+        pct: "40",
+        coreId: "23",
         name: "Patricia Ríos Collantes",
         capitalSocial: "1000000",
       },
       {
         type: "family",
-        pct: '60',
-        coreId: '43',
+        pct: "60",
+        coreId: "43",
         name: "Francisco Aldana Fariñas",
         capitalSocial: "1500000",
       },
     ],
     actasDividendos: [
       {
-        name: 'AD 2023',
-        url: '"https://www.google.drive/1423nger"'
+        name: "AD 2023",
+        url: '"https://www.google.drive/1423nger"',
       },
       {
-        name: 'Actas dividendos 2024',
-        url: '"https://www.google.drive/1423nger"'
+        name: "Actas dividendos 2024",
+        url: '"https://www.google.drive/1423nger"',
       },
     ],
     cif: "",
@@ -194,15 +193,15 @@ export const companies = [
     owners: [
       {
         type: "family",
-        pct: '40',
-        coreId: '23',
+        pct: "40",
+        coreId: "23",
         name: "Patricia Rios Collantes",
         capitalSocial: "1000000",
       },
       {
         type: "family",
-        pct: '50',
-        coreId: '43',
+        pct: "50",
+        coreId: "43",
         name: "Alberto Aldana Fariñas",
         capitalSocial: "1500000",
       },
@@ -214,46 +213,46 @@ export const companies = [
     actaConstitutiva: "https://www.google.drive/1423nger",
     actasAsamblea: [
       {
-        name: 'AAO 2024',
-        url: '"https://www.google.drive/1423nger"'
+        name: "AAO 2024",
+        url: '"https://www.google.drive/1423nger"',
       },
     ],
     actaAsambleaExtraordinaria: [
       {
-        name: 'AAE 2022',
-        url: '"https://www.google.drive/1423nger"'
+        name: "AAE 2022",
+        url: '"https://www.google.drive/1423nger"',
       },
       {
-        name: 'AAE 2023',
-        url: '"https://www.google.drive/1423nger"'
+        name: "AAE 2023",
+        url: '"https://www.google.drive/1423nger"',
       },
       {
-        name: 'AAE 2024',
-        url: '"https://www.google.drive/1423nger"'
-      }
+        name: "AAE 2024",
+        url: '"https://www.google.drive/1423nger"',
+      },
     ],
-    poderes:[
+    poderes: [
       {
-        name: 'Poderes 2022',
-        url: '"https://www.google.drive/1423nger"'
+        name: "Poderes 2022",
+        url: '"https://www.google.drive/1423nger"',
       },
       {
-        name: 'Poderes 2023',
-        url: '"https://www.google.drive/1423nger"'
+        name: "Poderes 2023",
+        url: '"https://www.google.drive/1423nger"',
       },
       {
-        name: 'Poderes 2024',
-        url: '"https://www.google.drive/1423nger"'
-      }
+        name: "Poderes 2024",
+        url: '"https://www.google.drive/1423nger"',
+      },
     ],
     actasDividendos: [
       {
-        name: 'AD 2023',
-        url: '"https://www.google.drive/1423nger"'
+        name: "AD 2023",
+        url: '"https://www.google.drive/1423nger"',
       },
       {
-        name: 'Actas dividendos 2024',
-        url: '"https://www.google.drive/1423nger"'
+        name: "Actas dividendos 2024",
+        url: '"https://www.google.drive/1423nger"',
       },
     ],
     cif: "",
@@ -377,68 +376,68 @@ export const companies = [
     moneda: "MXN",
     actasAsamblea: [
       {
-        name: 'AAO 2024',
-        url: '"https://www.google.drive/1423nger"'
+        name: "AAO 2024",
+        url: '"https://www.google.drive/1423nger"',
       },
     ],
     actaAsambleaExtraordinaria: [
       {
-        name: 'AAE 2022',
-        url: '"https://www.google.drive/1423nger"'
+        name: "AAE 2022",
+        url: '"https://www.google.drive/1423nger"',
       },
       {
-        name: 'AAE 2023',
-        url: '"https://www.google.drive/1423nger"'
+        name: "AAE 2023",
+        url: '"https://www.google.drive/1423nger"',
       },
       {
-        name: 'AAE 2024',
-        url: '"https://www.google.drive/1423nger"'
-      }
+        name: "AAE 2024",
+        url: '"https://www.google.drive/1423nger"',
+      },
     ],
-    poderes:[
+    poderes: [
       {
-        name: 'Poderes 2022',
-        url: '"https://www.google.drive/1423nger"'
+        name: "Poderes 2022",
+        url: '"https://www.google.drive/1423nger"',
       },
       {
-        name: 'Poderes 2023',
-        url: '"https://www.google.drive/1423nger"'
+        name: "Poderes 2023",
+        url: '"https://www.google.drive/1423nger"',
       },
       {
-        name: 'Poderes 2024',
-        url: '"https://www.google.drive/1423nger"'
-      }
+        name: "Poderes 2024",
+        url: '"https://www.google.drive/1423nger"',
+      },
     ],
     actasDividendos: [
       {
-        name: 'AD 2023',
-        url: '"https://www.google.drive/1423nger"'
+        name: "AD 2023",
+        url: '"https://www.google.drive/1423nger"',
       },
       {
-        name: 'Actas dividendos 2024',
-        url: '"https://www.google.drive/1423nger"'
+        name: "Actas dividendos 2024",
+        url: '"https://www.google.drive/1423nger"',
       },
     ],
     razonSocial: "Servicios de diseños de ingenieria SA de CV",
     valuacion: "10,000,000.00",
     direccionFiscal: "Col Los pinos 233 Colonia Mutualismo CP 233",
     fundacion: "10/10/1995",
-    nationality: "Canada",
+    nationality: "USA",
     regimenCapital: "SA de CV",
     bankAccounts: [],
     capitalSocial: "2,300,000.00",
     owners: [
       {
         type: "company",
-        pct: '55',
+        pct: "55",
         coreId: 23,
         name: "Aldana Clima Integral",
         capitalSocial: "2000000",
       },
       {
         type: "family",
-        pct: '45',
-        coreId: '23',
+        pct: "45",
+        coreId: "23",
         name: "Alberto Aldana Fariñas",
         capitalSocial: "1500000",
       },
@@ -466,5 +465,111 @@ export const companies = [
       ],
       anuales: [],
     },
+  },
+];
+
+export const fideicomisos = [
+  {
+    id: 20,
+    trustCreation: "10/10/2018",
+    contract: "https://www.google.drive/1423nger",
+    trustNumber: "0014233",
+    trustType: "Patrimonial revocable with right of reversion",
+    trusteeBank: "Santander",
+    trustors: [
+      {
+        type: "family",
+        id: "12",
+        name: "Alberto Aldana Rios",
+      },
+      {
+        type: "family",
+        id: "13",
+        name: "Alberto Aldana Rios",
+      },
+      {
+        type: "family",
+        id: "9",
+        name: "Ana Sofia Aldana Ríos",
+      },
+    ],
+    trustee: 'Servendo Aldana Fariñas',
+    purpose: "Manejar las inversiones familiares a largo plazo",
+    content: [
+      {
+        id: 15,
+        coreId: 1,
+        type: 'vehicle', 
+        name: "Audi - A3",
+        value: "600000",
+      },
+      {
+        id: 32,
+        coreId: 43,
+        type: 'artAndOthers', 
+        name: "Coleccion de arte de Gerhard Richter",
+        value: "2,000,000.00",
+      },
+      {
+        id: 44,
+        coreId: 2,
+        type: 'privateEquity', 
+        name: "Fondo ABC-Venture Capital",
+        value: "2,000,000.00",
+      },
+      {
+        id: 4,
+        coreId: 1,
+        type: 'bankAccount', 
+        name: "Santander-100434346583",
+        value: "2,000,000.00",
+      },
+    ],
+    country: "México",
+  },
+  {
+    id: 90,
+    contract: "https://www.google.drive/1423nger",
+    trustNumber: "144002",
+    trustCreation: "10/10/2018",
+    trustType: "Testamentario",
+    trusteeBank: "BBVA",
+    trustors: [
+      {
+        type: "family",
+        id: '12',
+        type: 'artAndOthers', 
+        name: "Alberto Aldana Rios",
+      },
+      {
+        type: "family",
+        id: '13',
+        name: "Alberto Aldana Rios",
+      },
+      {
+        type: "family",
+        id: '9',
+        name: "Ana Sofia Aldana Ríos",
+      },
+    ],
+    trustee: 'Alberto Aldana Fariñas',
+    purpose: "Dar claridad a la suceción del testamento de la Familia Aldana Ríos",
+    content: [
+      {
+        id: 1,
+        coreId: 29,
+        type: 'realState',
+        name: "Casa Colinas del parque",
+        value: "2,500,000.00",
+      },
+      {
+        id: 2,
+        coreId: 23,
+        type: 'company',
+        name: "Aldana Clima Integral SA de CV",
+        value: "10,000,000.00",
+      },
+    ],
+    country: "México",
   },
 ];

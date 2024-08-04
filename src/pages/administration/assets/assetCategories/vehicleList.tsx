@@ -59,7 +59,7 @@ export default function VechicleList(props) {
                   <div style={{ display: "flex", flexDirection: "column" }}>
                     {idx.owners.map((owner, index) => (
                       <div key={index} style={{fontSize: 13}}>
-                        {owner.name}: {owner.pct}% <br />
+                       - {owner.name}: {owner.pct}% <br />
                       </div>
                     ))}
                   </div>

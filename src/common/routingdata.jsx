@@ -42,6 +42,8 @@ const  Toasts= React.lazy(()=>import ('../components/Bootstrap/Toast/Toast'))
 /* FAMILY OFFICE */
 /****************************** ADMINISTRATION ****************************************/
 const  Companies= React.lazy(()=>import ('../pages/administration/accounting/companies'))
+const  TrustCreate= React.lazy(()=>import ('../pages/administration/trusts/trustCreate'))
+const  TrustDescription= React.lazy(()=>import ('../pages/administration/trusts/trustDescription'))
 const  CompanyCreate= React.lazy(()=>import ('../pages/administration/accounting/companyCreate'))
 const  CompanyDescription= React.lazy(()=>import ('../pages/administration/accounting/companyDescription'))
 const  CompanyReport= React.lazy(()=>import ('../pages/administration/accounting/companyReport'))
@@ -269,6 +271,10 @@ export const Routingdata=[
 {path:`${import.meta.env.BASE_URL}administration/company/:id/report/:reportId/type/:type` ,element : <CompanyReport/>},
 {path:`${import.meta.env.BASE_URL}administration/companyNewReport/:id/type/:type` ,element : <CompanyReportCreate/>},
 {path:`${import.meta.env.BASE_URL}administration/companyCreate` ,element : <CompanyCreate/>},
+
+/* Trusts */
+{path:`${import.meta.env.BASE_URL}administration/trustCreate` ,element : <TrustCreate/>},
+{path:`${import.meta.env.BASE_URL}administration/trustDescription/:id` ,element : <TrustDescription/>},
 
 /*Payment Insurances */
 {path:`${import.meta.env.BASE_URL}administration/insuraceDescription/:id` ,element : <InsuraceDescription/>},

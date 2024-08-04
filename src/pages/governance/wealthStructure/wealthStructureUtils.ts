@@ -59,24 +59,26 @@ export const generateNodesAndEdges = (wealthStructure) => {
 
       if (category.items.length === 1) {
         positionX = category.positionX;
-        console.log('entroo en igual');
+        console.log("entroo en igual");
       } else {
         const halfIndex = Math.floor((category.items.length + 1) / 2);
         if (category.items.length % 2 === 0) {
           if (myIndex > halfIndex) {
-              console.log('entroo menor');
+            console.log("entroo menor");
             positionX = category.positionX - (myIndex - halfIndex) * 120;
           } else {
-            positionX = category.positionX + (itemIndex - halfIndex + 1) * wealthItemsSpacing;
-            console.log('entroo mayoe');
+            positionX =
+              category.positionX +
+              (itemIndex - halfIndex + 1) * wealthItemsSpacing;
+            console.log("entroo mayoe");
           }
         } else {
           if (myIndex < halfIndex) {
-            console.log('entroo en else menor');
+            console.log("entroo en else menor");
             positionX =
               category.positionX - (halfIndex - itemIndex) * wealthItemsSpacing;
           } else {
-            console.log('entroo en else mayor');
+            console.log("entroo en else mayor");
             positionX =
               category.positionX + (itemIndex - halfIndex) * wealthItemsSpacing;
           }
@@ -92,7 +94,7 @@ export const generateNodesAndEdges = (wealthStructure) => {
           id: item.id.toString(),
           coreId: item.coreId,
           value: item.value,
-          source: item.source
+          source: item.source,
         },
         type: "customNode",
       };
@@ -113,14 +115,53 @@ export const generateNodesAndEdges = (wealthStructure) => {
 };
 
 export const bankAccountOwnersFormat = (bankAccount) => {
-  if(!bankAccount.length){
+  if (!bankAccount.length) {
     return [];
   }
 
   if (bankAccount) {
     return bankAccount.map((member) => ({
-        value: member.name,
-        label: member.name,
-      }));
+      value: member.name,
+      label: member.name,
+    }));
+  }
+};
+
+export const formatBankAccounts = (bankAccounts) => {
+  if (!bankAccounts.length) {
+    return [];
+  }
+
+  if (bankAccounts) {
+    return bankAccounts.map((ba) => ({
+      value: ba.id,
+      label: `${ba.bank}-${ba.accountNumber}`,
+    }));
+  }
+};
+
+export const formatPrivateEquity = (privateEquity) => {
+  if (!privateEquity.length) {
+    return [];
+  }
+
+  if (privateEquity) {
+    return privateEquity.map((pe) => ({
+      value: pe.id,
+      label: `${pe.fundName}-${pe.fundType}`,
+    }));
+  }
+};
+
+export const formatContainedAssets = (containedAssets, assetType) => {
+  const filteredAssets = containedAssets.filter(
+    (asset) => asset.type === assetType
+  );
+
+  if (filteredAssets) {
+    return filteredAssets.map((fa) => ({
+      value: fa.coreId,
+      label: fa.name,
+    }));
   }
 };

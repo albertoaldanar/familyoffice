@@ -58,7 +58,7 @@ export default function BankAccountsList(props) {
                   <div style={{ display: "flex", flexDirection: "column" }}>
                     {idx.owners.map((owner, index) => (
                       <div key={index} style={{fontSize: 13}}>
-                        {owner.name}<br />
+                      - {owner.name}<br />
                       </div>
                     ))}
                   </div>
