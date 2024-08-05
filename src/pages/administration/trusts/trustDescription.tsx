@@ -1,5 +1,14 @@
 import React, { Fragment, useState } from "react";
-import { Button, Card, Col, Row, Form, InputGroup } from "react-bootstrap";
+import {
+  Button,
+  Card,
+  Col,
+  Row,
+  Form,
+  InputGroup,
+  Tab,
+  Nav,
+} from "react-bootstrap";
 import Select from "react-select";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
@@ -22,7 +31,11 @@ import { formatMember } from "../../governance/councilAndCommittee/councilAndCom
 import { countryOptions } from "../accounting/companyUtils";
 import { formateDateForUI } from "../payments/paymentUtils";
 import { formatRealstateData } from "../payments/paymentUtils";
-import { formatBankAccounts, formatPrivateEquity, formatContainedAssets } from "../../governance/wealthStructure/wealthStructureUtils";
+import {
+  formatBankAccounts,
+  formatPrivateEquity,
+  formatContainedAssets,
+} from "../../governance/wealthStructure/wealthStructureUtils";
 import { formatVehicleData } from "../payments/paymentUtils";
 
 export default function TrustDescription(props) {
@@ -41,24 +54,41 @@ export default function TrustDescription(props) {
   const [trustBank, setTrustBank] = useState(trustSelected.trusteeBank);
   const [trustee, setTrustee] = useState(trustSelected.trustee);
   const [purpose, setPurpose] = useState(trustSelected.purpose);
-  const [ownerFamilyMembers, setOwnerFamilyMembers] = useState(formatMember(trustSelected.trustors));
-  const [companiesContained, setCompaniesContained] = useState(formatContainedAssets(trustSelected.content, 'company'));
-  const [realStateContained, setRealStateContained] = useState(formatContainedAssets(trustSelected.content, 'realState'));
-  const [bankAccountsContained, setBankAccountsContained] = useState(formatContainedAssets(trustSelected.content, 'bankAccount'));
-  const [vehiclesContained, setVehiclesContained] = useState(formatContainedAssets(trustSelected.content, 'vehicle'));
-  const [artContained, setArtContained] = useState(formatContainedAssets(trustSelected.content, 'artAndOthers'));
-  const [privateEquityContained, setPrivateEquityContained] = useState(formatContainedAssets(trustSelected.content, 'privateEquity'));
+  const [ownerFamilyMembers, setOwnerFamilyMembers] = useState(
+    formatMember(trustSelected.trustors)
+  );
+  const [companiesContained, setCompaniesContained] = useState(
+    formatContainedAssets(trustSelected.content, "company")
+  );
+  const [realStateContained, setRealStateContained] = useState(
+    formatContainedAssets(trustSelected.content, "realState")
+  );
+  const [bankAccountsContained, setBankAccountsContained] = useState(
+    formatContainedAssets(trustSelected.content, "bankAccount")
+  );
+  const [vehiclesContained, setVehiclesContained] = useState(
+    formatContainedAssets(trustSelected.content, "vehicle")
+  );
+  const [artContained, setArtContained] = useState(
+    formatContainedAssets(trustSelected.content, "artAndOthers")
+  );
+  const [privateEquityContained, setPrivateEquityContained] = useState(
+    formatContainedAssets(trustSelected.content, "privateEquity")
+  );
   const [country, setCountry] = useState({
-    label: trustSelected.country, 
-    value: trustSelected.country
+    label: trustSelected.country,
+    value: trustSelected.country,
   });
-  const [creationDate, setCreationDate] = useState<Dayjs | null>(dayjs(trustDateFormatted));
+  const [creationDate, setCreationDate] = useState<Dayjs | null>(
+    dayjs(trustDateFormatted)
+  );
 
   const [trustType, setTrustType] = useState({
     value: trustSelected.trustType,
     label: trustSelected.trustType,
   });
 
+  console.log("companies container", companiesContained);
   const familyList = formatMember(family.members);
 
   const companiesList = formatCompany(companies);
@@ -80,7 +110,7 @@ export default function TrustDescription(props) {
   const renderSelectAssetsContained = () => {
     return (
       <div>
-        <Row style={{ marginTop: 20, marginBottom: -10 }}>
+        <Row>
           <Form.Group
             as={Col}
             md="8"
@@ -97,7 +127,7 @@ export default function TrustDescription(props) {
             controlId="validationCustom01"
             className="form-group"
           >
-            <p style={{ color: "gray", fontSize: 12}}>Empresas</p>
+            <p style={{ color: "gray", fontSize: 12 }}>Empresas</p>
             <MultiSelect
               options={companiesList}
               value={companiesContained}
@@ -110,6 +140,28 @@ export default function TrustDescription(props) {
               }}
               disableSearch
             />
+            {companiesContained.length > 0
+              ? companiesContained.map((company) => {
+                  return (
+                    <p
+                      style={{
+                        cursor: "pointer",
+                        textDecoration: "underline",
+                        color: "#5488d2",
+                        marginTop: 5,
+                        fontSize: 12,
+                      }}
+                    >
+                      {/*// @ts-ignore */}
+                      <Link to={`${import.meta.env.BASE_URL
+                        }administration/company/${company.value}/company`}
+                      >
+                        {company.label}
+                      </Link>
+                    </p>
+                  );
+                })
+              : null}
           </Form.Group>
 
           <Form.Group
@@ -131,6 +183,30 @@ export default function TrustDescription(props) {
               }}
               disableSearch
             />
+            {realStateContained.length > 0
+              ? realStateContained.map((realState) => {
+                  return (
+                    <p
+                      style={{
+                        cursor: "pointer",
+                        textDecoration: "underline",
+                        color: "#5488d2",
+                        marginTop: 5,
+                        fontSize: 12,
+                      }}
+                    >
+                      {/*// @ts-ignore */}
+                      <Link to={`${import.meta.env.BASE_URL
+                        }governance/wealthItem/type/realState/id/${
+                          realState.value
+                        }`}
+                      >
+                        {realState.label}
+                      </Link>
+                    </p>
+                  );
+                })
+              : null}
           </Form.Group>
 
           <Form.Group
@@ -152,6 +228,30 @@ export default function TrustDescription(props) {
               }}
               disableSearch
             />
+            {bankAccountsContained.length > 0
+              ? bankAccountsContained.map((bankAccount) => {
+                  return (
+                    <p
+                      style={{
+                        cursor: "pointer",
+                        textDecoration: "underline",
+                        color: "#5488d2",
+                        marginTop: 5,
+                        fontSize: 12,
+                      }}
+                    >
+                      {/*// @ts-ignore */}
+                      <Link to={`${import.meta.env.BASE_URL
+                        }governance/wealthItem/type/bankAccount/id/${
+                          bankAccount.value
+                        }`}
+                      >
+                        {bankAccount.label}
+                      </Link>
+                    </p>
+                  );
+                })
+              : null}
           </Form.Group>
 
           <Form.Group
@@ -173,6 +273,30 @@ export default function TrustDescription(props) {
               }}
               disableSearch
             />
+            {vehiclesContained.length > 0
+              ? vehiclesContained.map((vehicle) => {
+                  return (
+                    <p
+                      style={{
+                        cursor: "pointer",
+                        textDecoration: "underline",
+                        color: "#5488d2",
+                        marginTop: 5,
+                        fontSize: 12,
+                      }}
+                    >
+                      {/*// @ts-ignore */}
+                      <Link to={`${import.meta.env.BASE_URL
+                        }governance/wealthItem/type/vehicle/id/${
+                          vehicle.value
+                        }`}
+                      >
+                        {vehicle.label}
+                      </Link>
+                    </p>
+                  );
+                })
+              : null}
           </Form.Group>
 
           <Form.Group
@@ -194,6 +318,30 @@ export default function TrustDescription(props) {
               }}
               disableSearch
             />
+            {artContained.length > 0
+              ? artContained.map((artAndOthers) => {
+                  return (
+                    <p
+                      style={{
+                        cursor: "pointer",
+                        textDecoration: "underline",
+                        color: "#5488d2",
+                        marginTop: 5,
+                        fontSize: 12,
+                      }}
+                    >
+                      {/*// @ts-ignore */}
+                      <Link to={`${import.meta.env.BASE_URL
+                        }governance/wealthItem/type/artAndOthers/id/${
+                          artAndOthers.value
+                        }`}
+                      >
+                        {artAndOthers.label}
+                      </Link>
+                    </p>
+                  );
+                })
+              : null}
           </Form.Group>
 
           <Form.Group
@@ -202,7 +350,9 @@ export default function TrustDescription(props) {
             controlId="validationCustom01"
             className="form-group"
           >
-            <p style={{ color: "gray", fontSize: 12 }}>Inversiones capital privado</p>
+            <p style={{ color: "gray", fontSize: 12 }}>
+              Inversiones capital privado
+            </p>
             <MultiSelect
               options={privateEquityList}
               value={privateEquityContained}
@@ -215,6 +365,215 @@ export default function TrustDescription(props) {
               }}
               disableSearch
             />
+            {privateEquityContained.length > 0
+              ? privateEquityContained.map((privateEquity) => {
+                  return (
+                    <p
+                      style={{
+                        cursor: "pointer",
+                        textDecoration: "underline",
+                        color: "#5488d2",
+                        marginTop: 5,
+                        fontSize: 12,
+                      }}
+                    >
+                      {/*// @ts-ignore */}
+                      <Link to={`${import.meta.env.BASE_URL}governance/wealthItem/type/privateEquity/id/${
+                          privateEquity.value
+                        }`}
+                      >
+                        {privateEquity.label}
+                      </Link>
+                    </p>
+                  );
+                })
+              : null}
+          </Form.Group>
+        </Row>
+      </div>
+    );
+  };
+
+  const renderContract = () => {
+    return (
+      <Row>
+        <Form.Group as={Col} md="6" className="form-group">
+          <Form.Label>Contrato de fideicomiso</Form.Label>
+          {trustSelected.contract ? (
+            <FileView fileName="Fideicomiso" title="Fideicomiso" />
+          ) : (
+            <FileUpload />
+          )}
+        </Form.Group>
+      </Row>
+    );
+  };
+
+  const renderInfo = () => {
+    return (
+      <div>
+        <Row style={{ marginBottom: 20 }}>
+          <Form.Group
+            as={Col}
+            md="4"
+            controlId="validationCustom01"
+            className="form-group"
+          >
+            <Form.Label>Numero de fideicomiso</Form.Label>
+            <InputGroup hasValidation>
+              <Form.Control
+                type="numeric"
+                placeholder=""
+                aria-describedby="inputGroupPrepend"
+                required
+                onChange={(text) => setTrustNumber(text.target.value)}
+                value={trustNumber}
+              />
+              <Form.Control.Feedback type="invalid">
+                Favor de añadir el monto del pago
+              </Form.Control.Feedback>
+            </InputGroup>
+          </Form.Group>
+          <Form.Group
+            as={Col}
+            md="4"
+            controlId="validationCustom01"
+            className="form-group"
+          >
+            <Form.Label>Fiduciario (Banco)</Form.Label>
+            <Form.Control
+              type="numeric"
+              placeholder=""
+              aria-describedby="inputGroupPrepend"
+              required
+              onChange={(text) => setTrustBank(text.target.value)}
+              value={trustBank}
+            />
+          </Form.Group>
+
+          <Form.Group
+            as={Col}
+            md="4"
+            controlId="validationCustom01"
+            className="form-group"
+          >
+            <Form.Label>Tipo de fideicomiso</Form.Label>
+            <Select
+              options={OptionsTrustType}
+              classNamePrefix="Select2"
+              className="multi-select"
+              onChange={(value) => setTrustType(value)}
+              placeholder=""
+              value={trustType}
+            />
+          </Form.Group>
+        </Row>
+
+        <Row style={{ marginTop: 20, marginBottom: -10 }}>
+          <Form.Group
+            as={Col}
+            md="8"
+            controlId="validationCustom01"
+            className="form-group"
+          >
+            <Form.Label>Participantes en fideicomiso</Form.Label>
+          </Form.Group>
+        </Row>
+
+        <Row>
+          <Form.Group
+            as={Col}
+            md="4"
+            controlId="validationCustom01"
+            className="form-group"
+          >
+            <p style={{ color: "gray", fontSize: 12 }}>
+              Fideicomitentes (beneficiarios)
+            </p>
+            <MultiSelect
+              options={familyList}
+              value={ownerFamilyMembers}
+              onChange={setOwnerFamilyMembers}
+              labelledBy="Select"
+              overrideStrings={{
+                selectSomeItems: "Selecciona miembros accionistas",
+                allItemsAreSelected: "Todos los miembros",
+                selectAll: "Seleccionar todos",
+              }}
+              disableSearch
+            />
+          </Form.Group>
+          <Form.Group
+            as={Col}
+            md="4"
+            controlId="validationCustom01"
+            className="form-group"
+          >
+            <p style={{ color: "gray", fontSize: 12 }}>Fideicomisario</p>
+            <Form.Control
+              type="numeric"
+              placeholder=""
+              aria-describedby="inputGroupPrepend"
+              required
+              onChange={(text) => setTrustee(text.target.value)}
+              value={trustee}
+            />
+          </Form.Group>
+        </Row>
+
+        <Row style={{ marginTop: 20 }}>
+          <Form.Group
+            as={Col}
+            md="8"
+            controlId="validationCustom01"
+            className="form-group"
+          >
+            <Form.Label>Finalidad del fideicomiso</Form.Label>
+            <Form.Control
+              type="numeric"
+              placeholder=""
+              aria-describedby="inputGroupPrepend"
+              required
+              onChange={(text) => setPurpose(text.target.value)}
+              value={purpose}
+            />
+          </Form.Group>
+
+          <Form.Group
+            as={Col}
+            md="4"
+            controlId="validationCustom01"
+            className="form-group"
+          >
+            <Form.Label>País</Form.Label>
+            <Select
+              options={countryOptions}
+              classNamePrefix="Select2"
+              className="multi-select"
+              onChange={(value) => setCountry(value)}
+              placeholder=""
+              value={country}
+            />
+          </Form.Group>
+        </Row>
+        <Row style={{ marginTop: 20 }}>
+          <Form.Group
+            as={Col}
+            md="4"
+            controlId="validationCustom01"
+            className="form-group"
+          >
+            <Form.Label>Fecha de creación de fideicomiso</Form.Label>
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+              <DemoContainer components={["DatePicker"]}>
+                <DatePicker
+                  format="DD/MM/YYYY"
+                  onChange={(value) => setCreationDate(value)}
+                  value={dayjs(creationDate)}
+                  defaultValue={dayjs(creationDate)}
+                />
+              </DemoContainer>
+            </LocalizationProvider>
           </Form.Group>
         </Row>
       </div>
@@ -224,193 +583,38 @@ export default function TrustDescription(props) {
   return (
     <Fragment>
       <Row>
-        <Card style={{ padding: 30, marginTop: 20 }}>
-          <Card.Title style={{ marginBottom: 35 }}>
+        <Card style={{ padding: 30, marginTop: 20, minHeight: 500 }}>
+          <Card.Title style={{ marginBottom: 0 }}>
             Fideicomiso {trustSelected.trustNumber} {trustSelected.trusteeBank}
           </Card.Title>
           <Form noValidate validated={false} onSubmit={() => {}}>
+            <Tab.Container id="left-tabs-example" defaultActiveKey="third">
+              <div style={{ padding: 20, paddingBottom: 0, paddingLeft: 10 }}>
+                <div className="tabs-menu1">
+                  <Nav as="ul" className="nav panel-tabs">
+                    <Nav.Item as="li" style={{ marginRight: 10 }}>
+                      <Nav.Link eventKey="third">Información </Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item as="li" style={{ marginRight: 10 }}>
+                      <Nav.Link eventKey="second">Contrato </Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item as="li" style={{ marginRight: 10 }}>
+                      <Nav.Link eventKey="fifth" href="#">
+                        Contenido de fideicomiso
+                      </Nav.Link>
+                    </Nav.Item>
+                  </Nav>
+                </div>
+              </div>
 
-            <Row style={{ marginBottom: 20 }}>
-              <Form.Group
-                as={Col}
-                md="4"
-                controlId="validationCustom01"
-                className="form-group"
-              >
-                <Form.Label>Numero de fideicomiso</Form.Label>
-                <InputGroup hasValidation>
-                  <Form.Control
-                    type="numeric"
-                    placeholder=""
-                    aria-describedby="inputGroupPrepend"
-                    required
-                    onChange={(text) => setTrustNumber(text.target.value)}
-                    value={trustNumber}
-                  />
-                  <Form.Control.Feedback type="invalid">
-                    Favor de añadir el monto del pago
-                  </Form.Control.Feedback>
-                </InputGroup>
-              </Form.Group>
-              <Form.Group
-                as={Col}
-                md="4"
-                controlId="validationCustom01"
-                className="form-group"
-              >
-                <Form.Label>Fiduciario (Banco)</Form.Label>
-                <Form.Control
-                  type="numeric"
-                  placeholder=""
-                  aria-describedby="inputGroupPrepend"
-                  required
-                  onChange={(text) => setTrustBank(text.target.value)}
-                  value={trustBank}
-                />
-              </Form.Group>
-
-              <Form.Group
-                as={Col}
-                md="4"
-                controlId="validationCustom01"
-                className="form-group"
-              >
-                <Form.Label>Tipo de fideicomiso</Form.Label>
-                <Select
-                  options={OptionsTrustType}
-                  classNamePrefix="Select2"
-                  className="multi-select"
-                  onChange={(value) => setTrustType(value)}
-                  placeholder=""
-                  value={trustType}
-                />
-              </Form.Group>
-            </Row>
-
-            <Row style={{ marginTop: 10 }}>
-              <Form.Group as={Col} md="6" className="form-group">
-                <Form.Label>Contrato de fideicomiso</Form.Label>
-                {
-                  trustSelected.contract ? (
-                    <FileView fileName="Fideicomiso" title="Fideicomiso" />
-                  ) :(
-                    <FileUpload />
-                  )
-                }
-              </Form.Group>
-            </Row>
-
-            <Row style={{ marginTop: 20, marginBottom: -10 }}>
-              <Form.Group
-                as={Col}
-                md="8"
-                controlId="validationCustom01"
-                className="form-group"
-              >
-                <Form.Label>Participantes en fideicomiso</Form.Label>
-              </Form.Group>
-            </Row>
-
-            <Row>
-              <Form.Group
-                as={Col}
-                md="4"
-                controlId="validationCustom01"
-                className="form-group"
-              >
-                <p style={{ color: "gray", fontSize: 12 }}>
-                  Fideicomitentes (beneficiarios)
-                </p>
-                <MultiSelect
-                  options={familyList}
-                  value={ownerFamilyMembers}
-                  onChange={setOwnerFamilyMembers}
-                  labelledBy="Select"
-                  overrideStrings={{
-                    selectSomeItems: "Selecciona miembros accionistas",
-                    allItemsAreSelected: "Todos los miembros",
-                    selectAll: "Seleccionar todos",
-                  }}
-                  disableSearch
-                />
-              </Form.Group>
-              <Form.Group
-                as={Col}
-                md="4"
-                controlId="validationCustom01"
-                className="form-group"
-              >
-                <p style={{ color: "gray", fontSize: 12}}>Fideicomisario</p>
-                <Form.Control
-                  type="numeric"
-                  placeholder=""
-                  aria-describedby="inputGroupPrepend"
-                  required
-                  onChange={(text) => setTrustee(text.target.value)}
-                  value={trustee}
-                />
-              </Form.Group>
-            </Row>
-
-            {renderSelectAssetsContained()}
-
-            <Row style={{ marginTop: 20 }}>
-              <Form.Group
-                as={Col}
-                md="8"
-                controlId="validationCustom01"
-                className="form-group"
-              >
-                <Form.Label>Finalidad del fideicomiso</Form.Label>
-                <Form.Control
-                  type="numeric"
-                  placeholder=""
-                  aria-describedby="inputGroupPrepend"
-                  required
-                  onChange={(text) => setPurpose(text.target.value)}
-                  value={purpose}
-                />
-              </Form.Group>
-
-              <Form.Group
-                as={Col}
-                md="4"
-                controlId="validationCustom01"
-                className="form-group"
-              >
-                <Form.Label>País</Form.Label>
-                <Select
-                  options={countryOptions}
-                  classNamePrefix="Select2"
-                  className="multi-select"
-                  onChange={(value) => setCountry(value)}
-                  placeholder=""
-                  value={country}
-                />
-              </Form.Group>
-            </Row>
-            <Row style={{ marginTop: 20 }}>
-              <Form.Group
-                as={Col}
-                md="4"
-                controlId="validationCustom01"
-                className="form-group"
-              >
-                <Form.Label>Fecha de creación de fideicomiso</Form.Label>
-                <LocalizationProvider dateAdapter={AdapterDayjs}>
-                  <DemoContainer components={["DatePicker"]}>
-                    <DatePicker
-                      format="DD/MM/YYYY"
-                      onChange={(value) => setCreationDate(value)}
-                      value={dayjs(creationDate)}
-                      defaultValue={dayjs(creationDate)}
-                    />
-                  </DemoContainer>
-                </LocalizationProvider>
-              </Form.Group>
-            </Row>
-
-            
+              <Tab.Content className="panel-body" style={{marginTop: 10}}>
+                <Tab.Pane eventKey="third">{renderInfo()}</Tab.Pane>
+                <Tab.Pane eventKey="second">{renderContract()}</Tab.Pane>
+                <Tab.Pane eventKey="fifth">
+                  {renderSelectAssetsContained()}
+                </Tab.Pane>
+              </Tab.Content>
+            </Tab.Container>
 
             <div
               style={{
@@ -422,7 +626,7 @@ export default function TrustDescription(props) {
             >
               <div></div>
               <Button variant="primary" className=" mb-1" type="submit">
-                Crear
+                Guardar
               </Button>
             </div>
           </Form>
