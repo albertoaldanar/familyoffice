@@ -292,7 +292,7 @@ export default function CompanyItem(props) {
             {companySelected.actaAsambleaExtraordinaria ? (
               <FileView
                 title="Acta asamble extraordinaria"
-                fileName={companySelected.actaAsambleaExtraordinaria}
+                fileName="Acta asamble extraordinaria"
               />
             ) : (
               <div>
@@ -317,8 +317,8 @@ export default function CompanyItem(props) {
               <Form.Label className="form-label my-3">Poderes</Form.Label>
               {companySelected.poderes ? (
                 <FileView
-                  title="Declaracion ISR"
-                  fileName={companySelected.poderes}
+                  title="poderes"
+                  fileName="poderes"
                 />
               ) : (
                 <div>
@@ -344,8 +344,8 @@ export default function CompanyItem(props) {
               </Form.Label>
               {companySelected.actasDividendos ? (
                 <FileView
-                  title="Declaracion ISR"
-                  fileName={companySelected.actasDividendos}
+                  title="Actasdividendos"
+                  fileName="Actasdividendos"
                 />
               ) : (
                 <div>

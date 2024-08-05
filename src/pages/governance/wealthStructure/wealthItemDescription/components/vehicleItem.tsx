@@ -63,6 +63,31 @@ export default function VehicleItem(props) {
   const renderDescription = () => {
     return (
       <div>
+        {
+          vehicleSelected.containedIntrusts.length ? (
+            <Row style={{marginTop: -10}}>
+              <Form.Label>Vehiculo contenido en los siguientes fideicomisos:</Form.Label>
+              {vehicleSelected.containedIntrusts.map(trust => {
+                  return (
+                    <p
+                      style={{
+                        cursor: "pointer",
+                        textDecoration: "underline",
+                        color: "#5488d2",
+                        fontSize: 12,
+                        marginTop: -6
+                      }}
+                    >
+                      {/*// @ts-ignore */}
+                      <Link to={`${import.meta.env.BASE_URL}administration/trustDescription/${trust.id}`}>
+                        {trust.name}
+                      </Link>
+                    </p>
+                  );
+              })}
+            </Row>
+          ): null
+        }
         <Row style={{ marginBottom: 10 }}>
           <Form.Group
             as={Col}
@@ -470,27 +495,6 @@ export default function VehicleItem(props) {
             />
 
             {renderOptionsSelected("company")}
-          </Form.Group>
-
-          <Form.Group
-            as={Col}
-            md="4"
-            controlId="validationCustom01"
-            className="form-group"
-          >
-            <p style={{ color: "gray", fontSize: 13 }}>Fideicomisos</p>
-            <MultiSelect
-              options={familyList}
-              value={ownerFamilyMembers}
-              onChange={setOwnerFamilyMembers}
-              labelledBy="Select"
-              overrideStrings={{
-                selectSomeItems: "Selecciona empresas accionistas",
-                allItemsAreSelected: "Todos los miembros",
-                selectAll: "Seleccionar todos",
-              }}
-              disableSearch
-            />
           </Form.Group>
         </Row>
       </>

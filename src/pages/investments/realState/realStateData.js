@@ -11,6 +11,7 @@ export const realstateData = [
     percentage: "100",
     mt2: "250",
     propertyType: "Departamento",
+    containedIntrusts:[],
     images: [
       "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pexels.com%2Fsearch%2Fapartment%2520building%2F&psig=AOvVaw1zYHqxmpBoPCXfkEVBI9UX&ust=1719262565828000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCNjk16XO8oYDFQAAAAAdAAAAABAE",
       "https://img.zumpercdn.com/209027862/1280x960",
@@ -28,6 +29,12 @@ export const realstateData = [
   {
     id: 29,
     nombre: "Casa Colinas del parque",
+    containedIntrusts:[
+      {
+        id: 90,
+        name: 'Fideicomiso 144002 BBVA'
+      },
+    ],
     moneda: "MXN",
     escrituras: "https://www.google.drive/1423nger",
     valuacion: "7,500,000.00",
@@ -63,6 +70,7 @@ export const realstateData = [
     id: 42,
     nombre: "Oficinas mutualismo",
     ciudad: "Culiacan, Sinaloa",
+    containedIntrusts:[],
     moneda: "MXN",
     country: 'México',
     escrituras: "https://www.google.drive/1423nger",

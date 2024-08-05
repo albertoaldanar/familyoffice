@@ -17,6 +17,7 @@ import NotFoundSearch from "../../../../shared/notFoundSearch";
 import { otherWealthData } from "../../wealthStructureData";
 import { family } from "../../../familyStructure/familyStructureData";
 import { companies } from "../../../../administration/accounting/accountingData";
+import { Link } from "react-router-dom";
 import {
   formatCompany,
   formatOwnersData,
@@ -83,7 +84,32 @@ export default function ArtAndOthersItem(props) {
   const renderDescription = () => {
     return (
       <div>
-        <Row style={{ marginBottom: 10 }}>
+        {
+          artSelected.containedIntrusts.length ? (
+            <Row style={{marginTop: -10}}>
+              <Form.Label>Arte y otros en los siguientes fideicomisos:</Form.Label>
+              {artSelected.containedIntrusts.map(trust => {
+                  return (
+                    <p
+                      style={{
+                        cursor: "pointer",
+                        textDecoration: "underline",
+                        color: "#5488d2",
+                        fontSize: 12,
+                        marginTop: -6
+                      }}
+                    >
+                      {/*// @ts-ignore */}
+                      <Link to={`${import.meta.env.BASE_URL}administration/trustDescription/${trust.id}`}>
+                        {trust.name}
+                      </Link>
+                    </p>
+                  );
+              })}
+            </Row>
+          ): null
+        }
+        <Row style={{ marginBottom: 10, marginTop: 15 }}>
           <Form.Group
             as={Col}
             md="4"
@@ -298,27 +324,6 @@ export default function ArtAndOthersItem(props) {
             />
 
             {renderOptionsSelected("company")}
-          </Form.Group>
-
-          <Form.Group
-            as={Col}
-            md="4"
-            controlId="validationCustom01"
-            className="form-group"
-          >
-            <p style={{ color: "gray", fontSize: 13 }}>Fideicomisos</p>
-            <MultiSelect
-              options={familyList}
-              value={ownerFamilyMembers}
-              onChange={setOwnerFamilyMembers}
-              labelledBy="Select"
-              overrideStrings={{
-                selectSomeItems: "Selecciona empresas accionistas",
-                allItemsAreSelected: "Todos los miembros",
-                selectAll: "Seleccionar todos",
-              }}
-              disableSearch
-            />
           </Form.Group>
         </Row>
       </div>

@@ -85,7 +85,32 @@ export default function RealStateItem(props) {
   const renderDescription = () => {
     return (
       <div>
-        <Row style={{ marginBottom: 10 }}>
+        {
+          realStateSelected.containedIntrusts.length ? (
+            <Row>
+              <Form.Label>Bien raiz contenido en los siguientes fideicomisos:</Form.Label>
+              {realStateSelected.containedIntrusts.map(trust => {
+                  return (
+                    <p
+                      style={{
+                        cursor: "pointer",
+                        textDecoration: "underline",
+                        color: "#5488d2",
+                        fontSize: 12,
+                        marginTop: -6
+                      }}
+                    >
+                      {/*// @ts-ignore */}
+                      <Link to={`${import.meta.env.BASE_URL}administration/trustDescription/${trust.id}`}>
+                        {trust.name}
+                      </Link>
+                    </p>
+                  );
+              })}
+            </Row>
+          ): null
+        }
+        <Row style={{ marginBottom: 10, marginTop: 15 }}>
           <Form.Group
             as={Col}
             md="4"
@@ -531,27 +556,6 @@ export default function RealStateItem(props) {
             />
 
             {renderOptionsSelected("company")}
-          </Form.Group>
-
-          <Form.Group
-            as={Col}
-            md="4"
-            controlId="validationCustom01"
-            className="form-group"
-          >
-            <p style={{ color: "gray", fontSize: 13 }}>Fideicomisos</p>
-            <MultiSelect
-              options={familyList}
-              value={ownerFamilyMembers}
-              onChange={setOwnerFamilyMembers}
-              labelledBy="Select"
-              overrideStrings={{
-                selectSomeItems: "Selecciona empresas accionistas",
-                allItemsAreSelected: "Todos los miembros",
-                selectAll: "Seleccionar todos",
-              }}
-              disableSearch
-            />
           </Form.Group>
         </Row>
       </>

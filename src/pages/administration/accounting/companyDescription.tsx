@@ -249,27 +249,6 @@ export default function CompanyDescription() {
 
             {renderOptionsSelected("company")}
           </Form.Group>
-
-          <Form.Group
-            as={Col}
-            md="4"
-            controlId="validationCustom01"
-            className="form-group"
-          >
-            <p style={{ color: "gray", fontSize: 13 }}>Fideicomisos</p>
-            <MultiSelect
-              options={familyList}
-              value={ownerFamilyMembers}
-              onChange={setOwnerFamilyMembers}
-              labelledBy="Select"
-              overrideStrings={{
-                selectSomeItems: "Selecciona empresas accionistas",
-                allItemsAreSelected: "Todos los miembros",
-                selectAll: "Seleccionar todos",
-              }}
-              disableSearch
-            />
-          </Form.Group>
         </Row>
       </>
     );
@@ -776,6 +755,7 @@ export default function CompanyDescription() {
           cursor: "pointer",
           textDecoration: "underline",
           color: "#5488d2",
+          fontSize: 13
         }}>
           {/*// @ts-ignore */}
           <Link to={`${import.meta.env.BASE_URL}governance/wealthItem/type/bankAccount/id/${account.id}`}>
@@ -970,6 +950,30 @@ export default function CompanyDescription() {
           <Form.Label>Cuentas bancarias</Form.Label>
           {renderBankAccounts()}
         </Row>
+        {
+          companySelected.containedIntrusts.length ? (
+            <Row>
+              <Form.Label>Empresa contenida en los siguientes fideicomisos:</Form.Label>
+              {companySelected.containedIntrusts.map(trust => {
+                  return (
+                    <p
+                      style={{
+                        cursor: "pointer",
+                        textDecoration: "underline",
+                        color: "#5488d2",
+                        fontSize: 12,
+                      }}
+                    >
+                      {/*// @ts-ignore */}
+                      <Link to={`${import.meta.env.BASE_URL}administration/trustDescription/${trust.id}`}>
+                        {trust.name}
+                      </Link>
+                    </p>
+                  );
+              })}
+            </Row>
+          ): null
+        }
         <Row style={{ marginBottom: 20, marginTop: 20 }}>
           <Form.Group
             as={Col}

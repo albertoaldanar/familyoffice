@@ -116,6 +116,12 @@ export const otherWealthData = {
           name: "Alberto Aldana Rios",
         },
       ],
+      containedIntrusts:[
+        {
+          id: 20,
+          name: 'Fideicomiso 0014233 Santander'
+        },
+      ],
     },
     {
       id: 3,
@@ -136,6 +142,7 @@ export const otherWealthData = {
           name: "Francisco Aldana Fariñas",
         },
       ],
+      containedIntrusts:[],
     },
     {
       id: 23,
@@ -156,6 +163,7 @@ export const otherWealthData = {
           name: "Aldana Clima Integral",
         },
       ],
+      containedIntrusts:[],
     },
   ],
   artAndOthers: [
@@ -163,6 +171,12 @@ export const otherWealthData = {
       id: 43,
       type: "Arte",
       name: "Coleccion de arte de Gerhard Richter",
+      containedIntrusts:[
+        {
+          id: 20,
+          name: 'Fideicomiso 0014233 Santander'
+        },
+      ],
       value: "5000000",
       currency: "EUR",
       country: 'España',
@@ -189,6 +203,12 @@ export const otherWealthData = {
           name: "Francisco Aldana Fariñas",
         },
       ],
+      containedIntrusts:[
+        {
+          id: 20,
+          name: 'Fideicomiso 0014233 Santander'
+        },
+      ],
       bank: "Santander",
       accountNumber: "100434346583",
       country: "México",
@@ -207,6 +227,12 @@ export const otherWealthData = {
           name: "Aldana Clima Integreal",
         },
       ],
+      containedIntrusts:[
+        {
+          id: 20,
+          name: 'Fideicomiso 0014233 Santander'
+        },
+      ],
       bank: "BBVA",
       accountNumber: "34333311021",
       country: "México",
@@ -221,6 +247,12 @@ export const otherWealthData = {
       id: 2,
       fundName: 'Fondo ABC',
       investment: '10000000',
+      containedIntrusts:[
+        {
+          id: 20,
+          name: 'Fideicomiso 0014233 Santander'
+        },
+      ],
       currency: 'MXN',
       investmentYear: '2020',
       fundType: 'Venture Capital',
@@ -239,6 +271,7 @@ export const otherWealthData = {
       id: 6,
       fundName: 'BR capital',
       investment: '90000',
+      containedIntrusts:[],
       currency: 'USD',
       investmentYear: '2023',
       fundType: 'Private Equity',

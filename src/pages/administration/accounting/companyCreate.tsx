@@ -351,27 +351,6 @@ export default function CompanyCreate(props) {
 
                 {renderOptionsSelected("company")}
               </Form.Group>
-
-              <Form.Group
-                as={Col}
-                md="4"
-                controlId="validationCustom01"
-                className="form-group"
-              >
-                <p style={{ color: "gray", fontSize: 13 }}>Fideicomisos</p>
-                <MultiSelect
-                  options={familyList}
-                  value={ownerFamilyMembers}
-                  onChange={setOwnerFamilyMembers}
-                  labelledBy="Select"
-                  overrideStrings={{
-                    selectSomeItems: "Selecciona empresas accionistas",
-                    allItemsAreSelected: "Todos los miembros",
-                    selectAll: "Seleccionar todos",
-                  }}
-                  disableSearch
-                />
-              </Form.Group>
             </Row>
 
             <Row style={{ marginTop: 30 }}>

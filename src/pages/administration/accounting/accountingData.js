@@ -4,6 +4,12 @@ export const companies = [
     nombre: "Aldana Clima Integral",
     rfc: "BVA4930245",
     moneda: "MXN",
+    containedIntrusts:[
+      {
+        id: 90, 
+        name: '144002-BBVA'
+      }
+    ],
     actaConstitutiva: "https://www.google.drive/1423nger",
     actasAsamblea: [
       {
@@ -185,6 +191,7 @@ export const companies = [
     nombre: "Celsius",
     rfc: "BVA4930245",
     moneda: "MXN",
+    containedIntrusts:[],
     razonSocial: "Airenlinea SA de CV",
     nationality: "Mexicana",
     regimenCapital: "SA de CV",
@@ -374,6 +381,7 @@ export const companies = [
     nombre: "D&A Engineering Designs",
     rfc: "BVA4930245",
     moneda: "MXN",
+    containedIntrusts:[],
     actasAsamblea: [
       {
         name: "AAO 2024",
