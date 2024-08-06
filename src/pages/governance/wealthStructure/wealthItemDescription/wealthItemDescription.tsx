@@ -8,6 +8,7 @@ import RealStateItem from "./components/realStateItem";
 import VehicleItem from "./components/vehicleItem";
 import ArtAndOthersItem from "./components/artAndOthersItem";
 import BanksAccountsItem from "./components/bankAccountsItem";
+import StockInvestment from "./components/stockInvestment/stockInvestment";
 
 export default function WealthDescription() {
   const params = useParams();
@@ -29,6 +30,9 @@ export default function WealthDescription() {
       break;
     case "bankAccount":
       componentToRender = <BanksAccountsItem id={id} />;
+      break;
+    case "stockInvestment":
+      componentToRender = <StockInvestment id={id} />;
       break;
     default:
       componentToRender = <NotFoundSearch />;

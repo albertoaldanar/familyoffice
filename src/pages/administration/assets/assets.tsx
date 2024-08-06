@@ -5,6 +5,7 @@ import VechicleList from "./assetCategories/vehicleList";
 import ArtAndOthers from "./assetCategories/artAndOthers";
 import BankAccountsList from "./assetCategories/bankAccountsList";
 import PrivateEquityList from "./assetCategories/privateEquityList";
+import StockInvestmentList from "./assetCategories/stockInvestmentList";
 import { realstateData } from "../../investments/realState/realStateData";
 import { otherWealthData } from "../../governance/wealthStructure/wealthStructureData";
 
@@ -29,7 +30,7 @@ export default function Assets() {
                     <Nav.Link eventKey="third">Capital privado</Nav.Link>
                   </Nav.Item>
                   <Nav.Item as="li" style={{ marginRight: 10 }}>
-                    <Nav.Link eventKey="fourth">Inversiones</Nav.Link>
+                    <Nav.Link eventKey="fourth">Inversiones Bursatiles</Nav.Link>
                   </Nav.Item>
                   <Nav.Item as="li" style={{ marginRight: 10 }}>
                     <Nav.Link eventKey="fifth">Vehiculos</Nav.Link>
@@ -47,7 +48,7 @@ export default function Assets() {
               <Tab.Pane eventKey="first"><RealStateList data={realstateData}/></Tab.Pane>
               <Tab.Pane eventKey="second"><BankAccountsList data={otherWealthData.bankAccounts}/></Tab.Pane>
               <Tab.Pane eventKey="third"><PrivateEquityList data={otherWealthData.privateEquity}/></Tab.Pane>
-              <Tab.Pane eventKey="fourth"></Tab.Pane>
+              <Tab.Pane eventKey="fourth"><StockInvestmentList data={otherWealthData.stockInvestments}/></Tab.Pane>
               <Tab.Pane eventKey="fifth"><VechicleList data={otherWealthData.vehicles}/></Tab.Pane>
               <Tab.Pane eventKey="six"><ArtAndOthers data={otherWealthData.artAndOthers}/></Tab.Pane>
             </Tab.Content>

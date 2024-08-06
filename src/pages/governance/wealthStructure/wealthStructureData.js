@@ -286,5 +286,79 @@ export const otherWealthData = {
         },
       ],
     }
+  ], 
+  stockInvestments: [
+    {
+      id: 499,
+      figure: 'Figura 1',
+      bank: 'Scotia Bank',
+      country: 'México',
+      accountNumber: '6641232',
+      routing: '43595932129',
+      currency: 'MXN',
+      investmentAmount: '2000000',
+      owners: [
+        {
+          type: "family",
+          pct: "50",
+          coreId: "43",
+          name: "Francisco Aldana Fariñas",
+        },
+        {
+          type: "family",
+          pct: "50",
+          coreId: "23",
+          name: "Patricia Ríos Collantes",
+        },
+      ],
+      resultsReports: [
+        {
+          id: 1,
+          value: '2100000',
+          invoice: "https://googledrive.com/erg3440398f4fmv", 
+          month: 'Enero',
+          year: 2024
+        },
+        {
+          id: 3,
+          value: '2200000',
+          invoice: "https://googledrive.com/erg3440398f4fmv", 
+          month: 'Feberor',
+          year: 2024
+        },
+        {
+          id: 6,
+          value: '2140000',
+          invoice: "https://googledrive.com/erg3440398f4fmv", 
+          month: 'Marzo',
+          year: 2024
+        }
+      ]
+    },
+    {
+      id: 159,
+      figure: 'Figura 2',
+      bank: 'Santander',
+      country: 'México',
+      accountNumber: '79441232',
+      routing: '00146932129',
+      currency: 'MXN',
+      investmentAmount: '1000000',
+      owners: [
+        {
+          type: "family",
+          pct: "50",
+          coreId: "43",
+          name: "Francisco Aldana Fariñas",
+        },
+        {
+          type: "family",
+          pct: "50",
+          coreId: "23",
+          name: "Patricia Ríos Collantes",
+        },
+      ],
+      resultsReports: []
+    }
   ]
 };
