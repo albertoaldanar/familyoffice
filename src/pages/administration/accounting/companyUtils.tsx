@@ -1,12 +1,3 @@
-//@ts-ignore
-import usa from '../../../assets/images/flags/us.svg';
-//@ts-ignore
-import mx from '../../../assets/images/flags/mx.svg';
-//@ts-ignore
-import ca from '../../../assets/images/flags/ca.svg';
-//@ts-ignore
-import es from '../../../assets/images/flags/es.svg';
-
 export const formatCompany = (companies) => {
     if(!companies.length){
       return [];
@@ -46,18 +37,16 @@ export const formatOwnersData = (companySelected) => {
 
 export const renderFlag = (nationality: string) => {
   if(nationality === 'USA'){
-    return <img style={{width: 25, height: 25, borderRadius: 10}} src={usa} alt="usa" />
+    return <i className="flag flag-us"></i>
   } else if(nationality === 'Mexicana' || nationality === 'México'){
-    return <img style={{width: 25, height: 25, borderRadius: 10}} src={mx} alt="mx" />
+    return <i className="flag flag-mx"></i>
   } else if(nationality === 'Canada'){
-    return <img style={{width: 25, height: 25, borderRadius: 10}} src={ca} alt="canada" />
+    return <i className="flag flag-ca"></i>
   } else if(nationality === 'España'){
-    return <img style={{width: 25, height: 25, borderRadius: 10}} src={es} alt="españa" />
+    return <i className="flag flag-es"></i>
   } 
-
   return;
 };
-
 
 export const countryOptions = [
   { value: "México", label: "México" },

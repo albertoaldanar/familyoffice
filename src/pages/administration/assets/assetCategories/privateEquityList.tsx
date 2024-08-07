@@ -45,7 +45,6 @@ export default function PrivateEquityList(props) {
               <th>Inversión</th>
               <th>Tipo de fondo</th>
               <th>Industria</th>
-              <th>Devoluciones de capital</th>
               <th>Propietario(s)</th>
               <th></th>
             </tr>
@@ -57,7 +56,6 @@ export default function PrivateEquityList(props) {
                 <td>{formatCurrency(idx.investment, idx.currency)}</td>
                 <td>{idx.fundType}</td>
                 <td>{idx.industry}</td>
-                <td>$2,000.00 MXN</td>
                 <td>
                   <div style={{ display: "flex", flexDirection: "column" }}>
                     {idx.owners.map((owner, index) => (

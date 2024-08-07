@@ -224,7 +224,7 @@ export default function StockInvestment(props) {
                     }}
                   >
                     {/*// @ts-ignore */}
-                    <Link to={`${import.meta.env.BASE_URL}administration/rentCollecting`}>
+                    <Link to={`${import.meta.env.BASE_URL}governance/stockResult/${stockInvestmentSelected.id}/resultId/${idx.id}`}>
                       Ver
                     </Link>
                   </td>
@@ -265,7 +265,7 @@ export default function StockInvestment(props) {
             className=" mb-1"
           >
               {/*// @ts-ignore */}
-              <Link style={{color: 'white'}} to={`${import.meta.env.BASE_URL}administration/rentNewPayment/`}>
+              <Link style={{color: 'white'}} to={`${import.meta.env.BASE_URL}governance/stockResult/${stockInvestmentSelected.id}`}>
                 + Añadir resultado
               </Link>
           </Button>

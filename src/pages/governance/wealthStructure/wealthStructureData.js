@@ -106,6 +106,7 @@ export const otherWealthData = {
       value: "600000",
       circulationCard: "https://googledrive.com/erg3440398f4fmv",
       currency: "MXN",
+      country: 'México',
       platesNumber: "XBJ21NB3",
       invoice: "https://googledrive.com/erg3440398f4fmv",
       owners: [
@@ -116,7 +117,7 @@ export const otherWealthData = {
           name: "Alberto Aldana Rios",
         },
       ],
-      containedIntrusts:[
+      containedIntrusts: [
         {
           id: 20,
           name: 'Fideicomiso 0014233 Santander'
@@ -129,9 +130,10 @@ export const otherWealthData = {
       brand: "HAN",
       year: "2024",
       color: "Gris",
-      value: "1200000",
+      country: 'USA',
+      value: "60000",
       circulationCard: "",
-      currency: "MXN",
+      currency: "USD",
       platesNumber: "ABJ2NB3",
       invoice: "https://googledrive.com/erg3440398f4fmv",
       owners: [
@@ -148,6 +150,7 @@ export const otherWealthData = {
       id: 23,
       model: "Frontier",
       brand: "Nissan",
+      country: 'México',
       value: "640000",
       currency: "MXN",
       circulationCard: "",

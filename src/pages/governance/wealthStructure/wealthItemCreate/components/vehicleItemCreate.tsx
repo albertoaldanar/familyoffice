@@ -8,6 +8,7 @@ import { formatMember } from "../../../councilAndCommittee/councilAndCommitteeUt
 import { family } from "../../../familyStructure/familyStructureData";
 import { companies } from "../../../../administration/accounting/accountingData";
 import { formatCompany } from "../../../../administration/accounting/companyUtils";
+import { countryOptions } from "../../../../administration/accounting/companyUtils";
 import { Link } from "react-router-dom";
 
 export default function VehicleItemCreate(props) {
@@ -25,6 +26,11 @@ export default function VehicleItemCreate(props) {
   const [currency, setCurrency] = useState({
     value: "",
     label: "",
+  });
+
+  const [country, setCountry] = useState({
+    label: '', 
+    value: ''
   });
 
   const Optionscurrency = [
@@ -301,7 +307,7 @@ export default function VehicleItemCreate(props) {
             <Row style={{ marginTop: 30 }}>
             <Form.Group
                 as={Col}
-                md="6"
+                md="4"
                 controlId="validationCustom01"
                 className="form-group"
               >
@@ -318,7 +324,7 @@ export default function VehicleItemCreate(props) {
 
               <Form.Group
                 as={Col}
-                md="6"
+                md="4"
                 controlId="validationCustomUsername"
                 className="form-group"
               >
@@ -340,6 +346,23 @@ export default function VehicleItemCreate(props) {
                   </Form.Control.Feedback>
                 </InputGroup>
               </Form.Group>
+
+              <Form.Group
+                as={Col}
+                md="4"
+                controlId="validationCustom01"
+                className="form-group"
+              >
+                <Form.Label>País</Form.Label>
+                <Select
+                  options={countryOptions}
+                  classNamePrefix="Select2"
+                  className="multi-select"
+                  onChange={(value) => setCountry(value)}
+                  placeholder=""
+                  value={country}
+                />
+            </Form.Group>
             </Row>
 
             <Row style={{ marginTop: 40 }}>

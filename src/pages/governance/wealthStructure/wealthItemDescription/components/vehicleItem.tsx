@@ -23,6 +23,7 @@ import { companies } from "../../../../administration/accounting/accountingData"
 import { formatCompany, formatOwnersData } from "../../../../administration/accounting/companyUtils";
 import { formatMember } from "../../../councilAndCommittee/councilAndCommitteeUtils";
 import { MultiSelect } from "react-multi-select-component";
+import { countryOptions } from "../../../../administration/accounting/companyUtils";
 import { useParams } from "react-router-dom";
 
 export default function VehicleItem(props) {
@@ -48,7 +49,12 @@ export default function VehicleItem(props) {
     vehicleSelected.platesNumber
   );
   const [price, setPrice] = useState(vehicleSelected.value);
-  const [invoice, setInvoice] = useState("");
+  
+  const [country, setCountry] = useState({
+    label: vehicleSelected.country, 
+    value: vehicleSelected.country
+  });
+
   const [currency, setCurrency] = useState({
     value: vehicleSelected.currency,
     label: vehicleSelected.currency,
@@ -147,7 +153,7 @@ export default function VehicleItem(props) {
         <Row style={{ marginTop: 20 }}>
           <Form.Group
             as={Col}
-            md="6"
+            md="4"
             controlId="validationCustom01"
             className="form-group"
           >
@@ -164,7 +170,7 @@ export default function VehicleItem(props) {
 
           <Form.Group
             as={Col}
-            md="6"
+            md="4"
             controlId="validationCustomUsername"
             className="form-group"
           >
@@ -185,6 +191,23 @@ export default function VehicleItem(props) {
                 Favor de añadir el monto del pago
               </Form.Control.Feedback>
             </InputGroup>
+          </Form.Group>
+
+          <Form.Group
+            as={Col}
+            md="4"
+            controlId="validationCustom01"
+            className="form-group"
+          >
+            <Form.Label>País</Form.Label>
+            <Select
+              options={countryOptions}
+              classNamePrefix="Select2"
+              className="multi-select"
+              onChange={(value) => setCountry(value)}
+              placeholder=""
+              value={country}
+            />
           </Form.Group>
         </Row>
 
