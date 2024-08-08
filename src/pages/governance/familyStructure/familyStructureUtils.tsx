@@ -93,3 +93,32 @@ export const generateNodesAndEdges = (family) => {
 
   return { initialNodes, initialEdges };
 };
+
+export const renderAssetTypeIcon = (assetType) => {
+  switch (assetType) {
+    case 'realState':
+      return <td> <i className="fa fa-home" style={{color: '#D3D3D3', marginRight: 10, fontSize: 14}}></i> Bien raíz </td>;
+      break;
+    case 'bankAccount':
+      return <td> <i className="fa fa-credit-card" style={{color: '#D3D3D3', marginRight: 10, fontSize: 14}}></i> Cuenta bancaria </td>;
+      break;
+    case "stockInvestment":
+      return <td> <i className="fa fa-line-chart" style={{color: '#D3D3D3', marginRight: 10, fontSize: 14}}></i> Inversión bursatil </td>;
+      break;
+    case "vehicle":
+      return <td> <i className="fa fa-car" style={{color: '#D3D3D3', marginRight: 10, fontSize: 14}}></i> Vehiculo </td>;
+      break;
+    case "privateEquity":
+      return <td> <i className="fa fa-line-chart" style={{color: '#D3D3D3', marginRight: 10, fontSize: 14}}></i> Capital privado </td>;
+      break;
+    case "company":
+      return <td> <i className="fa fa-building-o" style={{color: '#D3D3D3', marginRight: 10, fontSize: 14}}></i> Empresa </td>;
+      break;
+    case "artAndOthers":
+      return <td> <i className="fa fa-paint-brush" style={{color: '#D3D3D3', marginRight: 10, fontSize: 14}}></i> Arte y otros </td>;
+      break;
+    default:
+      break;
+  }
+
+}

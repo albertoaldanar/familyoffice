@@ -8,6 +8,7 @@ import {
   InputGroup,
   Nav,
   Tab,
+  Table,
 } from "react-bootstrap";
 import Select from "react-select";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
@@ -24,6 +25,8 @@ import { taxesRules } from "../../administration/taxes/taxesUtils";
 import { seguros } from "../../administration/payments/paymentsData";
 import { family } from "./familyStructureData";
 import { taxes } from "../../administration/taxes/taxesData";
+import { renderFlag } from "../../administration/accounting/companyUtils";
+import { renderAssetTypeIcon } from "./familyStructureUtils";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
@@ -325,8 +328,65 @@ export default function FamilyMember(props) {
     );
   };
 
-  const renderAssets = () => {
-    return <div></div>;
+  const renderAssetList = () => {
+    if(memberSelected.assets.length > 0){
+      return (
+        <div className="table-responsive" style={{ marginTop: 15, marginBottom: 50 }}>
+          <Table className="table border text-nowrap text-md-nowrap  mb-0">
+            <thead className="bg-light">
+              <tr>
+                <th>Tipo de activo</th>
+                <th>Nombre</th>
+                <th>País</th>
+                <th>Valor de activo</th>
+                <th>Porcentaje de propiedad</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              {memberSelected.assets.map((idx, tb8) => (
+                <tr key={tb8}>
+                  {renderAssetTypeIcon(idx.type)}
+                  <td>{idx.name}</td>
+                  <td>{renderFlag(idx.country)}</td>
+                  <td>${idx.value} {idx.currency}</td>
+                  <td style={{textAlign: 'center'}}>{idx.pct}%</td>
+                  <td
+                    style={{
+                      cursor: "pointer",
+                      textDecoration: "underline",
+                      color: "#5488d2",
+                    }}
+                  >
+                    {
+                      idx.type === 'company' ? (
+                        // @ts-ignore
+                        <Link to={`${import.meta.env.BASE_URL}administration/company/${idx.id}/company`}>
+                          Ver
+                        </Link>
+                      ) : (
+                        // @ts-ignore
+                        <Link to={`${import.meta.env.BASE_URL}governance/wealthItem/type/${idx.type}/id/${idx.id}`}>
+                          Ver
+                        </Link>
+                      )
+                    }
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </Table>
+        </div>
+      );
+    } return (
+      <p style={{
+        color: "gray",
+        fontSize: 12
+      }}>
+        Aún no hay resultados activos registrados para {memberSelected.name}. Los bienes activos se pueden crear asignar en la pestaña de Activos fijos.
+      </p>
+    )
+
   };
 
   return (
@@ -371,7 +431,7 @@ export default function FamilyMember(props) {
 
               <Tab.Pane eventKey="second">{renderDescription()}</Tab.Pane>
               <Tab.Pane eventKey="third">{renderResponsabilities()}</Tab.Pane>
-              <Tab.Pane eventKey="frouth">{renderAssets()}</Tab.Pane>
+              <Tab.Pane eventKey="fourth">{renderAssetList()}</Tab.Pane>
             </Tab.Content>
           </Tab.Container>
           <Form noValidate validated={false} onSubmit={() => {}}>

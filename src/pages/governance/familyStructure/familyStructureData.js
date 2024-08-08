@@ -52,6 +52,33 @@ export const family = {
       isMemberFC: true,
       assets: [
         {
+          id: 23,
+          name: 'Aldana Clima Integral SA de CV',
+          type: 'company',
+          pct: '60',
+          value: '10,000,000.00',
+          currency: 'MXN',
+          country: 'México'
+        },
+        {
+          id: 24,
+          name: 'Airenlinea SA de CV',
+          type: 'company',
+          pct: '50',
+          value: '10,000,000.00',
+          currency: 'MXN',
+          country: 'México'
+        },
+        {
+          id: 85,
+          name: 'Servicios de diseños de ingenieria SA de CV',
+          type: 'company',
+          pct: '45',
+          value: '10,000,000.00',
+          currency: 'USD',
+          country: 'USA'
+        },
+        {
           id: 29,
           name: 'Casa Colinas del parque',
           type: 'realState',
@@ -113,7 +140,7 @@ export const family = {
           value: '5000000.00',
           currency: 'EUR',
           country: 'España'
-        }
+        },
       ]
     },
     {
@@ -132,6 +159,24 @@ export const family = {
       isMemberIC: false,
       isMemberFC: true,
       assets: [
+        {
+          id: 23,
+          name: 'Aldana Clima Integral SA de CV',
+          type: 'company',
+          pct: '40',
+          value: '10,000,000.00',
+          currency: 'MXN',
+          country: 'México'
+        },
+        {
+          id: 24,
+          name: 'Airenlinea SA de CV',
+          type: 'company',
+          pct: '40',
+          value: '10,000,000.00',
+          currency: 'MXN',
+          country: 'México'
+        },
         {
           id: 29,
           name: 'Casa Colinas del parque',
@@ -185,7 +230,17 @@ export const family = {
       coupleId: null,
       isMemberIC: false,
       isMemberFC: true,
-      assets: []
+      assets: [
+        {
+          id: 24,
+          name: 'Airenlinea SA de CV',
+          type: 'company',
+          pct: '10',
+          value: '10,000,000.00',
+          currency: 'MXN',
+          country: 'México'
+        },
+      ]
     },
     {
       id: '12',

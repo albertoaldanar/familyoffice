@@ -212,6 +212,13 @@ export const companies = [
         name: "Alberto Aldana Fariñas",
         capitalSocial: "1500000",
       },
+      {
+        type: "family",
+        pct: "10",
+        coreId: "13",
+        name: "Alejandra Aldana Ríos",
+        capitalSocial: "0",
+      },
     ],
     valuacion: "10,000,000.00",
     fundacion: "10/10/2005",
