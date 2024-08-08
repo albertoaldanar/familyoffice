@@ -50,6 +50,71 @@ export const family = {
       coupleId: '43',
       isMemberIC: true,
       isMemberFC: true,
+      assets: [
+        {
+          id: 29,
+          name: 'Casa Colinas del parque',
+          type: 'realState',
+          pct: '50',
+          value: '7,500,000.00',
+          currency: 'MXN',
+          country: 'México'
+        },
+        {
+          id: 24,
+          name: 'Departamento costa veleros la marina',
+          type: 'realState',
+          pct: '100',
+          value: '3,000,000.00',
+          currency: 'MXN',
+          country: 'México'
+        }, 
+        {
+          id: 1,
+          name: 'Santander -100434346583',
+          type: 'bankAccount',
+          pct: '100',
+          value: '1,000,000.00',
+          currency: 'MXN',
+          country: 'México'
+        }, 
+        {
+          id: 159,
+          name: 'Santander - 79441232',
+          type: 'stockInvestment',
+          pct: '50',
+          value: '10,000,000.00',
+          currency: 'MXN',
+          country: 'México'
+        }, 
+        {
+          id: 499,
+          name: 'Scotia Bank - 6641232',
+          type: 'stockInvestment',
+          pct: '50',
+          value: '20,000,000.00',
+          currency: 'MXN',
+          country: 'México'
+        },
+        {
+          id: 3,
+          name: 'HAN BYD',
+          type: 'vehicle',
+          pct: '100',
+          value: '60,000.00',
+          currency: 'USD',
+          country: 'USA'
+        },
+        {
+          id: 43,
+          name: 'Coleccion de arte de Gerhard Richter',
+          type: 'artAndOthers',
+          pct: '100',
+          value: '5000000.00',
+          currency: 'EUR',
+          country: 'España'
+        }
+      ]
     },
     {
       id: '43',
@@ -66,6 +131,44 @@ export const family = {
       coupleId: '23',
       isMemberIC: false,
       isMemberFC: true,
+      assets: [
+        {
+          id: 29,
+          name: 'Casa Colinas del parque',
+          type: 'realState',
+          pct: '50',
+          value: '7,500,000.00',
+          currency: 'MXN',
+          country: 'México'
+        },
+        {
+          id: 42,
+          name: 'Oficinas mutualismo',
+          type: 'realState',
+          pct: '100',
+          value: '16,500,000.00',
+          currency: 'MXN',
+          country: 'México'
+        }, 
+        {
+          id: 159,
+          name: 'Santander - 79441232',
+          type: 'stockInvestment',
+          pct: '50',
+          value: '10,000,000.00',
+          currency: 'MXN',
+          country: 'México'
+        }, 
+        {
+          id: 499,
+          name: 'Scotia Bank - 6641232',
+          type: 'stockInvestment',
+          pct: '50',
+          value: '20,000,000.00',
+          currency: 'MXN',
+          country: 'México'
+        }
+      ]
     },
     {
       id: '13',
@@ -82,6 +185,7 @@ export const family = {
       coupleId: null,
       isMemberIC: false,
       isMemberFC: true,
+      assets: []
     },
     {
       id: '12',
@@ -98,6 +202,17 @@ export const family = {
       coupleId: null,
       isMemberIC: true,
       isMemberFC: true,
+      assets: [
+        {
+          id: 1,
+          name: 'Audi A3',
+          type: 'vehicle',
+          pct: '100',
+          value: '650,000.00',
+          currency: 'MXN',
+          country: 'México'
+        },
+      ]
     },
     {
       id: '9',
@@ -114,6 +229,7 @@ export const family = {
       coupleId: null,
       isMemberIC: false,
       isMemberFC: true,
+      assets: []
     },
     {
       id: '19',
@@ -130,6 +246,7 @@ export const family = {
       coupleId: null,
       isMemberIC: false,
       isMemberFC: false,
+      assets: []
     },
   ],
 }

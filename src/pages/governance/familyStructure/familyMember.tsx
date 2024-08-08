@@ -325,10 +325,14 @@ export default function FamilyMember(props) {
     );
   };
 
+  const renderAssets = () => {
+    return <div></div>;
+  };
+
   return (
     <Fragment>
       <Row>
-        <Card style={{ padding: 30, marginTop: 20 }}>
+        <Card style={{ padding: 30, marginTop: 20, minHeight: 500 }}>
           <Card.Title style={{ marginBottom: 10 }}>
            {memberSelected.name}
           </Card.Title>
@@ -355,6 +359,9 @@ export default function FamilyMember(props) {
                   <Nav.Item as="li" style={{ marginRight: 10 }}>
                     <Nav.Link eventKey="third">Responsabilidades</Nav.Link>
                   </Nav.Item>
+                  <Nav.Item as="li" style={{ marginRight: 10 }}>
+                    <Nav.Link eventKey="fourth">Bienes y Activos</Nav.Link>
+                  </Nav.Item>
                 </Nav>
               </div>
             </div>
@@ -364,6 +371,7 @@ export default function FamilyMember(props) {
 
               <Tab.Pane eventKey="second">{renderDescription()}</Tab.Pane>
               <Tab.Pane eventKey="third">{renderResponsabilities()}</Tab.Pane>
+              <Tab.Pane eventKey="frouth">{renderAssets()}</Tab.Pane>
             </Tab.Content>
           </Tab.Container>
           <Form noValidate validated={false} onSubmit={() => {}}>
@@ -372,7 +380,9 @@ export default function FamilyMember(props) {
                 display: "flex",
                 flexDirection: "row",
                 justifyContent: "space-between",
-                marginTop: 20,
+                position: 'absolute',
+                bottom: 20, 
+                right: 15
               }}
             >
               <div></div>
