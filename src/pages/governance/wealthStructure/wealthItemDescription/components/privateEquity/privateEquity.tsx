@@ -1,76 +1,82 @@
 import React, { Fragment, useState } from "react";
-import { Button, Card, Col, Row, Form, InputGroup } from "react-bootstrap";
+import { Button, Card, Col, Row, Form, InputGroup, Table } from "react-bootstrap";
 import Select from "react-select";
 import { MultiSelect } from "react-multi-select-component";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import dayjs, { Dayjs } from "dayjs";
-import FileUpload from "../../../../administration/accounting/components/fileUpload";
-import { formatMember } from "../../../councilAndCommittee/councilAndCommitteeUtils";
-import { countryOptions } from "../../../../administration/accounting/companyUtils";
-import { family } from "../../../familyStructure/familyStructureData";
-import { companies } from "../../../../administration/accounting/accountingData";
-import { formatCompany } from "../../../../administration/accounting/companyUtils";
+import FileUpload from "../../../../../administration/accounting/components/fileUpload";
+import { formatMember } from "../../../../councilAndCommittee/councilAndCommitteeUtils";
+import { countryOptions } from "../../../../../administration/accounting/companyUtils";
+import { family } from "../../../../familyStructure/familyStructureData";
+import { companies } from "../../../../../administration/accounting/accountingData";
+import NotFoundSearch from "../../../../../shared/notFoundSearch";
+import { otherWealthData } from "../../../wealthStructureData";
+import { formatCompany } from "../../../../../administration/accounting/companyUtils";
+import { formatOwnersData } from "../../../../../administration/accounting/companyUtils";
+import { formatCurrency } from "../../../../../administration/payments/paymentUtils";
 //@ts-ignore
 import { Link } from "react-router-dom";
+import FileView from "../../../../../administration/accounting/components/fileView";
 
-export default function PrivateEquityCreate(props) {
+export default function PrivateEquity(props) {
+  const privateEquitySelected = otherWealthData.privateEquity.find(
+    (privateEquity) => privateEquity.id === Number(props.id)
+  );
+
+  if (!privateEquitySelected) {
+    return <NotFoundSearch />;
+  }
+
   const familyList = formatMember(family.members);
   const companiesList = formatCompany(companies);
-  const [fundName, setFundName] = useState("");
-  const [investment, setInvestment] = useState("");
-  const [investmentYear, setInvestmentYear] = useState("");
-  const [ownerFamilyMembers, setOwnerFamilyMembers] = useState([]);
-  const [ownerCompanies, setOwnerCompanies] = useState([]);
-  const [industry, setIndustry] = useState("");
+  const ownerData = formatOwnersData(privateEquitySelected);
+
+  const [fundName, setFundName] = useState(privateEquitySelected.fundName);
+  const [investment, setInvestment] = useState(privateEquitySelected.investment);
+  const [investmentYear, setInvestmentYear] = useState(privateEquitySelected.investmentYear);
+  const [ownerFamilyMembers, setOwnerFamilyMembers] = useState(ownerData.family);
+  const [ownerCompanies, setOwnerCompanies] = useState(ownerData.company);
+  const [industry, setIndustry] = useState(privateEquitySelected.industry);
   const [concept, setConcept] = useState("");
-  const [amount, setAmount] = useState("");
-  const [interestRate, setInterestRate] = useState("");
+  const [amount, setAmount] = useState(privateEquitySelected.investment);
+  const [interestRate, setInterestRate] = useState();
   const [alreadyPayed, setAlreadyPayed] = useState("");
   const [amountToPay, setAmountToPay] = useState("");
   const [vigenciaDel, setVigenciaDel] = useState<Dayjs | null>(dayjs(""));
   const [vigenciaAl, setVigenciaAl] = useState<Dayjs | null>(dayjs(""));
-  const [preMoney, setPreMoney] = useState("");
-  const [postMoney, setPostMoney] = useState("");
-  const [equityPercentage, setEquityPercentage] = useState("");
-  const [currentValue, setCurrentValue] = useState("");
-  const [tir, setTir] = useState("");
+  const [preMoney, setPreMoney] = useState(privateEquitySelected.preMoneyValue);
+  const [postMoney, setPostMoney] = useState(privateEquitySelected.postMoneyValue);
+  const [equityPercentage, setEquityPercentage] = useState(privateEquitySelected.equityPercentage);
+  const [currentValue, setCurrentValue] = useState(privateEquitySelected.currentValue);
+  const [tir, setTir] = useState(privateEquitySelected.tir);
 
   const [companyStage, setCompanyStage] = useState({
-    value: "",
-    label: "",
+    value: privateEquitySelected.companyStage,
+    label: privateEquitySelected.companyStage,
   });
 
   const [country, setCountry] = useState({
-    value: "",
-    label: "",
-  });
-
-  const [paymentFrequency, setPaymentFrequency] = useState({
-    value: "",
-    label: "",
+    value: privateEquitySelected.country,
+    label: privateEquitySelected.country,
   });
 
   const [investmentType, setInvestmentType] = useState({
-    value: "",
-    label: "",
+    value: privateEquitySelected.privateEquityType,
+    label: privateEquitySelected.privateEquityType,
   });
 
   const [directType, setDirectType] = useState({
-    value: "",
-    label: "",
+    value: privateEquitySelected.directType,
+    label: privateEquitySelected.directType,
   });
 
   const [fundType, setFundType] = useState({
-    value: "",
-    label: "",
+    value: privateEquitySelected.fundType,
+    label: privateEquitySelected.fundType,
   });
 
   const [currency, setCurrency] = useState({
-    value: "",
-    label: "",
+    value: privateEquitySelected.currency,
+    label: privateEquitySelected.currency,
   });
 
   const Optionscurrency = [
@@ -303,6 +309,53 @@ export default function PrivateEquityCreate(props) {
     );
   };
 
+  const renderListData = () => {
+    if(privateEquitySelected.investmentReturns.length > 0){
+      return (
+        <div className="table-responsive" style={{ marginTop: 15 }}>
+          <Table className="table border text-nowrap text-md-nowrap  mb-0">
+            <thead className="bg-light">
+              <tr>
+                <th>Valor actual</th>
+                <th>Año</th>
+                <th>Mes</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              {privateEquitySelected.investmentReturns.map((idx, tb8) => (
+                <tr key={tb8}>
+                  <td>{formatCurrency(idx.amount, privateEquitySelected.currency)}</td>
+                  <td>{idx.year}</td>
+                  <td>{idx.month}</td>
+                  <td
+                    style={{
+                      cursor: "pointer",
+                      textDecoration: "underline",
+                      color: "#5488d2",
+                    }}
+                  >
+                    {/*// @ts-ignore */}
+                    <Link to={`${import.meta.env.BASE_URL}governance/privateEquityResult/${privateEquitySelected.id}/returnId/${idx.id}`}>
+                      Ver
+                    </Link>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </Table>
+        </div>
+      );
+    } return (
+      <p style={{
+        color: "gray",
+        fontSize: 12
+      }}>
+        Aún no hay retornos de capital para esta inversión. 
+      </p>
+    )
+  };
+
   const renderFundTypeInputs = () => {
     return (
       <div>
@@ -442,6 +495,32 @@ export default function PrivateEquityCreate(props) {
             />
           </Form.Group>
         </Row>
+
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            flexDirection: "row",
+            marginTop: 30
+          }}
+        >
+          <dt>Registros de retornos de inversión</dt>
+          <Button
+            style={{
+              marginRight: 10,
+            }}
+            variant="primary"
+            size="sm"
+            className=" mb-1"
+          >
+              {/*// @ts-ignore */}
+              <Link style={{color: 'white'}} to={`${import.meta.env.BASE_URL}governance/privateEquityResultCreate/${privateEquitySelected.id}`}>
+                + Añadir retorno
+              </Link>
+          </Button>
+        </div>
+
+        {renderListData()}
       </div>
     );
   };
@@ -460,6 +539,7 @@ export default function PrivateEquityCreate(props) {
             options={OptionsDirectType}
             classNamePrefix="Select2"
             className="multi-select"
+            isDisabled
             onChange={(value) => setDirectType(value)}
             placeholder=""
             value={directType}
@@ -704,246 +784,47 @@ export default function PrivateEquityCreate(props) {
           </Row>
 
           <Row style={{ marginTop: 20 }}>
-            <Form.Group as={Col} md="6" className="form-group">
-              <Form.Label className="form-label my-3">
-                Comprobante de transferencia
-              </Form.Label>
-              <FileUpload />
+          <Form.Group as={Col} md="4" className="form-group">
+              <Form.Label className="form-label my-3">Comprobante de transferencia</Form.Label>
+              {privateEquitySelected.voucher ? (
+                <FileView
+                  title="Invoice"
+                  fileName={privateEquitySelected.voucher}
+                />
+              ) : (
+                <FileUpload />
+              )}
             </Form.Group>
 
-            <Form.Group as={Col} md="6" className="form-group">
-              <Form.Label className="form-label my-3">
-                Acta constitutiva de empresa
-              </Form.Label>
-              <FileUpload />
+            <Form.Group as={Col} md="4" className="form-group">
+              <Form.Label className="form-label my-3">Acta constitutiva de empresa</Form.Label>
+              {privateEquitySelected.actaConstitutiva ? (
+                <FileView
+                  title="Invoice"
+                  fileName={privateEquitySelected.actaConstitutiva}
+                />
+              ) : (
+                <FileUpload />
+              )}
             </Form.Group>
           </Row>
 
           <Row style={{ marginTop: 20 }}>
-            <Form.Group as={Col} md="6" className="form-group">
-              <Form.Label className="form-label my-3">
-                Acta de asamblea donde entra la inversión
-              </Form.Label>
-              <FileUpload />
-            </Form.Group>
-
-            <Form.Group as={Col} md="6" className="form-group">
-              <Form.Label className="form-label my-3">
-                Estado financiero
-              </Form.Label>
-              <FileUpload />
+            <Form.Group as={Col} md="4" className="form-group">
+              <Form.Label className="form-label my-3">Acta de asamblea donde entra la inversión</Form.Label>
+              {privateEquitySelected.actaAsamblea ? (
+                <FileView
+                  title="Invoice"
+                  fileName={privateEquitySelected.actaAsamblea}
+                />
+              ) : (
+                <FileUpload />
+              )}
             </Form.Group>
           </Row>
         </div>
       );
-    } else if (directType.value === "Deuda") {
-      return (
-        <div>
-          <Row>
-            <Form.Group
-              as={Col}
-              md="10"
-              controlId="validationCustom01"
-              className="form-group"
-            >
-              <Form.Label>Concepto</Form.Label>
-              <Form.Control
-                type="numeric"
-                placeholder=""
-                aria-describedby="inputGroupPrepend"
-                required
-                onChange={(text) => setConcept(text.target.value)}
-                value={concept}
-              />
-            </Form.Group>
-          </Row>
-
-          <Row style={{ marginTop: 20 }}>
-            <Form.Group
-              as={Col}
-              md="4"
-              controlId="validationCustom01"
-              className="form-group"
-            >
-              <Form.Label>Frecuencia de pago</Form.Label>
-              <Select
-                options={OptionsPaymentFrequency}
-                classNamePrefix="Select2"
-                className="multi-select"
-                onChange={(value) => setPaymentFrequency(value)}
-                placeholder=""
-                value={paymentFrequency}
-              />
-            </Form.Group>
-            <Form.Group
-              as={Col}
-              md="6"
-              controlId="validationCustom01"
-              className="form-group"
-            >
-              <Form.Label>Moneda</Form.Label>
-              <Select
-                options={Optionscurrency}
-                classNamePrefix="Select2"
-                className="multi-select"
-                onChange={(value) => setCurrency(value)}
-                placeholder=""
-                value={currency}
-              />
-            </Form.Group>
-          </Row>
-          <Row style={{ marginTop: 20 }}>
-            <Form.Group
-              as={Col}
-              md="6"
-              controlId="validationCustomUsername"
-              className="form-group"
-            >
-              <Form.Label>Monto prestado</Form.Label>
-              <InputGroup hasValidation>
-                <InputGroup.Text id="inputGroupPrepend">$</InputGroup.Text>
-                <Form.Control
-                  type="numeric"
-                  aria-describedby="inputGroupPrepend"
-                  required
-                  onChange={(text) => setAmount(text.target.value)}
-                  value={amount}
-                />
-                <InputGroup.Text id="inputGroupPrepend">
-                  {currency.value}
-                </InputGroup.Text>
-                <Form.Control.Feedback type="invalid">
-                  Favor de añadir el monto del pago
-                </Form.Control.Feedback>
-              </InputGroup>
-            </Form.Group>
-
-            <Form.Group
-              as={Col}
-              md="4"
-              controlId="validationCustomUsername"
-              className="form-group"
-            >
-              <Form.Label>Tasa de interes</Form.Label>
-              <InputGroup hasValidation>
-                <Form.Control
-                  type="numeric"
-                  aria-describedby="inputGroupPrepend"
-                  required
-                  onChange={(text) => setInterestRate(text.target.value)}
-                  value={interestRate}
-                />
-                <InputGroup.Text id="inputGroupPrepend">%</InputGroup.Text>
-                <Form.Control.Feedback type="invalid">
-                  Favor de añadir el monto del pago
-                </Form.Control.Feedback>
-              </InputGroup>
-            </Form.Group>
-          </Row>
-
-          <Row style={{ marginTop: 20 }}>
-            <Form.Group
-              as={Col}
-              md="4"
-              controlId="validationCustomUsername"
-              className="form-group"
-            >
-              <Form.Label>Cobrado hasta el dia de hoy</Form.Label>
-              <InputGroup hasValidation>
-                <InputGroup.Text id="inputGroupPrepend">$</InputGroup.Text>
-                <Form.Control
-                  type="numeric"
-                  aria-describedby="inputGroupPrepend"
-                  required
-                  onChange={(text) => setAlreadyPayed(text.target.value)}
-                  value={alreadyPayed}
-                />
-                <InputGroup.Text id="inputGroupPrepend">
-                  {currency.value}
-                </InputGroup.Text>
-                <Form.Control.Feedback type="invalid">
-                  Favor de añadir el monto del pago
-                </Form.Control.Feedback>
-              </InputGroup>
-            </Form.Group>
-
-            <Form.Group
-              as={Col}
-              md="6"
-              controlId="validationCustomUsername"
-              className="form-group"
-            >
-              <Form.Label>Monto pendiente por cobrar</Form.Label>
-              <InputGroup hasValidation>
-                <InputGroup.Text id="inputGroupPrepend">$</InputGroup.Text>
-                <Form.Control
-                  type="numeric"
-                  aria-describedby="inputGroupPrepend"
-                  required
-                  onChange={(text) => setAmountToPay(text.target.value)}
-                  value={amountToPay}
-                />
-                <InputGroup.Text id="inputGroupPrepend">
-                  {currency.value}
-                </InputGroup.Text>
-                <Form.Control.Feedback type="invalid">
-                  Favor de añadir el monto del pago
-                </Form.Control.Feedback>
-              </InputGroup>
-            </Form.Group>
-          </Row>
-
-          <Row style={{ marginTop: 20 }}>
-            <Form.Group
-              as={Col}
-              md="4"
-              controlId="validationCustom01"
-              className="form-group"
-            >
-              <Form.Label>Plazo del</Form.Label>
-              <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <DemoContainer components={["DatePicker"]}>
-                  <DatePicker
-                    format="DD/MM/YYYY"
-                    onChange={(value) => setVigenciaDel(value)}
-                    value={dayjs(vigenciaDel)}
-                    defaultValue={dayjs(vigenciaDel)}
-                  />
-                </DemoContainer>
-              </LocalizationProvider>
-            </Form.Group>
-
-            <Form.Group
-              as={Col}
-              md="4"
-              controlId="validationCustom01"
-              className="form-group"
-            >
-              <Form.Label>Al</Form.Label>
-              <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <DemoContainer components={["DatePicker"]}>
-                  <DatePicker
-                    format="DD/MM/YYYY"
-                    onChange={(value) => setVigenciaAl(value)}
-                    value={dayjs(vigenciaAl)}
-                    defaultValue={dayjs(vigenciaAl)}
-                  />
-                </DemoContainer>
-              </LocalizationProvider>
-            </Form.Group>
-          </Row>
-
-          <Row style={{ marginTop: 20 }}>
-            <Form.Group as={Col} md="6" className="form-group">
-              <Form.Label className="form-label my-3">
-                Contrato de prestamo
-              </Form.Label>
-              <FileUpload />
-            </Form.Group>
-          </Row>
-        </div>
-      );
-    }
+    } 
 
     return;
   };
@@ -952,7 +833,7 @@ export default function PrivateEquityCreate(props) {
     <Fragment>
       <Row style={{ padding: 20 }}>
         <Card.Title style={{ marginBottom: 35 }}>
-          Nuevo Registro inversion de capital privado
+          Inversion de capital privado - {privateEquitySelected.investmentName}
         </Card.Title>
 
         {renderOwnerTypeOptions()}
@@ -967,6 +848,7 @@ export default function PrivateEquityCreate(props) {
           <Form.Label>Tipo de inversión capital privado</Form.Label>
           <Select
             options={OptionsInvestmentType}
+            isDisabled
             classNamePrefix="Select2"
             className="multi-select"
             onChange={(value) => setInvestmentType(value)}
@@ -984,12 +866,12 @@ export default function PrivateEquityCreate(props) {
             display: "flex",
             flexDirection: "row",
             justifyContent: "space-between",
-            marginTop: 40,
+            marginTop: 70,
           }}
         >
           <div></div>
           <Button variant="primary" className=" mb-1" type="submit">
-            Crear
+            Guardar
           </Button>
         </div>
       </Row>

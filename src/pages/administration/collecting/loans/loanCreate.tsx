@@ -50,9 +50,8 @@ export default function LoanCreate(props) {
   const OptionsDebtSource = [
     { value: "Prestamo intrafamiliar", label: "Prestamo intrafamiliar" },
     { value: "Prestamo a tercero", label: "Prestamo a tercero" },
+    { value: "Deuda Capital privado", label: "Deuda Capital privado" },
   ];
-
-  // const amountToPay = calculateDifference(calculateTotalWithPercentage(amount, interestRate), alreadyPayed );
 
   return (
     <Fragment>

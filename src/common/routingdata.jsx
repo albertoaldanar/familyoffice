@@ -103,6 +103,8 @@ const  VoatingDescription= React.lazy(()=>import ('../pages/governance/councilAn
 const  WealthStructure= React.lazy(()=>import ('../pages/governance/wealthStructure/wealthStructure'))
 const  WealthItem= React.lazy(()=>import ('../pages/governance/wealthStructure/wealthItemDescription/wealthItemDescription'))
 const  StockResultCreate= React.lazy(()=>import ('../pages/governance/wealthStructure/wealthItemDescription/components/stockInvestment/newResultReport'))
+const  PrivateEquityReturnsCreate= React.lazy(()=>import ('../pages/governance/wealthStructure/wealthItemDescription/components/privateEquity/newReturnReport'))
+const  PrivateEquityReturn= React.lazy(()=>import ('../pages/governance/wealthStructure/wealthItemDescription/components/privateEquity/returnReport'))
 const  StockResult= React.lazy(()=>import ('../pages/governance/wealthStructure/wealthItemDescription/components/stockInvestment/resultReport'))
 const  WealthItemCreate= React.lazy(()=>import ('../pages/governance/wealthStructure/wealthItemCreate/wealthItemCreate'));
 const  MediaObject= React.lazy(()=>import('../components/Bootstrap/MediaObject/MediaObject'))
@@ -355,6 +357,8 @@ export const Routingdata=[
 {path:`${import.meta.env.BASE_URL}governance/wealthItemCreate/:type` ,element : <WealthItemCreate/>},
 {path:`${import.meta.env.BASE_URL}governance/stockResult/:id` ,element : <StockResultCreate/>},
 {path:`${import.meta.env.BASE_URL}governance/stockResult/:id/resultId/:resultId` ,element : <StockResult/>},
+{path:`${import.meta.env.BASE_URL}governance/privateEquityResultCreate/:id` ,element : <PrivateEquityReturnsCreate/>},
+{path:`${import.meta.env.BASE_URL}governance/privateEquityResult/:id/returnId/:returnId` ,element : <PrivateEquityReturn/>},
 {path:`${import.meta.env.BASE_URL}ecommerce/shop` ,element:<Shop />},
 {path:`${import.meta.env.BASE_URL}ecommerce/productdetails` ,element:<ProductDetails />},
 {path:`${import.meta.env.BASE_URL}ecommerce/productdetails/:id` ,element:<ProductDetails />},

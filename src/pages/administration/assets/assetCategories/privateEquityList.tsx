@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Table } from "react-bootstrap";
 import { formatCurrency } from "../../payments/paymentUtils";
+import { renderFlag } from "../../accounting/companyUtils";
 import { Link } from "react-router-dom";
 
 export default function PrivateEquityList(props) {
@@ -41,9 +42,10 @@ export default function PrivateEquityList(props) {
         <Table className="table border text-nowrap text-md-nowrap mb-0">
           <thead className="bg-light">
             <tr>
-              <th>Nombre del fondo</th>
+              <th>Tipo</th>
+              <th>Nombre</th>
+              <th>País</th>
               <th>Inversión</th>
-              <th>Tipo de fondo</th>
               <th>Industria</th>
               <th>Propietario(s)</th>
               <th></th>
@@ -52,10 +54,11 @@ export default function PrivateEquityList(props) {
           <tbody>
             {props.data.map((idx, tb8) => (
               <tr key={tb8}>
-                <td>{idx.fundName}</td>
+                <td>{idx.privateEquityType} {idx.directType ? '- ' + idx.directType : ''}</td>
+                <td>{idx.investmentName}</td>
+                <td>{renderFlag(idx.country)}</td>
                 <td>{formatCurrency(idx.investment, idx.currency)}</td>
-                <td>{idx.fundType}</td>
-                <td>{idx.industry}</td>
+                <td>{idx.industry ? idx.industry : '--'}</td>
                 <td>
                   <div style={{ display: "flex", flexDirection: "column" }}>
                     {idx.owners.map((owner, index) => (
@@ -72,9 +75,15 @@ export default function PrivateEquityList(props) {
                     color: "#5488d2",
                   }}
                 >
-                  {/*// @ts-ignore */}
-                  <Link to={`${import.meta.env.BASE_URL}governance/wealthItem/type/bankAccount/id/${idx.id}`}
-                  >
+                 
+                  <Link to={
+                      idx.loanId ? 
+                        //@ts-ignore 
+                        `${import.meta.env.BASE_URL}administration/loanDescription/${idx.loanId}` 
+                      :  
+                        //@ts-ignore 
+                        `${import.meta.env.BASE_URL}governance/wealthItem/type/privateEquity/id/${idx.id}`
+                    }>
                     Ver
                   </Link>
                 </td>

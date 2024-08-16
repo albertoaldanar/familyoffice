@@ -16,35 +16,35 @@ import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import FileView from "../../../../../administration/accounting/components/fileView";
 
-export default function StockInvestmentReport(props) {
+export default function PrivateEquityReturn(props) {
   const params = useParams();
-  const stockSelected = otherWealthData.stockInvestments.find(
-    (stock) => stock.id === Number(params.id)
+  const privateEquitySelected = otherWealthData.privateEquity.find(
+    (privateEquity) => privateEquity.id === Number(params.id)
   );
 
-  if (!stockSelected) {
+  if (!privateEquitySelected) {
     return <NotFoundSearch />;
   }
 
-  const stockSelectedResult = stockSelected.resultsReports.find(
-    (report) => report.id === Number(params.resultId)
+  const privateEquityReturn = privateEquitySelected.investmentReturns.find(
+    (report) => report.id === Number(params.returnId)
   );
 
-  if (!stockSelectedResult) {
+  if (!privateEquityReturn) {
     return <NotFoundSearch />;
   }
 
   const [year, setYear] = useState({
-    value: stockSelectedResult.year.toString(),
-    label: stockSelectedResult.year.toString(),
+    value: privateEquityReturn.year.toString(),
+    label: privateEquityReturn.year.toString(),
   });
 
   const [month, setMonth] = useState({
-    value: stockSelectedResult.month,
-    label: stockSelectedResult.month,
+    value: privateEquityReturn.month,
+    label: privateEquityReturn.month,
   });
 
-  const [resultAmount, setResultAmount] = useState(stockSelectedResult.value);
+  const [resultAmount, setResultAmount] = useState(privateEquityReturn.amount);
 
   const Options = [
     { value: "2023", label: "2023" },
@@ -72,8 +72,8 @@ export default function StockInvestmentReport(props) {
       <Row>
         <Card style={{ padding: 30, marginTop: 20 }}>
           <Card.Title style={{ marginBottom: 50 }}>
-            Reporte de resultados para inversion bursatil{" "}
-            {stockSelected.bank}-{stockSelected.accountNumber}
+          Nuevo retorno inversión para inversion capital privado - 
+            {privateEquitySelected.investmentName}
           </Card.Title>
           <Form noValidate validated={false} onSubmit={() => {}}>
             <Row className="mb-3">
@@ -126,7 +126,7 @@ export default function StockInvestmentReport(props) {
                 controlId="validationCustomUsername"
                 className="form-group"
               >
-                <Form.Label>Resultado</Form.Label>
+                <Form.Label>Valor de devolución de capital</Form.Label>
                 <InputGroup hasValidation>
                   <InputGroup.Text id="inputGroupPrepend">$</InputGroup.Text>
                   <Form.Control
@@ -137,7 +137,7 @@ export default function StockInvestmentReport(props) {
                     value={resultAmount}
                   />
                   <InputGroup.Text id="inputGroupPrepend">
-                    {stockSelected.currency}
+                    {privateEquitySelected.currency}
                   </InputGroup.Text>
                   <Form.Control.Feedback type="invalid">
                     Favor de añadir el monto del pago
@@ -149,11 +149,11 @@ export default function StockInvestmentReport(props) {
             <Row>
               <Form.Group as={Col} md="4" className="form-group">
                 <Form.Label className="form-label my-3">
-                  Estado de cuenta
+                  Comprobante
                 </Form.Label>
 
                 {
-                  stockSelectedResult.invoice ? (
+                  privateEquityReturn.voucher ? (
                     <FileView title="stockSelectedResult" fileName="stockSelectedResult"/>
                   ): (
                     <FileUpload />

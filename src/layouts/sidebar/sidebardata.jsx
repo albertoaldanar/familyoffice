@@ -15,7 +15,7 @@ const MenuItems = [
         color:'',
         badgetxt:'',      
         children: [
-          { path: `${import.meta.env.BASE_URL}governance/familyStructure`, type: 'link', active: false, selected: false, title: 'Miembros familiares' },
+          { path: `${import.meta.env.BASE_URL}governance/familyStructure`, type: 'link', active: false, selected: false, title: 'Familia' },
           { path: `${import.meta.env.BASE_URL}administration/companies`, type: 'link', active: false, selected: false, title: 'Empresas y fideicomisos' },
           { path: `${import.meta.env.BASE_URL}administration/assets`, type: 'link', active: false, selected: false, title: 'Activos fijos' },
           { path: `${import.meta.env.BASE_URL}administration/payments`, type: 'link', active: false, selected: false, title: 'Tabla de cumplimientos' },

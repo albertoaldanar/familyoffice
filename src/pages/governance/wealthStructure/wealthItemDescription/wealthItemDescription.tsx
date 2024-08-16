@@ -9,6 +9,7 @@ import VehicleItem from "./components/vehicleItem";
 import ArtAndOthersItem from "./components/artAndOthersItem";
 import BanksAccountsItem from "./components/bankAccountsItem";
 import StockInvestment from "./components/stockInvestment/stockInvestment";
+import PrivateEquity from "./components/privateEquity/privateEquity";
 
 export default function WealthDescription() {
   const params = useParams();
@@ -33,6 +34,9 @@ export default function WealthDescription() {
       break;
     case "stockInvestment":
       componentToRender = <StockInvestment id={id} />;
+      break;
+    case "privateEquity":
+      componentToRender = <PrivateEquity id={id} />;
       break;
     default:
       componentToRender = <NotFoundSearch />;

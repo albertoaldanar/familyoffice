@@ -379,12 +379,37 @@ export default function FamilyMember(props) {
         </div>
       );
     } return (
-      <p style={{
-        color: "gray",
-        fontSize: 12
-      }}>
-        Aún no hay resultados activos registrados para {memberSelected.name}. Los bienes activos se pueden crear asignar en la pestaña de Activos fijos.
-      </p>
+      <div style={{alignContent: 'center', alignSelf: 'center', justifyContent: 'center', alignItems: 'center'}}>
+        <i className="fa fa-line-chart" style={{color: '#D3D3D3', marginRight: 10, fontSize: 50, alignSelf: 'center', marginBottom: 20}}></i>
+       
+        <p style={{
+          color: "gray",
+          fontSize: 12,
+          marginRight: 4,
+         marginBottom: -6
+
+        }}>
+          Aún no hay resultados activos registrados para {memberSelected.name}
+        </p>
+      
+
+      <div style={{display: 'flex', flexDirection: 'row'}}>
+        <p style={{
+          color: "gray",
+          fontSize: 12,
+          marginRight: 4, 
+        }}>
+          Los bienes activos se pueden crear asignar en la pestaña de   
+        </p>
+          {/*// @ts-ignore */}
+        <Link style={{fontSize: 12}} to={`${import.meta.env.BASE_URL}administration/assets`}>
+            Activos fijos
+        </Link>
+      </div>
+
+      </div>
+
+
     )
 
   };

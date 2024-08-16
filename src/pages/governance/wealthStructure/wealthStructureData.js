@@ -106,7 +106,7 @@ export const otherWealthData = {
       value: "600000",
       circulationCard: "https://googledrive.com/erg3440398f4fmv",
       currency: "MXN",
-      country: 'México',
+      country: "México",
       platesNumber: "XBJ21NB3",
       invoice: "https://googledrive.com/erg3440398f4fmv",
       owners: [
@@ -120,7 +120,7 @@ export const otherWealthData = {
       containedIntrusts: [
         {
           id: 20,
-          name: 'Fideicomiso 0014233 Santander'
+          name: "Fideicomiso 0014233 Santander",
         },
       ],
     },
@@ -130,7 +130,7 @@ export const otherWealthData = {
       brand: "HAN",
       year: "2024",
       color: "Gris",
-      country: 'USA',
+      country: "USA",
       value: "60000",
       circulationCard: "",
       currency: "USD",
@@ -144,13 +144,13 @@ export const otherWealthData = {
           name: "Francisco Aldana Fariñas",
         },
       ],
-      containedIntrusts:[],
+      containedIntrusts: [],
     },
     {
       id: 23,
       model: "Frontier",
       brand: "Nissan",
-      country: 'México',
+      country: "México",
       value: "640000",
       currency: "MXN",
       circulationCard: "",
@@ -166,7 +166,7 @@ export const otherWealthData = {
           name: "Aldana Clima Integral",
         },
       ],
-      containedIntrusts:[],
+      containedIntrusts: [],
     },
   ],
   artAndOthers: [
@@ -174,15 +174,15 @@ export const otherWealthData = {
       id: 43,
       type: "Arte",
       name: "Coleccion de arte de Gerhard Richter",
-      containedIntrusts:[
+      containedIntrusts: [
         {
           id: 20,
-          name: 'Fideicomiso 0014233 Santander'
+          name: "Fideicomiso 0014233 Santander",
         },
       ],
       value: "5000000",
       currency: "EUR",
-      country: 'España',
+      country: "España",
       photo: "https://googledrive.com/erg3440398f4fmv",
       certificate: "https://googledrive.com/erg3440398f4fmv",
       owners: [
@@ -206,10 +206,10 @@ export const otherWealthData = {
           name: "Francisco Aldana Fariñas",
         },
       ],
-      containedIntrusts:[
+      containedIntrusts: [
         {
           id: 20,
-          name: 'Fideicomiso 0014233 Santander'
+          name: "Fideicomiso 0014233 Santander",
         },
       ],
       bank: "Santander",
@@ -230,10 +230,10 @@ export const otherWealthData = {
           name: "Aldana Clima Integreal",
         },
       ],
-      containedIntrusts:[
+      containedIntrusts: [
         {
           id: 20,
-          name: 'Fideicomiso 0014233 Santander'
+          name: "Fideicomiso 0014233 Santander",
         },
       ],
       bank: "BBVA",
@@ -248,22 +248,55 @@ export const otherWealthData = {
   privateEquity: [
     {
       id: 2,
-      fundName: 'Fondo ABC',
-      investment: '10000000',
-      containedIntrusts:[
+      fundName: "Fondo ABC",
+      investment: "10000000",
+      loanId: null,
+      investmentReturns: [
         {
-          id: 20,
-          name: 'Fideicomiso 0014233 Santander'
+          id: 1,
+          year: "2024",
+          month: "Enero",
+          amount: "45000",
+          currency: "MXN",
+          voucher: "https://googledrive.com/erg3440398f4fmv",
+        },
+        {
+          id: 2,
+          year: "2024",
+          month: "Julio",
+          amount: "50000",
+          currency: "MXN",
+          voucher: "https://googledrive.com/erg3440398f4fmv",
         },
       ],
-      currency: 'MXN',
-      investmentYear: '2020',
-      fundType: 'Venture Capital',
-      industry: 'Startups',
-      location: 'Mexico',
+      privateEquityType: "Fondo",
+      directType: '',
+      investmentName: "Inversión en fondo ABC",
+      preMoneyValue: "",
+      postMoneyValue: "",
+      equityPercentage: "",
+      currentValue: "",
+      tir: "",
+      voucher: "",
+      companyStage: "Seed",
+      actaConstitutiva: "",
+      actaAsamblea: "",
+      financialStatements: [],
+      containedIntrusts: [],
+      containedIntrusts: [
+        {
+          id: 20,
+          name: "Fideicomiso 0014233 Santander",
+        },
+      ],
+      currency: "MXN",
+      investmentYear: "2020",
+      fundType: "Venture Capital",
+      industry: "Startups",
+      country: "Brazil",
       owners: [
         {
-          type: "Persona moral",
+          type: "company",
           pct: "100",
           coreId: 23,
           name: "Aldana Clima Integreal",
@@ -272,34 +305,86 @@ export const otherWealthData = {
     },
     {
       id: 6,
-      fundName: 'BR capital',
-      investment: '90000',
-      containedIntrusts:[],
-      currency: 'USD',
-      investmentYear: '2023',
-      fundType: 'Private Equity',
-      industry: 'Real State',
-      location: 'Europa',
+      fundName: "",
+      investment: "1000000",
+      loanId: null,
+      investmentReturns: [],
+      privateEquityType: "Directo",
+      directType: 'Capital',
+      investmentName: "Inversión en restaurante de amigo",
+      preMoneyValue: "2000000",
+      postMoneyValue: "3000000",
+      equityPercentage: "20",
+      currentValue: "5000000",
+      tir: "5",
+      voucher: "https://googledrive.com/erg3440398f4fmv",
+      companyStage: "Seed",
+      actaConstitutiva: "https://googledrive.com/erg3440398f4fmv",
+      actaAsamblea: "https://googledrive.com/erg3440398f4fmv",
+      financialStatements: [
+        "https://googledrive.com/erg3440398f4fmv",
+        "https://googledrive.com/erg3440398f4fmv",
+      ],
+      containedIntrusts: [],
+      currency: "USD",
+      investmentYear: "2023",
+      fundType: "Private Equity",
+      industry: "Real State",
+      country: "México",
       owners: [
         {
-          type: "Persona física",
+          type: "family",
           pct: "100",
-          coreId: "43",
+          coreId: 43,
           name: "Francisco Aldana Fariñas",
         },
       ],
-    }
-  ], 
+    },
+    {
+      id: 24,
+      fundName: "",
+      investment: "1000000",
+      loanId: 33,
+      investmentReturns: [],
+      privateEquityType: "Directo",
+      directType: 'Deuda',
+      investmentName: "Prestamo a constructor ABD",
+      preMoneyValue: "",
+      postMoneyValue: "",
+      equityPercentage: "",
+      currentValue: "",
+      tir: "",
+      voucher: "",
+      companyStage: "",
+      actaConstitutiva: "",
+      actaAsamblea: "",
+      financialStatements: [],
+      containedIntrusts: [],
+      currency: "USD",
+      investmentYear: "",
+      fundType: "",
+      industry: "",
+      country: "México",
+      owners: [
+        {
+          type: "family",
+          pct: "100",
+          coreId: 43,
+          name: "Francisco Aldana Fariñas",
+        },
+      ],
+    },
+  ],
   stockInvestments: [
     {
       id: 499,
-      figure: 'Figura 1',
-      bank: 'Scotia Bank',
-      country: 'México',
-      accountNumber: '6641232',
-      routing: '43595932129',
-      currency: 'MXN',
-      investmentAmount: '2000000',
+      figure: "Figura 1",
+      bank: "Scotia Bank",
+      country: "México",
+      accountNumber: "6641232",
+      routing: "43595932129",
+      currency: "MXN",
+      investmentAmount: "2000000",
       owners: [
         {
           type: "family",
@@ -317,36 +402,36 @@ export const otherWealthData = {
       resultsReports: [
         {
           id: 1,
-          value: '2100000',
-          invoice: "https://googledrive.com/erg3440398f4fmv", 
-          month: 'Enero',
-          year: 2024
+          value: "2100000",
+          invoice: "https://googledrive.com/erg3440398f4fmv",
+          month: "Enero",
+          year: 2024,
         },
         {
           id: 3,
-          value: '2200000',
-          invoice: "https://googledrive.com/erg3440398f4fmv", 
-          month: 'Feberor',
-          year: 2024
+          value: "2200000",
+          invoice: "https://googledrive.com/erg3440398f4fmv",
+          month: "Feberor",
+          year: 2024,
         },
         {
           id: 6,
-          value: '2140000',
-          invoice: "https://googledrive.com/erg3440398f4fmv", 
-          month: 'Marzo',
-          year: 2024
-        }
-      ]
+          value: "2140000",
+          invoice: "https://googledrive.com/erg3440398f4fmv",
+          month: "Marzo",
+          year: 2024,
+        },
+      ],
     },
     {
       id: 159,
-      figure: 'Figura 2',
-      bank: 'Santander',
-      country: 'México',
-      accountNumber: '79441232',
-      routing: '00146932129',
-      currency: 'MXN',
-      investmentAmount: '1000000',
+      figure: "Figura 2",
+      bank: "Santander",
+      country: "México",
+      accountNumber: "79441232",
+      routing: "00146932129",
+      currency: "MXN",
+      investmentAmount: "1000000",
       owners: [
         {
           type: "family",
@@ -361,7 +446,7 @@ export const otherWealthData = {
           name: "Patricia Ríos Collantes",
         },
       ],
-      resultsReports: []
-    }
-  ]
+      resultsReports: [],
+    },
+  ],
 };

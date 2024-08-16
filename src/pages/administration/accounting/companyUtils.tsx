@@ -44,6 +44,8 @@ export const renderFlag = (nationality: string) => {
     return <i className="flag flag-ca"></i>
   } else if(nationality === 'España'){
     return <i className="flag flag-es"></i>
+  } else if(nationality === 'Brazil'){
+    return <i className="flag flag-br"></i>
   } 
   return;
 };
@@ -54,4 +56,5 @@ export const countryOptions = [
   { value: "Canada", label: "Canada" },
   { value: "España", label: "España" },
   { value: "Inglaterra", label: "Inglaterra" },
+  { value: "Brazil", label: "Brazil" },
 ];
