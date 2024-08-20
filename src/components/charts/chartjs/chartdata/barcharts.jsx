@@ -285,7 +285,7 @@ export const HorizontalBarData = {
   }]
 }
 export function HorizontalBarChart () {
-  return <Bar options={HorizontalBarOption} data={HorizontalBarData} height='300px' />
+  return <Bar options={HorizontalBarOption} data={HorizontalBarData} />
 };
 
 //  HorizontalBarChart1

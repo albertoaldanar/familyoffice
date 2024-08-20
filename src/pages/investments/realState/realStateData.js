@@ -94,3 +94,70 @@ export const realstateData = [
     ],
   },
 ];
+
+export const realStateStats = {
+  numberOfProperties: 6,
+  totalValueOfProperties: [
+    {
+      currency: 'MXN',
+      value: '14,000,000.00'
+    }, 
+    {      
+      currency: 'USD',
+      value: '750,988.35'
+    },
+    {      
+      currency: 'EUR',
+      value: '68,0583.19'
+    }
+  ],
+  byType: [
+    {
+      type: 'Casas', 
+      value: 3
+    }, 
+    {
+      type: 'Oficinas', 
+      value: 1
+    }, 
+    {
+      type: 'Departamentos', 
+      value: 2
+    }
+  ], 
+  byOwners: [
+    {
+      type: 'Alberto Aldana Fariñas', 
+      value: 4
+    }, 
+    {
+      type: 'Patricia Ríos Collantes', 
+      value: 3
+    }, 
+  ],
+  byUsage: [
+    {
+      type: 'Renta', 
+      value: 4
+    }, 
+    {
+      type: 'Especulación', 
+      value: 3
+    }, 
+    {
+      type: 'Inversión', 
+      value: 1
+    },
+    {
+      type: 'Uso habitacional', 
+      value: 1
+    }, 
+  ], 
+  byCountry: [
+    {
+      type: 'México', 
+      value: 6
+    }, 
+  ], 
+  countries: ['Mexico']
+}

@@ -82,7 +82,7 @@ export const prestamos = [
   {
     id: 33,
     deudor: "Raul Quintero Flores",
-    tipo: "Tercero",
+    tipo: "Capital Privado",
     concepto: "Prestamo contructora ABD",
     monto: "10,000,000.00 ",
     porPagar: "10,000,000.00",

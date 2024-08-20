@@ -224,6 +224,7 @@ export function UsaMapwithAnnotation () {
     </ComposableMap>
   )
 }
+const highlightedCountries = ["Mexico", "Spain"]; // ISO_A3 code of the country you want to highlight
 
 // World Map
 const worldgeoUrl = {
@@ -11659,30 +11660,32 @@ export const rounded = (num) => {
   }
 }
 
-export const WorldMap = ({ setTooltipContent }) => {
+export const WorldMap = ({ setTooltipContent, countries }) => {
   return (
     <>
       <ComposableMap projectionConfig={{ scale: 200 }} className="worldmaps">
         <ZoomableGroup zoom={1}>
-          <Geographies geography={worldgeoUrl}>
+        <Geographies geography={worldgeoUrl}>
             {({ geographies }) =>
-              geographies.map((geo) => (
-                <Geography
-                  key={geo.rsmKey}
-                  geography={geo}
-
-                  style={{
-                    default: {
-                      fill: '#dfe3ed',
-                      outline: 'none'
-                    },
-                    hover: {
-                      fill: '#0162e8',
-                      outline: 'none'
-                    }
-                  }}
-                />
-              ))
+              geographies.map((geo) => {
+                const isHighlighted = countries.includes(geo.properties.name);
+                return (
+                  <Geography
+                    key={geo.rsmKey}
+                    geography={geo}
+                    style={{
+                      default: {
+                        fill: isHighlighted ? '#34495E' : '#dfe3ed', 
+                        outline: 'none'
+                      },
+                      hover: {
+                        fill: '#34495E',
+                        outline: 'none'
+                      }
+                    }}
+                  />
+                );
+              })
             }
           </Geographies>
         </ZoomableGroup>

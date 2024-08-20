@@ -10,33 +10,37 @@ export default function RealStateList(props) {
 
   return (
     <div>
-      <div
-        style={{
-          justifyContent: "space-between",
-          display: "flex",
-          flexDirection: "row",
-          marginBottom: 35,
-          marginTop: -30,
-        }}
-      >
-        <div></div>
-        <Button
+      {!props.hideAddButton ? (
+        <div
           style={{
-            marginRight: 15,
-            alignSelf: "flex-end",
-            justifyContent: "flex-end",
+            justifyContent: "space-between",
+            display: "flex",
+            flexDirection: "row",
+            marginBottom: 35,
+            marginTop: -30,
           }}
-          variant="primary"
-          size="sm"
-          className="mb-1"
         >
-         {/*// @ts-ignore */}
-          <Link style={{ color: "white" }} to={`${import.meta.env.BASE_URL}governance/wealthItemCreate/realState`}
+          <div></div>
+          <Button
+            style={{
+              marginRight: 15,
+              alignSelf: "flex-end",
+              justifyContent: "flex-end",
+            }}
+            variant="primary"
+            size="sm"
+            className="mb-1"
           >
-            + Añadir propiedad
-          </Link>
-        </Button>
-      </div>
+            {/*// @ts-ignore */}
+            <Link style={{ color: "white" }} to={`${import.meta.env.BASE_URL
+              }governance/wealthItemCreate/realState`}
+            >
+              + Añadir propiedad
+            </Link>
+          </Button>
+        </div>
+      ) : null}
+
       <div className="table-responsive">
         <Table className="table border text-nowrap text-md-nowrap mb-0">
           <thead className="bg-light">
@@ -63,8 +67,8 @@ export default function RealStateList(props) {
                 <td>
                   <div style={{ display: "flex", flexDirection: "column" }}>
                     {idx.owners.map((owner, index) => (
-                      <div key={index} style={{fontSize: 13}}>
-                       - {owner.name}: {owner.pct}% <br />
+                      <div key={index} style={{ fontSize: 13 }}>
+                        - {owner.name}: {owner.pct}% <br />
                       </div>
                     ))}
                   </div>
@@ -77,7 +81,8 @@ export default function RealStateList(props) {
                   }}
                 >
                   {/*// @ts-ignore */}
-                  <Link to={`${import.meta.env.BASE_URL}governance/wealthItem/type/realState/id/${idx.id}`}
+                  <Link to={`${import.meta.env.BASE_URL
+                    }governance/wealthItem/type/realState/id/${idx.id}`}
                   >
                     Ver
                   </Link>

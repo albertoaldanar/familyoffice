@@ -107,6 +107,11 @@ const  PrivateEquityReturnsCreate= React.lazy(()=>import ('../pages/governance/w
 const  PrivateEquityReturn= React.lazy(()=>import ('../pages/governance/wealthStructure/wealthItemDescription/components/privateEquity/returnReport'))
 const  StockResult= React.lazy(()=>import ('../pages/governance/wealthStructure/wealthItemDescription/components/stockInvestment/resultReport'))
 const  WealthItemCreate= React.lazy(()=>import ('../pages/governance/wealthStructure/wealthItemCreate/wealthItemCreate'));
+/****************************** INVESTMENTS ****************************************/
+const  RealStateDashboard= React.lazy(()=>import ('../pages/investments/realState/realStateDashboard'))
+const  LoansDashboard= React.lazy(()=>import ('../pages/investments/loans/loansDashboard'))
+
+
 const  MediaObject= React.lazy(()=>import('../components/Bootstrap/MediaObject/MediaObject'))
 const  Accordions= React.lazy(()=>import     ('../components/Bootstrap/Accordion/Accordion'))
 const  Tabses= React.lazy(()=>import ('../components/Bootstrap/Tabs/Tabs'))
@@ -366,6 +371,10 @@ export const Routingdata=[
 {path:`${import.meta.env.BASE_URL}ecommerce/addproduct` ,element:<AddProduct />},
 {path:`${import.meta.env.BASE_URL}ecommerce/wishlist` ,element:<Wishlist />},
 {path:`${import.meta.env.BASE_URL}ecommerce/checkout` ,element:<Checkout />},
+
+/****************************** INVESTMENTS ****************************************/
+{path:`${import.meta.env.BASE_URL}investments/realStateDashboard` ,element : <RealStateDashboard/>},
+{path:`${import.meta.env.BASE_URL}investments/loansDashboard` ,element : <LoansDashboard/>},
 
 /* Maps */
 

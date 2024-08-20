@@ -22,7 +22,6 @@ export default function SimpleMaps() {
               <div className="World-map text-center">
                 {' '}
                 <WorldMap setTooltipContent={setContent} />
-
               </div>
               {content}
             </Card.Body>

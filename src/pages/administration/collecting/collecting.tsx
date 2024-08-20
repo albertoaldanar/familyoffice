@@ -13,19 +13,15 @@ import {
   Tab,
   Table,
 } from "react-bootstrap";
-import Pageheader from "../../../layouts/pageheader/pageheader";
 import LoansCollecting from "./loans/loans";
-import  DividendsCollecting from './dividends/dividends';
 import BenefitsCollecting from "./benefits/Benefits";
 import LeasingAndRents from "./leasingAndRents/LeasingAndRents";
 
 export default function Collecting() {
-  const breadcrumbs = ["Administración", "Cobranza"];
-
   return (
     <Fragment>
       <Row>
-        <Card style={{marginTop: 20}}>
+        <Card style={{marginTop: 20, minHeight: 500}}>
           <div className="">
             <Tab.Container id="left-tabs-example" defaultActiveKey="first">
               <div style={{ padding: 20 }}>
@@ -39,9 +35,6 @@ export default function Collecting() {
                     <Nav.Item as="li" style={{ marginRight: 10 }}>
                       <Nav.Link eventKey="second">Arrendamiento </Nav.Link>
                     </Nav.Item>
-                    {/* <Nav.Item as="li" style={{ marginRight: 10 }}>
-                      <Nav.Link eventKey="third">Dividendos</Nav.Link>
-                    </Nav.Item> */}
                     <Nav.Item as="li" style={{ marginRight: 10 }}>
                       <Nav.Link eventKey="fourth">Regalias</Nav.Link>
                     </Nav.Item>
@@ -56,9 +49,6 @@ export default function Collecting() {
                 <Tab.Pane eventKey="second">
                   <LeasingAndRents />
                 </Tab.Pane>
-                {/* <Tab.Pane eventKey="third">
-                  <DividendsCollecting /> 
-                </Tab.Pane> */}
                 <Tab.Pane eventKey="fourth">
                   <BenefitsCollecting />
                 </Tab.Pane>

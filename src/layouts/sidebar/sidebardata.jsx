@@ -174,10 +174,10 @@ const MenuItems = [
         color:'',
         badgetxt:'',      
         children: [
+          { path: `${import.meta.env.BASE_URL}investments/realStateDashboard`, type: 'link', active: false, selected: false, title: 'Bienes raices' },
+          { path: `${import.meta.env.BASE_URL}investments/loansDashboard`, type: 'link', active: false, selected: false, title: 'Prestamos por cobrar' },
           { path: `${import.meta.env.BASE_URL}pages/notificationslist`, type: 'link', active: false, selected: false, title: 'Bursatil' },
           { path: `${import.meta.env.BASE_URL}pages/timeline`, type: 'link', active: false, selected: false, title: 'Capital Privado' },
-          { path: `${import.meta.env.BASE_URL}pages/mailcompose`, type: 'link', active: false, selected: false, title: 'Prestamos' },
-          { path: `${import.meta.env.BASE_URL}pages/mailinbox`, type: 'link', active: false, selected: false, title: 'Bienes raices' },
           // {
           //   path: `${import.meta.env.BASE_URL}pages/extension`,
           //   type: 'sub',
