@@ -110,7 +110,8 @@ const  WealthItemCreate= React.lazy(()=>import ('../pages/governance/wealthStruc
 /****************************** INVESTMENTS ****************************************/
 const  RealStateDashboard= React.lazy(()=>import ('../pages/investments/realState/realStateDashboard'))
 const  LoansDashboard= React.lazy(()=>import ('../pages/investments/loans/loansDashboard'))
-
+const  PrivateEquityDashboard= React.lazy(()=>import ('../pages/investments/privateEquity/privateEquityDashboard'))
+const  StockInvestmentDashboard= React.lazy(()=>import ('../pages/investments/stockMarket/stockInvestmentDashboard'))
 
 const  MediaObject= React.lazy(()=>import('../components/Bootstrap/MediaObject/MediaObject'))
 const  Accordions= React.lazy(()=>import     ('../components/Bootstrap/Accordion/Accordion'))
@@ -375,9 +376,10 @@ export const Routingdata=[
 /****************************** INVESTMENTS ****************************************/
 {path:`${import.meta.env.BASE_URL}investments/realStateDashboard` ,element : <RealStateDashboard/>},
 {path:`${import.meta.env.BASE_URL}investments/loansDashboard` ,element : <LoansDashboard/>},
+{path:`${import.meta.env.BASE_URL}investments/privateEquityDashboard` ,element : <PrivateEquityDashboard/>},
+{path:`${import.meta.env.BASE_URL}investments/stockInvestmentDashboard` ,element : <StockInvestmentDashboard/>},
 
 /* Maps */
-
 
 {path:`${import.meta.env.BASE_URL}maps/leafletmaps` ,element:<LeafletMaps />},
 {path:`${import.meta.env.BASE_URL}maps/simplemaps` ,element:<SimpleMaps />},

@@ -1,11 +1,28 @@
 import React from 'react'
 
 const MenuItems = [
+  // {
+  //   // menutitle: 'PRE-BUILD PAGES',
+  //   Items: [
+  //     {
+  //       icon: (<i className="side-menu__icon ri-home-4-line"></i>),
+  //       type: 'sub',
+  //       Name:'',
+  //       active: false,
+  //       selected: false,
+  //       title: 'Inicio',
+  //       pathname: `${import.meta.env.BASE_URL}administration/payments`,
+  //       class:'',
+  //       color:'',
+  //       badgetxt:'',
+  //     },
+  //   ]
+  // },
   {
     // menutitle: 'MAIN',
     Items: [
       {
-        icon: (<i className="side-menu__icon ri-home-4-line"></i>),
+        icon: (<i className="side-menu__icon ri-file-2-line"></i>),
         type: 'sub',
         Name:'',
         active: false,
@@ -176,8 +193,8 @@ const MenuItems = [
         children: [
           { path: `${import.meta.env.BASE_URL}investments/realStateDashboard`, type: 'link', active: false, selected: false, title: 'Bienes raices' },
           { path: `${import.meta.env.BASE_URL}investments/loansDashboard`, type: 'link', active: false, selected: false, title: 'Prestamos por cobrar' },
-          { path: `${import.meta.env.BASE_URL}pages/notificationslist`, type: 'link', active: false, selected: false, title: 'Bursatil' },
-          { path: `${import.meta.env.BASE_URL}pages/timeline`, type: 'link', active: false, selected: false, title: 'Capital Privado' },
+          { path: `${import.meta.env.BASE_URL}investments/stockInvestmentDashboard`, type: 'link', active: false, selected: false, title: 'Bursatil' },
+          { path: `${import.meta.env.BASE_URL}investments/privateEquityDashboard`, type: 'link', active: false, selected: false, title: 'Capital Privado' },
           // {
           //   path: `${import.meta.env.BASE_URL}pages/extension`,
           //   type: 'sub',
@@ -225,144 +242,22 @@ const MenuItems = [
       // }
     ]
   },
-
-  // {
-  //   menutitle: 'MISC PAGES',
-  //   Items: [
-  //     {
-  //       icon: (<i className="side-menu__icon ri-bug-line"></i>),
-  //       type: 'sub',
-  //       Name:'',
-  //       active: false,
-  //       selected: false,
-  //       title: 'Authentication',
-  //       class:'',
-  //       color:'',
-  //       badgetxt:'',      
-  //       children: [
-  //         { path: `${import.meta.env.BASE_URL}authentication/login`, type: 'link', active: false, selected: false, title: 'Login' },
-  //         { path: `${import.meta.env.BASE_URL}authentication/register`, type: 'link', active: false, selected: false, title: 'Register' },
-  //         { path: `${import.meta.env.BASE_URL}authentication/forgotpassword`, type: 'link', active: false, selected: false, title: 'Forgot Password' },
-  //         { path: `${import.meta.env.BASE_URL}authentication/lockscreen`, type: 'link', active: false, selected: false, title: 'Lock screen' },
-  //         {
-  //           path: `${import.meta.env.BASE_URL}authentication/errorpages`,
-  //           type: 'sub',
-  //           Name:'',
-  //           active: false,
-  //           selected: false,
-  //           title: 'Error pages',        
-  //           children: [
-  //             { path: `${import.meta.env.BASE_URL}authentication/errorpages/error400`, type: 'link', active: false, selected: false, title: '400' },
-  //             { path: `${import.meta.env.BASE_URL}authentication/errorpages/error401`, type: 'link', active: false, selected: false, title: '401' },
-  //             { path: `${import.meta.env.BASE_URL}authentication/errorpages/error403`, type: 'link', active: false, selected: false, title: '403' },
-  //             { path: `${import.meta.env.BASE_URL}authentication/errorpages/error404`, type: 'link', active: false, selected: false, title: '404' },
-  //             { path: `${import.meta.env.BASE_URL}authentication/errorpages/error500`, type: 'link', active: false, selected: false, title: '500' },
-  //             { path: `${import.meta.env.BASE_URL}authentication/errorpages/error503`, type: 'link', active: false, selected: false, title: ' 503' },
-           
-  //           ]
-  //         },
-
-  //       ]
-  //     },
-  //     {
-  //         icon: (<i className="side-menu__icon ri-menu-unfold-fill"></i>),
-  //         type: 'sub',
-     
-  //         active: false,
-  //         selected: false,
-  //         title: 'Submenu items',
-  //         class:'',
-  //         color:'',
-  //         badgetxt: "",
-  //         children: [
-  //             { path: "#", type: 'link', active: false, selected: false, title: 'Sub-menu-1' },
-             
-  //             {
-  //               path: "#",
-  //               type: 'sub',
-  //               Name:'',
-  //               active: false,
-  //               selected: false,
-  //               title: 'Sub-menu-2',         
-  //               children: [
-  //                 { path: "#", type: 'link', active: false, selected: false, title: 'Sub-menu-2.1' },
-  //                 { path: "#", type: 'link', active: false, selected: false, title: 'Sub-menu-2.2' },
-  //                 { path: "#", type: 'link', active: false, selected: false, title: 'Sub-menu-2.3' },
-                 
-                 
-  //               ]
-  //             },
-  //         ]
-  //     },
-  //   ]
-  // },
-
-  // {
-  //   menutitle: 'GENERAL',
-  //   Items: [
-  //     {
-  //       icon: (<i className="side-menu__icon ri-map-pin-line"></i>),
-  //       type: 'sub',
-  //       Name:'',
-  //       active: false,
-  //       selected: false,
-  //       title: 'Maps',
-  //       class:'',
-  //       color:'',
-  //       badgetxt:'',      
-  //       children: [
-  //         { path: `${import.meta.env.BASE_URL}maps/leafletmaps`, type: 'link', active: false, selected: false, title: 'Leaflet Maps' },
-  //         { path: `${import.meta.env.BASE_URL}maps/simplemaps`, type: 'link', active: false, selected: false, title: 'Simple Maps' }
-       
-
-  //       ]
-  //     },
-  //     {
-  //       icon: (<i className="side-menu__icon ri-bar-chart-2-line"></i>),
-  //       type: 'sub',
-  //       Name:'',
-  //       active: false,
-  //       selected: false,
-  //       title: 'Charts',     
-  //       class: 'side-badge',
-  //       badgetxt: '5',
-  //       color: 'secondary',
-  //       children: [
-  //         { path: `${import.meta.env.BASE_URL}charts/chartjs`, type: 'link', active: false, selected: false, title: 'Chart js' },
-    
-  //         { path: `${import.meta.env.BASE_URL}charts/echarts`, type: 'link', active: false, selected: false, title: 'ECharts' },
-
-  //         { path: `${import.meta.env.BASE_URL}charts/apexcharts`, type: 'link', active: false, selected: false, title: 'Apex Charts' }
-
-  //       ]
-  //     },
-  //     {
-  //       icon: (<i className="side-menu__icon ri-remixicon-line"></i>),
-  //       type: 'sub',
-  //       Name:'',
-  //       active: false,
-  //       selected: false,
-  //       title: 'Icons',
-  //       class:'',
-  //       color:'',
-  //       badgetxt:'',      
-  //       children: [
-  //         { path: `${import.meta.env.BASE_URL}icons/fontawesome`, type: 'link', active: false, selected: false, title: 'Font Awesome' },
-  //         { path: `${import.meta.env.BASE_URL}icons/materialdesignicons`, type: 'link', active: false, selected: false, title: 'Material Design Icons' },
-  //         { path: `${import.meta.env.BASE_URL}icons/simplelineicons`, type: 'link', active: false, selected: false, title: 'Simple Line Icons' },
-  //         { path: `${import.meta.env.BASE_URL}icons/feathericons`, type: 'link', active: false, selected: false, title: 'Feather Icons' },
-  //         { path: `${import.meta.env.BASE_URL}icons/iconicicons`, type: 'link', active: false, selected: false, title: 'Iconic Icons' },
-  //         { path: `${import.meta.env.BASE_URL}icons/flagicons`, type: 'link', active: false, selected: false, title: 'Flag Icons' },
-  //         { path: `${import.meta.env.BASE_URL}icons/pe7icons`, type: 'link', active: false, selected: false, title: 'Pe7 Icons' },
-  //         { path: `${import.meta.env.BASE_URL}icons/themifyicons`, type: 'link', active: false, selected: false, title: 'Themify Icons' },
-  //         { path: `${import.meta.env.BASE_URL}icons/typiconsicons`, type: 'link', active: false, selected: false, title: 'Typicons Icons' },
-  //         { path: `${import.meta.env.BASE_URL}icons/weathericons`, type: 'link', active: false, selected: false, title: 'Weather Icons' },
-  //         { path: `${import.meta.env.BASE_URL}icons/bootstrapicons`, type: 'link', active: false, selected: false, title: 'Bootstrap Icons' }
-
-  //       ]
-  //     }
-  //   ]
-  // }
-
+  {
+    // menutitle: 'PRE-BUILD PAGES',
+    Items: [
+      {
+        icon: (<i className="side-menu__icon ri-bar-chart-2-line"></i>),
+        type: 'sub',
+        Name:'',
+        active: false,
+        selected: false,
+        title: 'Reportes',
+        pathname: `${import.meta.env.BASE_URL}administration/payments`,
+        class:'',
+        color:'',
+        badgetxt:'',
+      },
+    ]
+  },
 ]
 export default MenuItems

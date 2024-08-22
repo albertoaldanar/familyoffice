@@ -35,9 +35,14 @@ export default function LoansCollecting(props) {
           </Button>
         </div>
       ) : null}
-      <Card.Title style={{ marginLeft: 15, marginBottom: 20 }}>
-        Prestamos por cobrar
-      </Card.Title>
+      {
+        !props.hideAddButton && (
+          <Card.Title style={{ marginLeft: 15, marginBottom: 20 }}>
+            Prestamos por cobrar
+          </Card.Title>
+        )
+      }
+
       <Col xl={12}>
         <Card>
           <div className="table-responsive">

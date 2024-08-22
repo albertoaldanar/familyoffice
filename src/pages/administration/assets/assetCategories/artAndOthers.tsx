@@ -16,7 +16,7 @@ export default function ArtAndOthers(props) {
           display: "flex",
           flexDirection: "row",
           marginBottom: 35,
-          marginTop: -30,
+          marginTop: -10,
         }}
       >
         <div></div>

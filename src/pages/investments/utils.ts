@@ -74,6 +74,31 @@ export function formatForApexBarChartByDates(
   return { series, categories };
 }
 
+export function formatForApexBarChartByAssets(
+  byDates,
+  selectedCurrency: string,
+) {
+
+  const categories = byDates.map((item) => item.type);
+
+  const seriesData = byDates.map((item) => {
+    const currencyData = item.value.find(
+      (currencyItem) => currencyItem.currency === selectedCurrency
+    );
+    return currencyData ? currencyData.value : 0;
+  });
+
+  const series = [
+    {
+      name: selectedCurrency,
+      data: seriesData,
+    },
+  ];
+
+  return { series, categories };
+}
+
+
 export const getUniqueYears = (byDates) => {
   const years = byDates.map(item => item.year);
   return Array.from(new Set(years));

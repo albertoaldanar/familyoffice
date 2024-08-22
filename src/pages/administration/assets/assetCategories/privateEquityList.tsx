@@ -11,13 +11,14 @@ export default function PrivateEquityList(props) {
 
   return (
     <div>
+      {!props.hideAddButton ? (
       <div
         style={{
           justifyContent: "space-between",
           display: "flex",
           flexDirection: "row",
           marginBottom: 35,
-          marginTop: -30,
+          marginTop: -10,
         }}
       >
         <div></div>
@@ -34,10 +35,11 @@ export default function PrivateEquityList(props) {
          {/*// @ts-ignore */}
           <Link style={{ color: "white" }} to={`${import.meta.env.BASE_URL}governance/wealthItemCreate/privateEquity`}
           >
-            + Añadir capital privado
-          </Link>
-        </Button>
-      </div>
+              + Añadir capital privado
+            </Link>
+          </Button>
+        </div>
+      ) : null}
       <div className="table-responsive">
         <Table className="table border text-nowrap text-md-nowrap mb-0">
           <thead className="bg-light">

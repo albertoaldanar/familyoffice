@@ -3,18 +3,28 @@ import { Card, Col, Row, Dropdown } from "react-bootstrap";
 import ReactApexChart from "react-apexcharts";
 import { Link } from "react-router-dom";
 import { realStateStats, realstateData } from "./realStateData";
-import { formatForApexChart } from "../utils";
+import {
+  formatForApexChart,
+  formatForApexBarChartByAssets,
+  formatByAssetForCurrency,
+  formatCurrency,
+} from "../utils";
 import RealStateList from "../../administration/assets/assetCategories/realStateList";
 import { WorldMap } from "../../../components/maps/simplemaps/data/simplemapdata";
 
 export default function RealStateDashboard() {
   const defaultCurrecny = "MXN";
-  const byType = formatForApexChart(realStateStats.byType);
-  const byOwner = formatForApexChart(realStateStats.byOwners);
+  const [currency, setCurrency] = useState(defaultCurrecny);
+  const byType = formatByAssetForCurrency(realStateStats.byType, currency);
+  const byOwner = formatByAssetForCurrency(realStateStats.byOwners, currency);
   const byUsage = formatForApexChart(realStateStats.byUsage);
   const byCountry = formatForApexChart(realStateStats.byCountry);
+  const [viewSelected, setViewSelected] = useState("stats");
+  const byAssets = formatForApexBarChartByAssets(
+    realStateStats.byAssets,
+    currency
+  );
   const [content, setContent] = useState("");
-  const [currency, setCurrency] = useState(defaultCurrecny);
 
   const valueWithCurrencySelected = realStateStats.totalValueOfProperties.find(
     (value) => value.currency === currency
@@ -63,9 +73,102 @@ export default function RealStateDashboard() {
     ],
   };
 
+  const currencyChartOptions: ApexCharts.ApexOptions = {
+    ...chartOptions,
+    tooltip: {
+      y: {
+        formatter: function (value) {
+          return formatCurrency(value);
+        },
+        title: {
+          formatter: function () {
+            return "";
+          },
+        },
+      },
+    },
+  };
+
+  const options: ApexCharts.ApexOptions = {
+    chart: {
+      type: "bar",
+      toolbar: {
+        show: false,
+      },
+    },
+    xaxis: {
+      categories: [],
+    },
+    yaxis: {
+      labels: {
+        show: false,
+      },
+      title: {
+        text: "",
+      },
+    },
+    plotOptions: {
+      bar: {
+        borderRadius: 8,
+        horizontal: true,
+        distributed: true,
+      },
+    },
+    dataLabels: {
+      formatter: (val: number) => `$${val.toLocaleString()}`,
+    },
+    colors: [
+      "#0e0f2e",
+      "#811f09",
+      "#0c0e4b",
+      "#054e49",
+      "#3A3D40",
+      "#2E4053",
+      "#1C2833",
+      "#212F3C",
+      "#17202A",
+      "#1A1A2E",
+    ],
+    tooltip: {
+      y: {
+        formatter: (val: number) => `$${val.toLocaleString()}`,
+      },
+    },
+  };
+
   const renderCurrencyDropdown = () => {
+    const isStatsView = viewSelected === "stats";
     return (
-      <div style={{ marginTop: 30, marginRight: 20 }}>
+      <div
+        style={{
+          marginTop: 30,
+          marginRight: 20,
+          display: "flex",
+          flexDirection: "row",
+        }}
+      >
+        {realStateStats.byOwners.length > 0 ? (
+          <div style={{ marginRight: 40, marginTop: 5 }}>
+            <i
+              style={{
+                cursor: "pointer",
+                marginRight: 20,
+                color: isStatsView ? "#5488d2" : "black",
+              }}
+              className="fe fe-activity  fs-20"
+              onClick={() => setViewSelected("stats")}
+            ></i>
+            <i
+              style={{
+                cursor: "pointer",
+                marginRight: 20,
+                color: !isStatsView ? "#5488d2" : "black",
+              }}
+              className="fe fe-list  fs-20"
+              onClick={() => setViewSelected("list")}
+            ></i>
+          </div>
+        ) : null}
         <Dropdown className="h-3">
           <Dropdown.Toggle size="sm" color="default" type="button" className="">
             {currency} <span className="caret"></span>
@@ -91,6 +194,8 @@ export default function RealStateDashboard() {
   };
 
   const renderContent = () => {
+    const isStatsView = viewSelected === "stats";
+
     if (realStateStats.byOwners.length === 0) {
       return (
         <div style={{ marginTop: 60 }}>
@@ -123,8 +228,7 @@ export default function RealStateDashboard() {
               Los bienes y activos se pueden crear en la pestaña de
             </p>
             {/*// @ts-ignore */}
-            <Link style={{ fontSize: 12 }} to={`${import.meta.env.BASE_URL}administration/assets`}
-            >
+            <Link style={{ fontSize: 12 }} to={`${import.meta.env.BASE_URL}administration/assets`}>
               Activos fijos
             </Link>
           </div>
@@ -134,73 +238,102 @@ export default function RealStateDashboard() {
 
     return (
       <div style={{ marginLeft: 20, marginRight: 20 }}>
-
-
-        <Row style={{ marginTop: 15, marginBottom: 30 }}>
-          <Col lg={4}>
-            <div style={{ padding: 10 }}>
-              <p style={{ marginBottom: 20 }}>
-                Distribución por tipo de propiedad
+        {isStatsView ? (
+          <>
+                      <Row style={{ marginTop: 20, marginBottom: 20 }}>
+              <p style={{ marginBottom: -10, marginLeft: 30 }}>
+                Desgloce por valor de propiedad en {currency}
               </p>
               <ReactApexChart
-                options={{ ...chartOptions, labels: byType.labels }}
-                series={byType.series}
-                type="donut"
-                width="100%"
+                options={{
+                  ...options,
+                  xaxis: { categories: byAssets.categories },
+                  plotOptions: {
+                    bar: {
+                      horizontal: true,
+                      distributed: true,
+                      borderRadius: 6,
+                    },
+                  },
+                }}
+                series={byAssets.series}
+                type="bar"
+                height={250}
               />
-            </div>
-          </Col>
+            </Row>
+            <Row style={{ marginTop: 10, marginBottom: 30 }}>
+              <Col lg={4}>
+                <div style={{ padding: 10 }}>
+                  <p style={{ marginBottom: 20 }}>
+                    Distribución por tipo de propiedad
+                  </p>
+                  <ReactApexChart
+                    options={{ ...currencyChartOptions, labels: byType.labels }}
+                    series={byType.series}
+                    type="donut"
+                    width="100%"
+                  />
+                </div>
+              </Col>
 
-          <Col lg={4}>
-            <div style={{ padding: 10 }}>
-              <p style={{ marginBottom: 20 }}>Distribución por propietario</p>
-              <ReactApexChart
-                options={{ ...chartOptions, labels: byOwner.labels }}
-                series={byOwner.series}
-                type="donut"
-                width="100%"
-              />
-            </div>
-          </Col>
-          <Col lg={4}>
-            <div style={{ padding: 10 }}>
-              <p style={{ marginBottom: 20 }}>
-                Distribución por uso de propiedad
-              </p>
+              <Col lg={4}>
+                <div style={{ padding: 10 }}>
+                  <p style={{ marginBottom: 20 }}>
+                    Distribución por propietario
+                  </p>
+                  <ReactApexChart
+                    options={{
+                      ...currencyChartOptions,
+                      labels: byOwner.labels,
+                    }}
+                    series={byOwner.series}
+                    type="donut"
+                    width="100%"
+                  />
+                </div>
+              </Col>
+              <Col lg={4}>
+                <div style={{ padding: 10 }}>
+                  <p style={{ marginBottom: 20 }}>
+                    Distribución por uso de propiedad
+                  </p>
 
-              <ReactApexChart
-                options={{ ...chartOptions, labels: byUsage.labels }}
-                series={byUsage.series}
-                type="donut"
-                width="100%"
-              />
-            </div>
-          </Col>
-        </Row>
+                  <ReactApexChart
+                    options={{ ...chartOptions, labels: byUsage.labels }}
+                    series={byUsage.series}
+                    type="donut"
+                    width="100%"
+                  />
+                </div>
+              </Col>
+            </Row>
 
-        <Row style={{ marginTop: 20, marginBottom: 50 }}>
-          <Col lg={4}>
-            <div style={{ padding: 10 }}>
-              <p style={{ marginBottom: 20 }}>Distribución por país</p>
-              <ReactApexChart
-                options={{ ...chartOptions, labels: byCountry.labels }}
-                series={byCountry.series}
-                type="donut"
-                width="100%"
-              />
-            </div>
-          </Col>
+            <Row style={{ marginTop: 0, marginBottom: 50 }}>
+              <Col lg={4}>
+                <div style={{ padding: 10 }}>
+                  <p style={{ marginBottom: 20 }}>Distribución por país</p>
+                  <ReactApexChart
+                    options={{ ...chartOptions, labels: byCountry.labels }}
+                    series={byCountry.series}
+                    type="donut"
+                    width="100%"
+                  />
+                </div>
+              </Col>
 
-          <Col lg={4}>
-            <WorldMap
-              countries={realStateStats.countries}
-              setTooltipContent={setContent}
-            />
-          </Col>
-        </Row>
-        <Row style={{marginTop: 30, marginBottom: 40}}>
-          <RealStateList data={realstateData} hideAddButton />
-        </Row>
+              <Col lg={4}>
+                <WorldMap
+                  countries={realStateStats.countries}
+                  setTooltipContent={setContent}
+                />
+              </Col>
+            </Row>
+          </>
+        ) : (
+          <Row style={{ marginTop: 30, marginBottom: 40 }}>
+            <RealStateList data={realstateData} hideAddButton />
+          </Row>
+        )}
       </div>
     );
   };

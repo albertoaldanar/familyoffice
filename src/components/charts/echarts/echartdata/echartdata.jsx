@@ -575,7 +575,7 @@ export function Echart8 () {
     }],
     color: ['#ed00c3', '#ad59ff', ' #00b3ff', '#00d9bf', '#fc0', '#467fcf ', '#fa626b', '#5eba00']
   }
-  return (<ReactECharts option={option} height="350px" />)
+  return (<ReactECharts option={option} height="450px" />)
 };
 
 

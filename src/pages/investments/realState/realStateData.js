@@ -113,27 +113,47 @@ export const realStateStats = {
   ],
   byType: [
     {
-      type: 'Casas', 
-      value: 3
-    }, 
+      type: 'Casas',
+      value: [
+        { currency: 'MXN', value: 9000000 },
+        { currency: 'USD', value: 473946.14 },
+        { currency: 'EUR', value: 426147.16 }
+      ]
+    },
     {
-      type: 'Oficinas', 
-      value: 1
-    }, 
+      type: 'Oficinas',
+      value: [
+        { currency: 'MXN', value: 4500000 },
+        { currency: 'USD', value: 236973.07 },
+        { currency: 'EUR', value: 213073.58 }
+      ]
+    },
     {
-      type: 'Departamentos', 
-      value: 2
+      type: 'Departamentos',
+      value: [
+        { currency: 'MXN', value: 6000000 },
+        { currency: 'USD', value: 315964.09 },
+        { currency: 'EUR', value: 284098.11 }
+      ]
     }
   ], 
   byOwners: [
     {
-      type: 'Alberto Aldana Fariñas', 
-      value: 4
-    }, 
+      type: 'Alberto Aldana Fariñas',
+      value: [
+        { currency: 'MXN', value: 4500000 },
+        { currency: 'USD', value: 236973.07 },
+        { currency: 'EUR', value: 213073.58 }
+      ]
+    },
     {
-      type: 'Patricia Ríos Collantes', 
-      value: 3
-    }, 
+      type: 'Patricia Ríos Collantes',
+      value: [
+        { currency: 'MXN', value: 3375000 },
+        { currency: 'USD', value: 177729.80 },
+        { currency: 'EUR', value: 159805.19 }
+      ]
+    }
   ],
   byUsage: [
     {
@@ -158,6 +178,32 @@ export const realStateStats = {
       type: 'México', 
       value: 6
     }, 
+  ], 
+  byAssets: [
+    {
+      type: 'Departamento costa veleros la marina',
+      value: [
+        { currency: 'MXN', value: 3000000 },
+        { currency: 'USD', value: 157982.04 },
+        { currency: 'EUR', value: 142089.05 }
+      ]
+    },
+    {
+      type: 'Oficinas mutualismo',
+      value: [
+        { currency: 'MXN', value: 16500000 },
+        { currency: 'USD', value: 868901.23 },
+        { currency: 'EUR', value: 781489.77 }
+      ]
+    },
+    {
+      type: 'Casa Colinas del parque',
+      value: [
+        { currency: 'MXN', value: 7500000 },
+        { currency: 'USD', value: 394955.11 },
+        { currency: 'EUR', value: 355222.63 }
+      ]
+    },
   ], 
   countries: ['Mexico']
 }
