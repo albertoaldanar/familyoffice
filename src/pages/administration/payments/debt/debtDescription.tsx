@@ -5,10 +5,12 @@ import {
   Col,
   Table,
   Row,
+  Form,
   Badge,
   ProgressBar,
+  InputGroup
 } from "react-bootstrap";
-import { useLocation } from "react-router-dom";
+import Select from "react-select";
 import { nextPaymentFormatDate } from "../paymentUtils";
 import { Link } from "react-router-dom";
 import {
@@ -178,6 +180,129 @@ export default function DebtDescription(props) {
     );
   };
 
+  const renderDescription = () => {
+    return (
+      <div>
+        {/* <Row style={{ marginBottom: 10 }}>
+          <Form.Group
+            as={Col}
+            md="4"
+            controlId="validationCustom01"
+            className="form-group"
+          >
+            <Form.Label>Modelo</Form.Label>
+            <InputGroup hasValidation>
+              <Form.Control
+                type="text"
+                placeholder=""
+                aria-describedby="inputGroupPrepend"
+                required
+                onChange={(text) => setModel(text.target.value)}
+                value={model}
+              />
+              <Form.Control.Feedback type="invalid">
+                Favor de añadir el modelo
+              </Form.Control.Feedback>
+            </InputGroup>
+          </Form.Group>
+          <Form.Group
+            as={Col}
+            md="4"
+            controlId="validationCustom01"
+            className="form-group"
+          >
+            <Form.Label>Marca</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder=""
+              aria-describedby="inputGroupPrepend"
+              required
+              onChange={(text) => setBrand(text.target.value)}
+              value={brand}
+            />
+          </Form.Group>
+
+          <Form.Group
+            as={Col}
+            md="4"
+            controlId="validationCustom01"
+            className="form-group"
+          >
+            <Form.Label>Año</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder=""
+              aria-describedby="inputGroupPrepend"
+              required
+              onChange={(text) => setYear(text.target.value)}
+              value={year}
+            />
+          </Form.Group>
+        </Row>
+        <Row style={{ marginTop: 20 }}>
+          <Form.Group
+            as={Col}
+            md="4"
+            controlId="validationCustom01"
+            className="form-group"
+          >
+            <Form.Label>Moneda</Form.Label>
+            <Select
+              options={Optionscurrency}
+              classNamePrefix="Select2"
+              className="multi-select"
+              onChange={(value) => setCurrency(value)}
+              placeholder=""
+              value={currency}
+            />
+          </Form.Group>
+
+          <Form.Group
+            as={Col}
+            md="4"
+            controlId="validationCustomUsername"
+            className="form-group"
+          >
+            <Form.Label>Valor de compra</Form.Label>
+            <InputGroup hasValidation>
+              <InputGroup.Text id="inputGroupPrepend-1">$</InputGroup.Text>
+              <Form.Control
+                type="numeric"
+                aria-describedby="inputGroupPrepend"
+                required
+                onChange={(text) => setPrice(text.target.value)}
+                value={price}
+              />
+              <InputGroup.Text id="inputGroupPrepend-2">
+                {currency.value}
+              </InputGroup.Text>
+              <Form.Control.Feedback type="invalid">
+                Favor de añadir el monto del pago
+              </Form.Control.Feedback>
+            </InputGroup>
+          </Form.Group>
+
+          <Form.Group
+            as={Col}
+            md="4"
+            controlId="validationCustom01"
+            className="form-group"
+          >
+            <Form.Label>País</Form.Label>
+            <Select
+              options={countryOptions}
+              classNamePrefix="Select2"
+              className="multi-select"
+              onChange={(value) => setCountry(value)}
+              placeholder=""
+              value={country}
+            />
+          </Form.Group>
+        </Row> */}
+      </div>
+    );
+  };
+
   return (
     <Fragment>
       <Row>
@@ -188,7 +313,6 @@ export default function DebtDescription(props) {
 
           {renderData()}
           <ProgressBar
-            animated
             variant="primary"
             now={getMemberPercentage(
               debt.pagado,

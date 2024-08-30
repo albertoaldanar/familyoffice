@@ -20,7 +20,7 @@ function Newsticker () {
     slidesToShow: 9,
     slidesToScroll: 1,
     autoplay: true,
-    speed: 2000,
+    speed: 3000,
     autoplaySpeed: 2000,
     cssEase: 'linear'
   }
@@ -36,14 +36,14 @@ function Newsticker () {
               <Slider {...settings}>
                 <li className="text-muted fs-13 fw-semibold">
                   <span className="fa fa-users bg-danger-transparent text-danger mx-1"></span>
-                  <span className="d-inline-block">Total Users</span>
-                  <span className="bn-positive me-4">1,653</span>
+                  <span className="d-inline-block">Miembros familiares</span>
+                  <span className="bn-positive me-4"> 6</span>
                 </li>
 
                 <li className="text-muted fs-13 fw-semibold">
                   <span className="fa fa-signal bg-info-transparent text-info mx-1"></span>
-                  <span className="d-inline-block">Total Leads</span>
-                  <span className="bn-negative me-4">639</span>
+                  <span className="d-inline-block">Total patrimonio</span>
+                  <span className="bn-negative me-4"> $ 63,000,000</span>
                 </li>
 
                 <li className="text-muted fs-13 fw-semibold">

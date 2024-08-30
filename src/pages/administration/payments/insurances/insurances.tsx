@@ -100,7 +100,7 @@ export default function InsurancePayment() {
                       }}
                     >
                       {/*// @ts-ignore */}
-                      <Link to={`${import.meta.env.BASE_URL}administration/insuraceDescription/${insurance.id}`}>
+                      <Link to={`${import.meta.env.BASE_URL}administration/insuranceDescription/${insurance.id}`}>
                         Ver
                       </Link>
                     </td>

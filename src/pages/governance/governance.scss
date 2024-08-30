@@ -52,8 +52,73 @@
     cursor: pointer;
 }
 
+.fc-event {
+  background-color: transparent !important; /* Transparent or any color */
+  border: none !important; /* Remove any border */
+  color: black !important; /* Change text color */
+  font-size: 0.6rem !important; /* Adjust font size */
+  padding: 0px;
+  margin: 0px;
+}
+
+/* If events are day grid events */
+.fc .fc-daygrid-event {
+  background-color: transparent !important; /* Example color */
+  border-color: red !important; /* Border color */
+  color: white !important; /* Text color */
+  padding: 0px;
+  margin: 0px;
+}
+
+/* More specific selector to override .fc-event in FullCalendar */
+.fc .fc-daygrid .fc-event, .fc .fc-timegrid .fc-event {
+  padding: -7px;
+  margin: -7px;
+  background-color: transparent !important; /* Your desired color */
+  border-color: transparent !important; /* Your desired border color */
+  color: white !important; /* Your desired text color */
+}
+
 #validationCustom09:focus {
   border-color: #80bdff;
   outline: 1;
   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.fc-payment {
+  background-color: red !important;
+  color: white;
+}
+
+.fc-tax {
+  background-color: green !important;
+  color: white;
+}
+
+.fc-collection {
+  background-color: blue !important;
+  color: white;
+}
+
+.asset-image {
+  // width: 250px;
+  height: 110px; /* Maintain aspect ratio */
+  cursor: pointer;
+  margin-bottom: 30px;
+  // margin-top: -5px;
+  width: 100%;
+  border-radius: 10px; /* Apply border radius */
+  object-fit: cover; /* Ensure the image covers the area */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+ /* Background color for the image */
+  opacity: 0.7;
+}
+
+.asset-background {
+  background-color: black;
+  margin-top: -8px;
+  overflow: hidden; 
+  height: 110px; 
+  border-radius: 10px;
+  margin-bottom: 30px;
 }

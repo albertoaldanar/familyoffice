@@ -59,9 +59,9 @@ export default function FamilyCouncil() {
             paddingTop: 10,
           }}
         >
-          <Card.Title style={{ marginLeft: 15, marginTop: 20, marginBottom: 10}}>
+          {/* <Card.Title style={{ marginLeft: 15, marginTop: 20, marginBottom: 10}}>
             Concejo familiar
-          </Card.Title>
+          </Card.Title> */}
           {renderFamilyCouncil()}
         </Card>
       </Row>

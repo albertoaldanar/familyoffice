@@ -254,16 +254,16 @@ const SideMenuIcon = () => {
                                             </Dropdown.Menu>
                                         </Dropdown>
                                      
-                                        <div className="d-flex country"  onClick={() => Darkmode()}>
+                                        {/* <div className="d-flex country"  onClick={() => Darkmode()}>
                                             <Link to='#' className="nav-link icon theme-layout nav-link-bg layout-setting">
                                                 <span className="dark-layout mt-1"><i className="ri-moon-clear-line"></i></span>
                                                 <span className="light-layout mt-1"><i className="ri-sun-line"></i></span>
                                             </Link>
-                                        </div>
+                                        </div> */}
                                       
                                        
 
-                                        <Dropdown className=" d-flex shopping-cart">
+                                        {/* <Dropdown className=" d-flex shopping-cart">
                                             <Dropdown.Toggle as='a'  className="no-caret nav-link icon text-center">
                                                 <i className="ri-shopping-bag-line"></i><span
                                                     className="badge bg-secondary header-badge">4</span>
@@ -376,7 +376,7 @@ const SideMenuIcon = () => {
                                                 </div>
                                             </Dropdown.Menu>
                                         </Dropdown>
-                                        
+                                         */}
                                         <div className="dropdown d-flex">
                                             <Link className="nav-link icon full-screen-link" id="fullscreen-button" onClick={Fullscreen}>
                                                 <i className="ri-fullscreen-exit-line fullscreen-button"></i>
@@ -550,13 +550,13 @@ const SideMenuIcon = () => {
                                         </Dropdown>
                                         
                                         
-                                        <div className="dropdown d-flex header-settings" onClick={() => OPenfunction ()}>
+                                        {/* <div className="dropdown d-flex header-settings" onClick={() => OPenfunction ()}>
                                             <Link  className=" nav-link icon siderbar-link">
                                                 <i className="ri-menu-fold-fill"></i>
                                             </Link>
                                             </div>
 
-                                       
+                                        */}
                                         
                                         <Dropdown className="dropdown d-flex profile-1">
                                             <Dropdown.Toggle as='a' variant='' className="no-caret nav-link leading-none d-flex">
@@ -594,9 +594,9 @@ const SideMenuIcon = () => {
                                     </div>
                                 </Navbar.Collapse>
                             </div>
-                            <div className="demo-icon nav-link icon" onClick={()=>SwitcherIcon()}>
+                            {/* <div className="demo-icon nav-link icon" onClick={()=>SwitcherIcon()}>
                                 <i className="fe fe-settings fa-spin text_primary"></i>
-                            </div>
+                            </div> */}
                         </Navbar>
                     </div>
                 </Container>

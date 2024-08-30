@@ -1,4 +1,4 @@
-export const formatForApexChart = (data, currency?) => {
+export const formatForApexChart = (data) => {
   const labels = data.map((item) => item.type);
 
   const series = data.map((item) => item.value);

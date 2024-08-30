@@ -109,9 +109,7 @@ export default function Footers () {
                           </Col>
                           <Col lg={6} sm={12} md={7} className="mt-3 mt-lg-0 text-center">
                             Copyright © 2023 <Link
-                              to="#">Sparic</Link>. Designed by <Link
-
-                                to="https://www.spruko.com/">Spruko</Link> All rights
+                              to="#">Famhold</Link> All rights
                             reserved.
                           </Col>
                         </div>

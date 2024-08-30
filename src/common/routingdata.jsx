@@ -40,6 +40,8 @@ const  Thumbnails= React.lazy(()=>import     ('../components/Bootstrap/Thumbnail
 const  Offcanva= React.lazy(()=>import   ('../components/Bootstrap/Offcanvas/Offcanvas'))
 const  Toasts= React.lazy(()=>import ('../components/Bootstrap/Toast/Toast'))
 /* FAMILY OFFICE */
+/****************************** DASHBOARD ****************************************/
+const  Dashboard= React.lazy(()=>import ('../pages/dashboard/dashboard'))
 /****************************** ADMINISTRATION ****************************************/
 const  Companies= React.lazy(()=>import ('../pages/administration/accounting/companies'))
 const  TrustCreate= React.lazy(()=>import ('../pages/administration/trusts/trustCreate'))
@@ -271,6 +273,8 @@ export const Routingdata=[
 {path:`${import.meta.env.BASE_URL}pages/extension/emptypage` ,element:<Emptypage />},
 
 /****************************** ADMINISTRATION ****************************************/
+/* Dashboard */
+{path:`${import.meta.env.BASE_URL}homeDashboard` ,element : <Dashboard/>},
 /* Family office */
 {path:`${import.meta.env.BASE_URL}administration/accounting` ,element : <CompanyDescription/>},
 {path:`${import.meta.env.BASE_URL}administration/payments` ,element : <Payments/>},
@@ -287,7 +291,7 @@ export const Routingdata=[
 {path:`${import.meta.env.BASE_URL}administration/trustDescription/:id` ,element : <TrustDescription/>},
 
 /*Payment Insurances */
-{path:`${import.meta.env.BASE_URL}administration/insuraceDescription/:id` ,element : <InsuraceDescription/>},
+{path:`${import.meta.env.BASE_URL}administration/insuranceDescription/:id` ,element : <InsuraceDescription/>},
 {path:`${import.meta.env.BASE_URL}administration/insurancePayment/:id/payment/:paymentId` ,element : <InsurancePayment/>},
 {path:`${import.meta.env.BASE_URL}administration/insuranceNewPayment/:id` ,element : <InsuranceNewPayment/>},
 {path:`${import.meta.env.BASE_URL}administration/insuranceCreate/type/:type/itemId/:itemId` ,element : <InsuranceCreate/>},
@@ -342,7 +346,7 @@ export const Routingdata=[
 {path:`${import.meta.env.BASE_URL}administration/providerService/:id/provider/:providerId/service/:serviceId` ,element : <ProviderService/>},
 
 /* Assets */
-{path:`${import.meta.env.BASE_URL}administration/assets` ,element : <Assets/>},
+{path:`${import.meta.env.BASE_URL}administration/assets/:assetType` ,element : <Assets/>},
 /****************************** GOVERNANCE ****************************************/
 /* Family structure */
 {path:`${import.meta.env.BASE_URL}governance/familyStructure` ,element : <FamilyStructure/>},
