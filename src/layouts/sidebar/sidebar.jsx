@@ -405,8 +405,8 @@ export default function Sidebar() {
         >
           <PerfectScrollbar options={{ suppressScrollX: true, useBothWheelAxes: false }}>
             <div className="side-header">
-              <Link className="header-brand1" to={`${import.meta.env.BASE_URL}dashboard/sales/`} 
-                    onClick={() => setSidemenu(`${import.meta.env.BASE_URL}dashboard/sales`) }>
+              <Link className="header-brand1" to={`${import.meta.env.BASE_URL}homeDashboard/`} 
+                    onClick={() => setSidemenu(`${import.meta.env.BASE_URL}homeDashboard`) }>
                 <img src={logo} className="header-brand-img main-logo" alt="Sparic logo" />
                 <img src={logolight} className="header-brand-img darklogo" alt="Sparic logo" />
                 <img src={icon1} className="header-brand-img icon-logo" alt="Sparic logo" />
@@ -432,15 +432,18 @@ export default function Sidebar() {
                       <li className={`slide ${secondlayer.active ? 'is-expanded' : ''}`} key={two}>
                         {secondlayer.type === "sub" ? (
                           <Link
-                            to="#"
-                            className={`side-menu__item ${secondlayer.selected ? "active" : ""
-                              }`}
+                            to={secondlayer.pathname || '#'}
+                            className={`side-menu__item ${secondlayer.selected ? "active" : ""}`}
                             onClick={(event) => {
-                              event.preventDefault();
-                              toggleSidemenu(secondlayer);
+                              if (!secondlayer.pathname) {
+                                event.preventDefault();
+                                toggleSidemenu(secondlayer);
+                              } else {
+                                setSidemenu(secondlayer)
+                                toggleSidemenu(secondlayer);
+                              }
                             }}
                           >
-
                             {secondlayer.icon}
                             <span className="side-menu__label">
                               {secondlayer.title}
@@ -449,11 +452,10 @@ export default function Sidebar() {
                               <Badge bg={secondlayer.color} className={secondlayer.class}>
                                 {secondlayer.badgetxt}
                               </Badge>
-                            ) : (
-                              ""
-                            )}
-                            <i className='angle fe fe-chevron-right'></i>
-
+                            ) : null}
+                            {!secondlayer.pathname ? (
+                              <i className='angle fe fe-chevron-right'></i>
+                            ) : null}
                           </Link>
 
                         ) : (

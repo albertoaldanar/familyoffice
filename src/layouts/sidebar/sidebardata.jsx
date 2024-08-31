@@ -4,7 +4,41 @@ const MenuItems = [
   {
     Items: [
       {
-        icon: (<i className="side-menu__icon ri-file-2-line"></i>),
+        icon: (<i className="side-menu__icon ri-home-2-line"></i>),
+        type: 'sub',
+        Name:'',
+        active: false,
+        selected: false,
+        title: 'Inicio',
+        pathname: `${import.meta.env.BASE_URL}homeDashboard`,
+        class:'',
+        color:'',
+        badgetxt:'',
+        children: null
+      },
+    ]
+  },
+  {
+    Items: [
+      {
+        icon: (<i className="side-menu__icon ri-file-chart-2-line"></i>),
+        type: 'sub',
+        Name:'',
+        active: false,
+        selected: false,
+        title: 'Reportes',
+        pathname: `${import.meta.env.BASE_URL}homeDashboard`,
+        class:'',
+        color:'',
+        badgetxt:'',
+        children: null
+      },
+    ]
+  },
+  {
+    Items: [
+      {
+        icon: (<i className="side-menu__icon ri-calendar-2-line"></i>),
         type: 'sub',
         Name:'',
         active: false,
@@ -14,7 +48,6 @@ const MenuItems = [
         color:'',
         badgetxt:'',      
         children: [
-          { path: `${import.meta.env.BASE_URL}homeDashboard`, type: 'link', active: false, selected: false, title: 'Dashboard' },
           { path: `${import.meta.env.BASE_URL}governance/familyStructure`, type: 'link', active: false, selected: false, title: 'Familia' },
           { path: `${import.meta.env.BASE_URL}administration/companies`, type: 'link', active: false, selected: false, title: 'Empresas y fideicomisos' },
           { path: `${import.meta.env.BASE_URL}administration/assets/realState`, type: 'link', active: false, selected: false, title: 'Activos fijos' },
@@ -66,23 +99,6 @@ const MenuItems = [
         ]
       },
     ]
-  },
-  {
-    Items: [
-      {
-        icon: (<i className="side-menu__icon ri-bar-chart-2-line"></i>),
-        type: 'sub',
-        Name:'',
-        active: false,
-        selected: false,
-        title: 'Reportes',
-        pathname: `${import.meta.env.BASE_URL}administration/payments`,
-        class:'',
-        color:'',
-        badgetxt:'',
-        children: null
-      },
-    ]
-  },
+  },  
 ]
 export default MenuItems

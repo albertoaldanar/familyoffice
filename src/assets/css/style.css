@@ -18669,7 +18669,7 @@ body.boxed {
     inset-inline-start: 4px;
     width: 1px;
     inset-block-start: 1px;
-    inset-block-end: 0px;
+    inset-block-end: 1px;
     background-color: var(--border);
 }
 
@@ -18683,21 +18683,32 @@ body.boxed {
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background-color: #2bb4a6;
+    background-color: #dcdcdc;
+    inset-block-start: 7px;
+    inset-inline-start: 1px;
+}
+
+.calendar-dictionary:before {
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: red;
     inset-block-start: 7px;
     inset-inline-start: 1px;
 }
 
 .sales-activity:nth-child(2):before {
-    background-color: #ec2d38;
+    background-color: #dcdcdc;
 }
 
 .sales-activity:nth-child(3):before {
-    background-color: #5c509b;
+    background-color: #dcdcdc;
 }
 
 .sales-activity:nth-child(4):before {
-    background-color: #32cafe;
+    background-color: #dcdcdc;
 }
 
 /*----- crypto styles -----*/

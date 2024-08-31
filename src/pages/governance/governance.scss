@@ -52,10 +52,21 @@
     cursor: pointer;
 }
 
+.custom-tooltip .tooltip-inner {
+  background-color: transparent !important; /* Remove black background */
+  border-radius: 8px !important; /* Rounded corners */
+  font-size: 12px !important; /* Custom font size */
+  box-shadow: none !important; /* Remove any box shadow */
+}
+
+.custom-tooltip .arrow::before {
+  border-top-color: transparent !important; /* Remove arrow color */
+}
+
 .fc-event {
   background-color: transparent !important; /* Transparent or any color */
   border: none !important; /* Remove any border */
-  color: black !important; /* Change text color */
+  color: white !important; /* Change text color */
   font-size: 0.6rem !important; /* Adjust font size */
   padding: 0px;
   margin: 0px;
