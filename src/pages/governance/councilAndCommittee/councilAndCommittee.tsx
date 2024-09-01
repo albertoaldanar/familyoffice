@@ -33,7 +33,7 @@ export default function CouncilAndCommittee() {
         </div>
           <Tab.Content className="panel-body">
             <Tab.Pane eventKey="first-council">
-                <Structure structureName='Concejo familiar' type='consejoFamiliar' data={councilAndCommittieesData.familyCouncil.members} />
+                <Structure structureName='Consejo familiar' type='consejoFamiliar' data={councilAndCommittieesData.familyCouncil.members} />
             </Tab.Pane>
 
             <Tab.Pane eventKey="second-council">
@@ -97,7 +97,7 @@ export default function CouncilAndCommittee() {
                 <Nav as="ul" className="nav panel-tabs">
                   <Nav.Item as="li" style={{ marginRight: 10 }}>
                     <Nav.Link eventKey="first" href="#">
-                      Concejo Familiar
+                      Consejo Familiar
                     </Nav.Link>
                   </Nav.Item>
                   <Nav.Item as="li" style={{ marginRight: 10 }}>

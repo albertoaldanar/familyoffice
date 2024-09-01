@@ -46,7 +46,7 @@ export const dashboardData = {
       user: "Carlos López",
     },
     {
-      title: "Se agendo nueva junta Concejo familiar",
+      title: "Se agendo nueva junta Conejo familiar",
       date: "2024-08-07",
       user: "Ana Martínez",
     },
@@ -147,6 +147,36 @@ export const dashboardData = {
       amountAprox: '850,000.00',
       currency: 'USD',
     }
+  ],
+  news: [
+    {
+      images: ['https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2148057337.jpg?c=16x9&q=h_653,w_1160,c_fill/f_webp'],
+      url: 'https://edition.cnn.com/2024/08/02/tech/wall-street-asks-big-tech-will-ai-ever-make-money/index.html',
+      title: 'Has the AI bubble burst? Wall Street wonders if artificial intelligence will ever make money',
+      description: 'In the 18 months since ChatGPT kicked off an AI arms race, tech giants have promised that the technology is poised to revolutionize every industry and used it as justification for spending tens of billions of dollars on data centers and semiconductors needed to run large AI models. Compared to that vision, the products they’ve rolled out so far feel somewhat trivial — chatbots with no clear path to monetization, cost saving measures like AI coding and customer service, and AI-enabled search that sometimes makes things up',
+      category: 'Tech',
+    },
+    {
+      images: ['https://tpc.googlesyndication.com/simgad/11024137985743803744?'],
+      url: 'https://edition.cnn.com/2024/08/08/tech/openai-chatgpt-voice-mode-human-attachment/index.html',
+      title: 'OpenAI worries people may become emotionally reliant on its new ChatGPT voice mode',
+      description: 'That revelation came in a report Thursday from OpenAI on the safety review it conducted of the tool — which began rolling out to paid users last week — and the large language AI model it runs on',
+      category: 'Tech',
+    },
+    {
+      images: ['https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2158237831.jpg?c=16x9&q=h_653,w_1160,c_fill/f_webp'],
+      url: 'https://edition.cnn.com/2024/08/09/tech/elon-musk-garm-advertisers-lawsuit/index.html',
+      title: 'Elon Musk’s X just sued a nonprofit advertising group out of existence',
+      description: 'The group, Global Alliance for Responsible Media, also known as GARM, is a voluntary ad-industry initiative run by the World Federation of Advertisers that aims to help brands avoid having their advertisements appear alongside illegal or harmful content. GARM confirmed it is still planning to defend itself in court.',
+      category: 'Bussiness',
+    },
+    {
+      images: ['https://assets.bwbx.io/images/users/iqjWHBFdfxIU/irp9FXBc12KM/v1/2000x1333.jpg'],
+      url: 'https://www.bloomberg.com/news/articles/2024-08-31/landlords-face-a-1-5-trillion-commercial-real-estate-maturity-wall?srnd=homepage-americas',
+      title: 'Landlords Face a $1.5 Trillion Commercial Real Estate Maturity Wall',
+      description: 'Landlords for offices, apartment complexes and other commercial real estate have $1.5 trillion of debt due by the end of next year, and about a quarter of that borrowing could be hard to refinance, according to Jones Lang LaSalle Inc.',
+      category: 'Bussiness',
+    },
   ],
   calendarItems: [
     {

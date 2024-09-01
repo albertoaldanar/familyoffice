@@ -14,7 +14,7 @@ export default function FamilyCouncil() {
                 <Nav as="ul" className="nav panel-tabs">
               <Nav.Item as="li" style={{ marginRight: 10 }}>
                 <Nav.Link eventKey="first-council" href="#">
-                  Miembros de concejo
+                  Miembros de consejo
                 </Nav.Link>
               </Nav.Item>
               <Nav.Item as="li" style={{ marginRight: 10 }}>
@@ -29,7 +29,7 @@ export default function FamilyCouncil() {
           <Tab.Content className="panel-body">
             <Tab.Pane eventKey="first-council">
               <Structure
-                structureName="Concejo familiar"
+                structureName="Consejo familiar"
                 type="consejoFamiliar"
                 data={councilAndCommittieesData.familyCouncil.members}
               />
@@ -60,7 +60,7 @@ export default function FamilyCouncil() {
           }}
         >
           {/* <Card.Title style={{ marginLeft: 15, marginTop: 20, marginBottom: 10}}>
-            Concejo familiar
+            Consejo familiar
           </Card.Title> */}
           {renderFamilyCouncil()}
         </Card>

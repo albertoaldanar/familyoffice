@@ -373,7 +373,7 @@ export default function RealStateDashboard() {
               className="text-center text-muted"
               style={{ marginTop: "50%" }}
             >
-              No hay actividades recientes.
+              Aún no hay actividades recientes.
             </div>
           ) : (
             activities.map((activity, index) => (
@@ -779,6 +779,75 @@ export default function RealStateDashboard() {
     );
   };
 
+  const renderNews = () => {
+    return (
+      <Row style={{ margin: 20, marginTop: 30 }}>
+        <Card.Title style={{ marginBottom: 35, fontSize: 14 }}>
+          Noticias destacadas del dia - Sabado 10 de agosto del 2024
+        </Card.Title>
+        {dashboardData.news.map((news) => (
+          <Col
+            xl={6}
+            lg={6}
+            sm={6}
+            key={news.id}
+            style={{ marginBottom: 20 }}
+          >
+            <Card
+              style={{ boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", height: 600 }}
+            >
+              <Card.Img
+                style={{ height: 240 }}
+                variant="top"
+                src={news.images[0]}
+                alt={news.titulo}
+              />
+              <Card.Body>
+                <Card.Title style={{marginBottom: 20}}>{news.title}</Card.Title>
+                <p style={{ color: "gray", fontSize: 11, marginTop: -10 }}>
+                  <strong style={{ fontWeight: "bold" }}>Categoria:</strong>{" "}
+                  {news.category}
+                </p>
+                <p
+                  style={{
+                    color: "gray",
+                    fontSize: 13,
+                    height: 180,
+                    marginTop: 20,
+                    overflowY: "scroll",
+                  }}
+                >
+                  {news.description}
+                </p>
+              </Card.Body>
+              <Button
+                onClick={() => window.open(news.url)}
+                variant="default"
+                style={{
+                  borderRadius: 10,
+                  marginBottom: 20,
+                  marginLeft: 40,
+                  marginRight: 40,
+                  fontSize: 12,
+                }}
+                size="sm"
+              >
+                {" "}
+                <i
+                  style={{ marginRight: 3 }}
+                  className="fe fe-arrow-up-right text-gray fs-12"
+                >
+                  {" "}
+                </i>{" "}
+                Ver noticia
+              </Button>
+            </Card>
+          </Col>
+        ))}
+      </Row>
+    );
+  };
+
   const InvestmentOpportunities = () => {
     return (
       <Row style={{ margin: 20, marginTop: 30 }}>
@@ -876,6 +945,8 @@ export default function RealStateDashboard() {
       return renderActivitiesListAndCalendar();
     } else if (selectedView === "opportunities") {
       return InvestmentOpportunities();
+    } else if(selectedView === "news"){
+      return renderNews();
     }
 
     return null;

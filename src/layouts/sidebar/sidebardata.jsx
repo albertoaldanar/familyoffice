@@ -72,7 +72,7 @@ const MenuItems = [
         color:'',
         badgetxt:'',      
         children: [
-          { path: `${import.meta.env.BASE_URL}governance/familyCouncil`, type: 'link', active: false, selected: false, title: 'Concejo Familiar' },
+          { path: `${import.meta.env.BASE_URL}governance/familyCouncil`, type: 'link', active: false, selected: false, title: 'Consejo Familiar' },
           { path: `${import.meta.env.BASE_URL}governance/investmentCommittee`, type: 'link', active: false, selected: false, title: 'Comité de inversión' },
         ]
       },
