@@ -13,7 +13,7 @@ export default function Companies() {
             justifyContent: "space-between",
             display: "flex",
             flexDirection: "row",
-            marginBottom: 15,
+            marginBottom: 30,
           }}
         >
           <div></div>
@@ -95,7 +95,7 @@ export default function Companies() {
             justifyContent: "space-between",
             display: "flex",
             flexDirection: "row",
-            marginBottom: 15,
+            marginBottom: 30,
           }}
         >
           <div></div>
@@ -182,11 +182,21 @@ export default function Companies() {
                 <Nav as="ul" className="nav panel-tabs">
                   <Nav.Item as="li" style={{ marginRight: 10 }}>
                     <Nav.Link eventKey="first" href="#">
+                    <i
+                      style={{ marginRight: 9 }}
+                      className="fe fe-briefcase text-black fs-15"
+                    ></i>
                       Personas morales
                     </Nav.Link>
                   </Nav.Item>
                   <Nav.Item as="li" style={{ marginRight: 10 }}>
-                    <Nav.Link eventKey="second">Fideicomisos</Nav.Link>
+                    <Nav.Link eventKey="second">
+                        <i
+                          style={{ marginRight: 9 }}
+                          className="fe fe-file-text text-black fs-15"
+                        ></i>
+                        Fideicomisos
+                      </Nav.Link>
                   </Nav.Item>
                 </Nav>
               </div>

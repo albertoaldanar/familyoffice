@@ -90,7 +90,8 @@ export const Meetings = ({ meetingType }) => {
           justifyContent: "space-between",
           display: "flex",
           flexDirection: "row",
-          marginTop: -10,
+          marginTop: 0,
+          marginBottom: 30
         }}
       >
         <div></div>

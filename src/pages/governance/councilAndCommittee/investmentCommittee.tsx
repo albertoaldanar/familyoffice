@@ -17,15 +17,31 @@ export default function FamilyCouncil() {
             <Nav as="ul" className="nav panel-tabs">
               <Nav.Item as="li" style={{ marginRight: 10 }}>
                 <Nav.Link eventKey="first-committee" href="#">
+                  <i
+                    style={{ marginRight: 9 }}
+                    className="fe fe-users text-black fs-15"
+                  ></i>
                   Miembros de cómite
                 </Nav.Link>
               </Nav.Item>
               <Nav.Item as="li" style={{ marginRight: 10 }}>
-                <Nav.Link eventKey="second-committee">Reuniones </Nav.Link>
+                <Nav.Link eventKey="second-committee">
+                  <i
+                    style={{ marginRight: 9 }}
+                    className="fe fe-calendar text-black fs-15"
+                  ></i>
+                  Reuniones 
+                </Nav.Link>
               </Nav.Item>
 
               <Nav.Item as="li" style={{ marginRight: 10 }}>
-                <Nav.Link eventKey="third-committee">Votaciones </Nav.Link>
+                <Nav.Link eventKey="third-committee">
+                  <i
+                    style={{ marginRight: 9 }}
+                    className="fe fe-thumbs-up text-black fs-15"
+                  ></i>
+                  Votaciones 
+                </Nav.Link>
               </Nav.Item>
             </Nav>
           </div>

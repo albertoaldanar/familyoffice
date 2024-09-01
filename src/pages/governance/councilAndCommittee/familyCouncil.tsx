@@ -10,19 +10,35 @@ export default function FamilyCouncil() {
     return (
       <div style={{ marginTop: 10 }}>
         <Tab.Container id="left-tabs-example" defaultActiveKey="first-council">
-        <div className="tabs-menu1">
-                <Nav as="ul" className="nav panel-tabs">
+          <div className="tabs-menu1">
+            <Nav as="ul" className="nav panel-tabs">
               <Nav.Item as="li" style={{ marginRight: 10 }}>
                 <Nav.Link eventKey="first-council" href="#">
+                  <i
+                    style={{ marginRight: 9 }}
+                    className="fe fe-users text-black fs-15"
+                  ></i>
                   Miembros de consejo
                 </Nav.Link>
               </Nav.Item>
               <Nav.Item as="li" style={{ marginRight: 10 }}>
-                <Nav.Link eventKey="second-council">Reuniones </Nav.Link>
+                <Nav.Link eventKey="second-council">
+                  <i
+                    style={{ marginRight: 9 }}
+                    className="fe fe-calendar text-black fs-15"
+                  ></i>
+                  Reuniones 
+                </Nav.Link>
               </Nav.Item>
 
               <Nav.Item as="li" style={{ marginRight: 10 }}>
-                <Nav.Link eventKey="third-council">Votaciones </Nav.Link>
+                <Nav.Link eventKey="third-council">
+                  <i
+                    style={{ marginRight: 9 }}
+                    className="fe fe-thumbs-up text-black fs-15"
+                  ></i>
+                  Votaciones 
+                </Nav.Link>
               </Nav.Item>
             </Nav>
           </div>

@@ -251,15 +251,29 @@ export default function FamilyStructure() {
               <div className="tabs-menu1">
                 <Nav as="ul" className="nav panel-tabs">
                   <Nav.Item as="li" style={{ marginRight: 10 }}>
-                    <Nav.Link eventKey="first">Esquema familiar </Nav.Link>
+                    <Nav.Link eventKey="first">
+                      <i
+                        style={{ marginRight: 9 }}
+                        className="fe fe-users text-black fs-15"
+                      ></i> 
+                      Esquema familiar 
+                    </Nav.Link>
                   </Nav.Item>
                   <Nav.Item as="li" style={{ marginRight: 10 }}>
                     <Nav.Link eventKey="second">
+                      <i
+                        style={{ marginRight: 9 }}
+                        className="fe fe-file-text text-black fs-15"
+                      ></i>
                       Documentos Family Office{" "}
                     </Nav.Link>
                   </Nav.Item>
                   <Nav.Item as="li" style={{ marginRight: 10 }}>
                     <Nav.Link eventKey="third" href="#">
+                      <i
+                        style={{ marginRight: 9 }}
+                        className="fe fe-folder text-black fs-15"
+                      ></i>
                       Documentos familiares
                     </Nav.Link>
                   </Nav.Item>

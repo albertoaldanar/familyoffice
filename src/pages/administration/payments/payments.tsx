@@ -10,6 +10,7 @@ import Taxes from "../taxes/taxes";
 import { companies } from "../accounting/accountingData";
 import { daysToAnualTax, daysUntilNextMonth17 } from "../taxes/taxesUtils";
 import { renderFlag } from "../accounting/companyUtils";
+import Collecting from "../collecting/collecting";
 
 export default function Payments() {
   const renderPayments = () => {
@@ -66,9 +67,20 @@ export default function Payments() {
     const today = new Date();
     return (
       <Col xl={12} style={{ marginTop: 20 }}>
-        <div style={{marginTop: -25, marginBottom: 30 }}>
-            <p style={{ fontStyle: 'italic', fontSize: 13,color: 'gray' }}>Fecha limite prox declaracion anual: {daysToAnualTax(today)}</p>
-            <p style={{ fontStyle: 'italic', fontSize: 13, marginTop: -15, color: 'gray' }}>Fecha limite prox declaracion mensual: {daysUntilNextMonth17(today)}</p>
+        <div style={{ marginTop: -25, marginBottom: 30 }}>
+          <p style={{ fontStyle: "italic", fontSize: 13, color: "gray" }}>
+            Fecha limite prox declaracion anual: {daysToAnualTax(today)}
+          </p>
+          <p
+            style={{
+              fontStyle: "italic",
+              fontSize: 13,
+              marginTop: -15,
+              color: "gray",
+            }}
+          >
+            Fecha limite prox declaracion mensual: {daysUntilNextMonth17(today)}
+          </p>
         </div>
 
         <Card>
@@ -91,7 +103,9 @@ export default function Payments() {
                     <td>{idx.razonSocial}</td>
                     <td>{idx.rfc}</td>
                     <td>{renderFlag(idx.nationality)}</td>
-                    <td>${idx.valuacion} {idx.moneda}</td>
+                    <td>
+                      ${idx.valuacion} {idx.moneda}
+                    </td>
                     <td
                       style={{
                         cursor: "pointer",
@@ -100,7 +114,10 @@ export default function Payments() {
                       }}
                     >
                       {/*// @ts-ignore */}
-                      <Link to={`${import.meta.env.BASE_URL}administration/company/${idx.id}/tax`}
+                      <Link
+                        to={`${
+                          import.meta.env.BASE_URL
+                        }administration/company/${idx.id}/tax`}
                       >
                         Ver
                       </Link>
@@ -124,22 +141,48 @@ export default function Payments() {
               <Nav as="ul" className="nav panel-tabs">
                 <Nav.Item as="li" style={{ marginRight: 10 }}>
                   <Nav.Link eventKey="first" href="#">
+                    <i
+                      style={{ marginRight: 7 }}
+                      className="fe fe-arrow-up-right text-black fs-15"
+                    ></i>
                     Cuentas por pagar
                   </Nav.Link>
                 </Nav.Item>
                 <Nav.Item as="li" style={{ marginRight: 10 }}>
+                  <Nav.Link eventKey="fourth" href="#">
+                    <i
+                      style={{ marginRight: 7 }}
+                      className="fe fe-arrow-down-right text-black fs-15"
+                    ></i>
+                    Cuentas por cobrar
+                  </Nav.Link>
+                </Nav.Item>
+                <Nav.Item as="li" style={{ marginRight: 10 }}>
                   <Nav.Link eventKey="second">
+                    <i
+                      style={{ marginRight: 9 }}
+                      className="fe fe-users text-black fs-15"
+                    ></i>
                     Fiscal personas fisicas{" "}
                   </Nav.Link>
                 </Nav.Item>
                 <Nav.Item as="li" style={{ marginRight: 10 }}>
-                  <Nav.Link eventKey="third">Fiscal personas morales</Nav.Link>
+                  <Nav.Link eventKey="third">
+                    <i
+                      style={{ marginRight: 9 }}
+                      className="fe fe-briefcase text-black fs-15"
+                    ></i>
+                    Fiscal personas morales
+                  </Nav.Link>
                 </Nav.Item>
               </Nav>
             </div>
 
             <Tab.Content className="panel-body">
               <Tab.Pane eventKey="first">{renderPayments()}</Tab.Pane>
+              <Tab.Pane eventKey="fourth">
+                <Collecting />
+              </Tab.Pane>
               <Tab.Pane eventKey="second">
                 <Taxes />
               </Tab.Pane>
