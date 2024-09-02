@@ -72,7 +72,7 @@ export default function Companies() {
             }}
           >
             <Card.Title style={{ marginLeft: 15, marginTop: 30 }}>
-              Proveedores de servicio / Directorio
+              Proveedores de servicio y Contactos
             </Card.Title>
             <Button
               style={{

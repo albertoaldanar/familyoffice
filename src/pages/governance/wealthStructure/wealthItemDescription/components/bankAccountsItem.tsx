@@ -145,31 +145,6 @@ export default function BanksAccountsItem(props) {
           Cuenta bancaria {accountSelected.bank} -
           {accountSelected.accountNumber}
         </Card.Title>
-        {
-          accountSelected.containedIntrusts.length ? (
-            <Row>
-              <Form.Label>Cuentas bancarias contenido en los siguientes fideicomisos:</Form.Label>
-              {accountSelected.containedIntrusts.map(trust => {
-                  return (
-                    <p
-                      style={{
-                        cursor: "pointer",
-                        textDecoration: "underline",
-                        color: "#5488d2",
-                        fontSize: 12,
-                        marginTop: -6
-                      }}
-                    >
-                      {/*// @ts-ignore */}
-                      <Link to={`${import.meta.env.BASE_URL}administration/trustDescription/${trust.id}`}>
-                        {trust.name}
-                      </Link>
-                    </p>
-                  );
-              })}
-            </Row>
-          ): null
-        }
         <Row style={{ marginTop: 10 }}>
           <Form.Group
             as={Col}

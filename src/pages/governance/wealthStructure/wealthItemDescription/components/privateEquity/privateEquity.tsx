@@ -10,8 +10,9 @@ import { family } from "../../../../familyStructure/familyStructureData";
 import { companies } from "../../../../../administration/accounting/accountingData";
 import NotFoundSearch from "../../../../../shared/notFoundSearch";
 import { otherWealthData } from "../../../wealthStructureData";
+import { fideicomisos } from "../../../../../administration/accounting/accountingData";
 import { formatCompany } from "../../../../../administration/accounting/companyUtils";
-import { formatOwnersData } from "../../../../../administration/accounting/companyUtils";
+import { formatOwnersData, formatTrust } from "../../../../../administration/accounting/companyUtils";
 import { formatCurrency } from "../../../../../administration/payments/paymentUtils";
 //@ts-ignore
 import { Link } from "react-router-dom";
@@ -25,7 +26,7 @@ export default function PrivateEquity(props) {
   if (!privateEquitySelected) {
     return <NotFoundSearch />;
   }
-
+  const trustList = formatTrust(fideicomisos);
   const familyList = formatMember(family.members);
   const companiesList = formatCompany(companies);
   const ownerData = formatOwnersData(privateEquitySelected);
@@ -36,6 +37,7 @@ export default function PrivateEquity(props) {
   const [ownerFamilyMembers, setOwnerFamilyMembers] = useState(ownerData.family);
   const [ownerCompanies, setOwnerCompanies] = useState(ownerData.company);
   const [industry, setIndustry] = useState(privateEquitySelected.industry);
+  const [ownerTrust, setOwnerTrust] = useState(ownerData.trust);
   const [concept, setConcept] = useState("");
   const [amount, setAmount] = useState(privateEquitySelected.investment);
   const [interestRate, setInterestRate] = useState();
@@ -133,6 +135,15 @@ export default function PrivateEquity(props) {
           [attributeName]: value,
         };
         return updatedCompanies;
+      });
+    } else if (type === "trust") {
+      setOwnerTrust((prevState) => {
+        const updatedTrusts = [...prevState];
+        updatedTrusts[memberIndex] = {
+          ...updatedTrusts[memberIndex],
+          [attributeName]: value,
+        };
+        return updatedTrusts;
       });
     }
   };
@@ -240,6 +251,57 @@ export default function PrivateEquity(props) {
           );
         });
       }
+    } else if (type === "trust") {
+      if (ownerTrust.length) {
+        return ownerTrust.map((trust, index) => {
+          return (
+            <div key={index} style={{ marginTop: 15 }}>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                }}
+              >
+                <div></div>
+                <p
+                  style={{
+                    marginTop: 3,
+                    fontWeight: "500",
+                    fontSize: 13,
+                    marginBottom: -3,
+                  }}
+                >
+                  {trust.label}
+                </p>
+              </div>
+
+              <p
+                style={{
+                  color: "gray",
+                  fontSize: 12,
+                  marginTop: 3,
+                  marginBottom: 4,
+                }}
+              >
+                Porcentaje
+              </p>
+              <InputGroup hasValidation style={{ marginBottom: 8 }}>
+                <Form.Control
+                  type="numeric"
+                  aria-describedby="inputGroupPrepend-3"
+                  required
+                  onChange={(e) =>
+                    handleInputChange(index, "pct", e.target.value, "trust")
+                  }
+                  value={trust.pct || ""}
+                />
+                <InputGroup.Text id="inputGroupPrepend">%</InputGroup.Text>
+              </InputGroup>
+            </div>
+          );
+        });
+      }
     }
 
     return;
@@ -303,6 +365,28 @@ export default function PrivateEquity(props) {
             />
 
             {renderOptionsSelected("company")}
+          </Form.Group>
+          <Form.Group
+            as={Col}
+            md="4"
+            controlId="validationCustom01"
+            className="form-group"
+          >
+            <p style={{ color: "gray", fontSize: 13 }}>Fideicomisos</p>
+            <MultiSelect
+              options={trustList}
+              value={ownerTrust}
+              onChange={setOwnerTrust}
+              labelledBy="Select"
+              overrideStrings={{
+                selectSomeItems: "Selecciona fideicomisos accionistas",
+                allItemsAreSelected: "Todos los fideicomisos",
+                selectAll: "Seleccionar todos",
+              }}
+              disableSearch
+            />
+
+            {renderOptionsSelected("trust")}
           </Form.Group>
         </Row>
       </div>

@@ -70,7 +70,7 @@ export default function InsurancesNewPayment(props) {
   return (
     <Fragment>
       <Row>
-        <Card style={{ padding: 30, marginTop: 50 }}>
+        <Card style={{ padding: 30, marginTop: 20 }}>
           <Card.Title style={{ marginBottom: 50 }}>
             Nuevo pago - Seguro {insurance.tipo} {insurance.nombre}
           </Card.Title>

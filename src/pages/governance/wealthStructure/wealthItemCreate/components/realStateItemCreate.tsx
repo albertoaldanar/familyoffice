@@ -8,14 +8,14 @@ import FileUpload from "../../../../administration/accounting/components/fileUpl
 import { formatMember } from "../../../councilAndCommittee/councilAndCommitteeUtils";
 import { family } from "../../../familyStructure/familyStructureData";
 import { companies } from "../../../../administration/accounting/accountingData";
-import { formatCompany } from "../../../../administration/accounting/companyUtils";
-import { Link } from "react-router-dom";
-import { useParams } from "react-router-dom";
+import { formatCompany, formatTrust } from "../../../../administration/accounting/companyUtils";
+import { fideicomisos } from "../../../../administration/accounting/accountingData";
 
 export default function RealStateItemCreate(props) {
   const familyList = formatMember(family.members);
   const companiesList = formatCompany(companies);
   const membersList = formatMember(family.members);
+  const trustsList = formatTrust(fideicomisos);
   const [propertyName, setPropertyName] = useState("");
   const [location, setLocation] = useState("");
   const [city, setCity] = useState("");
@@ -24,6 +24,7 @@ export default function RealStateItemCreate(props) {
   const [todayValue, setTodayValue] = useState("");
   const [mt2, setMt2] = useState("");
   const [ownerFamilyMembers, setOwnerFamilyMembers] = useState([]);
+  const [ownerTurst, setOwnerTurst] = useState([]);
   const [ownerCompanies, setOwnerCompanies] = useState([]);
   const [country, setCountry] = useState({
     value: "",
@@ -83,6 +84,15 @@ export default function RealStateItemCreate(props) {
           [attributeName]: value,
         };
         return updatedCompanies;
+      });
+    } else if (type === "trust") {
+      setOwnerTurst((prevState) => {
+        const updatedTrusts = [...prevState];
+        updatedTrusts[memberIndex] = {
+          ...updatedTrusts[memberIndex],
+          [attributeName]: value,
+        };
+        return updatedTrusts;
       });
     }
   };
@@ -193,6 +203,62 @@ export default function RealStateItemCreate(props) {
                     )
                   }
                   value={company.pct || ""}
+                />
+                <InputGroup.Text id="inputGroupPrepend">%</InputGroup.Text>
+              </InputGroup>
+            </div>
+          );
+        });
+      }
+    } else if (type === "trust") {
+      if (ownerTurst.length) {
+        return ownerTurst.map((trust, index) => {
+          return (
+            <div key={index} style={{ marginTop: 15 }}>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                }}
+              >
+                <div></div>
+                <p
+                  style={{
+                    marginTop: 3,
+                    fontWeight: "500",
+                    fontSize: 13,
+                    marginBottom: -3,
+                  }}
+                >
+                  {trust.label}
+                </p>
+              </div>
+
+              <p
+                style={{
+                  color: "gray",
+                  fontSize: 12,
+                  marginTop: 3,
+                  marginBottom: 4,
+                }}
+              >
+                Porcentaje
+              </p>
+              <InputGroup hasValidation style={{ marginBottom: 8 }}>
+                <Form.Control
+                  type="numeric"
+                  aria-describedby="inputGroupPrepend-3"
+                  required
+                  onChange={(e) =>
+                    handleInputChange(
+                      index,
+                      "pct",
+                      e.target.value,
+                      "trust"
+                    )
+                  }
+                  value={trust.pct || ""}
                 />
                 <InputGroup.Text id="inputGroupPrepend">%</InputGroup.Text>
               </InputGroup>
@@ -324,6 +390,29 @@ export default function RealStateItemCreate(props) {
                 />
 
                 {renderOptionsSelected("company")}
+              </Form.Group>
+
+              <Form.Group
+                as={Col}
+                md="4"
+                controlId="validationCustom01"
+                className="form-group"
+              >
+                <p style={{ color: "gray", fontSize: 13 }}>Fideicomisos</p>
+                <MultiSelect
+                  options={trustsList}
+                  value={ownerTurst}
+                  onChange={setOwnerTurst}
+                  labelledBy="Select"
+                  overrideStrings={{
+                    selectSomeItems: "Selecciona empresas accionistas",
+                    allItemsAreSelected: "Todos los fideicomisos",
+                    selectAll: "Seleccionar todos",
+                  }}
+                  disableSearch
+                />
+
+                {renderOptionsSelected("trust")}
               </Form.Group>
             </Row>
 

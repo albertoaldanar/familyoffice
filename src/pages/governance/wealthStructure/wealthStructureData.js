@@ -161,9 +161,15 @@ export const otherWealthData = {
       owners: [
         {
           type: "company",
-          pct: "100",
+          pct: "50",
           coreId: 23,
           name: "Aldana Clima Integral",
+        },
+        {
+          type: "trust",
+          pct: "50",
+          coreId: 90,
+          name: "144002 BBVA",
         },
       ],
       containedIntrusts: [],
@@ -188,9 +194,15 @@ export const otherWealthData = {
       owners: [
         {
           type: "family",
-          pct: "100",
+          pct: "80",
           coreId: "43",
           name: "Francisco Aldana Fariñas",
+        },
+        {
+          type: "trust",
+          pct: "20",
+          coreId: 20,
+          name: "0014233-Santander",
         },
       ],
     },
@@ -209,7 +221,7 @@ export const otherWealthData = {
       containedIntrusts: [
         {
           id: 20,
-          name: "Fideicomiso 0014233 Santander",
+          name: "0014233-Santander",
         },
       ],
       bank: "Santander",
@@ -393,10 +405,10 @@ export const otherWealthData = {
           name: "Francisco Aldana Fariñas",
         },
         {
-          type: "family",
+          type: "trust",
           pct: "50",
-          coreId: "23",
-          name: "Patricia Ríos Collantes",
+          coreId: 90,
+          name: "144002-BBVA",
         },
       ],
       resultsReports: [

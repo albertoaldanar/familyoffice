@@ -4,14 +4,15 @@ import Select from "react-select";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import { MultiSelect } from "react-multi-select-component";
 //@ts-ignore
 import download from '../../../assets/images/familyOffice/download.png';
 import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import dayjs, { Dayjs } from "dayjs";
 import FileUpload from "../../administration/providers/components/fileUpload";
-import Pageheader from "../../../layouts/pageheader/pageheader";
 import { taxesRules } from "../../administration/taxes/taxesUtils";
 import { family } from "./familyStructureData";
+import { nationalities } from './familyStructureConst';
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
@@ -30,6 +31,9 @@ export default function FamilyMemberCreate(props) {
     value: "",
     label: "",
   });
+  
+  const [nationality, setNationalities] = useState([]);
+
   const [address, setAddress] = useState("");
   const [dateOfBirth, setDateOfBirth] = useState<Dayjs | null>(dayjs(""));
   const [isDescendantOfCouple, setIsDescendantOfCouple] = useState(true);
@@ -146,6 +150,26 @@ export default function FamilyMemberCreate(props) {
                   value={gender}
                 />
               </Form.Group>
+              <Form.Group
+            as={Col}
+            md="4"
+            controlId="validationCustom01"
+            className="form-group"
+          >
+            <Form.Label>Nacionalidades</Form.Label>
+            <MultiSelect
+              options={nationalities}
+              value={nationality}
+              onChange={setNationalities}
+              labelledBy="Select"
+              overrideStrings={{
+                selectSomeItems: "Selecciona nacionalidades",
+                allItemsAreSelected: "Todos los miembros",
+                selectAll: "Seleccionar todas",
+              }}
+              disableSearch
+            />
+          </Form.Group>
             </Row>
 
             <Row style={{ marginTop: 20 }}>

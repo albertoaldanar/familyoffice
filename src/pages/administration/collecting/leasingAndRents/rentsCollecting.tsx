@@ -155,7 +155,7 @@ export default function RentPayment(props) {
   return (
     <Fragment>
       <Row>
-        <Card style={{ padding: 30, marginTop: 50 }}>
+        <Card style={{ padding: 30, marginTop: 20 }}>
           <Card.Title style={{ marginBottom: 50 }}>
             Registro de pago - Renta {leasingAndRent.tipo} {leasingAndRent.concepto}
           </Card.Title>

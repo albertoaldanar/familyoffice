@@ -7,19 +7,22 @@ import { countryOptions } from "../../../../administration/accounting/companyUti
 import { formatMember } from "../../../councilAndCommittee/councilAndCommitteeUtils";
 import { family } from "../../../familyStructure/familyStructureData";
 import { companies } from "../../../../administration/accounting/accountingData";
-import { formatCompany } from "../../../../administration/accounting/companyUtils";
+import { fideicomisos } from "../../../../administration/accounting/accountingData";
+import { formatCompany, formatTrust } from "../../../../administration/accounting/companyUtils";
 //@ts-ignore
 import { Link } from "react-router-dom";
 
 export default function StockInvestmentCreate(props) {
   const familyList = formatMember(family.members);
   const companiesList = formatCompany(companies);
+  const trustsList = formatTrust(fideicomisos);
   const [investment, setInvestment] = useState("");
   const [bank, setBank] = useState("");
   const [ownerFamilyMembers, setOwnerFamilyMembers] = useState([]);
   const [ownerCompanies, setOwnerCompanies] = useState([]);
   const [routing, setRouting] = useState("");
   const [accountNumber, setAccountNumber] = useState("");
+  const [ownerTurst, setOwnerTurst] = useState([]);
 
   const [country, setCountry] = useState({
     value: "",
@@ -37,12 +40,7 @@ export default function StockInvestmentCreate(props) {
     { value: "EUR", label: "EUR" },
   ];
 
-  const handleInputChange = (
-    memberIndex,
-    attributeName,
-    value,
-    type
-  ) => {
+  const handleInputChange = (memberIndex, attributeName, value, type) => {
     if (type === "family") {
       setOwnerFamilyMembers((prevState) => {
         const updatedMembers = [...prevState];
@@ -60,6 +58,15 @@ export default function StockInvestmentCreate(props) {
           [attributeName]: value,
         };
         return updatedCompanies;
+      });
+    } else if (type === "trust") {
+      setOwnerTurst((prevState) => {
+        const updatedTrusts = [...prevState];
+        updatedTrusts[memberIndex] = {
+          ...updatedTrusts[memberIndex],
+          [attributeName]: value,
+        };
+        return updatedTrusts;
       });
     }
   };
@@ -106,12 +113,7 @@ export default function StockInvestmentCreate(props) {
                   aria-describedby="inputGroupPrepend-3"
                   required
                   onChange={(e) =>
-                    handleInputChange(
-                      index,
-                      "pct",
-                      e.target.value,
-                      "family"
-                    )
+                    handleInputChange(index, "pct", e.target.value, "family")
                   }
                   value={member.pct || ""}
                 />
@@ -145,6 +147,56 @@ export default function StockInvestmentCreate(props) {
                   {company.label}
                 </p>
               </div>
+              <p
+                style={{
+                  color: "gray",
+                  fontSize: 12,
+                  marginTop: 3,
+                  marginBottom: 4,
+                }}
+              >
+                Porcentaje
+              </p>
+              <InputGroup hasValidation style={{ marginBottom: 8 }}>
+                <Form.Control
+                  type="numeric"
+                  aria-describedby="inputGroupPrepend-3"
+                  required
+                  onChange={(e) =>
+                    handleInputChange(index, "pct", e.target.value, "company")
+                  }
+                  value={company.pct || ""}
+                />
+                <InputGroup.Text id="inputGroupPrepend">%</InputGroup.Text>
+              </InputGroup>
+            </div>
+          );
+        });
+      }
+    } else if (type === "trust") {
+      if (ownerTurst.length) {
+        return ownerTurst.map((trust, index) => {
+          return (
+            <div key={index} style={{ marginTop: 15 }}>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                }}
+              >
+                <div></div>
+                <p
+                  style={{
+                    marginTop: 3,
+                    fontWeight: "500",
+                    fontSize: 13,
+                    marginBottom: -3,
+                  }}
+                >
+                  {trust.label}
+                </p>
+              </div>
 
               <p
                 style={{
@@ -166,10 +218,10 @@ export default function StockInvestmentCreate(props) {
                       index,
                       "pct",
                       e.target.value,
-                      "company"
+                      "trust"
                     )
                   }
-                  value={company.pct || ""}
+                  value={trust.pct || ""}
                 />
                 <InputGroup.Text id="inputGroupPrepend">%</InputGroup.Text>
               </InputGroup>
@@ -178,8 +230,6 @@ export default function StockInvestmentCreate(props) {
         });
       }
     }
-
-    return;
   };
 
   const renderOwnerTypeOptions = () => {
@@ -192,7 +242,9 @@ export default function StockInvestmentCreate(props) {
             controlId="validationCustom01"
             className="form-group"
           >
-            <Form.Label>Porcentajes de propietarios de inversión bursatil</Form.Label>
+            <Form.Label>
+              Porcentajes de propietarios de inversión bursatil
+            </Form.Label>
           </Form.Group>
         </Row>
 
@@ -240,6 +292,28 @@ export default function StockInvestmentCreate(props) {
             />
 
             {renderOptionsSelected("company")}
+          </Form.Group>
+          <Form.Group
+            as={Col}
+            md="4"
+            controlId="validationCustom01"
+            className="form-group"
+          >
+            <p style={{ color: "gray", fontSize: 13 }}>Fideicomisos</p>
+            <MultiSelect
+              options={trustsList}
+              value={ownerTurst}
+              onChange={setOwnerTurst}
+              labelledBy="Select"
+              overrideStrings={{
+                selectSomeItems: "Selecciona empresas accionistas",
+                allItemsAreSelected: "Todos los fideicomisos",
+                selectAll: "Seleccionar todos",
+              }}
+              disableSearch
+            />
+
+            {renderOptionsSelected("trust")}
           </Form.Group>
         </Row>
       </div>
@@ -294,7 +368,6 @@ export default function StockInvestmentCreate(props) {
             </InputGroup>
           </Form.Group>
 
-
           <Form.Group
             as={Col}
             md="4"
@@ -314,12 +387,12 @@ export default function StockInvestmentCreate(props) {
         </Row>
 
         <Row style={{ marginBottom: 10, marginTop: 20 }}>
-            <Form.Group
-              as={Col}
-              md="4"
-              controlId="validationCustom01"
-              className="form-group"
-            >
+          <Form.Group
+            as={Col}
+            md="4"
+            controlId="validationCustom01"
+            className="form-group"
+          >
             <Form.Label>Banco</Form.Label>
             <Form.Control
               type="numeric"
@@ -371,7 +444,6 @@ export default function StockInvestmentCreate(props) {
               value={routing}
             />
           </Form.Group>
-
         </Row>
 
         <div

@@ -214,7 +214,7 @@ export default function TaxesReport(props) {
   return (
     <Fragment>
       <Row>
-        <Card style={{ padding: 30, marginTop: 50 }}>
+        <Card style={{ padding: 30, marginTop: 20 }}>
           <Card.Title style={{ marginBottom: 50 }}>
             Declaracion {params.type} {taxUserSelected.nombre} - {reportSelected.mes} {reportSelected.anio}
             {reportSelected.year}

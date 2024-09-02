@@ -12,13 +12,19 @@ import { formatMember } from "../../../councilAndCommittee/councilAndCommitteeUt
 import { countryOptions } from "../../../../administration/accounting/companyUtils";
 import { family } from "../../../familyStructure/familyStructureData";
 import { companies } from "../../../../administration/accounting/accountingData";
-import { formatCompany } from "../../../../administration/accounting/companyUtils";
+import { fideicomisos } from "../../../../administration/accounting/accountingData";
+import {
+  formatCompany,
+  formatTrust,
+} from "../../../../administration/accounting/companyUtils";
 //@ts-ignore
 import { Link } from "react-router-dom";
 
 export default function PrivateEquityCreate(props) {
   const familyList = formatMember(family.members);
   const companiesList = formatCompany(companies);
+  const trustsList = formatTrust(fideicomisos);
+  const [ownerTurst, setOwnerTurst] = useState([]);
   const [fundName, setFundName] = useState("");
   const [investment, setInvestment] = useState("");
   const [investmentYear, setInvestmentYear] = useState("");
@@ -128,6 +134,15 @@ export default function PrivateEquityCreate(props) {
         };
         return updatedCompanies;
       });
+    } else if (type === "trust") {
+      setOwnerTurst((prevState) => {
+        const updatedTrusts = [...prevState];
+        updatedTrusts[memberIndex] = {
+          ...updatedTrusts[memberIndex],
+          [attributeName]: value,
+        };
+        return updatedTrusts;
+      });
     }
   };
 
@@ -234,6 +249,57 @@ export default function PrivateEquityCreate(props) {
           );
         });
       }
+    } else if (type === "trust") {
+      if (ownerTurst.length) {
+        return ownerTurst.map((trust, index) => {
+          return (
+            <div key={index} style={{ marginTop: 15 }}>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                }}
+              >
+                <div></div>
+                <p
+                  style={{
+                    marginTop: 3,
+                    fontWeight: "500",
+                    fontSize: 13,
+                    marginBottom: -3,
+                  }}
+                >
+                  {trust.label}
+                </p>
+              </div>
+
+              <p
+                style={{
+                  color: "gray",
+                  fontSize: 12,
+                  marginTop: 3,
+                  marginBottom: 4,
+                }}
+              >
+                Porcentaje
+              </p>
+              <InputGroup hasValidation style={{ marginBottom: 8 }}>
+                <Form.Control
+                  type="numeric"
+                  aria-describedby="inputGroupPrepend-3"
+                  required
+                  onChange={(e) =>
+                    handleInputChange(index, "pct", e.target.value, "trust")
+                  }
+                  value={trust.pct || ""}
+                />
+                <InputGroup.Text id="inputGroupPrepend">%</InputGroup.Text>
+              </InputGroup>
+            </div>
+          );
+        });
+      }
     }
 
     return;
@@ -297,6 +363,28 @@ export default function PrivateEquityCreate(props) {
             />
 
             {renderOptionsSelected("company")}
+          </Form.Group>
+          <Form.Group
+            as={Col}
+            md="4"
+            controlId="validationCustom01"
+            className="form-group"
+          >
+            <p style={{ color: "gray", fontSize: 13 }}>Fideicomisos</p>
+            <MultiSelect
+              options={trustsList}
+              value={ownerTurst}
+              onChange={setOwnerTurst}
+              labelledBy="Select"
+              overrideStrings={{
+                selectSomeItems: "Selecciona empresas accionistas",
+                allItemsAreSelected: "Todos los fideicomisos",
+                selectAll: "Seleccionar todos",
+              }}
+              disableSearch
+            />
+
+            {renderOptionsSelected("trust")}
           </Form.Group>
         </Row>
       </div>

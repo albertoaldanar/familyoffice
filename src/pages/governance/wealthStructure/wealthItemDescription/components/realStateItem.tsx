@@ -20,9 +20,10 @@ import NotFoundSearch from "../../../../shared/notFoundSearch";
 import { prediales, mantenimientos, creditos, seguros } from "../../../../administration/payments/paymentsData";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import { fideicomisos } from "../../../../administration/accounting/accountingData";
 import { family } from "../../../familyStructure/familyStructureData";
 import { companies } from "../../../../administration/accounting/accountingData";
-import { formatCompany, formatOwnersData } from "../../../../administration/accounting/companyUtils";
+import { formatCompany, formatOwnersData, formatTrust } from "../../../../administration/accounting/companyUtils";
 import { formatMember } from "../../../councilAndCommittee/councilAndCommitteeUtils";
 
 export default function RealStateItem(props) {
@@ -34,6 +35,7 @@ export default function RealStateItem(props) {
     return <NotFoundSearch />;
   }
 
+  const trustList = formatTrust(fideicomisos);
   const familyList = formatMember(family.members);
   const companiesList = formatCompany(companies);
   const ownerData = formatOwnersData(realStateSelected);
@@ -46,6 +48,7 @@ export default function RealStateItem(props) {
   const [mt2, setMt2] = useState(realStateSelected.mt2);
   const [ownerFamilyMembers, setOwnerFamilyMembers] = useState(ownerData.family);
   const [ownerCompanies, setOwnerCompanies] = useState(ownerData.company);
+  const [ownerTrust, setOwnerTrust] = useState(ownerData.trust);
 
   const [country, setCountry] = useState({
     value: realStateSelected.country,
@@ -85,31 +88,6 @@ export default function RealStateItem(props) {
   const renderDescription = () => {
     return (
       <div>
-        {
-          realStateSelected.containedIntrusts.length ? (
-            <Row>
-              <Form.Label>Bien raiz contenido en los siguientes fideicomisos:</Form.Label>
-              {realStateSelected.containedIntrusts.map(trust => {
-                  return (
-                    <p
-                      style={{
-                        cursor: "pointer",
-                        textDecoration: "underline",
-                        color: "#5488d2",
-                        fontSize: 12,
-                        marginTop: -6
-                      }}
-                    >
-                      {/*// @ts-ignore */}
-                      <Link to={`${import.meta.env.BASE_URL}administration/trustDescription/${trust.id}`}>
-                        {trust.name}
-                      </Link>
-                    </p>
-                  );
-              })}
-            </Row>
-          ): null
-        }
         <Row style={{ marginBottom: 10, marginTop: 15 }}>
           <Form.Group
             as={Col}
@@ -495,6 +473,15 @@ export default function RealStateItem(props) {
         };
         return updatedCompanies;
       });
+    } else if (type === "trust") {
+      setOwnerTrust((prevState) => {
+        const updatedTrusts = [...prevState];
+        updatedTrusts[memberIndex] = {
+          ...updatedTrusts[memberIndex],
+          [attributeName]: value,
+        };
+        return updatedTrusts;
+      });
     }
   };
 
@@ -556,6 +543,28 @@ export default function RealStateItem(props) {
             />
 
             {renderOptionsSelected("company")}
+          </Form.Group>
+          <Form.Group
+            as={Col}
+            md="4"
+            controlId="validationCustom01"
+            className="form-group"
+          >
+            <p style={{ color: "gray", fontSize: 13 }}>Fideicomisos</p>
+            <MultiSelect
+              options={trustList}
+              value={ownerTrust}
+              onChange={setOwnerTrust}
+              labelledBy="Select"
+              overrideStrings={{
+                selectSomeItems: "Selecciona fideicomisos accionistas",
+                allItemsAreSelected: "Todos los fideicomisos",
+                selectAll: "Seleccionar todos",
+              }}
+              disableSearch
+            />
+
+            {renderOptionsSelected("trust")}
           </Form.Group>
         </Row>
       </>
@@ -665,6 +674,57 @@ export default function RealStateItem(props) {
           );
         });
       }
+    } else if (type === "trust") {
+      if (ownerTrust.length) {
+        return ownerTrust.map((trust, index) => {
+          return (
+            <div key={index} style={{ marginTop: 15 }}>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                }}
+              >
+                <div></div>
+                <p
+                  style={{
+                    marginTop: 3,
+                    fontWeight: "500",
+                    fontSize: 13,
+                    marginBottom: -3,
+                  }}
+                >
+                  {trust.label}
+                </p>
+              </div>
+
+              <p
+                style={{
+                  color: "gray",
+                  fontSize: 12,
+                  marginTop: 3,
+                  marginBottom: 4,
+                }}
+              >
+                Porcentaje
+              </p>
+              <InputGroup hasValidation style={{ marginBottom: 8 }}>
+                <Form.Control
+                  type="numeric"
+                  aria-describedby="inputGroupPrepend-3"
+                  required
+                  onChange={(e) =>
+                    handleInputChange(index, "pct", e.target.value, "trust")
+                  }
+                  value={trust.pct || ""}
+                />
+                <InputGroup.Text id="inputGroupPrepend">%</InputGroup.Text>
+              </InputGroup>
+            </div>
+          );
+        });
+      }
     }
 
     return;
@@ -695,7 +755,7 @@ export default function RealStateItem(props) {
                   <Nav.Link eventKey="second">Documentos</Nav.Link>
                 </Nav.Item>
                 <Nav.Item as="li" style={{ marginRight: 10 }}>
-                  <Nav.Link eventKey="third">Responsabilidades</Nav.Link>
+                  <Nav.Link eventKey="third">Obligaciones</Nav.Link>
                 </Nav.Item>
                 <Nav.Item as="li" style={{ marginRight: 10 }}>
                   <Nav.Link eventKey="fourth">Propietario(s)</Nav.Link>

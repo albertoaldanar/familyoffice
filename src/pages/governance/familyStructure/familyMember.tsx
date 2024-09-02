@@ -11,6 +11,7 @@ import {
   Table,
 } from "react-bootstrap";
 import Select from "react-select";
+import { MultiSelect } from "react-multi-select-component";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
@@ -26,7 +27,8 @@ import { seguros } from "../../administration/payments/paymentsData";
 import { family } from "./familyStructureData";
 import { taxes } from "../../administration/taxes/taxesData";
 import { renderFlag } from "../../administration/accounting/companyUtils";
-import { renderAssetTypeIcon } from "./familyStructureUtils";
+import { renderAssetTypeIcon, formatNationalities } from "./familyStructureUtils";
+import { nationalities } from './familyStructureConst';
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
@@ -34,8 +36,6 @@ export default function FamilyMember(props) {
   const breadcrumbs = ["Gobernanza", "Miembro Familiar"];
   const params = useParams();
   const memberSelected = family.members.find((memb) => memb.id === params.id);
-
-  console.log("memberSelected---", memberSelected);
 
   if (!memberSelected) {
     return <p>Not Found</p>;
@@ -54,6 +54,9 @@ export default function FamilyMember(props) {
     value: memberSelected.regimenFiscal,
     label: memberSelected.regimenFiscal,
   });
+
+  const [nationality, setNationalities] = useState(formatNationalities(memberSelected.nationalities));
+
   const [relationship, setRelationship] = useState({
     value: "",
     label: "",
@@ -113,6 +116,31 @@ export default function FamilyMember(props) {
             />
           </Form.Group>
         </Row>
+        {
+          memberSelected.trusteeOf.length ? (
+            <Row style={{marginTop: -10, marginBottom: 20}}>
+              <Form.Label>{memberSelected.name} es uno de los beneficiarios en los siguientes fideicomisos:</Form.Label>
+              {memberSelected.trusteeOf.map(trust => {
+                  return (
+                    <p
+                      style={{
+                        cursor: "pointer",
+                        textDecoration: "underline",
+                        color: "#5488d2",
+                        fontSize: 12,
+                        marginTop: -6
+                      }}
+                    >
+                      {/*// @ts-ignore */}
+                      <Link to={`${import.meta.env.BASE_URL}administration/trustDescription/${trust.coreId}`}>
+                        {trust.name}
+                      </Link>
+                    </p>
+                  );
+              })}
+            </Row>
+          ): null
+        }
         <Row style={{ marginBottom: 10 }}>
           <Form.Group
             as={Col}
@@ -149,6 +177,26 @@ export default function FamilyMember(props) {
               onChange={(value) => setGender(value)}
               placeholder=""
               value={gender}
+            />
+          </Form.Group>
+          <Form.Group
+            as={Col}
+            md="4"
+            controlId="validationCustom01"
+            className="form-group"
+          >
+            <Form.Label>Nacionalidades</Form.Label>
+            <MultiSelect
+              options={nationalities}
+              value={nationality}
+              onChange={setNationalities}
+              labelledBy="Select"
+              overrideStrings={{
+                selectSomeItems: "Selecciona nacionalidades",
+                allItemsAreSelected: "Todos los miembros",
+                selectAll: "Seleccionar todos",
+              }}
+              disableSearch
             />
           </Form.Group>
         </Row>
@@ -408,10 +456,7 @@ export default function FamilyMember(props) {
       </div>
 
       </div>
-
-
     )
-
   };
 
   return (
@@ -442,7 +487,7 @@ export default function FamilyMember(props) {
                     <Nav.Link eventKey="second">Información</Nav.Link>
                   </Nav.Item>
                   <Nav.Item as="li" style={{ marginRight: 10 }}>
-                    <Nav.Link eventKey="third">Responsabilidades</Nav.Link>
+                    <Nav.Link eventKey="third">Obligaciones</Nav.Link>
                   </Nav.Item>
                   <Nav.Item as="li" style={{ marginRight: 10 }}>
                     <Nav.Link eventKey="fourth">Bienes y Activos</Nav.Link>

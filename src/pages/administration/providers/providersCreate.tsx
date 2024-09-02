@@ -36,7 +36,7 @@ export default function ProviderCreate(props) {
       <Row>
         <Card style={{ padding: 30, marginTop: 20 }}>
           <Card.Title style={{ marginBottom: 10 }}>
-            Nuevo Registro de proveedor de servicio
+            Nuevo Registro de proveedor de servicio o contacto
           </Card.Title>
           <Form noValidate validated={false} onSubmit={() => {}}>
           {

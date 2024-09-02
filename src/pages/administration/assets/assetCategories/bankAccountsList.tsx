@@ -42,7 +42,7 @@ export default function BankAccountsList(props) {
         <Table className="table border text-nowrap text-md-nowrap mb-0">
           <thead className="bg-light">
             <tr>
-              <th>Titular de cuenta</th>
+              <th>Titulares de cuenta</th>
               <th>Entidad bancaria</th>
               <th>Valor</th>
               <th>Numero de cuenta</th>

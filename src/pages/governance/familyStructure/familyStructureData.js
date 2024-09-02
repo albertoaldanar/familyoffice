@@ -50,6 +50,8 @@ export const family = {
       coupleId: '43',
       isMemberIC: true,
       isMemberFC: true,
+      trusteeOf: [],
+      nationalities: ['Española', 'Mexicana'],
       assets: [
         {
           id: 23,
@@ -146,6 +148,16 @@ export const family = {
     {
       id: '43',
       name: 'Patricia Ríos Collantes',
+      trusteeOf: [
+        {
+          name: 'Fideicomiso 0014233-Santander',
+          coreId: 20,
+        },
+        {
+          name: 'Fideicomiso 144002 BBVA',
+          coreId: 90,
+        }
+      ],
       dob: '12/07/1963',
       address: 'Col Montebello Calle Cipres 233 Privada Colinas del Parque 81076',
       regimenFiscal: 'Regimen de Dividendos',
@@ -158,6 +170,7 @@ export const family = {
       coupleId: '23',
       isMemberIC: false,
       isMemberFC: true,
+      nationalities: ['Española', 'Mexicana'],
       assets: [
         {
           id: 23,
@@ -218,6 +231,13 @@ export const family = {
     {
       id: '13',
       name: 'Alejandra Aldana Ríos',
+      nationalities: ['Mexicana'],
+      trusteeOf: [
+        {
+          name: 'Fideicomiso 144002 BBVA',
+          coreId: 90,
+        }
+      ],
       dob: '10/25/1991',
       address: 'Col Montebello Calle Cipres 233 Privada Colinas del Parque 81076',
       gender: 'Femenino',
@@ -245,6 +265,13 @@ export const family = {
     {
       id: '12',
       name: 'Alberto Aldana Ríos',
+      nationalities: ['Mexicana'],
+      trusteeOf: [
+        {
+          name: 'Fideicomiso 144002 BBVA',
+          coreId: 90,
+        }
+      ],
       dob: '02/16/1994',
       address: 'Col Montebello Calle Cipres 233 Privada Colinas del Parque 81076',
       gender: 'Masculino',
@@ -272,6 +299,13 @@ export const family = {
     {
       id: '9',
       name: 'Ana Sofia Aldana Ríos',
+      trusteeOf: [
+        {
+          name: 'Fideicomiso 144002 BBVA',
+          coreId: 90,
+        }
+      ],
+      nationalities: ['Mexicana'],
       dob: '03/18/1998',
       address: 'Col Montebello Calle Cipres 233 Privada Colinas del Parque 81076',
       gender: 'Femenino',
@@ -288,7 +322,9 @@ export const family = {
     },
     {
       id: '19',
-      name: 'Gustavo Miranda Aldana',
+      name: 'Gustavo Miranda Aldana',      
+      trusteeOf: [],
+      nationalities: ['Mexicana', 'Estadounidense'],
       gender: 'Masculino',
       address: 'Col Montebello Calle Cipres 233 Privada Colinas del Parque 81076',
       rfc: null,

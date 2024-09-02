@@ -6,6 +6,7 @@ import {
   Row,
   Form,
   InputGroup,
+  Table,
   Tab,
   Nav,
 } from "react-bootstrap";
@@ -24,7 +25,9 @@ import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { family } from "../../governance/familyStructure/familyStructureData";
 import { companies, fideicomisos } from "../accounting/accountingData";
+import { renderAssetTypeIcon } from "../../governance/familyStructure/familyStructureUtils";
 import { realstateData } from "../../investments/realState/realStateData";
+import { renderFlag } from "../accounting/companyUtils";
 import { otherWealthData } from "../../governance/wealthStructure/wealthStructureData";
 import { formatCompany } from "../accounting/companyUtils";
 import { formatMember } from "../../governance/councilAndCommittee/councilAndCommitteeUtils";
@@ -394,6 +397,73 @@ export default function TrustDescription(props) {
     );
   };
 
+  const renderAssetList = () => {
+    if(trustSelected.content.length > 0){
+      return (
+        <div className="table-responsive" style={{ marginTop: 15, marginBottom: 50 }}>
+          <Table className="table border text-nowrap text-md-nowrap  mb-0">
+            <thead className="bg-light">
+              <tr>
+                <th>Tipo de activo</th>
+                <th>Nombre</th>
+                <th>País</th>
+                <th>Valor de activo</th>
+                <th>Porcentaje de propiedad</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              {trustSelected.content.map((idx, tb8) => (
+                <tr key={tb8}>
+                  {renderAssetTypeIcon(idx.type)}
+                  <td>{idx.name}</td>
+                  <td>{renderFlag(idx.country)}</td>
+                  <td>${idx.value} {idx.currency}</td>
+                  <td style={{textAlign: 'center'}}>{idx.pct}%</td>
+                  <td
+                    style={{
+                      cursor: "pointer",
+                      textDecoration: "underline",
+                      color: "#5488d2",
+                    }}
+                  >
+                    {
+                      idx.type === 'company' ? (
+                        // @ts-ignore
+                        <Link to={`${import.meta.env.BASE_URL}administration/company/${idx.coreId}/company`}>
+                          Ver
+                        </Link>
+                      ) : (
+                        // @ts-ignore
+                        <Link to={`${import.meta.env.BASE_URL}governance/wealthItem/type/${idx.type}/id/${idx.coreId}`}>
+                          Ver
+                        </Link>
+                      )
+                    }
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </Table>
+        </div>
+      );
+    } return (
+      <div style={{alignContent: 'center', alignSelf: 'center', justifyContent: 'center', alignItems: 'center'}}>
+        <i className="fa fa-line-chart" style={{color: '#D3D3D3', marginRight: 10, fontSize: 50, alignSelf: 'center', marginBottom: 20}}></i>
+       
+        <p style={{
+          color: "gray",
+          fontSize: 12,
+          marginRight: 4,
+          marginBottom: -6
+
+        }}>
+          Aún no hay activos contenidos registrados en este fideicomiso
+        </p>
+      </div>
+    )
+  };
+
   const renderContract = () => {
     return (
       <Row>
@@ -488,7 +558,7 @@ export default function TrustDescription(props) {
             className="form-group"
           >
             <p style={{ color: "gray", fontSize: 12 }}>
-              Fideicomitentes (beneficiarios)
+              Fideicomitentes de la familia (beneficiarios)
             </p>
             <MultiSelect
               options={familyList}
@@ -611,7 +681,7 @@ export default function TrustDescription(props) {
                 <Tab.Pane eventKey="third">{renderInfo()}</Tab.Pane>
                 <Tab.Pane eventKey="second">{renderContract()}</Tab.Pane>
                 <Tab.Pane eventKey="fifth">
-                  {renderSelectAssetsContained()}
+                  {renderAssetList()}
                 </Tab.Pane>
               </Tab.Content>
             </Tab.Container>

@@ -424,7 +424,7 @@ export default function CompanyItem(props) {
                   <Nav.Link eventKey="second">Documentos</Nav.Link>
                 </Nav.Item>
                 <Nav.Item as="li" style={{ marginRight: 10 }}>
-                  <Nav.Link eventKey="third">Responsabilidades</Nav.Link>
+                  <Nav.Link eventKey="third">Obligaciones</Nav.Link>
                 </Nav.Item>
               </Nav>
             </div>

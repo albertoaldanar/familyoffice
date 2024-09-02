@@ -94,6 +94,19 @@ export const generateNodesAndEdges = (family) => {
   return { initialNodes, initialEdges };
 };
 
+export const formatNationalities = (nationality) => {
+  if(!nationality.length){
+    return [];
+  }
+
+  if (nationality) {
+    return nationality.map((value) => ({
+        value: value,
+        label: value
+      }));
+  }
+};
+
 export const renderAssetTypeIcon = (assetType) => {
   switch (assetType) {
     case 'realState':

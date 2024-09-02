@@ -80,9 +80,8 @@ export default function ProviderDescription() {
 
   return (
     <Fragment>
-      <Pageheader items={breadcrumbs} />
       <Row>
-        <Card style={{ padding: 30 }}>
+        <Card style={{ padding: 30, marginTop: 20, minHeight: 550 }}>
           <h4 className="mb-3 fw-semibold">
             Proveedor de servicio {providerCategorySelected.categoria} - {providerSelected.nombre}
           </h4>

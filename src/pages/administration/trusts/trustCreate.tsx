@@ -296,7 +296,7 @@ export default function TrustCreate(props) {
                 className="form-group"
               >
                 <p style={{ color: "gray", fontSize: 12 }}>
-                  Fideicomitentes (beneficiarios)
+                  Fideicomitentes de la familia (beneficiarios)
                 </p>
                 <MultiSelect
                   options={familyList}
@@ -329,7 +329,7 @@ export default function TrustCreate(props) {
               </Form.Group>
             </Row>
 
-            {renderSelectAssetsContained()}
+            {/* {renderSelectAssetsContained()} */}
 
             <Row style={{ marginTop: 20 }}>
               <Form.Group

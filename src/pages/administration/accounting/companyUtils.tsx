@@ -11,15 +11,29 @@ export const formatCompany = (companies) => {
     }
 };
 
+export const formatTrust = (companies) => {
+  if(!companies.length){
+    return [];
+  }
+
+  if (companies) {
+    return companies.map((member) => ({
+        value: member.id,
+        label: `${member.trustNumber}-${member.trusteeBank}`,
+      }));
+  }
+};
+
 export const formatOwnersData = (companySelected) => {
     const formattedData = {
       family: [],
-      company: []
+      company: [],
+      trust: []
     };
   
     companySelected.owners.forEach(owner => {
       const ownerData = {
-        label: owner.name,
+        label: owner.name || owner.nombre,
         value: owner.coreId,
         pct: owner.pct,
         capitalSocial: owner.capitalSocial || null
@@ -29,6 +43,8 @@ export const formatOwnersData = (companySelected) => {
         formattedData.family.push(ownerData);
       } else if (owner.type === "company") {
         formattedData.company.push(ownerData);
+      } else if (owner.type === "trust") {
+        formattedData.trust.push(ownerData);
       }
     });
   

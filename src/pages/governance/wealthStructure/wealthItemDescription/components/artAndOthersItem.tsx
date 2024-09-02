@@ -16,10 +16,12 @@ import FileView from "../../../../administration/accounting/components/fileView"
 import NotFoundSearch from "../../../../shared/notFoundSearch";
 import { otherWealthData } from "../../wealthStructureData";
 import { family } from "../../../familyStructure/familyStructureData";
+import { fideicomisos } from "../../../../administration/accounting/accountingData";
 import { companies } from "../../../../administration/accounting/accountingData";
 import { Link } from "react-router-dom";
 import {
   formatCompany,
+  formatTrust,
   formatOwnersData,
 } from "../../../../administration/accounting/companyUtils";
 import { formatMember } from "../../../councilAndCommittee/councilAndCommitteeUtils";
@@ -35,6 +37,7 @@ export default function ArtAndOthersItem(props) {
 
   const familyList = formatMember(family.members);
   const companiesList = formatCompany(companies);
+  const trustList = formatTrust(fideicomisos);
   const ownerData = formatOwnersData(artSelected);
 
   const [artName, setArtName] = useState(artSelected.name);
@@ -43,6 +46,8 @@ export default function ArtAndOthersItem(props) {
     ownerData.family
   );
   const [ownerCompanies, setOwnerCompanies] = useState(ownerData.company);
+  const [ownerTrust, setOwnerTrust] = useState(ownerData.trust);
+
   const [currency, setCurrency] = useState({
     value: artSelected.currency,
     label: artSelected.currency,
@@ -84,32 +89,7 @@ export default function ArtAndOthersItem(props) {
   const renderDescription = () => {
     return (
       <div>
-        {
-          artSelected.containedIntrusts.length ? (
-            <Row style={{marginTop: -10}}>
-              <Form.Label>Arte y otros en los siguientes fideicomisos:</Form.Label>
-              {artSelected.containedIntrusts.map(trust => {
-                  return (
-                    <p
-                      style={{
-                        cursor: "pointer",
-                        textDecoration: "underline",
-                        color: "#5488d2",
-                        fontSize: 12,
-                        marginTop: -6
-                      }}
-                    >
-                      {/*// @ts-ignore */}
-                      <Link to={`${import.meta.env.BASE_URL}administration/trustDescription/${trust.id}`}>
-                        {trust.name}
-                      </Link>
-                    </p>
-                  );
-              })}
-            </Row>
-          ): null
-        }
-        <Row style={{ marginBottom: 10, marginTop: 15 }}>
+        <Row style={{ marginBottom: 10, marginTop: 10 }}>
           <Form.Group
             as={Col}
             md="4"
@@ -263,6 +243,15 @@ export default function ArtAndOthersItem(props) {
         };
         return updatedCompanies;
       });
+    } else if (type === "trust") {
+      setOwnerTrust((prevState) => {
+        const updatedTrusts = [...prevState];
+        updatedTrusts[memberIndex] = {
+          ...updatedTrusts[memberIndex],
+          [attributeName]: value,
+        };
+        return updatedTrusts;
+      });
     }
   };
 
@@ -324,6 +313,29 @@ export default function ArtAndOthersItem(props) {
             />
 
             {renderOptionsSelected("company")}
+          </Form.Group>
+
+          <Form.Group
+            as={Col}
+            md="4"
+            controlId="validationCustom01"
+            className="form-group"
+          >
+            <p style={{ color: "gray", fontSize: 13 }}>Fideicomisos</p>
+            <MultiSelect
+              options={trustList}
+              value={ownerTrust}
+              onChange={setOwnerTrust}
+              labelledBy="Select"
+              overrideStrings={{
+                selectSomeItems: "Selecciona fideicomisos accionistas",
+                allItemsAreSelected: "Todos los fideicomisos",
+                selectAll: "Seleccionar todos",
+              }}
+              disableSearch
+            />
+
+            {renderOptionsSelected("trust")}
           </Form.Group>
         </Row>
       </div>
@@ -433,9 +445,60 @@ export default function ArtAndOthersItem(props) {
           );
         });
       }
+    } else if (type === "trust") {
+      if (ownerTrust.length) {
+        return ownerTrust.map((trust, index) => {
+          return (
+            <div key={index} style={{ marginTop: 15 }}>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                }}
+              >
+                <div></div>
+                <p
+                  style={{
+                    marginTop: 3,
+                    fontWeight: "500",
+                    fontSize: 13,
+                    marginBottom: -3,
+                  }}
+                >
+                  {trust.label}
+                </p>
+              </div>
+
+              <p
+                style={{
+                  color: "gray",
+                  fontSize: 12,
+                  marginTop: 3,
+                  marginBottom: 4,
+                }}
+              >
+                Porcentaje
+              </p>
+              <InputGroup hasValidation style={{ marginBottom: 8 }}>
+                <Form.Control
+                  type="numeric"
+                  aria-describedby="inputGroupPrepend-3"
+                  required
+                  onChange={(e) =>
+                    handleInputChange(index, "pct", e.target.value, "trust")
+                  }
+                  value={trust.pct || ""}
+                />
+                <InputGroup.Text id="inputGroupPrepend">%</InputGroup.Text>
+              </InputGroup>
+            </div>
+          );
+        });
+      }
     }
 
-    return;
+    return; 
   };
 
   return (

@@ -20,6 +20,7 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { MultiSelect } from "react-multi-select-component";
+import { fideicomisos } from "./accountingData";
 //@ts-ignore
 import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import dayjs, { Dayjs } from "dayjs";
@@ -28,7 +29,7 @@ import NotFoundSearch from "../../shared/notFoundSearch";
 import { useParams, Link } from "react-router-dom";
 import { daysToAnualTax, daysUntilNextMonth17 } from "../taxes/taxesUtils";
 import { formateDateForUI } from "../payments/paymentUtils";
-import { formatCompany, formatOwnersData } from "./companyUtils";
+import { formatCompany, formatOwnersData, formatTrust } from "./companyUtils";
 import { formatMember } from "../../governance/councilAndCommittee/councilAndCommitteeUtils";
 
 export default function CompanyDescription() {
@@ -49,6 +50,7 @@ export default function CompanyDescription() {
   const params = useParams();
   const familyList = formatMember(family.members);
   const companiesList = formatCompany(companies);
+  const trustList = formatTrust(fideicomisos);
   const companySelected = companies.find(
     (company) => company.id === Number(params.id)
   );
@@ -66,6 +68,8 @@ export default function CompanyDescription() {
   const [todayValue, setTodayValue] = useState(companySelected.valuacion);
   const [ownerFamilyMembers, setOwnerFamilyMembers] = useState(ownerData.family);
   const [ownerCompanies, setOwnerCompanies] = useState(ownerData.company);
+  const [ownerTrust, setOwnerTrust] = useState(ownerData.trust);
+
   const [address, setAddress] = useState(companySelected.direccionFiscal);
   const [regimenCapital, setRegimenCapital] = useState(
     companySelected.regimenCapital
@@ -187,6 +191,15 @@ export default function CompanyDescription() {
         };
         return updatedCompanies;
       });
+    } else if (type === "trust") {
+      setOwnerTrust((prevState) => {
+        const updatedTrusts = [...prevState];
+        updatedTrusts[memberIndex] = {
+          ...updatedTrusts[memberIndex],
+          [attributeName]: value,
+        };
+        return updatedTrusts;
+      });
     }
   };
 
@@ -248,6 +261,28 @@ export default function CompanyDescription() {
             />
 
             {renderOptionsSelected("company")}
+          </Form.Group>
+          <Form.Group
+            as={Col}
+            md="4"
+            controlId="validationCustom01"
+            className="form-group"
+          >
+            <p style={{ color: "gray", fontSize: 13 }}>Fideicomisos</p>
+            <MultiSelect
+              options={trustList}
+              value={ownerTrust}
+              onChange={setOwnerTrust}
+              labelledBy="Select"
+              overrideStrings={{
+                selectSomeItems: "Selecciona fideicomisos accionistas",
+                allItemsAreSelected: "Todos los fideicomisos",
+                selectAll: "Seleccionar todos",
+              }}
+              disableSearch
+            />
+
+            {renderOptionsSelected("trust")}
           </Form.Group>
         </Row>
       </>
@@ -408,6 +443,57 @@ export default function CompanyDescription() {
                   value={company.capitalSocial || ""}
                 />
                 <InputGroup.Text id="inputGroupPrepend">$</InputGroup.Text>
+              </InputGroup>
+            </div>
+          );
+        });
+      }
+    } else if (type === "trust") {
+      if (ownerTrust.length) {
+        return ownerTrust.map((trust, index) => {
+          return (
+            <div key={index} style={{ marginTop: 15 }}>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                }}
+              >
+                <div></div>
+                <p
+                  style={{
+                    marginTop: 3,
+                    fontWeight: "500",
+                    fontSize: 13,
+                    marginBottom: -3,
+                  }}
+                >
+                  {trust.label}
+                </p>
+              </div>
+
+              <p
+                style={{
+                  color: "gray",
+                  fontSize: 12,
+                  marginTop: 3,
+                  marginBottom: 4,
+                }}
+              >
+                Porcentaje
+              </p>
+              <InputGroup hasValidation style={{ marginBottom: 8 }}>
+                <Form.Control
+                  type="numeric"
+                  aria-describedby="inputGroupPrepend-3"
+                  required
+                  onChange={(e) =>
+                    handleInputChange(index, "pct", e.target.value, "trust")
+                  }
+                  value={trust.pct || ""}
+                />
+                <InputGroup.Text id="inputGroupPrepend">%</InputGroup.Text>
               </InputGroup>
             </div>
           );
@@ -950,30 +1036,6 @@ export default function CompanyDescription() {
           <Form.Label>Cuentas bancarias</Form.Label>
           {renderBankAccounts()}
         </Row>
-        {
-          companySelected.containedIntrusts.length ? (
-            <Row>
-              <Form.Label>Empresa contenida en los siguientes fideicomisos:</Form.Label>
-              {companySelected.containedIntrusts.map(trust => {
-                  return (
-                    <p
-                      style={{
-                        cursor: "pointer",
-                        textDecoration: "underline",
-                        color: "#5488d2",
-                        fontSize: 12,
-                      }}
-                    >
-                      {/*// @ts-ignore */}
-                      <Link to={`${import.meta.env.BASE_URL}administration/trustDescription/${trust.id}`}>
-                        {trust.name}
-                      </Link>
-                    </p>
-                  );
-              })}
-            </Row>
-          ): null
-        }
         <Row style={{ marginBottom: 20, marginTop: 20 }}>
           <Form.Group
             as={Col}
