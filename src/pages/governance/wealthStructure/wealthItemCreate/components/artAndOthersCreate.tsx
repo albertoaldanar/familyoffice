@@ -273,6 +273,10 @@ export default function ArtAndOthersCreate(props) {
 
       <Row style={{padding: 20}}>
           <Card.Title style={{ marginBottom: 35 }}>
+            <i
+              style={{ marginRight: 9 }}
+              className="fe fe-watch text-black fs-15"
+            ></i>{" "}
             Nuevo Registro de arte, colecciones y otros
           </Card.Title>
             <Row style={{ marginBottom: 10 }}>

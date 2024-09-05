@@ -109,6 +109,18 @@ export const otherWealthData = {
       country: "México",
       platesNumber: "XBJ21NB3",
       invoice: "https://googledrive.com/erg3440398f4fmv",
+      contacts: [
+        {
+          id: 1,
+          name: 'Daniel Ortega',
+          type: 'Notario',
+          categoryCoreId: 24,
+          coreId: 2,
+          number: '6691481888',
+          location: 'Mazatlán, Sinaloa',
+          email: 'daniel@ortega.com'
+        }
+      ],
       owners: [
         {
           type: "family",
@@ -134,6 +146,7 @@ export const otherWealthData = {
       value: "60000",
       circulationCard: "",
       currency: "USD",
+      contacts: [],
       platesNumber: "ABJ2NB3",
       invoice: "https://googledrive.com/erg3440398f4fmv",
       owners: [
@@ -158,6 +171,7 @@ export const otherWealthData = {
       color: "Gris",
       platesNumber: "AARBYNB1",
       invoice: "https://googledrive.com/erg3440398f4fmv",
+      contacts: [],
       owners: [
         {
           type: "company",
@@ -180,6 +194,7 @@ export const otherWealthData = {
       id: 43,
       type: "Arte",
       name: "Coleccion de arte de Gerhard Richter",
+      contacts: [],
       containedIntrusts: [
         {
           id: 20,
@@ -264,6 +279,18 @@ export const otherWealthData = {
       fundName: "Fondo ABC",
       investment: "10000000",
       loanId: null,
+      contacts: [
+        {
+          id: 1,
+          name: 'Raul Aldana Fariñas',
+          type: 'Banquero privado',
+          categoryCoreId: 50,
+          coreId: 34,
+          number: '6691481888',
+          location: 'Mazatlán, Sinaloa',
+          email: 'raul@aldana.com'
+        }
+      ],
       investmentReturns: [
         {
           id: 1,
@@ -339,6 +366,18 @@ export const otherWealthData = {
         "https://googledrive.com/erg3440398f4fmv",
       ],
       containedIntrusts: [],
+      contacts: [
+        {
+          id: 1,
+          name: 'Raul Aldana Fariñas',
+          type: 'Banquero privado',
+          categoryCoreId: 50,
+          coreId: 34,
+          number: '6691481888',
+          location: 'Mazatlán, Sinaloa',
+          email: 'raul@aldana.com'
+        }
+      ],
       currency: "USD",
       investmentYear: "2023",
       fundType: "Private Equity",
@@ -377,6 +416,7 @@ export const otherWealthData = {
       investmentYear: "",
       fundType: "",
       industry: "",
+      contacts: [],
       country: "México",
       owners: [
         {
@@ -398,6 +438,18 @@ export const otherWealthData = {
       routing: "43595932129",
       currency: "MXN",
       investmentAmount: "2000000",
+      contacts: [
+        {
+          id: 1,
+          name: 'Raul Aldana Fariñas',
+          type: 'Banquero privado',
+          categoryCoreId: 50,
+          coreId: 34,
+          number: '6691481888',
+          location: 'Mazatlán, Sinaloa',
+          email: 'raul@aldana.com'
+        }
+      ],
       owners: [
         {
           type: "family",
@@ -445,6 +497,18 @@ export const otherWealthData = {
       routing: "00146932129",
       currency: "MXN",
       investmentAmount: "1000000",
+      contacts: [
+        {
+          id: 1,
+          name: 'Raul Aldana Fariñas',
+          type: 'Banquero privado',
+          categoryCoreId: 50,
+          coreId: 34,
+          number: '6691481888',
+          location: 'Mazatlán, Sinaloa',
+          email: 'raul@aldana.com'
+        }
+      ],
       owners: [
         {
           type: "family",

@@ -324,6 +324,10 @@ export default function StockInvestmentCreate(props) {
     <Fragment>
       <Row style={{ padding: 20 }}>
         <Card.Title style={{ marginBottom: 35 }}>
+          <i
+            style={{ marginRight: 9 }}
+            className="fe fe-trending-up text-black fs-15"
+          ></i>{" "}
           Nuevo Registro inversión bursatil
         </Card.Title>
 

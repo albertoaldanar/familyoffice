@@ -193,7 +193,7 @@ export default function Companies() {
                     <Nav.Link eventKey="second">
                         <i
                           style={{ marginRight: 9 }}
-                          className="fe fe-file-text text-black fs-15"
+                          className="fe fe-file text-black fs-15"
                         ></i>
                         Fideicomisos
                       </Nav.Link>

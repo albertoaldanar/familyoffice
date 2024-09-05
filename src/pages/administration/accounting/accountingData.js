@@ -4,6 +4,28 @@ export const companies = [
     nombre: "Aldana Clima Integral",
     rfc: "BVA4930245",
     moneda: "MXN",
+    contacts: [
+      {
+        id: 1,
+        name: 'Raul Aldana Fariñas',
+        type: 'Banquero privado',
+        categoryCoreId: 50,
+        coreId: 34,
+        number: '6691481888',
+        location: 'Mazatlán, Sinaloa',
+        email: 'raul@aldana.com'
+      },
+      {
+        id: 1,
+        name: 'Juan Diaz Zalazar',
+        type: 'Notario',
+        categoryCoreId: 24,
+        coreId: 17,
+        number: '6671481888',
+        location: 'Culiacan, Sinaloa',
+        email: 'jaundiaz@zalazar.com'
+      }
+    ],
     containedIntrusts:[
       {
         id: 90, 
@@ -196,6 +218,28 @@ export const companies = [
     nationality: "Mexicana",
     regimenCapital: "SA de CV",
     bankAccounts: [],
+    contacts: [
+      {
+        id: 1,
+        name: 'Raul Aldana Fariñas',
+        type: 'Banquero privado',
+        categoryCoreId: 50,
+        coreId: 34,
+        number: '6691481888',
+        location: 'Mazatlán, Sinaloa',
+        email: 'raul@aldana.com'
+      },
+      {
+        id: 1,
+        name: 'Juan Diaz Zalazar',
+        type: 'Notario',
+        categoryCoreId: 24,
+        coreId: 17,
+        number: '6671481888',
+        location: 'Culiacan, Sinaloa',
+        email: 'jaundiaz@zalazar.com'
+      }
+    ],
     capitalSocial: "2,300,000.00",
     owners: [
       {
@@ -389,6 +433,28 @@ export const companies = [
     rfc: "BVA4930245",
     moneda: "MXN",
     containedIntrusts:[],
+    contacts: [
+      {
+        id: 1,
+        name: 'Raul Aldana Fariñas',
+        type: 'Banquero privado',
+        categoryCoreId: 50,
+        coreId: 34,
+        number: '6691481888',
+        location: 'Mazatlán, Sinaloa',
+        email: 'raul@aldana.com'
+      },
+      {
+        id: 1,
+        name: 'Juan Diaz Zalazar',
+        type: 'Notario',
+        categoryCoreId: 24,
+        coreId: 17,
+        number: '6671481888',
+        location: 'Culiacan, Sinaloa',
+        email: 'jaundiaz@zalazar.com'
+      }
+    ],
     actasAsamblea: [
       {
         name: "AAO 2024",
@@ -484,6 +550,18 @@ export const fideicomisos = [
     trustNumber: "0014233",
     trustType: "Patrimonial revocable with right of reversion",
     trusteeBank: "Santander",
+    contacts: [
+      {
+        id: 1,
+        name: 'Juan Diaz Zalazar',
+        type: 'Notario',
+        categoryCoreId: 24,
+        coreId: 17,
+        number: '6671481888',
+        location: 'Culiacan, Sinaloa',
+        email: 'jaundiaz@zalazar.com'
+      }
+    ],
     trustors: [
       {
         type: "family",
@@ -554,6 +632,18 @@ export const fideicomisos = [
     trustCreation: "10/10/2018",
     trustType: "Testamentario",
     trusteeBank: "BBVA",
+    contacts: [
+      {
+        id: 1,
+        name: 'Juan Diaz Zalazar',
+        type: 'Notario',
+        categoryCoreId: 24,
+        coreId: 17,
+        number: '6671481888',
+        location: 'Culiacan, Sinaloa',
+        email: 'jaundiaz@zalazar.com'
+      }
+    ],
     trustors: [
       {
         type: "family",

@@ -42,6 +42,9 @@ import {
 import { formatVehicleData } from "../payments/paymentUtils";
 
 export default function TrustDescription(props) {
+  //@ts-ignore
+  const baseUrl = import.meta.env.BASE_URL;
+
   const params = useParams();
   const trustSelected = fideicomisos.find(
     (trust) => trust.id === Number(params.id)
@@ -650,11 +653,121 @@ export default function TrustDescription(props) {
     );
   };
 
+  const renderContactList = () => {
+    const existringContacts = trustSelected.contacts.length > 0;
+    return (
+      <>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            flexDirection: "row",
+            marginBottom: 30,
+          }}
+        >
+          <div></div>
+          <Button
+            style={{
+              marginRight: 10,
+              height: 30,
+            }}
+            variant="primary"
+            size="sm"
+            className="mb-1"
+          >
+            <Link
+              style={{ color: "white" }}
+              to={`${
+                baseUrl
+              }administration/providerCreate/standar`}
+            >
+              + Añadir nuevo contacto
+            </Link>
+          </Button>
+        </div>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            marginBottom: 10,
+            justifyContent: existringContacts ? 'left' : 'center'
+          }}
+        >
+          <p
+            style={{
+              color: "gray",
+              fontSize: 12,
+              marginRight: 4,
+            }}
+          >
+            Para añadir un contacto existente en proveedores y contactos, añade
+            '{trustSelected.trustNumber} - {trustSelected.trusteeBank}' a su lista de activos relacionados{" "}
+            <Link
+              style={{ fontSize: 12 }}
+              to={`${baseUrl}administration/providers`}
+            >
+              Aquí
+            </Link>
+          </p>
+        </div>
+        {existringContacts ? (
+          <div className="table-responsive">
+            <Table className="table border text-nowrap text-md-nowrap mb-0">
+              <thead className="bg-light">
+                <tr>
+                  <th>Nombre</th>
+                  <th>Tipo</th>
+                  <th>Ubicación</th>
+                  <th>Teléfono</th>
+                  <th>Email</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                {trustSelected.contacts.map((contact) => (
+                  <tr key={contact.id}>
+                    <td>{contact.name}</td>
+                    <td>{contact.type}</td>
+                    <td>{contact.location}</td>
+                    <td>{contact.number}</td>
+                    <td>{contact.email}</td>
+                    <td
+                      style={{
+                        cursor: "pointer",
+                        textDecoration: "underline",
+                        color: "#5488d2",
+                      }}
+                    >
+                      <Link
+                        to={`${baseUrl}administration/providerDescription/${contact.categoryCoreId}/provider/${contact.coreId}/`}
+                      >
+                        Ver
+                      </Link>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </Table>
+          </div>
+        ) : (
+          <p style={{ fontSize: 12, color: "gray", textAlign: 'center' }}>
+            Aún no hay ningun contacto seleccionado para{" "}
+            {trustSelected.trustNumber} - {trustSelected.trusteeBank}
+          </p>
+        )}
+      </>
+    );
+  };
+
   return (
     <Fragment>
       <Row>
         <Card style={{ padding: 30, marginTop: 20, minHeight: 500 }}>
           <Card.Title style={{ marginBottom: 0 }}>
+            <i
+              style={{ marginRight: 9 }}
+              className="fe fe-file text-black fs-15"
+            ></i>{" "}
             Fideicomiso {trustSelected.trustNumber} {trustSelected.trusteeBank}
           </Card.Title>
           <Form noValidate validated={false} onSubmit={() => {}}>
@@ -663,14 +776,39 @@ export default function TrustDescription(props) {
                 <div className="tabs-menu1">
                   <Nav as="ul" className="nav panel-tabs">
                     <Nav.Item as="li" style={{ marginRight: 10 }}>
-                      <Nav.Link eventKey="third">Información </Nav.Link>
+                      <Nav.Link eventKey="third">
+                        <i
+                          style={{ marginRight: 9 }}
+                          className="fe fe-file-text text-black fs-13"
+                        ></i>
+                        Información 
+                      </Nav.Link>
                     </Nav.Item>
                     <Nav.Item as="li" style={{ marginRight: 10 }}>
-                      <Nav.Link eventKey="second">Contrato </Nav.Link>
+                      <Nav.Link eventKey="second">
+                        <i
+                          style={{ marginRight: 9 }}
+                          className="fe fe-file text-black fs-13"
+                        ></i>
+                        Contrato 
+                      </Nav.Link>
                     </Nav.Item>
                     <Nav.Item as="li" style={{ marginRight: 10 }}>
                       <Nav.Link eventKey="fifth" href="#">
+                        <i
+                          style={{ marginRight: 9 }}
+                          className="fe fe-layers text-black fs-13"
+                        ></i>
                         Contenido de fideicomiso
+                      </Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item as="li" style={{ marginRight: 10 }}>
+                      <Nav.Link eventKey="contacts" href="#">
+                        <i
+                          style={{ marginRight: 9 }}
+                          className="fe fe-users text-black fs-13"
+                        ></i>
+                        Contactos
                       </Nav.Link>
                     </Nav.Item>
                   </Nav>
@@ -683,6 +821,7 @@ export default function TrustDescription(props) {
                 <Tab.Pane eventKey="fifth">
                   {renderAssetList()}
                 </Tab.Pane>
+                <Tab.Pane eventKey="contacts">{renderContactList()}</Tab.Pane>
               </Tab.Content>
             </Tab.Container>
 

@@ -7,6 +7,7 @@ import {
   Form,
   InputGroup,
   Nav,
+  Table,
   Tab,
 } from "react-bootstrap";
 import Select from "react-select";
@@ -27,6 +28,9 @@ import {
 import { formatMember } from "../../../councilAndCommittee/councilAndCommitteeUtils";
 
 export default function ArtAndOthersItem(props) {
+  //@ts-ignore
+  const baseUrl = import.meta.env.BASE_URL;
+
   const artSelected = otherWealthData.artAndOthers.find(
     (art) => art.id === Number(props.id)
   );
@@ -501,10 +505,120 @@ export default function ArtAndOthersItem(props) {
     return; 
   };
 
+  const renderContactList = () => {
+    const existringContacts = artSelected.contacts.length > 0;
+    return (
+      <>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            flexDirection: "row",
+            marginBottom: 30,
+          }}
+        >
+          <div></div>
+          <Button
+            style={{
+              marginRight: 10,
+              height: 30,
+            }}
+            variant="primary"
+            size="sm"
+            className="mb-1"
+          >
+            <Link
+              style={{ color: "white" }}
+              to={`${
+                baseUrl
+              }administration/providerCreate/standar`}
+            >
+              + Añadir nuevo contacto
+            </Link>
+          </Button>
+        </div>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            marginBottom: 10,
+            justifyContent: existringContacts ? 'left' : 'center'
+          }}
+        >
+          <p
+            style={{
+              color: "gray",
+              fontSize: 12,
+              marginRight: 4,
+            }}
+          >
+            Para añadir un contacto existente en proveedores y contactos, añade
+            ' {artSelected.name}' a su lista de activos relacionados{" "}
+            <Link
+              style={{ fontSize: 12 }}
+              to={`${baseUrl}administration/providers`}
+            >
+              Aquí
+            </Link>
+          </p>
+        </div>
+        {existringContacts ? (
+          <div className="table-responsive">
+            <Table className="table border text-nowrap text-md-nowrap mb-0">
+              <thead className="bg-light">
+                <tr>
+                  <th>Nombre</th>
+                  <th>Tipo</th>
+                  <th>Ubicación</th>
+                  <th>Teléfono</th>
+                  <th>Email</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                {artSelected.contacts.map((contact) => (
+                  <tr key={contact.id}>
+                    <td>{contact.name}</td>
+                    <td>{contact.type}</td>
+                    <td>{contact.location}</td>
+                    <td>{contact.number}</td>
+                    <td>{contact.email}</td>
+                    <td
+                      style={{
+                        cursor: "pointer",
+                        textDecoration: "underline",
+                        color: "#5488d2",
+                      }}
+                    >
+                      <Link
+                        to={`${baseUrl}administration/providerDescription/${contact.categoryCoreId}/provider/${contact.coreId}/`}
+                      >
+                        Ver
+                      </Link>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </Table>
+          </div>
+        ) : (
+          <p style={{ fontSize: 12, color: "gray", textAlign: 'center' }}>
+            Aún no hay ningun contacto seleccionado para{" "}
+            {artSelected.name}
+          </p>
+        )}
+      </>
+    );
+  };
+
   return (
     <Fragment>
       <Row style={{ marginTop: 10, padding: 20 }}>
         <Card.Title>
+          <i
+            style={{ marginRight: 9 }}
+            className="fe fe-watch text-black fs-15"
+          ></i>{" "}
           {artSelected.type} - {artSelected.name}
         </Card.Title>
 
@@ -521,14 +635,39 @@ export default function ArtAndOthersItem(props) {
               <Nav as="ul" className="nav panel-tabs">
                 <Nav.Item as="li" style={{ marginRight: 10 }}>
                   <Nav.Link eventKey="first" href="#">
+                    <i
+                      style={{ marginRight: 9 }}
+                      className="fe fe-file-text text-black fs-13"
+                    ></i>
                     Información
                   </Nav.Link>
                 </Nav.Item>
                 <Nav.Item as="li" style={{ marginRight: 10 }}>
-                  <Nav.Link eventKey="second">Documentos</Nav.Link>
+                  <Nav.Link eventKey="second">
+                    <i
+                      style={{ marginRight: 9 }}
+                      className="fe fe-folder text-black fs-13"
+                    ></i>
+                    Documentos
+                  </Nav.Link>
                 </Nav.Item>
                 <Nav.Item as="li" style={{ marginRight: 10 }}>
-                  <Nav.Link eventKey="third">Propietario(s)</Nav.Link>
+                  <Nav.Link eventKey="third">
+                    <i
+                      style={{ marginRight: 9 }}
+                      className="fe fe-book-open text-black fs-13"
+                    ></i>
+                    Propietario(s)
+                  </Nav.Link>
+                </Nav.Item>
+                <Nav.Item as="li" style={{ marginRight: 10 }}>
+                  <Nav.Link eventKey="contacts">
+                    <i
+                      style={{ marginRight: 9 }}
+                      className="fe fe-users text-black fs-13"
+                    ></i>
+                    Contactos
+                  </Nav.Link>
                 </Nav.Item>
               </Nav>
             </div>
@@ -538,6 +677,7 @@ export default function ArtAndOthersItem(props) {
             <Tab.Pane eventKey="first">{renderDescription()}</Tab.Pane>
             <Tab.Pane eventKey="second">{renderDocuments()}</Tab.Pane>
             <Tab.Pane eventKey="third">{renderOwners()}</Tab.Pane>
+            <Tab.Pane eventKey="contacts">{renderContactList()}</Tab.Pane>
           </Tab.Content>
         </Tab.Container>
         <div

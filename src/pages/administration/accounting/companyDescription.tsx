@@ -33,6 +33,9 @@ import { formatCompany, formatOwnersData, formatTrust } from "./companyUtils";
 import { formatMember } from "../../governance/councilAndCommittee/councilAndCommitteeUtils";
 
 export default function CompanyDescription() {
+  //@ts-ignore
+  const baseUrl = import.meta.env.BASE_URL;
+
   const months = [
     "Ene",
     "Feb",
@@ -805,7 +808,7 @@ export default function CompanyDescription() {
                     }}
                   >
                     {/*// @ts-ignore */}
-                    <Link to={`${import.meta.env.BASE_URL}administration/company/${
+                    <Link to={`${baseUrl}administration/company/${
                         companySelected.id
                       }/report/${report.id}/type/mensuales`}
                     >
@@ -844,7 +847,7 @@ export default function CompanyDescription() {
           fontSize: 13
         }}>
           {/*// @ts-ignore */}
-          <Link to={`${import.meta.env.BASE_URL}governance/wealthItem/type/bankAccount/id/${account.id}`}>
+          <Link to={`${baseUrl}governance/wealthItem/type/bankAccount/id/${account.id}`}>
             {account.bank} - {account.accountNumber}
           </Link>
         </p>
@@ -914,7 +917,7 @@ export default function CompanyDescription() {
                     }}
                   >
                     {/*// @ts-ignore */}
-                    <Link to={`${import.meta.env.BASE_URL}administration/company/${
+                    <Link to={`${baseUrl}administration/company/${
                         companySelected.id
                       }/report/${report.id}/type/anuales`}
                     >
@@ -980,7 +983,7 @@ export default function CompanyDescription() {
                   <div>
                     <Button variant="primary" size="sm" className=" mb-1">
                       {/*// @ts-ignore */}
-                      <Link style={{ color: "white" }} to={`${import.meta.env.BASE_URL}administration/companyNewReport/${
+                      <Link style={{ color: "white" }} to={`${baseUrl}administration/companyNewReport/${
                           companySelected.id
                         }/type/mensual`}
                       >
@@ -1012,7 +1015,7 @@ export default function CompanyDescription() {
                 <div style={{ marginBottom: 10 }}>
                   <Button variant="primary" size="sm" className=" mb-1">
                     {/*// @ts-ignore */}
-                    <Link style={{ color: "white" }} to={`${import.meta.env.BASE_URL}administration/companyNewReport/${
+                    <Link style={{ color: "white" }} to={`${baseUrl}administration/companyNewReport/${
                         companySelected.id
                       }/type/anual`}
                     >
@@ -1297,6 +1300,112 @@ export default function CompanyDescription() {
     );
   };
 
+  const renderContactList = () => {
+    const existringContacts = companySelected.contacts.length > 0;
+    return (
+      <>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            flexDirection: "row",
+            marginBottom: 30,
+          }}
+        >
+          <div></div>
+          <Button
+            style={{
+              marginRight: 10,
+              height: 30,
+            }}
+            variant="primary"
+            size="sm"
+            className="mb-1"
+          >
+            <Link
+              style={{ color: "white" }}
+              to={`${
+                baseUrl
+              }administration/providerCreate/standar`}
+            >
+              + Añadir nuevo contacto
+            </Link>
+          </Button>
+        </div>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            marginBottom: 10,
+            justifyContent: existringContacts ? 'left' : 'center'
+          }}
+        >
+          <p
+            style={{
+              color: "gray",
+              fontSize: 12,
+              marginRight: 4,
+            }}
+          >
+            Para añadir un contacto existente en proveedores y contactos, añade
+            ' {companySelected.name}' a su lista de activos relacionados{" "}
+            <Link
+              style={{ fontSize: 12 }}
+              to={`${baseUrl}administration/providers`}
+            >
+              Aquí
+            </Link>
+          </p>
+        </div>
+        {existringContacts ? (
+          <div className="table-responsive">
+            <Table className="table border text-nowrap text-md-nowrap mb-0">
+              <thead className="bg-light">
+                <tr>
+                  <th>Nombre</th>
+                  <th>Tipo</th>
+                  <th>Ubicación</th>
+                  <th>Teléfono</th>
+                  <th>Email</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                {companySelected.contacts.map((contact) => (
+                  <tr key={contact.id}>
+                    <td>{contact.name}</td>
+                    <td>{contact.type}</td>
+                    <td>{contact.location}</td>
+                    <td>{contact.number}</td>
+                    <td>{contact.email}</td>
+                    <td
+                      style={{
+                        cursor: "pointer",
+                        textDecoration: "underline",
+                        color: "#5488d2",
+                      }}
+                    >
+                      <Link
+                        to={`${baseUrl}administration/providerDescription/${contact.categoryCoreId}/provider/${contact.coreId}/`}
+                      >
+                        Ver
+                      </Link>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </Table>
+          </div>
+        ) : (
+          <p style={{ fontSize: 12, color: "gray", textAlign: 'center' }}>
+            Aún no hay ningun contacto seleccionado para{" "}
+            {companySelected.name}
+          </p>
+        )}
+      </>
+    );
+  };
+
   return (
     <Fragment>
       <Row>
@@ -1304,6 +1413,10 @@ export default function CompanyDescription() {
           <Card.Title
             style={{ marginLeft: 15, marginBottom: 0, marginTop: 35 }}
           >
+            <i
+              style={{ marginRight: 9 }}
+              className="fe fe-briefcase text-black fs-15"
+            ></i>{" "}
             {companySelected.razonSocial}
           </Card.Title>
           {params.type === "tax" ? (
@@ -1314,19 +1427,48 @@ export default function CompanyDescription() {
                 <div className="tabs-menu1">
                   <Nav as="ul" className="nav panel-tabs">
                     <Nav.Item as="li" style={{ marginRight: 10 }}>
-                      <Nav.Link eventKey="third">Legal y documentos </Nav.Link>
+                      <Nav.Link eventKey="third">
+                        <i
+                          style={{ marginRight: 9 }}
+                          className="fe fe-folder text-black fs-13"
+                        ></i>
+                        Legal y documentos
+                      </Nav.Link>
                     </Nav.Item>
                     <Nav.Item as="li" style={{ marginRight: 10 }}>
-                      <Nav.Link eventKey="second">Finanzas </Nav.Link>
+                      <Nav.Link eventKey="second">
+                        <i
+                          style={{ marginRight: 9 }}
+                          className="fe fe-trending-up text-black fs-13"
+                        ></i>
+                        Finanzas 
+                      </Nav.Link>
                     </Nav.Item>
                     <Nav.Item as="li" style={{ marginRight: 10 }}>
                       <Nav.Link eventKey="fifth" href="#">
+                        <i
+                          style={{ marginRight: 9 }}
+                          className="fe fe-book-open text-black fs-13"
+                        ></i>
                         Accionistas
                       </Nav.Link>
                     </Nav.Item>
                     <Nav.Item as="li" style={{ marginRight: 10 }}>
                       <Nav.Link eventKey="fourth" href="#">
+                        <i
+                          style={{ marginRight: 9 }}
+                          className="fe fe-file-text text-black fs-13"
+                        ></i>
                         Datos generales
+                      </Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item as="li" style={{ marginRight: 10 }}>
+                      <Nav.Link eventKey="contacts" href="#">
+                        <i
+                          style={{ marginRight: 9 }}
+                          className="fe fe-users text-black fs-13"
+                        ></i>
+                        Contactos
                       </Nav.Link>
                     </Nav.Item>
                   </Nav>
@@ -1338,6 +1480,7 @@ export default function CompanyDescription() {
                 <Tab.Pane eventKey="second">{renderFinance()}</Tab.Pane>
                 <Tab.Pane eventKey="fifth">{renderMultiSelect()}</Tab.Pane>
                 <Tab.Pane eventKey="fourth">{renderDescription()}</Tab.Pane>
+                <Tab.Pane eventKey="contacts">{renderContactList()}</Tab.Pane>
               </Tab.Content>
             </Tab.Container>
           )}

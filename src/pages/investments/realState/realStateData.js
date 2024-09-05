@@ -41,18 +41,7 @@ export const realstateData = [
   {
     id: 29,
     nombre: "Casa Colinas del parque",
-    contacts: [
-      // {
-      //   id: 1,
-      //   name: 'Cesar Tamayo',
-      //   type: 'Asesor Inmobiliario',
-      //   categoryCoreId: 23,
-      //   coreId: 1,
-      //   number: '6691481888',
-      //   location: 'Mazatlán, Sinaloa',
-      //   email: 'cesar@tamayocoppel.com'
-      // }
-    ],
+    contacts: [],
     containedIntrusts:[
       {
         id: 90,

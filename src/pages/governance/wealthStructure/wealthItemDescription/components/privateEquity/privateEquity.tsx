@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from "react";
-import { Button, Card, Col, Row, Form, InputGroup, Table } from "react-bootstrap";
+import { Button, Card, Col, Row, Form, InputGroup, Table, Nav, Tab } from "react-bootstrap";
 import Select from "react-select";
 import { MultiSelect } from "react-multi-select-component";
 import dayjs, { Dayjs } from "dayjs";
@@ -19,6 +19,9 @@ import { Link } from "react-router-dom";
 import FileView from "../../../../../administration/accounting/components/fileView";
 
 export default function PrivateEquity(props) {
+  //@ts-ignore
+  const baseUrl = import.meta.env.BASE_URL;
+
   const privateEquitySelected = otherWealthData.privateEquity.find(
     (privateEquity) => privateEquity.id === Number(props.id)
   );
@@ -913,19 +916,13 @@ export default function PrivateEquity(props) {
     return;
   };
 
-  return (
-    <Fragment>
-      <Row style={{ padding: 20 }}>
-        <Card.Title style={{ marginBottom: 35 }}>
-          Inversion de capital privado - {privateEquitySelected.investmentName}
-        </Card.Title>
-
-        {renderOwnerTypeOptions()}
-
+  const renderInfo = () => {
+    return (
+      <>
         <Form.Group
           as={Col}
-          style={{ marginTop: 20 }}
           md="4"
+          style={{marginLeft: -10}}
           controlId="validationCustom01"
           className="form-group"
         >
@@ -944,17 +941,191 @@ export default function PrivateEquity(props) {
         <Row style={{ marginBottom: 10, marginTop: 20 }}>
           {renderSelectedType()}
         </Row>
+      </>
+    )
+  }
+
+  const renderContactList = () => {
+    const existringContacts = privateEquitySelected.contacts.length > 0;
+    return (
+      <>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            flexDirection: "row",
+            marginBottom: 30,
+          }}
+        >
+          <div></div>
+          <Button
+            style={{
+              marginRight: 10,
+              height: 30,
+            }}
+            variant="primary"
+            size="sm"
+            className="mb-1"
+          >
+            <Link
+              style={{ color: "white" }}
+              to={`${
+                baseUrl
+              }administration/providerCreate/standar`}
+            >
+              + Añadir nuevo contacto
+            </Link>
+          </Button>
+        </div>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            marginBottom: 10,
+            justifyContent: existringContacts ? 'left' : 'center'
+          }}
+        >
+          <p
+            style={{
+              color: "gray",
+              fontSize: 12,
+              marginRight: 4,
+            }}
+          >
+            Para añadir un contacto existente en proveedores y contactos, añade
+            '{privateEquitySelected.investmentName}' a su lista de activos relacionados{" "}
+            <Link
+              style={{ fontSize: 12 }}
+              to={`${baseUrl}administration/providers`}
+            >
+              Aquí
+            </Link>
+          </p>
+        </div>
+        {existringContacts ? (
+          <div className="table-responsive">
+            <Table className="table border text-nowrap text-md-nowrap mb-0">
+              <thead className="bg-light">
+                <tr>
+                  <th>Nombre</th>
+                  <th>Tipo</th>
+                  <th>Ubicación</th>
+                  <th>Teléfono</th>
+                  <th>Email</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                {privateEquitySelected.contacts.map((contact) => (
+                  <tr key={contact.id}>
+                    <td>{contact.name}</td>
+                    <td>{contact.type}</td>
+                    <td>{contact.location}</td>
+                    <td>{contact.number}</td>
+                    <td>{contact.email}</td>
+                    <td
+                      style={{
+                        cursor: "pointer",
+                        textDecoration: "underline",
+                        color: "#5488d2",
+                      }}
+                    >
+                      <Link
+                        to={`${baseUrl}administration/providerDescription/${contact.categoryCoreId}/provider/${contact.coreId}/`}
+                      >
+                        Ver
+                      </Link>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </Table>
+          </div>
+        ) : (
+          <p style={{ fontSize: 12, color: "gray", textAlign: 'center' }}>
+            Aún no hay ningun contacto seleccionado para{" "}
+            {privateEquitySelected.investmentName}
+          </p>
+        )}
+      </>
+    );
+  };
+
+  return (
+    <Fragment>
+      <Row style={{ padding: 20 }}>
+        <Card.Title style={{ marginBottom: 10 }}>
+          <i
+            style={{ marginRight: 9 }}
+            className="fe fe-activity text-black fs-15"
+          ></i>{" "}
+          Inversion de capital privado - {privateEquitySelected.investmentName}
+        </Card.Title>
+
+        <Tab.Container id="left-tabs-example" defaultActiveKey="info">
+          <div
+            style={{
+              paddingBottom: 0,
+              paddingLeft: 10,
+              marginTop: 10,
+              marginBottom: 10,
+            }}
+          >
+            <div className="tabs-menu1">
+              <Nav as="ul" className="nav panel-tabs">
+                <Nav.Item as="li" style={{ marginRight: 10 }}>
+                  <Nav.Link eventKey="info" href="#">
+                    <i
+                      style={{ marginRight: 9 }}
+                      className="fe fe-file-text text-black fs-13"
+                    ></i>
+                    Información
+                  </Nav.Link>
+                </Nav.Item>
+                <Nav.Item as="li" style={{ marginRight: 10 }}>
+                  <Nav.Link eventKey="owners">
+                    <i
+                      style={{ marginRight: 9 }}
+                      className="fe fe-book-open text-black fs-13"
+                    ></i>
+                    Propietarios
+                  </Nav.Link>
+                </Nav.Item>
+                <Nav.Item as="li" style={{ marginRight: 10 }}>
+                  <Nav.Link eventKey="contacts">
+                    <i
+                      style={{ marginRight: 9 }}
+                      className="fe fe-users text-black fs-13"
+                    ></i>
+                    Contactos
+                  </Nav.Link>
+                </Nav.Item>
+              </Nav>
+            </div>
+          </div>
+
+          <Tab.Content className="panel-body">
+            <Tab.Pane eventKey="info">{renderInfo()}</Tab.Pane>
+            <Tab.Pane eventKey="owners">{renderOwnerTypeOptions()}</Tab.Pane>
+            <Tab.Pane eventKey="contacts">{renderContactList()}</Tab.Pane>
+          </Tab.Content>
+        </Tab.Container>
 
         <div
           style={{
             display: "flex",
             flexDirection: "row",
             justifyContent: "space-between",
-            marginTop: 70,
+            marginTop: 20,
           }}
         >
           <div></div>
-          <Button variant="primary" className=" mb-1" type="submit">
+          <Button
+            style={{ position: "absolute", right: 25, bottom: 20 }}
+            variant="primary"
+            className=" mb-1"
+            type="submit"
+          >
             Guardar
           </Button>
         </div>

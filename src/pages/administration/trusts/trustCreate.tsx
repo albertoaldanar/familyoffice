@@ -209,6 +209,10 @@ export default function TrustCreate(props) {
       <Row>
         <Card style={{ padding: 30, marginTop: 20 }}>
           <Card.Title style={{ marginBottom: 35 }}>
+            <i
+              style={{ marginRight: 9 }}
+              className="fe fe-file text-black fs-15"
+            ></i>{" "}
             Nuevo Registro de Fideicomiso
           </Card.Title>
           <Form noValidate validated={false} onSubmit={() => {}}>
