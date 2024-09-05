@@ -1485,19 +1485,24 @@ export default function CompanyDescription() {
             </Tab.Container>
           )}
           <Form noValidate validated={false} onSubmit={() => {}}>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: "space-between",
-                marginTop: 20,
-              }}
-            >
-              <div></div>
-              <Button variant="primary" className=" mb-1" type="submit">
-                Guardar
-              </Button>
-            </div>
+          <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-between",
+            marginTop: 20,
+          }}
+        >
+          <div></div>
+          <Button
+            style={{ position: "absolute", right: 25, bottom: 20 }}
+            variant="primary"
+            className=" mb-1"
+            type="submit"
+          >
+            Guardar
+          </Button>
+        </div>
           </Form>
         </Card>
       </Row>

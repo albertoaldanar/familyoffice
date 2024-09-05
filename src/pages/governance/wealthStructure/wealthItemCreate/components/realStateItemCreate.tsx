@@ -10,12 +10,15 @@ import { family } from "../../../familyStructure/familyStructureData";
 import { companies } from "../../../../administration/accounting/accountingData";
 import { formatCompany, formatTrust } from "../../../../administration/accounting/companyUtils";
 import { fideicomisos } from "../../../../administration/accounting/accountingData";
+import { providers } from "../../../../administration/providers/providersData";
+import { formatProviderContacts } from "../../../../administration/providers/providersUtils";
 
 export default function RealStateItemCreate(props) {
   const familyList = formatMember(family.members);
   const companiesList = formatCompany(companies);
   const membersList = formatMember(family.members);
   const trustsList = formatTrust(fideicomisos);
+  const providersList = formatProviderContacts(providers);
   const [propertyName, setPropertyName] = useState("");
   const [location, setLocation] = useState("");
   const [city, setCity] = useState("");
@@ -40,6 +43,8 @@ export default function RealStateItemCreate(props) {
     value: "",
     label: "",
   });
+
+  const [providersSelected, setProvidersSelected] = useState([]);
 
   const Optionscurrency = [
     { value: "MXN", label: "MXN" },
@@ -275,6 +280,10 @@ export default function RealStateItemCreate(props) {
     <Fragment>
       <Row style={{padding: 20}}>
           <Card.Title style={{ marginBottom: 35 }}>
+            <i
+              style={{ marginRight: 9 }}
+              className="fe fe-map-pin text-black fs-13"
+            ></i>
             Nuevo Registro de propiedad
           </Card.Title>
           {/* <Form noValidate validated={false} onSubmit={() => {}}> */}
@@ -413,6 +422,29 @@ export default function RealStateItemCreate(props) {
                 />
 
                 {renderOptionsSelected("trust")}
+              </Form.Group>
+            </Row>
+
+            <Row style={{marginTop: 30}}>
+              <Form.Group
+                as={Col}
+                md="8"
+                controlId="validationCustom01"
+                className="form-group"
+              >
+                <Form.Label>Contactos o proveedores para ligar a esta propiedad</Form.Label>
+                <MultiSelect
+                  options={providersList}
+                  value={providersSelected}
+                  onChange={setProvidersSelected}
+                  labelledBy="Select"
+                  overrideStrings={{
+                    selectSomeItems: "Selecciona contactos o proveedores importantes para esta propiedad",
+                    allItemsAreSelected: "Todos los miembros",
+                    selectAll: "Seleccionar todos",
+                  }}
+                  disableSearch
+                />
               </Form.Group>
             </Row>
 

@@ -23,6 +23,8 @@ import { otherWealthData } from "../../wealthStructureData";
 import { bankAccountOwnersFormat } from "../../wealthStructureUtils";
 import { fideicomisos } from "../../../../administration/accounting/accountingData";
 import { formatTrust } from "../../wealthStructureUtils";
+import { providers } from "../../../../administration/providers/providersData";
+import { formatProviderContacts } from "../../../../administration/providers/providersUtils";
 
 import { Link } from "react-router-dom";
 

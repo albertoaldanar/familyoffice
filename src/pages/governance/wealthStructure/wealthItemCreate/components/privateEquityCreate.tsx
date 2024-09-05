@@ -13,6 +13,8 @@ import { countryOptions } from "../../../../administration/accounting/companyUti
 import { family } from "../../../familyStructure/familyStructureData";
 import { companies } from "../../../../administration/accounting/accountingData";
 import { fideicomisos } from "../../../../administration/accounting/accountingData";
+import { providers } from "../../../../administration/providers/providersData";
+import { formatProviderContacts } from "../../../../administration/providers/providersUtils";
 import {
   formatCompany,
   formatTrust,
@@ -24,6 +26,7 @@ export default function PrivateEquityCreate(props) {
   const familyList = formatMember(family.members);
   const companiesList = formatCompany(companies);
   const trustsList = formatTrust(fideicomisos);
+  const providersList = formatProviderContacts(providers);
   const [ownerTurst, setOwnerTurst] = useState([]);
   const [fundName, setFundName] = useState("");
   const [investment, setInvestment] = useState("");
@@ -43,6 +46,7 @@ export default function PrivateEquityCreate(props) {
   const [equityPercentage, setEquityPercentage] = useState("");
   const [currentValue, setCurrentValue] = useState("");
   const [tir, setTir] = useState("");
+  const [providersSelected, setProvidersSelected] = useState([]);
 
   const [companyStage, setCompanyStage] = useState({
     value: "",
@@ -385,6 +389,31 @@ export default function PrivateEquityCreate(props) {
             />
 
             {renderOptionsSelected("trust")}
+          </Form.Group>
+        </Row>
+        <Row style={{ marginTop: 20 }}>
+          <Form.Group
+            as={Col}
+            md="8"
+            controlId="validationCustom01"
+            className="form-group"
+          >
+            <Form.Label>
+              Contactos o proveedores para ligar a esta inversión de CP
+            </Form.Label>
+            <MultiSelect
+              options={providersList}
+              value={providersSelected}
+              onChange={setProvidersSelected}
+              labelledBy="Select"
+              overrideStrings={{
+                selectSomeItems:
+                  "Selecciona contactos o proveedores importantes para esta inversión de CP",
+                allItemsAreSelected: "Todos los miembros",
+                selectAll: "Seleccionar todos",
+              }}
+              disableSearch
+            />
           </Form.Group>
         </Row>
       </div>
@@ -1066,6 +1095,7 @@ export default function PrivateEquityCreate(props) {
             value={investmentType}
           />
         </Form.Group>
+
 
         <Row style={{ marginBottom: 10, marginTop: 20 }}>
           {renderSelectedType()}

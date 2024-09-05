@@ -9,6 +9,8 @@ import { family } from "../../../familyStructure/familyStructureData";
 import { companies } from "../../../../administration/accounting/accountingData";
 import { fideicomisos } from "../../../../administration/accounting/accountingData";
 import { formatCompany, formatTrust } from "../../../../administration/accounting/companyUtils";
+import { providers } from "../../../../administration/providers/providersData";
+import { formatProviderContacts } from "../../../../administration/providers/providersUtils";
 //@ts-ignore
 import { Link } from "react-router-dom";
 
@@ -16,11 +18,13 @@ export default function StockInvestmentCreate(props) {
   const familyList = formatMember(family.members);
   const companiesList = formatCompany(companies);
   const trustsList = formatTrust(fideicomisos);
+  const providersList = formatProviderContacts(providers);
   const [investment, setInvestment] = useState("");
   const [bank, setBank] = useState("");
   const [ownerFamilyMembers, setOwnerFamilyMembers] = useState([]);
   const [ownerCompanies, setOwnerCompanies] = useState([]);
   const [routing, setRouting] = useState("");
+  const [providersSelected, setProvidersSelected] = useState([]);
   const [accountNumber, setAccountNumber] = useState("");
   const [ownerTurst, setOwnerTurst] = useState([]);
 
@@ -332,6 +336,32 @@ export default function StockInvestmentCreate(props) {
         </Card.Title>
 
         {renderOwnerTypeOptions()}
+
+        <Row style={{ marginTop: 20 }}>
+          <Form.Group
+            as={Col}
+            md="8"
+            controlId="validationCustom01"
+            className="form-group"
+          >
+            <Form.Label>
+              Contactos o proveedores para ligar a esta inversión bursatil
+            </Form.Label>
+            <MultiSelect
+              options={providersList}
+              value={providersSelected}
+              onChange={setProvidersSelected}
+              labelledBy="Select"
+              overrideStrings={{
+                selectSomeItems:
+                  "Selecciona contactos o proveedores importantes para esta inversión bursatil",
+                allItemsAreSelected: "Todos los miembros",
+                selectAll: "Seleccionar todos",
+              }}
+              disableSearch
+            />
+          </Form.Group>
+        </Row>
 
         <Row style={{ marginTop: 20 }}>
           <Form.Group

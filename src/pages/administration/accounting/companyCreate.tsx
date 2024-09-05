@@ -17,8 +17,11 @@ import { family } from "../../governance/familyStructure/familyStructureData";
 import { companies } from "./accountingData";
 import { formatCompany, formatTrust } from "./companyUtils";
 import { formatMember } from "../../governance/councilAndCommittee/councilAndCommitteeUtils";
+import { providers } from "../providers/providersData";
+import { formatProviderContacts } from "../providers/providersUtils";
 
 export default function CompanyCreate(props) {
+  const providersList = formatProviderContacts(providers);
   const [companyName, setCompanyName] = useState("");
   const [rfc, setRFC] = useState("");
   const [razonSocial, setRazonSocial] = useState("");
@@ -27,6 +30,7 @@ export default function CompanyCreate(props) {
   const [address, setAddress] = useState("");
   const [ownerFamilyMembers, setOwnerFamilyMembers] = useState([]);
   const [ownerCompanies, setOwnerCompanies] = useState([]);
+  const [providersSelected, setProvidersSelected] = useState([]);
   const [foundationDate, setfoundationDate] = useState<Dayjs | null>(dayjs(""));
   const [ownerTurst, setOwnerTurst] = useState([]);
 
@@ -445,6 +449,32 @@ export default function CompanyCreate(props) {
                 />
 
                 {renderOptionsSelected("trust")}
+              </Form.Group>
+            </Row>
+
+            <Row style={{ marginTop: 25 }}>
+              <Form.Group
+                as={Col}
+                md="8"
+                controlId="validationCustom01"
+                className="form-group"
+              >
+                <Form.Label>
+                  Contactos o proveedores para ligar a esta empresa
+                </Form.Label>
+                <MultiSelect
+                  options={providersList}
+                  value={providersSelected}
+                  onChange={setProvidersSelected}
+                  labelledBy="Select"
+                  overrideStrings={{
+                    selectSomeItems:
+                    `Selecciona contactos o proveedores importantes para esta empresa`,
+                    allItemsAreSelected: "Todos los miembros",
+                    selectAll: "Seleccionar todos",
+                  }}
+                  disableSearch
+                />
               </Form.Group>
             </Row>
 

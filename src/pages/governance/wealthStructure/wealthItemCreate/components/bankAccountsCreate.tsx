@@ -9,6 +9,8 @@ import { family } from "../../../familyStructure/familyStructureData";
 import { companies } from "../../../../administration/accounting/accountingData";
 import { formatCompany } from "../../../../administration/accounting/companyUtils";
 import { fideicomisos } from "../../../../administration/accounting/accountingData";
+import { providers } from "../../../../administration/providers/providersData";
+import { formatProviderContacts } from "../../../../administration/providers/providersUtils";
 import { formatTrust } from "../../wealthStructureUtils";
 import { Link } from "react-router-dom";
 
@@ -16,10 +18,12 @@ export default function BanksAccountsCreate(props) {
   const membersList = formatMember(family.members);
   const companiesList = formatCompany(companies);
   const trustList = formatTrust(fideicomisos);
+  const providersList = formatProviderContacts(providers);
   const [bank, setBank] = useState("");
   const [todayValue, setTodayValue] = useState("");
   const [members, setMembers] = useState([]);
   const [accountNumber, setAccountNumber] = useState("");
+  const [providersSelected, setProvidersSelected] = useState([]);
   const [ownerCompanies, setOwnerCompanies] = useState({
     value: "",
     label: "",
@@ -44,9 +48,9 @@ export default function BanksAccountsCreate(props) {
     label: "",
   });
 
-  const [ownerTrust, setOwnerTrust] = useState({ 
-    value: "", 
-    label: "" 
+  const [ownerTrust, setOwnerTrust] = useState({
+    value: "",
+    label: "",
   });
 
   const Optionscurrency = [
@@ -173,6 +177,32 @@ export default function BanksAccountsCreate(props) {
         </Row>
 
         {renderOwnerTypeOptions()}
+
+        <Row style={{ marginTop: 20 }}>
+          <Form.Group
+            as={Col}
+            md="8"
+            controlId="validationCustom01"
+            className="form-group"
+          >
+            <Form.Label>
+              Contactos o proveedores para ligar a esta cuenta bancaria
+            </Form.Label>
+            <MultiSelect
+              options={providersList}
+              value={providersSelected}
+              onChange={setProvidersSelected}
+              labelledBy="Select"
+              overrideStrings={{
+                selectSomeItems:
+                  "Selecciona contactos o proveedores importantes para esta cuenta bancaria",
+                allItemsAreSelected: "Todos los miembros",
+                selectAll: "Seleccionar todos",
+              }}
+              disableSearch
+            />
+          </Form.Group>
+        </Row>
 
         <Row style={{ marginBottom: 10, marginTop: 20 }}>
           <Form.Group

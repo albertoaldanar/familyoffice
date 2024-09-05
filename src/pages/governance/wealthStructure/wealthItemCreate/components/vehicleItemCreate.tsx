@@ -10,12 +10,15 @@ import { companies } from "../../../../administration/accounting/accountingData"
 import { fideicomisos } from "../../../../administration/accounting/accountingData";
 import { formatCompany, formatTrust } from "../../../../administration/accounting/companyUtils";
 import { countryOptions } from "../../../../administration/accounting/companyUtils";
+import { providers } from "../../../../administration/providers/providersData";
+import { formatProviderContacts } from "../../../../administration/providers/providersUtils";
 import { Link } from "react-router-dom";
 
 export default function VehicleItemCreate(props) {
   const familyList = formatMember(family.members);
   const companiesList = formatCompany(companies);
   const trustsList = formatTrust(fideicomisos);
+  const providersList = formatProviderContacts(providers);
   const [ownerTurst, setOwnerTurst] = useState([]);
   const [model, setModel] = useState("");
   const [brand, setBrand] = useState("");
@@ -26,6 +29,7 @@ export default function VehicleItemCreate(props) {
   const [invoice, setInvoice] = useState("");
   const [ownerFamilyMembers, setOwnerFamilyMembers] = useState([]);
   const [ownerCompanies, setOwnerCompanies] = useState([]);
+  const [providersSelected, setProvidersSelected] = useState([]);
   const [currency, setCurrency] = useState({
     value: "",
     label: "",
@@ -391,6 +395,31 @@ export default function VehicleItemCreate(props) {
                 />
 
                 {renderOptionsSelected("trust")}
+              </Form.Group>
+            </Row>
+            <Row style={{ marginTop: 20 }}>
+              <Form.Group
+                as={Col}
+                md="8"
+                controlId="validationCustom01"
+                className="form-group"
+              >
+                <Form.Label>
+                  Contactos o proveedores para ligar a este vehiculo
+                </Form.Label>
+                <MultiSelect
+                  options={providersList}
+                  value={providersSelected}
+                  onChange={setProvidersSelected}
+                  labelledBy="Select"
+                  overrideStrings={{
+                    selectSomeItems:
+                      "Selecciona contactos o proveedores importantes para este vehiculo",
+                    allItemsAreSelected: "Todos los miembros",
+                    selectAll: "Seleccionar todos",
+                  }}
+                  disableSearch
+                />
               </Form.Group>
             </Row>
             <Row style={{ marginTop: 30 }}>

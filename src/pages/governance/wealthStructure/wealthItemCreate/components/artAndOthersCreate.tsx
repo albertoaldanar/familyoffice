@@ -10,17 +10,21 @@ import { fideicomisos } from "../../../../administration/accounting/accountingDa
 import { companies } from "../../../../administration/accounting/accountingData";
 import { formatTrust } from "../../../../administration/accounting/companyUtils";
 import { formatCompany } from "../../../../administration/accounting/companyUtils";
+import { providers } from "../../../../administration/providers/providersData";
+import { formatProviderContacts } from "../../../../administration/providers/providersUtils";
 import { Link } from "react-router-dom";
 
 export default function ArtAndOthersCreate(props) {
   const familyList = formatMember(family.members);
   const companiesList = formatCompany(companies);
+  const providersList = formatProviderContacts(providers);
   const trustsList = formatTrust(fideicomisos);
   const [objectName, setObjectName] = useState("");
   const [todayValue, setTodayValue] = useState("");
   const [members, setMembers] = useState([]);
   const [ownerFamilyMembers, setOwnerFamilyMembers] = useState([]);
   const [ownerCompanies, setOwnerCompanies] = useState([]);
+  const [providersSelected, setProvidersSelected] = useState([]);
   const [ownerTurst, setOwnerTurst] = useState([]);
 
   const [country, setCountry] = useState({
@@ -270,7 +274,6 @@ export default function ArtAndOthersCreate(props) {
 
   return (
     <Fragment>
-
       <Row style={{padding: 20}}>
           <Card.Title style={{ marginBottom: 35 }}>
             <i
@@ -414,6 +417,32 @@ export default function ArtAndOthersCreate(props) {
                 />
 
                 {renderOptionsSelected("trust")}
+              </Form.Group>
+            </Row>
+
+            <Row style={{ marginTop: 20 }}>
+              <Form.Group
+                as={Col}
+                md="8"
+                controlId="validationCustom01"
+                className="form-group"
+              >
+                <Form.Label>
+                  Contactos o proveedores para ligar a este registro de {propertyType.label}
+                </Form.Label>
+                <MultiSelect
+                  options={providersList}
+                  value={providersSelected}
+                  onChange={setProvidersSelected}
+                  labelledBy="Select"
+                  overrideStrings={{
+                    selectSomeItems:
+                    `Selecciona contactos o proveedores importantes para este registro de ${propertyType.label}`,
+                    allItemsAreSelected: "Todos los miembros",
+                    selectAll: "Seleccionar todos",
+                  }}
+                  disableSearch
+                />
               </Form.Group>
             </Row>
 

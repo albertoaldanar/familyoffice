@@ -22,8 +22,11 @@ import { countryOptions } from "../accounting/companyUtils";
 import { formatRealstateData } from "../payments/paymentUtils";
 import { formatBankAccounts, formatPrivateEquity } from "../../governance/wealthStructure/wealthStructureUtils";
 import { formatVehicleData } from "../payments/paymentUtils";
+import { providers } from "../providers/providersData";
+import { formatProviderContacts } from "../providers/providersUtils";
 
 export default function TrustCreate(props) {
+  const providersList = formatProviderContacts(providers);
   const [trustNumber, setTrustNumber] = useState("");
   const [trustBank, setTrustBank] = useState("");
   const [trustee, setTrustee] = useState("");
@@ -36,6 +39,7 @@ export default function TrustCreate(props) {
   const [artContained, setArtContained] = useState([]);
   const [privateEquityContained, setPrivateEquityContained] = useState([]);
   const [country, setCountry] = useState([]);
+  const [providersSelected, setProvidersSelected] = useState([]);
   const [creationDate, setCreationDate] = useState<Dayjs | null>(dayjs(""));
 
   const [trustType, setTrustType] = useState({
@@ -333,7 +337,31 @@ export default function TrustCreate(props) {
               </Form.Group>
             </Row>
 
-            {/* {renderSelectAssetsContained()} */}
+            <Row style={{ marginTop: 20 }}>
+              <Form.Group
+                as={Col}
+                md="8"
+                controlId="validationCustom01"
+                className="form-group"
+              >
+                <Form.Label>
+                  Contactos o proveedores para ligar a esta empresa
+                </Form.Label>
+                <MultiSelect
+                  options={providersList}
+                  value={providersSelected}
+                  onChange={setProvidersSelected}
+                  labelledBy="Select"
+                  overrideStrings={{
+                    selectSomeItems:
+                    `Selecciona contactos o proveedores importantes para esta empresa`,
+                    allItemsAreSelected: "Todos los miembros",
+                    selectAll: "Seleccionar todos",
+                  }}
+                  disableSearch
+                />
+              </Form.Group>
+            </Row>
 
             <Row style={{ marginTop: 20 }}>
               <Form.Group
