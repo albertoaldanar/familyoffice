@@ -7,6 +7,7 @@ import {
   Form,
   InputGroup,
   Nav,
+  Table,
   Tab,
 } from "react-bootstrap";
 import Select from "react-select";
@@ -17,16 +18,27 @@ import FileView from "../../../../administration/accounting/components/fileView"
 import { arrendamientos } from "../../../../administration/collecting/collectingData";
 import { realstateData } from "../../../../investments/realState/realStateData";
 import NotFoundSearch from "../../../../shared/notFoundSearch";
-import { prediales, mantenimientos, creditos, seguros } from "../../../../administration/payments/paymentsData";
+import {
+  prediales,
+  mantenimientos,
+  creditos,
+  seguros,
+} from "../../../../administration/payments/paymentsData";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { fideicomisos } from "../../../../administration/accounting/accountingData";
 import { family } from "../../../familyStructure/familyStructureData";
 import { companies } from "../../../../administration/accounting/accountingData";
-import { formatCompany, formatOwnersData, formatTrust } from "../../../../administration/accounting/companyUtils";
+import {
+  formatCompany,
+  formatOwnersData,
+  formatTrust,
+} from "../../../../administration/accounting/companyUtils";
 import { formatMember } from "../../../councilAndCommittee/councilAndCommitteeUtils";
 
 export default function RealStateItem(props) {
+  //@ts-ignore
+  const baseUrl = import.meta.env.BASE_URL;
   const realStateSelected = realstateData.find(
     (realState) => realState.id === Number(props.id)
   );
@@ -39,14 +51,15 @@ export default function RealStateItem(props) {
   const familyList = formatMember(family.members);
   const companiesList = formatCompany(companies);
   const ownerData = formatOwnersData(realStateSelected);
-
   const [propertyName, setPropertyName] = useState(realStateSelected.nombre);
   const [location, setLocation] = useState(realStateSelected.location);
   const [city, setCity] = useState(realStateSelected.ciudad);
   const [percentage, setPercentage] = useState(realStateSelected.percentage);
   const [todayValue, setTodayValue] = useState(realStateSelected.valuacion);
   const [mt2, setMt2] = useState(realStateSelected.mt2);
-  const [ownerFamilyMembers, setOwnerFamilyMembers] = useState(ownerData.family);
+  const [ownerFamilyMembers, setOwnerFamilyMembers] = useState(
+    ownerData.family
+  );
   const [ownerCompanies, setOwnerCompanies] = useState(ownerData.company);
   const [ownerTrust, setOwnerTrust] = useState(ownerData.trust);
 
@@ -272,24 +285,48 @@ export default function RealStateItem(props) {
   };
 
   const renderResponsabilities = () => {
-    const predialLinked = prediales.find(predial => predial.linkedItemId === Number(props.id));
-    const mantainanceLinked = mantenimientos.find(mantainence => mantainence.linkedItemId === Number(props.id) && mantainence.tipo === 'Inmobiliario');
-    const creditLinked = creditos.find(credit => credit.linkedItemId === Number(props.id) && credit.tipoCredito === 'Hipotecario');
-    const insuranceLinked = seguros.find(seg => seg.linkedItemId === Number(props.id) && seg.tipo === 'Inmueble');
-    const rentLinked = arrendamientos.find(arr => arr.linkedItemId === Number(props.id) && arr.tipo === 'Inmobiliario');
+    const predialLinked = prediales.find(
+      (predial) => predial.linkedItemId === Number(props.id)
+    );
+    const mantainanceLinked = mantenimientos.find(
+      (mantainence) =>
+        mantainence.linkedItemId === Number(props.id) &&
+        mantainence.tipo === "Inmobiliario"
+    );
+    const creditLinked = creditos.find(
+      (credit) =>
+        credit.linkedItemId === Number(props.id) &&
+        credit.tipoCredito === "Hipotecario"
+    );
+    const insuranceLinked = seguros.find(
+      (seg) => seg.linkedItemId === Number(props.id) && seg.tipo === "Inmueble"
+    );
+    const rentLinked = arrendamientos.find(
+      (arr) =>
+        arr.linkedItemId === Number(props.id) && arr.tipo === "Inmobiliario"
+    );
 
     return (
-      <div style={{display: 'flex', flexDirection: 'row', marginLeft: 10}}>
-        <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-evenly', width: '25%'}}>
-          <p style={{fontSize: 15, fontWeight: '700', fontStyle: 'italic'}}>Pagos</p>
+      <div style={{ display: "flex", flexDirection: "row", marginLeft: 10 }}>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-evenly",
+            width: "25%",
+          }}
+        >
+          <p style={{ fontSize: 15, fontWeight: "700", fontStyle: "italic" }}>
+            Pagos
+          </p>
 
-          <div style={{marginBottom: 20}}>
-            <p style={{fontSize: 13, marginRight: 10,  marginBottom: -5}}>Predial:</p>
-            {
-              predialLinked ? (
+          <div style={{ marginBottom: 20 }}>
+            <p style={{ fontSize: 13, marginRight: 10, marginBottom: -5 }}>
+              Predial:
+            </p>
+            {predialLinked ? (
               <Link
-                // @ts-ignore */
-                to={`${import.meta.env.BASE_URL}administration/propertyTaxDescription/${predialLinked.id}`}
+                to={`${baseUrl}administration/propertyTaxDescription/${predialLinked.id}`}
                 style={{
                   fontSize: 13,
                   textDecoration: "underline",
@@ -299,10 +336,9 @@ export default function RealStateItem(props) {
               >
                 Pago de predial
               </Link>
-              ) : (
-                <Link
-                // @ts-ignore */
-                to={`${import.meta.env.BASE_URL}administration/propertyTaxCreate/${realStateSelected.id}`}
+            ) : (
+              <Link
+                to={`${baseUrl}administration/propertyTaxCreate/${realStateSelected.id}`}
                 style={{
                   fontSize: 12,
                   textDecoration: "underline",
@@ -312,30 +348,28 @@ export default function RealStateItem(props) {
               >
                 + Administrar predial
               </Link>
-              )
-            }
+            )}
           </div>
 
-          <div style={{marginBottom: 20}}>
-            <p style={{fontSize: 13, marginRight: 10,  marginBottom: -5}}>Mantenimiento:</p>
-            {
-              mantainanceLinked ? (
-                  <Link
-                    // @ts-ignore */
-                    to={`${import.meta.env.BASE_URL}administration/mantainanceDescription/${mantainanceLinked.id}`}
-                    style={{
-                      fontSize: 12,
-                      textDecoration: "underline",
-                      cursor: "pointer",
-                      color: "#5488d2",
-                    }}
-                  >
-                    Ver pagos de mantenimiento
-                  </Link>
-              ) : (
-                <Link
-                // @ts-ignore */
-                to={`${import.meta.env.BASE_URL}administration/mantainanceCreate/type/realState/itemId/${realStateSelected.id}`}
+          <div style={{ marginBottom: 20 }}>
+            <p style={{ fontSize: 13, marginRight: 10, marginBottom: -5 }}>
+              Mantenimiento:
+            </p>
+            {mantainanceLinked ? (
+              <Link
+                to={`${baseUrl}administration/mantainanceDescription/${mantainanceLinked.id}`}
+                style={{
+                  fontSize: 12,
+                  textDecoration: "underline",
+                  cursor: "pointer",
+                  color: "#5488d2",
+                }}
+              >
+                Ver pagos de mantenimiento
+              </Link>
+            ) : (
+              <Link
+                to={`${baseUrl}administration/mantainanceCreate/type/realState/itemId/${realStateSelected.id}`}
                 style={{
                   fontSize: 12,
                   textDecoration: "underline",
@@ -345,29 +379,27 @@ export default function RealStateItem(props) {
               >
                 + Administrar mantenimientos
               </Link>
-              )
-            }
+            )}
           </div>
-          <div style={{marginBottom: 20}}>
-            <p style={{fontSize: 13, marginRight: 10,  marginBottom: -5}}>Credito:</p>
-            {
-              creditLinked ? (
-                  <Link
-                    // @ts-ignore */
-                    to={`${import.meta.env.BASE_URL}administration/debtDescription/${creditLinked.id}`}
-                    style={{
-                      fontSize: 12,
-                      textDecoration: "underline",
-                      cursor: "pointer",
-                      color: "#5488d2",
-                    }}
-                  >
-                    Ver pago de credito hipotecario
-                  </Link>
-              ) : (
-                <Link
-                // @ts-ignore */
-                to={`${import.meta.env.BASE_URL}administration/debtCreate/type/realState/itemId/${realStateSelected.id}`}
+          <div style={{ marginBottom: 20 }}>
+            <p style={{ fontSize: 13, marginRight: 10, marginBottom: -5 }}>
+              Credito:
+            </p>
+            {creditLinked ? (
+              <Link
+                to={`${baseUrl}administration/debtDescription/${creditLinked.id}`}
+                style={{
+                  fontSize: 12,
+                  textDecoration: "underline",
+                  cursor: "pointer",
+                  color: "#5488d2",
+                }}
+              >
+                Ver pago de credito hipotecario
+              </Link>
+            ) : (
+              <Link
+                to={`${baseUrl}administration/debtCreate/type/realState/itemId/${realStateSelected.id}`}
                 style={{
                   fontSize: 12,
                   textDecoration: "underline",
@@ -377,77 +409,76 @@ export default function RealStateItem(props) {
               >
                 + Administrar credito
               </Link>
-              )
-            }
+            )}
           </div>
-           <div style={{marginBottom: 20}}>
-            <p style={{fontSize: 13, marginRight: 10, marginBottom: -5}}>Seguro:</p>
-            {
-              insuranceLinked ? (
-                  <Link
-                    // @ts-ignore */
-                    to={`${import.meta.env.BASE_URL}administration/insuraceDescription/${insuranceLinked.id}`}
-                    style={{
-                      fontSize: 12,
-                      textDecoration: "underline",
-                      cursor: "pointer",
-                      color: "#5488d2",
-                    }}
-                  >
-                    Ver pagos de seguro inmobiliario 
-                  </Link>
-              ) : (
-                <Link
-                  // @ts-ignore */
-                  to={`${import.meta.env.BASE_URL}administration/insuranceCreate/type/realState/itemId/${realStateSelected.id}`}
-                  style={{
-                    fontSize: 12,
-                    textDecoration: "underline",
-                    cursor: "pointer",
-                    color: "gray",
-                  }}
-                >
-                  + Administrar seguro
-                </Link>
-              )
-            }
+          <div style={{ marginBottom: 20 }}>
+            <p style={{ fontSize: 13, marginRight: 10, marginBottom: -5 }}>
+              Seguro:
+            </p>
+            {insuranceLinked ? (
+              <Link
+                to={`${baseUrl}administration/insuraceDescription/${insuranceLinked.id}`}
+                style={{
+                  fontSize: 12,
+                  textDecoration: "underline",
+                  cursor: "pointer",
+                  color: "#5488d2",
+                }}
+              >
+                Ver pagos de seguro inmobiliario
+              </Link>
+            ) : (
+              <Link
+                to={`${baseUrl}administration/insuranceCreate/type/realState/itemId/${realStateSelected.id}`}
+                style={{
+                  fontSize: 12,
+                  textDecoration: "underline",
+                  cursor: "pointer",
+                  color: "gray",
+                }}
+              >
+                + Administrar seguro
+              </Link>
+            )}
           </div>
         </div>
-       
-        <div style={{display: 'flex', flexDirection: 'column', marginLeft: 60 }}>
-          <p style={{fontSize: 15, fontWeight: '700', fontStyle: 'italic'}}>Cobranza</p>
 
-          <div style={{marginBottom: 20}}>
-            <p style={{fontSize: 13, marginRight: 10, marginBottom: -5}}>Arrendamiento:</p>
-            {
-              rentLinked ? (
-                <Link
-                  // @ts-ignore */
-                  to={`${import.meta.env.BASE_URL}administration/rentDescription/${rentLinked.id}`}
-                  style={{
-                    fontSize: 13,
-                    textDecoration: "underline",
-                    cursor: "pointer",
-                    color: "#5488d2",
-                  }}
-                >
-                  Cobranza de arrendamiento vehicular
-                </Link>
-              ) : (
-                <Link
-                  // @ts-ignore */
-                  to={`${import.meta.env.BASE_URL}administration/rentCreate/type/realState/itemId/${realStateSelected.id}`}
-                  style={{
-                    fontSize: 12,
-                    textDecoration: "underline",
-                    cursor: "pointer",
-                    color: "gray",
-                  }}
-                >
-                  + Administrar arrendamiento
-                </Link>
-              )
-            }
+        <div
+          style={{ display: "flex", flexDirection: "column", marginLeft: 60 }}
+        >
+          <p style={{ fontSize: 15, fontWeight: "700", fontStyle: "italic" }}>
+            Cobranza
+          </p>
+
+          <div style={{ marginBottom: 20 }}>
+            <p style={{ fontSize: 13, marginRight: 10, marginBottom: -5 }}>
+              Arrendamiento:
+            </p>
+            {rentLinked ? (
+              <Link
+                to={`${baseUrl}administration/rentDescription/${rentLinked.id}`}
+                style={{
+                  fontSize: 13,
+                  textDecoration: "underline",
+                  cursor: "pointer",
+                  color: "#5488d2",
+                }}
+              >
+                Cobranza de arrendamiento vehicular
+              </Link>
+            ) : (
+              <Link
+                to={`${baseUrl}administration/rentCreate/type/realState/itemId/${realStateSelected.id}`}
+                style={{
+                  fontSize: 12,
+                  textDecoration: "underline",
+                  cursor: "pointer",
+                  color: "gray",
+                }}
+              >
+                + Administrar arrendamiento
+              </Link>
+            )}
           </div>
         </div>
       </div>
@@ -730,10 +761,122 @@ export default function RealStateItem(props) {
     return;
   };
 
+  const renderContactList = () => {
+    const existringContacts = realStateSelected.contacts.length > 0;
+    return (
+      <>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            flexDirection: "row",
+            marginBottom: 30,
+          }}
+        >
+          <div></div>
+          <Button
+            style={{
+              marginRight: 10,
+              height: 30,
+            }}
+            variant="primary"
+            size="sm"
+            className="mb-1"
+          >
+            <Link
+              style={{ color: "white" }}
+              to={`${
+                baseUrl
+              }administration/providerCreate/standar`}
+            >
+              + Añadir nuevo contacto
+            </Link>
+          </Button>
+        </div>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            marginBottom: 10,
+            justifyContent: existringContacts ? 'left' : 'center'
+          }}
+        >
+          <p
+            style={{
+              color: "gray",
+              fontSize: 12,
+              marginRight: 4,
+            }}
+          >
+            Para añadir un contacto existente en proveedores y contactos, añade
+            '{realStateSelected.nombre}' a su lista de activos relacionados{" "}
+            <Link
+              style={{ fontSize: 12 }}
+              to={`${baseUrl}administration/providers`}
+            >
+              Aquí
+            </Link>
+          </p>
+        </div>
+        {existringContacts ? (
+          <div className="table-responsive">
+            <Table className="table border text-nowrap text-md-nowrap mb-0">
+              <thead className="bg-light">
+                <tr>
+                  <th>Nombre</th>
+                  <th>Tipo</th>
+                  <th>Ubicación</th>
+                  <th>Teléfono</th>
+                  <th>Email</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                {realStateSelected.contacts.map((contact) => (
+                  <tr key={contact.id}>
+                    <td>{contact.name}</td>
+                    <td>{contact.type}</td>
+                    <td>{contact.location}</td>
+                    <td>{contact.number}</td>
+                    <td>{contact.email}</td>
+                    <td
+                      style={{
+                        cursor: "pointer",
+                        textDecoration: "underline",
+                        color: "#5488d2",
+                      }}
+                    >
+                      <Link
+                        to={`${baseUrl}administration/providerDescription/${contact.categoryCoreId}/provider/${contact.coreId}/`}
+                      >
+                        Ver
+                      </Link>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </Table>
+          </div>
+        ) : (
+          <p style={{ fontSize: 12, color: "gray", textAlign: 'center' }}>
+            Aún no hay ningun contacto seleccionado para{" "}
+            {realStateSelected.nombre}
+          </p>
+        )}
+      </>
+    );
+  };
+
   return (
     <Fragment>
       <Row style={{ marginTop: 10, padding: 20 }}>
-        <Card.Title>{realStateSelected.nombre}</Card.Title>
+        <Card.Title>
+          <i
+            style={{ marginRight: 9 }}
+            className="fe fe-map-pin text-black fs-13"
+          ></i>
+          {realStateSelected.nombre}
+        </Card.Title>
 
         <Tab.Container id="left-tabs-example" defaultActiveKey="first">
           <div
@@ -748,17 +891,48 @@ export default function RealStateItem(props) {
               <Nav as="ul" className="nav panel-tabs">
                 <Nav.Item as="li" style={{ marginRight: 10 }}>
                   <Nav.Link eventKey="first" href="#">
+                    <i
+                      style={{ marginRight: 9 }}
+                      className="fe fe-file-text text-black fs-13"
+                    ></i>
                     Información
                   </Nav.Link>
                 </Nav.Item>
                 <Nav.Item as="li" style={{ marginRight: 10 }}>
-                  <Nav.Link eventKey="second">Documentos</Nav.Link>
+                  <Nav.Link eventKey="second">
+                    <i
+                      style={{ marginRight: 9 }}
+                      className="fe fe-folder text-black fs-13"
+                    ></i>
+                    Documentos
+                  </Nav.Link>
                 </Nav.Item>
                 <Nav.Item as="li" style={{ marginRight: 10 }}>
-                  <Nav.Link eventKey="third">Obligaciones</Nav.Link>
+                  <Nav.Link eventKey="third">
+                    <i
+                      style={{ marginRight: 9 }}
+                      className="fe fe-calendar text-black fs-13"
+                    ></i>
+                    Obligaciones
+                  </Nav.Link>
                 </Nav.Item>
                 <Nav.Item as="li" style={{ marginRight: 10 }}>
-                  <Nav.Link eventKey="fourth">Propietario(s)</Nav.Link>
+                  <Nav.Link eventKey="fourth">
+                    <i
+                      style={{ marginRight: 9 }}
+                      className="fe fe-book-open text-black fs-13"
+                    ></i>
+                    Propietario(s)
+                  </Nav.Link>
+                </Nav.Item>
+                <Nav.Item as="li" style={{ marginRight: 10 }}>
+                  <Nav.Link eventKey="fifth">
+                    <i
+                      style={{ marginRight: 9 }}
+                      className="fe fe-users text-black fs-13"
+                    ></i>
+                    Contactos
+                  </Nav.Link>
                 </Nav.Item>
               </Nav>
             </div>
@@ -769,6 +943,7 @@ export default function RealStateItem(props) {
             <Tab.Pane eventKey="second">{renderDocuments()}</Tab.Pane>
             <Tab.Pane eventKey="third">{renderResponsabilities()}</Tab.Pane>
             <Tab.Pane eventKey="fourth">{renderOwners()}</Tab.Pane>
+            <Tab.Pane eventKey="fifth">{renderContactList()}</Tab.Pane>
           </Tab.Content>
         </Tab.Container>
         <div

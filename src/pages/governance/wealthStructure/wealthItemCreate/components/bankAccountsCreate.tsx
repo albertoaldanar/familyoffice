@@ -8,11 +8,14 @@ import { formatMember } from "../../../councilAndCommittee/councilAndCommitteeUt
 import { family } from "../../../familyStructure/familyStructureData";
 import { companies } from "../../../../administration/accounting/accountingData";
 import { formatCompany } from "../../../../administration/accounting/companyUtils";
+import { fideicomisos } from "../../../../administration/accounting/accountingData";
+import { formatTrust } from "../../wealthStructureUtils";
 import { Link } from "react-router-dom";
 
 export default function BanksAccountsCreate(props) {
   const membersList = formatMember(family.members);
   const companiesList = formatCompany(companies);
+  const trustList = formatTrust(fideicomisos);
   const [bank, setBank] = useState("");
   const [todayValue, setTodayValue] = useState("");
   const [members, setMembers] = useState([]);
@@ -41,6 +44,11 @@ export default function BanksAccountsCreate(props) {
     label: "",
   });
 
+  const [ownerTrust, setOwnerTrust] = useState({ 
+    value: "", 
+    label: "" 
+  });
+
   const Optionscurrency = [
     { value: "MXN", label: "MXN" },
     { value: "USD", label: "USD" },
@@ -61,6 +69,7 @@ export default function BanksAccountsCreate(props) {
   const OptionsOwnerType = [
     { value: "Persona física", label: "Persona física" },
     { value: "Persona moral", label: "Persona moral" },
+    { value: "Fideicomiso", label: "Fideicomiso" },
   ];
 
   const renderOwnerTypeOptions = () => {
@@ -109,6 +118,26 @@ export default function BanksAccountsCreate(props) {
           </Form.Group>
         </Row>
       );
+    } else if (ownerAccountType.label === "Fideicomiso") {
+      return (
+        <Row style={{ marginTop: 20 }}>
+          <Form.Group
+            as={Col}
+            md="6"
+            controlId="validationCustom01"
+            className="form-group"
+          >
+            <Form.Label>Fideicomiso titular de cuenta</Form.Label>
+            <Select
+              options={trustList}
+              value={ownerTrust}
+              onChange={setOwnerTrust}
+              classNamePrefix="Select2"
+              className="multi-select"
+            />
+          </Form.Group>
+        </Row>
+      );
     }
 
     return;
@@ -118,6 +147,10 @@ export default function BanksAccountsCreate(props) {
     <Fragment>
       <Row style={{ padding: 20 }}>
         <Card.Title style={{ marginBottom: 35 }}>
+          <i
+            style={{ marginRight: 9 }}
+            className="fe fe-credit-card text-black fs-15"
+          ></i>
           Nuevo Registro cuenta bancaria
         </Card.Title>
 

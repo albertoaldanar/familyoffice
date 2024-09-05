@@ -218,11 +218,17 @@ export const otherWealthData = {
           name: "Francisco Aldana Fariñas",
         },
       ],
-      containedIntrusts: [
+      contacts: [
         {
-          id: 20,
-          name: "0014233-Santander",
-        },
+          id: 1,
+          name: 'Raul Aldana Fariñas',
+          type: 'Banquero privado',
+          categoryCoreId: 50,
+          coreId: 34,
+          number: '6691481888',
+          location: 'Mazatlán, Sinaloa',
+          email: 'raul@aldana.com'
+        }
       ],
       bank: "Santander",
       accountNumber: "100434346583",
@@ -242,12 +248,7 @@ export const otherWealthData = {
           name: "Aldana Clima Integreal",
         },
       ],
-      containedIntrusts: [
-        {
-          id: 20,
-          name: "Fideicomiso 0014233 Santander",
-        },
-      ],
+      contacts: [],
       bank: "BBVA",
       accountNumber: "34333311021",
       country: "México",

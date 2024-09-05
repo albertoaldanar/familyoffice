@@ -8,6 +8,16 @@ export const providers = [
         id: 1,
         nombre: 'Cesar Tamyo', 
         empresa: 'Cesar Tamayo bienes raices',
+        type: 'Asesor Inmobiliario',
+        location: 'Mazatlan, Sinaloa',
+        linkedAssets: [
+          {
+            id: 1,
+            coreId: 29,
+            type: 'realState',
+            name: "Casa Colinas del parque",
+          },
+        ],
         telefono: '6671057068',
         correo: 'cesar@tamayo.com',
         puesto: 'Director',
@@ -33,39 +43,65 @@ export const providers = [
     proveedores: [
       {
         id: 34,
+        location: 'Culiacan, Sinaloa',
         nombre: 'Raul Aldana Fariñas', 
         empresa: 'Scotia Bank',
         telefono: '6671057068',
         correo: 'raul@aldana.com',
         puesto: 'Banquero privado',
+        type: 'Consultor Financiero',
         isMemberIC: true,
         isMemberFC: false,
-        registroDeServicios: [
-        ]
+        linkedAssets: [
+          {
+            id: 44,
+            coreId: 2,
+            type: 'privateEquity', 
+            name: "Fondo ABC-Venture Capital",
+          },
+          {
+            id: 4,
+            coreId: 1,
+            type: 'bankAccount', 
+            name: "Santander-100434346583",
+          },
+        ],
+        registroDeServicios: []
       },
       {
         id: 24,
         nombre: 'David Aldana Cañedo', 
         empresa: 'Grupo Auria',
+        location: 'Culiacan, Sinaloa',
+        type: 'Consultor Financiero',
         telefono: '6671057068',
         correo: 'david@aldana.com',
         puesto: 'CEO Family office',
         isMemberIC: true,
         isMemberFC: false,
-        registroDeServicios: [
-        ]
+        linkedAssets: [
+          {
+            id: 44,
+            coreId: 2,
+            type: 'privateEquity', 
+            name: "Fondo ABC-Venture Capital",
+          },
+        ],
+        registroDeServicios: []
       }, 
       {
         id: 254,
         nombre: 'Santiago Ortiz', 
         empresa: 'Fambell',
+        location: 'Guadalajara, Jalisco',
         telefono: '6671057068',
+        type: 'Consultor Financiero',
         correo: 'santiago@ortiz.com',
         puesto: 'Account manager Family Office',
         isMemberIC: true,
         isMemberFC: true,
-        registroDeServicios: [
-        ]
+        linkedAssets: [],
+        registroDeServicios: []
       } 
     ],
   },
@@ -75,14 +111,24 @@ export const providers = [
     mostrar: true,
     proveedores: [
       {
-        id: 1,
+        id: 17,
         nombre: 'Juan Diaz Zalazar', 
         empresa: 'Diaz Zalazar notarios',
+        location: 'Ciudad de México, México',
         telefono: '6671057068',
         correo: 'juan@diazzalazar.com',
+        type: 'Notario',
         puesto: 'Director',
         isMemberIC: false,
         isMemberFC: false,
+        linkedAssets: [
+          {
+            id: 2,
+            coreId: 23,
+            type: 'company',
+            name: "Aldana Clima Integral SA de CV",
+          },
+        ],
         registroDeServicios: [
           {
             id: 26,
@@ -98,11 +144,14 @@ export const providers = [
         id: 2,
         nombre: 'Daniel Ortega', 
         empresa: 'Daniel Ortega Notaria',
+        location: 'Culiacan, Sinaloa',
         telefono: '6671057068',
         correo: 'daniel@ortega.com',
         puesto: 'Abogado',
         isMemberIC: false,
         isMemberFC: false,
+        type: 'Abogado',
+        linkedAssets: [],
         registroDeServicios: [
           {
             id: 12,

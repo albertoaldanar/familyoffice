@@ -12,6 +12,18 @@ export const realstateData = [
     mt2: "250",
     propertyType: "Departamento",
     containedIntrusts:[],
+    contacts: [
+      {
+        id: 1,
+        name: 'Cesar Tamayo',
+        type: 'Asesor Inmobiliario',
+        categoryCoreId: 23,
+        coreId: 1,
+        number: '6691481888',
+        location: 'Mazatlán, Sinaloa',
+        email: 'cesar@tamayocoppel.com'
+      }
+    ],
     images: [
       "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pexels.com%2Fsearch%2Fapartment%2520building%2F&psig=AOvVaw1zYHqxmpBoPCXfkEVBI9UX&ust=1719262565828000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCNjk16XO8oYDFQAAAAAdAAAAABAE",
       "https://img.zumpercdn.com/209027862/1280x960",
@@ -29,6 +41,18 @@ export const realstateData = [
   {
     id: 29,
     nombre: "Casa Colinas del parque",
+    contacts: [
+      // {
+      //   id: 1,
+      //   name: 'Cesar Tamayo',
+      //   type: 'Asesor Inmobiliario',
+      //   categoryCoreId: 23,
+      //   coreId: 1,
+      //   number: '6691481888',
+      //   location: 'Mazatlán, Sinaloa',
+      //   email: 'cesar@tamayocoppel.com'
+      // }
+    ],
     containedIntrusts:[
       {
         id: 90,
@@ -70,6 +94,7 @@ export const realstateData = [
     id: 42,
     nombre: "Oficinas mutualismo",
     ciudad: "Culiacan, Sinaloa",
+    contacts: [],
     containedIntrusts:[],
     moneda: "MXN",
     country: 'México',

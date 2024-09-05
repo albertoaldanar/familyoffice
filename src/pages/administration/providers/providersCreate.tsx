@@ -4,8 +4,36 @@ import Select from "react-select";
 import dayjs, { Dayjs } from "dayjs";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import { MultiSelect } from "react-multi-select-component";
+import { otherWealthData } from "../../governance/wealthStructure/wealthStructureData";
+import { companies, fideicomisos } from "../accounting/accountingData";
+import { formatCompany } from "../accounting/companyUtils";
+import { realstateData } from "../../investments/realState/realStateData";
+import {
+  formatRealstateData,
+  formatVehicleData,
+} from "../payments/paymentUtils";
+import {
+  formatPrivateEquity,
+  formatTrust,
+} from "../../governance/wealthStructure/wealthStructureUtils";
+import { formatBankAccounts } from "../../governance/wealthStructure/wealthStructureUtils";
+import { formatMember } from "../../governance/councilAndCommittee/councilAndCommitteeUtils";
+import { formatContainedAssets } from "../../governance/wealthStructure/wealthStructureUtils";
+import { OptionsProvider } from './providersConst';
 
 export default function ProviderCreate(props) {
+  const companiesList = formatCompany(companies);
+  const realStateList = formatRealstateData(realstateData);
+  const bankAccountsList = formatBankAccounts(otherWealthData.bankAccounts);
+  const vehicleList = formatVehicleData(otherWealthData.vehicles);
+  const artAndOthersList = formatMember(otherWealthData.artAndOthers);
+  const privateEquityList = formatPrivateEquity(otherWealthData.privateEquity);
+  const stockInvestmentList = formatBankAccounts(
+    otherWealthData.stockInvestments
+  );
+  const trustList = formatTrust(fideicomisos);
+
   const [companyName, setCompanyName] = useState("");
   const [rfc, setRFC] = useState("");
   const [name, setName] = useState("");
@@ -13,23 +41,327 @@ export default function ProviderCreate(props) {
   const [role, setRole] = useState("");
   const [adress, setAdress] = useState("");
   const [phone, setPhone] = useState("");
+  const [companiesContained, setCompaniesContained] = useState([]);
+  const [realStateContained, setRealStateContained] = useState([]);
+  const [bankAccountsContained, setBankAccountsContained] = useState([]);
+  const [vehiclesContained, setVehiclesContained] = useState([]);
+  const [artContained, setArtContained] = useState([]);
+  const [privateEquityContained, setPrivateEquityContained] = useState([]);
+  const [stockInvestmentContained, setStockInvestmentContained] = useState([]);
+  const [trustContained, setTrustContained] = useState([]);
 
   const params = useParams();
 
   const [providerType, setProviderType] = useState({
-    value: '',
-    label: '',
+    value: "",
+    label: "",
   });
 
-  const addType = params.type === "consejoFamiliar" ?  "Consejo Familiar" : params.type === "comiteInversion" ? 'Comite de Inversión' : null;
+  const addType =
+    params.type === "consejoFamiliar"
+      ? "Consejo Familiar"
+      : params.type === "comiteInversion"
+      ? "Comite de Inversión"
+      : null;
 
-  const OptionsProvider = [
-    { value: "Asesor Inmobiliario", label: "Asesor Inmobiliario" },
-    { value: "Abogado", label: "Abogado" },
-    { value: "Asesor Contable", label: "Asesor Contable" },
-    { value: "Asesor Fiscal", label: "Asesor Fiscal" },
-    { value: "Asesor de seguro", label: "Asesor de seguro" },
-  ];
+  const renderSelectAssetsContained = () => {
+    return (
+      <div>
+        <Row style={{ marginBottom: 5 }}>
+          <Form.Group
+            as={Col}
+            md="8"
+            controlId="validationCustom01"
+            className="form-group"
+          >
+            <Form.Label>
+              Vinculación de este proveedor a activos de la familia (Opcional){" "}
+            </Form.Label>
+            <p style={{ color: "gray", fontSize: 12 }}>
+              Al vincular a este proveedor a uno o mas activos, este aparecera
+              en la lista de contactos en la descripción de cada uno.{" "}
+            </p>
+          </Form.Group>
+        </Row>
+        <Row>
+          <Form.Group
+            as={Col}
+            md="4"
+            controlId="validationCustom01"
+            className="form-group"
+          >
+            <p style={{ color: "gray", fontSize: 12 }}>Empresas</p>
+            <MultiSelect
+              options={companiesList}
+              value={companiesContained}
+              onChange={setCompaniesContained}
+              labelledBy="Select"
+              overrideStrings={{
+                selectSomeItems: "Selecciona empresas",
+                allItemsAreSelected: "Todos los miembros",
+                selectAll: "Seleccionar todos",
+              }}
+              disableSearch
+            />
+          </Form.Group>
+
+          <Form.Group
+            as={Col}
+            md="4"
+            controlId="validationCustom01"
+            className="form-group"
+          >
+            <p style={{ color: "gray", fontSize: 12 }}>Fideicomisos</p>
+            <MultiSelect
+              options={trustList}
+              value={trustContained}
+              onChange={setTrustContained}
+              labelledBy="Select"
+              overrideStrings={{
+                selectSomeItems: "Selecciona fideicomisos",
+                allItemsAreSelected: "Todos los miembros",
+                selectAll: "Seleccionar todos",
+              }}
+              disableSearch
+            />
+          </Form.Group>
+
+          <Form.Group
+            as={Col}
+            md="4"
+            controlId="validationCustom01"
+            className="form-group"
+          >
+            <p style={{ color: "gray", fontSize: 12 }}>Bienes raices</p>
+            <MultiSelect
+              options={realStateList}
+              value={realStateContained}
+              onChange={setRealStateContained}
+              labelledBy="Select"
+              overrideStrings={{
+                selectSomeItems: "Selecciona bienes raices",
+                allItemsAreSelected: "Todos los miembros",
+                selectAll: "Seleccionar todos",
+              }}
+              disableSearch
+            />
+          </Form.Group>
+
+          <Form.Group
+            as={Col}
+            md="4"
+            controlId="validationCustom01"
+            className="form-group"
+          >
+            <p style={{ color: "gray", fontSize: 12 }}>Cuentas bancarias</p>
+            <MultiSelect
+              options={bankAccountsList}
+              value={bankAccountsContained}
+              onChange={setBankAccountsContained}
+              labelledBy="Select"
+              overrideStrings={{
+                selectSomeItems: "Selecciona cuentas bancarias",
+                allItemsAreSelected: "Todos los miembros",
+                selectAll: "Seleccionar todos",
+              }}
+              disableSearch
+            />
+          </Form.Group>
+
+          <Form.Group
+            as={Col}
+            md="4"
+            controlId="validationCustom01"
+            className="form-group"
+          >
+            <p style={{ color: "gray", fontSize: 12 }}>Vehiculos</p>
+            <MultiSelect
+              options={vehicleList}
+              value={vehiclesContained}
+              onChange={setVehiclesContained}
+              labelledBy="Select"
+              overrideStrings={{
+                selectSomeItems: "Selecciona vehiculos",
+                allItemsAreSelected: "Todos los miembros",
+                selectAll: "Seleccionar todos",
+              }}
+              disableSearch
+            />
+          </Form.Group>
+
+          <Form.Group
+            as={Col}
+            md="4"
+            controlId="validationCustom01"
+            className="form-group"
+          >
+            <p style={{ color: "gray", fontSize: 12 }}>Arte y otros</p>
+            <MultiSelect
+              options={artAndOthersList}
+              value={artContained}
+              onChange={setArtContained}
+              labelledBy="Select"
+              overrideStrings={{
+                selectSomeItems: "Selecciona arte y otros",
+                allItemsAreSelected: "Todos los miembros",
+                selectAll: "Seleccionar todos",
+              }}
+              disableSearch
+            />
+          </Form.Group>
+
+          <Form.Group
+            as={Col}
+            md="4"
+            controlId="validationCustom01"
+            className="form-group"
+          >
+            <p style={{ color: "gray", fontSize: 12 }}>
+              Inversiones capital privado
+            </p>
+            <MultiSelect
+              options={privateEquityList}
+              value={privateEquityContained}
+              onChange={setPrivateEquityContained}
+              labelledBy="Select"
+              overrideStrings={{
+                selectSomeItems: "Selecciona cuentas bancarias",
+                allItemsAreSelected: "Todos los miembros",
+                selectAll: "Seleccionar todos",
+              }}
+              disableSearch
+            />
+          </Form.Group>
+
+          <Form.Group
+            as={Col}
+            md="4"
+            controlId="validationCustom01"
+            className="form-group"
+          >
+            <p style={{ color: "gray", fontSize: 12 }}>
+              Inversiones bursatiles
+            </p>
+            <MultiSelect
+              options={stockInvestmentList}
+              value={stockInvestmentContained}
+              onChange={setStockInvestmentContained}
+              labelledBy="Select"
+              overrideStrings={{
+                selectSomeItems: "Selecciona cuentas bancarias",
+                allItemsAreSelected: "Todos los miembros",
+                selectAll: "Seleccionar todos",
+              }}
+              disableSearch
+            />
+          </Form.Group>
+        </Row>
+      </div>
+    );
+  };
+
+  // const renderSelectResponsabilitiesContained = () => {
+  //   return (
+  //     <div>
+  //       <Row style={{marginBottom: 5 }}>
+  //         <Form.Group
+  //           as={Col}
+  //           md="8"
+  //           controlId="validationCustom01"
+  //           className="form-group"
+  //         >
+  //           <Form.Label>Vinculación de este proveedor a obligaciones de la familia (Opcional) </Form.Label>
+  //           <p style={{color: 'gray', fontSize: 12}}>Al vincular a este proveedor a una o mas obligaciones, este aparecera en la lista de contactos en la descripción de cada uno. </p>
+  //         </Form.Group>
+  //       </Row>
+  //       <Row>
+  //         <Form.Group
+  //           as={Col}
+  //           md="4"
+  //           controlId="validationCustom01"
+  //           className="form-group"
+  //         >
+  //           <p style={{ color: "gray", fontSize: 12}}>Seguros</p>
+  //           <MultiSelect
+  //             options={companiesList}
+  //             value={companiesContained}
+  //             onChange={setCompaniesContained}
+  //             labelledBy="Select"
+  //             overrideStrings={{
+  //               selectSomeItems: "Selecciona empresas accionistas",
+  //               allItemsAreSelected: "Todos los miembros",
+  //               selectAll: "Seleccionar todos",
+  //             }}
+  //             disableSearch
+  //           />
+  //         </Form.Group>
+
+  //         <Form.Group
+  //           as={Col}
+  //           md="4"
+  //           controlId="validationCustom01"
+  //           className="form-group"
+  //         >
+  //           <p style={{ color: "gray", fontSize: 12 }}>Deudas por pagar</p>
+  //           <MultiSelect
+  //             options={realStateList}
+  //             value={realStateContained}
+  //             onChange={setRealStateContained}
+  //             labelledBy="Select"
+  //             overrideStrings={{
+  //               selectSomeItems: "Selecciona bienes raices",
+  //               allItemsAreSelected: "Todos los miembros",
+  //               selectAll: "Seleccionar todos",
+  //             }}
+  //             disableSearch
+  //           />
+  //         </Form.Group>
+
+  //         <Form.Group
+  //           as={Col}
+  //           md="4"
+  //           controlId="validationCustom01"
+  //           className="form-group"
+  //         >
+  //           <p style={{ color: "gray", fontSize: 12 }}>Pagos de mantenimiento</p>
+  //           <MultiSelect
+  //             options={bankAccountsList}
+  //             value={bankAccountsContained}
+  //             onChange={setBankAccountsContained}
+  //             labelledBy="Select"
+  //             overrideStrings={{
+  //               selectSomeItems: "Selecciona cuentas bancarias",
+  //               allItemsAreSelected: "Todos los miembros",
+  //               selectAll: "Seleccionar todos",
+  //             }}
+  //             disableSearch
+  //           />
+  //         </Form.Group>
+
+  //         <Form.Group
+  //           as={Col}
+  //           md="4"
+  //           controlId="validationCustom01"
+  //           className="form-group"
+  //         >
+  //           <p style={{ color: "gray", fontSize: 12 }}>Pagos de arrendamiento</p>
+  //           <MultiSelect
+  //             options={vehicleList}
+  //             value={vehiclesContained}
+  //             onChange={setVehiclesContained}
+  //             labelledBy="Select"
+  //             overrideStrings={{
+  //               selectSomeItems: "Selecciona vehiculos",
+  //               allItemsAreSelected: "Todos los miembros",
+  //               selectAll: "Seleccionar todos",
+  //             }}
+  //             disableSearch
+  //           />
+  //         </Form.Group>
+  //       </Row>
+  //     </div>
+  //   );
+  // };
 
   return (
     <Fragment>
@@ -39,10 +371,20 @@ export default function ProviderCreate(props) {
             Nuevo Registro de proveedor de servicio o contacto
           </Card.Title>
           <Form noValidate validated={false} onSubmit={() => {}}>
-          {
-            addType && <p style={{color: 'gray', marginBottom: 10, fontStyle: 'italic', fontSize: 12}}>Este proveedor se añadira a {addType} automaticamente despues de ser creado aqui</p>
-          }
-          <Row style={{ marginTop: 25, marginBottom: 20 }}>
+            {addType && (
+              <p
+                style={{
+                  color: "gray",
+                  marginBottom: 10,
+                  fontStyle: "italic",
+                  fontSize: 12,
+                }}
+              >
+                Este proveedor se añadira a {addType} automaticamente despues de
+                ser creado aqui
+              </p>
+            )}
+            <Row style={{ marginTop: 25, marginBottom: 20 }}>
               <Form.Group
                 as={Col}
                 md="6"
@@ -80,13 +422,12 @@ export default function ProviderCreate(props) {
                   </Form.Control.Feedback>
                 </InputGroup>
               </Form.Group>
-          </Row>
-            
-            <Row style={{ marginBottom: 20 }}>
+            </Row>
 
-            <Form.Group
+            <Row style={{ marginBottom: 20 }}>
+              <Form.Group
                 as={Col}
-                md="4"
+                md="6"
                 controlId="validationCustom01"
                 className="form-group"
               >
@@ -117,14 +458,12 @@ export default function ProviderCreate(props) {
                   value={phone}
                 />
               </Form.Group>
-
             </Row>
 
             <Row style={{ marginBottom: 20 }}>
-
               <Form.Group
                 as={Col}
-                md="4"
+                md="5"
                 controlId="validationCustom01"
                 className="form-group"
               >
@@ -138,9 +477,9 @@ export default function ProviderCreate(props) {
                   value={companyName}
                 />
               </Form.Group>
-            <Form.Group
+              <Form.Group
                 as={Col}
-                md="4"
+                md="5"
                 controlId="validationCustom01"
                 className="form-group"
               >
@@ -154,13 +493,12 @@ export default function ProviderCreate(props) {
                   value={role}
                 />
               </Form.Group>
-
             </Row>
 
             <Row style={{ marginTop: 20 }}>
               <Form.Group
                 as={Col}
-                md="8"
+                md="10"
                 controlId="validationCustom01"
                 className="form-group"
               >
@@ -174,6 +512,10 @@ export default function ProviderCreate(props) {
                   value={adress}
                 />
               </Form.Group>
+            </Row>
+
+            <Row style={{ marginTop: 20, marginBottom: 140 }}>
+              {renderSelectAssetsContained()}
             </Row>
 
             <div

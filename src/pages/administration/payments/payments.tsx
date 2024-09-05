@@ -114,9 +114,7 @@ export default function Payments() {
                       }}
                     >
                       {/*// @ts-ignore */}
-                      <Link
-                        to={`${
-                          import.meta.env.BASE_URL
+                      <Link to={`${import.meta.env.BASE_URL
                         }administration/company/${idx.id}/tax`}
                       >
                         Ver

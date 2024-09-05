@@ -14,8 +14,8 @@ export default function Companies() {
         <Card style={{borderWidth: 0}}>
           {providers.map((provider) => (
            <div className="table-responsive" >
-              <Card.Title style={{ marginTop: 40 }}>
-              {provider.categoria}
+              <Card.Title style={{ marginTop: 40, fontSize: 14, marginBottom: 5 }}>
+                {provider.categoria}
               </Card.Title>
               <Table className="table border text-nowrap text-md-nowrap mb-0">
                 <thead className="bg-light">
@@ -62,7 +62,7 @@ export default function Companies() {
   return (
     <Fragment>
       <Row>
-        <Card style={{ minHeight: 400, marginTop: 20 }}>
+        <Card style={{ minHeight: 400, marginTop: 20, paddingRight: 20, paddingLeft: 20 }}>
           <div
             style={{
               justifyContent: "space-between",

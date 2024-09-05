@@ -153,6 +153,19 @@ export const formatPrivateEquity = (privateEquity) => {
   }
 };
 
+export const formatTrust = (trust) => {
+  if (!trust.length) {
+    return [];
+  }
+
+  if (trust) {
+    return trust.map((pe) => ({
+      value: pe.id,
+      label: `${pe.trustNumber}-${pe.trusteeBank}`,
+    }));
+  }
+};
+
 export const formatContainedAssets = (containedAssets, assetType) => {
   const filteredAssets = containedAssets.filter(
     (asset) => asset.type === assetType
