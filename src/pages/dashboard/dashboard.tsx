@@ -651,7 +651,7 @@ export default function RealStateDashboard() {
 
         <Col xl={8} lg={12} style={{ marginBottom: 60 }}>
           <p style={{ fontSize: 14 }}>
-            - Calendario de pagos, cobros y declaraciones fiscales
+            - Fechas limite de pagos, cobros y declaraciones fiscales
           </p>
           <FullCalendar
             plugins={[

@@ -352,26 +352,6 @@ export default function ArtAndOthersItem(props) {
         return ownerFamilyMembers.map((member, index) => {
           return (
             <div key={index} style={{ marginTop: 15 }}>
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "row",
-                  justifyContent: "space-between",
-                }}
-              >
-                <div></div>
-                <p
-                  style={{
-                    marginTop: 3,
-                    fontWeight: "500",
-                    fontSize: 13,
-                    marginBottom: -3,
-                  }}
-                >
-                  {member.label}
-                </p>
-              </div>
-
               <p
                 style={{
                   color: "gray",
@@ -380,7 +360,13 @@ export default function ArtAndOthersItem(props) {
                   marginBottom: 4,
                 }}
               >
-                Porcentaje
+                Porcentaje de <Link
+                    to={`${
+                      baseUrl
+                    }governance/familyMember/${member.value}`}
+                  >
+                   {member.label}
+                  </Link>
               </p>
               <InputGroup hasValidation style={{ marginBottom: 8 }}>
                 <Form.Control
@@ -403,26 +389,6 @@ export default function ArtAndOthersItem(props) {
         return ownerCompanies.map((company, index) => {
           return (
             <div key={index} style={{ marginTop: 15 }}>
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "row",
-                  justifyContent: "space-between",
-                }}
-              >
-                <div></div>
-                <p
-                  style={{
-                    marginTop: 3,
-                    fontWeight: "500",
-                    fontSize: 13,
-                    marginBottom: -3,
-                  }}
-                >
-                  {company.label}
-                </p>
-              </div>
-
               <p
                 style={{
                   color: "gray",
@@ -431,7 +397,13 @@ export default function ArtAndOthersItem(props) {
                   marginBottom: 4,
                 }}
               >
-                Porcentaje
+                Porcentaje de <Link
+                    to={`${
+                      baseUrl
+                    }administration/company/${company.value}/company`}
+                  >
+                   {company.label}
+                  </Link>
               </p>
               <InputGroup hasValidation style={{ marginBottom: 8 }}>
                 <Form.Control
@@ -454,26 +426,6 @@ export default function ArtAndOthersItem(props) {
         return ownerTrust.map((trust, index) => {
           return (
             <div key={index} style={{ marginTop: 15 }}>
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "row",
-                  justifyContent: "space-between",
-                }}
-              >
-                <div></div>
-                <p
-                  style={{
-                    marginTop: 3,
-                    fontWeight: "500",
-                    fontSize: 13,
-                    marginBottom: -3,
-                  }}
-                >
-                  {trust.label}
-                </p>
-              </div>
-
               <p
                 style={{
                   color: "gray",
@@ -482,7 +434,13 @@ export default function ArtAndOthersItem(props) {
                   marginBottom: 4,
                 }}
               >
-                Porcentaje
+                Porcentaje de <Link
+                    to={`${
+                      baseUrl
+                    }administration/trustDescription/${trust.value}`}
+                  >
+                   {trust.label}
+                  </Link>
               </p>
               <InputGroup hasValidation style={{ marginBottom: 8 }}>
                 <Form.Control
@@ -502,9 +460,9 @@ export default function ArtAndOthersItem(props) {
       }
     }
 
-    return; 
+    return;
   };
-
+  
   const renderContactList = () => {
     const existringContacts = artSelected.contacts.length > 0;
     return (

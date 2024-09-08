@@ -21,6 +21,8 @@ import { providers } from "../providers/providersData";
 import { formatProviderContacts } from "../providers/providersUtils";
 
 export default function CompanyCreate(props) {
+  //@ts-ignore
+  const baseUrl = import.meta.env.BASE_URL;
   const providersList = formatProviderContacts(providers);
   const [companyName, setCompanyName] = useState("");
   const [rfc, setRFC] = useState("");
@@ -95,16 +97,9 @@ export default function CompanyCreate(props) {
                 }}
               >
                 <div></div>
-                <p
-                  style={{
-                    marginTop: 3,
-                    fontWeight: "500",
-                    fontSize: 13,
-                    marginBottom: -3,
-                  }}
-                >
+                <Link to={`${baseUrl}governance/familyMember/${member.value}`}>
                   {member.label}
-                </p>
+                </Link>
               </div>
 
               <p
@@ -174,16 +169,9 @@ export default function CompanyCreate(props) {
                 }}
               >
                 <div></div>
-                <p
-                  style={{
-                    marginTop: 3,
-                    fontWeight: "500",
-                    fontSize: 13,
-                    marginBottom: -3,
-                  }}
-                >
+                <Link to={`${baseUrl}administration/company/${company.value}/company`}>
                   {company.label}
-                </p>
+                </Link>
               </div>
 
               <p
@@ -253,16 +241,9 @@ export default function CompanyCreate(props) {
                 }}
               >
                 <div></div>
-                <p
-                  style={{
-                    marginTop: 3,
-                    fontWeight: "500",
-                    fontSize: 13,
-                    marginBottom: -3,
-                  }}
-                >
+                <Link to={`${baseUrl}administration/trustDescription/${trust.value}`}>
                   {trust.label}
-                </p>
+                </Link>
               </div>
 
               <p
@@ -281,16 +262,39 @@ export default function CompanyCreate(props) {
                   aria-describedby="inputGroupPrepend-3"
                   required
                   onChange={(e) =>
-                    handleInputChange(
-                      index,
-                      "pct",
-                      e.target.value,
-                      "trust"
-                    )
+                    handleInputChange(index, "pct", e.target.value, "trust")
                   }
                   value={trust.pct || ""}
                 />
                 <InputGroup.Text id="inputGroupPrepend">%</InputGroup.Text>
+              </InputGroup>
+
+              <p
+                style={{
+                  color: "gray",
+                  fontSize: 12,
+                  marginTop: 3,
+                  marginBottom: 4,
+                }}
+              >
+                Capital social
+              </p>
+              <InputGroup hasValidation>
+                <Form.Control
+                  type="numeric"
+                  aria-describedby="inputGroupPrepend-3"
+                  required
+                  onChange={(e) =>
+                    handleInputChange(
+                      index,
+                      "capitalSocial",
+                      e.target.value,
+                      "trust"
+                    )
+                  }
+                  value={trust.capitalSocial || ""}
+                />
+                <InputGroup.Text id="inputGroupPrepend">$</InputGroup.Text>
               </InputGroup>
             </div>
           );

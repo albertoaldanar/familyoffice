@@ -69,7 +69,9 @@ export default function CompanyDescription() {
   const [razonSocial, setRazonSocial] = useState(companySelected.razonSocial);
   const [percentage, setPercentage] = useState(companySelected.percentage);
   const [todayValue, setTodayValue] = useState(companySelected.valuacion);
-  const [ownerFamilyMembers, setOwnerFamilyMembers] = useState(ownerData.family);
+  const [ownerFamilyMembers, setOwnerFamilyMembers] = useState(
+    ownerData.family
+  );
   const [ownerCompanies, setOwnerCompanies] = useState(ownerData.company);
   const [ownerTrust, setOwnerTrust] = useState(ownerData.trust);
 
@@ -306,16 +308,9 @@ export default function CompanyDescription() {
                 }}
               >
                 <div></div>
-                <p
-                  style={{
-                    marginTop: 3,
-                    fontWeight: "500",
-                    fontSize: 13,
-                    marginBottom: -3,
-                  }}
-                >
+                <Link to={`${baseUrl}governance/familyMember/${member.value}`}>
                   {member.label}
-                </p>
+                </Link>
               </div>
 
               <p
@@ -385,16 +380,9 @@ export default function CompanyDescription() {
                 }}
               >
                 <div></div>
-                <p
-                  style={{
-                    marginTop: 3,
-                    fontWeight: "500",
-                    fontSize: 13,
-                    marginBottom: -3,
-                  }}
-                >
+                <Link to={`${baseUrl}administration/company/${company.value}/company`}>
                   {company.label}
-                </p>
+                </Link>
               </div>
 
               <p
@@ -464,16 +452,9 @@ export default function CompanyDescription() {
                 }}
               >
                 <div></div>
-                <p
-                  style={{
-                    marginTop: 3,
-                    fontWeight: "500",
-                    fontSize: 13,
-                    marginBottom: -3,
-                  }}
-                >
+                <Link to={`${baseUrl}administration/trustDescription/${trust.value}`}>
                   {trust.label}
-                </p>
+                </Link>
               </div>
 
               <p
@@ -553,13 +534,10 @@ export default function CompanyDescription() {
               className="form-label my-3"
               style={{ fontSize: 13, color: "gray" }}
             >
-             CIF (Cedula de Identificación fiscal)
+              CIF (Cedula de Identificación fiscal)
             </Form.Label>
             {companySelected.cif ? (
-              <FileView
-                title="CIF"
-                fileName={companySelected.cif }
-              />
+              <FileView title="CIF" fileName={companySelected.cif} />
             ) : (
               <>
                 <FileUpload />
@@ -610,7 +588,7 @@ export default function CompanyDescription() {
               }}
             ></p>
           )}
-          <div style={{width: '70%'}}>
+          <div style={{ width: "70%" }}>
             <p style={{ fontSize: 10, color: "gray", marginBottom: -1 }}>
               + Añadir nueva acta de asamblea
             </p>
@@ -634,11 +612,7 @@ export default function CompanyDescription() {
                   {" "}
                   {poder.name}
                 </Form.Label>
-                <FileView
-                  key={index}
-                  title={poder.name}
-                  fileName={poder.url}
-                />
+                <FileView key={index} title={poder.name} fileName={poder.url} />
               </Form.Group>
             ))
           ) : (
@@ -652,7 +626,7 @@ export default function CompanyDescription() {
             ></p>
           )}
 
-          <div style={{width: '70%'}}>
+          <div style={{ width: "70%" }}>
             <p style={{ fontSize: 10, color: "gray", marginBottom: -1 }}>
               + Añadir nueva acta de poder
             </p>
@@ -690,7 +664,7 @@ export default function CompanyDescription() {
               }}
             ></p>
           )}
-          <div style={{width: '70%'}}>
+          <div style={{ width: "70%" }}>
             <p style={{ fontSize: 10, color: "gray", marginBottom: -1 }}>
               + Añadir nueva acta de dividendos
             </p>
@@ -728,7 +702,7 @@ export default function CompanyDescription() {
               }}
             ></p>
           )}
-          <div style={{width: '70%'}}>
+          <div style={{ width: "70%" }}>
             <p style={{ fontSize: 10, color: "gray", marginBottom: -1 }}>
               + Añadir nueva acta de asamblea extraordinaria
             </p>
@@ -808,9 +782,8 @@ export default function CompanyDescription() {
                     }}
                   >
                     {/*// @ts-ignore */}
-                    <Link to={`${baseUrl}administration/company/${
-                        companySelected.id
-                      }/report/${report.id}/type/mensuales`}
+                    <Link
+                      to={`${baseUrl}administration/company/${companySelected.id}/report/${report.id}/type/mensuales`}
                     >
                       Ver
                     </Link>
@@ -830,30 +803,39 @@ export default function CompanyDescription() {
   };
 
   const renderBankAccounts = () => {
-    if(companySelected.bankAccounts.length === 0){
-      return   <p style={{
-        color: "gray",
-        fontSize: 12
-      }}>
-        Aún no hay cuentas bancarias registradas, las cuentas bancarias se registran en la pestaña de activos fijos
-      </p>
+    if (companySelected.bankAccounts.length === 0) {
+      return (
+        <p
+          style={{
+            color: "gray",
+            fontSize: 12,
+          }}
+        >
+          Aún no hay cuentas bancarias registradas, las cuentas bancarias se
+          registran en la pestaña de activos fijos
+        </p>
+      );
     }
     return companySelected.bankAccounts.map((account) => {
       return (
-        <p style={{
-          cursor: "pointer",
-          textDecoration: "underline",
-          color: "#5488d2",
-          fontSize: 13
-        }}>
+        <p
+          style={{
+            cursor: "pointer",
+            textDecoration: "underline",
+            color: "#5488d2",
+            fontSize: 13,
+          }}
+        >
           {/*// @ts-ignore */}
-          <Link to={`${baseUrl}governance/wealthItem/type/bankAccount/id/${account.id}`}>
+          <Link
+            to={`${baseUrl}governance/wealthItem/type/bankAccount/id/${account.id}`}
+          >
             {account.bank} - {account.accountNumber}
           </Link>
         </p>
-      )
-    })
-  }
+      );
+    });
+  };
 
   const renderAnualTaxReport = () => {
     if (companySelected.reports.anuales.length > 0) {
@@ -917,9 +899,8 @@ export default function CompanyDescription() {
                     }}
                   >
                     {/*// @ts-ignore */}
-                    <Link to={`${baseUrl}administration/company/${
-                        companySelected.id
-                      }/report/${report.id}/type/anuales`}
+                    <Link
+                      to={`${baseUrl}administration/company/${companySelected.id}/report/${report.id}/type/anuales`}
                     >
                       Ver
                     </Link>
@@ -983,9 +964,9 @@ export default function CompanyDescription() {
                   <div>
                     <Button variant="primary" size="sm" className=" mb-1">
                       {/*// @ts-ignore */}
-                      <Link style={{ color: "white" }} to={`${baseUrl}administration/companyNewReport/${
-                          companySelected.id
-                        }/type/mensual`}
+                      <Link
+                        style={{ color: "white" }}
+                        to={`${baseUrl}administration/companyNewReport/${companySelected.id}/type/mensual`}
                       >
                         + Añadir declaración mensual
                       </Link>
@@ -1015,9 +996,9 @@ export default function CompanyDescription() {
                 <div style={{ marginBottom: 10 }}>
                   <Button variant="primary" size="sm" className=" mb-1">
                     {/*// @ts-ignore */}
-                    <Link style={{ color: "white" }} to={`${baseUrl}administration/companyNewReport/${
-                        companySelected.id
-                      }/type/anual`}
+                    <Link
+                      style={{ color: "white" }}
+                      to={`${baseUrl}administration/companyNewReport/${companySelected.id}/type/anual`}
                     >
                       + Añadir declaración anual
                     </Link>
@@ -1324,9 +1305,7 @@ export default function CompanyDescription() {
           >
             <Link
               style={{ color: "white" }}
-              to={`${
-                baseUrl
-              }administration/providerCreate/standar`}
+              to={`${baseUrl}administration/providerCreate/standar`}
             >
               + Añadir nuevo contacto
             </Link>
@@ -1337,7 +1316,7 @@ export default function CompanyDescription() {
             display: "flex",
             flexDirection: "row",
             marginBottom: 10,
-            justifyContent: existringContacts ? 'left' : 'center'
+            justifyContent: existringContacts ? "left" : "center",
           }}
         >
           <p
@@ -1397,9 +1376,8 @@ export default function CompanyDescription() {
             </Table>
           </div>
         ) : (
-          <p style={{ fontSize: 12, color: "gray", textAlign: 'center' }}>
-            Aún no hay ningun contacto seleccionado para{" "}
-            {companySelected.name}
+          <p style={{ fontSize: 12, color: "gray", textAlign: "center" }}>
+            Aún no hay ningun contacto seleccionado para {companySelected.name}
           </p>
         )}
       </>
@@ -1441,7 +1419,7 @@ export default function CompanyDescription() {
                           style={{ marginRight: 9 }}
                           className="fe fe-trending-up text-black fs-13"
                         ></i>
-                        Finanzas 
+                        Finanzas
                       </Nav.Link>
                     </Nav.Item>
                     <Nav.Item as="li" style={{ marginRight: 10 }}>
@@ -1485,24 +1463,24 @@ export default function CompanyDescription() {
             </Tab.Container>
           )}
           <Form noValidate validated={false} onSubmit={() => {}}>
-          <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "space-between",
-            marginTop: 20,
-          }}
-        >
-          <div></div>
-          <Button
-            style={{ position: "absolute", right: 25, bottom: 20 }}
-            variant="primary"
-            className=" mb-1"
-            type="submit"
-          >
-            Guardar
-          </Button>
-        </div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+                marginTop: 20,
+              }}
+            >
+              <div></div>
+              <Button
+                style={{ position: "absolute", right: 25, bottom: 20 }}
+                variant="primary"
+                className=" mb-1"
+                type="submit"
+              >
+                Guardar
+              </Button>
+            </div>
           </Form>
         </Card>
       </Row>
