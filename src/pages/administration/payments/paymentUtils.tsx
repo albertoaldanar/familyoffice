@@ -1,4 +1,6 @@
 import moment from 'moment';
+import { Badge } from 'react-bootstrap';
+import dayjs from 'dayjs';
 
 export function calculateTotalWithPercentage(value: string, percentage: string): string {
   const numericValue = parseFloat(value.replace(/,/g, ""));
@@ -37,9 +39,11 @@ export function getMemberPercentage(value1: string, value2: string): number {
 }
 
 export function formateDateForUI(paymentDate: string): any {
-  const formatedDate = paymentDate.split("/").reverse().join("-");
-  const textDate = new Date(formatedDate).toString();
-  return textDate;
+  if(paymentDate){
+    const formatedDate = paymentDate.split("/").reverse().join("-");
+    const textDate = new Date(formatedDate).toString();
+    return textDate;
+  }
 }
 
 function formatDate(targetDate: string, unity: moment.unitOfTime.Diff): string {
@@ -141,3 +145,64 @@ export const formatCurrency = (value: string, currency: string) => {
 
   return `${formattedValue} ${currency}`;
 }
+
+export const calculateDaysOrMonthsLeft = (proxPago: string): JSX.Element => {
+  if(proxPago === null){
+    return <>--</>
+  }
+
+  const currentDate = new Date().getTime();
+  const [day, month, year] = proxPago.split('/').map(Number);
+  const targetDate = new Date(year, month - 1, day).getTime();
+
+  const differenceInTime = targetDate - currentDate;
+
+  if (differenceInTime < 0) {
+    return (
+      <Badge bg="danger-transparent" className="me-2 my-1 Primary">
+        Vencido
+      </Badge>
+    );
+  }
+
+  const differenceInDays = Math.ceil(differenceInTime / (1000 * 60 * 60 * 24));
+
+  if (differenceInDays <= 10) {
+    return (
+      <Badge bg="warning-transparent" className="me-2 my-1 Primary">
+        {differenceInDays} dias
+      </Badge>
+    );
+  } else if (differenceInDays > 10 && differenceInDays <= 30) {
+    return (
+      <Badge bg="secondary-transparent" className="me-2 my-1 Primary">
+        {differenceInDays} dias
+      </Badge>
+    );
+  }
+
+  const differenceInMonths = Math.ceil(differenceInDays / 30);
+  return (
+    <Badge bg="secondary-transparent" className="me-2 my-1 Primary">
+      {differenceInMonths} meses
+    </Badge>
+  );
+};
+
+export const formatToDateString = (dateInput) => {
+  // Check if the input is valid
+
+  console.log('dateInput', dateInput)
+  if (!dateInput || dateInput === null) return null; // Return empty string if no date is provided
+
+  // Convert the dateInput to a Day.js object if it's not already
+  const dateObject = dayjs(dateInput.$d || dateInput);
+
+  // Check if the date is valid
+  if (!dateObject.isValid()) {
+    return null
+  }
+
+  // Format the date to "DD/MM/YYYY"
+  return dateObject.format('DD/MM/YYYY');
+};

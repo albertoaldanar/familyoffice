@@ -1,20 +1,21 @@
 import React, { Fragment } from "react";
-import {
-  Button,
-  Card,
-  Col,
-  Table,
-  Badge
-} from "react-bootstrap";
+import { Button, Card, Col, Table, Badge } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { seguros } from "../paymentsData";
-import { nextPaymentFormatDate } from "../paymentUtils";
+import {
+  nextPaymentFormatDate,
+  calculateDaysOrMonthsLeft,
+} from "../paymentUtils";
+import { renderFlag } from "../../accounting/companyUtils";
 
 export default function InsurancePayment() {
-
-  const segurosVida = seguros.filter(seguro => seguro.tipo === 'Vida');
-  const segurosCarro = seguros.filter(seguro => seguro.tipo === 'Vehicular');
-  const segurosInmuebles = seguros.filter(seguro => seguro.tipo === 'Inmueble');
+  //@ts-ignore
+  const baseUrl = import.meta.env.BASE_URL;
+  const segurosVida = seguros.filter((seguro) => seguro.tipo === "Vida");
+  const segurosCarro = seguros.filter((seguro) => seguro.tipo === "Vehicular");
+  const segurosInmuebles = seguros.filter(
+    (seguro) => seguro.tipo === "Inmobiliario"
+  );
 
   return (
     <Fragment>
@@ -38,14 +39,19 @@ export default function InsurancePayment() {
           size="sm"
           className=" mb-1"
         >
-         {/*// @ts-ignore */}
-          <Link style={{color: 'white'}} to={`${import.meta.env.BASE_URL}administration/insuranceCreate/type/null/itemId/null`}>
+          <Link
+            style={{ color: "white" }}
+            to={`${baseUrl}administration/insuranceCreate/type/null/itemId/null`}
+          >
             + Añadir tipo de seguro
           </Link>
-          
         </Button>
       </div>
-      <Card.Title style={{ marginLeft: 15, marginBottom: 20 }}>
+      <Card.Title style={{ marginLeft: 15, marginBottom: 20, fontSize: 14 }}>
+        <i
+          style={{ marginRight: 4 }}
+          className="fe fe-user text-black fs-13"
+        ></i>{" "}
         Seguros de vida
       </Card.Title>
       <Col xl={12}>
@@ -57,6 +63,7 @@ export default function InsurancePayment() {
                   <th>Nombre</th>
                   <th>Aseguradora</th>
                   <th>Moneda</th>
+                  <th>País</th>
                   <th>Vigencia del</th>
                   <th>Vigencia al</th>
                   <th>Prox. pago en:</th>
@@ -67,31 +74,21 @@ export default function InsurancePayment() {
                 {segurosVida.map((insurance, tb8) => (
                   <tr key={tb8}>
                     <td
-                      style={{ cursor: "pointer", textDecoration: "underline" }}
+                      style={{
+                        cursor: "pointer",
+                        textDecoration: "underline",
+                        fontSize: 13,
+                      }}
                     >
                       {insurance.nombre}
                     </td>
                     <td>{insurance.nombreAseguradora}</td>
                     <td>{insurance.moneda}</td>
+                    <td>{renderFlag(insurance.country)}</td>
                     <td>{insurance.vigenciaDel}</td>
                     <td>{insurance.vigenciaAl}</td>
-                    <td>
-                    {
-                      nextPaymentFormatDate(insurance.pagos) === 'Vencido' ? 
-                        (
-                          <div style={{marginTop: 2}}>
-                            <Badge
-                              bg="danger-transparent"
-                              className={`me-2 my-1 Primary`}
-                            >
-                              Vencido
-                            </Badge> 
-                          </div>
-                        ) : 
-                        nextPaymentFormatDate(insurance.pagos)
-                    }
-                    </td>
-                   
+                    <td>{calculateDaysOrMonthsLeft(insurance.proxPago)}</td>
+
                     <td
                       style={{
                         cursor: "pointer",
@@ -99,8 +96,9 @@ export default function InsurancePayment() {
                         color: "#5488d2",
                       }}
                     >
-                      {/*// @ts-ignore */}
-                      <Link to={`${import.meta.env.BASE_URL}administration/insuranceDescription/${insurance.id}`}>
+                      <Link
+                        to={`${baseUrl}administration/insuranceDescription/${insurance.id}`}
+                      >
                         Ver
                       </Link>
                     </td>
@@ -111,7 +109,18 @@ export default function InsurancePayment() {
           </div>
         </Card>
       </Col>
-      <Card.Title style={{ marginLeft: 15, marginBottom: 20, marginTop: 60 }}>
+      <Card.Title
+        style={{
+          marginLeft: 15,
+          marginBottom: 20,
+          marginTop: 40,
+          fontSize: 14,
+        }}
+      >
+        <i
+          style={{ marginRight: 4 }}
+          className="fe fe-truck text-black fs-13"
+        ></i>{" "}
         Seguros de vehiculos
       </Card.Title>
       <Col xl={12}>
@@ -123,6 +132,7 @@ export default function InsurancePayment() {
                   <th>Nombre</th>
                   <th>Aseguradora</th>
                   <th>Moneda</th>
+                  <th>País</th>
                   <th>Vigencia del</th>
                   <th>Vigencia al</th>
                   <th>Prox. pago en:</th>
@@ -133,30 +143,20 @@ export default function InsurancePayment() {
                 {segurosCarro.map((insurance, tb8) => (
                   <tr key={tb8}>
                     <td
-                      style={{ cursor: "pointer", textDecoration: "underline" }}
+                      style={{
+                        cursor: "pointer",
+                        textDecoration: "underline",
+                        fontSize: 13,
+                      }}
                     >
                       {insurance.nombre}
                     </td>
                     <td>{insurance.nombreAseguradora}</td>
                     <td>{insurance.moneda}</td>
+                    <td>{renderFlag(insurance.country)}</td>
                     <td>{insurance.vigenciaDel}</td>
                     <td>{insurance.vigenciaAl}</td>
-                    <td>
-                      {
-                        nextPaymentFormatDate(insurance.pagos) === 'Vencido' ? 
-                          (
-                            <div style={{marginTop: 2}}>
-                              <Badge
-                                bg="danger-transparent"
-                                className={`me-2 my-1 Primary`}
-                              >
-                                Vencido
-                              </Badge> 
-                            </div>
-                          ) : 
-                          nextPaymentFormatDate(insurance.pagos)
-                      }
-                    </td>
+                    <td>{calculateDaysOrMonthsLeft(insurance.proxPago)}</td>
                     <td
                       style={{
                         cursor: "pointer",
@@ -164,8 +164,9 @@ export default function InsurancePayment() {
                         color: "#5488d2",
                       }}
                     >
-                      {/*// @ts-ignore */}
-                      <Link state={{ insurance }} to={`${import.meta.env.BASE_URL}administration/insuraceDescription/${insurance.id}`}>
+                      <Link
+                        to={`${baseUrl}administration/insuranceDescription/${insurance.id}`}
+                      >
                         Ver
                       </Link>
                     </td>
@@ -177,7 +178,18 @@ export default function InsurancePayment() {
         </Card>
       </Col>
 
-      <Card.Title style={{ marginLeft: 15, marginBottom: 20, marginTop: 60 }}>
+      <Card.Title
+        style={{
+          marginLeft: 15,
+          marginBottom: 20,
+          marginTop: 40,
+          fontSize: 14,
+        }}
+      >
+        <i
+          style={{ marginRight: 4 }}
+          className="fe fe-map-pin text-black fs-13"
+        ></i>{" "}
         Seguros de inmuebles
       </Card.Title>
       <Col xl={12}>
@@ -189,6 +201,7 @@ export default function InsurancePayment() {
                   <th>Nombre</th>
                   <th>Aseguradora</th>
                   <th>Moneda</th>
+                  <th>País</th>
                   <th>Vigencia del</th>
                   <th>Vigencia al</th>
                   <th>Prox. pago en:</th>
@@ -199,30 +212,20 @@ export default function InsurancePayment() {
                 {segurosInmuebles.map((insurance, tb8) => (
                   <tr key={tb8}>
                     <td
-                      style={{ cursor: "pointer", textDecoration: "underline" }}
+                      style={{
+                        cursor: "pointer",
+                        textDecoration: "underline",
+                        fontSize: 13,
+                      }}
                     >
                       {insurance.nombre}
                     </td>
                     <td>{insurance.nombreAseguradora}</td>
                     <td>{insurance.moneda}</td>
+                    <td>{renderFlag(insurance.country)}</td>
                     <td>{insurance.vigenciaDel}</td>
                     <td>{insurance.vigenciaAl}</td>
-                    <td>
-                      {
-                        nextPaymentFormatDate(insurance.pagos) === 'Vencido' ? 
-                          (
-                            <div style={{marginTop: 2}}>
-                              <Badge
-                                bg="danger-transparent"
-                                className={`me-2 my-1 Primary`}
-                              >
-                                Vencido
-                              </Badge> 
-                            </div>
-                          ) : 
-                          nextPaymentFormatDate(insurance.pagos)
-                      }
-                    </td>
+                    <td>{calculateDaysOrMonthsLeft(insurance.proxPago)}</td>
                     <td
                       style={{
                         cursor: "pointer",
@@ -230,8 +233,9 @@ export default function InsurancePayment() {
                         color: "#5488d2",
                       }}
                     >
-                      {/*// @ts-ignore */}
-                      <Link state={{ insurance }} to={`${import.meta.env.BASE_URL}administration/insuraceDescription/${insurance.id}`}>
+                      <Link
+                        to={`${baseUrl}administration/insuranceDescription/${insurance.id}`}
+                      >
                         Ver
                       </Link>
                     </td>

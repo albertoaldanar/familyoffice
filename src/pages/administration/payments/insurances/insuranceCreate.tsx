@@ -17,7 +17,9 @@ import dayjs, { Dayjs } from "dayjs";
 import { useParams } from "react-router-dom";
 import { realstateData } from "../../../investments/realState/realStateData";
 import { otherWealthData } from "../../../governance/wealthStructure/wealthStructureData";
+import FileUpload from "../../accounting/components/fileUpload";
 import { family } from "../../../governance/familyStructure/familyStructureData";
+import { countryOptions } from "../../accounting/companyUtils";
 import { formatRealstateData, formatFamilyMembers, formatVehicleData } from "../paymentUtils";
 
 export default function InsuranceCreate(props) {
@@ -48,6 +50,11 @@ export default function InsuranceCreate(props) {
   });
 
   const [currency, setCurrency] = useState({
+    value: "",
+    label: "",
+  });
+
+  const [country, setCountry] = useState({
     value: "",
     label: "",
   });
@@ -84,7 +91,7 @@ export default function InsuranceCreate(props) {
         <Row className="mb-3">
           <Form.Group
             as={Col}
-            md="3"
+            md="6"
             controlId="validationCustom04"
             className="form-group"
           >
@@ -136,7 +143,7 @@ export default function InsuranceCreate(props) {
         <Row className="mb-3">
           <Form.Group
             as={Col}
-            md="4"
+            md="6"
             controlId="validationCustom04"
             className="form-group"
           >
@@ -202,7 +209,7 @@ export default function InsuranceCreate(props) {
         <Row className="mb-3">
           <Form.Group
             as={Col}
-            md="4"
+            md="6"
             controlId="validationCustom04"
             className="form-group"
           >
@@ -265,7 +272,7 @@ export default function InsuranceCreate(props) {
             <Row style={{ marginBottom: 10 }}>
               <Form.Group
                 as={Col}
-                md="4"
+                md="6"
                 controlId="validationCustom01"
                 className="form-group"
               >
@@ -286,7 +293,7 @@ export default function InsuranceCreate(props) {
             <Row style={{ marginTop: 20 }}>
               <Form.Group
                 as={Col}
-                md="3"
+                md="4"
                 controlId="validationCustom01"
                 className="form-group"
               >
@@ -300,9 +307,29 @@ export default function InsuranceCreate(props) {
                   value={paymentFrequency}
                 />
               </Form.Group>
+
               <Form.Group
                 as={Col}
-                md="3"
+                md="4"
+                controlId="validationCustom01"
+                className="form-group"
+              >
+                <Form.Label>Compañia aseguradora</Form.Label>
+                <Form.Control
+                  type="numeric"
+                  placeholder=""
+                  aria-describedby="inputGroupPrepend"
+                  required
+                  onChange={(text) => setInsuranceCompany(text.target.value)}
+                  value={insuranceCompany}
+                />
+              </Form.Group>
+            </Row>
+
+            <Row style={{marginTop: 20}}>
+              <Form.Group
+                as={Col}
+                md="4"
                 controlId="validationCustom01"
                 className="form-group"
               >
@@ -316,21 +343,20 @@ export default function InsuranceCreate(props) {
                   value={currency}
                 />
               </Form.Group>
-
               <Form.Group
                 as={Col}
-                md="3"
+                md="4"
                 controlId="validationCustom01"
                 className="form-group"
               >
-                <Form.Label>Compañia aseguradora</Form.Label>
-                <Form.Control
-                  type="numeric"
+                <Form.Label>País</Form.Label>
+                <Select
+                  options={countryOptions}
+                  classNamePrefix="Select2"
+                  className="multi-select"
+                  onChange={(value) => setCountry(value)}
                   placeholder=""
-                  aria-describedby="inputGroupPrepend"
-                  required
-                  onChange={(text) => setInsuranceCompany(text.target.value)}
-                  value={insuranceCompany}
+                  value={country}
                 />
               </Form.Group>
             </Row>
@@ -376,17 +402,14 @@ export default function InsuranceCreate(props) {
             </Row>
 
             <Row style={{ marginTop: 20 }}>
-              <Form.Group as={Col} md="6" className="form-group">
-                <Form.Label className="form-label my-3">
-                  Adjuntar poliza
+              <Form.Group as={Col} md="4" className="form-group">
+                <Form.Label
+                  className="form-label my-3"
+                  style={{ fontSize: 13, color: "gray" }}
+                >
+                  Poliza de seguro
                 </Form.Label>
-
-                <Form.Control
-                  type="file"
-                  className="border-right-0 browse-file"
-                  placeholder="Cargar poliza"
-                  readOnly
-                />
+                <FileUpload />
               </Form.Group>
             </Row>
             <div

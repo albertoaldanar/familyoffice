@@ -16,7 +16,7 @@ export default function Payments() {
   const renderPayments = () => {
     return (
       <Tab.Container id="left-tabs-example" defaultActiveKey="first">
-        <div>
+        <div style={{marginLeft: 25}}>
           <Nav
             variant="pills"
             as="ul"
