@@ -17,18 +17,25 @@ import dayjs, { Dayjs } from "dayjs";
 import { Link } from "react-router-dom";
 import { mantenimientos } from "../paymentsData";
 import { useParams } from "react-router-dom";
+import FileView from "../../accounting/components/fileView";
+import FileUpload from "../../accounting/components/fileUpload";
 import { formateDateForUI } from "../paymentUtils";
 
 export default function MantainancePayment(props) {
   const params = useParams();
-  const mantainance = mantenimientos.find((seguro) => seguro.id === Number(params.id));
+  const mantainance = mantenimientos.find(
+    (seguro) => seguro.id === Number(params.id)
+  );
   const mantainancePayment = mantainance.pagos.find(
     (pymnt) => pymnt.id === Number(params.paymentId)
   );
   const isItPayed =
-    mantainancePayment.fechaDePago.length > 0 && mantainancePayment.comprobantePago.length > 0;
+    mantainancePayment.fechaDePago.length > 0 &&
+    mantainancePayment.comprobantePago.length > 0;
 
-  const fechaLimitePagoFormatted = formateDateForUI(mantainancePayment.limitePago);
+  const fechaLimitePagoFormatted = formateDateForUI(
+    mantainancePayment.limitePago
+  );
   const proxPagoFormatted = formateDateForUI(mantainancePayment.proximoPago);
   const fechaPagoFormatted = formateDateForUI(mantainancePayment.fechaDePago);
 
@@ -47,7 +54,7 @@ export default function MantainancePayment(props) {
   const [fechaLimitePago, setFechaLimitePago] = useState<Dayjs | null>(
     dayjs(fechaLimitePagoFormatted)
   );
-  
+
   const [proxPago, setProxPago] = useState<Dayjs | null>(
     dayjs(proxPagoFormatted)
   );
@@ -56,8 +63,6 @@ export default function MantainancePayment(props) {
     dayjs(fechaPagoFormatted)
   );
   const [isComprobanteEditable, setIsComprobanteEditable] = useState(false);
-
-  const [hasBeenPayed, setHasBeenPayed] = useState(isItPayed);
 
   const Options = [
     { value: "2023", label: "2023" },
@@ -157,9 +162,10 @@ export default function MantainancePayment(props) {
       <Row>
         <Card style={{ padding: 30, marginTop: 20 }}>
           <Card.Title style={{ marginBottom: 50 }}>
-            Registro de pago - Renta {mantainance.tipo} {mantainance.nombre}
+            Registro de pago - Cuota de mantenimiento {mantainance.tipo}{" "}
+            {mantainance.nombre}
           </Card.Title>
-          <Form noValidate validated={false} onSubmit={() => { }}>
+          <Form noValidate validated={false} onSubmit={() => {}}>
             <Row className="mb-3">
               <Form.Group
                 as={Col}
@@ -191,7 +197,7 @@ export default function MantainancePayment(props) {
                   <Select
                     options={OptionsMonths}
                     classNamePrefix="Select2"
-                    onChange={value => setMonth(value)}
+                    onChange={(value) => setMonth(value)}
                     value={month}
                     className="multi-select"
                     placeholder="Mes"
@@ -230,26 +236,9 @@ export default function MantainancePayment(props) {
               </Form.Group>
             </Row>
 
-            <Row style={{ marginTop: 20 }}>
-              <Form.Group
-                as={Col}
-                md="4"
-                controlId="validationCustom01"
-                className="form-group"
-              >
-                <Form.Label>Fecha limite de pago</Form.Label>
-                <LocalizationProvider dateAdapter={AdapterDayjs}>
-                  <DemoContainer components={["DatePicker"]}>
-                    <DatePicker
-                      format="DD/MM/YYYY"
-                      onChange={(value) => setFechaLimitePago(value)}
-                      value={dayjs(fechaLimitePago)}
-                      defaultValue={dayjs(fechaLimitePago)}
-                    />
-                  </DemoContainer>
-                </LocalizationProvider>
-              </Form.Group>
-              <Form.Group
+            {/* <Row style={{ marginTop: 20 }}> */}
+
+              {/* <Form.Group
                 as={Col}
                 md="4"
                 controlId="validationCustom01"
@@ -266,67 +255,62 @@ export default function MantainancePayment(props) {
                     />
                   </DemoContainer>
                 </LocalizationProvider>
-              </Form.Group>
-            </Row>
+              </Form.Group> */}
+            {/* </Row> */}
 
-            <Row style={{ marginTop: 20 }}>
-              <Form.Group className="mb-3 form-group">
-                <Form.Check
-                  required
-                  checked={hasBeenPayed}
-                  onChange={(e) => setHasBeenPayed(e.target.checked)}
-                  label="Ya se pago"
-                  feedback="You must agree before submitting."
-                  feedbackType="invalid"
-                />
-              </Form.Group>
-            </Row>
-            {hasBeenPayed && (
-              <>
-                <Row style={{ marginTop: 10 }}>
-                  <Form.Group
-                    as={Col}
-                    md="4"
-                    controlId="validationCustom01"
-                    className="form-group"
-                  >
-                    <Form.Label>Fecha de realización de pago</Form.Label>
-                    <LocalizationProvider dateAdapter={AdapterDayjs}>
-                      <DemoContainer components={["DatePicker"]}>
-                        <DatePicker
-                          format="DD/MM/YYYY"
-                          onChange={(value) => setFechaPago(value)}
-                          value={dayjs(fechaPago)}
-                          defaultValue={dayjs(fechaPago)}
-                        />
-                      </DemoContainer>
-                    </LocalizationProvider>
-                  </Form.Group>
-                </Row>
-
-                <Row>
-                  <Form.Group as={Col} md="6" className="form-group">
-                    <Form.Label className="form-label my-3">
-                      Comprobante de pago
-                    </Form.Label>
-                    {renderComprobante()}
-                  </Form.Group>
-                  <Form.Group as={Col} md="6" className="form-group">
-                    <Form.Label className="form-label my-3">
-                      Recibo o factura
-                    </Form.Label>
-
-                    <Form.Control
-                      type="file"
-                      className="border-right-0 browse-file"
-                      placeholder="Cargar recibo o factura"
-                      readOnly
+            <Row style={{ marginTop: 10 }}>
+              <Form.Group
+                as={Col}
+                md="4"
+                controlId="validationCustom01"
+                className="form-group"
+              >
+                <Form.Label>Fecha de realización de pago</Form.Label>
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                  <DemoContainer components={["DatePicker"]}>
+                    <DatePicker
+                      format="DD/MM/YYYY"
+                      onChange={(value) => setFechaPago(value)}
+                      value={dayjs(fechaPago)}
+                      defaultValue={dayjs(fechaPago)}
                     />
-                  </Form.Group>
-                </Row>
-              </>
-            )}
+                  </DemoContainer>
+                </LocalizationProvider>
+              </Form.Group>
+            </Row>
 
+            <Row>
+              <Form.Group as={Col} md="4" className="form-group">
+                <Form.Label
+                  className="form-label my-3"
+                  style={{ fontSize: 13, color: "gray" }}
+                >
+                  Comprobante de pago
+                </Form.Label>
+                {mantainancePayment.comprobantePago ? (
+                  <>
+                    <FileView title="CIF" fileName={mantainancePayment.comprobantePago} />
+                  </>
+                ) : (
+                  <FileUpload />
+                )}
+              </Form.Group>
+              <Form.Group as={Col} md="4" className="form-group">
+                <Form.Label
+                  className="form-label my-3"
+                  style={{ fontSize: 13, color: "gray" }}
+                >
+                  Factura o recibo
+                </Form.Label>
+                {mantainancePayment.invoice ? (
+                  <>
+                    <FileView title="CIF" fileName={mantainancePayment.comprobantePago} />
+                  </>
+                ) : (
+                  <FileUpload />
+                )}
+              </Form.Group>
+            </Row>
             <div
               style={{
                 display: "flex",

@@ -37,8 +37,6 @@ export default function InsurancesNewPayment(props) {
 
   const [fechaPago, setFechaPago] = useState<Dayjs | null>(dayjs(""));
 
-  const [hasBeenPayed, setHasBeenPayed] = useState(false);
-
   const Options = [
     { value: "2023", label: "2023" },
     { value: "2024", label: "2024" },

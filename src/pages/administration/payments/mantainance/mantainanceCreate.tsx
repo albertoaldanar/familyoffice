@@ -3,32 +3,64 @@ import { Button, Card, Col, Row, Form, InputGroup } from "react-bootstrap";
 import Select from "react-select";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
+import dayjs, { Dayjs } from "dayjs";
 import { formatRealstateData, formatVehicleData } from "../paymentUtils";
 import { otherWealthData } from "../../../governance/wealthStructure/wealthStructureData";
 import { realstateData } from "../../../investments/realState/realStateData";
+import { countryOptions } from "../../accounting/companyUtils";
 
 export default function MantainanceCreate(props) {
   const params = useParams();
-  const typeSelected = params.type === 'realState' ? { value: "Inmobiliario", label: "Mantenimiento Inmobiliario" } : params.type === 'vehicle' ? { value: "Vehicular", label: "Mantenimiento Vehicular" }: { value: '', label: '' } ;
+  const typeSelected =
+    params.type === "realState"
+      ? { value: "Inmobiliario", label: "Mantenimiento Inmobiliario" }
+      : params.type === "vehicle"
+      ? { value: "Vehicular", label: "Mantenimiento Vehicular" }
+      : { value: "", label: "" };
 
-  const propertySelected = params.itemId === null ? null : realstateData.find(property => property.id === Number(params.itemId));
-  const propertySelectedValue = propertySelected && params.type === 'realState' ? formatRealstateData([propertySelected]) : { value: "", label: "" };
+  const propertySelected =
+    params.itemId === null
+      ? null
+      : realstateData.find((property) => property.id === Number(params.itemId));
+  const propertySelectedValue =
+    propertySelected && params.type === "realState"
+      ? formatRealstateData([propertySelected])
+      : { value: "", label: "" };
 
-  const vehicleSelected = params.itemId === null ? null : otherWealthData.vehicles.find(property => property.id === Number(params.itemId));
-  const vehicleSelectedValue = vehicleSelected && params.type === 'vehicle' ? formatVehicleData([vehicleSelected]) : { value: "", label: "" };
+  const vehicleSelected =
+    params.itemId === null
+      ? null
+      : otherWealthData.vehicles.find(
+          (property) => property.id === Number(params.itemId)
+        );
+  const vehicleSelectedValue =
+    vehicleSelected && params.type === "vehicle"
+      ? formatVehicleData([vehicleSelected])
+      : { value: "", label: "" };
 
   const [mantainanceType, setMantainanceType] = useState(typeSelected);
   const [otherType, setOtherType] = useState("");
   const [concept, setConcept] = useState("");
-  const [description, setDescription] = useState("");
   const [payTo, setPayTo] = useState("");
   const [amount, setAmount] = useState("");
-  const [selectedProperty, setSelectedProperty] = useState(propertySelectedValue);
+  const [selectedProperty, setSelectedProperty] = useState(
+    propertySelectedValue
+  );
   const [selectedVehicle, setSelectedVehicle] = useState(vehicleSelectedValue);
   const [notProperyMember, setNotPropertyMember] = useState("");
+  const [nextPayment, setNextPayment] = useState<Dayjs | null>(dayjs(""));
   const [notProperyMemberAddress, setNotPropertyMemberAddress] = useState("");
   const [notVehicleMember, setNotVehicleMember] = useState("");
   const [paymentFrequency, setPaymentFrequency] = useState({
+    value: "",
+    label: "",
+  });
+
+  const [country, setCountry] = useState({
     value: "",
     label: "",
   });
@@ -39,15 +71,9 @@ export default function MantainanceCreate(props) {
   });
   const [isFamilyMember, setIsFamilyMember] = useState(true);
 
-  const Options = [
-    { value: "Alberto Aldana Rios", label: "Alberto Aldana Rios" },
-    { value: "Alejandra Aldana Rios", label: "Alejandra Aldana Rios" },
-    { value: "Ana Sofia Aldana Rios", label: "Ana Sofia Aldana Rios" },
-  ];
-
   const OptionsProperties = formatRealstateData(realstateData);
 
-  const OptionsVehicles = formatVehicleData(otherWealthData.vehicles)
+  const OptionsVehicles = formatVehicleData(otherWealthData.vehicles);
 
   const OptionsPaymentFrequency = [
     { value: "Mensual", label: "Mensual" },
@@ -67,13 +93,13 @@ export default function MantainanceCreate(props) {
     { value: "Otro", label: "Otro" },
   ];
 
-  const handleTypeOfInsurance = () => {
+  const handleMantainanceType = () => {
     if (mantainanceType.value === "Inmobiliario") {
       return (
         <Row className="mb-3">
           <Form.Group
             as={Col}
-            md="4"
+            md="8"
             controlId="validationCustom04"
             className="form-group"
           >
@@ -141,7 +167,7 @@ export default function MantainanceCreate(props) {
         <Row className="mb-3">
           <Form.Group
             as={Col}
-            md="4"
+            md="8"
             controlId="validationCustom04"
             className="form-group"
           >
@@ -189,25 +215,6 @@ export default function MantainanceCreate(props) {
         </Row>
       );
     }
-
-    return (
-      <Form.Group
-        as={Col}
-        md="10"
-        controlId="validationCustom01"
-        className="form-group"
-      >
-        <Form.Label>Tipo de mantenimiento</Form.Label>
-        <Form.Control
-          type="numeric"
-          placeholder=""
-          aria-describedby="inputGroupPrepend"
-          required
-          onChange={(text) => setOtherType(text.target.value)}
-          value={otherType}
-        />
-      </Form.Group>
-    )
   };
 
   return (
@@ -221,7 +228,7 @@ export default function MantainanceCreate(props) {
             <Row style={{ marginBottom: 10 }}>
               <Form.Group
                 as={Col}
-                md="4"
+                md="8"
                 controlId="validationCustom01"
                 className="form-group"
               >
@@ -237,45 +244,52 @@ export default function MantainanceCreate(props) {
               </Form.Group>
             </Row>
 
-            {handleTypeOfInsurance()}
+            {handleMantainanceType()}
+            {(mantainanceType.value === "Otro") && (
+              <Row style={{ marginTop: 20 }}>
+                <Form.Group
+                  as={Col}
+                  md="8"
+                  controlId="validationCustom01"
+                  className="form-group"
+                >
+                  <Form.Label>Concepto</Form.Label>
+                  <Form.Control
+                    type="numeric"
+                    placeholder=""
+                    aria-describedby="inputGroupPrepend"
+                    required
+                    onChange={(text) => setConcept(text.target.value)}
+                    value={concept}
+                  />
+                </Form.Group>
+              </Row>
+            )}
+
+            {(mantainanceType.value === "Otro" || !isFamilyMember) && (
+              <Row style={{ marginTop: 20 }}>
+                <Form.Group
+                  as={Col}
+                  md="8"
+                  controlId="validationCustom01"
+                  className="form-group"
+                >
+                  <Form.Label>País</Form.Label>
+                  <Select
+                    options={countryOptions}
+                    classNamePrefix="Select2"
+                    className="multi-select"
+                    onChange={(value) => setCountry(value)}
+                    placeholder="Año"
+                    value={country}
+                  />
+                </Form.Group>
+              </Row>
+            )}
             <Row style={{ marginTop: 20 }}>
               <Form.Group
                 as={Col}
-                md="3"
-                controlId="validationCustom01"
-                className="form-group"
-              >
-                <Form.Label>Concepto</Form.Label>
-                <Form.Control
-                  type="numeric"
-                  placeholder=""
-                  aria-describedby="inputGroupPrepend"
-                  required
-                  onChange={(text) => setConcept(text.target.value)}
-                  value={concept}
-                />
-              </Form.Group>
-
-              <Form.Group
-                as={Col}
-                md="6"
-                controlId="validationCustom01"
-                className="form-group"
-              >
-                <Form.Label>Descripción</Form.Label>
-                <Form.Control
-                  type="numeric"
-                  placeholder=""
-                  aria-describedby="inputGroupPrepend"
-                  required
-                  onChange={(text) => setDescription(text.target.value)}
-                  value={description}
-                />
-              </Form.Group>
-
-              <Form.Group
-                as={Col}
-                md="3"
+                md="4"
                 controlId="validationCustom01"
                 className="form-group"
               >
@@ -289,8 +303,6 @@ export default function MantainanceCreate(props) {
                   value={payTo}
                 />
               </Form.Group>
-            </Row>
-            <Row style={{ marginTop: 20 }}>
               <Form.Group
                 as={Col}
                 md="4"
@@ -307,6 +319,8 @@ export default function MantainanceCreate(props) {
                   value={paymentFrequency}
                 />
               </Form.Group>
+            </Row>
+            <Row style={{ marginTop: 20 }}>
               <Form.Group
                 as={Col}
                 md="4"
@@ -347,7 +361,31 @@ export default function MantainanceCreate(props) {
                     Favor de añadir el monto del pago
                   </Form.Control.Feedback>
                 </InputGroup>
-                <p style={{marginTop: 7, fontSize: 11, color: 'gray'}}>Si los pagos no tendran un monto fijo, este campo se puede dejar en blanco y se asignara un monto a cada registro de pago</p>
+                <p style={{ marginTop: 7, fontSize: 11, color: "gray" }}>
+                  Si los pagos no tendran un monto fijo, este campo se puede
+                  dejar en blanco y se asignara un monto a cada registro de pago
+                </p>
+              </Form.Group>
+            </Row>
+
+            <Row style={{ marginTop: 20 }}>
+              <Form.Group
+                as={Col}
+                md="4"
+                controlId="validationCustom01"
+                className="form-group"
+              >
+                <Form.Label>Agendar proximo pago</Form.Label>
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                  <DemoContainer components={["DatePicker"]}>
+                    <DatePicker
+                      format="DD/MM/YYYY"
+                      onChange={(value) => setNextPayment(value)}
+                      value={dayjs(nextPayment)}
+                      defaultValue={dayjs(nextPayment)}
+                    />
+                  </DemoContainer>
+                </LocalizationProvider>
               </Form.Group>
             </Row>
             <div

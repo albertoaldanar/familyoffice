@@ -19,7 +19,6 @@ import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import { formateDateForUI, nextPaymentFormatDate } from "../paymentUtils";
 import { countryOptions } from "../../accounting/companyUtils";
 import FileView from "../../accounting/components/fileView";
 import FileUpload from "../../accounting/components/fileUpload";
@@ -32,6 +31,7 @@ import {
   formatVehicleData,
   calculateDaysOrMonthsLeft,
   formatRealstateData,
+  formateDateForUI,
   formatToDateString
 } from "../paymentUtils";
 
@@ -42,7 +42,7 @@ export default function InsurancesDescription(props) {
   const insurance = seguros.find((seguro) => seguro.id === Number(params.id));
   const familyMembersOptions = formatFamilyMembers(family.members);
   const vehiclesOptions = formatVehicleData(otherWealthData.vehicles);
-  const realStateOptions = formatVehicleData(realstateData);
+  const realStateOptions = formatRealstateData(realstateData);
 
   const [familyMemberOwner, setFamilyMemberOwner] = useState({
     label: insurance.linkedItemId ? insurance.nombre : '', 

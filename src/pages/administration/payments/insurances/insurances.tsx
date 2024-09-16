@@ -17,6 +17,56 @@ export default function InsurancePayment() {
     (seguro) => seguro.tipo === "Inmobiliario"
   );
 
+  const renderUrl = (type, linkedItemId, name) => {
+    if (type === "Inmobiliario" && linkedItemId) {
+      return (
+        <td
+          style={{
+            fontSize: 13,
+          }}
+        >
+          <Link to={`${baseUrl}governance/wealthItem/type/realState/id/${linkedItemId}`}>
+            {name}
+          </Link>
+        </td>
+      );
+    } else if (type === "Vehicular" && linkedItemId) {
+      return (
+        <td
+          style={{
+            fontSize: 13,
+          }}
+        >
+          <Link to={`${baseUrl}governance/wealthItem/type/vehicle/id/${linkedItemId}`}>
+            {name}
+          </Link>
+        </td>
+      );
+    } else if(type === "Vida" && linkedItemId){
+      return (
+        <td
+        style={{
+          fontSize: 13,
+        }}
+      >
+        <Link to={`${baseUrl}governance/familyMember/${linkedItemId}`}>
+          {name}
+        </Link>
+      </td>
+      );
+    }
+
+    return (
+      <td
+      style={{
+        fontSize: 13,
+      }}
+    >
+      {name}
+    </td>
+    );
+  };
+
   return (
     <Fragment>
       <div
@@ -73,15 +123,7 @@ export default function InsurancePayment() {
               <tbody>
                 {segurosVida.map((insurance, tb8) => (
                   <tr key={tb8}>
-                    <td
-                      style={{
-                        cursor: "pointer",
-                        textDecoration: "underline",
-                        fontSize: 13,
-                      }}
-                    >
-                      {insurance.nombre}
-                    </td>
+                    {renderUrl(insurance.tipo, insurance.linkedItemId, insurance.nombre)}
                     <td>{insurance.nombreAseguradora}</td>
                     <td>{insurance.moneda}</td>
                     <td>{renderFlag(insurance.country)}</td>
@@ -142,15 +184,7 @@ export default function InsurancePayment() {
               <tbody>
                 {segurosCarro.map((insurance, tb8) => (
                   <tr key={tb8}>
-                    <td
-                      style={{
-                        cursor: "pointer",
-                        textDecoration: "underline",
-                        fontSize: 13,
-                      }}
-                    >
-                      {insurance.nombre}
-                    </td>
+                     {renderUrl(insurance.tipo, insurance.linkedItemId, insurance.nombre)}
                     <td>{insurance.nombreAseguradora}</td>
                     <td>{insurance.moneda}</td>
                     <td>{renderFlag(insurance.country)}</td>
@@ -211,15 +245,7 @@ export default function InsurancePayment() {
               <tbody>
                 {segurosInmuebles.map((insurance, tb8) => (
                   <tr key={tb8}>
-                    <td
-                      style={{
-                        cursor: "pointer",
-                        textDecoration: "underline",
-                        fontSize: 13,
-                      }}
-                    >
-                      {insurance.nombre}
-                    </td>
+                     {renderUrl(insurance.tipo, insurance.linkedItemId, insurance.nombre)}
                     <td>{insurance.nombreAseguradora}</td>
                     <td>{insurance.moneda}</td>
                     <td>{renderFlag(insurance.country)}</td>

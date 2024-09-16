@@ -9,7 +9,48 @@ import {
 import { Link } from "react-router-dom";
 import { arrendamientos } from "../paymentsData";
 import { nextPaymentFormatDate } from "../paymentUtils";
+import { calculateDaysOrMonthsLeft } from "../paymentUtils";
+import { renderFlag } from "../../accounting/companyUtils";
+
 export default function LeasingAndRents() {
+
+  const renderTypeIcon = (type) => {
+    if (type === "Inmobiliario") {
+      return (
+        <td>
+          {" "}
+          <i
+            className="fe fe-map-pin"
+            style={{ color: "gray", marginRight: 10, fontSize: 14 }}
+          ></i>{" "}
+          {type}
+        </td>
+      );
+    } else if (type === "Vehicular") {
+      return (
+        <td>
+          {" "}
+          <i
+            className="fe fe-truck"
+            style={{ color: "gray", marginRight: 10, fontSize: 14 }}
+          ></i>{" "}
+          {type}
+        </td>
+      );
+    }
+
+    return (
+      <td>
+        {" "}
+        <i
+          className="fe fe-circle"
+          style={{ color: "gray", marginRight: 10, fontSize: 14 }}
+        ></i>{" "}
+        {type}
+      </td>
+    );
+  };
+
   return (
     <Fragment>
       <div
@@ -38,8 +79,9 @@ export default function LeasingAndRents() {
           </Link>
         </Button>
       </div>
-      <Card.Title style={{ marginLeft: 15, marginBottom: 20 }}>
-        Arrendamientos
+      <Card.Title style={{ marginLeft: 15, marginBottom: 20, fontSize: 14 }}>
+      <i style={{ marginRight: 4 }} className="fe fe-edit-3 fs-13"></i>{" "}
+       Arrendamientos por pagar
       </Card.Title>
       <Col xl={12}>
         <Card>
@@ -50,6 +92,7 @@ export default function LeasingAndRents() {
                   <th>Tipo</th>
                   <th>Arrendador</th>
                   <th>Concepto</th>
+                  <th>País</th>
                   <th>Monto</th>
                   <th>Prox pago</th>
                   <th></th>
@@ -58,28 +101,12 @@ export default function LeasingAndRents() {
               <tbody> 
                 {arrendamientos.map((leasing, tb8) => (
                   <tr key={tb8}>
-                    <td>
-                      {leasing.tipo}
-                    </td>
+                    {renderTypeIcon(leasing.tipo)}
                     <td>{leasing.arrendador}</td>
                     <td>{leasing.concepto}</td>
+                    <td>{renderFlag(leasing.country)}</td>
                     <td>${leasing.monto} {leasing.moneda}</td>
-                    <td>
-                      {
-                        nextPaymentFormatDate(leasing.pagos) === 'Vencido' ? 
-                          (
-                            <div style={{marginTop: 2}}>
-                              <Badge
-                                bg="danger-transparent"
-                                className={`me-2 my-1 Primary`}
-                              >
-                                Vencido
-                              </Badge> 
-                            </div>
-                          ) : 
-                          nextPaymentFormatDate(leasing.pagos)
-                      }
-                    </td>
+                    <td>{calculateDaysOrMonthsLeft(leasing.proxPago)}</td>
                     <td
                       style={{
                         cursor: "pointer",

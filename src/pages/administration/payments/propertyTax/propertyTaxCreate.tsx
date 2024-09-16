@@ -4,6 +4,11 @@ import Select from "react-select";
 import { formatRealstateDataPropertyTax } from "../paymentUtils";
 import { prediales } from "../paymentsData";
 import { useParams } from "react-router-dom";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
+import dayjs, { Dayjs } from "dayjs";
 import { realstateData } from "../../../investments/realState/realStateData";
 
 export default function PropertyTaxCreate(props) {
@@ -13,8 +18,9 @@ export default function PropertyTaxCreate(props) {
 
   const propertySelected = params.id === null ? null : realstateData.find(property => property.id === Number(params.id));
   const propertySelectedValue = propertySelected ? { value: propertySelected.nombre, label: propertySelected.nombre} : { value: "", label: "" };
+  const [nextPayment, setNextPayment] = useState<Dayjs | null>(dayjs(""));
 
-  const [personaAsegurada, setPersonaAsegurada] = useState({
+  const [paymentFrequency, setPaymentFrequency] = useState({
     value: "",
     label: "",
   });
@@ -25,8 +31,6 @@ export default function PropertyTaxCreate(props) {
     value: "",
     label: "",
   });
-
-  const [amount, setAmount] = useState("");
 
   const [isPropertyMember, setIsPropertyMember] = useState(true);
   const OptionsProperties = formatRealstateDataPropertyTax(
@@ -40,10 +44,16 @@ export default function PropertyTaxCreate(props) {
     { value: "EUR", label: "EUR" },
   ];
 
+
+  const OptionsPaymentFrequency = [
+    { value: "Mensual", label: "Mensual" },
+    { value: "Anual", label: "Anual" },
+  ];
+
   return (
     <Fragment>
       <Row>
-        <Card style={{ padding: 30, marginTop: 20 }}>
+        <Card style={{ padding: 30, marginTop: 20, minHeight: 550 }}>
           <Card.Title style={{ marginBottom: 35 }}>
             Nuevo Registro de Predial
           </Card.Title>
@@ -100,7 +110,23 @@ export default function PropertyTaxCreate(props) {
             <Row style={{ marginTop: 20 }}>
               <Form.Group
                 as={Col}
-                md="3"
+                md="6"
+                controlId="validationCustom01"
+                className="form-group"
+              >
+                <Form.Label>Frecuencia de pago</Form.Label>
+                <Select
+                  options={OptionsPaymentFrequency}
+                  classNamePrefix="Select2"
+                  className="multi-select"
+                  onChange={(value) => setPaymentFrequency(value)}
+                  placeholder=""
+                  value={paymentFrequency}
+                />
+              </Form.Group>
+              <Form.Group
+                as={Col}
+                md="6"
                 controlId="validationCustom01"
                 className="form-group"
               >
@@ -114,61 +140,47 @@ export default function PropertyTaxCreate(props) {
                   value={currency}
                 />
               </Form.Group>
+            </Row>
 
+
+            <Row style={{ marginTop: 20 }}>
               <Form.Group
                 as={Col}
                 md="4"
-                controlId="validationCustomUsername"
+                controlId="validationCustom01"
                 className="form-group"
               >
-                <Form.Label>Monto predial</Form.Label>
-                <InputGroup hasValidation>
-                  <InputGroup.Text id="inputGroupPrepend">$</InputGroup.Text>
-                  <Form.Control
-                    type="numeric"
-                    placeholder="Monto"
-                    aria-describedby="inputGroupPrepend"
-                    required
-                    onChange={(text) => setAmount(text.target.value)}
-                    value={amount}
-                  />
-                  <InputGroup.Text id="inputGroupPrepend">
-                    {currency.value}
-                  </InputGroup.Text>
-                  <Form.Control.Feedback type="invalid">
-                    Favor de añadir el monto del pago
-                  </Form.Control.Feedback>
-                </InputGroup>
+                <Form.Label>Agendar proximo pago</Form.Label>
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                  <DemoContainer components={["DatePicker"]}>
+                    <DatePicker
+                      format="DD/MM/YYYY"
+                      onChange={(value) => setNextPayment(value)}
+                      value={dayjs(nextPayment)}
+                      defaultValue={dayjs(nextPayment)}
+                    />
+                  </DemoContainer>
+                </LocalizationProvider>
               </Form.Group>
             </Row>
 
-            <Row style={{ marginTop: 20 }}>
-              <Form.Group as={Col} md="6" className="form-group">
-                <Form.Label className="form-label my-3">
-                  Certificado de predial
-                </Form.Label>
-
-                <Form.Control
-                  type="file"
-                  className="border-right-0 browse-file"
-                  placeholder="Cargar poliza"
-                  readOnly
-                />
-              </Form.Group>
-            </Row>
             <div
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: "space-between",
-                marginTop: 20,
-              }}
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+            }}
+          >
+            <div></div>
+            <Button
+              style={{ position: "absolute", right: 25, bottom: 20 }}
+              variant="primary"
+              className=" mb-1"
+              type="submit"
             >
-              <div></div>
-              <Button variant="primary" className=" mb-1" type="submit">
-                Crear
-              </Button>
-            </div>
+              Guardar
+            </Button>
+          </div>
           </Form>
         </Card>
       </Row>

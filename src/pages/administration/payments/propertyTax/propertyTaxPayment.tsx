@@ -16,21 +16,28 @@ import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import dayjs, { Dayjs } from "dayjs";
 import { Link } from "react-router-dom";
 import { prediales } from "../paymentsData";
+import FileView from "../../accounting/components/fileView";
+import FileUpload from "../../accounting/components/fileUpload";
 import { useParams } from "react-router-dom";
 import { formateDateForUI } from "../paymentUtils";
 
 export default function PropertyTaxPayment(props) {
   const params = useParams();
-  const propertyTax = prediales.find((seguro) => seguro.id === Number(params.id));
+  const propertyTax = prediales.find(
+    (seguro) => seguro.id === Number(params.id)
+  );
   const PropertyTaxPayment = propertyTax.pagos.find(
     (pymnt) => pymnt.id === Number(params.paymentId)
   );
   const isItPayed =
-    PropertyTaxPayment.fechaDePago.length > 0 && PropertyTaxPayment.comprobantePago.length > 0;
+    PropertyTaxPayment.fechaDePago.length > 0 &&
+    PropertyTaxPayment.comprobantePago.length > 0;
 
   const vigenciaDelFormatted = formateDateForUI(PropertyTaxPayment.vigenciaDel);
   const vigenciaAlFormatted = formateDateForUI(PropertyTaxPayment.vigenciaAl);
-  const fechaLimitePagoFormatted = formateDateForUI(PropertyTaxPayment.limitePago);
+  const fechaLimitePagoFormatted = formateDateForUI(
+    PropertyTaxPayment.limitePago
+  );
   const proxPagoFormatted = formateDateForUI(PropertyTaxPayment.proximoPago);
   const fechaPagoFormatted = formateDateForUI(PropertyTaxPayment.fechaDePago);
 
@@ -159,7 +166,7 @@ export default function PropertyTaxPayment(props) {
           <Card.Title style={{ marginBottom: 50 }}>
             Registro de pago - Predial {propertyTax.tipo} {propertyTax.nombre}
           </Card.Title>
-          <Form noValidate validated={false} onSubmit={() => { }}>
+          <Form noValidate validated={false} onSubmit={() => {}}>
             <Row className="mb-3">
               <Form.Group
                 as={Col}
@@ -265,105 +272,58 @@ export default function PropertyTaxPayment(props) {
                   </DemoContainer>
                 </LocalizationProvider>
               </Form.Group>
-            </Row>
-
-            <Row style={{ marginTop: 20 }}>
               <Form.Group
                 as={Col}
                 md="4"
                 controlId="validationCustom01"
                 className="form-group"
               >
-                <Form.Label>Fecha limite de pago</Form.Label>
+                <Form.Label>Fecha de realización de pago</Form.Label>
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                   <DemoContainer components={["DatePicker"]}>
                     <DatePicker
                       format="DD/MM/YYYY"
-                      onChange={(value) => setFechaLimitePago(value)}
-                      value={dayjs(fechaLimitePago)}
-                      defaultValue={dayjs(fechaLimitePago)}
-                    />
-                  </DemoContainer>
-                </LocalizationProvider>
-              </Form.Group>
-              <Form.Group
-                as={Col}
-                md="4"
-                controlId="validationCustom01"
-                className="form-group"
-              >
-                <Form.Label>Agendar proximo pago</Form.Label>
-                <LocalizationProvider dateAdapter={AdapterDayjs}>
-                  <DemoContainer components={["DatePicker"]}>
-                    <DatePicker
-                      format="DD/MM/YYYY"
-                      onChange={(value) => setProxPago(value)}
-                      value={dayjs(proxPago)}
-                      defaultValue={dayjs(proxPago)}
+                      onChange={(value) => setFechaPago(value)}
+                      value={dayjs(fechaPago)}
+                      defaultValue={dayjs(fechaPago)}
                     />
                   </DemoContainer>
                 </LocalizationProvider>
               </Form.Group>
             </Row>
 
-            <Row style={{ marginTop: 20 }}>
-              <Form.Group className="mb-3 form-group">
-                <Form.Check
-                  required
-                  checked={hasBeenPayed}
-                  onChange={(e) => setHasBeenPayed(e.target.checked)}
-                  label="Ya se pago"
-                  feedback="You must agree before submitting."
-                  feedbackType="invalid"
-                />
+            <Row>
+              <Form.Group as={Col} md="4" className="form-group">
+                <Form.Label
+                  className="form-label my-3"
+                  style={{ fontSize: 13, color: "gray" }}
+                >
+                  Comprobante de pago
+                </Form.Label>
+                {PropertyTaxPayment.comprobantePago ? (
+                  <>
+                    <FileView title="CIF" fileName={PropertyTaxPayment.comprobantePago} />
+                  </>
+                ) : (
+                  <FileUpload />
+                )}
+              </Form.Group>
+              <Form.Group as={Col} md="4" className="form-group">
+                <Form.Label
+                  className="form-label my-3"
+                  style={{ fontSize: 13, color: "gray" }}
+                >
+                  Factura o recibo
+                </Form.Label>
+                {PropertyTaxPayment.invoice ? (
+                  <>
+                    <FileView title="CIF" fileName={PropertyTaxPayment.comprobantePago} />
+                  </>
+                ) : (
+                  <FileUpload />
+                )}
               </Form.Group>
             </Row>
-            {hasBeenPayed && (
-              <>
-                <Row style={{ marginTop: 10 }}>
-                  <Form.Group
-                    as={Col}
-                    md="4"
-                    controlId="validationCustom01"
-                    className="form-group"
-                  >
-                    <Form.Label>Fecha de realización de pago</Form.Label>
-                    <LocalizationProvider dateAdapter={AdapterDayjs}>
-                      <DemoContainer components={["DatePicker"]}>
-                        <DatePicker
-                          format="DD/MM/YYYY"
-                          onChange={(value) => setFechaPago(value)}
-                          value={dayjs(fechaPago)}
-                          defaultValue={dayjs(fechaPago)}
-                        />
-                      </DemoContainer>
-                    </LocalizationProvider>
-                  </Form.Group>
-                </Row>
-
-                <Row>
-                  <Form.Group as={Col} md="6" className="form-group">
-                    <Form.Label className="form-label my-3">
-                      Comprobante de pago
-                    </Form.Label>
-                    {renderComprobante()}
-                  </Form.Group>
-                  <Form.Group as={Col} md="6" className="form-group">
-                    <Form.Label className="form-label my-3">
-                      Recibo o factura
-                    </Form.Label>
-
-                    <Form.Control
-                      type="file"
-                      className="border-right-0 browse-file"
-                      placeholder="Cargar recibo o factura"
-                      readOnly
-                    />
-                  </Form.Group>
-                </Row>
-              </>
-            )}
-
             <div
               style={{
                 display: "flex",

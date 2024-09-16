@@ -9,8 +9,38 @@ import {
 import { prediales } from "../paymentsData";
 import { Link } from "react-router-dom";
 import { nextPaymentFormatDate } from "../paymentUtils";
+import { renderFlag } from "../../accounting/companyUtils";
+import { calculateDaysOrMonthsLeft } from "../paymentUtils";
 
 export default function PropertyTax() {
+  //@ts-ignore
+  const baseUrl = import.meta.env.BASE_URL;
+  
+  const renderUrl = (linkedItemId, name) => {
+    if (linkedItemId) {
+      return (
+        <td
+          style={{
+            fontSize: 13,
+          }}
+        >
+          <Link to={`${baseUrl}governance/wealthItem/type/realState/id/${linkedItemId}`}>
+            {name}
+          </Link>
+        </td>
+      );
+    }
+    return (
+      <td
+      style={{
+        fontSize: 13,
+      }}
+    >
+      {name}
+    </td>
+    );
+  };
+
   return (
     <Fragment>
       <div
@@ -34,13 +64,16 @@ export default function PropertyTax() {
           className=" mb-1"
         >
          {/*// @ts-ignore */}
-         <Link style={{color: 'white'}} to={`${import.meta.env.BASE_URL}administration/propertyTaxCreate`}>
+         <Link style={{color: 'white'}} to={`${import.meta.env.BASE_URL}administration/propertyTaxCreate/null`}>
             + Añadir predial
           </Link>
         </Button>
       </div>
-      <Card.Title style={{ marginLeft: 15, marginBottom: 20 }}>
-        Prediales de propiedades
+      <Card.Title style={{ marginLeft: 15, marginBottom: 20, fontSize: 14 }}>
+        <i
+          style={{ marginRight: 4 }}
+          className="fe fe-map-pin fs-13"
+        ></i>{" "} Prediales de propiedades
       </Card.Title>
       <Col xl={12}>
         <Card>
@@ -49,8 +82,9 @@ export default function PropertyTax() {
               <thead className="bg-light">
                 <tr>
                   <th>Propiedad</th>
-                  <th>Monto</th>
                   <th>Moneda</th>
+                  <th>País</th>
+                  <th>Frecuencia de pago</th>
                   <th>Pagar en</th>
                   <th></th>
                 </tr>
@@ -58,28 +92,12 @@ export default function PropertyTax() {
               <tbody> 
                 {prediales.map((taxProperty, tb8) => (
                   <tr key={tb8}>
-                    <td
-                      style={{ cursor: "pointer", textDecoration: "underline" }}
-                    >
-                      {taxProperty.nombre}
-                    </td>
-                    <td>${taxProperty.monto}</td>
+                    {renderUrl(taxProperty.linkedItemId, taxProperty.nombre)}
                     <td>{taxProperty.moneda}</td>
+                    <td>{renderFlag(taxProperty.country)}</td>
+                    <td>{taxProperty.frecuenciaDePago}</td>
                     <td>
-                      {
-                        nextPaymentFormatDate(taxProperty.pagos) === 'Vencido' ? 
-                          (
-                            <div style={{marginTop: 2}}>
-                              <Badge
-                                bg="danger-transparent"
-                                className={`me-2 my-1 Primary`}
-                              >
-                                Vencido
-                              </Badge> 
-                            </div>
-                          ) : 
-                          nextPaymentFormatDate(taxProperty.pagos)
-                      }
+                      {calculateDaysOrMonthsLeft(taxProperty.proxPago)}
                     </td>
                     <td
                       style={{

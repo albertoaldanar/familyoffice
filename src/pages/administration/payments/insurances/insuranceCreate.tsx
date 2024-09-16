@@ -60,6 +60,7 @@ export default function InsuranceCreate(props) {
   });
   const [vigenciaDel, setVigenciaDel] = useState<Dayjs | null>(dayjs(""));
   const [vigenciaAl, setVigenciaAl] = useState<Dayjs | null>(dayjs(""));
+  const [nextPayment, setNextPayment] = useState<Dayjs | null>(dayjs(""));
   const [isFamilyMember, setIsFamilyMember] = useState(true);
 
   const Options = formatFamilyMembers(family.members);
@@ -91,7 +92,7 @@ export default function InsuranceCreate(props) {
         <Row className="mb-3">
           <Form.Group
             as={Col}
-            md="6"
+            md="8"
             controlId="validationCustom04"
             className="form-group"
           >
@@ -143,7 +144,7 @@ export default function InsuranceCreate(props) {
         <Row className="mb-3">
           <Form.Group
             as={Col}
-            md="6"
+            md="8"
             controlId="validationCustom04"
             className="form-group"
           >
@@ -209,7 +210,7 @@ export default function InsuranceCreate(props) {
         <Row className="mb-3">
           <Form.Group
             as={Col}
-            md="6"
+            md="8"
             controlId="validationCustom04"
             className="form-group"
           >
@@ -272,7 +273,7 @@ export default function InsuranceCreate(props) {
             <Row style={{ marginBottom: 10 }}>
               <Form.Group
                 as={Col}
-                md="6"
+                md="8"
                 controlId="validationCustom01"
                 className="form-group"
               >
@@ -395,6 +396,25 @@ export default function InsuranceCreate(props) {
                       onChange={(value) => setVigenciaAl(value)}
                       value={dayjs(vigenciaAl)}
                       defaultValue={dayjs(vigenciaAl)}
+                    />
+                  </DemoContainer>
+                </LocalizationProvider>
+              </Form.Group>
+
+              <Form.Group
+                as={Col}
+                md="4"
+                controlId="validationCustom01"
+                className="form-group"
+              >
+                <Form.Label>Agendar proximo pago</Form.Label>
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                  <DemoContainer components={["DatePicker"]}>
+                    <DatePicker
+                      format="DD/MM/YYYY"
+                      onChange={(value) => setNextPayment(value)}
+                      value={dayjs(nextPayment)}
+                      defaultValue={dayjs(nextPayment)}
                     />
                   </DemoContainer>
                 </LocalizationProvider>

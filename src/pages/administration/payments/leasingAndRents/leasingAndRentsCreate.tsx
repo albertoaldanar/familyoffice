@@ -7,16 +7,25 @@ import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import dayjs, { Dayjs } from "dayjs";
 import { Link } from "react-router-dom";
+import { countryOptions } from "../../accounting/companyUtils";
+import FileUpload from "../../accounting/components/fileUpload";
 import { useParams } from "react-router-dom";
 
 export default function LeasingAndRentsCreate(props) {
   const [leasingType, setleasingType] = useState("");
   const [concept, setConcept] = useState("");
-  const [payTo, setPayTo] = useState("");
+  const [lessorPhone, setLessorPhone] = useState("");
+  const [lessorName, setLessorName] = useState("");
+  const [nextPayment, setNextPayment] = useState<Dayjs | null>(dayjs(""));
   const [amount, setAmount] = useState("");
   const [vigenciaDel, setVigenciaDel] = useState<Dayjs | null>(dayjs(""));
   const [vigenciaAl, setVigenciaAl] = useState<Dayjs | null>(dayjs(""));
   const [paymentFrequency, setPaymentFrequency] = useState({
+    value: "",
+    label: "",
+  });
+
+  const [country, setCountry] = useState({
     value: "",
     label: "",
   });
@@ -39,8 +48,9 @@ export default function LeasingAndRentsCreate(props) {
   ];
 
   const OptionsMantainanceType = [
-    { value: "Inmobiliario", label: "Mantenimiento Inmobiliario" },
-    { value: "Vehicular", label: "Mantenimiento Vehicular" },
+    { value: "Inmobiliario", label: "Renta Inmobiliaria" },
+    { value: "Vehicular", label: "Renta vehicular" },
+    { value: "Otro", label: "Otro" },
   ];
 
   return (
@@ -54,31 +64,23 @@ export default function LeasingAndRentsCreate(props) {
             <Row style={{ marginBottom: 10 }}>
               <Form.Group
                 as={Col}
-                md="4"
+                md="5"
                 controlId="validationCustom01"
                 className="form-group"
               >
-                <Form.Label>Tipo de arrendamiento</Form.Label>
-                <InputGroup hasValidation style={{ marginTop: 10 }}>
-                  <Form.Control
-                    type="numeric"
-                    placeholder="Ej. (Inmobiliario, vehicular) etc."
-                    aria-describedby="inputGroupPrepend"
-                    required
-                    onChange={(text) => setleasingType(text.target.value)}
-                    value={leasingType}
-                  />
-                  <Form.Control.Feedback type="invalid">
-                    Favor de añadir el monto del pago
-                  </Form.Control.Feedback>
-                </InputGroup>
+                <Form.Label>Tipo de arrendamiento por pagar</Form.Label>
+                <Select
+                  options={OptionsMantainanceType}
+                  classNamePrefix="Select2"
+                  className="multi-select"
+                  onChange={(value) => setleasingType(value)}
+                  placeholder=""
+                  value={leasingType}
+                />
               </Form.Group>
-            </Row>
-
-            <Row style={{ marginTop: 20 }}>
               <Form.Group
                 as={Col}
-                md="3"
+                md="5"
                 controlId="validationCustom01"
                 className="form-group"
               >
@@ -92,28 +94,62 @@ export default function LeasingAndRentsCreate(props) {
                   value={concept}
                 />
               </Form.Group>
+            </Row>
 
+            <Row style={{ marginTop: 20 }}>
               <Form.Group
                 as={Col}
-                md="3"
+                md="5"
                 controlId="validationCustom01"
                 className="form-group"
               >
-                <Form.Label>Arrendador</Form.Label>
+                <Form.Label>Nombre de Arrendador</Form.Label>
                 <Form.Control
                   type="numeric"
                   placeholder=""
                   aria-describedby="inputGroupPrepend"
                   required
-                  onChange={(text) => setPayTo(text.target.value)}
-                  value={payTo}
+                  onChange={(text) => setLessorName(text.target.value)}
+                  value={lessorName}
+                />
+              </Form.Group>
+              <Form.Group
+                as={Col}
+                md="5"
+                controlId="validationCustom01"
+                className="form-group"
+              >
+                <Form.Label>Telefono de Arrendador</Form.Label>
+                <Form.Control
+                  type="numeric"
+                  placeholder=""
+                  aria-describedby="inputGroupPrepend"
+                  required
+                  onChange={(text) => setLessorPhone(text.target.value)}
+                  value={lessorPhone}
                 />
               </Form.Group>
             </Row>
             <Row style={{ marginTop: 20 }}>
               <Form.Group
                 as={Col}
-                md="3"
+                md="5"
+                controlId="validationCustom01"
+                className="form-group"
+              >
+                <Form.Label>País</Form.Label>
+                <Select
+                  options={countryOptions}
+                  classNamePrefix="Select2"
+                  className="multi-select"
+                  onChange={(value) => setCountry(value)}
+                  placeholder=""
+                  value={country}
+                />
+              </Form.Group>
+              <Form.Group
+                as={Col}
+                md="5"
                 controlId="validationCustom01"
                 className="form-group"
               >
@@ -127,9 +163,12 @@ export default function LeasingAndRentsCreate(props) {
                   value={paymentFrequency}
                 />
               </Form.Group>
+            </Row>
+
+            <Row style={{ marginTop: 20 }}>
               <Form.Group
                 as={Col}
-                md="3"
+                md="5"
                 controlId="validationCustom01"
                 className="form-group"
               >
@@ -145,7 +184,7 @@ export default function LeasingAndRentsCreate(props) {
               </Form.Group>
               <Form.Group
                 as={Col}
-                md="4"
+                md="5"
                 controlId="validationCustomUsername"
                 className="form-group"
               >
@@ -212,20 +251,36 @@ export default function LeasingAndRentsCreate(props) {
                   </DemoContainer>
                 </LocalizationProvider>
               </Form.Group>
+
+              <Form.Group
+                as={Col}
+                md="4"
+                controlId="validationCustom01"
+                className="form-group"
+              >
+                <Form.Label>Agendar proximo pago</Form.Label>
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                  <DemoContainer components={["DatePicker"]}>
+                    <DatePicker
+                      format="DD/MM/YYYY"
+                      onChange={(value) => setNextPayment(value)}
+                      value={dayjs(nextPayment)}
+                      defaultValue={dayjs(nextPayment)}
+                    />
+                  </DemoContainer>
+                </LocalizationProvider>
+              </Form.Group>
             </Row>
 
             <Row style={{ marginTop: 20 }}>
-              <Form.Group as={Col} md="6" className="form-group">
-                <Form.Label className="form-label my-3">
+              <Form.Group as={Col} md="4" className="form-group">
+                <Form.Label
+                  className="form-label my-3"
+                  style={{ fontSize: 13, color: "gray" }}
+                >
                   Contrato de arrendamiento
                 </Form.Label>
-
-                <Form.Control
-                  type="file"
-                  className="border-right-0 browse-file"
-                  placeholder="Cargar poliza"
-                  readOnly
-                />
+                <FileUpload />
               </Form.Group>
             </Row>
             <div

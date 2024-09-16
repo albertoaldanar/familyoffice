@@ -62,6 +62,8 @@ export const renderFlag = (nationality: string) => {
     return <i className="flag flag-es"></i>
   } else if(nationality === 'Brazil'){
     return <i className="flag flag-br"></i>
+  } else if(nationality === 'Inglaterra'){
+    return <i className="flag flag-gb"></i>
   } 
   return;
 };

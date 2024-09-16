@@ -1,16 +1,90 @@
 import React, { Fragment } from "react";
-import {
-  Button,
-  Card,
-  Col,
-  Table,
-  Badge
-} from "react-bootstrap";
+import { Button, Card, Col, Table, Badge } from "react-bootstrap";
+import { calculateDaysOrMonthsLeft } from "../paymentUtils";
 import { mantenimientos } from "../paymentsData";
 import { nextPaymentFormatDate } from "../paymentUtils";
+import { renderFlag } from "../../accounting/companyUtils";
 import { Link } from "react-router-dom";
 
 export default function Mantainance() {
+  //@ts-ignore
+  const baseUrl = import.meta.env.BASE_URL;
+
+  const renderTypeIcon = (type) => {
+    if (type === "Inmobiliario") {
+      return (
+        <td>
+          {" "}
+          <i
+            className="fe fe-map-pin"
+            style={{ color: "gray", marginRight: 10, fontSize: 14 }}
+          ></i>{" "}
+          {type}
+        </td>
+      );
+    } else if (type === "Vehicular") {
+      return (
+        <td>
+          {" "}
+          <i
+            className="fe fe-truck"
+            style={{ color: "gray", marginRight: 10, fontSize: 14 }}
+          ></i>{" "}
+          {type}
+        </td>
+      );
+    }
+
+    return (
+      <td>
+        {" "}
+        <i
+          className="fe fe-circle"
+          style={{ color: "gray", marginRight: 10, fontSize: 14 }}
+        ></i>{" "}
+        {type}
+      </td>
+    );
+  };
+
+  const renderUrl = (type, linkedItemId, name) => {
+    if (type === "Inmobiliario" && linkedItemId) {
+      return (
+        <td
+          style={{
+            fontSize: 13,
+          }}
+        >
+          <Link to={`${baseUrl}governance/wealthItem/type/realState/id/${linkedItemId}`}>
+            {name}
+          </Link>
+        </td>
+      );
+    } else if (type === "Vehicular" && linkedItemId) {
+      return (
+        <td
+          style={{
+            fontSize: 13,
+          }}
+        >
+          <Link to={`${baseUrl}governance/wealthItem/type/vehicle/id/${linkedItemId}`}>
+            {name}
+          </Link>
+        </td>
+      );
+    }
+
+    return (
+      <td
+      style={{
+        fontSize: 13,
+      }}
+      >
+        {name}
+      </td>
+    );
+  };
+
   return (
     <Fragment>
       <div
@@ -33,14 +107,16 @@ export default function Mantainance() {
           size="sm"
           className=" mb-1"
         >
-         {/*// @ts-ignore */}
-         <Link style={{color: 'white'}} to={`${import.meta.env.BASE_URL}administration/mantainanceCreate/type/null/itemId/null`}>
+          <Link style={{ color: "white" }} 
+            to={`${baseUrl}administration/mantainanceCreate/type/null/itemId/null`}
+          >
             + Añadir mantenimiento
           </Link>
         </Button>
       </div>
-      <Card.Title style={{ marginLeft: 15, marginBottom: 20 }}>
-        Mantenimientos
+      <Card.Title style={{ marginLeft: 15, marginBottom: 20, fontSize: 14 }}>
+        <i style={{ marginRight: 4 }} className="fe fe-clipboard fs-13"></i>{" "}
+        Cuotas de mantenimientos
       </Card.Title>
       <Col xl={12}>
         <Card>
@@ -49,38 +125,26 @@ export default function Mantainance() {
               <thead className="bg-light">
                 <tr>
                   <th>Tipo</th>
+                  <th>Mantenimiento de:</th>
                   <th>Pago a:</th>
-                  <th>Concepto</th>
+                  <th>País</th>
                   <th>Monto</th>
                   <th>Prox pago</th>
                   <th></th>
                 </tr>
               </thead>
-              <tbody> 
+              <tbody>
                 {mantenimientos.map((mantainance, tb8) => (
                   <tr key={tb8}>
-                    <td>
-                      {mantainance.tipo}
-                    </td>
+                    {renderTypeIcon(mantainance.tipo)}
+
+                    {renderUrl(mantainance.tipo, mantainance.linkedItemId, mantainance.mantainanceTo)}
                     <td>{mantainance.pagoA}</td>
-                    <td>{mantainance.concepto}</td>
-                    <td>${mantainance.monto} {mantainance.moneda}</td>
+                    <td>{renderFlag(mantainance.conuntry)}</td>
                     <td>
-                      {
-                        nextPaymentFormatDate(mantainance.pagos) === 'Vencido' ? 
-                          (
-                            <div style={{marginTop: 2}}>
-                              <Badge
-                                bg="danger-transparent"
-                                className={`me-2 my-1 Primary`}
-                              >
-                                Vencido
-                              </Badge> 
-                            </div>
-                          ) : 
-                          nextPaymentFormatDate(mantainance.pagos)
-                      }
+                      ${mantainance.monto} {mantainance.moneda}
                     </td>
+                    <td>{calculateDaysOrMonthsLeft(mantainance.proxPago)}</td>
                     <td
                       style={{
                         cursor: "pointer",
@@ -88,10 +152,13 @@ export default function Mantainance() {
                         color: "#5488d2",
                       }}
                     >
-                    {/*// @ts-ignore */}
-                    <Link state={{ mantainance }} to={`${import.meta.env.BASE_URL}administration/mantainanceDescription/${mantainance.id}`}>
-                      Ver
-                    </Link>
+                      <Link to={`${baseUrl
+                        }administration/mantainanceDescription/${
+                          mantainance.id
+                        }`}
+                      >
+                        Ver
+                      </Link>
                     </td>
                   </tr>
                 ))}
