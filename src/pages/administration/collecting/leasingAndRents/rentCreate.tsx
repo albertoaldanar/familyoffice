@@ -12,6 +12,7 @@ import {
 import { otherWealthData } from "../../../governance/wealthStructure/wealthStructureData";
 import { realstateData } from "../../../investments/realState/realStateData";
 import dayjs, { Dayjs } from "dayjs";
+import FileUpload from "../../accounting/components/fileUpload";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
@@ -33,7 +34,7 @@ export default function RentsCreate(props) {
   const [selectedVehicle, setSelectedVehicle] = useState(vehicleSelectedValue);
   const [selectedProperty, setSelectedProperty] = useState(propertySelectedValue);
   const [notProperyMember, setNotPropertyMember] = useState("");
-  const [notProperyMemberAddress, setNotPropertyMemberAddress] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
   const [isWealthStructureMember, setIsWealthStructureMember] = useState(true);
   const [notVehicleMember, setNotVehicleMember] = useState("");
   const [vigenciaDel, setVigenciaDel] = useState<Dayjs | null>(dayjs(""));
@@ -75,7 +76,7 @@ export default function RentsCreate(props) {
         <Row className="mb-3">
           <Form.Group
             as={Col}
-            md="4"
+            md="6"
             controlId="validationCustom04"
             className="form-group"
           >
@@ -117,22 +118,6 @@ export default function RentsCreate(props) {
                     Favor de añadir el monto del pago
                   </Form.Control.Feedback>
                 </InputGroup>
-
-                <InputGroup hasValidation style={{ marginTop: 10 }}>
-                  <Form.Control
-                    type="numeric"
-                    placeholder="Dirección de propiedad"
-                    aria-describedby="inputGroupPrepend"
-                    required
-                    onChange={(text) =>
-                      setNotPropertyMemberAddress(text.target.value)
-                    }
-                    value={notProperyMemberAddress}
-                  />
-                  <Form.Control.Feedback type="invalid">
-                    Favor de añadir el monto del pago
-                  </Form.Control.Feedback>
-                </InputGroup>
               </>
             )}
           </Form.Group>
@@ -143,7 +128,7 @@ export default function RentsCreate(props) {
         <Row className="mb-3">
           <Form.Group
             as={Col}
-            md="4"
+            md="6"
             controlId="validationCustom04"
             className="form-group"
           >
@@ -191,26 +176,6 @@ export default function RentsCreate(props) {
         </Row>
       );
     }
-
-    return (
-      <Form.Group
-        as={Col}
-        md="4"
-        controlId="validationCustom01"
-        className="form-group"
-      >
-        <Form.Label>Tipo de arrendamiento</Form.Label>
-
-        <Form.Control
-          type="numeric"
-          placeholder="Ej. (Inmobiliario, vehicular) etc."
-          aria-describedby="inputGroupPrepend"
-          required
-          onChange={(text) => setleasingType(text.target.value)}
-          value={leasingType}
-        />
-      </Form.Group>
-    );
   };
 
   return (
@@ -225,7 +190,7 @@ export default function RentsCreate(props) {
             <Row style={{ marginBottom: 10 }}>
               <Form.Group
                 as={Col}
-                md="3"
+                md="6"
                 controlId="validationCustom01"
                 className="form-group"
               >
@@ -245,27 +210,33 @@ export default function RentsCreate(props) {
               {handleTypeOfRent()}
             </Row>
 
+            {
+              rentType.value === 'Otro' && (
+                <Row style={{ marginTop: 20 }}>
+                  <Form.Group
+                    as={Col}
+                    md="6"
+                    controlId="validationCustom01"
+                    className="form-group"
+                  >
+                    <Form.Label>Renta de</Form.Label>
+                    <Form.Control
+                      type="numeric"
+                      placeholder=""
+                      aria-describedby="inputGroupPrepend"
+                      required
+                      onChange={(text) => setConcept(text.target.value)}
+                      value={concept}
+                    />
+                  </Form.Group>
+                </Row>
+              )
+            }
+
             <Row style={{ marginTop: 20 }}>
               <Form.Group
                 as={Col}
-                md="3"
-                controlId="validationCustom01"
-                className="form-group"
-              >
-                <Form.Label>Concepto</Form.Label>
-                <Form.Control
-                  type="numeric"
-                  placeholder=""
-                  aria-describedby="inputGroupPrepend"
-                  required
-                  onChange={(text) => setConcept(text.target.value)}
-                  value={concept}
-                />
-              </Form.Group>
-
-              <Form.Group
-                as={Col}
-                md="3"
+                md="5"
                 controlId="validationCustom01"
                 className="form-group"
               >
@@ -277,6 +248,22 @@ export default function RentsCreate(props) {
                   required
                   onChange={(text) => setPayTo(text.target.value)}
                   value={payTo}
+                />
+              </Form.Group>
+              <Form.Group
+                as={Col}
+                md="5"
+                controlId="validationCustom01"
+                className="form-group"
+              >
+                <Form.Label>Numero de arrendatario</Form.Label>
+                <Form.Control
+                  type="numeric"
+                  placeholder=""
+                  aria-describedby="inputGroupPrepend"
+                  required
+                  onChange={(text) => setPhoneNumber(text.target.value)}
+                  value={phoneNumber}
                 />
               </Form.Group>
             </Row>
@@ -385,17 +372,14 @@ export default function RentsCreate(props) {
             </Row>
 
             <Row style={{ marginTop: 20 }}>
-              <Form.Group as={Col} md="6" className="form-group">
-                <Form.Label className="form-label my-3">
+              <Form.Group as={Col} md="4" className="form-group">
+                <Form.Label
+                  className="form-label my-3"
+                  style={{ fontSize: 13, color: "gray" }}
+                >
                   Contrato de arrendamiento
                 </Form.Label>
-
-                <Form.Control
-                  type="file"
-                  className="border-right-0 browse-file"
-                  placeholder="Cargar poliza"
-                  readOnly
-                />
+                <FileUpload />
               </Form.Group>
             </Row>
             <div

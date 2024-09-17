@@ -18,15 +18,17 @@ import { Link } from "react-router-dom";
 import { arrendamientos } from "../collectingData";
 import { useParams } from "react-router-dom";
 import { formateDateForUI } from "../../payments/paymentUtils";
+import FileView from "../../accounting/components/fileView";
+import FileUpload from "../../accounting/components/fileUpload";
 
 export default function RentPayment(props) {
   const params = useParams();
-  const leasingAndRent = arrendamientos.find((seguro) => seguro.id === Number(params.id));
+  const leasingAndRent = arrendamientos.find(
+    (seguro) => seguro.id === Number(params.id)
+  );
   const rentPayment = leasingAndRent.pagos.find(
     (pymnt) => pymnt.id === Number(params.paymentId)
   );
-  const isItPayed =
-    rentPayment.fechaDePago.length > 0 && rentPayment.comprobantePago.length > 0;
 
   const fechaLimitePagoFormatted = formateDateForUI(rentPayment.limitePago);
   const proxPagoFormatted = formateDateForUI(rentPayment.proximoPago);
@@ -44,9 +46,6 @@ export default function RentPayment(props) {
 
   const [amount, setAmount] = useState(rentPayment.monto);
 
-  const [fechaLimitePago, setFechaLimitePago] = useState<Dayjs | null>(
-    dayjs(fechaLimitePagoFormatted)
-  );
   const [proxPago, setProxPago] = useState<Dayjs | null>(
     dayjs(proxPagoFormatted)
   );
@@ -56,8 +55,6 @@ export default function RentPayment(props) {
   );
 
   const [isComprobanteEditable, setIsComprobanteEditable] = useState(false);
-
-  const [hasBeenPayed, setHasBeenPayed] = useState(isItPayed);
 
   const Options = [
     { value: "2023", label: "2023" },
@@ -80,86 +77,15 @@ export default function RentPayment(props) {
     { value: "Diciembre", label: "Diciembre" },
   ];
 
-  const renderComprobante = () => {
-    if (rentPayment.comprobantePago) {
-      if (isComprobanteEditable) {
-        return (
-          <div>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: "space-between",
-                marginBottom: 10,
-              }}
-            >
-              <div></div>
-              <i
-                onClick={() => setIsComprobanteEditable(false)}
-                style={{ fontSize: 18, cursor: "pointer" }}
-                className="fa fa-times"
-                data-bs-toggle="tooltip"
-                title="fa fa-times"
-              ></i>
-            </div>
-            <Form.Control
-              type="file"
-              className="border-right-0 browse-file"
-              placeholder="Comprobante de pago"
-              readOnly
-            />
-          </div>
-        );
-      } else {
-        return (
-          <div
-            style={{ display: "flex", flexDirection: "row", marginBottom: 10 }}
-          >
-            <div
-              style={{
-                textDecoration: "underline",
-                cursor: "pointer",
-                color: "#5488d2",
-                marginRight: 15,
-              }}
-            >
-              {rentPayment.comprobantePago}
-            </div>
-            <div style={{ marginTop: 2 }}>
-              <i
-                onClick={() => setIsComprobanteEditable(true)}
-                style={{
-                  cursor: "pointer",
-                  marginRight: 15,
-                  fontSize: 18,
-                }}
-                className="fa fa-edit"
-                data-bs-toggle="tooltip"
-                title="fa fa-edit"
-              ></i>
-            </div>
-          </div>
-        );
-      }
-    }
-
-    return (
-      <Form.Control
-        type="file"
-        className="border-right-0 browse-file"
-        placeholder="Comprobante de pago"
-      />
-    );
-  };
-
   return (
     <Fragment>
       <Row>
-        <Card style={{ padding: 30, marginTop: 20 }}>
-          <Card.Title style={{ marginBottom: 50 }}>
-            Registro de pago - Renta {leasingAndRent.tipo} {leasingAndRent.concepto}
+        <Card style={{ padding: 30, marginTop: 20, minHeight: 500 }}>
+          <Card.Title style={{ marginBottom: 30 }}>
+            Registro de pago - Renta {leasingAndRent.tipo}{" "}
+            {leasingAndRent.concepto}
           </Card.Title>
-          <Form noValidate validated={false} onSubmit={() => { }}>
+          <Form noValidate validated={false} onSubmit={() => {}}>
             <Row className="mb-3">
               <Form.Group
                 as={Col}
@@ -191,7 +117,7 @@ export default function RentPayment(props) {
                   <Select
                     options={OptionsMonths}
                     classNamePrefix="Select2"
-                    onChange={value => setMonth(value)}
+                    onChange={(value) => setMonth(value)}
                     value={month}
                     className="multi-select"
                     placeholder="Mes"
@@ -230,113 +156,80 @@ export default function RentPayment(props) {
               </Form.Group>
             </Row>
 
-            <Row style={{ marginTop: 20 }}>
+            <Row style={{ marginTop: 10 }}>
               <Form.Group
                 as={Col}
                 md="4"
                 controlId="validationCustom01"
                 className="form-group"
               >
-                <Form.Label>Fecha limite de pago</Form.Label>
+                <Form.Label>Fecha de realización de pago</Form.Label>
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                   <DemoContainer components={["DatePicker"]}>
                     <DatePicker
                       format="DD/MM/YYYY"
-                      onChange={(value) => setFechaLimitePago(value)}
-                      value={dayjs(fechaLimitePago)}
-                      defaultValue={dayjs(fechaLimitePago)}
-                    />
-                  </DemoContainer>
-                </LocalizationProvider>
-              </Form.Group>
-              <Form.Group
-                as={Col}
-                md="4"
-                controlId="validationCustom01"
-                className="form-group"
-              >
-                <Form.Label>Agendar proximo cobro</Form.Label>
-                <LocalizationProvider dateAdapter={AdapterDayjs}>
-                  <DemoContainer components={["DatePicker"]}>
-                    <DatePicker
-                      format="DD/MM/YYYY"
-                      onChange={(value) => setProxPago(value)}
-                      value={dayjs(proxPago)}
-                      defaultValue={dayjs(proxPago)}
+                      onChange={(value) => setFechaPago(value)}
+                      value={dayjs(fechaPago)}
+                      defaultValue={dayjs(fechaPago)}
                     />
                   </DemoContainer>
                 </LocalizationProvider>
               </Form.Group>
             </Row>
 
-            <Row style={{ marginTop: 20 }}>
-              <Form.Group className="mb-3 form-group">
-                <Form.Check
-                  required
-                  checked={hasBeenPayed}
-                  onChange={(e) => setHasBeenPayed(e.target.checked)}
-                  label="Ya se pago"
-                  feedback="You must agree before submitting."
-                  feedbackType="invalid"
-                />
-              </Form.Group>
-            </Row>
-            {hasBeenPayed && (
-              <>
-                <Row style={{ marginTop: 10 }}>
-                  <Form.Group
-                    as={Col}
-                    md="4"
-                    controlId="validationCustom01"
-                    className="form-group"
+            <Row>
+                <Form.Group as={Col} md="4" className="form-group">
+                  <Form.Label
+                    className="form-label my-3"
+                    style={{ fontSize: 13, color: "gray" }}
                   >
-                    <Form.Label>Fecha de realización de pago</Form.Label>
-                    <LocalizationProvider dateAdapter={AdapterDayjs}>
-                      <DemoContainer components={["DatePicker"]}>
-                        <DatePicker
-                          format="DD/MM/YYYY"
-                          onChange={(value) => setFechaPago(value)}
-                          value={dayjs(fechaPago)}
-                          defaultValue={dayjs(fechaPago)}
-                        />
-                      </DemoContainer>
-                    </LocalizationProvider>
-                  </Form.Group>
-                </Row>
+                    Comprobante de pago
+                  </Form.Label>
+                  {rentPayment.comprobantePago ? (
+                    <>
+                      <FileView
+                        title="CIF"
+                        fileName={rentPayment.comprobantePago}
+                      />
+                    </>
+                  ) : (
+                    <FileUpload />
+                  )}
+                </Form.Group>
+                <Form.Group as={Col} md="4" className="form-group">
+                  <Form.Label
+                    className="form-label my-3"
+                    style={{ fontSize: 13, color: "gray" }}
+                  >
+                    Factura o recibo
+                  </Form.Label>
+                  {rentPayment.invoice ? (
+                    <>
+                      <FileView
+                        title="CIF"
+                        fileName={rentPayment.comprobantePago}
+                      />
+                    </>
+                  ) : (
+                    <FileUpload />
+                  )}
 
-                <Row>
-                  <Form.Group as={Col} md="6" className="form-group">
-                    <Form.Label className="form-label my-3">
-                      Comprobante de pago
-                    </Form.Label>
-                    {renderComprobante()}
-                  </Form.Group>
-                  <Form.Group as={Col} md="6" className="form-group">
-                    <Form.Label className="form-label my-3">
-                      Recibo o factura
-                    </Form.Label>
-
-                    <Form.Control
-                      type="file"
-                      className="border-right-0 browse-file"
-                      placeholder="Cargar recibo o factura"
-                      readOnly
-                    />
-                  </Form.Group>
-                </Row>
-              </>
-            )}
-
+                </Form.Group>
+              </Row>
             <div
               style={{
                 display: "flex",
                 flexDirection: "row",
                 justifyContent: "space-between",
-                marginTop: 20,
               }}
             >
               <div></div>
-              <Button variant="primary" className=" mb-1" type="submit">
+              <Button
+                style={{ position: "absolute", right: 25, bottom: 20 }}
+                variant="primary"
+                className=" mb-1"
+                type="submit"
+              >
                 Guardar
               </Button>
             </div>

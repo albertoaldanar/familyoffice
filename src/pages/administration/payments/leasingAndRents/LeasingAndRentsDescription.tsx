@@ -21,11 +21,10 @@ import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { arrendamientos } from "../paymentsData";
-import { formatToDateString } from "../paymentUtils";
 import { formateDateForUI } from "../paymentUtils";
 import FileView from "../../accounting/components/fileView";
 import FileUpload from "../../accounting/components/fileUpload";
-import { calculateDaysOrMonthsLeft } from "../paymentUtils";
+import { calculateDaysOrMonthsLeft, formatToDateString } from "../paymentUtils";
 
 export default function LeasingAndRentPaymentDescription(props) {
   //@ts-ignore

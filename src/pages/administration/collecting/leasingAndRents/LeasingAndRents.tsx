@@ -8,9 +8,88 @@ import {
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { arrendamientos } from "../collectingData";
-import { nextPaymentFormatDate } from "../../payments/paymentUtils";
+import { renderFlag } from "../../accounting/companyUtils";
+import { calculateDaysOrMonthsLeft } from "../../payments/paymentUtils";
 
 export default function LeasingAndRents() {
+  //@ts-ignore
+  const baseUrl = import.meta.env.BASE_URL;
+
+  const renderTypeIcon = (type) => {
+    if (type === "Inmobiliario") {
+      return (
+        <td>
+          {" "}
+          <i
+            className="fe fe-map-pin"
+            style={{ color: "gray", marginRight: 10, fontSize: 14 }}
+          ></i>{" "}
+          {type}
+        </td>
+      );
+    } else if (type === "Vehicular") {
+      return (
+        <td>
+          {" "}
+          <i
+            className="fe fe-truck"
+            style={{ color: "gray", marginRight: 10, fontSize: 14 }}
+          ></i>{" "}
+          {type}
+        </td>
+      );
+    }
+
+    return (
+      <td>
+        {" "}
+        <i
+          className="fe fe-circle"
+          style={{ color: "gray", marginRight: 10, fontSize: 14 }}
+        ></i>{" "}
+        {type}
+      </td>
+    );
+  };
+
+  const renderUrl = (type, linkedItemId, name) => {
+    if (type === "Inmobiliario" && linkedItemId) {
+      return (
+        <td
+          style={{
+            fontSize: 13,
+          }}
+        >
+          <Link to={`${baseUrl}governance/wealthItem/type/realState/id/${linkedItemId}`}>
+            {name}
+          </Link>
+        </td>
+      );
+    } else if (type === "Vehicular" && linkedItemId) {
+      return (
+        <td
+          style={{
+            fontSize: 13,
+          }}
+        >
+          <Link to={`${baseUrl}governance/wealthItem/type/vehicle/id/${linkedItemId}`}>
+            {name}
+          </Link>
+        </td>
+      );
+    }
+
+    return (
+      <td
+      style={{
+        fontSize: 13,
+      }}
+    >
+      {name}
+    </td>
+    );
+  };
+  
   return (
     <Fragment>
       <div
@@ -39,8 +118,9 @@ export default function LeasingAndRents() {
           </Link>
         </Button>
       </div>
-      <Card.Title style={{ marginLeft: 15, marginBottom: 20 }}>
-        Arrendamientos
+      <Card.Title style={{ marginLeft: 15, marginBottom: 20, fontSize: 14 }}>
+      <i style={{ marginRight: 4 }} className="fe fe-edit-3 fs-13"></i>{" "}
+       Arrendamientos por cobrar
       </Card.Title>
       <Col xl={12}>
         <Card>
@@ -49,38 +129,23 @@ export default function LeasingAndRents() {
               <thead className="bg-light">
                 <tr>
                   <th>Tipo</th>
-                  <th>Arrendadatario</th>
-                  <th>Concepto</th>
+                  <th>Renta de</th>
+                  <th>Arrendatario</th>
+                  <th>País</th>
                   <th>Monto</th>
-                  <th>Prox cobro</th>
+                  <th>Prox cobro:</th>
                   <th></th>
                 </tr>
               </thead>
               <tbody> 
                 {arrendamientos.map((idx, tb8) => (
                   <tr key={tb8}>
-                    <td>
-                      {idx.tipo}
-                    </td>
+                    {renderTypeIcon(idx.tipo)}
+                    {renderUrl(idx.tipo, idx.linkedItemId, idx.concepto)}
                     <td>{idx.arrendatario}</td>
-                    <td>{idx.concepto}</td>
-                    <td>$ {idx.monto} {idx.moneda}</td>
-                    <td>
-                      {
-                        nextPaymentFormatDate(idx.pagos) === 'Vencido' ? 
-                          (
-                            <div style={{marginTop: 2}}>
-                              <Badge
-                                bg="danger-transparent"
-                                className={`me-2 my-1 Primary`}
-                              >
-                                Vencido
-                              </Badge> 
-                            </div>
-                          ) : 
-                          nextPaymentFormatDate(idx.pagos)
-                      }
-                    </td>
+                    <td>{renderFlag(idx.country)}</td>
+                    <td>${idx.monto} {idx.moneda}</td>
+                    <td>{calculateDaysOrMonthsLeft(idx.proxCobro)}</td>
                     <td
                       style={{
                         cursor: "pointer",

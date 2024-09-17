@@ -191,6 +191,24 @@ export default function InsurancesPayment(props) {
                   </DemoContainer>
                 </LocalizationProvider>
               </Form.Group>
+              <Form.Group
+                  as={Col}
+                  md="4"
+                  controlId="validationCustom01"
+                  className="form-group"
+                >
+                  <Form.Label>Fecha de realización de pago</Form.Label>
+                  <LocalizationProvider dateAdapter={AdapterDayjs}>
+                    <DemoContainer components={["DatePicker"]}>
+                      <DatePicker
+                        format="DD/MM/YYYY"
+                        onChange={(value) => setFechaPago(value)}
+                        value={dayjs(fechaPago)}
+                        defaultValue={dayjs(fechaPago)}
+                      />
+                    </DemoContainer>
+                  </LocalizationProvider>
+                </Form.Group>
             </Row>
 
             {/* <Row style={{ marginTop: 20 }}>
@@ -215,27 +233,6 @@ export default function InsurancesPayment(props) {
             </Row> */}
 
             <>
-              <Row style={{ marginTop: 10 }}>
-                <Form.Group
-                  as={Col}
-                  md="4"
-                  controlId="validationCustom01"
-                  className="form-group"
-                >
-                  <Form.Label>Fecha de realización de pago</Form.Label>
-                  <LocalizationProvider dateAdapter={AdapterDayjs}>
-                    <DemoContainer components={["DatePicker"]}>
-                      <DatePicker
-                        format="DD/MM/YYYY"
-                        onChange={(value) => setFechaPago(value)}
-                        value={dayjs(fechaPago)}
-                        defaultValue={dayjs(fechaPago)}
-                      />
-                    </DemoContainer>
-                  </LocalizationProvider>
-                </Form.Group>
-              </Row>
-
               <Row>
                 <Form.Group as={Col} md="4" className="form-group">
                   <Form.Label
