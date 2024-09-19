@@ -2,10 +2,7 @@ import React, { Fragment } from "react";
 import { Button, Card, Col, Table, Badge } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { seguros } from "../paymentsData";
-import {
-  nextPaymentFormatDate,
-  calculateDaysOrMonthsLeft,
-} from "../paymentUtils";
+import { calculateDaysOrMonthsLeft } from "../paymentUtils";
 import { renderFlag } from "../../accounting/companyUtils";
 
 export default function InsurancePayment() {

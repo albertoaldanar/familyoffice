@@ -1,19 +1,123 @@
 import React, { Fragment } from "react";
-import {
-  Button,
-  Card,
-  Col,
-  Table,
-  Badge
-} from "react-bootstrap";
+import { Button, Card, Col, Table, Badge } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { creditos } from "../paymentsData";
 import { nextPaymentFormatDate } from "../paymentUtils";
+import { calculateDaysOrMonthsLeft } from "../paymentUtils";
 
 export default function Debt() {
+  //@ts-ignore
+  const baseUrl = import.meta.env.BASE_URL;
+  const creditoss = creditos.filter((credito) => credito.tipo === "Credito");
+  const prestamosTerceros = creditos.filter(
+    (credito) => credito.tipo === "Terceros"
+  );
 
-  const creditoss = creditos.filter(credito => credito.tipo === 'Credito');
-  const prestamosTerceros = creditos.filter(credito => credito.tipo === 'Terceros');
+  const renderTypeIcon = (type) => {
+    if (type === "Hipotecario") {
+      return (
+        <td>
+          {" "}
+          <i
+            className="fe fe-map-pin"
+            style={{ color: "gray", marginRight: 10, fontSize: 14 }}
+          ></i>{" "}
+          {type}
+        </td>
+      );
+    } else if (type === "Vehicular") {
+      return (
+        <td>
+          {" "}
+          <i
+            className="fe fe-truck"
+            style={{ color: "gray", marginRight: 10, fontSize: 14 }}
+          ></i>{" "}
+          {type}
+        </td>
+      );
+    }  else if (type === "Credito empresarial") {
+      return (
+        <td>
+          {" "}
+          <i
+            className="fe fe-briefcase"
+            style={{ color: "gray", marginRight: 10, fontSize: 14 }}
+          ></i>{" "}
+          {type}
+        </td>
+      );
+    }
+
+    return (
+      <td>
+        {" "}
+        <i
+          className="fe fe-user"
+          style={{ color: "gray", marginRight: 10, fontSize: 14 }}
+        ></i>{" "}
+        {type}
+      </td>
+    );
+  };
+
+  const renderUrl = (type, linkedItemId, name) => {
+    if (type === "Hipotecario" && linkedItemId) {
+      return (
+        <td
+          style={{
+            fontSize: 13,
+          }}
+        >
+          <Link
+            to={`${baseUrl}governance/wealthItem/type/realState/id/${linkedItemId}`}
+          >
+            {name}
+          </Link>
+        </td>
+      );
+    } else if (type === "Vehicular" && linkedItemId) {
+      return (
+        <td
+          style={{
+            fontSize: 13,
+          }}
+        >
+          <Link
+            to={`${baseUrl}governance/wealthItem/type/vehicle/id/${linkedItemId}`}
+          >
+            {name}
+          </Link>
+        </td>
+      );
+    }  else if (type === "Credito empresarial" && linkedItemId) {
+      return (
+        <td
+          style={{
+            fontSize: 13,
+          }}
+        >
+          <Link
+            to={`${baseUrl}administration/company/${linkedItemId}/company`}
+          >
+            {name}
+          </Link>
+        </td>
+      );
+    }
+
+    return (
+      <td
+        style={{
+          fontSize: 13,
+        }}
+      >
+        <Link to={`${baseUrl}governance/familyMember/${linkedItemId}`}>
+          {name}
+        </Link>
+      </td>
+    );
+  };
 
   return (
     <Fragment>
@@ -37,14 +141,17 @@ export default function Debt() {
           size="sm"
           className=" mb-1"
         >
-         {/*// @ts-ignore */}
-         <Link style={{color: 'white'}} to={`${import.meta.env.BASE_URL}administration/debtCreate/type/null/itemId/null`}>
+          <Link
+            style={{ color: "white" }}
+            to={`${baseUrl}administration/debtCreate/type/null/itemId/null`}
+          >
             + Añadir deuda
           </Link>
         </Button>
       </div>
-      <Card.Title style={{ marginLeft: 15, marginBottom: 20 }}>
-        Creditos
+      <Card.Title style={{ marginLeft: 15, marginBottom: 20, fontSize: 14 }}>
+        <i style={{ marginRight: 4 }} className="fe fe-edit-3 fs-13"></i>{" "}
+        Creditos bancarios
       </Card.Title>
       <Col xl={12}>
         <Card>
@@ -52,41 +159,28 @@ export default function Debt() {
             <Table className="table border text-nowrap text-md-nowrap mb-0">
               <thead className="bg-light">
                 <tr>
-                  <th>Acreedor</th>
+                  <th>Tipo</th>
+                  <th>Deuda de</th>
                   <th>Monto otorgado</th>
-                  <th>Total pagado</th>
-                  <th>Por pagar</th>
                   <th>% interes</th>
+                  <th>Por pagar</th>
                   <th>Prox pago</th>
                   <th></th>
                 </tr>
               </thead>
-              <tbody> 
+              <tbody>
                 {creditoss.map((debt, tb8) => (
                   <tr key={tb8}>
+                    {renderTypeIcon(debt.tipoCredito)}
+                    {renderUrl(debt.tipoCredito, debt.linkedItemId, debt.concepto)}
                     <td>
-                      {debt.acreedor}
+                      ${debt.monto} {debt.moneda}
                     </td>
-                    <td>${debt.monto} {debt.moneda}</td>
-                    <td>${debt.pagado}  {debt.moneda}</td>
-                    <td>${debt.pagado} {debt.moneda}</td>
-                    <td>{debt.interes}</td>
+                    <td>{debt.interes} %</td>
                     <td>
-                      {
-                        nextPaymentFormatDate(debt.pagos) === 'Vencido' ? 
-                          (
-                            <div style={{marginTop: 2}}>
-                              <Badge
-                                bg="danger-transparent"
-                                className={`me-2 my-1 Primary`}
-                              >
-                                Vencido
-                              </Badge> 
-                            </div>
-                          ) : 
-                          nextPaymentFormatDate(debt.pagos)
-                      }
+                      ${debt.pagado} {debt.moneda}
                     </td>
+                    <td>{calculateDaysOrMonthsLeft(debt.proxPago)}</td>
                     <td
                       style={{
                         cursor: "pointer",
@@ -94,8 +188,10 @@ export default function Debt() {
                         color: "#5488d2",
                       }}
                     >
-                      {/*// @ts-ignore */}
-                      <Link state={{ debt }} to={`${import.meta.env.BASE_URL}administration/debtDescription/${debt.id}`}>
+                      <Link
+                        state={{ debt }}
+                        to={`${baseUrl}administration/debtDescription/${debt.id}`}
+                      >
                         Ver
                       </Link>
                     </td>
@@ -107,48 +203,60 @@ export default function Debt() {
         </Card>
       </Col>
 
-      <Card.Title style={{ marginLeft: 15, marginBottom: 20, marginTop: 60 }}>
+      <Card.Title
+        style={{
+          marginLeft: 15,
+          marginBottom: 20,
+          fontSize: 14,
+          marginTop: 50,
+        }}
+      >
+        <i style={{ marginRight: 4 }} className="fe fe-users fs-13"></i>{" "}
         Prestamos de terceros
       </Card.Title>
       <Col xl={12}>
         <Card>
           <div className="table-responsive">
             <Table className="table border text-nowrap text-md-nowrap mb-0">
-            <thead className="bg-light">
+              <thead className="bg-light">
                 <tr>
-                  <th>Acreedor</th>
+                  <th>Tipo</th>
+                  <th>Deuda de</th>
                   <th>Monto otorgado</th>
-                  <th>Total pagado</th>
-                  <th>Por pagar</th>
                   <th>% interes</th>
+                  <th>Por pagar</th>
                   <th>Prox pago</th>
                   <th></th>
                 </tr>
               </thead>
-              <tbody> 
+              <tbody>
                 {prestamosTerceros.map((debt, tb8) => (
                   <tr key={tb8}>
-                    <td>
-                      {debt.acreedor}
-                    </td>
-                    <td>${debt.monto} {debt.moneda}</td>
-                    <td>${debt.pagado}  {debt.moneda}</td>
-                    <td>${debt.pagado} {debt.moneda}</td>
-                    <td>${debt.interes}</td>
-                    <td>{debt.proxpago}</td>
-                    <td
-                      style={{
-                        cursor: "pointer",
-                        textDecoration: "underline",
-                        color: "#5488d2",
-                      }}
+                  {renderTypeIcon(debt.tipoCredito)}
+                  {renderUrl(debt.tipoCredito, debt.linkedItemId, debt.concepto)}
+                  <td>
+                    ${debt.monto} {debt.moneda}
+                  </td>
+                  <td>{debt.interes} %</td>
+                  <td>
+                    ${debt.pagado} {debt.moneda}
+                  </td>
+                  <td>{calculateDaysOrMonthsLeft(debt.proxPago)}</td>
+                  <td
+                    style={{
+                      cursor: "pointer",
+                      textDecoration: "underline",
+                      color: "#5488d2",
+                    }}
+                  >
+                    <Link
+                      state={{ debt }}
+                      to={`${baseUrl}administration/debtDescription/${debt.id}`}
                     >
-                      {/*// @ts-ignore */}
-                      <Link state={{ debt }} to={`${import.meta.env.BASE_URL}administration/debtDescription/${debt.id}`}>
-                        Ver
-                      </Link>
-                    </td>
-                  </tr>
+                      Ver
+                    </Link>
+                  </td>
+                </tr>
                 ))}
               </tbody>
             </Table>

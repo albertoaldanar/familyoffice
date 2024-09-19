@@ -2,6 +2,7 @@
 import React, { Fragment, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import logo from '../../assets/images/brand/logo.png'
+import famhold from '../../assets/images/brand/famhold.png'
 import logolight from '../../assets/images/brand/logo-light.png'
 import { Button, Container, Dropdown, Form, FormControl, InputGroup, ListGroup, Nav, Navbar } from 'react-bootstrap'
 import PerfectScrollbar from 'react-perfect-scrollbar'
@@ -165,7 +166,7 @@ const SideMenuIcon = () => {
                             to="#"></Link>
                   
                         <Link className="logo-horizontal" to={`${import.meta.env.BASE_URL}dashboard/sales`}>
-                            <img src={logo} className="header-brand-img main-logo"
+                            <img src={famhold} className="header-brand-img main-logo"
                                 alt="Sparic logo" />
                             <img src={logolight} className="header-brand-img darklogo"
                                 alt="Sparic logo" />

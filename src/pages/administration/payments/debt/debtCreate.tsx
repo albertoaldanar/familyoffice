@@ -11,38 +11,83 @@ import { useParams } from "react-router-dom";
 import { realstateData } from "../../../investments/realState/realStateData";
 import { otherWealthData } from "../../../governance/wealthStructure/wealthStructureData";
 import { formatRealstateData, formatVehicleData } from "../paymentUtils";
+import { formatFamilyMembers } from "../paymentUtils";
+import { companies } from "../../accounting/accountingData";
+import FileUpload from "../../accounting/components/fileUpload";
+import { family } from "../../../governance/familyStructure/familyStructureData";
+import { formatCompany } from "../../accounting/companyUtils";
 
 export default function DebtCreate(props) {
   const params = useParams();
-  const typeSelected = params.type === 'realState' ? { value: "Inmobiliario", label: "Prestamo Hipotecario" } : params.type === 'vehicle' ?  { value: "Vehicular", label: "Prestamo Vehicular" }: { value: '', label: '' } ;
+  const familyOptions = formatFamilyMembers(family.members);
+  const companiesList = formatCompany(companies)
 
-  const propertySelected = params.itemId === null ? null : realstateData.find(property => property.id === Number(params.itemId));
-  const propertySelectedValue = propertySelected && params.type === 'realState' ? formatRealstateData([propertySelected]) : { value: "", label: "" };
+  const typeSelected =
+    params.type === "realState"
+      ? { value: "Inmobiliario", label: "Prestamo Hipotecario" }
+      : params.type === "vehicle"
+      ? { value: "Vehicular", label: "Prestamo Vehicular" }
+      : { value: "", label: "" };
 
-  const vehicleSelected = params.itemId === null ? null : otherWealthData.vehicles.find(property => property.id === Number(params.itemId));
-  const vehicleSelectedValue = vehicleSelected && params.type === 'vehicle' ? formatVehicleData([vehicleSelected]) : { value: "", label: "" };
+  const propertySelected =
+    params.itemId === null
+      ? null
+      : realstateData.find((property) => property.id === Number(params.itemId));
+  const propertySelectedValue =
+    propertySelected && params.type === "realState"
+      ? formatRealstateData([propertySelected])
+      : { value: "", label: "" };
+
+  const vehicleSelected =
+    params.itemId === null
+      ? null
+      : otherWealthData.vehicles.find(
+          (property) => property.id === Number(params.itemId)
+        );
+
+  const familyMemberSelected =
+    params.itemId === null
+      ? null
+      : family.members.find(
+          (member) => member.id === params.itemId
+        );
+
+  const vehicleSelectedValue =
+    vehicleSelected && params.type === "vehicle"
+      ? formatVehicleData([vehicleSelected])
+      : { value: "", label: "" };
+
+  const familySelectedValue =
+    familyMemberSelected && params.type === "member"
+      ? formatFamilyMembers([familyMemberSelected])
+      : { value: "", label: "" };
 
   const [debtSource, setDebtSource] = useState({
     value: "",
     label: "",
   });
 
+  const [companySelected, setCompanySelected] = useState({
+    value: "",
+    label: "",
+  });
+
   const [debtType, setDebtType] = useState(typeSelected);
-  const [selectedProperty, setSelectedProperty] = useState(propertySelectedValue);
+  const [selectedProperty, setSelectedProperty] = useState(
+    propertySelectedValue
+  );
   const [selectedVehicle, setSelectedVehicle] = useState(vehicleSelectedValue);
+  const [selectedMember, setSelectedMember] = useState(familySelectedValue);
   const OptionsVehicles = formatVehicleData(otherWealthData.vehicles);
 
   const [concept, setConcept] = useState("");
   const [payTo, setPayTo] = useState("");
+  const [payToPhone, setPayToPhone] = useState("");
   const [amount, setAmount] = useState("");
-  const [otherType, setOtherType] = useState("");
+  const [totalDebt, setTotalDebt] = useState("");
   const [interestRate, setInterestRate] = useState("");
   const [alreadyPayed, setAlreadyPayed] = useState("");
   const [amountToPay, setAmountToPay] = useState("");
-  const [notProperyMember, setNotPropertyMember] = useState("");
-  const [notProperyMemberAddress, setNotPropertyMemberAddress] = useState("");
-  const [isWealthStructureMember, setIsWealthStructureMember] = useState(true);
-  const [notVehicleMember, setNotVehicleMember] = useState("");
   const [vigenciaDel, setVigenciaDel] = useState<Dayjs | null>(dayjs(""));
   const [vigenciaAl, setVigenciaAl] = useState<Dayjs | null>(dayjs(""));
   const [paymentFrequency, setPaymentFrequency] = useState({
@@ -62,9 +107,10 @@ export default function DebtCreate(props) {
   ];
 
   const OptionsLoan = [
-    { value: "Inmobiliario", label: "Prestamo Hipotecario" },
-    { value: "Vehicular", label: "Prestamo Vehicular" },
-    { value: "Otro", label: "Otro" },
+    { value: "Inmobiliario", label: "Credito Hipotecario" },
+    { value: "Vehicular", label: "Credito Vehicular" },
+    { value: "Personal", label: "Credito Personal" },
+    { value: "Empresarial", label: "Credito Empresarial" },
   ];
 
   const OptionsProperties = formatRealstateData(realstateData);
@@ -86,66 +132,19 @@ export default function DebtCreate(props) {
         <Row className="mb-3">
           <Form.Group
             as={Col}
-            md="4"
+            md="10"
             controlId="validationCustom04"
             className="form-group"
           >
-            <Form.Label>Inmueble asegurado</Form.Label>
-            <div style={{ marginTop: 20 }}>
-              <Form.Group className="mb-3 form-group">
-                <Form.Check
-                  required
-                  checked={isWealthStructureMember}
-                  style={{ fontSize: 12, color: "gray", marginTop: -10 }}
-                  onChange={(e) => setIsWealthStructureMember(e.target.checked)}
-                  label="El inmueble esta registrado en mi estructura patrimonial"
-                  feedback="You must agree before submitting."
-                  feedbackType="invalid"
-                />
-              </Form.Group>
-            </div>
-            {isWealthStructureMember ? (
-              <Select
-                options={OptionsProperties}
-                classNamePrefix="Select2"
-                className="multi-select"
-                onChange={(value) => setSelectedProperty(value)}
-                placeholder="Año"
-                value={selectedProperty}
-              />
-            ) : (
-              <>
-                <InputGroup hasValidation>
-                  <Form.Control
-                    type="numeric"
-                    placeholder="Nombre de inmueble"
-                    aria-describedby="inputGroupPrepend"
-                    required
-                    onChange={(text) => setNotPropertyMember(text.target.value)}
-                    value={notProperyMember}
-                  />
-                  <Form.Control.Feedback type="invalid">
-                    Favor de añadir el monto del pago
-                  </Form.Control.Feedback>
-                </InputGroup>
-
-                <InputGroup hasValidation style={{ marginTop: 10 }}>
-                  <Form.Control
-                    type="numeric"
-                    placeholder="Dirección de propiedad"
-                    aria-describedby="inputGroupPrepend"
-                    required
-                    onChange={(text) =>
-                      setNotPropertyMemberAddress(text.target.value)
-                    }
-                    value={notProperyMemberAddress}
-                  />
-                  <Form.Control.Feedback type="invalid">
-                    Favor de añadir el monto del pago
-                  </Form.Control.Feedback>
-                </InputGroup>
-              </>
-            )}
+            <Form.Label>Credito de propiedad</Form.Label>
+            <Select
+              options={OptionsProperties}
+              classNamePrefix="Select2"
+              className="multi-select"
+              onChange={(value) => setSelectedProperty(value)}
+              placeholder="Año"
+              value={selectedProperty}
+            />
           </Form.Group>
         </Row>
       );
@@ -154,73 +153,65 @@ export default function DebtCreate(props) {
         <Row className="mb-3">
           <Form.Group
             as={Col}
-            md="4"
+            md="10"
             controlId="validationCustom04"
             className="form-group"
           >
-            <Form.Label>Vehiculo asegurado</Form.Label>
-            <div style={{ marginTop: 20 }}>
-              <Form.Group className="mb-3 form-group">
-                <Form.Check
-                  required
-                  checked={isWealthStructureMember}
-                  style={{ fontSize: 12, color: "gray", marginTop: -10 }}
-                  onChange={(e) => setIsWealthStructureMember(e.target.checked)}
-                  label="El vehiculo esta registrado en mi estructura patrimonial"
-                  feedback="You must agree before submitting."
-                  feedbackType="invalid"
-                />
-              </Form.Group>
-            </div>
-            {isWealthStructureMember ? (
-              <Select
-                options={OptionsVehicles}
-                classNamePrefix="Select2"
-                className="multi-select"
-                onChange={(value) => setSelectedVehicle(value)}
-                placeholder="Año"
-                value={selectedVehicle}
-              />
-            ) : (
-              <>
-                <InputGroup hasValidation>
-                  <Form.Control
-                    type="numeric"
-                    placeholder="Nombre del Vehiculo"
-                    aria-describedby="inputGroupPrepend"
-                    required
-                    onChange={(text) => setNotVehicleMember(text.target.value)}
-                    value={notVehicleMember}
-                  />
-                  <Form.Control.Feedback type="invalid">
-                    Favor de añadir el monto del pago
-                  </Form.Control.Feedback>
-                </InputGroup>
-              </>
-            )}
+            <Form.Label>Credito vehicular de:</Form.Label>
+            <Select
+              options={OptionsVehicles}
+              classNamePrefix="Select2"
+              className="multi-select"
+              onChange={(value) => setSelectedVehicle(value)}
+              placeholder="Año"
+              value={selectedVehicle}
+            />
+          </Form.Group>
+        </Row>
+      );
+    } else if (debtType.value === "Personal") {
+      return (
+        <Row className="mb-3">
+          <Form.Group
+            as={Col}
+            md="10"
+            controlId="validationCustom04"
+            className="form-group"
+          >
+            <Form.Label>Credito personal de:</Form.Label>
+            <Select
+              options={familyOptions}
+              classNamePrefix="Select2"
+              className="multi-select"
+              onChange={(value) => setSelectedMember(value)}
+              placeholder="Año"
+              value={selectedMember}
+            />
+          </Form.Group>
+        </Row>
+      );
+    }  else if (debtType.value === "Empresarial") {
+      return (
+        <Row className="mb-3">
+          <Form.Group
+            as={Col}
+            md="10"
+            controlId="validationCustom04"
+            className="form-group"
+          >
+            <Form.Label>Credito empresarial de:</Form.Label>
+            <Select
+              options={companiesList}
+              classNamePrefix="Select2"
+              className="multi-select"
+              onChange={(value) => setCompanySelected(value)}
+              placeholder="Año"
+              value={companySelected}
+            />
           </Form.Group>
         </Row>
       );
     }
-
-    return (
-      <Form.Group
-        as={Col}
-        md="10"
-        controlId="validationCustom01"
-        className="form-group"
-      >
-        <Form.Label>Tipo de prestamo</Form.Label>
-        <Form.Control
-          type="numeric"
-          placeholder=""
-          aria-describedby="inputGroupPrepend"
-          required
-          onChange={(text) => setOtherType(text.target.value)}
-          value={otherType}
-        />
-      </Form.Group>
-    )
   };
 
   return (
@@ -267,14 +258,12 @@ export default function DebtCreate(props) {
               </Form.Group>
             </Row>
 
-            <Row style={{ marginTop: 20 }}>
-              {handleTypeOfDebt()}
-            </Row>
+            <Row style={{ marginTop: 20 }}>{handleTypeOfDebt()}</Row>
 
-            <Row style={{ marginTop: 20 }}>
+            <Row>
               <Form.Group
                 as={Col}
-                md="6"
+                md="10"
                 controlId="validationCustom01"
                 className="form-group"
               >
@@ -289,13 +278,15 @@ export default function DebtCreate(props) {
                 />
               </Form.Group>
 
+            </Row>
+            <Row style={{ marginTop: 20 }}>
               <Form.Group
                 as={Col}
-                md="4"
+                md="5"
                 controlId="validationCustom01"
                 className="form-group"
               >
-                <Form.Label>Acreedor</Form.Label>
+                <Form.Label>Nombre de acreedor</Form.Label>
                 <Form.Control
                   type="numeric"
                   placeholder=""
@@ -303,6 +294,22 @@ export default function DebtCreate(props) {
                   required
                   onChange={(text) => setPayTo(text.target.value)}
                   value={payTo}
+                />
+              </Form.Group>
+              <Form.Group
+                as={Col}
+                md="5"
+                controlId="validationCustom01"
+                className="form-group"
+              >
+                <Form.Label>Telefono de acreedor</Form.Label>
+                <Form.Control
+                  type="numeric"
+                  placeholder=""
+                  aria-describedby="inputGroupPrepend"
+                  required
+                  onChange={(text) => setPayToPhone(text.target.value)}
+                  value={payToPhone}
                 />
               </Form.Group>
             </Row>
@@ -341,10 +348,10 @@ export default function DebtCreate(props) {
                 />
               </Form.Group>
             </Row>
-            <Row style={{ marginTop: 20 }}>
+            <Row style={{ marginTop: 30 }}>
               <Form.Group
                 as={Col}
-                md="6"
+                md="4"
                 controlId="validationCustomUsername"
                 className="form-group"
               >
@@ -369,7 +376,7 @@ export default function DebtCreate(props) {
 
               <Form.Group
                 as={Col}
-                md="4"
+                md="2"
                 controlId="validationCustomUsername"
                 className="form-group"
               >
@@ -388,10 +395,34 @@ export default function DebtCreate(props) {
                   </Form.Control.Feedback>
                 </InputGroup>
               </Form.Group>
+              <Form.Group
+                as={Col}
+                md="4"
+                controlId="validationCustomUsername"
+                className="form-group"
+              >
+                <Form.Label>Deuda total</Form.Label>
+                <InputGroup hasValidation>
+                  <InputGroup.Text id="inputGroupPrepend">$</InputGroup.Text>
+                  <Form.Control
+                    type="numeric"
+                    aria-describedby="inputGroupPrepend"
+                    required
+                    onChange={(text) => setTotalDebt(text.target.value)}
+                    value={totalDebt}
+                  />
+                  <InputGroup.Text id="inputGroupPrepend">
+                    {currency.value}
+                  </InputGroup.Text>
+                  <Form.Control.Feedback type="invalid">
+                    Favor de añadir el monto del pago
+                  </Form.Control.Feedback>
+                </InputGroup>
+              </Form.Group>
             </Row>
 
-            <Row style={{ marginTop: 20 }}>
-            <Form.Group
+            <Row style={{ marginTop: 30 }}>
+              <Form.Group
                 as={Col}
                 md="4"
                 controlId="validationCustomUsername"
@@ -483,17 +514,14 @@ export default function DebtCreate(props) {
             </Row>
 
             <Row style={{ marginTop: 20 }}>
-              <Form.Group as={Col} md="6" className="form-group">
-                <Form.Label className="form-label my-3">
+              <Form.Group as={Col} md="4" className="form-group">
+                <Form.Label
+                  className="form-label my-3"
+                  style={{ fontSize: 13, color: "gray" }}
+                >
                   Contrato de prestamo
                 </Form.Label>
-
-                <Form.Control
-                  type="file"
-                  className="border-right-0 browse-file"
-                  placeholder="Cargar poliza"
-                  readOnly
-                />
+                <FileUpload />
               </Form.Group>
             </Row>
             <div

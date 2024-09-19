@@ -5,6 +5,54 @@ import { nextPaymentFormatDate } from "../../payments/paymentUtils";
 import { Link } from "react-router-dom";
 
 export default function LoansCollecting(props) {
+  const renderTypeIcon = (type) => {
+    if (type === "Tercero") {
+      return (
+        <td>
+          {" "}
+          <i
+            className="fe fe-user"
+            style={{ color: "gray", marginRight: 10, fontSize: 14 }}
+          ></i>{" "}
+          {type}
+        </td>
+      );
+    } else if (type === "Intrafamiliar") {
+      return (
+        <td>
+          {" "}
+          <i
+            className="fe fe-users"
+            style={{ color: "gray", marginRight: 10, fontSize: 14 }}
+          ></i>{" "}
+          {type}
+        </td>
+      );
+    } else if (type === "Capital Privado") {
+      return (
+        <td>
+          {" "}
+          <i
+            className="fe fe-activity"
+            style={{ color: "gray", marginRight: 10, fontSize: 14 }}
+          ></i>{" "}
+          {type}
+        </td>
+      );
+    }
+
+    return (
+      <td>
+        {" "}
+        <i
+          className="fe fe-user"
+          style={{ color: "gray", marginRight: 10, fontSize: 14 }}
+        ></i>{" "}
+        {type}
+      </td>
+    );
+  };
+
   return (
     <Fragment>
       {!props.hideAddButton ? (
@@ -37,7 +85,8 @@ export default function LoansCollecting(props) {
       ) : null}
       {
         !props.hideAddButton && (
-          <Card.Title style={{ marginLeft: 15, marginBottom: 20 }}>
+          <Card.Title style={{ marginLeft: 15, marginBottom: 20, fontSize: 14 }}>
+            <i style={{ marginRight: 4 }} className="fe fe-arrow-down-right fs-16"></i>{" "}
             Prestamos por cobrar
           </Card.Title>
         )
@@ -61,7 +110,7 @@ export default function LoansCollecting(props) {
               <tbody>
                 {prestamos.map((idx, tb8) => (
                   <tr key={tb8}>
-                    <td>{idx.tipo}</td>
+                    {renderTypeIcon(idx.tipo)}
                     <td>{idx.deudor}</td>
                     <td>
                       $ {idx.monto} {idx.moneda}

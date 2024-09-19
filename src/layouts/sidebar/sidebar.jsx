@@ -2,6 +2,8 @@
 import React, { Fragment, useState } from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../../assets/images/brand/logo.png'
+import famhold from '../../assets/images/brand/famhold.png'
+import famholdIcon from '../../assets/images/brand/famholdIcon.png'
 import logolight from '../../assets/images/brand/logo-light.png'
 import icon1 from '../../assets/images/brand/icon.png'
 import icon2 from '../../assets/images/brand/icon2.png'
@@ -407,9 +409,9 @@ export default function Sidebar() {
             <div className="side-header">
               <Link className="header-brand1" to={`${import.meta.env.BASE_URL}homeDashboard/`} 
                     onClick={() => setSidemenu(`${import.meta.env.BASE_URL}homeDashboard`) }>
-                <img src={logo} className="header-brand-img main-logo" alt="Sparic logo" />
+                <img src={famhold} className="header-brand-img main-logo" alt="Sparic logo" />
                 <img src={logolight} className="header-brand-img darklogo" alt="Sparic logo" />
-                <img src={icon1} className="header-brand-img icon-logo" alt="Sparic logo" />
+                <img src={famholdIcon} className="header-brand-img icon-logo" alt="Sparic logo" />
                 <img src={icon2} className="header-brand-img icon-logo2" alt="Sparic logo" />
               </Link>
             </div>

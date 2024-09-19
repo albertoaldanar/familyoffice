@@ -67,7 +67,7 @@ export default function InsuranceCreate(props) {
 
   const OptionsProperties = formatRealstateData(realstateData);
 
-  const OptionsVehicles = formatVehicleData(otherWealthData.vehicles)
+  const OptionsVehicles = formatVehicleData(otherWealthData.vehicles);
 
   const OptionsPaymentFrequency = [
     { value: "Mensual", label: "Mensual" },

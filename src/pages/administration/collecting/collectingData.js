@@ -12,7 +12,7 @@ export const prestamos = [
     frecuenciaDePago: "Mensual",
     pagado: "500,000",
     moneda: "MXN",
-    interes: "15%",
+    interes: "15",
     proxpago: "14 dias",
     proxCobro: "1 dias",
     pagos: [
@@ -52,7 +52,7 @@ export const prestamos = [
     frecuenciaDePago: "Mensual",
     pagado: "1000.00",
     moneda: "MXN",
-    interes: "0%",
+    interes: "0",
     proxpago: "14 dias",
     proxCobro: "1 dias",
     pagos: [
@@ -92,7 +92,7 @@ export const prestamos = [
     frecuenciaDePago: "Mensual",
     pagado: "1000.00",
     moneda: "MXN",
-    interes: "9%",
+    interes: "9",
     proxpago: "30 dias",
     proxCobro: "30 dias",
     pagos: [
