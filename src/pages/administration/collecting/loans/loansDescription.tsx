@@ -231,7 +231,7 @@ export default function LoansDescription(props) {
                 flexDirection: "row",
               }}
             >
-              <dt>Registro de pagos</dt>
+              <dt style={{ fontWeight: "500" }}>Registro de pagos</dt>
               <Button
                 style={{
                   marginRight: 10,

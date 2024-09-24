@@ -620,7 +620,7 @@ export default function InsurancesDescription(props) {
 
   const renderInsurancePayments = () => {
     return (
-      <div className="table-responsive" style={{ marginTop: 15 }}>
+      <div className="table-responsive">
         <dl className="product-gallery-data1">
           <div
             style={{
@@ -629,7 +629,7 @@ export default function InsurancesDescription(props) {
               flexDirection: "row",
             }}
           >
-            <dt>Registro de pagos</dt>
+            <dt style={{ fontWeight: "500" }}>Registro de pagos</dt>
             <Button
               style={{
                 marginRight: 10,

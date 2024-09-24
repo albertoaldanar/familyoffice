@@ -464,6 +464,10 @@ export default function FamilyMember(props) {
       <Row>
         <Card style={{ padding: 30, marginTop: 20, minHeight: 500 }}>
           <Card.Title style={{ marginBottom: 10 }}>
+          <i
+            style={{ marginRight: 9 }}
+            className="fe fe-user text-black fs-13"
+          ></i>
            {memberSelected.name}
           </Card.Title>
 
@@ -480,17 +484,39 @@ export default function FamilyMember(props) {
                 <Nav as="ul" className="nav panel-tabs">
                   <Nav.Item as="li" style={{ marginRight: 10 }}>
                     <Nav.Link eventKey="first" href="#">
+                      <i
+                        style={{ marginRight: 9 }}
+                        className="fe fe-folder text-black fs-13"
+                      ></i>
                       Documentos
                     </Nav.Link>
                   </Nav.Item>
                   <Nav.Item as="li" style={{ marginRight: 10 }}>
-                    <Nav.Link eventKey="second">Información</Nav.Link>
+                    <Nav.Link eventKey="second">
+                      <i
+                        style={{ marginRight: 9 }}
+                        className="fe fe-file-text text-black fs-13"
+                      ></i>
+                      Información
+                    </Nav.Link>
                   </Nav.Item>
                   <Nav.Item as="li" style={{ marginRight: 10 }}>
-                    <Nav.Link eventKey="third">Obligaciones</Nav.Link>
+                    <Nav.Link eventKey="third">
+                      <i
+                        style={{ marginRight: 9 }}
+                        className="fe fe-calendar text-black fs-13"
+                      ></i>
+                      Obligaciones
+                    </Nav.Link>
                   </Nav.Item>
                   <Nav.Item as="li" style={{ marginRight: 10 }}>
-                    <Nav.Link eventKey="fourth">Bienes y Activos</Nav.Link>
+                    <Nav.Link eventKey="fourth">
+                      <i
+                        style={{ marginRight: 9 }}
+                        className="fe fe-trending-up text-black fs-13"
+                      ></i>
+                      Bienes y Activos
+                    </Nav.Link>
                   </Nav.Item>
                 </Nav>
               </div>

@@ -452,7 +452,7 @@ export default function RentDescription(props) {
 
   const renderLeasingPayments = () => {
     return (
-      <div className="table-responsive" style={{ marginTop: 15 }}>
+      <div className="table-responsive">
         <dl className="product-gallery-data1">
           <div
             style={{
@@ -461,7 +461,7 @@ export default function RentDescription(props) {
               flexDirection: "row",
             }}
           >
-            <dt>Registro de pagos</dt>
+            <dt style={{ fontWeight: "500" }}>Registro de pagos</dt>
             <Button
               style={{
                 marginRight: 10,

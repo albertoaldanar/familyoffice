@@ -1,11 +1,21 @@
 export const prestamos = [
   {
     id: 1,
-    deudor: "Celsius SA de CV",
+    deudor: "Solare SA de CV",
     tipo: "Tercero",
-    concepto: "Prestamo a Celsius",
+    concepto: "Prestamo a DA Solare",
     monto: "2,000,000.00",
+    country: 'México',
     porPagar: "1,500,000.00",
+    creditor: {
+      name: 'Celsius SA de CV',
+      type: 'company', 
+      linkedItemId: 24
+    },
+    debtor: {
+      name: 'Solare SA de CV', 
+      linkedItemId: null
+    },
     contrato: "https://googledrive.com/erg3440398f4fmv",
     fechaDeContratacion: "22/11/2022",
     fechaVencimiento: "01/12/2027",
@@ -14,7 +24,7 @@ export const prestamos = [
     moneda: "MXN",
     interes: "15",
     proxpago: "14 dias",
-    proxCobro: "1 dias",
+    proxCobro: "10/10/2024",
     pagos: [
       {
         id: 2,
@@ -42,6 +52,18 @@ export const prestamos = [
   {
     id: 2,
     deudor: "Alejandra Aldana Ríos",
+    proxCobro: "10/10/2024",
+    country: 'México',
+    creditor: {
+      name: 'Celsius SA de CV',
+      type: 'company', 
+      linkedItemId: 24
+    },
+    debtor: {
+      name: 'Alejandra Aldana Ríos', 
+      type: 'familyMember', 
+      linkedItemId: 13
+    },
     tipo: "Intrafamiliar",
     concepto: "Prestamo Ale Aldana",
     monto: "10,000.00",
@@ -54,7 +76,6 @@ export const prestamos = [
     moneda: "MXN",
     interes: "0",
     proxpago: "14 dias",
-    proxCobro: "1 dias",
     pagos: [
       {
         id: 2,
@@ -82,6 +103,18 @@ export const prestamos = [
   {
     id: 33,
     deudor: "Raul Quintero Flores",
+    proxCobro: "10/10/2024",
+    country: 'México',
+    creditor: {
+      name: 'Alberto Aldana Fariñas',
+      type: 'familyMember', 
+      linkedItemId: 23
+    },
+    debtor: {
+      name: 'Raul Quintero Flores', 
+      type: null, 
+      linkedItemId: null
+    },
     tipo: "Capital Privado",
     concepto: "Prestamo contructora ABD",
     monto: "10,000,000.00 ",
@@ -94,7 +127,6 @@ export const prestamos = [
     moneda: "MXN",
     interes: "9",
     proxpago: "30 dias",
-    proxCobro: "30 dias",
     pagos: [
       {
         id: 2,
@@ -119,9 +151,6 @@ export const prestamos = [
       },
     ],
   },
-
-
-
 
 
   // {

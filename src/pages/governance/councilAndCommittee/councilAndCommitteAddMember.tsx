@@ -51,7 +51,7 @@ export default function CouncilAndCommitteAddMember(props) {
   return (
     <Fragment>
       <Row>
-        <Card style={{ padding: 30, marginTop: 20, minHeight: 450 }}>
+        <Card style={{ padding: 30, marginTop: 20, minHeight: 550 }}>
           <Card.Title style={{ marginBottom: 35 }}>
             Añadir miembro a{" "}
             {typOfMembership}

@@ -20,11 +20,13 @@ import { formatCompany } from "../../accounting/companyUtils";
 export default function DebtCreate(props) {
   const params = useParams();
   const familyOptions = formatFamilyMembers(family.members);
-  const companiesList = formatCompany(companies)
+  const companiesList = formatCompany(companies);
+  const OptionsVehicles = formatVehicleData(otherWealthData.vehicles);
+  const OptionsProperties = formatRealstateData(realstateData);
 
   const typeSelected =
     params.type === "realState"
-      ? { value: "Inmobiliario", label: "Prestamo Hipotecario" }
+      ? { value: "Hipotecario", label: "Prestamo Hipotecario" }
       : params.type === "vehicle"
       ? { value: "Vehicular", label: "Prestamo Vehicular" }
       : { value: "", label: "" };
@@ -78,7 +80,6 @@ export default function DebtCreate(props) {
   );
   const [selectedVehicle, setSelectedVehicle] = useState(vehicleSelectedValue);
   const [selectedMember, setSelectedMember] = useState(familySelectedValue);
-  const OptionsVehicles = formatVehicleData(otherWealthData.vehicles);
 
   const [concept, setConcept] = useState("");
   const [payTo, setPayTo] = useState("");
@@ -107,13 +108,11 @@ export default function DebtCreate(props) {
   ];
 
   const OptionsLoan = [
-    { value: "Inmobiliario", label: "Credito Hipotecario" },
+    { value: "Hipotecario", label: "Credito Hipotecario" },
     { value: "Vehicular", label: "Credito Vehicular" },
     { value: "Personal", label: "Credito Personal" },
     { value: "Empresarial", label: "Credito Empresarial" },
   ];
-
-  const OptionsProperties = formatRealstateData(realstateData);
 
   const Optionscurrency = [
     { value: "MXN", label: "MXN" },
@@ -122,12 +121,12 @@ export default function DebtCreate(props) {
   ];
 
   const OptionsDebtSource = [
-    { value: "Entidad financiera", label: "Entidad financiera" },
+    { value: "Credito de entidad financiera", label: "Credito de entidad financiera" },
     { value: "Prestamo de tercero", label: "Prestamo de tercero" },
   ];
 
   const handleTypeOfDebt = () => {
-    if (debtType.value === "Inmobiliario") {
+    if (debtType.value === "Hipotecario") {
       return (
         <Row className="mb-3">
           <Form.Group

@@ -2,15 +2,14 @@ import React, { Fragment } from "react";
 import { Button, Card, Col, Table, Badge } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { creditos } from "../paymentsData";
-import { nextPaymentFormatDate } from "../paymentUtils";
 import { calculateDaysOrMonthsLeft } from "../paymentUtils";
 
 export default function Debt() {
   //@ts-ignore
   const baseUrl = import.meta.env.BASE_URL;
-  const creditoss = creditos.filter((credito) => credito.tipo === "Credito");
+  const creditoss = creditos.filter((credito) => credito.tipo === "Credito de entidad financiera");
   const prestamosTerceros = creditos.filter(
-    (credito) => credito.tipo === "Terceros"
+    (credito) => credito.tipo === "Prestamo de tercero"
   );
 
   const renderTypeIcon = (type) => {

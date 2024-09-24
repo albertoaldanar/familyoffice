@@ -7,12 +7,30 @@ import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import dayjs, { Dayjs } from "dayjs";
 import { Link } from "react-router-dom";
-import { useParams } from "react-router-dom";
-import { calculateTotalWithPercentage, calculateDifference } from "../../payments/paymentUtils";
+import { family } from "../../../governance/familyStructure/familyStructureData";
+import { formatFamilyMembers } from "../../payments/paymentUtils";
+import { formatCompany } from "../../accounting/companyUtils";
+import { companies } from "../../accounting/accountingData";
+import { countryOptions } from "../../accounting/companyUtils";
+import FileUpload from "../../accounting/components/fileUpload";
 
 export default function LoanCreate(props) {
-  const [debtType, setDebtType] = useState("");
+  const familyOptions = formatFamilyMembers(family.members);
+  const companiesList = formatCompany(companies);
+  const [debtorNotLinkedName, setDebtorNotLinkedName] = useState("");
+  const [debtorNotLinkedPhone, setDebtorNotLinkedPhone] = useState("");
+  const [debtorNotLinkedEmail, setDebtorNotLinkedEmail] = useState("");
   const [debtSource, setDebtSource] = useState({
+    value: "",
+    label: "",
+  });
+
+  const [debtorSelected, setDebtorSelected] = useState({
+    value: "",
+    label: "",
+  });
+
+  const [creditorSelected, setCreditorSelected] = useState({
     value: "",
     label: "",
   });
@@ -25,6 +43,17 @@ export default function LoanCreate(props) {
   const [amountToPay, setAmountToPay] = useState("");
   const [vigenciaDel, setVigenciaDel] = useState<Dayjs | null>(dayjs(""));
   const [vigenciaAl, setVigenciaAl] = useState<Dayjs | null>(dayjs(""));
+
+  const [creditorType, setCreditorType] = useState({
+    value: "",
+    label: "",
+  });
+
+  const [debtorType, setDebtorType] = useState({
+    value: "",
+    label: "",
+  });
+
   const [paymentFrequency, setPaymentFrequency] = useState({
     value: "",
     label: "",
@@ -34,6 +63,12 @@ export default function LoanCreate(props) {
     value: "",
     label: "",
   });
+
+  const [country, setCountry] = useState({
+    value: "",
+    label: "",
+  });
+
 
   const OptionsPaymentFrequency = [
     { value: "Mensual", label: "Mensual" },
@@ -52,6 +87,235 @@ export default function LoanCreate(props) {
     { value: "Prestamo a tercero", label: "Prestamo a tercero" },
     { value: "Deuda Capital privado", label: "Deuda Capital privado" },
   ];
+
+  const debtorAndCreditorType = [
+    { value: "Miembro de la familia", label: "Miembro de la familia" },
+    { value: "Empresa Familiar", label: "Empresa Familiar" },
+  ];
+
+  const updateCreditor = (value) => {
+    setCreditorSelected({label: '', value: ''});
+    setCreditorType(value)
+  }
+
+  const updateDebtor = (value) => {
+    setDebtorSelected({label: '', value: ''});
+    setDebtorType(value)
+  }
+
+  const handleTypeSelection = () => {
+    if (debtSource.value === "Prestamo intrafamiliar") {
+      return (
+        <Row className="mb-3" style={{ marginTop: 20 }}>
+          <Form.Group
+            as={Col}
+            md="5"
+            controlId="validationCustom04"
+            className="form-group"
+          >
+            <Form.Label>Tipo de Acreedor:</Form.Label>
+            <Select
+              options={debtorAndCreditorType}
+              classNamePrefix="Select2"
+              className="multi-select"
+              onChange={(value) => updateCreditor(value)}
+              placeholder="Año"
+              value={creditorType}
+            />
+          </Form.Group>
+
+          <Form.Group
+            as={Col}
+            md="5"
+            controlId="validationCustom04"
+            className="form-group"
+          >
+            <Form.Label>Tipo de Deudor:</Form.Label>
+            <Select
+              options={debtorAndCreditorType}
+              classNamePrefix="Select2"
+              className="multi-select"
+              onChange={(value) => updateDebtor(value)}
+              placeholder="Año"
+              value={debtorType}
+            />
+          </Form.Group>
+        </Row>
+      );
+    } else if (
+      debtSource.value === "Prestamo a tercero" ||
+      debtSource.value === "Deuda Capital privado"
+    ) {
+      return (
+        <Row className="mb-3" style={{ marginTop: 20 }}>
+          <Form.Group
+            as={Col}
+            md="5"
+            controlId="validationCustom04"
+            className="form-group"
+          >
+            <Form.Label>Tipo de Acreedor:</Form.Label>
+            <Select
+              options={debtorAndCreditorType}
+              classNamePrefix="Select2"
+              className="multi-select"
+              onChange={(value) => setCreditorType(value)}
+              placeholder="Año"
+              value={creditorType}
+            />
+          </Form.Group>
+        </Row>
+      );
+    }
+
+    return;
+  };
+
+  const handleDebtorAndCreditor = () => {
+    const filteredFamilyOptions = familyOptions.filter(
+      (option) => option.value !== creditorSelected.value
+    );
+    const filteredCompaniesList = companiesList.filter(
+      (option) => option.value !== creditorSelected.value
+    );
+  
+    return (
+      <Row>
+        {creditorType.value && (
+          creditorType.value === 'Empresa Familiar' ? (
+            <Form.Group
+              as={Col}
+              md="5"
+              controlId="validationCustom04"
+              className="form-group"
+            >
+              <Form.Label>Empresa acreedora</Form.Label>
+              <Select
+                options={companiesList}
+                classNamePrefix="Select2"
+                className="multi-select"
+                onChange={(value) => setCreditorSelected(value)}
+                placeholder="Año"
+                value={creditorSelected}
+              />
+            </Form.Group>
+          ) : creditorType.value === 'Miembro de la familia' ? (
+            <Form.Group
+              as={Col}
+              md="5"
+              controlId="validationCustom04"
+              className="form-group"
+            >
+              <Form.Label>Miembro acreedor</Form.Label>
+              <Select
+                options={familyOptions}
+                classNamePrefix="Select2"
+                className="multi-select"
+                onChange={(value) => setCreditorSelected(value)}
+                placeholder="Año"
+                value={creditorSelected}
+              />
+            </Form.Group>
+          ) : null
+        )}
+  
+        {debtorType.value && debtSource.value === "Prestamo intrafamiliar" && (
+          debtorType.value === 'Empresa Familiar' ? (
+            <Form.Group
+              as={Col}
+              md="5"
+              controlId="validationCustom04"
+              className="form-group"
+            >
+              <Form.Label>Empresa deudora</Form.Label>
+              <Select
+                options={filteredCompaniesList}
+                classNamePrefix="Select2"
+                className="multi-select"
+                onChange={(value) => setDebtorSelected(value)}
+                placeholder="Año"
+                value={debtorSelected}
+              />
+            </Form.Group>
+          ) : debtorType.value === 'Miembro de la familia' ? (
+            <Form.Group
+              as={Col}
+              md="5"
+              controlId="validationCustom04"
+              className="form-group"
+            >
+              <Form.Label>Miembro deudor</Form.Label>
+              <Select
+                options={filteredFamilyOptions}
+                classNamePrefix="Select2"
+                className="multi-select"
+                onChange={(value) => setDebtorSelected(value)}
+                placeholder="Año"
+                value={debtorSelected}
+              />
+            </Form.Group>
+          ) : null
+        )}
+      </Row>
+    );
+  };
+
+  const renderNotLinkedCreditorInputs = () => {
+    if( debtSource.value && debtSource.value !== "Prestamo intrafamiliar"){
+      return (
+        <Row style={{marginTop: 20}}>
+          <Form.Group
+            as={Col}
+            md="4"
+            controlId="validationCustom01"
+            className="form-group"
+          >
+            <Form.Label>Nombre de deudor</Form.Label>
+            <Form.Control
+              type="numeric"
+              placeholder=""
+              aria-describedby="inputGroupPrepend"
+              required
+              onChange={(text) => setDebtorNotLinkedName(text.target.value)}
+              value={debtorNotLinkedName}
+            />
+          </Form.Group>
+          <Form.Group
+            as={Col}
+            md="3"
+            controlId="validationCustom01"
+            className="form-group"
+          >
+            <Form.Label>Teléfono de deudor</Form.Label>
+            <Form.Control
+              type="numeric"
+              placeholder=""
+              aria-describedby="inputGroupPrepend"
+              required
+              onChange={(text) => setDebtorNotLinkedPhone(text.target.value)}
+              value={debtorNotLinkedPhone}
+            />
+          </Form.Group>
+          <Form.Group
+            as={Col}
+            md="3"
+            controlId="validationCustom01"
+            className="form-group"
+          >
+            <Form.Label>Email de deudor</Form.Label>
+            <Form.Control
+              type="numeric"
+              placeholder=""
+              aria-describedby="inputGroupPrepend"
+              required
+              onChange={(text) => setDebtorNotLinkedEmail(text.target.value)}
+              value={debtorNotLinkedEmail}
+            />
+          </Form.Group>
+        </Row>
+      );
+    }
+  };
 
   return (
     <Fragment>
@@ -80,10 +344,15 @@ export default function LoanCreate(props) {
               </Form.Group>
             </Row>
 
+            {handleTypeSelection()}
+            {handleDebtorAndCreditor()}
+
+            {renderNotLinkedCreditorInputs()}
+
             <Row style={{ marginTop: 20 }}>
               <Form.Group
                 as={Col}
-                md="6"
+                md="10"
                 controlId="validationCustom01"
                 className="form-group"
               >
@@ -118,7 +387,23 @@ export default function LoanCreate(props) {
               </Form.Group>
               <Form.Group
                 as={Col}
-                md="6"
+                md="3"
+                controlId="validationCustom01"
+                className="form-group"
+              >
+                <Form.Label>País</Form.Label>
+                <Select
+                  options={countryOptions}
+                  classNamePrefix="Select2"
+                  className="multi-select"
+                  onChange={(value) => setCountry(value)}
+                  placeholder=""
+                  value={country}
+                />
+              </Form.Group>
+              <Form.Group
+                as={Col}
+                md="3"
                 controlId="validationCustom01"
                 className="form-group"
               >
@@ -183,7 +468,7 @@ export default function LoanCreate(props) {
             </Row>
 
             <Row style={{ marginTop: 20 }}>
-            <Form.Group
+              <Form.Group
                 as={Col}
                 md="4"
                 controlId="validationCustomUsername"
@@ -275,17 +560,14 @@ export default function LoanCreate(props) {
             </Row>
 
             <Row style={{ marginTop: 20 }}>
-              <Form.Group as={Col} md="6" className="form-group">
-                <Form.Label className="form-label my-3">
+              <Form.Group as={Col} md="4" className="form-group">
+                <Form.Label
+                  className="form-label my-3"
+                  style={{ fontSize: 13, color: "gray" }}
+                >
                   Contrato de prestamo
                 </Form.Label>
-
-                <Form.Control
-                  type="file"
-                  className="border-right-0 browse-file"
-                  placeholder="Cargar poliza"
-                  readOnly
-                />
+                <FileUpload />
               </Form.Group>
             </Row>
             <div

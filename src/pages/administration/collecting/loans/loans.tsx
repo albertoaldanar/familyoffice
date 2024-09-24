@@ -2,9 +2,14 @@ import React, { Fragment } from "react";
 import { Button, Badge, Card, Col, Table } from "react-bootstrap";
 import { prestamos } from "../collectingData";
 import { nextPaymentFormatDate } from "../../payments/paymentUtils";
+import { calculateDaysOrMonthsLeft } from "../../payments/paymentUtils";
+import { renderFlag } from "../../accounting/companyUtils";
 import { Link } from "react-router-dom";
 
 export default function LoansCollecting(props) {
+  //@ts-ignore
+  const baseUrl = import.meta.env.BASE_URL;
+
   const renderTypeIcon = (type) => {
     if (type === "Tercero") {
       return (
@@ -53,6 +58,48 @@ export default function LoansCollecting(props) {
     );
   };
 
+  const renderUrl = (type, linkedItemId, name) => {
+    if (type === "company" && linkedItemId) {
+      return (
+        <td
+          style={{
+            fontSize: 13,
+          }}
+        >
+          <Link
+            to={`${baseUrl}administration/company/${linkedItemId}/company`}
+          >
+            {name}
+          </Link>
+        </td>
+      );
+    } else if (type === "familyMember" && linkedItemId) {
+      return (
+        <td
+          style={{
+            fontSize: 13,
+          }}
+        >
+          <Link
+            to={`${baseUrl}governance/familyMember/${linkedItemId}`}
+          >
+            {name}
+          </Link>
+        </td>
+      );
+    }
+
+    return (
+      <td
+        style={{
+          fontSize: 13,
+        }}
+      >
+       {name}
+      </td>
+    );
+  };
+  
   return (
     <Fragment>
       {!props.hideAddButton ? (
@@ -62,7 +109,7 @@ export default function LoansCollecting(props) {
             display: "flex",
             flexDirection: "row",
             marginBottom: 15,
-            marginTop: -30,
+            marginTop: -50,
           }}
         >
           <div></div>
@@ -76,8 +123,7 @@ export default function LoansCollecting(props) {
             size="sm"
             className="mb-1"
           >
-            {/*// @ts-ignore */}
-            <Link style={{ color: "white" }} to={`${import.meta.env.BASE_URL}administration/loanCreate`}>
+            <Link style={{ color: "white" }} to={`${baseUrl}administration/loanCreate`}>
               + Añadir prestamo
             </Link>
           </Button>
@@ -99,10 +145,10 @@ export default function LoansCollecting(props) {
               <thead className="bg-light">
                 <tr>
                   <th>Tipo</th>
+                  <th>Acreedor</th>
                   <th>Deudor</th>
-                  <th>Monto otorgado</th>
-                  <th>Por pagar</th>
-                  <th>% interes</th>
+                  <th>País</th>
+                  <th>Pendiente por cobrar</th>
                   <th>Prox cobro</th>
                   <th></th>
                 </tr>
@@ -111,27 +157,14 @@ export default function LoansCollecting(props) {
                 {prestamos.map((idx, tb8) => (
                   <tr key={tb8}>
                     {renderTypeIcon(idx.tipo)}
-                    <td>{idx.deudor}</td>
-                    <td>
-                      $ {idx.monto} {idx.moneda}
-                    </td>
+                    {renderUrl(idx.creditor.type, idx.creditor.linkedItemId, idx.creditor.name)}
+                    {renderUrl(idx.debtor.type, idx.debtor.linkedItemId, idx.debtor.name)}
+                    <td>{renderFlag(idx.country)}</td>
                     <td>
                       $ {idx.porPagar} {idx.moneda}
                     </td>
-                    <td>{idx.interes}</td>
                     <td>
-                      {nextPaymentFormatDate(idx.pagos) === "Vencido" ? (
-                        <div style={{ marginTop: 2 }}>
-                          <Badge
-                            bg="danger-transparent"
-                            className="me-2 my-1 Primary"
-                          >
-                            Vencido
-                          </Badge>
-                        </div>
-                      ) : (
-                        nextPaymentFormatDate(idx.pagos)
-                      )}
+                   {calculateDaysOrMonthsLeft(idx.proxCobro)}
                     </td>
                     <td
                       style={{
@@ -140,8 +173,7 @@ export default function LoansCollecting(props) {
                         color: "#5488d2",
                       }}
                     >
-                      {/*// @ts-ignore */}
-                      <Link to={`${import.meta.env.BASE_URL}administration/loanDescription/${idx.id}`}>
+                      <Link to={`${baseUrl}administration/loanDescription/${idx.id}`}>
                         Ver
                       </Link>
                     </td>
