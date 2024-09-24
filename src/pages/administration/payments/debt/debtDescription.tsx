@@ -41,10 +41,9 @@ export default function DebtDescription(props) {
   const params = useParams();
   const debt = creditos.find((credito) => credito.id === Number(params.id));
   const familyOptions = formatFamilyMembers(family.members);
-  const companiesList = formatCompany(companies)
+  const companiesList = formatCompany(companies);
   const OptionsVehicles = formatVehicleData(otherWealthData.vehicles);
   const OptionsProperties = formatRealstateData(realstateData);
-
   const [amount, setAmount] = useState(debt.monto);
   const [totalDebt, setTotalDebt] = useState(debt.pagado);
   const [interestRate, setInterestRate] = useState(debt.interes);

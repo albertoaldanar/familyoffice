@@ -26,12 +26,12 @@ import { formatTrust } from "../../wealthStructureUtils";
 import { providers } from "../../../../administration/providers/providersData";
 import { formatProviderContacts } from "../../../../administration/providers/providersUtils";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function BanksAccountsItem(props) {
   //@ts-ignore
   const baseUrl = import.meta.env.BASE_URL;
-
+  const navigate = useNavigate();
   const accountSelected = otherWealthData.bankAccounts.find(
     (account) => account.id === Number(props.id)
   );
@@ -453,6 +453,21 @@ export default function BanksAccountsItem(props) {
     <Fragment>
       <Row style={{ padding: 20 }}>
         <Card.Title style={{ marginBottom: 15 }}>
+          <Link
+            style={{color: '#696969', fontSize: 16, marginBottom: 20, marginRight: 15}}
+            to={'..'}
+            onClick={(e) => {
+              e.preventDefault();
+              navigate(-1);
+            }}
+          >
+            <div style={{display: 'flex', flexDirection: 'row', marginBottom: 20}}>
+              <i
+                style={{ marginRight: 9 }}
+                className="fe fe-arrow-left text-black fs-13"
+              ></i> <p style={{fontSize: 12}}>Volver</p>
+            </div>
+          </Link>
           <i
             style={{ marginRight: 9 }}
             className="fe fe-credit-card text-black fs-15"

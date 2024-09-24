@@ -2,18 +2,21 @@ export const prestamos = [
   {
     id: 1,
     deudor: "Solare SA de CV",
-    tipo: "Tercero",
+    tipo: "Prestamo a tercero",
     concepto: "Prestamo a DA Solare",
     monto: "2,000,000.00",
     country: 'México',
     porPagar: "1,500,000.00",
     creditor: {
       name: 'Celsius SA de CV',
-      type: 'company', 
+      type: 'Empresa Familiar', 
       linkedItemId: 24
     },
     debtor: {
       name: 'Solare SA de CV', 
+      phone: '667104822', 
+      email: 'contacto@dasolare.com',
+      type: null,
       linkedItemId: null
     },
     contrato: "https://googledrive.com/erg3440398f4fmv",
@@ -56,15 +59,15 @@ export const prestamos = [
     country: 'México',
     creditor: {
       name: 'Celsius SA de CV',
-      type: 'company', 
+      type: 'Empresa Familiar', 
       linkedItemId: 24
     },
     debtor: {
       name: 'Alejandra Aldana Ríos', 
-      type: 'familyMember', 
+      type: 'Miembro de la familia', 
       linkedItemId: 13
     },
-    tipo: "Intrafamiliar",
+    tipo: "Prestamo intrafamiliar",
     concepto: "Prestamo Ale Aldana",
     monto: "10,000.00",
     porPagar: "9,000.00",
@@ -107,15 +110,17 @@ export const prestamos = [
     country: 'México',
     creditor: {
       name: 'Alberto Aldana Fariñas',
-      type: 'familyMember', 
+      type: 'Miembro de la familia', 
       linkedItemId: 23
     },
     debtor: {
       name: 'Raul Quintero Flores', 
+      phone: '667104822', 
+      email: 'raulquinterof@gmail.com',
       type: null, 
       linkedItemId: null
     },
-    tipo: "Capital Privado",
+    tipo: "Deuda Capital privado",
     concepto: "Prestamo contructora ABD",
     monto: "10,000,000.00 ",
     porPagar: "10,000,000.00",

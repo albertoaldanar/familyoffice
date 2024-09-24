@@ -59,7 +59,7 @@ export default function LoansCollecting(props) {
   };
 
   const renderUrl = (type, linkedItemId, name) => {
-    if (type === "company" && linkedItemId) {
+    if (type === "Empresa Familiar" && linkedItemId) {
       return (
         <td
           style={{
@@ -73,7 +73,7 @@ export default function LoansCollecting(props) {
           </Link>
         </td>
       );
-    } else if (type === "familyMember" && linkedItemId) {
+    } else if (type === "Miembro de la familia" && linkedItemId) {
       return (
         <td
           style={{

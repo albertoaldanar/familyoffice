@@ -18,7 +18,7 @@ import NotFoundSearch from "../../../../shared/notFoundSearch";
 import FileView from "../../../../administration/accounting/components/fileView";
 import { mantenimientos, creditos, seguros } from "../../../../administration/payments/paymentsData";
 import { arrendamientos } from "../../../../administration/collecting/collectingData";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { family } from "../../../familyStructure/familyStructureData";
 import { companies } from "../../../../administration/accounting/accountingData";
 import { formatCompany, formatOwnersData } from "../../../../administration/accounting/companyUtils";
@@ -31,7 +31,7 @@ import { useParams } from "react-router-dom";
 export default function VehicleItem(props) {
   //@ts-ignore
   const baseUrl = import.meta.env.BASE_URL;
-
+  const navigate = useNavigate();
   const vehicleSelected = otherWealthData.vehicles.find(
     (vehicle) => vehicle.id === Number(props.id)
   );
@@ -764,6 +764,19 @@ export default function VehicleItem(props) {
     <Fragment>
       <Row style={{ marginTop: 10, padding: 20 }}>
         <Card.Title style={{ marginBottom: 10 }}>
+          <Link
+            style={{color: '#696969', fontSize: 16, marginBottom: 20, marginRight: 15}}
+            to={'..'}
+            onClick={(e) => {
+              e.preventDefault();
+              navigate(-1);
+            }}
+          >
+            <i
+              style={{ marginRight: 9 }}
+              className="fe fe-arrow-left text-black fs-13"
+            ></i>
+          </Link>
           <i
             style={{ marginRight: 9 }}
             className="fe fe-truck text-black fs-15"

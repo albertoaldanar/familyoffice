@@ -15,13 +15,13 @@ import { formatCompany } from "../../../../../administration/accounting/companyU
 import { formatOwnersData, formatTrust } from "../../../../../administration/accounting/companyUtils";
 import { formatCurrency } from "../../../../../administration/payments/paymentUtils";
 //@ts-ignore
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import FileView from "../../../../../administration/accounting/components/fileView";
 
 export default function PrivateEquity(props) {
   //@ts-ignore
   const baseUrl = import.meta.env.BASE_URL;
-
+  const navigate = useNavigate();
   const privateEquitySelected = otherWealthData.privateEquity.find(
     (privateEquity) => privateEquity.id === Number(props.id)
   );
@@ -1013,6 +1013,22 @@ export default function PrivateEquity(props) {
     <Fragment>
       <Row style={{ padding: 20 }}>
         <Card.Title style={{ marginBottom: 10 }}>
+          <Link
+            style={{color: '#696969', fontSize: 16, marginBottom: 20}}
+            to={'..'}
+            onClick={(e) => {
+              e.preventDefault();
+              navigate(-1);
+            }}
+          >
+            <div style={{display: 'flex', flexDirection: 'row', marginBottom: 20}}>
+              <i
+                style={{ marginRight: 9 }}
+                className="fe fe-arrow-left text-black fs-13"
+              ></i> <p style={{fontSize: 12}}>Volver</p>
+            </div>
+
+          </Link>
           <i
             style={{ marginRight: 9 }}
             className="fe fe-activity text-black fs-15"

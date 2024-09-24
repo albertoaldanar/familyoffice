@@ -24,7 +24,7 @@ import {
   creditos,
   seguros,
 } from "../../../../administration/payments/paymentsData";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { fideicomisos } from "../../../../administration/accounting/accountingData";
 import { family } from "../../../familyStructure/familyStructureData";
@@ -39,6 +39,7 @@ import { formatMember } from "../../../councilAndCommittee/councilAndCommitteeUt
 export default function RealStateItem(props) {
   //@ts-ignore
   const baseUrl = import.meta.env.BASE_URL;
+  const navigate = useNavigate();
   const realStateSelected = realstateData.find(
     (realState) => realState.id === Number(props.id)
   );
@@ -616,13 +617,10 @@ export default function RealStateItem(props) {
                   marginBottom: 4,
                 }}
               >
-                Porcentaje de <Link
-                    to={`${
-                      baseUrl
-                    }governance/familyMember/${member.value}`}
-                  >
-                   {member.label}
-                  </Link>
+                Porcentaje de{" "}
+                <Link to={`${baseUrl}governance/familyMember/${member.value}`}>
+                  {member.label}
+                </Link>
               </p>
               <InputGroup hasValidation style={{ marginBottom: 8 }}>
                 <Form.Control
@@ -653,13 +651,12 @@ export default function RealStateItem(props) {
                   marginBottom: 4,
                 }}
               >
-                Porcentaje de <Link
-                    to={`${
-                      baseUrl
-                    }administration/company/${company.value}/company`}
-                  >
-                   {company.label}
-                  </Link>
+                Porcentaje de{" "}
+                <Link
+                  to={`${baseUrl}administration/company/${company.value}/company`}
+                >
+                  {company.label}
+                </Link>
               </p>
               <InputGroup hasValidation style={{ marginBottom: 8 }}>
                 <Form.Control
@@ -690,13 +687,12 @@ export default function RealStateItem(props) {
                   marginBottom: 4,
                 }}
               >
-                Porcentaje de <Link
-                    to={`${
-                      baseUrl
-                    }administration/trustDescription/${trust.value}`}
-                  >
-                   {trust.label}
-                  </Link>
+                Porcentaje de{" "}
+                <Link
+                  to={`${baseUrl}administration/trustDescription/${trust.value}`}
+                >
+                  {trust.label}
+                </Link>
               </p>
               <InputGroup hasValidation style={{ marginBottom: 8 }}>
                 <Form.Control
@@ -743,9 +739,7 @@ export default function RealStateItem(props) {
           >
             <Link
               style={{ color: "white" }}
-              to={`${
-                baseUrl
-              }administration/providerCreate/standar`}
+              to={`${baseUrl}administration/providerCreate/standar`}
             >
               + Añadir nuevo contacto
             </Link>
@@ -756,7 +750,7 @@ export default function RealStateItem(props) {
             display: "flex",
             flexDirection: "row",
             marginBottom: 10,
-            justifyContent: existringContacts ? 'left' : 'center'
+            justifyContent: existringContacts ? "left" : "center",
           }}
         >
           <p
@@ -816,7 +810,7 @@ export default function RealStateItem(props) {
             </Table>
           </div>
         ) : (
-          <p style={{ fontSize: 12, color: "gray", textAlign: 'center' }}>
+          <p style={{ fontSize: 12, color: "gray", textAlign: "center" }}>
             Aún no hay ningun contacto seleccionado para{" "}
             {realStateSelected.nombre}
           </p>
@@ -827,8 +821,21 @@ export default function RealStateItem(props) {
 
   return (
     <Fragment>
-      <Row style={{ marginTop: 10, padding: 20 }}>
+      <Row style={{ marginTop: 0, padding: 20 }}>
         <Card.Title>
+        <Link
+            style={{color: '#696969', fontSize: 16, marginBottom: 20, marginRight: 15}}
+            to={'..'}
+            onClick={(e) => {
+              e.preventDefault();
+              navigate(-1);
+            }}
+          >
+            <i
+            style={{ marginRight: 9 }}
+            className="fe fe-arrow-left text-black fs-13"
+          ></i>
+          </Link>
           <i
             style={{ marginRight: 9 }}
             className="fe fe-map-pin text-black fs-13"

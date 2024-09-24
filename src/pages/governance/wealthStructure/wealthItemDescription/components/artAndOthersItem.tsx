@@ -26,11 +26,12 @@ import {
   formatOwnersData,
 } from "../../../../administration/accounting/companyUtils";
 import { formatMember } from "../../../councilAndCommittee/councilAndCommitteeUtils";
+import { useNavigate } from "react-router-dom";
 
 export default function ArtAndOthersItem(props) {
   //@ts-ignore
   const baseUrl = import.meta.env.BASE_URL;
-
+  const navigate = useNavigate();
   const artSelected = otherWealthData.artAndOthers.find(
     (art) => art.id === Number(props.id)
   );
@@ -573,6 +574,19 @@ export default function ArtAndOthersItem(props) {
     <Fragment>
       <Row style={{ marginTop: 10, padding: 20 }}>
         <Card.Title>
+          <Link
+            style={{color: '#696969', fontSize: 16, marginBottom: 20, marginRight: 15}}
+            to={'..'}
+            onClick={(e) => {
+              e.preventDefault();
+              navigate(-1);
+            }}
+          >
+            <i
+              style={{ marginRight: 9 }}
+              className="fe fe-arrow-left text-black fs-13"
+            ></i>
+          </Link>
           <i
             style={{ marginRight: 9 }}
             className="fe fe-watch text-black fs-15"

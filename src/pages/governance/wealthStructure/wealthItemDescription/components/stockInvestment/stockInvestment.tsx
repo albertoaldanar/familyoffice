@@ -23,13 +23,14 @@ import { otherWealthData } from "../../../wealthStructureData";
 import { formatCompany, formatTrust } from "../../../../../administration/accounting/companyUtils";
 import { formatOwnersData } from "../../../../../administration/accounting/companyUtils";
 import { formatCurrency } from "../../../../../administration/payments/paymentUtils";
+import { useNavigate } from "react-router-dom";
 //@ts-ignore
 import { Link } from "react-router-dom";
 
 export default function StockInvestment(props) {
   //@ts-ignore
   const baseUrl = import.meta.env.BASE_URL;
-
+  const navigate = useNavigate();
   const stockInvestmentSelected = otherWealthData.stockInvestments.find(
     (account) => account.id === Number(props.id)
   );
@@ -625,6 +626,19 @@ export default function StockInvestment(props) {
     <Fragment>
       <Row style={{ padding: 20 }}>
         <Card.Title style={{ marginBottom: 20 }}>
+          <Link
+            style={{color: '#696969', fontSize: 16, marginBottom: 20, marginRight: 20}}
+            to={'..'}
+            onClick={(e) => {
+              e.preventDefault();
+              navigate(-1);
+            }}
+          >
+            <i
+              style={{ marginRight: 9 }}
+              className="fe fe-arrow-left text-black fs-13"
+            ></i>
+          </Link>
           <i
             style={{ marginRight: 9 }}
             className="fe fe-trending-up text-black fs-15"
