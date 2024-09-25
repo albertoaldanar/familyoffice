@@ -10,12 +10,12 @@ import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import dayjs, { Dayjs } from "dayjs";
 import { realstateData } from "../../../investments/realState/realStateData";
-
+import { Link, useNavigate } from "react-router-dom";
 export default function PropertyTaxCreate(props) {
   const [notMemberPropertyName, setNotMemberPropertyName] = useState("");
   const [notMemberPropertyAddress, setNotMemberPropertyAddress] = useState("");
   const params = useParams();
-
+  const navigate = useNavigate();
   const propertySelected = params.id === null ? null : realstateData.find(property => property.id === Number(params.id));
   const propertySelectedValue = propertySelected ? { value: propertySelected.nombre, label: propertySelected.nombre} : { value: "", label: "" };
   const [nextPayment, setNextPayment] = useState<Dayjs | null>(dayjs(""));
@@ -55,6 +55,24 @@ export default function PropertyTaxCreate(props) {
       <Row>
         <Card style={{ padding: 30, marginTop: 20, minHeight: 550 }}>
           <Card.Title style={{ marginBottom: 35 }}>
+            <Link
+                style={{
+                  color: "#696969",
+                  fontSize: 16,
+                  marginBottom: 20,
+                  marginRight: 15,
+                }}
+                to={".."}
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigate(-1);
+                }}
+              >
+                <i
+                  style={{ marginRight: 9 }}
+                  className="fe fe-arrow-left text-black fs-13"
+                ></i>
+            </Link>
             Nuevo Registro de Predial
           </Card.Title>
           <Form noValidate validated={false} onSubmit={() => {}}>

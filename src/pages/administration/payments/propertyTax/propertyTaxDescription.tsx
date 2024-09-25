@@ -16,7 +16,7 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { prediales } from "../paymentsData";
 import { useParams } from "react-router-dom";
 import { calculateDaysOrMonthsLeft } from "../paymentUtils";
@@ -26,6 +26,7 @@ import { formatToDateString, formatRealstateData, formateDateForUI } from "../pa
 export default function PropertTaxDescription(props) {
   //@ts-ignore
   const baseURL = import.meta.env.BASE_URL;
+  const navigate = useNavigate();
   const params = useParams();
   const taxProperty = prediales.find(
     (predial) => predial.id === Number(params.id)
@@ -373,6 +374,24 @@ export default function PropertTaxDescription(props) {
       <Row>
         <Card style={{ padding: 30, marginTop: 20, minHeight: 550 }}>
           <h4 className="mb-3 fw-semibold">
+            <Link
+                style={{
+                  color: "#696969",
+                  fontSize: 16,
+                  marginBottom: 20,
+                  marginRight: 15,
+                }}
+                to={".."}
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigate(-1);
+                }}
+              >
+                <i
+                  style={{ marginRight: 9 }}
+                  className="fe fe-arrow-left text-black fs-13"
+                ></i>
+            </Link>
             {" "}
             <i
               style={{ marginRight: 9 }}

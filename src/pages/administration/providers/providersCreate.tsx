@@ -2,7 +2,7 @@ import React, { Fragment, useState } from "react";
 import { Button, Card, Col, Row, Form, InputGroup } from "react-bootstrap";
 import Select from "react-select";
 import dayjs, { Dayjs } from "dayjs";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { MultiSelect } from "react-multi-select-component";
 import { otherWealthData } from "../../governance/wealthStructure/wealthStructureData";
@@ -23,6 +23,7 @@ import { formatContainedAssets } from "../../governance/wealthStructure/wealthSt
 import { OptionsProvider } from './providersConst';
 
 export default function ProviderCreate(props) {
+  const navigate = useNavigate();
   const companiesList = formatCompany(companies);
   const realStateList = formatRealstateData(realstateData);
   const bankAccountsList = formatBankAccounts(otherWealthData.bankAccounts);
@@ -368,6 +369,24 @@ export default function ProviderCreate(props) {
       <Row>
         <Card style={{ padding: 30, marginTop: 20 }}>
           <Card.Title style={{ marginBottom: 10 }}>
+          <Link
+            style={{
+              color: "#696969",
+              fontSize: 16,
+              marginBottom: 20,
+              marginRight: 15,
+            }}
+            to={".."}
+            onClick={(e) => {
+              e.preventDefault();
+              navigate(-1);
+            }}
+          >
+            <i
+              style={{ marginRight: 9 }}
+              className="fe fe-arrow-left text-black fs-13"
+            ></i>
+          </Link>
             Nuevo Registro de proveedor de servicio o contacto
           </Card.Title>
           <Form noValidate validated={false} onSubmit={() => {}}>

@@ -823,7 +823,7 @@ export default function RealStateItem(props) {
     <Fragment>
       <Row style={{ marginTop: 0, padding: 20 }}>
         <Card.Title>
-        <Link
+          <Link
             style={{color: '#696969', fontSize: 16, marginBottom: 20, marginRight: 15}}
             to={'..'}
             onClick={(e) => {

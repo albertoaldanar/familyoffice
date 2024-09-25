@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from "react";
 import { Button, Card, Col, Table, Row, Nav, Form, Tab } from "react-bootstrap";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { MultiSelect } from "react-multi-select-component";
 import Select from "react-select";
 import { providers } from "./providersData";
@@ -15,7 +15,7 @@ import { OptionsProvider } from './providersConst';
 
 export default function ProviderDescription() {
   const params = useParams();
-
+  const navigate = useNavigate();
   const providerCategorySelected = providers.find(
     (prov) => prov.id === Number(params.id)
   );
@@ -596,7 +596,24 @@ export default function ProviderDescription() {
       <Row>
         <Card style={{ padding: 30, marginTop: 20, minHeight: 550 }}>
           <h4 className="mb-3 fw-semibold">
-            Proveedor de servicio {providerCategorySelected.categoria} - {providerSelected.nombre}
+          <Link
+            style={{
+              color: "#696969",
+              fontSize: 16,
+              marginBottom: 20,
+              marginRight: 15,
+            }}
+            to={".."}
+            onClick={(e) => {
+              e.preventDefault();
+              navigate(-1);
+            }}
+          >
+            <i
+              style={{ marginRight: 9 }}
+              className="fe fe-arrow-left text-black fs-13"
+            ></i>
+          </Link> Proveedor de servicio {providerCategorySelected.categoria} - {providerSelected.nombre}
           </h4>
 
           <Form noValidate validated={false} onSubmit={() => {}}>

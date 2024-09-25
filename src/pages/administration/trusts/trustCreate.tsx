@@ -10,7 +10,7 @@ import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import dayjs, { Dayjs } from "dayjs";
 import FileUpload from "../accounting/components/fileUpload";
 import FileView from "../accounting/components/fileView";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { family } from "../../governance/familyStructure/familyStructureData";
 import { companies } from "../accounting/accountingData";
@@ -26,6 +26,8 @@ import { providers } from "../providers/providersData";
 import { formatProviderContacts } from "../providers/providersUtils";
 
 export default function TrustCreate(props) {
+  const navigate = useNavigate();
+
   const providersList = formatProviderContacts(providers);
   const [trustNumber, setTrustNumber] = useState("");
   const [trustBank, setTrustBank] = useState("");
@@ -213,6 +215,19 @@ export default function TrustCreate(props) {
       <Row>
         <Card style={{ padding: 30, marginTop: 20 }}>
           <Card.Title style={{ marginBottom: 35 }}>
+            <Link
+                style={{color: '#696969', fontSize: 16, marginBottom: 20, marginRight: 15}}
+                to={'..'}
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigate(-1);
+                }}
+              >
+                <i
+                style={{ marginRight: 9 }}
+                className="fe fe-arrow-left text-black fs-13"
+              ></i>
+            </Link>
             <i
               style={{ marginRight: 9 }}
               className="fe fe-file text-black fs-15"

@@ -2,7 +2,7 @@ import React, { Fragment, useState } from "react";
 import { Button, Card, Col, Row, Form, InputGroup } from "react-bootstrap";
 import Select, { components } from "react-select";
 import dayjs, { Dayjs } from "dayjs";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { family } from "../familyStructure/familyStructureData";
 import { formatAvailableFamilyMember, formatAvailableExternalProviders } from "./councilAndCommitteeUtils";
@@ -12,7 +12,7 @@ export default function CouncilAndCommitteAddMember(props) {
   const [companyName, setCompanyName] = useState("");
   const [rfc, setRFC] = useState("");
   const [name, setName] = useState("");
-
+  const navigate = useNavigate();
   const params = useParams();
   
   const [memberType, setMemberName] = useState({
@@ -53,6 +53,24 @@ export default function CouncilAndCommitteAddMember(props) {
       <Row>
         <Card style={{ padding: 30, marginTop: 20, minHeight: 550 }}>
           <Card.Title style={{ marginBottom: 35 }}>
+            <Link
+              style={{
+                color: "#696969",
+                fontSize: 16,
+                marginBottom: 20,
+                marginRight: 15,
+              }}
+              to={".."}
+              onClick={(e) => {
+                e.preventDefault();
+                navigate(-1);
+              }}
+            >
+              <i
+                style={{ marginRight: 9 }}
+                className="fe fe-arrow-left text-black fs-13"
+              ></i>
+            </Link>
             Añadir miembro a{" "}
             {typOfMembership}
           </Card.Title>

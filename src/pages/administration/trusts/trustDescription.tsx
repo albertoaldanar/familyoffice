@@ -21,7 +21,7 @@ import dayjs, { Dayjs } from "dayjs";
 import FileUpload from "../accounting/components/fileUpload";
 import NotFoundSearch from "../../shared/notFoundSearch";
 import FileView from "../accounting/components/fileView";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { family } from "../../governance/familyStructure/familyStructureData";
 import { companies, fideicomisos } from "../accounting/accountingData";
@@ -44,7 +44,7 @@ import { formatVehicleData } from "../payments/paymentUtils";
 export default function TrustDescription(props) {
   //@ts-ignore
   const baseUrl = import.meta.env.BASE_URL;
-
+  const navigate = useNavigate();
   const params = useParams();
   const trustSelected = fideicomisos.find(
     (trust) => trust.id === Number(params.id)
@@ -764,6 +764,19 @@ export default function TrustDescription(props) {
       <Row>
         <Card style={{ padding: 30, marginTop: 20, minHeight: 500 }}>
           <Card.Title style={{ marginBottom: 0 }}>
+            <Link
+                style={{color: '#696969', fontSize: 16, marginBottom: 20, marginRight: 15}}
+                to={'..'}
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigate(-1);
+                }}
+              >
+                <i
+                style={{ marginRight: 9 }}
+                className="fe fe-arrow-left text-black fs-13"
+              ></i>
+            </Link>
             <i
               style={{ marginRight: 9 }}
               className="fe fe-file text-black fs-15"

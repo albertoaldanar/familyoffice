@@ -2,7 +2,7 @@ import React, { Fragment, useState } from "react";
 import { Button, Card, Col, Row, Form, InputGroup } from "react-bootstrap";
 import Select from "react-select";
 import { MultiSelect } from "react-multi-select-component";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
@@ -15,6 +15,7 @@ import NotFoundSearch from "../../../../shared/notFoundSearch";
 
 export default function MeetingCreate(props) {
   const params = useParams();
+  const navigate = useNavigate();
   const addType =
     params.type === "familyCouncil"
       ? "Consejo Familiar"
@@ -50,6 +51,24 @@ export default function MeetingCreate(props) {
       <Row>
         <Card style={{ padding: 30, marginTop: 20 }}>
           <Card.Title style={{ marginBottom: 10 }}>
+          <Link
+            style={{
+              color: "#696969",
+              fontSize: 16,
+              marginBottom: 20,
+              marginRight: 15,
+            }}
+            to={".."}
+            onClick={(e) => {
+              e.preventDefault();
+              navigate(-1);
+            }}
+          >
+            <i
+              style={{ marginRight: 9 }}
+              className="fe fe-arrow-left text-black fs-13"
+            ></i>
+          </Link>
             Nueva reunion de {addType}
           </Card.Title>
           <Form noValidate validated={false} onSubmit={() => {}}>

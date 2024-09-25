@@ -29,11 +29,11 @@ import { taxes } from "../../administration/taxes/taxesData";
 import { renderFlag } from "../../administration/accounting/companyUtils";
 import { renderAssetTypeIcon, formatNationalities } from "./familyStructureUtils";
 import { nationalities } from './familyStructureConst';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
 export default function FamilyMember(props) {
-  const breadcrumbs = ["Gobernanza", "Miembro Familiar"];
+  const navigate = useNavigate();
   const params = useParams();
   const memberSelected = family.members.find((memb) => memb.id === params.id);
 
@@ -464,6 +464,24 @@ export default function FamilyMember(props) {
       <Row>
         <Card style={{ padding: 30, marginTop: 20, minHeight: 500 }}>
           <Card.Title style={{ marginBottom: 10 }}>
+          <Link
+            style={{
+              color: "#696969",
+              fontSize: 16,
+              marginBottom: 20,
+              marginRight: 15,
+            }}
+            to={".."}
+            onClick={(e) => {
+              e.preventDefault();
+              navigate(-1);
+            }}
+          >
+            <i
+              style={{ marginRight: 9 }}
+              className="fe fe-arrow-left text-black fs-13"
+            ></i>
+          </Link>
           <i
             style={{ marginRight: 9 }}
             className="fe fe-user text-black fs-13"

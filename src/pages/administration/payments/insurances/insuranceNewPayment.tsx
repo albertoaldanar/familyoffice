@@ -14,13 +14,14 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import dayjs, { Dayjs } from "dayjs";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { seguros } from "../paymentsData";
 import { useParams } from "react-router-dom";
 import FileUpload from "../../accounting/components/fileUpload";
 
 export default function InsurancesNewPayment(props) {
   const params = useParams();
+  const navigate = useNavigate();
   const insurance = seguros.find((seguro) => seguro.id === Number(params.id));
 
   const [year, setYear] = useState({
@@ -63,6 +64,24 @@ export default function InsurancesNewPayment(props) {
       <Row>
         <Card style={{ padding: 30, marginTop: 20 }}>
           <Card.Title style={{ marginBottom: 50 }}>
+            <Link
+                style={{
+                  color: "#696969",
+                  fontSize: 16,
+                  marginBottom: 20,
+                  marginRight: 15,
+                }}
+                to={".."}
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigate(-1);
+                }}
+              >
+                <i
+                  style={{ marginRight: 9 }}
+                  className="fe fe-arrow-left text-black fs-13"
+                ></i>
+              </Link>
             Nuevo pago - Seguro {insurance.tipo} {insurance.nombre}
           </Card.Title>
           <Form noValidate validated={false} onSubmit={() => {}}>

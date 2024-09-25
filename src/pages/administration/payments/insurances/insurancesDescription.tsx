@@ -17,7 +17,7 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { countryOptions } from "../../accounting/companyUtils";
 import FileView from "../../accounting/components/fileView";
@@ -38,6 +38,7 @@ import {
 export default function InsurancesDescription(props) {
   //@ts-ignore
   const baseURL = import.meta.env.BASE_URL;
+  const navigate = useNavigate();
   const params = useParams();
   const insurance = seguros.find((seguro) => seguro.id === Number(params.id));
   const familyMembersOptions = formatFamilyMembers(family.members);
@@ -741,6 +742,24 @@ export default function InsurancesDescription(props) {
           <Row>
             <Card style={{ padding: 30, marginTop: 20, minHeight: 550 }}>
               <h4 className="mb-3 fw-semibold">
+              <Link
+                style={{
+                  color: "#696969",
+                  fontSize: 16,
+                  marginBottom: 20,
+                  marginRight: 15,
+                }}
+                to={".."}
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigate(-1);
+                }}
+              >
+                <i
+                  style={{ marginRight: 9 }}
+                  className="fe fe-arrow-left text-black fs-13"
+                ></i>
+              </Link>
               {renderIcon()} Seguro {insurance.tipo} - {insurance.nombre}
               </h4>
 

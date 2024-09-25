@@ -8,7 +8,7 @@ import {
   InputGroup,
   Nav,
   Tab,
-  Table
+  Table,
 } from "react-bootstrap";
 import Select from "react-select";
 import { MultiSelect } from "react-multi-select-component";
@@ -367,9 +367,7 @@ export default function BanksAccountsItem(props) {
           >
             <Link
               style={{ color: "white" }}
-              to={`${
-                baseUrl
-              }administration/providerCreate/standar`}
+              to={`${baseUrl}administration/providerCreate/standar`}
             >
               + Añadir nuevo contacto
             </Link>
@@ -380,7 +378,7 @@ export default function BanksAccountsItem(props) {
             display: "flex",
             flexDirection: "row",
             marginBottom: 10,
-            justifyContent: existringContacts ? 'left' : 'center'
+            justifyContent: existringContacts ? "left" : "center",
           }}
         >
           <p
@@ -391,7 +389,8 @@ export default function BanksAccountsItem(props) {
             }}
           >
             Para añadir un contacto existente en proveedores y contactos, añade
-            '{accountSelected.bank} - {accountSelected.accountNumber}' a su lista de activos relacionados{" "}
+            '{accountSelected.bank} - {accountSelected.accountNumber}' a su
+            lista de activos relacionados{" "}
             <Link
               style={{ fontSize: 12 }}
               to={`${baseUrl}administration/providers`}
@@ -440,9 +439,9 @@ export default function BanksAccountsItem(props) {
             </Table>
           </div>
         ) : (
-          <p style={{ fontSize: 12, color: "gray", textAlign: 'center' }}>
-            Aún no hay ningun contacto seleccionado para{" "}
-            {accountSelected.bank} - {accountSelected.accountNumber}
+          <p style={{ fontSize: 12, color: "gray", textAlign: "center" }}>
+            Aún no hay ningun contacto seleccionado para {accountSelected.bank}{" "}
+            - {accountSelected.accountNumber}
           </p>
         )}
       </>
@@ -454,19 +453,22 @@ export default function BanksAccountsItem(props) {
       <Row style={{ padding: 20 }}>
         <Card.Title style={{ marginBottom: 15 }}>
           <Link
-            style={{color: '#696969', fontSize: 16, marginBottom: 20, marginRight: 15}}
-            to={'..'}
+            style={{
+              color: "#696969",
+              fontSize: 16,
+              marginBottom: 20,
+              marginRight: 15,
+            }}
+            to={".."}
             onClick={(e) => {
               e.preventDefault();
               navigate(-1);
             }}
           >
-            <div style={{display: 'flex', flexDirection: 'row', marginBottom: 20}}>
-              <i
-                style={{ marginRight: 9 }}
-                className="fe fe-arrow-left text-black fs-13"
-              ></i> <p style={{fontSize: 12}}>Volver</p>
-            </div>
+            <i
+              style={{ marginRight: 9 }}
+              className="fe fe-arrow-left text-black fs-13"
+            ></i>
           </Link>
           <i
             style={{ marginRight: 9 }}

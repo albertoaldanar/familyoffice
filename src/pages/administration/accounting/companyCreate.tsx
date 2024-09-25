@@ -10,7 +10,7 @@ import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import dayjs, { Dayjs } from "dayjs";
 import FileUpload from "./components/fileUpload";
 import FileView from "./components/fileView";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { fideicomisos } from "./accountingData";
 import { useParams } from "react-router-dom";
 import { family } from "../../governance/familyStructure/familyStructureData";
@@ -23,6 +23,7 @@ import { formatProviderContacts } from "../providers/providersUtils";
 export default function CompanyCreate(props) {
   //@ts-ignore
   const baseUrl = import.meta.env.BASE_URL;
+  const navigate = useNavigate();
   const providersList = formatProviderContacts(providers);
   const [companyName, setCompanyName] = useState("");
   const [rfc, setRFC] = useState("");
@@ -310,6 +311,19 @@ export default function CompanyCreate(props) {
       <Row>
         <Card style={{ padding: 30, marginTop: 20 }}>
           <Card.Title style={{ marginBottom: 35 }}>
+            <Link
+                style={{color: '#696969', fontSize: 16, marginBottom: 20, marginRight: 15}}
+                to={'..'}
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigate(-1);
+                }}
+              >
+                <i
+                style={{ marginRight: 9 }}
+                className="fe fe-arrow-left text-black fs-13"
+              ></i>
+            </Link>
             <i
               style={{ marginRight: 9 }}
               className="fe fe-briefcase text-black fs-15"

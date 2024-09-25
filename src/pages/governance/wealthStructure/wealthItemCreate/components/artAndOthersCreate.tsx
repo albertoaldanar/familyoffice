@@ -12,11 +12,12 @@ import { formatTrust } from "../../../../administration/accounting/companyUtils"
 import { formatCompany } from "../../../../administration/accounting/companyUtils";
 import { providers } from "../../../../administration/providers/providersData";
 import { formatProviderContacts } from "../../../../administration/providers/providersUtils";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function ArtAndOthersCreate(props) {
   //@ts-ignore
   const baseUrl = import.meta.env.BASE_URL;
+  const navigate = useNavigate();
   const familyList = formatMember(family.members);
   const companiesList = formatCompany(companies);
   const providersList = formatProviderContacts(providers);
@@ -221,6 +222,19 @@ export default function ArtAndOthersCreate(props) {
     <Fragment>
       <Row style={{padding: 20}}>
           <Card.Title style={{ marginBottom: 35 }}>
+          <Link
+              style={{color: '#696969', fontSize: 16, marginBottom: 20, marginRight: 15}}
+              to={'..'}
+              onClick={(e) => {
+                e.preventDefault();
+                navigate(-1);
+              }}
+            >
+            <i
+            style={{ marginRight: 9 }}
+            className="fe fe-arrow-left text-black fs-13"
+          ></i>
+          </Link>
             <i
               style={{ marginRight: 9 }}
               className="fe fe-watch text-black fs-15"

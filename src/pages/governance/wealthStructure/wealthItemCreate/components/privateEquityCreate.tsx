@@ -20,11 +20,12 @@ import {
   formatTrust,
 } from "../../../../administration/accounting/companyUtils";
 //@ts-ignore
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function PrivateEquityCreate(props) {
   //@ts-ignore
   const baseUrl = import.meta.env.BASE_URL;
+  const navigate = useNavigate();
   const familyList = formatMember(family.members);
   const companiesList = formatCompany(companies);
   const trustsList = formatTrust(fideicomisos);
@@ -1029,6 +1030,19 @@ export default function PrivateEquityCreate(props) {
     <Fragment>
       <Row style={{ padding: 20 }}>
         <Card.Title style={{ marginBottom: 35 }}>
+          <Link
+              style={{color: '#696969', fontSize: 16, marginBottom: 20, marginRight: 15}}
+              to={'..'}
+              onClick={(e) => {
+                e.preventDefault();
+                navigate(-1);
+              }}
+            >
+            <i
+            style={{ marginRight: 9 }}
+            className="fe fe-arrow-left text-black fs-13"
+          ></i>
+          </Link>
           <i
             style={{ marginRight: 9 }}
             className="fe fe-activity text-black fs-15"

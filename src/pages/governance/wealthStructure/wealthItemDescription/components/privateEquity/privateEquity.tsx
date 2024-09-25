@@ -1014,20 +1014,22 @@ export default function PrivateEquity(props) {
       <Row style={{ padding: 20 }}>
         <Card.Title style={{ marginBottom: 10 }}>
           <Link
-            style={{color: '#696969', fontSize: 16, marginBottom: 20}}
-            to={'..'}
+            style={{
+              color: "#696969",
+              fontSize: 16,
+              marginBottom: 20,
+              marginRight: 15,
+            }}
+            to={".."}
             onClick={(e) => {
               e.preventDefault();
               navigate(-1);
             }}
           >
-            <div style={{display: 'flex', flexDirection: 'row', marginBottom: 20}}>
-              <i
-                style={{ marginRight: 9 }}
-                className="fe fe-arrow-left text-black fs-13"
-              ></i> <p style={{fontSize: 12}}>Volver</p>
-            </div>
-
+            <i
+              style={{ marginRight: 9 }}
+              className="fe fe-arrow-left text-black fs-13"
+            ></i>
           </Link>
           <i
             style={{ marginRight: 9 }}

@@ -12,9 +12,10 @@ import { fideicomisos } from "../../../../administration/accounting/accountingDa
 import { providers } from "../../../../administration/providers/providersData";
 import { formatProviderContacts } from "../../../../administration/providers/providersUtils";
 import { formatTrust } from "../../wealthStructureUtils";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function BanksAccountsCreate(props) {
+  const navigate = useNavigate();
   const membersList = formatMember(family.members);
   const companiesList = formatCompany(companies);
   const trustList = formatTrust(fideicomisos);
@@ -151,6 +152,19 @@ export default function BanksAccountsCreate(props) {
     <Fragment>
       <Row style={{ padding: 20 }}>
         <Card.Title style={{ marginBottom: 35 }}>
+          <Link
+            style={{color: '#696969', fontSize: 16, marginBottom: 20, marginRight: 15}}
+            to={'..'}
+            onClick={(e) => {
+              e.preventDefault();
+              navigate(-1);
+            }}
+          >
+            <i
+            style={{ marginRight: 9 }}
+            className="fe fe-arrow-left text-black fs-13"
+          ></i>
+          </Link>
           <i
             style={{ marginRight: 9 }}
             className="fe fe-credit-card text-black fs-15"

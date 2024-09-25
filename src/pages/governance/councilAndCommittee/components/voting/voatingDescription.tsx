@@ -11,7 +11,7 @@ import {
 } from "react-bootstrap";
 import dayjs, { Dayjs } from "dayjs";
 import Swal from "sweetalert2";
-import { useParams } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import {
   councilAndCommittieesData,
   currentUser,
@@ -26,6 +26,7 @@ import {
 } from "../../councilAndCommitteeUtils";
 
 export default function VotingDescription(props) {
+  const navigate = useNavigate();
   const params = useParams();
 
   if (!councilAndCommittieesData[params.type]) {
@@ -309,6 +310,24 @@ export default function VotingDescription(props) {
         <Card style={{ padding: 30, marginTop: 20 }}>
           <div style={{ display: "flex", flexDirection: "row" }}>
             <Card.Title style={{ marginBottom: 10 }}>
+            <Link
+              style={{
+                color: "#696969",
+                fontSize: 16,
+                marginBottom: 20,
+                marginRight: 15,
+              }}
+              to={".."}
+              onClick={(e) => {
+                e.preventDefault();
+                navigate(-1);
+              }}
+            >
+              <i
+                style={{ marginRight: 9 }}
+                className="fe fe-arrow-left text-black fs-13"
+              ></i>
+            </Link>
               Votación - {votingSelected.title}
             </Card.Title>
             {renderVotingStatus()}

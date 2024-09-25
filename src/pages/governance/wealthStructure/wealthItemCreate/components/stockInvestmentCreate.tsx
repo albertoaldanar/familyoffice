@@ -8,15 +8,19 @@ import { formatMember } from "../../../councilAndCommittee/councilAndCommitteeUt
 import { family } from "../../../familyStructure/familyStructureData";
 import { companies } from "../../../../administration/accounting/accountingData";
 import { fideicomisos } from "../../../../administration/accounting/accountingData";
-import { formatCompany, formatTrust } from "../../../../administration/accounting/companyUtils";
+import {
+  formatCompany,
+  formatTrust,
+} from "../../../../administration/accounting/companyUtils";
 import { providers } from "../../../../administration/providers/providersData";
 import { formatProviderContacts } from "../../../../administration/providers/providersUtils";
 //@ts-ignore
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function StockInvestmentCreate(props) {
   //@ts-ignore
   const baseUrl = import.meta.env.BASE_URL;
+  const navigate = useNavigate();
   const familyList = formatMember(family.members);
   const companiesList = formatCompany(companies);
   const trustsList = formatTrust(fideicomisos);
@@ -91,13 +95,10 @@ export default function StockInvestmentCreate(props) {
                   marginBottom: 4,
                 }}
               >
-                Porcentaje de <Link
-                    to={`${
-                      baseUrl
-                    }governance/familyMember/${member.value}`}
-                  >
-                   {member.label}
-                  </Link>
+                Porcentaje de{" "}
+                <Link to={`${baseUrl}governance/familyMember/${member.value}`}>
+                  {member.label}
+                </Link>
               </p>
               <InputGroup hasValidation style={{ marginBottom: 8 }}>
                 <Form.Control
@@ -128,13 +129,12 @@ export default function StockInvestmentCreate(props) {
                   marginBottom: 4,
                 }}
               >
-                Porcentaje de <Link
-                    to={`${
-                      baseUrl
-                    }administration/company/${company.value}/company`}
-                  >
-                   {company.label}
-                  </Link>
+                Porcentaje de{" "}
+                <Link
+                  to={`${baseUrl}administration/company/${company.value}/company`}
+                >
+                  {company.label}
+                </Link>
               </p>
               <InputGroup hasValidation style={{ marginBottom: 8 }}>
                 <Form.Control
@@ -165,13 +165,12 @@ export default function StockInvestmentCreate(props) {
                   marginBottom: 4,
                 }}
               >
-                Porcentaje de <Link
-                    to={`${
-                      baseUrl
-                    }administration/trustDescription/${trust.value}`}
-                  >
-                   {trust.label}
-                  </Link>
+                Porcentaje de{" "}
+                <Link
+                  to={`${baseUrl}administration/trustDescription/${trust.value}`}
+                >
+                  {trust.label}
+                </Link>
               </p>
               <InputGroup hasValidation style={{ marginBottom: 8 }}>
                 <Form.Control
@@ -286,6 +285,24 @@ export default function StockInvestmentCreate(props) {
     <Fragment>
       <Row style={{ padding: 20 }}>
         <Card.Title style={{ marginBottom: 35 }}>
+          <Link
+            style={{
+              color: "#696969",
+              fontSize: 16,
+              marginBottom: 20,
+              marginRight: 15,
+            }}
+            to={".."}
+            onClick={(e) => {
+              e.preventDefault();
+              navigate(-1);
+            }}
+          >
+            <i
+              style={{ marginRight: 9 }}
+              className="fe fe-arrow-left text-black fs-13"
+            ></i>
+          </Link>
           <i
             style={{ marginRight: 9 }}
             className="fe fe-trending-up text-black fs-15"

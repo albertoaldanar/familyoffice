@@ -26,6 +26,7 @@ import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import dayjs, { Dayjs } from "dayjs";
 import ResultsChart from "./components/resultsChart";
 import NotFoundSearch from "../../shared/notFoundSearch";
+import { useNavigate } from "react-router-dom";
 import { useParams, Link } from "react-router-dom";
 import { daysToAnualTax, daysUntilNextMonth17 } from "../taxes/taxesUtils";
 import { formateDateForUI } from "../payments/paymentUtils";
@@ -35,7 +36,7 @@ import { formatMember } from "../../governance/councilAndCommittee/councilAndCom
 export default function CompanyDescription() {
   //@ts-ignore
   const baseUrl = import.meta.env.BASE_URL;
-
+  const navigate = useNavigate();
   const months = [
     "Ene",
     "Feb",
@@ -1391,6 +1392,19 @@ export default function CompanyDescription() {
           <Card.Title
             style={{ marginLeft: 15, marginBottom: 0, marginTop: 35 }}
           >
+            <Link
+                style={{color: '#696969', fontSize: 16, marginBottom: 20, marginRight: 15}}
+                to={'..'}
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigate(-1);
+                }}
+              >
+                <i
+                style={{ marginRight: 9 }}
+                className="fe fe-arrow-left text-black fs-13"
+              ></i>
+            </Link>
             <i
               style={{ marginRight: 9 }}
               className="fe fe-briefcase text-black fs-15"
