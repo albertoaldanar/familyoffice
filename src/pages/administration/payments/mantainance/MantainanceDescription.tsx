@@ -10,7 +10,7 @@ import {
   Form,
   InputGroup,
 } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { mantenimientos } from "../paymentsData";
 import { useParams } from "react-router-dom";
 import Select from "react-select";
@@ -32,6 +32,7 @@ export default function MantainanceDescription(props) {
   //@ts-ignore
   const baseURL = import.meta.env.BASE_URL;
   const params = useParams();
+  const navigate = useNavigate();
   const mantainance = mantenimientos.find(
     (mantenimiento) => mantenimiento.id === Number(params.id)
   );
@@ -475,6 +476,24 @@ export default function MantainanceDescription(props) {
       <Row>
         <Card style={{ padding: 30, marginTop: 20, minHeight: 550 }}>
           <h4 className="mb-3 fw-semibold">
+            <Link
+              style={{
+                color: "#696969",
+                fontSize: 16,
+                marginBottom: 20,
+                marginRight: 15,
+              }}
+              to={".."}
+              onClick={(e) => {
+                e.preventDefault();
+                navigate(-1);
+              }}
+            >
+              <i
+                style={{ marginRight: 9 }}
+                className="fe fe-arrow-left text-black fs-13"
+              ></i>
+            </Link>
             <i
               style={{ marginRight: 9 }}
               className="fe fe-clipboard text-black fs-13"

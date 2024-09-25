@@ -6,7 +6,7 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import dayjs, { Dayjs } from "dayjs";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { family } from "../../../governance/familyStructure/familyStructureData";
 import { formatFamilyMembers } from "../../payments/paymentUtils";
 import { formatCompany } from "../../accounting/companyUtils";
@@ -15,6 +15,7 @@ import { countryOptions } from "../../accounting/companyUtils";
 import FileUpload from "../../accounting/components/fileUpload";
 
 export default function LoanCreate(props) {
+  const navigate = useNavigate();
   const familyOptions = formatFamilyMembers(family.members);
   const companiesList = formatCompany(companies);
   const [debtorNotLinkedName, setDebtorNotLinkedName] = useState("");
@@ -322,6 +323,24 @@ export default function LoanCreate(props) {
       <Row>
         <Card style={{ padding: 30, marginTop: 20 }}>
           <Card.Title style={{ marginBottom: 35 }}>
+           <Link
+              style={{
+                color: "#696969",
+                fontSize: 16,
+                marginBottom: 20,
+                marginRight: 15,
+              }}
+              to={".."}
+              onClick={(e) => {
+                e.preventDefault();
+                navigate(-1);
+              }}
+            >
+              <i
+                style={{ marginRight: 9 }}
+                className="fe fe-arrow-left text-black fs-13"
+              ></i>
+            </Link>
             Nuevo Registro de Prestamo otorgado
           </Card.Title>
           <Form noValidate validated={false} onSubmit={() => {}}>

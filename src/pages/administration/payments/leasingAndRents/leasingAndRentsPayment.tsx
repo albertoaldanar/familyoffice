@@ -14,7 +14,7 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import dayjs, { Dayjs } from "dayjs";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { arrendamientos } from "../paymentsData";
 import FileUpload from "../../accounting/components/fileUpload";
 import FileView from "../../accounting/components/fileView";
@@ -23,18 +23,14 @@ import { formateDateForUI } from "../paymentUtils";
 
 export default function LeasingAndRentPayment(props) {
   const params = useParams();
+  const navigate = useNavigate();
   const leasingAndRent = arrendamientos.find(
     (seguro) => seguro.id === Number(params.id)
   );
   const rentPayment = leasingAndRent.pagos.find(
     (pymnt) => pymnt.id === Number(params.paymentId)
   );
-  const isItPayed =
-    rentPayment.fechaDePago.length > 0 &&
-    rentPayment.comprobantePago.length > 0;
 
-  const fechaLimitePagoFormatted = formateDateForUI(rentPayment.limitePago);
-  const proxPagoFormatted = formateDateForUI(rentPayment.proximoPago);
   const fechaPagoFormatted = formateDateForUI(rentPayment.fechaDePago);
 
   const [year, setYear] = useState({
@@ -49,20 +45,11 @@ export default function LeasingAndRentPayment(props) {
 
   const [amount, setAmount] = useState(rentPayment.monto);
 
-  const [fechaLimitePago, setFechaLimitePago] = useState<Dayjs | null>(
-    dayjs(fechaLimitePagoFormatted)
-  );
-  const [proxPago, setProxPago] = useState<Dayjs | null>(
-    dayjs(proxPagoFormatted)
-  );
-
   const [fechaPago, setFechaPago] = useState<Dayjs | null>(
     dayjs(fechaPagoFormatted)
   );
 
   const [isComprobanteEditable, setIsComprobanteEditable] = useState(false);
-
-  const [hasBeenPayed, setHasBeenPayed] = useState(isItPayed);
 
   const Options = [
     { value: "2023", label: "2023" },
@@ -162,6 +149,24 @@ export default function LeasingAndRentPayment(props) {
       <Row>
         <Card style={{ padding: 30, marginTop: 20 }}>
           <Card.Title style={{ marginBottom: 30 }}>
+            <Link
+              style={{
+                color: "#696969",
+                fontSize: 16,
+                marginBottom: 20,
+                marginRight: 15,
+              }}
+              to={".."}
+              onClick={(e) => {
+                e.preventDefault();
+                navigate(-1);
+              }}
+            >
+              <i
+                style={{ marginRight: 9 }}
+                className="fe fe-arrow-left text-black fs-13"
+              ></i>
+            </Link>
             Registro de pago - Renta {leasingAndRent.tipo}{" "}
             {leasingAndRent.concepto}
           </Card.Title>

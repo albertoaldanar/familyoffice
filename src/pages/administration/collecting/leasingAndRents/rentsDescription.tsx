@@ -10,7 +10,7 @@ import {
   Form,
   InputGroup,
 } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import dayjs, { Dayjs } from "dayjs";
 import Select from "react-select";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
@@ -35,6 +35,7 @@ import {
 export default function RentDescription(props) {
   //@ts-ignore
   const baseURL = import.meta.env.BASE_URL;
+  const navigate = useNavigate();
   const params = useParams();
   const leasing = arrendamientos.find(
     (arrendamiento) => arrendamiento.id === Number(params.id)
@@ -531,6 +532,24 @@ export default function RentDescription(props) {
       <Row>
         <Card style={{ padding: 30, marginTop: 20, minHeight: 550 }}>
           <h4 className="mb-3 fw-semibold">
+            <Link
+              style={{
+                color: "#696969",
+                fontSize: 16,
+                marginBottom: 20,
+                marginRight: 15,
+              }}
+              to={".."}
+              onClick={(e) => {
+                e.preventDefault();
+                navigate(-1);
+              }}
+            >
+              <i
+                style={{ marginRight: 9 }}
+                className="fe fe-arrow-left text-black fs-13"
+              ></i>
+            </Link>
             Cobro de arrendamiento {leasing.tipo} - {leasing.concepto}
           </h4>
 
