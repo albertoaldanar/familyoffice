@@ -3,14 +3,16 @@ import {
   Button,
   Card,
   Col,
+  Tab,
+  Nav,
   Row,
   Form,
   InputGroup,
-  Nav,
   Table,
-  Tab,
 } from "react-bootstrap";
 import Select from "react-select";
+import { renderFlag } from "../../../../administration/accounting/companyUtils";
+import { calculateDaysOrMonthsLeft } from "../../../../administration/payments/paymentUtils";
 //@ts-ignore
 import { MultiSelect } from "react-multi-select-component";
 import FileUpload from "../../../../administration/accounting/components/fileUpload";
@@ -267,222 +269,553 @@ export default function RealStateItem(props) {
 
   const renderDocuments = () => {
     return (
+      <Row style={{ marginLeft: 15, marginTop: -10 }}>
+        <Form.Group as={Col} md="4" className="form-group">
+          <Form.Label className="form-label my-3">Esctrituras</Form.Label>
+          {realStateSelected.escrituras ? (
+            <FileView
+              title="Escrituras"
+              fileName={realStateSelected.actaConstitutiva}
+            />
+          ) : (
+            <FileUpload />
+          )}
+        </Form.Group>
+      </Row>
+    );
+  };
+
+  const renderObligationsCollection = () => {
+    return (
+      <div style={{ marginTop: 20 }}>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-between",
+            marginBottom: 20,
+          }}
+        >
+          <Card.Title style={{ fontSize: 13 }}>
+            <i
+              style={{ marginRight: 4 }}
+              className="fe fe-folder-plus fs-13"
+            ></i>{" "}
+            Cobro de arrendamiento
+          </Card.Title>
+          <Button
+            style={{
+              marginRight: 10,
+            }}
+            variant="default"
+            size="sm"
+          >
+            <Link
+              style={{ color: "black" }}
+              to={`${baseUrl}administration/rentCreate/type/realState/itemId/${realStateSelected.id}`}
+            >
+              + Añadir arrendamiento
+            </Link>
+          </Button>
+        </div>
+
+        {realStateSelected.obligations.rentsCollecting.length === 0 ? (
+          <p
+            style={{
+              marginLeft: 15,
+              color: "gray",
+              fontSize: 13,
+              marginTop: -15,
+            }}
+          >
+            Aún no hay registros de arrendamiento a cobrar para esta propiedad
+          </p>
+        ) : (
+          <div className="table-responsive">
+            <Table
+              className="table border text-nowrap text-md-nowrap mb-0"
+              style={{ fontSize: "12px" }}
+            >
+              <thead className="bg-light">
+                <tr>
+                  <th style={{ padding: "6px", fontSize: "12px" }}>Arrendatario</th>
+                  <th style={{ padding: "6px", fontSize: "12px" }}>País</th>
+                  <th style={{ padding: "6px", fontSize: "12px" }}>Monto</th>
+                  <th style={{ padding: "6px", fontSize: "12px" }}>Prox cobro:</th>
+                  <th style={{ padding: "6px", fontSize: "12px" }}></th>
+                </tr>
+              </thead>
+              <tbody>
+                {realStateSelected.obligations.rentsCollecting.map(
+                  (insurance, tb8) => (
+                    <tr key={tb8}>
+                    <td>{insurance.arrendatario}</td>
+                    <td>{renderFlag(insurance.country)}</td>
+                    <td>${insurance.monto} {insurance.moneda}</td>
+                    <td>{calculateDaysOrMonthsLeft(insurance.proxCobro)}</td>
+                    <td
+                      style={{
+                        cursor: "pointer",
+                        textDecoration: "underline",
+                        color: "#5488d2",
+                      }}
+                    >
+                      <Link to={`${baseUrl}administration/rentDescription/${insurance.id}`}>
+                        Ver
+                      </Link>
+                    </td>
+                  </tr>
+                  )
+                )}
+              </tbody>
+            </Table>
+          </div>
+        )}
+      </div>
+    );
+  };
+
+  const renderObligationsPayments = () => {
+    return (
       <>
-        <Row>
-          <Form.Group as={Col} md="4" className="form-group">
-            <Form.Label className="form-label my-3">Esctrituras</Form.Label>
-            {realStateSelected.escrituras ? (
-              <FileView
-                title="Escrituras"
-                fileName={realStateSelected.actaConstitutiva}
-              />
-            ) : (
-              <FileUpload />
-            )}
-          </Form.Group>
-        </Row>
+        <div style={{ marginTop: 5 }}>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+              marginBottom: 20,
+            }}
+          >
+            <Card.Title style={{ fontSize: 13 }}>
+              <i
+                style={{ marginRight: 4, marginTop: 15 }}
+                className="fe fe-map-pin fs-12"
+              ></i>{" "}
+              Pago de predial
+            </Card.Title>
+            <Button
+              style={{
+                marginRight: 10,
+              }}
+              variant="default"
+              size="sm"
+              className="mb-2"
+            >
+              <Link
+                style={{ color: "black" }}
+                to={`${baseUrl}administration/propertyTaxCreate/${realStateSelected.id}`}
+              >
+                + Añadir predial
+              </Link>
+            </Button>
+          </div>
+
+          {realStateSelected.obligations.popertyTaxes.length === 0 ? (
+            <p
+              style={{
+                marginLeft: 15,
+                color: "gray",
+                fontSize: 13,
+                marginTop: -10,
+              }}
+            >
+              Aún no hay registro de predial para esta propiedad
+            </p>
+          ) : (
+            <div className="table-responsive">
+              <Table
+                className="table border text-nowrap text-md-nowrap mb-0"
+                style={{ fontSize: "12px" }}
+              >
+                <thead className="bg-light">
+                  <tr>
+                    <th style={{ padding: "6px", fontSize: "12px" }}>Moneda</th>
+                    <th style={{ padding: "6px", fontSize: "12px" }}>País</th>
+                    <th style={{ padding: "6px", fontSize: "12px" }}>
+                      Frecuencia de pago
+                    </th>
+                    <th style={{ padding: "6px", fontSize: "12px" }}>
+                      Pagar en
+                    </th>
+                    <th style={{ padding: "6px", fontSize: "12px" }}></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {realStateSelected.obligations.popertyTaxes.map(
+                    (taxProperty, tb8) => (
+                      <tr key={tb8}>
+                        <td style={{ padding: "10px" }}>
+                          {taxProperty.moneda}
+                        </td>
+                        <td style={{ padding: "10px" }}>
+                          {renderFlag(taxProperty.country)}
+                        </td>
+                        <td style={{ padding: "10px" }}>
+                          {taxProperty.frecuenciaDePago}
+                        </td>
+                        <td style={{ padding: "10px" }}>
+                          {calculateDaysOrMonthsLeft(taxProperty.proxPago)}
+                        </td>
+                        <td
+                          style={{
+                            cursor: "pointer",
+                            textDecoration: "underline",
+                            color: "#5488d2",
+                            padding: "10px",
+                          }}
+                        >
+                          <Link
+                            state={{ taxProperty }}
+                            to={`${baseUrl}administration/propertyTaxDescription/${taxProperty.id}`}
+                          >
+                            Ver
+                          </Link>
+                        </td>
+                      </tr>
+                    )
+                  )}
+                </tbody>
+              </Table>
+            </div>
+          )}
+        </div>
+
+        <div style={{ marginTop: 50 }}>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+              marginBottom: 20,
+            }}
+          >
+            <Card.Title style={{ fontSize: 13 }}>
+              <i
+                style={{ marginRight: 4, marginTop: 15 }}
+                className="fe fe-clipboard fs-12"
+              ></i>{" "}
+              Pago de cuotas de mantenimientos
+            </Card.Title>
+            <Button
+              style={{
+                marginRight: 10,
+              }}
+              variant="default"
+              size="sm"
+              className="mb-2"
+            >
+              <Link
+                style={{ color: "black" }}
+                to={`${baseUrl}administration/mantainanceCreate/type/realState/itemId/${realStateSelected.id}`}
+              >
+                + Añadir mantenimiento
+              </Link>
+            </Button>
+          </div>
+
+          {realStateSelected.obligations.mantainances.length === 0 ? (
+            <p
+              style={{
+                marginLeft: 15,
+                color: "gray",
+                fontSize: 13,
+                marginTop: -10,
+              }}
+            >
+              Aún no hay registros de mantenimientos para esta propiedad
+            </p>
+          ) : (
+            <div className="table-responsive">
+              <Table
+                className="table border text-nowrap text-md-nowrap mb-0"
+                style={{ fontSize: "12px" }}
+              >
+                <thead className="bg-light">
+                  <tr>
+                    <th style={{ padding: "6px", fontSize: "12px" }}>
+                      Pago a:
+                    </th>
+                    <th style={{ padding: "6px", fontSize: "12px" }}>País</th>
+                    <th style={{ padding: "6px", fontSize: "12px" }}>Monto</th>
+                    <th style={{ padding: "6px", fontSize: "12px" }}>
+                      Prox pago
+                    </th>
+                    <th style={{ padding: "6px", fontSize: "12px" }}></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {realStateSelected.obligations.mantainances.map(
+                    (mantainance, tb8) => (
+                      <tr key={tb8}>
+                        <td style={{ padding: "10px" }}>{mantainance.pagoA}</td>
+                        <td style={{ padding: "10px" }}>
+                          {renderFlag(mantainance.conuntry)}
+                        </td>
+                        <td style={{ padding: "10px" }}>
+                          ${mantainance.monto} {mantainance.moneda}
+                        </td>
+                        <td style={{ padding: "10px" }}>
+                          {calculateDaysOrMonthsLeft(mantainance.proxPago)}
+                        </td>
+                        <td
+                          style={{
+                            cursor: "pointer",
+                            textDecoration: "underline",
+                            color: "#5488d2",
+                            padding: "10px",
+                          }}
+                        >
+                          <Link
+                            to={`${baseUrl}administration/mantainanceDescription/${mantainance.id}`}
+                          >
+                            Ver
+                          </Link>
+                        </td>
+                      </tr>
+                    )
+                  )}
+                </tbody>
+              </Table>
+            </div>
+          )}
+        </div>
+
+        <div style={{ marginTop: 50 }}>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+              marginBottom: 20,
+            }}
+          >
+            <Card.Title style={{ fontSize: 13 }}>
+              <i style={{ marginRight: 4 }} className="fe fe-edit-3 fs-13"></i>{" "}
+              Deudas y creditos
+            </Card.Title>
+            <Button
+              style={{
+                marginRight: 10,
+              }}
+              variant="default"
+              size="sm"
+            >
+              <Link
+                style={{ color: "black" }}
+                to={`${baseUrl}administration/debtCreate/type/realState/itemId/${realStateSelected.id}`}
+              >
+                + Añadir deuda
+              </Link>
+            </Button>
+          </div>
+
+          {realStateSelected.obligations.debt.length === 0 ? (
+            <p
+              style={{
+                marginLeft: 15,
+                color: "gray",
+                fontSize: 13,
+                marginTop: -15,
+              }}
+            >
+              Aún no hay registros de creditos o deudas para esta propiedad
+            </p>
+          ) : (
+            <div className="table-responsive">
+              <Table
+                className="table border text-nowrap text-md-nowrap mb-0"
+                style={{ fontSize: "12px" }}
+              >
+                <thead className="bg-light">
+                  <tr>
+                    <th style={{ padding: "6px", fontSize: "12px" }}>
+                      Monto otorgado
+                    </th>
+                    <th style={{ padding: "6px", fontSize: "12px" }}>
+                      % interes
+                    </th>
+                    <th style={{ padding: "6px", fontSize: "12px" }}>
+                      Por pagar
+                    </th>
+                    <th style={{ padding: "6px", fontSize: "12px" }}>
+                      Prox pago
+                    </th>
+                    <th style={{ padding: "6px", fontSize: "12px" }}></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {realStateSelected.obligations.debt.map((debt, tb8) => (
+                    <tr key={tb8}>
+                      <td style={{ padding: "10px" }}>
+                        ${debt.monto} {debt.moneda}
+                      </td>
+                      <td style={{ padding: "10px" }}>{debt.interes} %</td>
+                      <td style={{ padding: "10px" }}>
+                        ${debt.pagado} {debt.moneda}
+                      </td>
+                      <td style={{ padding: "10px" }}>
+                        {calculateDaysOrMonthsLeft(debt.proxPago)}
+                      </td>
+                      <td
+                        style={{
+                          cursor: "pointer",
+                          textDecoration: "underline",
+                          color: "#5488d2",
+                        }}
+                      >
+                        <Link
+                          to={`${baseUrl}administration/debtDescription/${debt.id}`}
+                        >
+                          Ver
+                        </Link>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </Table>
+            </div>
+          )}
+        </div>
+
+        <div style={{ marginTop: 50 }}>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+              marginBottom: 20,
+            }}
+          >
+            <Card.Title style={{ fontSize: 13 }}>
+              <i
+                style={{ marginRight: 4 }}
+                className="fe fe-folder-plus fs-13"
+              ></i>{" "}
+              Seguros de inmueble
+            </Card.Title>
+            <Button
+              style={{
+                marginRight: 10,
+              }}
+              variant="default"
+              size="sm"
+            >
+              <Link
+                style={{ color: "black" }}
+                to={`${baseUrl}administration/insuranceCreate/type/realState/itemId/${realStateSelected.id}`}
+              >
+                + Añadir seguro
+              </Link>
+            </Button>
+          </div>
+
+          {realStateSelected.obligations.insurances.length === 0 ? (
+            <p
+              style={{
+                marginLeft: 15,
+                color: "gray",
+                fontSize: 13,
+                marginTop: -15,
+              }}
+            >
+              Aún no hay registros de seguros para esta propiedad
+            </p>
+          ) : (
+            <div className="table-responsive">
+              <Table
+                className="table border text-nowrap text-md-nowrap mb-0"
+                style={{ fontSize: "12px" }}
+              >
+                <thead className="bg-light">
+                  <tr>
+                    <th style={{ padding: "6px", fontSize: "12px" }}>
+                      Aseguradora
+                    </th>
+                    <th style={{ padding: "6px", fontSize: "12px" }}>Moneda</th>
+                    <th style={{ padding: "6px", fontSize: "12px" }}>País</th>
+                    <th style={{ padding: "6px", fontSize: "12px" }}>
+                      Vigencia del
+                    </th>
+                    <th style={{ padding: "6px", fontSize: "12px" }}>
+                      Vigencia al
+                    </th>
+                    <th style={{ padding: "6px", fontSize: "12px" }}>
+                      Prox. pago en:
+                    </th>
+                    <th style={{ padding: "6px", fontSize: "12px" }}></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {realStateSelected.obligations.insurances.map(
+                    (insurance, tb8) => (
+                      <tr key={tb8}>
+                        <td>{insurance.nombreAseguradora}</td>
+                        <td>{insurance.moneda}</td>
+                        <td>{renderFlag(insurance.country)}</td>
+                        <td>{insurance.vigenciaDel}</td>
+                        <td>{insurance.vigenciaAl}</td>
+                        <td>{calculateDaysOrMonthsLeft(insurance.proxPago)}</td>
+                        <td
+                          style={{
+                            cursor: "pointer",
+                            textDecoration: "underline",
+                            color: "#5488d2",
+                          }}
+                        >
+                          <Link
+                            to={`${baseUrl}administration/insuranceDescription/${insurance.id}`}
+                          >
+                            Ver
+                          </Link>
+                        </td>
+                      </tr>
+                    )
+                  )}
+                </tbody>
+              </Table>
+            </div>
+          )}
+        </div>
       </>
     );
   };
 
-  const renderResponsabilities = () => {
-    const predialLinked = prediales.find(
-      (predial) => predial.linkedItemId === Number(props.id)
-    );
-    const mantainanceLinked = mantenimientos.find(
-      (mantainence) =>
-        mantainence.linkedItemId === Number(props.id) &&
-        mantainence.tipo === "Inmobiliario"
-    );
-    const creditLinked = creditos.find(
-      (credit) =>
-        credit.linkedItemId === Number(props.id) &&
-        credit.tipoCredito === "Hipotecario"
-    );
-    const insuranceLinked = seguros.find(
-      (seg) => seg.linkedItemId === Number(props.id) && seg.tipo === "Inmueble"
-    );
-    const rentLinked = arrendamientos.find(
-      (arr) =>
-        arr.linkedItemId === Number(props.id) && arr.tipo === "Inmobiliario"
-    );
-
+  const renderObligationsTabs = () => {
     return (
-      <div style={{ display: "flex", flexDirection: "row", marginLeft: 10 }}>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "space-evenly",
-            width: "25%",
-          }}
-        >
-          <p style={{ fontSize: 15, fontWeight: "700", fontStyle: "italic" }}>
-            Pagos
-          </p>
-
-          <div style={{ marginBottom: 20 }}>
-            <p style={{ fontSize: 13, marginRight: 10, marginBottom: -5 }}>
-              Predial:
-            </p>
-            {predialLinked ? (
-              <Link
-                to={`${baseUrl}administration/propertyTaxDescription/${predialLinked.id}`}
-                style={{
-                  fontSize: 13,
-                  textDecoration: "underline",
-                  cursor: "pointer",
-                  color: "#5488d2",
-                }}
-              >
-                Pago de predial
-              </Link>
-            ) : (
-              <Link
-                to={`${baseUrl}administration/propertyTaxCreate/${realStateSelected.id}`}
-                style={{
-                  fontSize: 12,
-                  textDecoration: "underline",
-                  cursor: "pointer",
-                  color: "gray",
-                }}
-              >
-                + Administrar predial
-              </Link>
-            )}
-          </div>
-
-          <div style={{ marginBottom: 20 }}>
-            <p style={{ fontSize: 13, marginRight: 10, marginBottom: -5 }}>
-              Mantenimiento:
-            </p>
-            {mantainanceLinked ? (
-              <Link
-                to={`${baseUrl}administration/mantainanceDescription/${mantainanceLinked.id}`}
-                style={{
-                  fontSize: 12,
-                  textDecoration: "underline",
-                  cursor: "pointer",
-                  color: "#5488d2",
-                }}
-              >
-                Ver pagos de mantenimiento
-              </Link>
-            ) : (
-              <Link
-                to={`${baseUrl}administration/mantainanceCreate/type/realState/itemId/${realStateSelected.id}`}
-                style={{
-                  fontSize: 12,
-                  textDecoration: "underline",
-                  cursor: "pointer",
-                  color: "gray",
-                }}
-              >
-                + Administrar mantenimientos
-              </Link>
-            )}
-          </div>
-          <div style={{ marginBottom: 20 }}>
-            <p style={{ fontSize: 13, marginRight: 10, marginBottom: -5 }}>
-              Credito:
-            </p>
-            {creditLinked ? (
-              <Link
-                to={`${baseUrl}administration/debtDescription/${creditLinked.id}`}
-                style={{
-                  fontSize: 12,
-                  textDecoration: "underline",
-                  cursor: "pointer",
-                  color: "#5488d2",
-                }}
-              >
-                Ver pago de credito hipotecario
-              </Link>
-            ) : (
-              <Link
-                to={`${baseUrl}administration/debtCreate/type/realState/itemId/${realStateSelected.id}`}
-                style={{
-                  fontSize: 12,
-                  textDecoration: "underline",
-                  cursor: "pointer",
-                  color: "gray",
-                }}
-              >
-                + Administrar credito
-              </Link>
-            )}
-          </div>
-          <div style={{ marginBottom: 20 }}>
-            <p style={{ fontSize: 13, marginRight: 10, marginBottom: -5 }}>
-              Seguro:
-            </p>
-            {insuranceLinked ? (
-              <Link
-                to={`${baseUrl}administration/insuraceDescription/${insuranceLinked.id}`}
-                style={{
-                  fontSize: 12,
-                  textDecoration: "underline",
-                  cursor: "pointer",
-                  color: "#5488d2",
-                }}
-              >
-                Ver pagos de seguro inmobiliario
-              </Link>
-            ) : (
-              <Link
-                to={`${baseUrl}administration/insuranceCreate/type/realState/itemId/${realStateSelected.id}`}
-                style={{
-                  fontSize: 12,
-                  textDecoration: "underline",
-                  cursor: "pointer",
-                  color: "gray",
-                }}
-              >
-                + Administrar seguro
-              </Link>
-            )}
-          </div>
+      <Tab.Container id="left-tabs-example" defaultActiveKey="first">
+        <div style={{ marginLeft: 15, marginTop: -15 }}>
+          <Nav
+            variant="pills"
+            as="ul"
+            className="nav panel-tabs mr-auto custom-nav"
+          >
+            <Nav.Item as="li" style={{ marginRight: 10 }}>
+              <Nav.Link eventKey="first" href="#">
+                <i
+                  style={{ marginRight: 9 }}
+                  className="fe fe-arrow-up-right text-black fs-13"
+                ></i>
+                Pagos
+              </Nav.Link>
+            </Nav.Item>
+            <Nav.Item as="li" style={{ marginRight: 10 }}>
+              <Nav.Link eventKey="second">
+                <i
+                  style={{ marginRight: 9 }}
+                  className="fe fe-arrow-down-right text-black fs-13"
+                ></i>
+                Cobranza
+              </Nav.Link>
+            </Nav.Item>
+          </Nav>
         </div>
 
-        <div
-          style={{ display: "flex", flexDirection: "column", marginLeft: 60 }}
-        >
-          <p style={{ fontSize: 15, fontWeight: "700", fontStyle: "italic" }}>
-            Cobranza
-          </p>
-
-          <div style={{ marginBottom: 20 }}>
-            <p style={{ fontSize: 13, marginRight: 10, marginBottom: -5 }}>
-              Arrendamiento:
-            </p>
-            {rentLinked ? (
-              <Link
-                to={`${baseUrl}administration/rentDescription/${rentLinked.id}`}
-                style={{
-                  fontSize: 13,
-                  textDecoration: "underline",
-                  cursor: "pointer",
-                  color: "#5488d2",
-                }}
-              >
-                Cobranza de arrendamiento vehicular
-              </Link>
-            ) : (
-              <Link
-                to={`${baseUrl}administration/rentCreate/type/realState/itemId/${realStateSelected.id}`}
-                style={{
-                  fontSize: 12,
-                  textDecoration: "underline",
-                  cursor: "pointer",
-                  color: "gray",
-                }}
-              >
-                + Administrar arrendamiento
-              </Link>
-            )}
-          </div>
-        </div>
-      </div>
+        <Tab.Content className="panel-body">
+          <Tab.Pane eventKey="first">{renderObligationsPayments()}</Tab.Pane>
+          <Tab.Pane eventKey="second">{renderObligationsCollection()}</Tab.Pane>
+        </Tab.Content>
+      </Tab.Container>
     );
   };
 
@@ -824,17 +1157,22 @@ export default function RealStateItem(props) {
       <Row style={{ marginTop: 0, padding: 20 }}>
         <Card.Title>
           <Link
-            style={{color: '#696969', fontSize: 16, marginBottom: 20, marginRight: 15}}
-            to={'..'}
+            style={{
+              color: "#696969",
+              fontSize: 16,
+              marginBottom: 20,
+              marginRight: 15,
+            }}
+            to={".."}
             onClick={(e) => {
               e.preventDefault();
               navigate(-1);
             }}
           >
             <i
-            style={{ marginRight: 9 }}
-            className="fe fe-arrow-left text-black fs-13"
-          ></i>
+              style={{ marginRight: 9 }}
+              className="fe fe-arrow-left text-black fs-13"
+            ></i>
           </Link>
           <i
             style={{ marginRight: 9 }}
@@ -906,7 +1244,7 @@ export default function RealStateItem(props) {
           <Tab.Content className="panel-body">
             <Tab.Pane eventKey="first">{renderDescription()}</Tab.Pane>
             <Tab.Pane eventKey="second">{renderDocuments()}</Tab.Pane>
-            <Tab.Pane eventKey="third">{renderResponsabilities()}</Tab.Pane>
+            <Tab.Pane eventKey="third">{renderObligationsTabs()}</Tab.Pane>
             <Tab.Pane eventKey="fourth">{renderOwners()}</Tab.Pane>
             <Tab.Pane eventKey="fifth">{renderContactList()}</Tab.Pane>
           </Tab.Content>

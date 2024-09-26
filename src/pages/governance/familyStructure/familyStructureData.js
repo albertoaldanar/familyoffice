@@ -52,6 +52,48 @@ export const family = {
       isMemberFC: true,
       trusteeOf: [],
       nationalities: ['Española', 'Mexicana'],
+      obligations: {
+        lifeInsurances: [],
+        medicalInsurances: [],
+        taxes: [
+          {
+            id: 29,
+            rfc: "NFINE324NFJ",
+            regimenFiscal: "Regimen de Dividendos",
+          }
+        ], 
+        debt: [
+          {
+            id: 28,
+            tipo: 'Prestamo de tercero',
+            acreedor: "Servando Aldana F.",
+            monto: "10,000,000.00",
+            pagado: "610,000.00",
+            porPagar: "45,000.00",
+            interes: "0",
+            proxPago: "29/12/2024",
+            frecuenciaDePago: "Mensual",
+            moneda: "MXN",
+          }
+        ], 
+        loansCollecting: [
+          {
+            id: 33,
+            deudor: "Raul Quintero Flores",
+            proxCobro: "10/10/2024",
+            country: 'México',
+            debtor: {
+              name: 'Raul Quintero Flores',
+            },
+            tipo: "Deuda Capital privado",
+            monto: "10,000,000.00 ",
+            porPagar: "10,000,000.00",
+            pagado: "1000.00",
+            moneda: "MXN",
+            interes: "9",
+          }
+        ]
+      },
       assets: [
         {
           id: 23,
@@ -171,6 +213,19 @@ export const family = {
       isMemberIC: false,
       isMemberFC: true,
       nationalities: ['Española', 'Mexicana'],
+      obligations: {
+        lifeInsurances: [
+
+        ],
+        medicalInsurances: [
+
+        ],
+        taxes: [], 
+        debt: [
+
+        ], 
+        loansCollecting: []
+      },
       assets: [
         {
           id: 23,
@@ -250,6 +305,46 @@ export const family = {
       coupleId: null,
       isMemberIC: false,
       isMemberFC: true,
+      obligations: {
+        lifeInsurances: [
+          {
+            id: 21,
+            country: 'México',
+            proxPago: "29/09/2024",
+            nombreAseguradora: "Seguros Monterrey",
+            moneda: "MXN",
+            vigenciaDel: "12/01/2024",
+            vigenciaAl: "12/01/2024",
+          }
+        ],
+        medicalInsurances: [],
+        taxes: [
+          {
+            id: 23,
+            rfc: "NFINE324NFJ",
+            regimenFiscal: "Régimen Simplificado de Confianza (RESICO)",
+          }
+        ], 
+        debt: [
+          {
+            id: 2,
+            proxCobro: "10/10/2024",
+            country: 'México',
+            creditor: {
+              name: 'Celsius SA de CV',
+              type: 'Empresa Familiar', 
+              linkedItemId: 24
+            },
+            tipo: "Prestamo intrafamiliar",
+            monto: "10,000.00",
+            porPagar: "9,000.00",
+            pagado: "1000.00",
+            moneda: "MXN",
+            interes: "0",
+          }
+        ], 
+        loansCollecting: []
+      },
       assets: [
         {
           id: 24,
@@ -284,6 +379,33 @@ export const family = {
       coupleId: null,
       isMemberIC: true,
       isMemberFC: true,
+      obligations: {
+        lifeInsurances: [
+          {
+            id: 20,
+            nombreAseguradora: "Seguros Monterrey",
+            moneda: "MXN",
+            country: 'México',
+            vigenciaDel: "20/12/2022",
+            vigenciaAl: "20/12/2070",
+            proxPago: "29/09/2024",
+          }
+        ],
+        medicalInsurances: [
+
+        ],
+        taxes: [
+          {
+            id: 26,
+            rfc: "NFINE324NFJ",
+            regimenFiscal: "Regimen de Introducción Fiscal (RIF)",
+          }
+        ], 
+        debt: [
+
+        ], 
+        loansCollecting: []
+      },
       assets: [
         {
           id: 1,
@@ -306,6 +428,27 @@ export const family = {
         }
       ],
       nationalities: ['Mexicana'],
+      obligations: {
+        lifeInsurances: [
+          {
+            id: 22,
+            proxPago: "29/09/2024",
+            country: 'México',
+            nombreAseguradora: "Seguros Monterrey",
+            moneda: "MXN",
+            vigenciaDel: "12/01/2024",
+            vigenciaAl: "12/01/2024",
+          }
+        ],
+        medicalInsurances: [
+
+        ],
+        taxes: [], 
+        debt: [
+
+        ], 
+        loansCollecting: []
+      },
       dob: '03/18/1998',
       address: 'Col Montebello Calle Cipres 233 Privada Colinas del Parque 81076',
       gender: 'Femenino',
@@ -325,6 +468,13 @@ export const family = {
       name: 'Gustavo Miranda Aldana',      
       trusteeOf: [],
       nationalities: ['Mexicana', 'Estadounidense'],
+      obligations: {
+        lifeInsurances: [],
+        medicalInsurances: [],
+        taxes: [], 
+        debt: [], 
+        loansCollecting: []
+      },
       gender: 'Masculino',
       address: 'Col Montebello Calle Cipres 233 Privada Colinas del Parque 81076',
       rfc: null,

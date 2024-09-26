@@ -8,13 +8,15 @@ import Pageheader from "../../../layouts/pageheader/pageheader";
 export default function Companies() {
   const breadcrumbs = ["Administración", "Proveedores de servicio"];
 
-  const renderTable= () => {
+  const renderTable = () => {
     return (
       <Col xl={12}>
-        <Card style={{borderWidth: 0}}>
+        <Card style={{ borderWidth: 0 }}>
           {providers.map((provider) => (
-           <div className="table-responsive" >
-              <Card.Title style={{ marginTop: 40, fontSize: 14, marginBottom: 5 }}>
+            <div className="table-responsive">
+              <Card.Title
+                style={{ marginTop: 40, fontSize: 14, marginBottom: 23 }}
+              >
                 {provider.categoria}
               </Card.Title>
               <Table className="table border text-nowrap text-md-nowrap mb-0">
@@ -42,11 +44,15 @@ export default function Companies() {
                           textDecoration: "underline",
                           color: "#5488d2",
                         }}
+                      >
+                        {/*// @ts-ignore */}
+                        <Link to={`${import.meta.env.BASE_URL
+                          }administration/providerDescription/${
+                            provider.id
+                          }/provider/${proveedor.id}`}
                         >
-                          {/*// @ts-ignore */}
-                          <Link to={`${ import.meta.env.BASE_URL }administration/providerDescription/${provider.id}/provider/${proveedor.id}`}>
-                            Ver
-                          </Link>
+                          Ver
+                        </Link>
                       </td>
                     </tr>
                   ))}
@@ -62,16 +68,27 @@ export default function Companies() {
   return (
     <Fragment>
       <Row>
-        <Card style={{ minHeight: 400, marginTop: 20, paddingRight: 20, paddingLeft: 20 }}>
+        <Card
+          style={{
+            minHeight: 400,
+            marginTop: 20,
+            paddingRight: 20,
+            paddingLeft: 20,
+          }}
+        >
           <div
             style={{
               justifyContent: "space-between",
               display: "flex",
               flexDirection: "row",
-              marginTop: 10
+              marginTop: 10,
             }}
           >
             <Card.Title style={{ marginLeft: 15, marginTop: 30 }}>
+              <i
+                style={{ marginRight: 9 }}
+                className="fe fe-book-open text-black fs-15"
+              ></i>
               Proveedores de servicio y Contactos
             </Card.Title>
             <Button
@@ -85,15 +102,18 @@ export default function Companies() {
               className=" mb-1"
             >
               {/*// @ts-ignore */}
-              <Link style={{ color: "white" }} to={`${import.meta.env.BASE_URL}administration/providerCreate/standar`}>
+              <Link
+                style={{ color: "white" }}
+                to={`${
+                  import.meta.env.BASE_URL
+                }administration/providerCreate/standar`}
+              >
                 + Añadir proveedor
               </Link>
             </Button>
           </div>
 
-          <div>
-            {renderTable()}
-          </div>
+          <div>{renderTable()}</div>
         </Card>
       </Row>
     </Fragment>

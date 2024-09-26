@@ -109,6 +109,43 @@ export const otherWealthData = {
       country: "México",
       platesNumber: "XBJ21NB3",
       invoice: "https://googledrive.com/erg3440398f4fmv",
+      obligations: {
+        mantainances: [
+          {
+            id: 22,
+            moneda: 'MXN',
+            pagoA: "Audi agencia",
+            mantainanceTo: "Audi-A3",
+            conuntry: 'México',
+            monto: "7,500.00",
+            proxPago: null,
+          },
+        ],
+        rentsCollecting: [], 
+        debt: [
+          {
+            id: 15,
+            monto: "600,000.00",
+            pagado: "210,000.00",
+            porPagar: "45,000.00",
+            interes: "12",
+            proxPago: "29/12/2024",
+            moneda: "MXN",
+          }
+        ], 
+        insurances: [
+          {
+            id: 23,
+            anualCost: "23,000.00",
+            proxPago: null,
+            country: 'México',
+            nombreAseguradora: "BBVA seguros",
+            moneda: "MXN",
+            vigenciaDel: "12/01/2024",
+            vigenciaAl: "12/01/2024",
+          }
+        ]
+      },
       contacts: [
         {
           id: 1,
@@ -147,6 +184,23 @@ export const otherWealthData = {
       circulationCard: "",
       currency: "USD",
       contacts: [],
+      obligations: {
+        mantainances: [],
+        rentsCollecting: [], 
+        debt: [], 
+        insurances: [
+          {
+            id: 25,
+            proxPago: "28/09/2024",
+            anualCost: "43,000.00",
+            country: 'México',
+            nombreAseguradora: "Seguros Monterrey",
+            moneda: "MXN",
+            vigenciaDel: "12/01/2024",
+            vigenciaAl: "12/01/2024",
+          }
+        ]
+      },
       platesNumber: "ABJ2NB3",
       invoice: "https://googledrive.com/erg3440398f4fmv",
       owners: [
@@ -172,6 +226,23 @@ export const otherWealthData = {
       platesNumber: "AARBYNB1",
       invoice: "https://googledrive.com/erg3440398f4fmv",
       contacts: [],
+      obligations: {
+        mantainances: [],
+        rentsCollecting: [], 
+        debt: [], 
+        insurances: [
+          {
+            id: 24,
+            anualCost: "23,000.00",
+            country: 'México',
+            proxPago: "01/11/2024",
+            nombreAseguradora: "Seguros Monterrey",
+            moneda: "MXN",
+            vigenciaDel: "12/01/2024",
+            vigenciaAl: "12/01/2024",
+          }
+        ]
+      },
       owners: [
         {
           type: "company",

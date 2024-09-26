@@ -2,22 +2,17 @@ import React, { Fragment } from "react";
 import {
   Button,
   Card,
-  Col,
   Table,
   Row,
-  Badge,
   Tab,
   Nav,
 } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
-import Pageheader from "../../../layouts/pageheader/pageheader";
 import { taxes } from "./taxesData";
 import { taxesRules } from "./taxesUtils";
 import { daysToAnualTax, daysUntilNextMonth17, daysUntilRIFDeclarationDeadline } from "./taxesUtils";
 
 export default function Taxes() {
-  const breadcrumbs = ["Administración", "Fiscal"];
-
   const params = useParams();
   const taxUserSelected = taxes.find((prov) => prov.id === Number(params.id));
 
