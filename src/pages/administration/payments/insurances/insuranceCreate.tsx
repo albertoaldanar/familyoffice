@@ -84,12 +84,13 @@ export default function InsuranceCreate(props) {
 
   const OptionsInsuranceType = [
     { value: "Vida", label: "Seguro de vida" },
+    { value: "Médico", label: "Seguro médico" },
     { value: "Inmobiliario", label: "Seguro Inmobiliario" },
     { value: "Vehicular", label: "Seguro Vehicular" },
   ];
 
   const handleTypeOfInsurance = () => {
-    if (insuranceType.value === "Vida") {
+    if (insuranceType.value === "Vida" || insuranceType.value === "Médico") {
       return (
         <Row className="mb-3">
           <Form.Group

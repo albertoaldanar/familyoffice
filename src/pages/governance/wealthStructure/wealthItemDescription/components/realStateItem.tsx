@@ -371,7 +371,7 @@ export default function RealStateItem(props) {
   const renderObligationsPayments = () => {
     return (
       <>
-        <div style={{ marginTop: 5 }}>
+        <div>
           <div
             style={{
               display: "flex",

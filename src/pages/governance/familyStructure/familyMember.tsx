@@ -579,7 +579,7 @@ export default function FamilyMember(props) {
           >
             <Card.Title style={{ fontSize: 13 }}>
               <i
-                style={{ marginRight: 4, marginTop: 15 }}
+                style={{ marginRight: 4, marginTop: 10 }}
                 className="fe fe-user fs-12"
               ></i>{" "}
               Seguros de vida
@@ -681,7 +681,7 @@ export default function FamilyMember(props) {
           >
             <Card.Title style={{ fontSize: 13 }}>
               <i
-                style={{ marginRight: 4, marginTop: 15 }}
+                style={{ marginRight: 4, marginTop: 10 }}
                 className="fe fe-heart fs-12"
               ></i>{" "}
               Seguros medicos
