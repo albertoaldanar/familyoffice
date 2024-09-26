@@ -341,7 +341,7 @@ export default function LoanCreate(props) {
                 className="fe fe-arrow-left text-black fs-13"
               ></i>
             </Link>
-            Nuevo Registro de Prestamo otorgado
+            Nuevo Registro de Prestamo por cobrar
           </Card.Title>
           <Form noValidate validated={false} onSubmit={() => {}}>
             <Row style={{ marginBottom: 10 }}>

@@ -60,6 +60,7 @@ export const family = {
             id: 29,
             rfc: "NFINE324NFJ",
             regimenFiscal: "Regimen de Dividendos",
+            country: 'México'
           }
         ], 
         debt: [
@@ -323,12 +324,13 @@ export const family = {
             id: 23,
             rfc: "NFINE324NFJ",
             regimenFiscal: "Régimen Simplificado de Confianza (RESICO)",
+            country: 'México'
           }
         ], 
         debt: [
           {
             id: 2,
-            proxCobro: "10/10/2024",
+            proxPago: "10/10/2024",
             country: 'México',
             creditor: {
               name: 'Celsius SA de CV',
@@ -399,6 +401,7 @@ export const family = {
             id: 26,
             rfc: "NFINE324NFJ",
             regimenFiscal: "Regimen de Introducción Fiscal (RIF)",
+            country: 'México'
           }
         ], 
         debt: [

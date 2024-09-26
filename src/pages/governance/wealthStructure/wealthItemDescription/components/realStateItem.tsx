@@ -17,15 +17,8 @@ import { calculateDaysOrMonthsLeft } from "../../../../administration/payments/p
 import { MultiSelect } from "react-multi-select-component";
 import FileUpload from "../../../../administration/accounting/components/fileUpload";
 import FileView from "../../../../administration/accounting/components/fileView";
-import { arrendamientos } from "../../../../administration/collecting/collectingData";
 import { realstateData } from "../../../../investments/realState/realStateData";
 import NotFoundSearch from "../../../../shared/notFoundSearch";
-import {
-  prediales,
-  mantenimientos,
-  creditos,
-  seguros,
-} from "../../../../administration/payments/paymentsData";
 import { Link, useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { fideicomisos } from "../../../../administration/accounting/accountingData";
@@ -791,7 +784,7 @@ export default function RealStateItem(props) {
             className="nav panel-tabs mr-auto custom-nav"
           >
             <Nav.Item as="li" style={{ marginRight: 10 }}>
-              <Nav.Link eventKey="first" href="#">
+              <Nav.Link eventKey="first" href="#" style={{fontSize: 12}}>
                 <i
                   style={{ marginRight: 9 }}
                   className="fe fe-arrow-up-right text-black fs-13"
@@ -800,7 +793,7 @@ export default function RealStateItem(props) {
               </Nav.Link>
             </Nav.Item>
             <Nav.Item as="li" style={{ marginRight: 10 }}>
-              <Nav.Link eventKey="second">
+              <Nav.Link eventKey="second" style={{fontSize: 12}}>
                 <i
                   style={{ marginRight: 9 }}
                   className="fe fe-arrow-down-right text-black fs-13"

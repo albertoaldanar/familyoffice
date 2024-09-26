@@ -16,8 +16,6 @@ import FileUpload from "../../../../administration/accounting/components/fileUpl
 import { otherWealthData } from "../../wealthStructureData";
 import NotFoundSearch from "../../../../shared/notFoundSearch";
 import FileView from "../../../../administration/accounting/components/fileView";
-import { mantenimientos, creditos, seguros } from "../../../../administration/payments/paymentsData";
-import { arrendamientos } from "../../../../administration/collecting/collectingData";
 import { Link, useNavigate } from "react-router-dom";
 import { family } from "../../../familyStructure/familyStructureData";
 import { companies } from "../../../../administration/accounting/accountingData";
@@ -25,6 +23,8 @@ import { formatCompany, formatOwnersData } from "../../../../administration/acco
 import { fideicomisos } from "../../../../administration/accounting/accountingData";
 import { formatMember } from "../../../councilAndCommittee/councilAndCommitteeUtils";
 import { MultiSelect } from "react-multi-select-component";
+import { renderFlag } from "../../../../administration/accounting/companyUtils";
+import { calculateDaysOrMonthsLeft } from "../../../../administration/payments/paymentUtils";
 import { countryOptions, formatTrust } from "../../../../administration/accounting/companyUtils";
 import { useParams } from "react-router-dom";
 
@@ -270,153 +270,434 @@ export default function VehicleItem(props) {
     );
   };
 
-  const renderResponsabilities = () => {
-    const mantainanceLinked = mantenimientos.find(mantainence => mantainence.linkedItemId === Number(props.id) && mantainence.tipo === 'Vehicular');
-    const creditLinked = creditos.find(credit => credit.linkedItemId === Number(props.id) && credit.tipoCredito === 'Vehicular');
-    const insuranceLinked = seguros.find(seg => seg.linkedItemId === Number(props.id) && seg.tipo === 'Vehicular');
-    const rentLinked = arrendamientos.find(arr => arr.linkedItemId === Number(props.id) && arr.tipo === 'Vehicular');
-
+  const renderObligationsCollection = () => {
     return (
-      <div style={{display: 'flex', flexDirection: 'row', marginLeft: 10}}>
-        <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-evenly', width: '25%'}}>
-          <p style={{fontSize: 15, fontWeight: '700', fontStyle: 'italic'}}>Pagos</p>
-
-
-          <div style={{marginBottom: 20}}>
-            <p style={{fontSize: 13, marginRight: 10,  marginBottom: -5}}>Mantenimiento:</p>
-            {
-              mantainanceLinked ? (
-                  <Link
-                    // @ts-ignore */
-                    to={`${import.meta.env.BASE_URL}administration/mantainanceDescription/${mantainanceLinked.id}`}
-                    style={{
-                      fontSize: 12,
-                      textDecoration: "underline",
-                      cursor: "pointer",
-                      color: "#5488d2",
-                    }}
-                  >
-                    Ver pagos de mantenimiento
-                  </Link>
-              ) : (
-                <Link
-                // @ts-ignore */
-                to={`${import.meta.env.BASE_URL}administration/mantainanceCreate/type/vehicle/itemId/${vehicleSelected.id}`}
-                style={{
-                  fontSize: 12,
-                  textDecoration: "underline",
-                  cursor: "pointer",
-                  color: "gray",
-                }}
-              >
-                + Administrar mantenimientos
-              </Link>
-              )
-            }
-          </div>
-          <div style={{marginBottom: 20}}>
-            <p style={{fontSize: 13, marginRight: 10,  marginBottom: -5}}>Credito:</p>
-            {
-              creditLinked ? (
-                  <Link
-                    // @ts-ignore */
-                    to={`${import.meta.env.BASE_URL}administration/debtDescription/${creditLinked.id}`}
-                    style={{
-                      fontSize: 12,
-                      textDecoration: "underline",
-                      cursor: "pointer",
-                      color: "#5488d2",
-                    }}
-                  >
-                    Ver pago de credito vehicular
-                  </Link>
-              ) : (
-                <Link
-                // @ts-ignore */
-                to={`${import.meta.env.BASE_URL}administration/debtCreate/type/vehicle/itemId/${vehicleSelected.id}`}
-                style={{
-                  fontSize: 12,
-                  textDecoration: "underline",
-                  cursor: "pointer",
-                  color: "gray",
-                }}
-              >
-                + Administrar credito
-              </Link>
-              )
-            }
-           </div>
-           <div style={{marginBottom: 20}}>
-            <p style={{fontSize: 13, marginRight: 10, marginBottom: -5}}>Seguro:</p>
-            {
-              insuranceLinked ? (
-                  <Link
-                    // @ts-ignore */
-                    to={`${import.meta.env.BASE_URL}administration/insuraceDescription/${insuranceLinked.id}`}
-                    style={{
-                      fontSize: 12,
-                      textDecoration: "underline",
-                      cursor: "pointer",
-                      color: "#5488d2",
-                    }}
-                  >
-                    Ver pagos de seguro vehicular
-                  </Link>
-              ) : (
-                <Link
-                  // @ts-ignore */
-                  to={`${import.meta.env.BASE_URL}administration/insuranceCreate/type/vehicle/itemId/${vehicleSelected.id}`}
-                  style={{
-                    fontSize: 12,
-                    textDecoration: "underline",
-                    cursor: "pointer",
-                    color: "gray",
-                  }}
-                >
-                  + Administrar seguro
-                </Link>
-              )
-            }
-          </div>
+      <div style={{ marginTop: 20 }}>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-between",
+            marginBottom: 20,
+          }}
+        >
+          <Card.Title style={{ fontSize: 13 }}>
+            <i
+              style={{ marginRight: 4 }}
+              className="fe fe-folder-plus fs-13"
+            ></i>{" "}
+            Cobro de arrendamiento
+          </Card.Title>
+          <Button
+            style={{
+              marginRight: 10,
+            }}
+            variant="default"
+            size="sm"
+          >
+            <Link
+              style={{ color: "black" }}
+              to={`${baseUrl}administration/rentCreate/type/vehicle/itemId/${vehicleSelected.id}`}
+            >
+              + Añadir arrendamiento
+            </Link>
+          </Button>
         </div>
-       
-        <div style={{display: 'flex', flexDirection: 'column', marginLeft: 60 }}>
-        <p style={{fontSize: 15, fontWeight: '700', fontStyle: 'italic'}}>Cobranza</p>
 
-          <div style={{marginBottom: 20}}>
-            <p style={{fontSize: 13, marginRight: 10, marginBottom: -5}}>Arrendamiento:</p>
-            {
-              rentLinked ? (
-                <Link
-                  // @ts-ignore */
-                  to={`${import.meta.env.BASE_URL}administration/rentDescription/${rentLinked.id}`}
-                  style={{
-                    fontSize: 13,
-                    textDecoration: "underline",
-                    cursor: "pointer",
-                    color: "#5488d2",
-                  }}
-                >
-                  Cobranza de arrendamiento vehicular
-                </Link>
-              ) : (
-                <Link
-                  // @ts-ignore */
-                  to={`${import.meta.env.BASE_URL}administration/rentCreate/type/vehicle/itemId/${vehicleSelected.id}`}
-                  style={{
-                    fontSize: 12,
-                    textDecoration: "underline",
-                    cursor: "pointer",
-                    color: "gray",
-                  }}
-                >
-                  + Administrar arrendamiento
-                </Link>
-              )
-            }
+        {vehicleSelected.obligations.rentsCollecting.length === 0 ? (
+          <p
+            style={{
+              marginLeft: 15,
+              color: "gray",
+              fontSize: 13,
+              marginTop: -15,
+            }}
+          >
+            Aún no hay registros de arrendamiento a cobrar para este vehiculo
+          </p>
+        ) : (
+          <div className="table-responsive">
+            <Table
+              className="table border text-nowrap text-md-nowrap mb-0"
+              style={{ fontSize: "12px" }}
+            >
+              <thead className="bg-light">
+                <tr>
+                  <th style={{ padding: "6px", fontSize: "12px" }}>Arrendatario</th>
+                  <th style={{ padding: "6px", fontSize: "12px" }}>País</th>
+                  <th style={{ padding: "6px", fontSize: "12px" }}>Monto</th>
+                  <th style={{ padding: "6px", fontSize: "12px" }}>Prox cobro:</th>
+                  <th style={{ padding: "6px", fontSize: "12px" }}></th>
+                </tr>
+              </thead>
+              <tbody>
+                {vehicleSelected.obligations.rentsCollecting.map(
+                  (insurance, tb8) => (
+                    <tr key={tb8}>
+                    <td>{insurance.arrendatario}</td>
+                    <td>{renderFlag(insurance.country)}</td>
+                    <td>${insurance.monto} {insurance.moneda}</td>
+                    <td>{calculateDaysOrMonthsLeft(insurance.proxCobro)}</td>
+                    <td
+                      style={{
+                        cursor: "pointer",
+                        textDecoration: "underline",
+                        color: "#5488d2",
+                      }}
+                    >
+                      <Link to={`${baseUrl}administration/rentDescription/${insurance.id}`}>
+                        Ver
+                      </Link>
+                    </td>
+                  </tr>
+                  )
+                )}
+              </tbody>
+            </Table>
           </div>
-        </div>
+        )}
       </div>
+    );
+  };
+
+  const renderObligationsPayments = () => {
+    return (
+      <>
+        <div style={{ marginTop: 5 }}>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+              marginBottom: 20,
+            }}
+          >
+            <Card.Title style={{ fontSize: 13 }}>
+              <i
+                style={{ marginRight: 4, marginTop: 15 }}
+                className="fe fe-clipboard fs-12"
+              ></i>{" "}
+              Pago de cuotas de mantenimientos
+            </Card.Title>
+            <Button
+              style={{
+                marginRight: 10,
+              }}
+              variant="default"
+              size="sm"
+              className="mb-2"
+            >
+              <Link
+                style={{ color: "black" }}
+                to={`${baseUrl}administration/mantainanceCreate/type/vehicle/itemId/${vehicleSelected.id}`}
+              >
+                + Añadir mantenimiento
+              </Link>
+            </Button>
+          </div>
+
+          {vehicleSelected.obligations.mantainances.length === 0 ? (
+            <p
+              style={{
+                marginLeft: 15,
+                color: "gray",
+                fontSize: 13,
+                marginTop: -10,
+              }}
+            >
+              Aún no hay registros de mantenimientos para este vehiculo
+            </p>
+          ) : (
+            <div className="table-responsive">
+              <Table
+                className="table border text-nowrap text-md-nowrap mb-0"
+                style={{ fontSize: "12px" }}
+              >
+                <thead className="bg-light">
+                  <tr>
+                    <th style={{ padding: "6px", fontSize: "12px" }}>
+                      Pago a:
+                    </th>
+                    <th style={{ padding: "6px", fontSize: "12px" }}>País</th>
+                    <th style={{ padding: "6px", fontSize: "12px" }}>Monto</th>
+                    <th style={{ padding: "6px", fontSize: "12px" }}>
+                      Prox pago
+                    </th>
+                    <th style={{ padding: "6px", fontSize: "12px" }}></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {vehicleSelected.obligations.mantainances.map(
+                    (mantainance, tb8) => (
+                      <tr key={tb8}>
+                        <td style={{ padding: "10px" }}>{mantainance.pagoA}</td>
+                        <td style={{ padding: "10px" }}>
+                          {renderFlag(mantainance.conuntry)}
+                        </td>
+                        <td style={{ padding: "10px" }}>
+                          ${mantainance.monto} {mantainance.moneda}
+                        </td>
+                        <td style={{ padding: "10px" }}>
+                          {calculateDaysOrMonthsLeft(mantainance.proxPago)}
+                        </td>
+                        <td
+                          style={{
+                            cursor: "pointer",
+                            textDecoration: "underline",
+                            color: "#5488d2",
+                            padding: "10px",
+                          }}
+                        >
+                          <Link
+                            to={`${baseUrl}administration/mantainanceDescription/${mantainance.id}`}
+                          >
+                            Ver
+                          </Link>
+                        </td>
+                      </tr>
+                    )
+                  )}
+                </tbody>
+              </Table>
+            </div>
+          )}
+        </div>
+
+        <div style={{ marginTop: 50 }}>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+              marginBottom: 20,
+            }}
+          >
+            <Card.Title style={{ fontSize: 13 }}>
+              <i style={{ marginRight: 4 }} className="fe fe-edit-3 fs-13"></i>{" "}
+              Deudas y creditos
+            </Card.Title>
+            <Button
+              style={{
+                marginRight: 10,
+              }}
+              variant="default"
+              size="sm"
+            >
+              <Link
+                style={{ color: "black" }}
+                to={`${baseUrl}administration/debtCreate/type/vehicle/itemId/${vehicleSelected.id}`}
+              >
+                + Añadir deuda
+              </Link>
+            </Button>
+          </div>
+
+          {vehicleSelected.obligations.debt.length === 0 ? (
+            <p
+              style={{
+                marginLeft: 15,
+                color: "gray",
+                fontSize: 13,
+                marginTop: -15,
+              }}
+            >
+              Aún no hay registros de creditos o deudas para este vehiculo
+            </p>
+          ) : (
+            <div className="table-responsive">
+              <Table
+                className="table border text-nowrap text-md-nowrap mb-0"
+                style={{ fontSize: "12px" }}
+              >
+                <thead className="bg-light">
+                  <tr>
+                    <th style={{ padding: "6px", fontSize: "12px" }}>
+                      Monto otorgado
+                    </th>
+                    <th style={{ padding: "6px", fontSize: "12px" }}>
+                      % interes
+                    </th>
+                    <th style={{ padding: "6px", fontSize: "12px" }}>
+                      Por pagar
+                    </th>
+                    <th style={{ padding: "6px", fontSize: "12px" }}>
+                      Prox pago
+                    </th>
+                    <th style={{ padding: "6px", fontSize: "12px" }}></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {vehicleSelected.obligations.debt.map((debt, tb8) => (
+                    <tr key={tb8}>
+                      <td style={{ padding: "10px" }}>
+                        ${debt.monto} {debt.moneda}
+                      </td>
+                      <td style={{ padding: "10px" }}>{debt.interes} %</td>
+                      <td style={{ padding: "10px" }}>
+                        ${debt.pagado} {debt.moneda}
+                      </td>
+                      <td style={{ padding: "10px" }}>
+                        {calculateDaysOrMonthsLeft(debt.proxPago)}
+                      </td>
+                      <td
+                        style={{
+                          cursor: "pointer",
+                          textDecoration: "underline",
+                          color: "#5488d2",
+                        }}
+                      >
+                        <Link
+                          to={`${baseUrl}administration/debtDescription/${debt.id}`}
+                        >
+                          Ver
+                        </Link>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </Table>
+            </div>
+          )}
+        </div>
+
+        <div style={{ marginTop: 50 }}>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+              marginBottom: 20,
+            }}
+          >
+            <Card.Title style={{ fontSize: 13 }}>
+              <i
+                style={{ marginRight: 4 }}
+                className="fe fe-folder-plus fs-13"
+              ></i>{" "}
+              Seguros de vehiculo
+            </Card.Title>
+            <Button
+              style={{
+                marginRight: 10,
+              }}
+              variant="default"
+              size="sm"
+            >
+              <Link
+                style={{ color: "black" }}
+                to={`${baseUrl}administration/insuranceCreate/type/vehicle/itemId/${vehicleSelected.id}`}
+              >
+                + Añadir seguro
+              </Link>
+            </Button>
+          </div>
+
+          {vehicleSelected.obligations.insurances.length === 0 ? (
+            <p
+              style={{
+                marginLeft: 15,
+                color: "gray",
+                fontSize: 13,
+                marginTop: -15,
+              }}
+            >
+              Aún no hay registros de seguros para este vehiculo
+            </p>
+          ) : (
+            <div className="table-responsive">
+              <Table
+                className="table border text-nowrap text-md-nowrap mb-0"
+                style={{ fontSize: "12px" }}
+              >
+                <thead className="bg-light">
+                  <tr>
+                    <th style={{ padding: "6px", fontSize: "12px" }}>
+                      Aseguradora
+                    </th>
+                    <th style={{ padding: "6px", fontSize: "12px" }}>Moneda</th>
+                    <th style={{ padding: "6px", fontSize: "12px" }}>País</th>
+                    <th style={{ padding: "6px", fontSize: "12px" }}>
+                      Vigencia del
+                    </th>
+                    <th style={{ padding: "6px", fontSize: "12px" }}>
+                      Vigencia al
+                    </th>
+                    <th style={{ padding: "6px", fontSize: "12px" }}>
+                      Prox. pago en:
+                    </th>
+                    <th style={{ padding: "6px", fontSize: "12px" }}></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {vehicleSelected.obligations.insurances.map(
+                    (insurance, tb8) => (
+                      <tr key={tb8}>
+                        <td>{insurance.nombreAseguradora}</td>
+                        <td>{insurance.moneda}</td>
+                        <td>{renderFlag(insurance.country)}</td>
+                        <td>{insurance.vigenciaDel}</td>
+                        <td>{insurance.vigenciaAl}</td>
+                        <td>{calculateDaysOrMonthsLeft(insurance.proxPago)}</td>
+                        <td
+                          style={{
+                            cursor: "pointer",
+                            textDecoration: "underline",
+                            color: "#5488d2",
+                          }}
+                        >
+                          <Link
+                            to={`${baseUrl}administration/insuranceDescription/${insurance.id}`}
+                          >
+                            Ver
+                          </Link>
+                        </td>
+                      </tr>
+                    )
+                  )}
+                </tbody>
+              </Table>
+            </div>
+          )}
+        </div>
+      </>
+    );
+  };
+
+  const renderObligationsTabs = () => {
+    return (
+      <Tab.Container id="left-tabs-example" defaultActiveKey="first">
+        <div style={{ marginLeft: 15, marginTop: -15 }}>
+          <Nav
+            variant="pills"
+            as="ul"
+            className="nav panel-tabs mr-auto custom-nav"
+          >
+            <Nav.Item as="li" style={{ marginRight: 10 }}>
+              <Nav.Link eventKey="first" href="#" style={{fontSize: 12}}>
+                <i
+                  style={{ marginRight: 9 }}
+                  className="fe fe-arrow-up-right text-black fs-13"
+                ></i>
+                Pagos
+              </Nav.Link>
+            </Nav.Item>
+            <Nav.Item as="li" style={{ marginRight: 10 }}>
+              <Nav.Link eventKey="second" style={{fontSize: 12}}>
+                <i
+                  style={{ marginRight: 9 }}
+                  className="fe fe-arrow-down-right text-black fs-13"
+                ></i>
+                Cobranza
+              </Nav.Link>
+            </Nav.Item>
+          </Nav>
+        </div>
+
+        <Tab.Content className="panel-body">
+          <Tab.Pane eventKey="first">{renderObligationsPayments()}</Tab.Pane>
+          <Tab.Pane eventKey="second">{renderObligationsCollection()}</Tab.Pane>
+        </Tab.Content>
+      </Tab.Container>
     );
   };
 
@@ -851,7 +1132,7 @@ export default function VehicleItem(props) {
               {renderDocuments()}
             </Tab.Pane>
             <Tab.Pane eventKey="third">
-              {renderResponsabilities()}
+              {renderObligationsTabs()}
             </Tab.Pane>
             <Tab.Pane eventKey="fourth">
               {renderOwners()}
