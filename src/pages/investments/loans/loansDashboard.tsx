@@ -324,7 +324,7 @@ export default function LoansDashboard() {
               </div>
 
               <p style={{ marginBottom: -10, marginLeft: 30 }}>
-                Desgloce monto de cobros por mes
+                Desglose monto de cobros por mes
               </p>
               <ReactApexChart
                 options={{
@@ -345,7 +345,7 @@ export default function LoansDashboard() {
             </Row>
             <Row style={{ marginTop: 20, marginBottom: 0 }}>
               <p style={{ marginBottom: -10, marginLeft: 30 }}>
-                Desgloce de montos por cobrar
+                Desglose de montos por cobrar
               </p>
               <ReactApexChart
                 options={{

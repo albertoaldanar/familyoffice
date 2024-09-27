@@ -3,6 +3,7 @@ import { Card, Col, Row, Dropdown } from "react-bootstrap";
 import ReactApexChart from "react-apexcharts";
 import { Link } from "react-router-dom";
 import { stockInvestmentStats } from "./stockMarketData";
+import { WorldMap } from "../../../components/maps/simplemaps/data/simplemapdata";
 import {
   formatCurrency,
   formatByAssetForCurrency,
@@ -325,7 +326,7 @@ export default function StockInvestmentDashboard() {
 
             <Row style={{ marginTop: 0, marginBottom: 30 }}>
               <p style={{ marginBottom: -10, marginLeft: 30 }}>
-                Desgloce por inversiones
+                Desglose por inversiones
               </p>
               <ReactApexChart
                 options={{
@@ -349,35 +350,6 @@ export default function StockInvestmentDashboard() {
               <Col lg={4}>
                 <div style={{ padding: 10 }}>
                   <p style={{ marginBottom: 20 }}>
-                    Distribución por tipo de activo en {currency}
-                  </p>
-
-                  <ReactApexChart
-                    options={{ ...currencyChartOptions, labels: byType.labels }}
-                    series={byType.series}
-                    type="donut"
-                    width="100%"
-                  />
-                </div>
-              </Col>
-              <Col lg={4}>
-                <div style={{ padding: 10 }}>
-                  <p style={{ marginBottom: 20 }}>Distribución por industria en {currency}</p>
-
-                  <ReactApexChart
-                    options={{
-                      ...currencyChartOptions,
-                      labels: byIndustrie.labels,
-                    }}
-                    series={byIndustrie.series}
-                    type="donut"
-                    width="100%"
-                  />
-                </div>
-              </Col>
-              <Col lg={4}>
-                <div style={{ padding: 10 }}>
-                  <p style={{ marginBottom: 20 }}>
                     Distribución por país en {currency}
                   </p>
                   <ReactApexChart
@@ -390,6 +362,12 @@ export default function StockInvestmentDashboard() {
                     width="100%"
                   />
                 </div>
+              </Col>
+              <Col lg={4}>
+                <WorldMap
+                  countries={stockInvestmentStats.countries}
+                  setTooltipContent={setContent}
+                />
               </Col>
             </Row>
           </>

@@ -971,7 +971,7 @@ export default function RealStateDashboard() {
             <div style={{ marginRight: 40, marginTop: -6 }}>
               <OverlayTrigger
                 placement="top"
-                overlay={<Tooltip>Desgloce patrimonial</Tooltip>}
+                overlay={<Tooltip>Desglose patrimonial</Tooltip>}
               >
                 <i
                   style={{

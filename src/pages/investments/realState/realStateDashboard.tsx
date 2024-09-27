@@ -242,7 +242,7 @@ export default function RealStateDashboard() {
           <>
                       <Row style={{ marginTop: 20, marginBottom: 20 }}>
               <p style={{ marginBottom: -10, marginLeft: 30 }}>
-                Desgloce por valor de propiedad en {currency}
+                Desglose por valor de propiedad en {currency}
               </p>
               <ReactApexChart
                 options={{

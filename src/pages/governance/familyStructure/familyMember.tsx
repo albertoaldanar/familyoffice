@@ -860,7 +860,11 @@ export default function FamilyMember(props) {
                         }}
                       >
                         <Link
-                          to={`${baseUrl}administration/debtDescription/${debt.id}`}
+                          to={
+                            debt.tipo === 'Prestamo intrafamiliar' ? 
+                            `${baseUrl}administration/loanDescription/${debt.id}` : 
+                            `${baseUrl}administration/debtDescription/${debt.id}` 
+                          }
                         >
                           Ver
                         </Link>

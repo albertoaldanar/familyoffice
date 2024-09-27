@@ -335,7 +335,7 @@ export default function PrivateEquityDashboard() {
 
             <Row style={{ marginTop: 0, marginBottom: 30 }}>
               <p style={{ marginBottom: -10, marginLeft: 30 }}>
-                Desgloce por inversiones
+                Desglose por inversiones
               </p>
               <ReactApexChart
                 options={{
