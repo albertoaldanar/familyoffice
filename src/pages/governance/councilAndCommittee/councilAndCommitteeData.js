@@ -2,7 +2,7 @@ export const currentUser = {
   id: "12",
   name: "Alberto Aldana Ríos",
   role: "Miembro Familiar",
-}
+};
 
 export const councilAndCommittieesData = {
   investmentCommittee: {
@@ -33,106 +33,209 @@ export const councilAndCommittieesData = {
     meetings: [
       {
         id: 343,
+        meetingNumber: "1",
+        status: "Finalizada",
         title: "Junta de iniciaión de Comite de Inversión",
-        participants: [
-          {
-            name: "Francisco Aldana Fariñas",
-            role: "Miembro Familiar",
-            id: "23",
-          },
-          {
-            name: "Alberto Aldana Ríos",
-            role: "Miembro Familiar",
-            id: "12",
-          },
-          {
-            name: "Raul Aldana Fariñas",
-            role: "Asesor financiero",
-            id: "34",
-            providerCategory: 50,
-          },
-          {
-            name: "David Aldana Cañedo",
-            role: "Asesor Family Office",
-            id: "24",
-            providerCategory: 50,
-          },
-        ],
-        date: "12/05/2024",
-        time: '10:00 am',
-        modality: "Presencial",
-        location: "Club de golf la primavera",
-        meetingSubjects: `
-        -Hello Mark, hey I am having an issue running nightingale after the node upgrade. In MBH I am fine, but this is the error I am getting in nightingale. 
-        
-        -Hmm in this case scenario it will never show as  return this.renderMembershipNotificationsAlert(); will always be rendered
-        
-        -Because as it doesn’t return the alert we can’t dismiss it and therefore this.isMembershipPopupShown will never be set to true and so return this.renderOnBoardingToolTip(); will never render 
-        
-        -Hey Doug Hiba UX approved the changes of the PR and all comments have been solved, I’ve been barely able to work on this in the past days as I was working on a Santokh’s US, but now is ready
-        `,
-        callToAction: `
-        -Hello Mark, hey I am having an issue running nightingale after the node upgrade. In MBH I am fine, but this is the error I am getting in nightingale. 
-        
-        -Hmm in this case scenario it will never show as  return this.renderMembershipNotificationsAlert(); will always be rendered
-        
-        -Because as it doesn’t return the alert we can’t dismiss it and therefore this.isMembershipPopupShown will never be set to true and so return this.renderOnBoardingToolTip(); will never render 
-        
-        -Hey Doug Hiba UX approved the changes of the PR and all comments have been solved, I’ve been barely able to work on this in the past days as I was working on a Santokh’s US, but now is ready
-        `,
-      },
-    ],
-    votings: [
-      {
-        id: 223,
-        title: "Invertir en bienes raices Mazatlán",
-        isVotingFinished: true,
-        hiddenVotes: false,
-        createdBy: {
-          name: "Raul Aldana Fariñas",
-          role: "Asesor financiero",
-          id: "34",
+        linkedPreviousMeeting: {
+          id: null,
         },
         participants: [
           {
             name: "Francisco Aldana Fariñas",
             role: "Miembro Familiar",
             id: "23",
-            choiceSelected: 'Si'
           },
           {
             name: "Alberto Aldana Ríos",
             role: "Miembro Familiar",
             id: "12",
-            choiceSelected: 'No'
           },
           {
             name: "Raul Aldana Fariñas",
             role: "Asesor financiero",
             id: "34",
             providerCategory: 50,
-            choiceSelected: 'No'
           },
           {
             name: "David Aldana Cañedo",
             role: "Asesor Family Office",
             id: "24",
             providerCategory: 50,
-            choiceSelected: 'No'
           },
         ],
-        deadlineDate: "28/06/2024",
-        options:[
-          'Si', 
-          'No', 
-          'Voto nulo'
+        votings: [
+          {
+            id: 82,
+            title:
+              "Todos los miembros del comite deben presentar reporte semanal",
+            isVotingFinished: false,
+            hiddenVotes: true,
+            createdBy: {
+              name: "Santiago Ortiz",
+              role: "Account manager Family Office",
+              id: "254",
+            },
+            participants: [
+              {
+                name: "Francisco Aldana Fariñas",
+                role: "Miembro Familiar",
+                id: "23",
+                choiceSelected: null,
+              },
+              {
+                name: "Alberto Aldana Ríos",
+                role: "Miembro Familiar",
+                id: "12",
+                choiceSelected: "A FAVOR",
+              },
+              {
+                name: "Raul Aldana Fariñas",
+                role: "Asesor financiero",
+                id: "34",
+                providerCategory: 50,
+                choiceSelected: null,
+              },
+              {
+                name: "David Aldana Cañedo",
+                role: "Asesor Family Office",
+                id: "24",
+                providerCategory: 50,
+                choiceSelected: null,
+              },
+            ],
+            deadlineDate: "28/06/2024",
+            options: ["A FAVOR", "EN CONTRA"],
+            description: `
+              Esta votación es para decidir si todos los miembros del comite deben presentar reporte semanal
+            `,
+          },
         ],
-        description: `
-          Esta votación es para decidir se se utilizara el capital de la familia para invertir en los siguientes desarrollos en Mazatlá, sinaloa
-          - Estellare: $20,000,000 MXN
-          - Centro comercial la marina: $15,000,000 MXN
-          - Departamentos el CID la marina: $8,000,000 MXN
-        `,
+        date: "12/05/2024",
+        time: "10:00 am",
+        modality: "Presencial",
+        location: "Club de golf la primavera",
+        meetingSubjects: [
+          "Formato de los entregables que se tienen que mostrar en cada junta.",
+          "Presentación de cada uno de los integrantes y cual es su relación con la familia",
+          "Fijar objetivos proncipales del comite de inverión para este año",
+        ],
+        callToAction: [
+          {
+            title:
+              "Cada miembro debera presentar un template de resultados bimestrales para ser aprovado por la familia",
+            result: null,
+          },
+          {
+            title:
+              "David Aldana hara una presentación para siguiente junta donde mostrara plan financiero para proximo año",
+            result: null,
+          },
+        ],
+        reviewOfMinutes: [],
+      },
+      {
+        id: 344,
+        title:
+          "Segunda junta presentar oportunidad de inversion de desarrollo inmboiliario en madrid",
+        meetingNumber: "2",
+        status: "Finalizada",
+        linkedPreviousMeeting: { id: null },
+        participants: [
+          {
+            name: "Francisco Aldana Fariñas",
+            role: "Miembro Familiar",
+            id: "23",
+          },
+          {
+            name: "Alberto Aldana Ríos",
+            role: "Miembro Familiar",
+            id: "12",
+          },
+          {
+            name: "Raul Aldana Fariñas",
+            role: "Asesor financiero",
+            id: "34",
+            providerCategory: 50,
+          },
+          {
+            name: "David Aldana Cañedo",
+            role: "Asesor Family Office",
+            id: "24",
+            providerCategory: 50,
+          },
+        ],
+        votings: [],
+        date: "12/05/2024",
+        time: "10:00 am",
+        modality: "Presencial",
+        location: "Oficinas Aldana",
+        meetingSubjects: [
+          "Esta junta se realizo para presentar una oportunidad de inversion de un desarrollo inmobiliario en madrid.",
+        ],
+        callToAction: [
+          {
+            title:
+              "Presentar una desición de la inversión de desarrollo en Madrid",
+            result: null,
+          },
+        ],
+        reviewOfMinutes: [],
+      },
+      {
+        id: 542,
+        title: "Tercer junta definición de roles en Comite de Inversión",
+        meetingNumber: "3",
+        status: "Finalizada",
+        linkedPreviousMeeting: {
+          id: 343,
+          meetingNumber: "1",
+          title: "Junta de iniciaión de Comite de Inversión",
+        },
+        participants: [
+          {
+            name: "Francisco Aldana Fariñas",
+            role: "Miembro Familiar",
+            id: "23",
+          },
+          {
+            name: "Alberto Aldana Ríos",
+            role: "Miembro Familiar",
+            id: "12",
+          },
+          {
+            name: "Raul Aldana Fariñas",
+            role: "Asesor financiero",
+            id: "34",
+            providerCategory: 50,
+          },
+          {
+            name: "David Aldana Cañedo",
+            role: "Asesor Family Office",
+            id: "24",
+            providerCategory: 50,
+          },
+        ],
+        votings: [],
+        date: "12/05/2024",
+        time: "10:00 am",
+        modality: "Presencial",
+        location: "Club de golf la primavera",
+        meetingSubjects: [
+          "Revisión de los formatos entregables que brindaron todos los miembros.",
+        ],
+        callToAction: [],
+        reviewOfMinutes: [
+          {
+            title:
+              "Cada miembro debera presentar un template de resultados bimestrales para ser aprovado por la familia",
+            result: null,
+          },
+          {
+            title:
+              "David Aldana hara una presentación para siguiente junta donde mostrara plan financiero para proximo año ",
+            result: null,
+          },
+        ],
       },
     ],
   },
@@ -141,22 +244,22 @@ export const councilAndCommittieesData = {
       {
         id: "23",
         name: "Francisco Alberto Aldana Rios",
-        role: "Miembro Familiar"
+        role: "Miembro Familiar",
       },
       {
         id: "43",
         name: "Patricia Ríos Collantes",
-        role: "Miembro Familiar"
+        role: "Miembro Familiar",
       },
       {
         id: "13",
         name: "Alejandra Aldana Ríos",
-        role: "Miembro Familiar"
+        role: "Miembro Familiar",
       },
       {
         id: "12",
         name: "Alberto Aldana Ríos",
-        role: "Miembro Familiar"
+        role: "Miembro Familiar",
       },
       {
         id: "9",
@@ -172,78 +275,207 @@ export const councilAndCommittieesData = {
       {
         name: "Santiago Ortiz",
         role: "Account manager Family Office",
-        choiceSelected: 'EN CONTRA',
+        choiceSelected: "EN CONTRA",
         id: "254",
         providerCategory: 50,
       },
     ],
-    meetings: [],
-    votings: [
+    meetings: [
       {
-        id: 82,
-        title: "Vender empresa familiar de abuelo",
-        isVotingFinished: true,
-        hiddenVotes: true,
-        createdBy: {
-          name: "Santiago Ortiz",
-          role: "Account manager Family Office",
-          id: "254",
+        id: 411,
+        meetingNumber: "1",
+        status: "Finalizada",
+        title: "Junta de iniciaión de Consejo familiar",
+        linkedPreviousMeeting: {
+          id: null
         },
         participants: [
           {
-            id: "23",
-            name: "Francisco Alberto Aldana Rios",
+            name: "Francisco Aldana Fariñas",
             role: "Miembro Familiar",
-            choiceSelected: 'A FAVOR'
+            id: "23",
+          },
+          {
+            name: "Alberto Aldana Ríos",
+            role: "Miembro Familiar",
+            id: "12",
+          },
+        ],
+        votings: [],
+        date: "12/05/2024",
+        time: "10:00 am",
+        modality: "Presencial",
+        location: "Club de golf la primavera",
+        meetingSubjects: [
+          "Presentación de cada uno de los miembros del consejo familiar",
+          "Presentación de objetivos y metas del consejo familiar para este año",
+          "Presentación de Account Manager con todos los miembros de la familia",
+        ],
+        callToAction: [
+          {
+            title:
+              "Todos los miembros deben traer llenado el documento de identidad que se les enviara en esta junta",
+            result: null,
+          },
+        ],
+        reviewOfMinutes: [],
+      },
+      {
+        id: 391,
+        title: "Segunda junta definición de roles en consejo familiar",
+        meetingNumber: "2",
+        status: "Finalizada",
+        linkedPreviousMeeting: {
+          id: 411,
+          meetingNumber: "1",
+          title: "Junta de iniciaión de consejo familiar",
+        },
+        votings: [
+          {
+            id: 82,
+            title:
+              "Los menores de edad deben de participar en el consejo familiar",
+            isVotingFinished: true,
+            hiddenVotes: true,
+            createdBy: {
+              name: "Santiago Ortiz",
+              role: "Account manager Family Office",
+              id: "254",
+            },
+            participants: [
+              {
+                id: "23",
+                name: "Francisco Alberto Aldana Rios",
+                role: "Miembro Familiar",
+                choiceSelected: "A FAVOR",
+              },
+              {
+                id: "43",
+                name: "Patricia Ríos Collantes",
+                role: "Miembro Familiar",
+                choiceSelected: "A FAVOR",
+              },
+              {
+                id: "13",
+                name: "Alejandra Aldana Ríos",
+                role: "Miembro Familiar",
+                choiceSelected: "A FAVOR",
+              },
+              {
+                id: "12",
+                name: "Alberto Aldana Ríos",
+                role: "Miembro Familiar",
+                choiceSelected: "A FAVOR",
+              },
+              {
+                id: "9",
+                name: "Ana Sofia Aldana Ríos",
+                role: "Miembro Familiar",
+                choiceSelected: "EN CONTRA",
+              },
+              {
+                name: "David Aldana Cañedo",
+                role: "Asesor Family Office",
+                choiceSelected: "A FAVOR",
+                id: "24",
+                providerCategory: 50,
+              },
+              {
+                name: "Santiago Ortiz",
+                role: "Account manager Family Office",
+                choiceSelected: "EN CONTRA",
+                id: "254",
+                providerCategory: 50,
+              },
+            ],
+            deadlineDate: "28/06/2024",
+            options: ["A FAVOR", "EN CONTRA"],
+            description: `
+              Esta votación es para decidir si los menores de edad en la familia deberian de tener un rol en el consejo familiar
+            `,
+          },
+        ],
+        participants: [
+          {
+            name: "Francisco Aldana Fariñas",
+            role: "Miembro Familiar",
+            id: "23",
+          },
+          {
+            name: "Alberto Aldana Ríos",
+            role: "Miembro Familiar",
+            id: "12",
           },
           {
             id: "43",
+            role: "Miembro Familiar",
             name: "Patricia Ríos Collantes",
+          },
+        ],
+        date: "12/05/2024",
+        time: "10:00 am",
+        modality: "Presencial",
+        location: "Club de golf la primavera",
+        meetingSubjects: [
+          "Se realizo votación de inculir a menores en el consejo familiar",
+          "Conversación acerca de las votaciones relacionadas con activos fijos.",
+        ],
+        callToAction: [
+          {
+            title:
+              "Todos los miembros deben aprender las reglas del comite para la siguiente junta.",
+            result: null,
+          },
+        ],
+        reviewOfMinutes: [
+          {
+            title:
+              "Todos los miembros deben traer llenado el documento de identidad que se les enviara en esta junta",
+            result: "Cumplido",
+          },
+        ],
+      },
+      {
+        id: 401,
+        title: "Tercer junta tercer bimestre",
+        meetingNumber: "3",
+        status: "Finalizada",
+        linkedPreviousMeeting: {
+          id: 391,
+          meetingNumber: "2",
+          title: "Segunda junta definición de roles en consejo familiar",
+        },
+        votings: [],
+        participants: [
+          {
+            name: "Francisco Aldana Fariñas",
             role: "Miembro Familiar",
-            choiceSelected: 'A FAVOR'
+            id: "23",
           },
           {
-            id: "13",
-            name: "Alejandra Aldana Ríos",
-            role: "Miembro Familiar",
-            choiceSelected: 'A FAVOR'
-          },
-          {
-            id: "12",
             name: "Alberto Aldana Ríos",
             role: "Miembro Familiar",
-            choiceSelected: 'A FAVOR'
+            id: "12",
           },
           {
-            id: "9",
-            name: "Ana Sofia Aldana Ríos",
+            id: "43",
             role: "Miembro Familiar",
-            choiceSelected: 'EN CONTRA'
-          },
-          {
-            name: "David Aldana Cañedo",
-            role: "Asesor Family Office",
-            choiceSelected: 'A FAVOR',
-            id: "24",
-            providerCategory: 50,
-          },
-          {
-            name: "Santiago Ortiz",
-            role: "Account manager Family Office",
-            choiceSelected: 'EN CONTRA',
-            id: "254",
-            providerCategory: 50,
+            name: "Patricia Ríos Collantes",
           },
         ],
-        deadlineDate: "28/06/2024",
-        options:[
-          'A FAVOR', 
-          'EN CONTRA', 
+        date: "12/05/2024",
+        time: "10:00 am",
+        modality: "Presencial",
+        location: "Restaurante Cayena",
+        meetingSubjects: [],
+        callToAction: [],
+        reviewOfMinutes: [
+          {
+            title:
+              "Todos los miembros deben aprender las reglas del comite para la siguiente junta.",
+            result: "Cumplido",
+          },
         ],
-        description: `
-          Esta votación es para decidir si se vendera la empresa familiar del abuelo y repartir en partes iguales el valor de la venta
-          - La oferta formal es por 45,000,000 MXN de Grupo Martinez
-        `,
       },
     ],
   },

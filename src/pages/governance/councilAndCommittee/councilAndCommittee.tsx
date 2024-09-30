@@ -41,7 +41,7 @@ export default function CouncilAndCommittee() {
             </Tab.Pane>
 
             <Tab.Pane eventKey="third-council">
-              <Votings votingType='familyCouncil' />
+              {/* <Votings votingType='familyCouncil' /> */}
             </Tab.Pane>
           </Tab.Content>
         </Tab.Container>

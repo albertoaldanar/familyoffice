@@ -32,7 +32,18 @@ export default function VotingDescription(props) {
   if (!councilAndCommittieesData[params.type]) {
     return <NotFoundSearch />;
   }
-  const votingSelected = councilAndCommittieesData[params.type].votings.find(
+
+  const meetingSelected = councilAndCommittieesData[params.type].meetings.find(
+    (meet) => meet.id === Number(params.meetingId)
+  );
+
+  console.log('meetingSelectd---', meetingSelected);
+
+  if (!meetingSelected) {
+    return <NotFoundSearch />;
+  }
+
+  const votingSelected = meetingSelected.votings.find(
     (votes) => votes.id === Number(params.id)
   );
 
@@ -113,7 +124,7 @@ export default function VotingDescription(props) {
                 }}
                 key={index}
               >
-                {vote.choiceSelected.length
+                {vote.choiceSelected
                   ? !votingSelected.hiddenVotes ||
                     votingSelected.isVotingFinished
                     ? vote.choiceSelected

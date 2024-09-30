@@ -3,7 +3,6 @@ import { Card, Row, Tab, Nav } from "react-bootstrap";
 import Structure from "./components/structure";
 import { councilAndCommittieesData } from "./councilAndCommitteeData";
 import { Meetings } from "./components/meetings/meetings";
-import { Votings } from "./components/voting/voting";
 
 export default function FamilyCouncil() {
   const renderInvestmentCommittee = () => {
@@ -33,16 +32,6 @@ export default function FamilyCouncil() {
                   Reuniones 
                 </Nav.Link>
               </Nav.Item>
-
-              <Nav.Item as="li" style={{ marginRight: 10 }}>
-                <Nav.Link eventKey="third-committee">
-                  <i
-                    style={{ marginRight: 9 }}
-                    className="fe fe-thumbs-up text-black fs-15"
-                  ></i>
-                  Votaciones 
-                </Nav.Link>
-              </Nav.Item>
             </Nav>
           </div>
           <Tab.Content className="panel-body">
@@ -58,9 +47,6 @@ export default function FamilyCouncil() {
               <Meetings meetingType="investmentCommittee" />
             </Tab.Pane>
 
-            <Tab.Pane eventKey="third-committee">
-              <Votings votingType="investmentCommittee" />
-            </Tab.Pane>
           </Tab.Content>
         </Tab.Container>
       </div>

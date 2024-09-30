@@ -360,7 +360,7 @@ export const Routingdata=[
 {path:`${import.meta.env.BASE_URL}governance/councilAndCommittee/meetingCreate/:type` ,element : <MeetingCreate/>},
 {path:`${import.meta.env.BASE_URL}governance/councilAndCommittee/meetingDescription/type/:type/id/:id` ,element : <MeetingDescription/>},
 {path:`${import.meta.env.BASE_URL}governance/councilAndCommittee/voatingCreate/:type` ,element : <VoatingCreate/>},
-{path:`${import.meta.env.BASE_URL}governance/councilAndCommittee/voatingDescription/type/:type/id/:id` ,element : <VoatingDescription/>},
+{path:`${import.meta.env.BASE_URL}governance/councilAndCommittee/voatingDescription/type/:type/id/:id/:meetingId` ,element : <VoatingDescription/>},
 /* Wealth structure */
 {path:`${import.meta.env.BASE_URL}governance/wealthStructure` ,element : <WealthStructure/>},
 {path:`${import.meta.env.BASE_URL}governance/wealthItem/type/:type/id/:id` ,element : <WealthItem/>},

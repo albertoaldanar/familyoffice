@@ -4,7 +4,7 @@ const MenuItems = [
   {
     Items: [
       {
-        icon: (<i className="side-menu__icon ri-home-2-line"></i>),
+        icon: (<i className="side-menu__icon fe fe-home text-black fs-17"></i>),
         type: 'sub',
         Name:'',
         active: false,
@@ -38,7 +38,7 @@ const MenuItems = [
   {
     Items: [
       {
-        icon: (<i className="side-menu__icon ri-calendar-2-line"></i>),
+        icon: (<i className="side-menu__icon fe fe-calendar text-black fs-17"></i>),
         type: 'sub',
         Name:'',
         active: false,

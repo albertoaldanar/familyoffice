@@ -4,16 +4,17 @@ import "reactflow/dist/style.css";
 import { Link } from "react-router-dom";
 import { councilAndCommittieesData } from "../../councilAndCommitteeData";
 import { findMostFrequentChoice } from "../../councilAndCommitteeUtils";
-export const Votings = ({ votingType }) => {
-  
+
+export const Votings = ({ data, votingType }) => {
   const renderMeetingList = () => {
-    if (!councilAndCommittieesData[votingType].votings.length) {
+    if (data.votings.length === 0) {
       return (
         <p style={{ textAlign: "center", marginTop: 20 }}>
           Aún no se han registrado votaciones
         </p>
       );
     }
+    console.log('data----', data.votings)
 
     return(
       <div className="table-responsive" style={{ marginTop: 15 }}>
@@ -28,13 +29,13 @@ export const Votings = ({ votingType }) => {
             </tr>
           </thead>
           <tbody>
-            {councilAndCommittieesData[votingType].votings.map(
+            {data.votings.map(
               (vote, index) => (
                 <tr key={index}>
                   <td>{vote.title}</td>
                   <td style={{textAlign: 'center'}}>
-                    {vote.participants.length} /{" "}
-                    {councilAndCommittieesData[votingType].members.length}
+                    {vote.participants.filter(v=> v.choiceSelected).length} /{" "}
+                    {vote.participants.length}
                   </td>
                   <td>
                     {vote.isVotingFinished ? (
@@ -72,7 +73,7 @@ export const Votings = ({ votingType }) => {
                     }}
                   >
                     {/*// @ts-ignore */}
-                    <Link to={`${import.meta.env.BASE_URL}governance/councilAndCommittee/voatingDescription/type/${votingType}/id/${vote.id}`}
+                    <Link to={`${import.meta.env.BASE_URL}governance/councilAndCommittee/voatingDescription/type/${votingType}/id/${vote.id}/${data.id}`}
                     >
                       Ver
                     </Link>

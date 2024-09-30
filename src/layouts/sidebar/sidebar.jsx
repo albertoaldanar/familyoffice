@@ -409,7 +409,7 @@ export default function Sidebar() {
             <div className="side-header">
               <Link className="header-brand1" to={`${import.meta.env.BASE_URL}homeDashboard/`} 
                     onClick={() => setSidemenu(`${import.meta.env.BASE_URL}homeDashboard`) }>
-                <img src={famhold} className="header-brand-img main-logo" alt="Sparic logo" />
+                <img src={famhold} style={{width: 115, height: 'auto'}} className="header-brand-img main-logo" alt="Sparic logo" />
                 <img src={logolight} className="header-brand-img darklogo" alt="Sparic logo" />
                 <img src={famholdIcon} className="header-brand-img icon-logo" alt="Sparic logo" />
                 <img src={icon2} className="header-brand-img icon-logo2" alt="Sparic logo" />
