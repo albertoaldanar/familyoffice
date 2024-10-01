@@ -2,11 +2,10 @@ import React, { Fragment, useCallback } from "react";
 import { Badge, Button, Card, Col, Table, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { providers } from "./providersData";
-//@ts-ignore
-import Pageheader from "../../../layouts/pageheader/pageheader";
 
 export default function Companies() {
-  const breadcrumbs = ["Administración", "Proveedores de servicio"];
+  //@ts-ignore
+  const baseUrl = `${import.meta.env.BASE_URL}`;
 
   const renderTable = () => {
     return (
@@ -45,9 +44,7 @@ export default function Companies() {
                           color: "#5488d2",
                         }}
                       >
-                        {/*// @ts-ignore */}
-                        <Link to={`${import.meta.env.BASE_URL
-                          }administration/providerDescription/${
+                        <Link to={`${baseUrl}administration/providerDescription/${
                             provider.id
                           }/provider/${proveedor.id}`}
                         >
@@ -101,12 +98,9 @@ export default function Companies() {
               size="sm"
               className=" mb-1"
             >
-              {/*// @ts-ignore */}
               <Link
                 style={{ color: "white" }}
-                to={`${
-                  import.meta.env.BASE_URL
-                }administration/providerCreate/standar`}
+                to={`${baseUrl}administration/providerCreate/standar`}
               >
                 + Añadir proveedor
               </Link>

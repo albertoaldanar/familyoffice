@@ -42,6 +42,8 @@ const  Toasts= React.lazy(()=>import ('../components/Bootstrap/Toast/Toast'))
 /* FAMILY OFFICE */
 /****************************** DASHBOARD ****************************************/
 const  Dashboard= React.lazy(()=>import ('../pages/dashboard/dashboard'))
+/****************************** REPORTS ****************************************/
+const  Reports = React.lazy(()=>import ('../pages/reports/reports'))
 /****************************** ADMINISTRATION ****************************************/
 const  Companies= React.lazy(()=>import ('../pages/administration/accounting/companies'))
 const  TrustCreate= React.lazy(()=>import ('../pages/administration/trusts/trustCreate'))
@@ -347,6 +349,10 @@ export const Routingdata=[
 
 /* Assets */
 {path:`${import.meta.env.BASE_URL}administration/assets/:assetType` ,element : <Assets/>},
+
+/****************************** REPORTS ****************************************/
+{path:`${import.meta.env.BASE_URL}reports` ,element : <Reports/>},
+
 /****************************** GOVERNANCE ****************************************/
 /* Family structure */
 {path:`${import.meta.env.BASE_URL}governance/familyStructure` ,element : <FamilyStructure/>},

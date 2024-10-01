@@ -21,13 +21,13 @@ const MenuItems = [
   {
     Items: [
       {
-        icon: (<i className="side-menu__icon ri-file-chart-2-line"></i>),
+        icon: (<i className="side-menu__icon fe fe-download"></i>),
         type: 'sub',
         Name:'',
         active: false,
         selected: false,
         title: 'Reportes',
-        pathname: `${import.meta.env.BASE_URL}homeDashboard`,
+        pathname: `${import.meta.env.BASE_URL}reports`,
         class:'',
         color:'',
         badgetxt:'',
