@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom/client'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './index.scss'
 import { Routingdata } from './common/routingdata'
+import Underconstruction from './components/Pages/Extension/UnderConstruction/Underconstruction.jsx';
 
 const App = lazy(() => import('./layouts/App'))
 const Authenticationlayout = lazy(() => import('./layouts/Authenticationlayout'))
 const Loaderimage = lazy(() => import('./layouts/loader/loader'))
-const Underconstruction = lazy(() => import('./components/Pages/Extension/UnderConstruction/Underconstruction'))
 const Auth = lazy(()=>import('./layouts/firebase/firebaseauth/auth')) 
 const Authlogin = lazy(()=>import('./layouts/firebase/firebaseauth/authlogin')) 
 const Signup = lazy(()=>import('./layouts/firebase/firebaseauth/signup')) 
