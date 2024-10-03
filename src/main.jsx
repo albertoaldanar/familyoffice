@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './index.scss'
 import { Routingdata } from './common/routingdata'
-import Underconstruction from './components/Pages/Extension/UnderConstruction/Underconstruction.jsx';
 
 const App = lazy(() => import('./layouts/App'))
 const Authenticationlayout = lazy(() => import('./layouts/Authenticationlayout'))
@@ -65,7 +64,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             <Route path={`${import.meta.env.BASE_URL}authentication/errorpages/error404`} element={<Error404 />} />
             <Route path={`${import.meta.env.BASE_URL}authentication/errorpages/error500`} element={<Error500 />} />
             <Route path={`${import.meta.env.BASE_URL}authentication/errorpages/error503`} element={<Error503 />} />
-            <Route path={`${import.meta.env.BASE_URL}pages/extension/underconstruction`} element={<Underconstruction />} />
             <Route path={'*'} element={<Error400 />} />
           </Route>
         </Routes>
