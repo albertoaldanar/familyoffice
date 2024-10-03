@@ -17,9 +17,9 @@ const ScrollToTop = lazy(()=>import('./layouts/scrollTop/scrollTop'))
 // Authentication 
 
 const Login = lazy(() => import('./components/authentication/login/login')) 
-const Register = lazy(() => import('./components/Authentication/Register/Register'))
-const ForgotPassword = lazy(() => import('./components/Authentication/ForgotPassword/ForgotPassword'))
-const Lockscreen = lazy(() => import('./components/Authentication/Lockscreen/Lockscreen'))
+const Register = lazy(() => import('./components/authentication/register/register'))
+const ForgotPassword = lazy(() => import('./components/authentication/forgotPassword/forgotPassword'))
+const Lockscreen = lazy(() => import('./components/authentication/lockscreen/lockscreen'))
 const Error400 = lazy(() => import('./components/Authentication/ErrorPages/Error400/Error400'))
 const Error401 = lazy(() => import('./components/authentication/errorpages/error401/error401'))
 const Error403 = lazy(() => import('./components/authentication/errorpages/error403/error403'))
