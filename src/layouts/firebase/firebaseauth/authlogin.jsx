@@ -111,7 +111,7 @@ function Authlogin() {
                           <Card>
                     <Card.Body>
                       <div className="text-center mb-2">
-                        <Link className="header-brand1" to={`${import.meta.env.BASE_URL}dashboard/sales`}>
+                        <Link className="header-brand1" to={`${import.meta.env.BASE_URL}homeDashboard`}>
                           <img src={logo}
                             className="header-brand-img main-logo" alt="Sparic logo" />
                           <img src={logolight}
@@ -131,7 +131,7 @@ function Authlogin() {
                       </InputGroup>
                       <Row>
                         <div>
-                          <Link to={`${import.meta.env.BASE_URL}dashboard/sales`} className="btn btn-primary btn-block">Login</Link>
+                          <Link to={`${import.meta.env.BASE_URL}homeDashboard`} className="btn btn-primary btn-block">Login</Link>
                         </div>
                         <div className="col-12">
                           <Link to={`${import.meta.env.BASE_URL}authentication/forgotpassword`}
