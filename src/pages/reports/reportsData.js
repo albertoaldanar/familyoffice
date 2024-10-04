@@ -1,13 +1,211 @@
 export const reportsData = {
-    familyName: 'Aldana Ríos',
-    from: {
-        year: '2024', 
-        month: 'Enero'
+  familyName: "Aldana Ríos",
+  currency: "MXN",
+  from: {
+    year: "2024",
+    month: "Enero",
+  },
+  to: {
+    year: "2024",
+    month: "Abril",
+  },
+  content: ["Obligaciones", "Governanza", "Inversiones y activos"],
+  highlights: [
+    "Pago de seguro vida (Seguros Monterrey) Alejandra Aldana",
+    "Declaración Fiscal menusal Aldana Clima integral (4)",
+    "Delcaración fiscal menusal Celsius SA de CV (4)",
+    "Declaración Anual Aldana Clima integral",
+    "Delcaración Anual Celsius SA de CV",
+    "Cobro de prestamo Intrafamiliar Aldana Clima Integral a Alejandra Aldana (4)",
+    "Pago de credito hipotecario - Departamento la Marina (4)",
+    "Pago de mantenimento Vehicular - Departamento la Marina (2)",
+    "Pago de seguro Médico (MAPFRE) Patricia Rios Collantes",
+    "Pago de arrendamiento inmobiliario (Departamento Calgary)-Ana Sofia Aldana (4)",
+  ],
+  companiesObligations: [
+    {
+      companyName: "Aldana Clima Integral SA de CV",
+      taxes: [
+        {
+          amountTaxReportMonthly: 4,
+          amountTaxReportYearly: 1,
+          totalSales: "$4,500,000.00",
+          totalExpenses: "$1,254,000.00",
+          netProfit: "$1,800,000.00",
+          reportList: [
+            {
+              type: "Mensual",
+              iva: true,
+              isr: true,
+              forYear: 2024,
+              forMonth: "Diciembre",
+              reportDay: "15/01/2024",
+            },
+            {
+              type: "Mensual",
+              iva: true,
+              isr: true,
+              forYear: 2024,
+              forMonth: "Enero",
+              reportDay: "15/02/2024",
+            },
+            {
+              type: "Mensual",
+              iva: true,
+              isr: true,
+              forYear: 2024,
+              forMonth: "Febrero",
+              reportDay: "15/03/2024",
+            },
+            {
+              type: "Mensual",
+              iva: true,
+              isr: true,
+              forYear: 2024,
+              forMonth: "Marzo",
+              reportDay: "15/04/2024",
+            },
+            {
+              type: "Anual",
+              iva: true,
+              isr: true,
+              forYear: 2023,
+              forMonth: "--",
+              reportDay: "15/04/2024",
+            },
+          ],
+        },
+      ],
+      debt: [
+        {
+          debtTotal: "$ 8,500,000.00",
+          amountPayableBeginDate: "$ 4,500,000.00",
+          amountPayableEndDate: "$ 3,900,000.00",
+          debt: [
+            {
+              totalDebt: "$ 7,000,000.00",
+              concept: "Prestamo para desarrollo de oficinas nuevas",
+              paymentFrequency: "Mensual",
+              creditor: "Banregio",
+              interestRate: "28",
+              amountPayableBeginDate: "$ 3,400,000.00",
+              amountPayableEndDate: "$ 3,000,000.00",
+              payments: [
+                {
+                  year: 2024,
+                  month: "Enero",
+                  amount: "$100,000.00",
+                  paymentDay: "18/01/2024",
+                },
+                {
+                  year: 2024,
+                  month: "Febrero",
+                  amount: "$100,000.00",
+                  paymentDay: "01/02/2024",
+                },
+                {
+                  year: 2024,
+                  month: "Marzo",
+                  amount: "$100,000.00",
+                  paymentDay: "10/03/2024",
+                },
+                {
+                  year: 2024,
+                  month: "Abril",
+                  amount: "$100,000.00",
+                  paymentDay: "02/04/2024",
+                },
+              ],
+            },
+            {
+              totalDebt: "$ 1,500,000.00",
+              concept: "Prestamo Ing. Aldana para pagos de nómina",
+              paymentFrequency: "Mensual",
+              creditor: "Alberto Aldana Fariñas",
+              interestRate: "0",
+              amountPayableBeginDate: "$ 1,300,000.00",
+              amountPayableEndDate: "$ 900,000.00",
+              payments: [
+                {
+                  year: 2024,
+                  month: "Enero",
+                  amount: "$100,000.00",
+                  paymentDay: "04/01/2024",
+                },
+                {
+                  year: 2024,
+                  month: "Febrero",
+                  amount: "$100,000.00",
+                  paymentDay: "10/02/2024",
+                },
+                {
+                  year: 2024,
+                  month: "Marzo",
+                  amount: "$100,000.00",
+                  paymentDay: "01/03/2024",
+                },
+                {
+                  year: 2024,
+                  month: "Abril",
+                  amount: "$100,000.00",
+                  paymentDay: "02/04/2024",
+                },
+              ],
+            },
+          ],
+        },
+      ],
+      collecting: [
+        {
+            debtTotal: "$ 80,000.00",
+            amountReceivableBeginDate: "$ 70,000.00",
+            amountReceivableEndDate: "$ 40,000.00",
+            debt: [
+              {
+                totalDebt: "$ 80,000.00",
+                concept: "Prestamo personal Alejandra Aldana Ríos",
+                paymentFrequency: "Mensual",
+                debtor: "Alejandra Aldana Ríos",
+                interestRate: "0",
+                amountReceivableBeginDate: "$ 70,000.00",
+                amountReceivableEndDate: "$ 40,000.00",
+                payments: [
+                  {
+                    year: 2024,
+                    month: "Enero",
+                    amount: "$10,000.00",
+                    paymentDay: "18/01/2024",
+                  },
+                  {
+                    year: 2024,
+                    month: "Febrero",
+                    amount: "$10,000.00",
+                    paymentDay: "01/02/2024",
+                  },
+                  {
+                    year: 2024,
+                    month: "Marzo",
+                    amount: "$10,000.00",
+                    paymentDay: "10/03/2024",
+                  },
+                  {
+                    year: 2024,
+                    month: "Abril",
+                    amount: "$10,000.00",
+                    paymentDay: "02/04/2024",
+                  },
+                ],
+              },
+            ],
+          },
+      ]
     },
-    to: {
-        year: '2024', 
-        month: 'Junio'
-    }, 
-    content:['Obligaciones', 'Governanza', 'Inversiones y activos'],
-
-}
+  ],
+  familyMembersObligations: {
+    taxes: {},
+    insurances: {},
+    debt: {},
+    collecting: {},
+  },
+  assetsObligations: {},
+};
