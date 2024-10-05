@@ -157,55 +157,550 @@ export const reportsData = {
       ],
       collecting: [
         {
-            debtTotal: "$ 80,000.00",
-            amountReceivableBeginDate: "$ 70,000.00",
-            amountReceivableEndDate: "$ 40,000.00",
-            debt: [
+          debtTotal: "$ 80,000.00",
+          amountReceivableBeginDate: "$ 70,000.00",
+          amountReceivableEndDate: "$ 40,000.00",
+          debt: [
+            {
+              totalDebt: "$ 80,000.00",
+              concept: "Prestamo personal Alejandra Aldana Ríos",
+              paymentFrequency: "Mensual",
+              debtor: "Alejandra Aldana Ríos",
+              interestRate: "0",
+              amountReceivableBeginDate: "$ 70,000.00",
+              amountReceivableEndDate: "$ 40,000.00",
+              payments: [
+                {
+                  year: 2024,
+                  month: "Enero",
+                  amount: "$10,000.00",
+                  paymentDay: "18/01/2024",
+                },
+                {
+                  year: 2024,
+                  month: "Febrero",
+                  amount: "$10,000.00",
+                  paymentDay: "01/02/2024",
+                },
+                {
+                  year: 2024,
+                  month: "Marzo",
+                  amount: "$10,000.00",
+                  paymentDay: "10/03/2024",
+                },
+                {
+                  year: 2024,
+                  month: "Abril",
+                  amount: "$10,000.00",
+                  paymentDay: "02/04/2024",
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+  ],
+  familyMembersObligations: [
+    {
+      familyMemberName: "Alberto Aldana Fariñas",
+      taxRegime: "Regimen de dividendos",
+      taxReportFrequency: ["Anual"],
+      taxes: [
+        {
+          reportList: [
+            {
+              type: "Anual",
+              iva: true,
+              isr: true,
+              forYear: 2023,
+              forMonth: "--",
+              reportDay: "15/04/2024",
+            },
+          ],
+        },
+      ],
+      debt: [
+        {
+          debtTotal: "$ 3,500,000.00",
+          amountPayableBeginDate: "$ 1,500,000.00",
+          amountPayableEndDate: "$ 1,180,000.00",
+          debt: [
+            {
+              totalDebt: "$ 3,500,000.00",
+              concept: "Prestamo personal para invesión inmobiliaria",
+              paymentFrequency: "Mensual",
+              creditor: "BBVA",
+              interestRate: "19",
+              amountPayableBeginDate: "$ 1,500,000.00",
+              amountPayableEndDate: "$ 1,180,000.00",
+              payments: [
+                {
+                  year: 2024,
+                  month: "Enero",
+                  amount: "$80,000.00",
+                  paymentDay: "18/01/2024",
+                },
+                {
+                  year: 2024,
+                  month: "Febrero",
+                  amount: "$80,000.00",
+                  paymentDay: "01/02/2024",
+                },
+                {
+                  year: 2024,
+                  month: "Marzo",
+                  amount: "$80,000.00",
+                  paymentDay: "10/03/2024",
+                },
+                {
+                  year: 2024,
+                  month: "Abril",
+                  amount: "$80,000.00",
+                  paymentDay: "02/04/2024",
+                },
+              ],
+            },
+          ],
+        },
+      ],
+      collecting: [
+        {
+          debtTotal: "$ 180,000.00",
+          amountReceivableBeginDate: "$ 170,000.00",
+          amountReceivableEndDate: "$ 70,000.00",
+          debt: [
+            {
+              totalDebt: "$ 80,000.00",
+              type: "Prestamo a tercero",
+              concept: "Prestamo personal Daniel Aldana Fariñas",
+              paymentFrequency: "Mensual",
+              debtor: " Daniel Aldana Fariñas",
+              interestRate: "0",
+              amountReceivableBeginDate: "$ 80,000.00",
+              amountReceivableEndDate: "$ 40,000.00",
+              payments: [
+                {
+                  year: 2024,
+                  month: "Enero",
+                  amount: "$10,000.00",
+                  paymentDay: "18/01/2024",
+                },
+                {
+                  year: 2024,
+                  month: "Febrero",
+                  amount: "$10,000.00",
+                  paymentDay: "01/02/2024",
+                },
+                {
+                  year: 2024,
+                  month: "Marzo",
+                  amount: "$10,000.00",
+                  paymentDay: "10/03/2024",
+                },
+                {
+                  year: 2024,
+                  month: "Abril",
+                  amount: "$10,000.00",
+                  paymentDay: "02/04/2024",
+                },
+              ],
+            },
+            {
+              totalDebt: "$ 100,000.00",
+              concept: "Prestamo a Alberto Aldana Ríos",
+              paymentFrequency: "Mensual",
+              type: "Intrafamiliar",
+              debtor: "Alberto Aldana Ríos",
+              interestRate: "0",
+              amountReceivableBeginDate: "$ 40,000.00",
+              amountReceivableEndDate: "$ 20,000.00",
+              payments: [
+                {
+                  year: 2024,
+                  month: "Enero",
+                  amount: "$5,000.00",
+                  paymentDay: "18/01/2024",
+                },
+                {
+                  year: 2024,
+                  month: "Febrero",
+                  amount: "$5,000.00",
+                  paymentDay: "01/02/2024",
+                },
+                {
+                  year: 2024,
+                  month: "Marzo",
+                  amount: "$5,000.00",
+                  paymentDay: "10/03/2024",
+                },
+                {
+                  year: 2024,
+                  month: "Abril",
+                  amount: "$5,000.00",
+                  paymentDay: "02/04/2024",
+                },
+              ],
+            },
+          ],
+        },
+      ],
+      insurances: {
+        lifeInsurances: [
+          {
+            insuranceCompany: 'Seguros Monterrey',
+            paymentFrequency: 'Mensual', 
+            from: '20/12/2022',
+            to: '20/12/2025',
+            payments: [
               {
-                totalDebt: "$ 80,000.00",
-                concept: "Prestamo personal Alejandra Aldana Ríos",
-                paymentFrequency: "Mensual",
-                debtor: "Alejandra Aldana Ríos",
-                interestRate: "0",
-                amountReceivableBeginDate: "$ 70,000.00",
-                amountReceivableEndDate: "$ 40,000.00",
-                payments: [
-                  {
-                    year: 2024,
-                    month: "Enero",
-                    amount: "$10,000.00",
-                    paymentDay: "18/01/2024",
-                  },
-                  {
-                    year: 2024,
-                    month: "Febrero",
-                    amount: "$10,000.00",
-                    paymentDay: "01/02/2024",
-                  },
-                  {
-                    year: 2024,
-                    month: "Marzo",
-                    amount: "$10,000.00",
-                    paymentDay: "10/03/2024",
-                  },
-                  {
-                    year: 2024,
-                    month: "Abril",
-                    amount: "$10,000.00",
-                    paymentDay: "02/04/2024",
-                  },
-                ],
+                year: '2024',
+                month: 'Enero', 
+                from: '02/01/2024', 
+                to: '31/01/2024'
+              }, 
+              {
+                year: '2024',
+                month: 'Febrero', 
+                from: '02/02/2024', 
+                to: '28/02/2024'
+              }, 
+              {
+                year: '2024',
+                month: 'Marzo', 
+                from: '02/03/2024', 
+                to: '31/03/2024'
+              }, 
+              {
+                year: '2024',
+                month: 'Abril', 
+                from: '01/04/2024', 
+                to: '31/04/2024'
+              }
+            ]
+          }
+        ],
+        medicalInsurances: [
+          {
+            insuranceCompany: 'GNP Seguros',
+            paymentFrequency: 'Anual',
+            from: '01/01/2022',
+            to: '01/01/2026',
+            payments: [
+              {
+                year: '2024',
+                month: 'Enero', 
+                from: '01/01/2024', 
+                to: '01/01/2025', 
+              }
+            ]
+          }, 
+        ]
+      }
+    },
+    {
+      familyMemberName: "Patricia Ríos Collantes",
+      taxRegime: "Regimen de dividendos",
+      taxReportFrequency: ["Anual"],
+      taxes: [
+        {
+          reportList: [
+            {
+              type: "Anual",
+              iva: true,
+              isr: true,
+              forYear: 2023,
+              forMonth: "--",
+              reportDay: "15/04/2024",
+            },
+          ],
+        },
+      ],
+      debt: [],
+      collecting: [],
+      insurances: {
+        lifeInsurances: [
+          {
+            insuranceCompany: 'Seguros Monterrey',
+            paymentFrequency: 'Mensual', 
+            from: '20/12/2022',
+            to: '20/12/2025',
+            payments: [
+              {
+                year: '2024',
+                month: 'Enero', 
+                from: '02/01/2024', 
+                to: '31/01/2024'
+              }, 
+              {
+                year: '2024',
+                month: 'Febrero', 
+                from: '02/02/2024', 
+                to: '28/02/2024'
+              }, 
+              {
+                year: '2024',
+                month: 'Marzo', 
+                from: '02/03/2024', 
+                to: '31/03/2024'
+              }, 
+              {
+                year: '2024',
+                month: 'Abril', 
+                from: '01/04/2024', 
+                to: '31/04/2024'
+              }
+            ]
+          }
+        ],
+        medicalInsurances: [
+          {
+            insuranceCompany: 'GNP Seguros',
+            paymentFrequency: 'Anual',
+            from: '01/01/2022',
+            to: '01/01/2026',
+            payments: [
+              {
+                year: '2024',
+                month: 'Enero', 
+                from: '01/01/2024', 
+                to: '01/01/2025', 
+              }
+            ]
+          }, 
+        ]
+      }
+    },
+  ],
+  assetsObligations: {
+    realState: [
+      {
+        name: 'Casa Montebello Cipres', 
+        location: 'México', 
+        owners:[
+          {
+            name: 'Alberto Aldana Fariñas',
+            pct: '50%'
+          }, 
+          {
+            name: 'Patricia Ríos Collantes',
+            pct: '50%'
+          }
+        ],
+        taxProperty: {
+          paymentFrequency: 'Anual',
+          payments: [
+            {
+              amount: '$35,000.00',
+              year: '2024',
+              month: 'Enero',
+              from: '01/01/2024',
+              to: '01/01/2025',
+            }
+          ]
+        },
+        mantainance: {
+          name: 'Cuota Administración privada colinas',
+          payments: [
+            {
+              amount: '$4,000.00',
+              year: '2024',
+              month: 'Enero',
+              paymentDay: '10/01/2024'
+            },
+            {
+              amount: '$4,000.00',
+              year: '2024',
+              month: 'Febrero',
+              paymentDay: '09/02/2024'
+            }, 
+            {
+              amount: '$4,000.00',
+              year: '2024',
+              month: 'Marzo',
+              paymentDay: '07/03/2024'
+            }, 
+            {
+              amount: '$4,000.00',
+              year: '2024',
+              month: 'Abril',
+              paymentDay: '09/04/2024'
+            }
+          ]
+        },
+        insurances: [],
+        debt: [],
+        rentCollecting:[]
+      }, 
+      {
+        name: 'Departamento La marina', 
+        location: 'México', 
+        owners:[
+          {
+            name: 'Alberto Aldana Fariñas',
+            pct: '100%'
+          },
+        ], 
+        taxProperty: {
+          paymentFrequency: 'Anual',
+          payments: [
+            {
+              amount: '$14,000.00',
+              year: '2024',
+              month: 'Enero',
+              from: '01/01/2024',
+              to: '01/01/2025',
+            }
+          ]
+        },
+        mantainance: {
+          name: 'Cuota Administración Costa veleros',
+          payments: [
+            {
+              amount: '$2,500.00',
+              year: '2024',
+              month: 'Enero',
+              paymentDay: '10/01/2024'
+            },
+            {
+              amount: '$2,500.00',
+              year: '2024',
+              month: 'Febrero',
+              paymentDay: '09/02/2024'
+            }, 
+            {
+              amount: '$4,000.00',
+              year: '2024',
+              month: 'Abril',
+              paymentDay: '09/04/2024'
+            }
+          ]
+        },
+        insurances: [],
+        debt: [
+          {
+            totalDebt: "$ 1,000,500.00",
+            paymentFrequency: "Mensual",
+            debtor: "Scotia Bank",
+            interestRate: "19",
+            amountPayableBeginDate: "$ 200,000.00",
+            amountPayableEndDate: "$ 60,000.00",
+            payments: [
+              {
+                year: 2024,
+                month: "Enero",
+                amount: "$35,000.00",
+                paymentDay: "18/01/2024",
+              },
+              {
+                year: 2024,
+                month: "Febrero",
+                amount: "$35,000.00",
+                paymentDay: "01/02/2024",
+              },
+              {
+                year: 2024,
+                month: "Marzo",
+                amount: "$35,000.00",
+                paymentDay: "10/03/2024",
+              },
+              {
+                year: 2024,
+                month: "Abril",
+                amount: "$35,000.00",
+                paymentDay: "02/04/2024",
               },
             ],
           },
-      ]
-    },
-  ],
-  familyMembersObligations: {
-    taxes: {},
-    insurances: {},
-    debt: {},
-    collecting: {},
-  },
-  assetsObligations: {},
+        ],
+        rentCollecting: {
+          tenant: 'John Williams',
+          collecting: [
+            {
+              amount: '$14,500.00',
+              year: '2024',
+              month: 'Enero',
+              paymentDay: '10/01/2024'
+            },
+            {
+              amount: '$14,500.00',
+              year: '2024',
+              month: 'Febrero',
+              paymentDay: '09/02/2024'
+            }, 
+            {
+              amount: '$14,500.00',
+              year: '2024',
+              month: 'Marzo',
+              paymentDay: '09/03/2024'
+            }, 
+            {
+              amount: '$14,000.00',
+              year: '2024',
+              month: 'Abril',
+              paymentDay: '09/04/2024'
+            }
+          ]
+        }
+      }
+    ],
+    vehicles: [
+      {
+        name: 'BYD-HAN', 
+        location: 'México', 
+        owners:[
+          {
+            name: 'Alberto Aldana Fariñas',
+            pct: '100%'
+          },
+        ], 
+        taxProperty: {},
+        mantainance: {},
+        insurances: [
+          {
+            paymentFrequency: 'Anual',
+            payments: [
+              {
+                amount: '$45,000.00',
+                year: '2024',
+                month: 'Enero',
+                from: '01/01/2024',
+                to: '01/01/2025',
+              }
+            ]
+          }
+        ],
+        debt: [],
+        rentCollecting: {}
+      }, 
+      {
+        name: 'Audi-Q5', 
+        location: 'México', 
+        owners:[
+          {
+            name: 'Alberto Aldana Rios',
+            pct: '100%'
+          },
+        ], 
+        taxProperty: {},
+        mantainance: {},
+        insurances: [
+          {
+            paymentFrequency: 'Anual',
+            payments: [
+              {
+                amount: '$23,000.00',
+                year: '2024',
+                month: 'Enero',
+                from: '01/01/2024',
+                to: '01/01/2025',
+              }
+            ]
+          }
+        ],
+        debt: [],
+        rentCollecting: {}
+      }
+    ]
+  }
 };

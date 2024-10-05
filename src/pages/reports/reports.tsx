@@ -40,9 +40,9 @@ export default function Reports() {
     },
     title: {
       justifyContent: "flex-end",
-      fontSize: 16,
+      fontSize: 12,
       marginBottom: 10,
-      marginTop: 30,
+      marginTop: 20,
     },
     topRightText: {
       fontSize: 10,
@@ -63,12 +63,12 @@ export default function Reports() {
     },
     cateogoryList: {
       marginTop: 3,
-      textAlign: 'right',
+      textAlign: "right",
       fontSize: 8,
       color: "gray",
     },
     categoryTitle: {
-      fontSize: 14,
+      fontSize: 12,
     },
     subCategoryTitle: {
       fontSize: 14,
@@ -80,33 +80,35 @@ export default function Reports() {
       marginLeft: 20,
     },
     subCategorySection: {
-      marginLeft: 40,
+      marginLeft: 20,
+      marginRight: 20,
     },
     entitieText: {
-      fontSize: 12,
+      fontSize: 10,
       marginBottom: 10,
       marginTop: 10,
-      marginLeft: 20,
+      marginLeft: 10,
     },
     subtitle: {
       fontSize: 10,
-      color: 'white'
+      color: "white",
     },
     subtitleContainer: {
-      marginTop: 15,
-      marginLeft: 40,
-      marginBottom: 15,
+      marginTop: 20,
+      marginLeft: 20,
+      marginRight: 20,
+      marginBottom: 20,
       borderRadius: 5,
-      backgroundColor: '#99babd',
+      backgroundColor: "#99babd",
       padding: 5,
     },
     banner: {
       marginBottom: 10,
-      padding: 10,
+      padding: 8,
       backgroundColor: "#f2f2f2",
       borderRadius: 5,
-      fontSize: 11,
-      marginTop: 5
+      fontSize: 9,
+      marginTop: 5,
     },
     bannerText: {
       marginBottom: 6,
@@ -114,8 +116,10 @@ export default function Reports() {
     tableHeader: {
       marginTop: 10,
       flexDirection: "row",
-      borderBottomWidth: 1,
-      borderBottomColor: "black",
+      borderBottomWidth: 0.5,
+      paddingTop: 2,
+      paddingBottom: 2,
+      borderBottomColor: "gray",
       fontSize: 10,
     },
     tableRow: {
@@ -127,34 +131,42 @@ export default function Reports() {
       padding: 2,
     },
     debtAndCollectingContainer: {
-      marginTop: 18, 
-      marginBottom: 18
+      marginTop: 18,
+      marginBottom: 18,
     },
     conceptTitle: {
       fontSize: 11,
       marginBottom: 10,
-      textAlign: 'left',
+      textAlign: "left",
     },
     conceptMiniTitle: {
       fontSize: 7,
       marginBottom: 4,
-      textAlign: 'left',
-      color: 'gray'
-    }, 
+      textAlign: "left",
+      color: "gray",
+    },
     mainTitleContainer: {
-      color: 'white', 
-      backgroundColor: '#004745', 
-      borderRadius: 5, 
-      padding: 10,
-      marginTop: 30,
-      marginBottom: 10
-    }
+      color: "white",
+      backgroundColor: "#004745",
+      borderRadius: 5,
+      padding: 8,
+      marginTop: 25,
+      marginBottom: 20,
+    },
+    itemContainer: {
+      borderColor: "#99babd",
+      borderRadius: 5,
+      borderWidth: 1.3,
+      paddingBottom: 10,
+      marginTop: 10,
+      marginBottom: 20,
+    },
   });
 
   const renderHighlights = () => {
     return (
       <>
-       <View style={styles.mainTitleContainer}>
+        <View style={styles.mainTitleContainer}>
           <Text style={styles.categoryTitle}>Highlights del periodo:</Text>
         </View>
         <View style={styles.subCategorySectionHighlights}>
@@ -172,10 +184,13 @@ export default function Reports() {
     return (
       <View>
         <View style={styles.mainTitleContainer}>
-          <Text style={styles.categoryTitle}> Obligaciones personas morales:</Text>
+          <Text style={styles.categoryTitle}>
+            {" "}
+            Obligaciones personas morales:
+          </Text>
         </View>
         {companiesData.map((company, idx) => (
-          <View key={idx}>
+          <View key={idx} style={styles.itemContainer}>
             <Text style={styles.entitieText}>
               {" "}
               {idx + 1}. {company.companyName}
@@ -237,34 +252,26 @@ export default function Reports() {
 
             {/* Debt Section */}
             <View style={styles.subtitleContainer}>
-              <Text style={styles.subtitle}>b) Creditos y prestamos por pagar:</Text>
+              <Text style={styles.subtitle}>
+                b) Creditos y prestamos por pagar:
+              </Text>
             </View>
             {company.debt.map((debtItem, debtIdx) => (
               <View key={debtIdx} style={styles.subCategorySection}>
-                {/* Debt Banner */}
-                {/* <View style={styles.banner}>
-                  <Text style={styles.bannerText}>
-                    Total deudas {company.companyName}: {debtItem.debtTotal} {reportsData.currency}
-                  </Text>
-                  <Text style={styles.bannerText}>
-                    Monto por pagar inicio del periodo: {debtItem.amountPayableBeginDate}
-                  </Text>
-                  <Text style={styles.bannerText}>
-                    Monto por pagar fin del periodo: {debtItem.amountPayableEndDate}
-                  </Text>
-                </View> */}
-
                 {/* Debt Details */}
                 {debtItem.debt.map((debtDetail, detailIdx) => (
-                  <View key={detailIdx} style={styles.debtAndCollectingContainer}>
+                  <View
+                    key={detailIdx}
+                    style={styles.debtAndCollectingContainer}
+                  >
                     <Text style={styles.conceptTitle}>
-                      -{debtDetail.concept}
+                      - {debtDetail.concept}
                     </Text>
                     <Text style={styles.conceptMiniTitle}>
                       Acreedor: {debtDetail.creditor}
                     </Text>
                     <Text style={styles.conceptMiniTitle}>
-                      Tasa de interes: {debtDetail.interestRate}% 
+                      Tasa de interes: {debtDetail.interestRate}%
                     </Text>
                     <View style={styles.banner}>
                       <Text style={styles.bannerText}>
@@ -275,7 +282,8 @@ export default function Reports() {
                         {debtDetail.amountPayableBeginDate}
                       </Text>
                       <Text style={styles.bannerText}>
-                        Monto por pagar fin del periodo: {debtDetail.amountPayableEndDate}
+                        Monto por pagar fin del periodo:{" "}
+                        {debtDetail.amountPayableEndDate}
                       </Text>
                     </View>
 
@@ -309,30 +317,20 @@ export default function Reports() {
             </View>
             {company.collecting.map((debtItem, debtIdx) => (
               <View key={debtIdx} style={styles.subCategorySection}>
-                {/* Debt Banner */}
-                {/* <View style={styles.banner}>
-                  <Text style={styles.bannerText}>
-                    Total deudas {company.companyName}: {debtItem.debtTotal} {reportsData.currency}
-                  </Text>
-                  <Text style={styles.bannerText}>
-                    Monto por pagar inicio del periodo: {debtItem.amountPayableBeginDate}
-                  </Text>
-                  <Text style={styles.bannerText}>
-                    Monto por pagar fin del periodo: {debtItem.amountPayableEndDate}
-                  </Text>
-                </View> */}
-
                 {/* collecting Details */}
                 {debtItem.debt.map((debtDetail, detailIdx) => (
-                  <View key={detailIdx} style={styles.debtAndCollectingContainer}>
+                  <View
+                    key={detailIdx}
+                    style={styles.debtAndCollectingContainer}
+                  >
                     <Text style={styles.conceptTitle}>
-                      -{debtDetail.concept}
+                      - {debtDetail.concept}
                     </Text>
                     <Text style={styles.conceptMiniTitle}>
                       Deudor: {debtDetail.debtor}
                     </Text>
                     <Text style={styles.conceptMiniTitle}>
-                      Tasa de interes: {debtDetail.interestRate}% 
+                      Tasa de interes: {debtDetail.interestRate}%
                     </Text>
                     <View style={styles.banner}>
                       <Text style={styles.bannerText}>
@@ -343,7 +341,8 @@ export default function Reports() {
                         {debtDetail.amountReceivableBeginDate}
                       </Text>
                       <Text style={styles.bannerText}>
-                        Monto por pagar fin del periodo: {debtDetail.amountReceivableEndDate}
+                        Monto por pagar fin del periodo:{" "}
+                        {debtDetail.amountReceivableEndDate}
                       </Text>
                     </View>
 
@@ -377,13 +376,512 @@ export default function Reports() {
     );
   };
 
-
-  const renderFamilyMembersObligations = (companiesData) => {
+  const renderFamilyMembersObligations = (memberData) => {
     return (
       <View>
         <View style={styles.mainTitleContainer}>
-          <Text style={styles.categoryTitle}> Obligaciones personas físicas:</Text>
+          <Text style={styles.categoryTitle}>
+            {" "}
+            Obligaciones personas físicas:
+          </Text>
         </View>
+        {memberData.map((member, idx) => (
+          <View key={idx} style={styles.itemContainer}>
+            <Text style={styles.entitieText}>
+              {" "}
+              {idx + 1}. {member.familyMemberName}
+            </Text>
+
+            {member.taxes.length > 0 && (
+              <>
+                <View style={styles.subtitleContainer}>
+                  <Text style={styles.subtitle}>
+                    a) Declaraciones fiscales:
+                  </Text>
+                </View>
+                {member.taxes.map((tax, taxIdx) => (
+                  <View style={styles.subCategorySection} key={taxIdx}>
+                    <View>
+                      <Text style={styles.conceptMiniTitle}>
+                        Regimen Fiscal: {member.taxRegime}
+                      </Text>
+                      <Text style={styles.conceptMiniTitle}>
+                        Frecuencia de declaraciones:{" "}
+                        {member.taxReportFrequency.join(", ")}
+                      </Text>
+                      <View style={styles.tableHeader}>
+                        <Text style={styles.tableCell}>Tipo</Text>
+                        <Text style={styles.tableCell}>IVA</Text>
+                        <Text style={styles.tableCell}>ISR</Text>
+                        <Text style={styles.tableCell}>Declaración de:</Text>
+                        <Text style={styles.tableCell}>Dia declaración</Text>
+                      </View>
+
+                      {tax.reportList.map((report, reportIdx) => (
+                        <View key={reportIdx} style={styles.tableRow}>
+                          <Text style={styles.tableCell}>{report.type}</Text>
+                          <Text style={styles.tableCell}>
+                            {report.iva ? "Si" : "No"}
+                          </Text>
+                          <Text style={styles.tableCell}>
+                            {report.isr ? "Si" : "No"}
+                          </Text>
+                          <Text style={styles.tableCell}>
+                            {report.forMonth === "--" ? "" : report.forMonth}{" "}
+                            {report.forYear}
+                          </Text>
+                          <Text style={styles.tableCell}>
+                            {report.reportDay}
+                          </Text>
+                        </View>
+                      ))}
+                    </View>
+                  </View>
+                ))}
+              </>
+            )}
+
+            {/* DEUDAS */}
+            {member.debt.length > 0 && (
+              <>
+                <View style={styles.subtitleContainer}>
+                  <Text style={styles.subtitle}>
+                    b) Creditos y prestamos por pagar:
+                  </Text>
+                </View>
+                {member.debt.map((debtItem, debtIdx) => (
+                  <View key={debtIdx} style={styles.subCategorySection}>
+                    {debtItem.debt.map((debtDetail, detailIdx) => (
+                      <View
+                        key={detailIdx}
+                        style={styles.debtAndCollectingContainer}
+                      >
+                        <Text style={styles.conceptTitle}>
+                          - {debtDetail.concept}
+                        </Text>
+                        <Text style={styles.conceptMiniTitle}>
+                          Acreedor: {debtDetail.creditor}
+                        </Text>
+                        <Text style={styles.conceptMiniTitle}>
+                          Tasa de interes: {debtDetail.interestRate}%
+                        </Text>
+                        <View style={styles.banner}>
+                          <Text style={styles.bannerText}>
+                            Monto total de deuda: {debtDetail.totalDebt}
+                          </Text>
+                          <Text style={styles.bannerText}>
+                            Monto por pagar inicio del periodo:{" "}
+                            {debtDetail.amountPayableBeginDate}
+                          </Text>
+                          <Text style={styles.bannerText}>
+                            Monto por pagar fin del periodo:{" "}
+                            {debtDetail.amountPayableEndDate}
+                          </Text>
+                        </View>
+
+                        <View>
+                          <View style={styles.tableHeader}>
+                            <Text style={styles.tableCell}>Año</Text>
+                            <Text style={styles.tableCell}>Mes</Text>
+                            <Text style={styles.tableCell}>Monto</Text>
+                            <Text style={styles.tableCell}>Día de pago</Text>
+                          </View>
+
+                          {debtDetail.payments.map((payment, paymentIdx) => (
+                            <View key={paymentIdx} style={styles.tableRow}>
+                              <Text style={styles.tableCell}>
+                                {payment.year}
+                              </Text>
+                              <Text style={styles.tableCell}>
+                                {payment.month}
+                              </Text>
+                              <Text style={styles.tableCell}>
+                                {payment.amount}
+                              </Text>
+                              <Text style={styles.tableCell}>
+                                {payment.paymentDay}
+                              </Text>
+                            </View>
+                          ))}
+                        </View>
+                      </View>
+                    ))}
+                  </View>
+                ))}
+              </>
+            )}
+            {member.collecting.length > 0 && (
+              <>
+                <View style={styles.subtitleContainer}>
+                  <Text style={styles.subtitle}>c) Prestamos por cobrar:</Text>
+                </View>
+                {member.collecting.map((debtItem, debtIdx) => (
+                  <View key={debtIdx} style={styles.subCategorySection}>
+                    {/* PRESTAMOS POR COBRAR */}
+                    {debtItem.debt.map((debtDetail, detailIdx) => (
+                      <View
+                        key={detailIdx}
+                        style={styles.debtAndCollectingContainer}
+                      >
+                        <Text style={styles.conceptTitle}>
+                          - {debtDetail.concept}
+                        </Text>
+                        <Text style={styles.conceptMiniTitle}>
+                          Deudor: {debtDetail.debtor}
+                        </Text>
+                        <Text style={styles.conceptMiniTitle}>
+                          Tasa de interes: {debtDetail.interestRate}%
+                        </Text>
+                        <View style={styles.banner}>
+                          <Text style={styles.bannerText}>
+                            Monto total de deuda: {debtDetail.totalDebt}
+                          </Text>
+                          <Text style={styles.bannerText}>
+                            Monto por cobrar inicio del periodo:{" "}
+                            {debtDetail.amountReceivableBeginDate}
+                          </Text>
+                          <Text style={styles.bannerText}>
+                            Monto por cobrar fin del periodo:{" "}
+                            {debtDetail.amountReceivableEndDate}
+                          </Text>
+                        </View>
+
+                        <View>
+                          <View style={styles.tableHeader}>
+                            <Text style={styles.tableCell}>Año</Text>
+                            <Text style={styles.tableCell}>Mes</Text>
+                            <Text style={styles.tableCell}>Monto</Text>
+                            <Text style={styles.tableCell}>Día de pago</Text>
+                          </View>
+
+                          {debtDetail.payments.map((payment, paymentIdx) => (
+                            <View key={paymentIdx} style={styles.tableRow}>
+                              <Text style={styles.tableCell}>
+                                {payment.year}
+                              </Text>
+                              <Text style={styles.tableCell}>
+                                {payment.month}
+                              </Text>
+                              <Text style={styles.tableCell}>
+                                {payment.amount}
+                              </Text>
+                              <Text style={styles.tableCell}>
+                                {payment.paymentDay}
+                              </Text>
+                            </View>
+                          ))}
+                        </View>
+                      </View>
+                    ))}
+                  </View>
+                ))}
+              </>
+            )}
+
+            {member.insurances.lifeInsurances.length > 0 && (
+              <>
+                <View style={styles.subtitleContainer}>
+                  <Text style={styles.subtitle}>d) Seguros de vida:</Text>
+                </View>
+
+                {member.insurances.lifeInsurances.map((insurance, insIdx) => (
+                  <View key={insIdx} style={styles.subCategorySection}>
+                    {/* SEGUROS DE VIDA */}
+                    <View style={styles.banner}>
+                      <Text style={styles.bannerText}>
+                        Compañía de seguros: {insurance.insuranceCompany}
+                      </Text>
+                      <Text style={styles.bannerText}>
+                        Frecuencia de pagos: {insurance.paymentFrequency}
+                      </Text>
+                      <Text style={styles.bannerText}>
+                        Vigencia: {insurance.from} - {insurance.to}
+                      </Text>
+                    </View>
+
+                    <View>
+                      <View style={styles.tableHeader}>
+                        <Text style={styles.tableCell}>Año</Text>
+                        <Text style={styles.tableCell}>Mes</Text>
+                        <Text style={styles.tableCell}>Vigencia del</Text>
+                        <Text style={styles.tableCell}>Vigencia al</Text>
+                      </View>
+
+                      {insurance.payments.map((payment, paymentIdx) => (
+                        <View key={paymentIdx} style={styles.tableRow}>
+                          <Text style={styles.tableCell}>{payment.year}</Text>
+                          <Text style={styles.tableCell}>{payment.month}</Text>
+                          <Text style={styles.tableCell}>{payment.from}</Text>
+                          <Text style={styles.tableCell}>{payment.to}</Text>
+                        </View>
+                      ))}
+                    </View>
+                  </View>
+                ))}
+              </>
+            )}
+
+            {member.insurances.lifeInsurances.length > 0 && (
+              <>
+                <View style={styles.subtitleContainer}>
+                  <Text style={styles.subtitle}>e) Seguros médico:</Text>
+                </View>
+
+                {member.insurances.medicalInsurances.map(
+                  (insurance, insIdx) => (
+                    <View key={insIdx} style={styles.subCategorySection}>
+                      {/* SEGUROS MEDICOS */}
+                      <View style={styles.banner}>
+                        <Text style={styles.bannerText}>
+                          Compañía de seguros: {insurance.insuranceCompany}
+                        </Text>
+                        <Text style={styles.bannerText}>
+                          Frecuencia de pagos: {insurance.paymentFrequency}
+                        </Text>
+                        <Text style={styles.bannerText}>
+                          Vigencia: {insurance.from} - {insurance.to}
+                        </Text>
+                      </View>
+
+                      <View>
+                        <View style={styles.tableHeader}>
+                          <Text style={styles.tableCell}>Año</Text>
+                          <Text style={styles.tableCell}>Mes</Text>
+                          <Text style={styles.tableCell}>Vigencia del</Text>
+                          <Text style={styles.tableCell}>Vigencia al</Text>
+                        </View>
+
+                        {insurance.payments.map((payment, paymentIdx) => (
+                          <View key={paymentIdx} style={styles.tableRow}>
+                            <Text style={styles.tableCell}>{payment.year}</Text>
+                            <Text style={styles.tableCell}>
+                              {payment.month}
+                            </Text>
+                            <Text style={styles.tableCell}>{payment.from}</Text>
+                            <Text style={styles.tableCell}>{payment.to}</Text>
+                          </View>
+                        ))}
+                      </View>
+                    </View>
+                  )
+                )}
+              </>
+            )}
+          </View>
+        ))}
+      </View>
+    );
+  };
+
+  const renderAssetsObligations = (assetData) => {
+    return (
+      <View>
+        <View style={styles.mainTitleContainer}>
+          <Text style={styles.categoryTitle}> Obligaciones de activos: </Text>
+        </View>
+
+        {assetData.realState.length > 0 && (
+          <View>
+            {assetData.realState.map((asset, idx) => (
+              <View key={idx} style={styles.itemContainer}>
+                <Text style={styles.entitieText}>
+                  {" "}
+                  {idx + 1}. {asset.name}
+                </Text>
+                {asset.taxProperty.payments.length > 0 && (
+                  <>
+                    <View style={styles.subtitleContainer}>
+                      <Text style={styles.subtitle}>a) Prediales:</Text>
+                    </View>
+
+                    <View style={styles.subCategorySection}>
+                      <Text style={styles.conceptMiniTitle}>
+                        Frecuencia de pago: {asset.taxProperty.paymentFrequency}
+                      </Text>
+                      <View style={styles.tableHeader}>
+                        <Text style={styles.tableCell}>Monto</Text>
+                        <Text style={styles.tableCell}>Vigencia del</Text>
+                        <Text style={styles.tableCell}>Vigencia al</Text>
+                      </View>
+                      {asset.taxProperty.payments.map((tax, taxIdx) => (
+                        <View style={styles.tableRow}>
+                          <Text style={styles.tableCell}>{tax.amount}</Text>
+                          <Text style={styles.tableCell}>{tax.from}</Text>
+                          <Text style={styles.tableCell}>{tax.to}</Text>
+                        </View>
+                      ))}
+                    </View>
+                  </>
+                )}
+
+                {asset.mantainance.payments.length > 0 && (
+                  <>
+                    <View style={styles.subtitleContainer}>
+                      <Text style={styles.subtitle}>b) Mantenimientos:</Text>
+                    </View>
+
+                    <View style={styles.subCategorySection}>
+                      <View>
+                        <Text style={styles.conceptMiniTitle}>
+                          Nombre de mantenimiento: {asset.mantainance.name}
+                        </Text>
+                        <View style={styles.tableHeader}>
+                          <Text style={styles.tableCell}>Monto</Text>
+                          <Text style={styles.tableCell}>Año</Text>
+                          <Text style={styles.tableCell}>Mes</Text>
+                        </View>
+                        {asset.mantainance.payments.map((mant, taxIdx) => (
+                          <View style={styles.tableRow}>
+                            <Text style={styles.tableCell}>{mant.amount}</Text>
+                            <Text style={styles.tableCell}>{mant.year}</Text>
+                            <Text style={styles.tableCell}>{mant.month}</Text>
+                          </View>
+                        ))}
+                      </View>
+                    </View>
+                  </>
+                )}
+
+                {asset.debt.length > 0 && (
+                  <>
+                    <View style={styles.subtitleContainer}>
+                      <Text style={styles.subtitle}>
+                        c) Creditos hipotecarios:
+                      </Text>
+                    </View>
+                    {asset.debt.map((debtItem, debtIdx) => (
+                      <View key={debtIdx} style={styles.subCategorySection}>
+                        {/* PRESTAMOS POR COBRAR */}
+                        <View key={debtIdx}>
+                          <Text style={styles.conceptMiniTitle}>
+                            Acreedor: {debtItem.debtor}
+                          </Text>
+                          <Text style={styles.conceptMiniTitle}>
+                            Tasa de interes: {debtItem.interestRate}%
+                          </Text>
+                          <View style={styles.banner}>
+                            <Text style={styles.bannerText}>
+                              Monto total de deuda: {debtItem.totalDebt}
+                            </Text>
+                            <Text style={styles.bannerText}>
+                              Monto por cobrar inicio del periodo:{" "}
+                              {debtItem.amountPayableBeginDate}
+                            </Text>
+                            <Text style={styles.bannerText}>
+                              Monto por cobrar fin del periodo:{" "}
+                              {debtItem.amountPayableEndDate}
+                            </Text>
+                          </View>
+
+                          <View>
+                            <View style={styles.tableHeader}>
+                              <Text style={styles.tableCell}>Año</Text>
+                              <Text style={styles.tableCell}>Mes</Text>
+                              <Text style={styles.tableCell}>Monto</Text>
+                              <Text style={styles.tableCell}>Día de pago</Text>
+                            </View>
+
+                            {debtItem.payments.map((payment, paymentIdx) => (
+                              <View key={paymentIdx} style={styles.tableRow}>
+                                <Text style={styles.tableCell}>
+                                  {payment.year}
+                                </Text>
+                                <Text style={styles.tableCell}>
+                                  {payment.month}
+                                </Text>
+                                <Text style={styles.tableCell}>
+                                  {payment.amount}
+                                </Text>
+                                <Text style={styles.tableCell}>
+                                  {payment.paymentDay}
+                                </Text>
+                              </View>
+                            ))}
+                          </View>
+                        </View>
+                      </View>
+                    ))}
+                  </>
+                )}
+
+                {asset.rentCollecting.tenant && (
+                  <>
+                    <View style={styles.subtitleContainer}>
+                      <Text style={styles.subtitle}>d) Cobro de arrendamiento:</Text>
+                    </View>
+
+                    <View style={styles.subCategorySection}>
+                      <View>
+                        <Text style={styles.conceptMiniTitle}>
+                          Nombre de arrendatario: {asset.rentCollecting.tenant}
+                        </Text>
+                        <View style={styles.tableHeader}>
+                          <Text style={styles.tableCell}>Monto</Text>
+                          <Text style={styles.tableCell}>Año</Text>
+                          <Text style={styles.tableCell}>Mes</Text>
+                        </View>
+                        {asset.rentCollecting.collecting.map((mant, taxIdx) => (
+                          <View style={styles.tableRow}>
+                            <Text style={styles.tableCell}>{mant.amount}</Text>
+                            <Text style={styles.tableCell}>{mant.year}</Text>
+                            <Text style={styles.tableCell}>{mant.month}</Text>
+                          </View>
+                        ))}
+                      </View>
+                    </View>
+                  </>
+                )}  
+
+            {asset.insurances.length > 0 && (
+              <>
+                <View style={styles.subtitleContainer}>
+                  <Text style={styles.subtitle}>e) Seguros inmobiliario:</Text>
+                </View>
+
+                {asset.insurances.map(
+                  (insurance, insIdx) => (
+                    <View key={insIdx} style={styles.subCategorySection}>
+                      {/* SEGUROS MEDICOS */}
+                      <View style={styles.banner}>
+                        <Text style={styles.bannerText}>
+                          Compañía de seguros: {insurance.insuranceCompany}
+                        </Text>
+                        <Text style={styles.bannerText}>
+                          Frecuencia de pagos: {insurance.paymentFrequency}
+                        </Text>
+                        <Text style={styles.bannerText}>
+                          Vigencia: {insurance.from} - {insurance.to}
+                        </Text>
+                      </View>
+
+                      <View>
+                        <View style={styles.tableHeader}>
+                          <Text style={styles.tableCell}>Año</Text>
+                          <Text style={styles.tableCell}>Mes</Text>
+                          <Text style={styles.tableCell}>Vigencia del</Text>
+                          <Text style={styles.tableCell}>Vigencia al</Text>
+                        </View>
+
+                        {insurance.payments.map((payment, paymentIdx) => (
+                          <View key={paymentIdx} style={styles.tableRow}>
+                            <Text style={styles.tableCell}>{payment.year}</Text>
+                            <Text style={styles.tableCell}>
+                              {payment.month}
+                            </Text>
+                            <Text style={styles.tableCell}>{payment.from}</Text>
+                            <Text style={styles.tableCell}>{payment.to}</Text>
+                          </View>
+                        ))}
+                      </View>
+                    </View>
+                  )
+                )}
+              </>
+            )}
+              </View>
+            ))}
+          </View>
+        )}
       </View>
     );
   };
@@ -414,7 +912,8 @@ export default function Reports() {
 
         {renderHighlights()}
         {renderCompaniesObligations(reportsData.companiesObligations)}
-        {renderFamilyMembersObligations(reportsData.companiesObligations)}
+        {renderFamilyMembersObligations(reportsData.familyMembersObligations)}
+        {renderAssetsObligations(reportsData.assetsObligations)}
       </Page>
     </Document>
   );
