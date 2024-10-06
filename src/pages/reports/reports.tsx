@@ -1063,7 +1063,7 @@ export default function Reports() {
           <View>
             <View style={styles.subtitleContainerNoMargin}>
               <Text style={styles.subtitle}>
-                Cuentas bancarias personas morales:
+                Cuentas bancarias personas físicas:
               </Text>
             </View>
             {investmentData.bankAccountsFamilyMembers.map((member, idx) => (
@@ -1259,6 +1259,111 @@ export default function Reports() {
     );
   };
 
+  const renderGovernance = (governanceData) => {
+    return (
+      <View break={true}>
+        <View style={styles.mainTitleContainer}>
+          <Image style={styles.icon} src={famholdIcon} />
+          <Text style={styles.categoryTitle}>
+            Governanza (Comite de inversión y consejo familiar):{" "}
+          </Text>
+        </View>
+
+        <View>
+          <View style={styles.subtitleContainer}>
+            <Text style={styles.subtitle}>Comite de inversión:</Text>
+          </View>
+          {governanceData.investmentCommittee.meetings.length > 0 && (
+            <>
+              <View style={styles.subCategorySection}>
+                <View style={styles.tableHeader}>
+                  <Text style={styles.tableCell}>Nombre de junta</Text>
+                  <Text style={styles.tableCell}>Dia de junta</Text>
+                  <Text style={styles.tableCell}>Participantes</Text>
+                </View>
+                {governanceData.investmentCommittee.meetings.map((meet, taxIdx) => (
+                  <View style={styles.tableRow}>
+                    <Text style={styles.tableCell}>{meet.meetingName}</Text>
+                    <Text style={styles.tableCell}>{meet.meetingDay}</Text>
+                    <Text style={styles.tableCell}>
+                      {meet.participants}
+                    </Text>
+                  </View>
+                ))}
+              </View>
+            </>
+          )}
+          {governanceData.investmentCommittee.voatings.length > 0 && (
+            <>
+              <View style={styles.subCategorySection}>
+                <View style={styles.tableHeader}>
+                  <Text style={styles.tableCell}>Nombre de votación</Text>
+                  <Text style={styles.tableCell}>Dia de junta</Text>
+                  <Text style={styles.tableCell}>Participantes</Text>
+                </View>
+                {governanceData.investmentCommittee.voatings.map((meet, taxIdx) => (
+                  <View style={styles.tableRow}>
+                    <Text style={styles.tableCell}>{meet.meetingName}</Text>
+                    <Text style={styles.tableCell}>{meet.result}</Text>
+                    <Text style={styles.tableCell}>
+                      {meet.participants}
+                    </Text>
+                  </View>
+                ))}
+              </View>
+            </>
+          )}
+
+          <View style={styles.subtitleContainer}>
+            <Text style={styles.subtitle}>Consejo familiar:</Text>
+          </View>
+
+          {governanceData.familyCouncil.meetings.length > 0 && (
+            <>
+              <View style={styles.subCategorySection}>
+                <View style={styles.tableHeader}>
+                  <Text style={styles.tableCell}>Nombre de junta</Text>
+                  <Text style={styles.tableCell}>Dia de junta</Text>
+                  <Text style={styles.tableCell}>Participantes</Text>
+                </View>
+                {governanceData.familyCouncil.meetings.map((meet, taxIdx) => (
+                  <View style={styles.tableRow}>
+                    <Text style={styles.tableCell}>{meet.meetingName}</Text>
+                    <Text style={styles.tableCell}>{meet.meetingDay}</Text>
+                    <Text style={styles.tableCell}>
+                      {meet.participants}
+                    </Text>
+                  </View>
+                ))}
+              </View>
+            </>
+          )}
+
+          {governanceData.familyCouncil.voatings.length > 0 && (
+            <>
+              <View style={styles.subCategorySection}>
+                <View style={styles.tableHeader}>
+                  <Text style={styles.tableCell}>Nombre de votación</Text>
+                  <Text style={styles.tableCell}>Resultado de votaciones</Text>
+                  <Text style={styles.tableCell}>Participantes</Text>
+                </View>
+                {governanceData.familyCouncil.voatings.map((meet, taxIdx) => (
+                  <View style={styles.tableRow}>
+                    <Text style={styles.tableCell}>{meet.voatingName}</Text>
+                    <Text style={styles.tableCell}>{meet.result}</Text>
+                    <Text style={styles.tableCell}>
+                      {meet.participants}
+                    </Text>
+                  </View>
+                ))}
+              </View>
+            </>
+          )}    
+        </View>
+      </View>
+    );
+  };
+
   const renderWealthBalance = (wealthBalance) => {
     return (
       <View break={true}>
@@ -1303,8 +1408,12 @@ export default function Reports() {
             ].map((asset, idx) => (
               <View style={styles.tableRow} key={idx}>
                 <Text style={styles.tableCell}>{asset.name}</Text>
-                <Text style={styles.tableCell}>{asset.valuationStartDate} {wealthBalance.currency}</Text>
-                <Text style={styles.tableCell}>{asset.valuationEndDate} {wealthBalance.currency}</Text>
+                <Text style={styles.tableCell}>
+                  {asset.valuationStartDate} {wealthBalance.currency}
+                </Text>
+                <Text style={styles.tableCell}>
+                  {asset.valuationEndDate} {wealthBalance.currency}
+                </Text>
               </View>
             ))}
           </View>
@@ -1326,8 +1435,12 @@ export default function Reports() {
             ].map((asset, idx) => (
               <View style={styles.tableRow} key={idx}>
                 <Text style={styles.tableCell}>{asset.name}</Text>
-                <Text style={styles.tableCell}>{asset.valuationStartDate} {wealthBalance.currency}</Text>
-                <Text style={styles.tableCell}>{asset.valuationEndDate} {wealthBalance.currency}</Text>
+                <Text style={styles.tableCell}>
+                  {asset.valuationStartDate} {wealthBalance.currency}
+                </Text>
+                <Text style={styles.tableCell}>
+                  {asset.valuationEndDate} {wealthBalance.currency}
+                </Text>
               </View>
             ))}
           </View>
@@ -1366,6 +1479,7 @@ export default function Reports() {
         {renderAssetsObligations(reportsData.assetsObligations)}
         {renderInvestmentsAndAssets(reportsData.investmentsAndAssets)}
         {renderWealthBalance(reportsData.wealthBalance)}
+        {renderGovernance(reportsData.governance)}
       </Page>
     </Document>
   );

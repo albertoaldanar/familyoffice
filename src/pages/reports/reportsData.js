@@ -1233,5 +1233,35 @@ export const reportsData = {
       valuationStartDate: '$ 8,850,000.00',
       valuationEndDate: '$ 8,390,000.00' 
     }
+  },
+  governance: {
+    investmentCommittee: {
+      meetings: [
+        {
+          meetingName: 'Reunion # 2 de Comite de inversión - Tercer junta tercer bimestre',
+          meetingDay: '12/04/2024',
+          participants: '4/5'
+        }
+      ], 
+      voatings: [
+
+      ]
+    }, 
+    familyCouncil: {
+      meetings: [
+        {
+          meetingName: 'Reunion # 3 de Consejo Familiar - Tercer junta tercer bimestre',
+          meetingDay: '05/03/2024',
+          participants: '5/5'
+        }
+      ], 
+      voatings: [
+        {
+          voatingName: 'Votación - Todos los miembros del comite deben presentar reporte semanal', 
+          result: 'En contra', 
+          participants: '5/5'
+        }
+      ]
+    }
   }
 };
