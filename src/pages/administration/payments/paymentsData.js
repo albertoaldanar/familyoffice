@@ -294,7 +294,7 @@ export const seguros = [
     vigenciaDel: "20/12/2022",
     vigenciaAl: "20/12/2070",
     pagoen: "2 meses",
-    proxPago: "29/09/2024",
+    proxPago: "29/10/2024",
     pagos: [
       {
         id: 1,
@@ -353,7 +353,7 @@ export const seguros = [
     anualCost: "58,000.00",
     country: 'México',
     poliza: "https://googledrive.com/erg3440398f4fmv",
-    proxPago: "29/09/2024",
+    proxPago: "10/10/2024",
     linkedItemId: 13,
     frecuenciaDePago: "Anual",
     nombreAseguradora: "Seguros Monterrey",
@@ -395,7 +395,7 @@ export const seguros = [
     anualCost: "58,000.00",
     country: 'México',
     poliza: "https://googledrive.com/erg3440398f4fmv",
-    proxPago: "29/09/2024",
+    proxPago: "30/10/2024",
     linkedItemId: null,
     frecuenciaDePago: "Anual",
     nombreAseguradora: "Seguros Monterrey",

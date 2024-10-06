@@ -31,7 +31,7 @@ export const reportsData = {
           amountTaxReportYearly: 1,
           totalSales: "$4,500,000.00",
           totalExpenses: "$1,254,000.00",
-          netProfit: "$1,800,000.00",
+          netProfit: "$1,14,000.00",
           reportList: [
             {
               type: "Mensual",
@@ -702,5 +702,536 @@ export const reportsData = {
         rentCollecting: {}
       }
     ]
+  }, 
+  investmentsAndAssets: {
+    stockInvestments: [
+      {
+        bank: 'Scotia Bank', 
+        accountNumber: '6641232', 
+        owners: [
+          {
+            name: 'Alberto Aldana Fariñas', 
+            pct: '100%'
+          }
+        ],
+        totalValueBeginDate: '$ 10,800,000.00',
+        totalValueEndDate: '$ 11,800,000.00',
+        valuations: [
+          {
+            month: 'Enero', 
+            year: 2024, 
+            amount: '$ 10,800,000.00'
+          }, 
+          {
+            month: 'Febrero', 
+            year: 2024, 
+            amount: '$ 10,900,000.00'
+          },
+          {
+            month: 'Marzo', 
+            year: 2024, 
+            amount: '$ 10,900,000.00'
+          },
+          {
+            month: 'Abril', 
+            year: 2024, 
+            amount: '$ 11,800,000.00'
+          },
+        ]
+      }, 
+      {
+        bank: 'Santander', 
+        accountNumber: '79441232', 
+        owners: [
+          {
+            name: 'Alberto Aldana Fariñas', 
+            pct: '100%'
+          }
+        ],
+        totalValueBeginDate: '$ 1,800,000.00',
+        totalValueEndDate: '$ 1,300,000.00',
+        valuations: [
+          {
+            month: 'Enero', 
+            year: 2024, 
+            amount: '$ 1,800,000.00'
+          }, 
+          {
+            month: 'Febrero', 
+            year: 2024, 
+            amount: '$ 2,100,000.00'
+          },
+          {
+            month: 'Marzo', 
+            year: 2024, 
+            amount: '$ 1,400,000.00'
+          },
+          {
+            month: 'Abril', 
+            year: 2024, 
+            amount: '$ 1,300,000.00'
+          },
+        ]
+      }
+    ], 
+    bankAccountsCompanies: [
+      {
+        name: 'Aldana Clima Integral',
+        accounts: [
+          {
+            bank: 'Banorte',
+            accountNumber: '2402843991',
+            totalValueBeginDate: '$ 800,000.00',
+            totalValueEndDate: '$ 300,000.00',
+            valuations: [
+              {
+                month: 'Enero', 
+                year: 2024, 
+                amount: '$ 800,000.00'
+              }, 
+              {
+                month: 'Febrero', 
+                year: 2024, 
+                amount: '$ 1,00,000.00'
+              },
+              {
+                month: 'Marzo', 
+                year: 2024, 
+                amount: '$ 400,000.00'
+              },
+              {
+                month: 'Abril', 
+                year: 2024, 
+                amount: '$ 300,000.00'
+              },
+            ]
+          }, 
+          {
+            bank: 'HSBC',
+            accountNumber: '438392511',
+            totalValueBeginDate: '$ 100,000.00',
+            totalValueEndDate: '$ 350,000.00',
+            valuations: [
+              {
+                month: 'Enero', 
+                year: 2024, 
+                amount: '$ 100,000.00'
+              }, 
+              {
+                month: 'Febrero', 
+                year: 2024, 
+                amount: '$ 235,000.00'
+              },
+              {
+                month: 'Marzo', 
+                year: 2024, 
+                amount: '$ 350,000.00'
+              },
+              {
+                month: 'Abril', 
+                year: 2024, 
+                amount: '$ 350,000.00'
+              },
+            ]
+          }
+        ]
+      }, 
+      {
+        name: 'Celsius SA de CV',
+        accounts: [
+          {
+            bank: 'Banorte',
+            accountNumber: '241332322',
+            currency: 'MXN',
+            totalValueBeginDate: '$ 450,000.00',
+            totalValueEndDate: '$ 156,000.00',
+            valuations: [
+              {
+                month: 'Enero', 
+                year: 2024, 
+                amount: '$ 800,000.00'
+              }, 
+              {
+                month: 'Febrero', 
+                year: 2024, 
+                amount: '$ 1,00,000.00'
+              },
+              {
+                month: 'Marzo', 
+                year: 2024, 
+                amount: '$ 400,000.00'
+              },
+              {
+                month: 'Abril', 
+                year: 2024, 
+                amount: '$ 300,000.00'
+              },
+            ]
+          }, 
+          {
+            bank: 'BBVA',
+            accountNumber: '345234524344',
+            currency: 'MXN',
+            totalValueBeginDate: '$ 644,000.00',
+            totalValueEndDate: '$ 769,000.00',
+            valuations: [
+              {
+                month: 'Enero', 
+                year: 2024, 
+                amount: '$ 100,000.00'
+              }, 
+              {
+                month: 'Febrero', 
+                year: 2024, 
+                amount: '$ 235,000.00'
+              },
+              {
+                month: 'Marzo', 
+                year: 2024, 
+                amount: '$ 350,000.00'
+              },
+              {
+                month: 'Abril', 
+                year: 2024, 
+                amount: '$ 350,000.00'
+              },
+            ]
+          },
+          {
+            bank: 'BBVA',
+            accountNumber: '34524344',
+            currency: 'MXN',
+            totalValueBeginDate: '$ 425,000.00',
+            totalValueEndDate: '$ 425,000.00',
+            valuations: [
+              {
+                month: 'Enero', 
+                year: 2024, 
+                amount: '$ 100,000.00'
+              }, 
+              {
+                month: 'Febrero', 
+                year: 2024, 
+                amount: '$ 235,000.00'
+              },
+              {
+                month: 'Marzo', 
+                year: 2024, 
+                amount: '$ 350,000.00'
+              },
+              {
+                month: 'Abril', 
+                year: 2024, 
+                amount: '$ 350,000.00'
+              },
+            ]
+          }
+        ]
+      }
+    ], 
+    bankAccountsFamilyMembers: [
+      {
+        name: 'Alberto Aldana Fariñas',
+        accounts: [
+          {
+            bank: 'Banorte',
+            accountNumber: '2402843991',
+            totalValueBeginDate: '$ 800,000.00',
+            totalValueEndDate: '$ 300,000.00',
+            valuations: [
+              {
+                month: 'Enero', 
+                year: 2024, 
+                amount: '$ 800,000.00'
+              }, 
+              {
+                month: 'Febrero', 
+                year: 2024, 
+                amount: '$ 1,00,000.00'
+              },
+              {
+                month: 'Marzo', 
+                year: 2024, 
+                amount: '$ 400,000.00'
+              },
+              {
+                month: 'Abril', 
+                year: 2024, 
+                amount: '$ 300,000.00'
+              },
+            ]
+          }, 
+          {
+            bank: 'Santander',
+            accountNumber: '438392511',
+            totalValueBeginDate: '$ 100,000.00',
+            totalValueEndDate: '$ 350,000.00',
+            valuations: [
+              {
+                month: 'Enero', 
+                year: 2024, 
+                amount: '$ 100,000.00'
+              }, 
+              {
+                month: 'Febrero', 
+                year: 2024, 
+                amount: '$ 235,000.00'
+              },
+              {
+                month: 'Marzo', 
+                year: 2024, 
+                amount: '$ 350,000.00'
+              },
+              {
+                month: 'Abril', 
+                year: 2024, 
+                amount: '$ 350,000.00'
+              },
+            ]
+          }
+        ]
+      }, 
+      {
+        name: 'Patricia Ríos Collantes',
+        accounts: [
+          {
+            bank: 'Banorte',
+            accountNumber: '241332322',
+            currency: 'MXN',
+            totalValueBeginDate: '$ 450,000.00',
+            totalValueEndDate: '$ 156,000.00',
+            valuations: [
+              {
+                month: 'Enero', 
+                year: 2024, 
+                amount: '$ 800,000.00'
+              }, 
+              {
+                month: 'Febrero', 
+                year: 2024, 
+                amount: '$ 1,00,000.00'
+              },
+              {
+                month: 'Marzo', 
+                year: 2024, 
+                amount: '$ 400,000.00'
+              },
+              {
+                month: 'Abril', 
+                year: 2024, 
+                amount: '$ 300,000.00'
+              },
+            ]
+          }, 
+          {
+            bank: 'BBVA',
+            accountNumber: '345234524344',
+            currency: 'MXN',
+            totalValueBeginDate: '$ 644,000.00',
+            totalValueEndDate: '$ 769,000.00',
+            valuations: [
+              {
+                month: 'Enero', 
+                year: 2024, 
+                amount: '$ 100,000.00'
+              }, 
+              {
+                month: 'Febrero', 
+                year: 2024, 
+                amount: '$ 235,000.00'
+              },
+              {
+                month: 'Marzo', 
+                year: 2024, 
+                amount: '$ 350,000.00'
+              },
+              {
+                month: 'Abril', 
+                year: 2024, 
+                amount: '$ 350,000.00'
+              },
+            ]
+          },
+          {
+            bank: 'Banamex',
+            accountNumber: '34524344',
+            currency: 'MXN',
+            totalValueBeginDate: '$ 425,000.00',
+            totalValueEndDate: '$ 425,000.00',
+            valuations: [
+              {
+                month: 'Enero', 
+                year: 2024, 
+                amount: '$ 100,000.00'
+              }, 
+              {
+                month: 'Febrero', 
+                year: 2024, 
+                amount: '$ 235,000.00'
+              },
+              {
+                month: 'Marzo', 
+                year: 2024, 
+                amount: '$ 350,000.00'
+              },
+              {
+                month: 'Abril', 
+                year: 2024, 
+                amount: '$ 350,000.00'
+              },
+            ]
+          }
+        ]
+      }
+    ], 
+    privateEquityFunds: [
+      {
+        fundName: 'ABC fund', 
+        totalReturnsBeginDate: '$ 14,000.00',
+        totalReturnsEndDate: '$ 19,000.00',
+        owners:[
+          {
+            name: 'Alberto Aldana Fariñas',
+            pct: '100%'
+          },
+        ], 
+        investment: '$145,000.00', 
+        currency: 'USD', 
+        returnsInPeriod: [
+          {
+            amount: '$ 5,000.00',
+            month: 'Febrero',
+            year: 2024
+          }
+        ]
+      }, 
+      {
+        fundName: 'Crossboard Fund', 
+        totalReturnsBeginDate: '$ 50,000.00',
+        totalReturnsEndDate: '$ 150,000.00',
+        owners:[
+          {
+            name: 'Alberto Aldana Fariñas',
+            pct: '50%'
+          },
+          {
+            name: 'Alberto Aldana Rios',
+            pct: '50%'
+          },
+        ], 
+        investment: '$2,800,000.00', 
+        currency: 'MXN', 
+        returnsInPeriod: [
+          {
+            amount: '$ 100,000.00',
+            month: 'Abril',
+            year: 2024
+          }
+        ]
+      }, 
+    ],
+    privateEquityCapital: [
+      {
+        investmentCompany: 'Restaurante Alejo', 
+        sharePercentage: '25%',
+        valuationPreMoney: '$ 1,500,000.00',
+        valuationBeginDate: '$ 5,000,000.00',
+        valuationEndDate: '$ 5,000,000.00',
+        investmentAmount: '$ 4,200,000.00',
+        owners:[
+          {
+            name: 'Alberto Aldana Fariñas',
+            pct: '33%'
+          },
+          {
+            name: 'Patricia Rios Collantes',
+            pct: '33%'
+          },
+          {
+            name: 'Alberto Aldana Ríos',
+            pct: '33%'
+          },
+        ], 
+        currency: 'MXN', 
+      },
+    ], 
+    realStateRents: [
+      {
+        propertyName: 'Departamento Victoria, Mazatlán', 
+        totalCollectingInPeriod: '$ 56,000.00',
+        collecting: [
+          {
+            month: 'Enero', 
+            year: 2024, 
+            amount: '$ 14,000.00'
+          }, 
+          {
+            month: 'Febrero', 
+            year: 2024, 
+            amount: '$ 14,00,000.00'
+          },
+          {
+            month: 'Marzo', 
+            year: 2024, 
+            amount: '$ 14,000.00'
+          },
+          {
+            month: 'Abril', 
+            year: 2024, 
+            amount: '$ 14,000.00'
+          },
+        ],
+        owners:[
+          {
+            name: 'Patricia Rios Collantes',
+            pct: '100%'
+          },
+        ], 
+        currency: 'MXN', 
+      },
+    ]
+  }, 
+  wealthBalance: {
+    currency: 'MXN',
+    realState: {
+      valuationStartDate: '$ 33,500,000.00',
+      valuationEndDate: '$ 33,500,000.00'
+    },
+    bankAccounts: {
+      valuationStartDate: '$ 4,500,000.00',
+      valuationEndDate: '$ 4,800,000.00'
+    },
+    companies: {
+      valuationStartDate: '$ 23,500,000.00',
+      valuationEndDate: '$ 23,500,000.00'
+    },
+    stockInvestments: {
+      valuationStartDate: '$ 2,500,000.00',
+      valuationEndDate: '$ 2,835,000.00' 
+    }, 
+    vehicles: {
+      valuationStartDate: '$ 4,500,000.00',
+      valuationEndDate: '$ 4,500,000.00' 
+    },
+    artAndCollections: {
+      valuationStartDate: '$ 500,000.00',
+      valuationEndDate: '$ 500,000.00' 
+    },
+    loansCollecting: {
+      valuationStartDate: '$ 850,000.00',
+      valuationEndDate: '$ 678,500.00' 
+    },
+    privateEquityFund: {
+      valuationStartDate: '$ 850,000.00',
+      valuationEndDate: '$ 850,500.00' 
+    }, 
+    privateEquityCapital: {
+      valuationStartDate: '$ 1,850,000.00',
+      valuationEndDate: '$ 1,850,000.00' 
+    }, 
+    debt: {
+      valuationStartDate: '$ 8,850,000.00',
+      valuationEndDate: '$ 8,390,000.00' 
+    }
   }
 };

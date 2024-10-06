@@ -1,7 +1,10 @@
 import React, { Fragment, useState } from "react";
+import { Chart } from "chart.js";
 import { Card, Row } from "react-bootstrap";
 //@ts-ignore
 import famhold from "../../assets/images/brand/famhold.png";
+//@ts-ignore
+import famholdIcon from "../../assets/images/brand/famholdIconDarkGreen.png";
 import {
   Page,
   Text,
@@ -31,7 +34,7 @@ export default function Reports() {
       backgroundColor: "white",
     },
     image: {
-      width: 120,
+      width: 100,
       height: "auto",
       position: "absolute",
       left: 20,
@@ -68,7 +71,8 @@ export default function Reports() {
       color: "gray",
     },
     categoryTitle: {
-      fontSize: 12,
+      fontSize: 15,
+      fontWeight: "ultralight",
     },
     subCategoryTitle: {
       fontSize: 14,
@@ -99,7 +103,15 @@ export default function Reports() {
       marginRight: 20,
       marginBottom: 20,
       borderRadius: 5,
-      backgroundColor: "#99babd",
+      backgroundColor: "#004745",
+      padding: 5,
+    },
+    subtitleContainerNoMargin: {
+      marginTop: 10,
+      marginRight: 0,
+      marginBottom: 20,
+      borderRadius: 5,
+      backgroundColor: "#004745",
       padding: 5,
     },
     banner: {
@@ -114,10 +126,15 @@ export default function Reports() {
       marginBottom: 6,
     },
     tableHeader: {
-      marginTop: 10,
       flexDirection: "row",
-      borderBottomWidth: 0.5,
-      paddingTop: 2,
+      backgroundColor: "#f5f5f5",
+      color: "#004745",
+      paddingTop: 5,
+      borderRadius: 5,
+      paddingRight: 2,
+      paddingLeft: 2,
+      marginTop: 10,
+      marginBottom: 10,
       paddingBottom: 2,
       borderBottomColor: "gray",
       fontSize: 10,
@@ -146,27 +163,71 @@ export default function Reports() {
       color: "gray",
     },
     mainTitleContainer: {
-      color: "white",
-      backgroundColor: "#004745",
+      color: "#004745",
+      display: "flex",
+      flexDirection: "row",
+      backgroundColor: "#f5f5f5",
+      borderColor: "#004745",
       borderRadius: 5,
-      padding: 8,
+      padding: 13,
       marginTop: 25,
-      marginBottom: 20,
+      marginBottom: 5,
     },
     itemContainer: {
-      borderColor: "#99babd",
-      borderRadius: 5,
-      borderWidth: 1.3,
+      borderColor: "gray",
+      borderWidth: 0.3,
+      borderRadius: 0,
       paddingBottom: 10,
       marginTop: 10,
       marginBottom: 20,
     },
+    chartImage: {
+      width: "100%",
+      height: 50,
+    },
+    icon: {
+      height: 15,
+      width: 15,
+      marginRight: 10,
+    },
   });
+
+  const generateChartImage = () => {
+    const canvas = document.createElement("canvas");
+    const ctx = canvas.getContext("2d");
+
+    new Chart(ctx, {
+      type: "bar",
+      data: {
+        labels: ["January", "February", "March", "April", "May"],
+        datasets: [
+          {
+            label: "Sales",
+            data: [10, 20, 30, 40, 50],
+            backgroundColor: "rgba(75, 192, 192, 0.2)",
+            borderColor: "rgba(75, 192, 192, 1)",
+            borderWidth: 1,
+          },
+        ],
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+          },
+        },
+      },
+    });
+
+    // Convert chart to base64 image
+    return canvas.toDataURL("image/png");
+  };
 
   const renderHighlights = () => {
     return (
       <>
         <View style={styles.mainTitleContainer}>
+          <Image style={styles.icon} src={famholdIcon} />
           <Text style={styles.categoryTitle}>Highlights del periodo:</Text>
         </View>
         <View style={styles.subCategorySectionHighlights}>
@@ -184,6 +245,7 @@ export default function Reports() {
     return (
       <View>
         <View style={styles.mainTitleContainer}>
+          <Image style={styles.icon} src={famholdIcon} />
           <Text style={styles.categoryTitle}>
             {" "}
             Obligaciones personas morales:
@@ -380,6 +442,7 @@ export default function Reports() {
     return (
       <View>
         <View style={styles.mainTitleContainer}>
+          <Image style={styles.icon} src={famholdIcon} />
           <Text style={styles.categoryTitle}>
             {" "}
             Obligaciones personas físicas:
@@ -623,7 +686,7 @@ export default function Reports() {
 
             {member.insurances.lifeInsurances.length > 0 && (
               <>
-                <View style={styles.subtitleContainer}>
+                <View style={styles.subtitleContainer} wrap={false}>
                   <Text style={styles.subtitle}>e) Seguros médico:</Text>
                 </View>
 
@@ -677,6 +740,7 @@ export default function Reports() {
     return (
       <View>
         <View style={styles.mainTitleContainer}>
+          <Image style={styles.icon} src={famholdIcon} />
           <Text style={styles.categoryTitle}> Obligaciones de activos: </Text>
         </View>
 
@@ -807,7 +871,9 @@ export default function Reports() {
                 {asset.rentCollecting.tenant && (
                   <>
                     <View style={styles.subtitleContainer}>
-                      <Text style={styles.subtitle}>d) Cobro de arrendamiento:</Text>
+                      <Text style={styles.subtitle}>
+                        d) Cobro de arrendamiento:
+                      </Text>
                     </View>
 
                     <View style={styles.subCategorySection}>
@@ -830,58 +896,442 @@ export default function Reports() {
                       </View>
                     </View>
                   </>
-                )}  
+                )}
 
-            {asset.insurances.length > 0 && (
-              <>
-                <View style={styles.subtitleContainer}>
-                  <Text style={styles.subtitle}>e) Seguros inmobiliario:</Text>
-                </View>
+                {asset.insurances.length > 0 && (
+                  <>
+                    <View style={styles.subtitleContainer}>
+                      <Text style={styles.subtitle}>
+                        e) Seguros inmobiliario:
+                      </Text>
+                    </View>
 
-                {asset.insurances.map(
-                  (insurance, insIdx) => (
-                    <View key={insIdx} style={styles.subCategorySection}>
-                      {/* SEGUROS MEDICOS */}
-                      <View style={styles.banner}>
-                        <Text style={styles.bannerText}>
-                          Compañía de seguros: {insurance.insuranceCompany}
-                        </Text>
-                        <Text style={styles.bannerText}>
-                          Frecuencia de pagos: {insurance.paymentFrequency}
-                        </Text>
-                        <Text style={styles.bannerText}>
-                          Vigencia: {insurance.from} - {insurance.to}
-                        </Text>
-                      </View>
-
-                      <View>
-                        <View style={styles.tableHeader}>
-                          <Text style={styles.tableCell}>Año</Text>
-                          <Text style={styles.tableCell}>Mes</Text>
-                          <Text style={styles.tableCell}>Vigencia del</Text>
-                          <Text style={styles.tableCell}>Vigencia al</Text>
+                    {asset.insurances.map((insurance, insIdx) => (
+                      <View key={insIdx} style={styles.subCategorySection}>
+                        {/* SEGUROS MEDICOS */}
+                        <View style={styles.banner}>
+                          <Text style={styles.bannerText}>
+                            Compañía de seguros: {insurance.insuranceCompany}
+                          </Text>
+                          <Text style={styles.bannerText}>
+                            Frecuencia de pagos: {insurance.paymentFrequency}
+                          </Text>
+                          <Text style={styles.bannerText}>
+                            Vigencia: {insurance.from} - {insurance.to}
+                          </Text>
                         </View>
 
-                        {insurance.payments.map((payment, paymentIdx) => (
-                          <View key={paymentIdx} style={styles.tableRow}>
-                            <Text style={styles.tableCell}>{payment.year}</Text>
-                            <Text style={styles.tableCell}>
-                              {payment.month}
-                            </Text>
-                            <Text style={styles.tableCell}>{payment.from}</Text>
-                            <Text style={styles.tableCell}>{payment.to}</Text>
+                        <View>
+                          <View style={styles.tableHeader}>
+                            <Text style={styles.tableCell}>Año</Text>
+                            <Text style={styles.tableCell}>Mes</Text>
+                            <Text style={styles.tableCell}>Vigencia del</Text>
+                            <Text style={styles.tableCell}>Vigencia al</Text>
                           </View>
-                        ))}
+
+                          {insurance.payments.map((payment, paymentIdx) => (
+                            <View key={paymentIdx} style={styles.tableRow}>
+                              <Text style={styles.tableCell}>
+                                {payment.year}
+                              </Text>
+                              <Text style={styles.tableCell}>
+                                {payment.month}
+                              </Text>
+                              <Text style={styles.tableCell}>
+                                {payment.from}
+                              </Text>
+                              <Text style={styles.tableCell}>{payment.to}</Text>
+                            </View>
+                          ))}
+                        </View>
                       </View>
-                    </View>
-                  )
+                    ))}
+                  </>
                 )}
-              </>
-            )}
               </View>
             ))}
           </View>
         )}
+      </View>
+    );
+  };
+
+  const renderInvestmentsAndAssets = (investmentData) => {
+    return (
+      <View>
+        <View style={styles.mainTitleContainer}>
+          <Image style={styles.icon} src={famholdIcon} />
+          <Text style={styles.categoryTitle}> Inversiones y activos: </Text>
+        </View>
+
+        {investmentData.stockInvestments.length > 0 && (
+          <View>
+            <View style={styles.subtitleContainerNoMargin}>
+              <Text style={styles.subtitle}>Inversiones bursatiles:</Text>
+            </View>
+            {investmentData.stockInvestments.map((asset, idx) => (
+              <View key={idx} style={styles.itemContainer}>
+                <Text style={styles.entitieText}>
+                  {" "}
+                  {idx + 1}. {asset.bank}-{asset.accountNumber}
+                </Text>
+
+                <View style={styles.subCategorySection}>
+                  <View style={styles.banner}>
+                    <Text style={styles.bannerText}>
+                      Valor al inicio del periodo: {asset.totalValueBeginDate}
+                    </Text>
+                    <Text style={styles.bannerText}>
+                      Valor al inicio del periodo: {asset.totalValueEndDate}
+                    </Text>
+                    <Text style={styles.bannerText}>
+                      <Text>
+                        Propietarios de inversión:{" "}
+                        {asset.owners
+                          .map((owner) => `${owner.name}-${owner.pct}`)
+                          .join(", ")}
+                      </Text>
+                    </Text>
+                  </View>
+                </View>
+
+                <View style={styles.subCategorySection}>
+                  <View style={styles.tableHeader}>
+                    <Text style={styles.tableCell}>Mes</Text>
+                    <Text style={styles.tableCell}>Año</Text>
+                    <Text style={styles.tableCell}>Valuación</Text>
+                  </View>
+                  {asset.valuations.map((inv, taxIdx) => (
+                    <View style={styles.tableRow}>
+                      <Text style={styles.tableCell}>{inv.month}</Text>
+                      <Text style={styles.tableCell}>{inv.year}</Text>
+                      <Text style={styles.tableCell}>{inv.amount}</Text>
+                    </View>
+                  ))}
+
+                  {/* <Image style={styles.chartImage} src={generateChartImage()} /> */}
+                </View>
+              </View>
+            ))}
+          </View>
+        )}
+
+        {investmentData.bankAccountsCompanies.length > 0 && (
+          <View>
+            <View style={styles.subtitleContainerNoMargin}>
+              <Text style={styles.subtitle}>
+                Cuentas bancarias personas morales:
+              </Text>
+            </View>
+            {investmentData.bankAccountsCompanies.map((company, idx) => (
+              <View key={idx} style={styles.itemContainer}>
+                <Text style={styles.entitieText}>
+                  {" "}
+                  {idx + 1}. {company.name}
+                </Text>
+
+                <View style={styles.subCategorySection}>
+                  <View style={styles.tableHeader}>
+                    <Text style={styles.tableCell}>Banco</Text>
+                    <Text style={styles.tableCell}>Cuenta</Text>
+                    <Text style={styles.tableCell}>
+                      Valuación inicio periodo
+                    </Text>
+                    <Text style={styles.tableCell}>Valuación fin periodo</Text>
+                  </View>
+                  {company.accounts.map((inv, taxIdx) => (
+                    <View style={styles.tableRow}>
+                      <Text style={styles.tableCell}>{inv.bank}</Text>
+                      <Text style={styles.tableCell}>{inv.accountNumber}</Text>
+                      <Text style={styles.tableCell}>
+                        {inv.totalValueBeginDate} {inv.currency}
+                      </Text>
+                      <Text style={styles.tableCell}>
+                        {inv.totalValueEndDate} {inv.currency}
+                      </Text>
+                    </View>
+                  ))}
+
+                  {/* <Image style={styles.chartImage} src={generateChartImage()} /> */}
+                </View>
+              </View>
+            ))}
+          </View>
+        )}
+
+        {investmentData.bankAccountsFamilyMembers.length > 0 && (
+          <View>
+            <View style={styles.subtitleContainerNoMargin}>
+              <Text style={styles.subtitle}>
+                Cuentas bancarias personas morales:
+              </Text>
+            </View>
+            {investmentData.bankAccountsFamilyMembers.map((member, idx) => (
+              <View key={idx} style={styles.itemContainer}>
+                <Text style={styles.entitieText}>
+                  {" "}
+                  {idx + 1}. {member.name}
+                </Text>
+
+                <View style={styles.subCategorySection}>
+                  <View style={styles.tableHeader}>
+                    <Text style={styles.tableCell}>Banco</Text>
+                    <Text style={styles.tableCell}>Cuenta</Text>
+                    <Text style={styles.tableCell}>
+                      Valuación inicio periodo
+                    </Text>
+                    <Text style={styles.tableCell}>Valuación fin periodo</Text>
+                  </View>
+                  {member.accounts.map((inv, taxIdx) => (
+                    <View style={styles.tableRow}>
+                      <Text style={styles.tableCell}>{inv.bank}</Text>
+                      <Text style={styles.tableCell}>{inv.accountNumber}</Text>
+                      <Text style={styles.tableCell}>
+                        {inv.totalValueBeginDate} {inv.currency}
+                      </Text>
+                      <Text style={styles.tableCell}>
+                        {inv.totalValueEndDate} {inv.currency}
+                      </Text>
+                    </View>
+                  ))}
+
+                  {/* <Image style={styles.chartImage} src={generateChartImage()} /> */}
+                </View>
+              </View>
+            ))}
+          </View>
+        )}
+
+        {investmentData.privateEquityFunds.length > 0 && (
+          <View>
+            <View style={styles.subtitleContainerNoMargin}>
+              <Text style={styles.subtitle}>Capital privado - Fondos:</Text>
+            </View>
+            {investmentData.privateEquityFunds.map((asset, idx) => (
+              <View key={idx} style={styles.itemContainer}>
+                <Text style={styles.entitieText}>
+                  {" "}
+                  {idx + 1}. {asset.fundName}
+                </Text>
+
+                <View style={styles.subCategorySection}>
+                  <View style={styles.banner}>
+                    <Text style={styles.bannerText}>
+                      Retornos totales al inicio del periodo:{" "}
+                      {asset.totalReturnsBeginDate} {asset.currency}
+                    </Text>
+                    <Text style={styles.bannerText}>
+                      Retornos totales al inicio del periodo:{" "}
+                      {asset.totalReturnsEndDate} {asset.currency}
+                    </Text>
+                    <Text style={styles.bannerText}>
+                      <Text>
+                        Propietarios de inversión:{" "}
+                        {asset.owners
+                          .map((owner) => `${owner.name} - ${owner.pct}`)
+                          .join(", ")}
+                      </Text>
+                    </Text>
+                  </View>
+                </View>
+
+                <View style={styles.subCategorySection}>
+                  <View style={styles.tableHeader}>
+                    <Text style={styles.tableCell}>Mes</Text>
+                    <Text style={styles.tableCell}>Año</Text>
+                    <Text style={styles.tableCell}>Retorno</Text>
+                  </View>
+                  {asset.returnsInPeriod.map((inv, taxIdx) => (
+                    <View style={styles.tableRow}>
+                      <Text style={styles.tableCell}>{inv.month}</Text>
+                      <Text style={styles.tableCell}>{inv.year}</Text>
+                      <Text style={styles.tableCell}>{inv.amount}</Text>
+                    </View>
+                  ))}
+
+                  {/* <Image style={styles.chartImage} src={generateChartImage()} /> */}
+                </View>
+              </View>
+            ))}
+          </View>
+        )}
+
+        {investmentData.privateEquityCapital.length > 0 && (
+          <View>
+            <View style={styles.subtitleContainerNoMargin} wrap={false}>
+              <Text style={styles.subtitle}>Capital privado - Capital:</Text>
+            </View>
+            {investmentData.privateEquityCapital.map((asset, idx) => (
+              <View key={idx} style={styles.itemContainer}>
+                <Text style={styles.entitieText}>
+                  {" "}
+                  {idx + 1}. Inversion a empresa - {asset.investmentCompany}
+                </Text>
+
+                <View style={styles.subCategorySection}>
+                  <View style={styles.banner}>
+                    <Text style={styles.bannerText}>
+                      Capital invertido en empresa: {asset.investmentAmount}{" "}
+                      {asset.currency}
+                    </Text>
+                    <Text style={styles.bannerText}>
+                      Valuación previa a inversión: {asset.valuationPreMoney}{" "}
+                      {asset.currency}
+                    </Text>
+                    <Text style={styles.bannerText}>
+                      Valuación inicio del periodo: {asset.valuationBeginDate}{" "}
+                      {asset.currency}
+                    </Text>
+                    <Text style={styles.bannerText}>
+                      Valuación fin del periodo: {asset.valuationEndDate}{" "}
+                      {asset.currency}
+                    </Text>
+                    <Text style={styles.bannerText}>
+                      Porcentaje de participiación: {asset.sharePercentage}{" "}
+                    </Text>
+                    <Text style={styles.bannerText}>
+                      <Text>
+                        Propietarios de inversión:{" "}
+                        {asset.owners
+                          .map((owner) => `${owner.name} - ${owner.pct}`)
+                          .join(", ")}
+                      </Text>
+                    </Text>
+                  </View>
+                </View>
+              </View>
+            ))}
+          </View>
+        )}
+
+        {investmentData.realStateRents.length > 0 && (
+          <View>
+            <View style={styles.subtitleContainerNoMargin} wrap={false}>
+              <Text style={styles.subtitle}>Bienes raices arrendados:</Text>
+            </View>
+            {investmentData.realStateRents.map((asset, idx) => (
+              <View key={idx} style={styles.itemContainer}>
+                <Text style={styles.entitieText}>
+                  {" "}
+                  {idx + 1}. {asset.propertyName}
+                </Text>
+
+                <View style={styles.subCategorySection}>
+                  <View style={styles.banner}>
+                    <Text style={styles.bannerText}>
+                      Total cobrado en el periodo:{" "}
+                      {asset.totalCollectingInPeriod} {asset.currency}
+                    </Text>
+                    <Text style={styles.bannerText}>
+                      <Text>
+                        Propietarios de inversión:{" "}
+                        {asset.owners
+                          .map((owner) => `${owner.name} - ${owner.pct}`)
+                          .join(", ")}
+                      </Text>
+                    </Text>
+                  </View>
+                </View>
+
+                <View style={styles.subCategorySection}>
+                  <View style={styles.tableHeader}>
+                    <Text style={styles.tableCell}>Mes</Text>
+                    <Text style={styles.tableCell}>Año</Text>
+                    <Text style={styles.tableCell}>Cobro de renta</Text>
+                  </View>
+                  {asset.collecting.map((inv, taxIdx) => (
+                    <View style={styles.tableRow}>
+                      <Text style={styles.tableCell}>{inv.month}</Text>
+                      <Text style={styles.tableCell}>{inv.year}</Text>
+                      <Text style={styles.tableCell}>
+                        {inv.amount} {asset.currency}
+                      </Text>
+                    </View>
+                  ))}
+
+                  {/* <Image style={styles.chartImage} src={generateChartImage()} /> */}
+                </View>
+              </View>
+            ))}
+          </View>
+        )}
+      </View>
+    );
+  };
+
+  const renderWealthBalance = (wealthBalance) => {
+    return (
+      <View break={true}>
+        <View style={styles.mainTitleContainer}>
+          <Image style={styles.icon} src={famholdIcon} />
+          <Text style={styles.categoryTitle}> Balance Patrimonial: </Text>
+        </View>
+
+        <View>
+          <View style={styles.subtitleContainer}>
+            <Text style={styles.subtitle}>Valor de activos:</Text>
+          </View>
+          <View style={styles.subCategorySection}>
+            <View style={styles.tableHeader}>
+              <Text style={styles.tableCell}>Nombre del activo</Text>
+              <Text style={styles.tableCell}>Valuación inicio periodo</Text>
+              <Text style={styles.tableCell}>Valuación final periodo</Text>
+            </View>
+
+            {[
+              { name: "Bienes raíces", ...wealthBalance.realState },
+              { name: "Cuentas bancarias", ...wealthBalance.bankAccounts },
+              { name: "Empresas", ...wealthBalance.companies },
+              {
+                name: "Inversiones bursátiles",
+                ...wealthBalance.stockInvestments,
+              },
+              { name: "Vehículos", ...wealthBalance.vehicles },
+              {
+                name: "Arte y colecciones",
+                ...wealthBalance.artAndCollections,
+              },
+              { name: "Préstamos cobrables", ...wealthBalance.loansCollecting },
+              {
+                name: "Fondos de capital privado",
+                ...wealthBalance.privateEquityFund,
+              },
+              {
+                name: "Capital de inversión privada",
+                ...wealthBalance.privateEquityCapital,
+              },
+            ].map((asset, idx) => (
+              <View style={styles.tableRow} key={idx}>
+                <Text style={styles.tableCell}>{asset.name}</Text>
+                <Text style={styles.tableCell}>{asset.valuationStartDate} {wealthBalance.currency}</Text>
+                <Text style={styles.tableCell}>{asset.valuationEndDate} {wealthBalance.currency}</Text>
+              </View>
+            ))}
+          </View>
+
+          <View style={styles.subtitleContainer}>
+            <Text style={styles.subtitle}>Valor de pasivos:</Text>
+          </View>
+          <View style={styles.subCategorySection}>
+            <View style={styles.tableHeader}>
+              <Text style={styles.tableCell}>Nombre del pasivo</Text>
+              <Text style={styles.tableCell}>Valor inicio periodo</Text>
+              <Text style={styles.tableCell}>Valor final periodo</Text>
+            </View>
+            {[
+              {
+                name: "Deudas y creditos por pagar",
+                ...wealthBalance.debt,
+              },
+            ].map((asset, idx) => (
+              <View style={styles.tableRow} key={idx}>
+                <Text style={styles.tableCell}>{asset.name}</Text>
+                <Text style={styles.tableCell}>{asset.valuationStartDate} {wealthBalance.currency}</Text>
+                <Text style={styles.tableCell}>{asset.valuationEndDate} {wealthBalance.currency}</Text>
+              </View>
+            ))}
+          </View>
+        </View>
       </View>
     );
   };
@@ -914,6 +1364,8 @@ export default function Reports() {
         {renderCompaniesObligations(reportsData.companiesObligations)}
         {renderFamilyMembersObligations(reportsData.familyMembersObligations)}
         {renderAssetsObligations(reportsData.assetsObligations)}
+        {renderInvestmentsAndAssets(reportsData.investmentsAndAssets)}
+        {renderWealthBalance(reportsData.wealthBalance)}
       </Page>
     </Document>
   );
