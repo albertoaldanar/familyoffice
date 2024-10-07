@@ -143,6 +143,11 @@ export default function Reports() {
       flexDirection: "row",
       fontSize: 9,
     },
+    tableRowTotal: {
+      flexDirection: "row",
+      justifyContent: "space-around",
+      fontSize: 9,
+    },
     tableCell: {
       flex: 1,
       padding: 2,
@@ -190,6 +195,15 @@ export default function Reports() {
       width: 15,
       marginRight: 10,
     },
+    tableRowDivider: {
+      borderBottomWidth: 1,
+      marginVertical: 10,
+      borderColor: "#000", // Adjust color and width as needed
+    },
+    tableCellBold: {
+      fontWeight: "bold",
+      fontSize: 10, // Adjust font size as needed
+    },
   });
 
   const generateChartImage = () => {
@@ -228,7 +242,7 @@ export default function Reports() {
       <>
         <View style={styles.mainTitleContainer}>
           <Image style={styles.icon} src={famholdIcon} />
-          <Text style={styles.categoryTitle}>Highlights del periodo:</Text>
+          <Text style={styles.categoryTitle}>Highlights del periodo</Text>
         </View>
         <View style={styles.subCategorySectionHighlights}>
           {reportsData.highlights.map((highlight, index) => (
@@ -248,7 +262,7 @@ export default function Reports() {
           <Image style={styles.icon} src={famholdIcon} />
           <Text style={styles.categoryTitle}>
             {" "}
-            Obligaciones personas morales:
+            Obligaciones personas morales
           </Text>
         </View>
         {companiesData.map((company, idx) => (
@@ -440,12 +454,12 @@ export default function Reports() {
 
   const renderFamilyMembersObligations = (memberData) => {
     return (
-      <View>
+      <View break={true}>
         <View style={styles.mainTitleContainer}>
           <Image style={styles.icon} src={famholdIcon} />
           <Text style={styles.categoryTitle}>
             {" "}
-            Obligaciones personas físicas:
+            Obligaciones personas físicas
           </Text>
         </View>
         {memberData.map((member, idx) => (
@@ -686,7 +700,7 @@ export default function Reports() {
 
             {member.insurances.lifeInsurances.length > 0 && (
               <>
-                <View style={styles.subtitleContainer} wrap={false}>
+                <View style={styles.subtitleContainer}>
                   <Text style={styles.subtitle}>e) Seguros médico:</Text>
                 </View>
 
@@ -738,10 +752,10 @@ export default function Reports() {
 
   const renderAssetsObligations = (assetData) => {
     return (
-      <View>
+      <View break={true}>
         <View style={styles.mainTitleContainer}>
           <Image style={styles.icon} src={famholdIcon} />
-          <Text style={styles.categoryTitle}> Obligaciones de activos: </Text>
+          <Text style={styles.categoryTitle}> Obligaciones de activos </Text>
         </View>
 
         {assetData.realState.length > 0 && (
@@ -956,12 +970,67 @@ export default function Reports() {
     );
   };
 
-  const renderInvestmentsAndAssets = (investmentData) => {
+  const renderOtherPayments = (otherPaymentsData) => {
     return (
-      <View>
+      <View break={true}>
         <View style={styles.mainTitleContainer}>
           <Image style={styles.icon} src={famholdIcon} />
-          <Text style={styles.categoryTitle}> Inversiones y activos: </Text>
+          <Text style={styles.categoryTitle}> Otros pagos variados </Text>
+        </View>
+        {otherPaymentsData.map((payment, idx) => (
+          <View key={idx} style={styles.itemContainer}>
+            <Text style={styles.entitieText}>
+              {" "}
+              {idx + 1}. {payment.name}
+            </Text>
+
+            <View style={styles.subCategorySection}>
+              <Text style={styles.conceptMiniTitle}>
+                Frecuencia de pago: {payment.paymentFrequency}
+              </Text>
+            </View>
+
+            {payment.payments.length > 0 && (
+              <>
+                  <View style={styles.subCategorySection}>
+                    <View>
+                      <View style={styles.tableHeader}>
+                        <Text style={styles.tableCell}>Mes</Text>
+                        <Text style={styles.tableCell}>Año</Text>
+                        <Text style={styles.tableCell}>Monto</Text>
+                        <Text style={styles.tableCell}>Dia de pago:</Text>
+                      </View>
+
+                      {payment.payments.map((transfer, reportIdx) => (
+                        <View key={reportIdx} style={styles.tableRow}>
+                          <Text style={styles.tableCell}>{transfer.month}</Text>
+                          <Text style={styles.tableCell}>
+                            {transfer.year}
+                          </Text>
+                          <Text style={styles.tableCell}>
+                            {transfer.amount} {transfer.currecny}
+                          </Text>
+                          <Text style={styles.tableCell}>
+                           {transfer.paymentDay}
+                          </Text>
+                        </View>
+                      ))}
+                    </View>
+                  </View>
+              </>
+            )}
+          </View>
+        ))}
+      </View>
+    );
+  };
+
+  const renderInvestmentsAndAssets = (investmentData) => {
+    return (
+      <View break={true}>
+        <View style={styles.mainTitleContainer}>
+          <Image style={styles.icon} src={famholdIcon} />
+          <Text style={styles.categoryTitle}> Inversiones y activos </Text>
         </View>
 
         {investmentData.stockInvestments.length > 0 && (
@@ -1034,15 +1103,15 @@ export default function Reports() {
                   <View style={styles.tableHeader}>
                     <Text style={styles.tableCell}>Banco</Text>
                     <Text style={styles.tableCell}>Cuenta</Text>
-                    <Text style={styles.tableCell}>
-                      Valuación inicio periodo
-                    </Text>
-                    <Text style={styles.tableCell}>Valuación fin periodo</Text>
+                    <Text style={styles.tableCell}>Moneda</Text>
+                    <Text style={styles.tableCell}>Valor inicio periodo</Text>
+                    <Text style={styles.tableCell}>Valor fin periodo</Text>
                   </View>
                   {company.accounts.map((inv, taxIdx) => (
                     <View style={styles.tableRow}>
                       <Text style={styles.tableCell}>{inv.bank}</Text>
                       <Text style={styles.tableCell}>{inv.accountNumber}</Text>
+                      <Text style={styles.tableCell}>{inv.currency}</Text>
                       <Text style={styles.tableCell}>
                         {inv.totalValueBeginDate} {inv.currency}
                       </Text>
@@ -1077,15 +1146,15 @@ export default function Reports() {
                   <View style={styles.tableHeader}>
                     <Text style={styles.tableCell}>Banco</Text>
                     <Text style={styles.tableCell}>Cuenta</Text>
-                    <Text style={styles.tableCell}>
-                      Valuación inicio periodo
-                    </Text>
-                    <Text style={styles.tableCell}>Valuación fin periodo</Text>
+                    <Text style={styles.tableCell}>Moneda</Text>
+                    <Text style={styles.tableCell}>Valor inicio periodo</Text>
+                    <Text style={styles.tableCell}>Valor fin periodo</Text>
                   </View>
                   {member.accounts.map((inv, taxIdx) => (
                     <View style={styles.tableRow}>
                       <Text style={styles.tableCell}>{inv.bank}</Text>
                       <Text style={styles.tableCell}>{inv.accountNumber}</Text>
+                      <Text style={styles.tableCell}>{inv.currency}</Text>
                       <Text style={styles.tableCell}>
                         {inv.totalValueBeginDate} {inv.currency}
                       </Text>
@@ -1148,8 +1217,6 @@ export default function Reports() {
                       <Text style={styles.tableCell}>{inv.amount}</Text>
                     </View>
                   ))}
-
-                  {/* <Image style={styles.chartImage} src={generateChartImage()} /> */}
                 </View>
               </View>
             ))}
@@ -1158,7 +1225,7 @@ export default function Reports() {
 
         {investmentData.privateEquityCapital.length > 0 && (
           <View>
-            <View style={styles.subtitleContainerNoMargin} wrap={false}>
+            <View style={styles.subtitleContainerNoMargin}>
               <Text style={styles.subtitle}>Capital privado - Capital:</Text>
             </View>
             {investmentData.privateEquityCapital.map((asset, idx) => (
@@ -1206,7 +1273,7 @@ export default function Reports() {
 
         {investmentData.realStateRents.length > 0 && (
           <View>
-            <View style={styles.subtitleContainerNoMargin} wrap={false}>
+            <View style={styles.subtitleContainerNoMargin}>
               <Text style={styles.subtitle}>Bienes raices arrendados:</Text>
             </View>
             {investmentData.realStateRents.map((asset, idx) => (
@@ -1265,7 +1332,7 @@ export default function Reports() {
         <View style={styles.mainTitleContainer}>
           <Image style={styles.icon} src={famholdIcon} />
           <Text style={styles.categoryTitle}>
-            Governanza (Comite de inversión y consejo familiar):{" "}
+            Governanza
           </Text>
         </View>
 
@@ -1281,15 +1348,15 @@ export default function Reports() {
                   <Text style={styles.tableCell}>Dia de junta</Text>
                   <Text style={styles.tableCell}>Participantes</Text>
                 </View>
-                {governanceData.investmentCommittee.meetings.map((meet, taxIdx) => (
-                  <View style={styles.tableRow}>
-                    <Text style={styles.tableCell}>{meet.meetingName}</Text>
-                    <Text style={styles.tableCell}>{meet.meetingDay}</Text>
-                    <Text style={styles.tableCell}>
-                      {meet.participants}
-                    </Text>
-                  </View>
-                ))}
+                {governanceData.investmentCommittee.meetings.map(
+                  (meet, taxIdx) => (
+                    <View style={styles.tableRow}>
+                      <Text style={styles.tableCell}>{meet.meetingName}</Text>
+                      <Text style={styles.tableCell}>{meet.meetingDay}</Text>
+                      <Text style={styles.tableCell}>{meet.participants}</Text>
+                    </View>
+                  )
+                )}
               </View>
             </>
           )}
@@ -1301,15 +1368,15 @@ export default function Reports() {
                   <Text style={styles.tableCell}>Dia de junta</Text>
                   <Text style={styles.tableCell}>Participantes</Text>
                 </View>
-                {governanceData.investmentCommittee.voatings.map((meet, taxIdx) => (
-                  <View style={styles.tableRow}>
-                    <Text style={styles.tableCell}>{meet.meetingName}</Text>
-                    <Text style={styles.tableCell}>{meet.result}</Text>
-                    <Text style={styles.tableCell}>
-                      {meet.participants}
-                    </Text>
-                  </View>
-                ))}
+                {governanceData.investmentCommittee.voatings.map(
+                  (meet, taxIdx) => (
+                    <View style={styles.tableRow}>
+                      <Text style={styles.tableCell}>{meet.meetingName}</Text>
+                      <Text style={styles.tableCell}>{meet.result}</Text>
+                      <Text style={styles.tableCell}>{meet.participants}</Text>
+                    </View>
+                  )
+                )}
               </View>
             </>
           )}
@@ -1330,9 +1397,7 @@ export default function Reports() {
                   <View style={styles.tableRow}>
                     <Text style={styles.tableCell}>{meet.meetingName}</Text>
                     <Text style={styles.tableCell}>{meet.meetingDay}</Text>
-                    <Text style={styles.tableCell}>
-                      {meet.participants}
-                    </Text>
+                    <Text style={styles.tableCell}>{meet.participants}</Text>
                   </View>
                 ))}
               </View>
@@ -1351,14 +1416,12 @@ export default function Reports() {
                   <View style={styles.tableRow}>
                     <Text style={styles.tableCell}>{meet.voatingName}</Text>
                     <Text style={styles.tableCell}>{meet.result}</Text>
-                    <Text style={styles.tableCell}>
-                      {meet.participants}
-                    </Text>
+                    <Text style={styles.tableCell}>{meet.participants}</Text>
                   </View>
                 ))}
               </View>
             </>
-          )}    
+          )}
         </View>
       </View>
     );
@@ -1369,13 +1432,15 @@ export default function Reports() {
       <View break={true}>
         <View style={styles.mainTitleContainer}>
           <Image style={styles.icon} src={famholdIcon} />
-          <Text style={styles.categoryTitle}> Balance Patrimonial: </Text>
+          <Text style={styles.categoryTitle}> Balance Patrimonial </Text>
         </View>
 
         <View>
+          {/* Assets Section */}
           <View style={styles.subtitleContainer}>
             <Text style={styles.subtitle}>Valor de activos:</Text>
           </View>
+
           <View style={styles.subCategorySection}>
             <View style={styles.tableHeader}>
               <Text style={styles.tableCell}>Nombre del activo</Text>
@@ -1416,22 +1481,36 @@ export default function Reports() {
                 </Text>
               </View>
             ))}
+
+            <View style={styles.tableRowDivider} />
+
+            <View style={styles.tableRowTotal}>
+              <Text style={styles.tableCellBold}></Text>
+              <Text style={styles.tableCellBold}>
+                {wealthBalance.totalAssetValue.valuationStartDate}{" "}
+                {wealthBalance.currency}
+              </Text>
+              <Text style={styles.tableCellBold}>
+                {wealthBalance.totalAssetValue.valuationEndDate}{" "}
+                {wealthBalance.currency}
+              </Text>
+            </View>
           </View>
 
+          {/* Liabilities Section */}
           <View style={styles.subtitleContainer}>
             <Text style={styles.subtitle}>Valor de pasivos:</Text>
           </View>
+
           <View style={styles.subCategorySection}>
             <View style={styles.tableHeader}>
               <Text style={styles.tableCell}>Nombre del pasivo</Text>
               <Text style={styles.tableCell}>Valor inicio periodo</Text>
               <Text style={styles.tableCell}>Valor final periodo</Text>
             </View>
+
             {[
-              {
-                name: "Deudas y creditos por pagar",
-                ...wealthBalance.debt,
-              },
+              { name: "Deudas y créditos por pagar", ...wealthBalance.debt },
             ].map((asset, idx) => (
               <View style={styles.tableRow} key={idx}>
                 <Text style={styles.tableCell}>{asset.name}</Text>
@@ -1477,6 +1556,7 @@ export default function Reports() {
         {renderCompaniesObligations(reportsData.companiesObligations)}
         {renderFamilyMembersObligations(reportsData.familyMembersObligations)}
         {renderAssetsObligations(reportsData.assetsObligations)}
+        {renderOtherPayments(reportsData.otherPayments)}
         {renderInvestmentsAndAssets(reportsData.investmentsAndAssets)}
         {renderWealthBalance(reportsData.wealthBalance)}
         {renderGovernance(reportsData.governance)}

@@ -348,55 +348,55 @@ export const reportsData = {
       insurances: {
         lifeInsurances: [
           {
-            insuranceCompany: 'Seguros Monterrey',
-            paymentFrequency: 'Mensual', 
-            from: '20/12/2022',
-            to: '20/12/2025',
+            insuranceCompany: "Seguros Monterrey",
+            paymentFrequency: "Mensual",
+            from: "20/12/2022",
+            to: "20/12/2025",
             payments: [
               {
-                year: '2024',
-                month: 'Enero', 
-                from: '02/01/2024', 
-                to: '31/01/2024'
-              }, 
+                year: "2024",
+                month: "Enero",
+                from: "02/01/2024",
+                to: "31/01/2024",
+              },
               {
-                year: '2024',
-                month: 'Febrero', 
-                from: '02/02/2024', 
-                to: '28/02/2024'
-              }, 
+                year: "2024",
+                month: "Febrero",
+                from: "02/02/2024",
+                to: "28/02/2024",
+              },
               {
-                year: '2024',
-                month: 'Marzo', 
-                from: '02/03/2024', 
-                to: '31/03/2024'
-              }, 
+                year: "2024",
+                month: "Marzo",
+                from: "02/03/2024",
+                to: "31/03/2024",
+              },
               {
-                year: '2024',
-                month: 'Abril', 
-                from: '01/04/2024', 
-                to: '31/04/2024'
-              }
-            ]
-          }
+                year: "2024",
+                month: "Abril",
+                from: "01/04/2024",
+                to: "31/04/2024",
+              },
+            ],
+          },
         ],
         medicalInsurances: [
           {
-            insuranceCompany: 'GNP Seguros',
-            paymentFrequency: 'Anual',
-            from: '01/01/2022',
-            to: '01/01/2026',
+            insuranceCompany: "GNP Seguros",
+            paymentFrequency: "Anual",
+            from: "01/01/2022",
+            to: "01/01/2026",
             payments: [
               {
-                year: '2024',
-                month: 'Enero', 
-                from: '01/01/2024', 
-                to: '01/01/2025', 
-              }
-            ]
-          }, 
-        ]
-      }
+                year: "2024",
+                month: "Enero",
+                from: "01/01/2024",
+                to: "01/01/2025",
+              },
+            ],
+          },
+        ],
+      },
     },
     {
       familyMemberName: "Patricia Ríos Collantes",
@@ -421,160 +421,160 @@ export const reportsData = {
       insurances: {
         lifeInsurances: [
           {
-            insuranceCompany: 'Seguros Monterrey',
-            paymentFrequency: 'Mensual', 
-            from: '20/12/2022',
-            to: '20/12/2025',
+            insuranceCompany: "Seguros Monterrey",
+            paymentFrequency: "Mensual",
+            from: "20/12/2022",
+            to: "20/12/2025",
             payments: [
               {
-                year: '2024',
-                month: 'Enero', 
-                from: '02/01/2024', 
-                to: '31/01/2024'
-              }, 
+                year: "2024",
+                month: "Enero",
+                from: "02/01/2024",
+                to: "31/01/2024",
+              },
               {
-                year: '2024',
-                month: 'Febrero', 
-                from: '02/02/2024', 
-                to: '28/02/2024'
-              }, 
+                year: "2024",
+                month: "Febrero",
+                from: "02/02/2024",
+                to: "28/02/2024",
+              },
               {
-                year: '2024',
-                month: 'Marzo', 
-                from: '02/03/2024', 
-                to: '31/03/2024'
-              }, 
+                year: "2024",
+                month: "Marzo",
+                from: "02/03/2024",
+                to: "31/03/2024",
+              },
               {
-                year: '2024',
-                month: 'Abril', 
-                from: '01/04/2024', 
-                to: '31/04/2024'
-              }
-            ]
-          }
+                year: "2024",
+                month: "Abril",
+                from: "01/04/2024",
+                to: "31/04/2024",
+              },
+            ],
+          },
         ],
         medicalInsurances: [
           {
-            insuranceCompany: 'GNP Seguros',
-            paymentFrequency: 'Anual',
-            from: '01/01/2022',
-            to: '01/01/2026',
+            insuranceCompany: "GNP Seguros",
+            paymentFrequency: "Anual",
+            from: "01/01/2022",
+            to: "01/01/2026",
             payments: [
               {
-                year: '2024',
-                month: 'Enero', 
-                from: '01/01/2024', 
-                to: '01/01/2025', 
-              }
-            ]
-          }, 
-        ]
-      }
+                year: "2024",
+                month: "Enero",
+                from: "01/01/2024",
+                to: "01/01/2025",
+              },
+            ],
+          },
+        ],
+      },
     },
   ],
   assetsObligations: {
     realState: [
       {
-        name: 'Casa Montebello Cipres', 
-        location: 'México', 
-        owners:[
+        name: "Casa Montebello Cipres",
+        location: "México",
+        owners: [
           {
-            name: 'Alberto Aldana Fariñas',
-            pct: '50%'
-          }, 
+            name: "Alberto Aldana Fariñas",
+            pct: "50%",
+          },
           {
-            name: 'Patricia Ríos Collantes',
-            pct: '50%'
-          }
+            name: "Patricia Ríos Collantes",
+            pct: "50%",
+          },
         ],
         taxProperty: {
-          paymentFrequency: 'Anual',
+          paymentFrequency: "Anual",
           payments: [
             {
-              amount: '$35,000.00',
-              year: '2024',
-              month: 'Enero',
-              from: '01/01/2024',
-              to: '01/01/2025',
-            }
-          ]
+              amount: "$35,000.00",
+              year: "2024",
+              month: "Enero",
+              from: "01/01/2024",
+              to: "01/01/2025",
+            },
+          ],
         },
         mantainance: {
-          name: 'Cuota Administración privada colinas',
+          name: "Cuota Administración privada colinas",
           payments: [
             {
-              amount: '$4,000.00',
-              year: '2024',
-              month: 'Enero',
-              paymentDay: '10/01/2024'
+              amount: "$4,000.00",
+              year: "2024",
+              month: "Enero",
+              paymentDay: "10/01/2024",
             },
             {
-              amount: '$4,000.00',
-              year: '2024',
-              month: 'Febrero',
-              paymentDay: '09/02/2024'
-            }, 
+              amount: "$4,000.00",
+              year: "2024",
+              month: "Febrero",
+              paymentDay: "09/02/2024",
+            },
             {
-              amount: '$4,000.00',
-              year: '2024',
-              month: 'Marzo',
-              paymentDay: '07/03/2024'
-            }, 
+              amount: "$4,000.00",
+              year: "2024",
+              month: "Marzo",
+              paymentDay: "07/03/2024",
+            },
             {
-              amount: '$4,000.00',
-              year: '2024',
-              month: 'Abril',
-              paymentDay: '09/04/2024'
-            }
-          ]
+              amount: "$4,000.00",
+              year: "2024",
+              month: "Abril",
+              paymentDay: "09/04/2024",
+            },
+          ],
         },
         insurances: [],
         debt: [],
-        rentCollecting:[]
-      }, 
+        rentCollecting: [],
+      },
       {
-        name: 'Departamento La marina', 
-        location: 'México', 
-        owners:[
+        name: "Departamento La marina",
+        location: "México",
+        owners: [
           {
-            name: 'Alberto Aldana Fariñas',
-            pct: '100%'
+            name: "Alberto Aldana Fariñas",
+            pct: "100%",
           },
-        ], 
+        ],
         taxProperty: {
-          paymentFrequency: 'Anual',
+          paymentFrequency: "Anual",
           payments: [
             {
-              amount: '$14,000.00',
-              year: '2024',
-              month: 'Enero',
-              from: '01/01/2024',
-              to: '01/01/2025',
-            }
-          ]
+              amount: "$14,000.00",
+              year: "2024",
+              month: "Enero",
+              from: "01/01/2024",
+              to: "01/01/2025",
+            },
+          ],
         },
         mantainance: {
-          name: 'Cuota Administración Costa veleros',
+          name: "Cuota Administración Costa veleros",
           payments: [
             {
-              amount: '$2,500.00',
-              year: '2024',
-              month: 'Enero',
-              paymentDay: '10/01/2024'
+              amount: "$2,500.00",
+              year: "2024",
+              month: "Enero",
+              paymentDay: "10/01/2024",
             },
             {
-              amount: '$2,500.00',
-              year: '2024',
-              month: 'Febrero',
-              paymentDay: '09/02/2024'
-            }, 
+              amount: "$2,500.00",
+              year: "2024",
+              month: "Febrero",
+              paymentDay: "09/02/2024",
+            },
             {
-              amount: '$4,000.00',
-              year: '2024',
-              month: 'Abril',
-              paymentDay: '09/04/2024'
-            }
-          ]
+              amount: "$4,000.00",
+              year: "2024",
+              month: "Abril",
+              paymentDay: "09/04/2024",
+            },
+          ],
         },
         insurances: [],
         debt: [
@@ -614,654 +614,740 @@ export const reportsData = {
           },
         ],
         rentCollecting: {
-          tenant: 'John Williams',
+          tenant: "John Williams",
           collecting: [
             {
-              amount: '$14,500.00',
-              year: '2024',
-              month: 'Enero',
-              paymentDay: '10/01/2024'
+              amount: "$14,500.00",
+              year: "2024",
+              month: "Enero",
+              paymentDay: "10/01/2024",
             },
             {
-              amount: '$14,500.00',
-              year: '2024',
-              month: 'Febrero',
-              paymentDay: '09/02/2024'
-            }, 
+              amount: "$14,500.00",
+              year: "2024",
+              month: "Febrero",
+              paymentDay: "09/02/2024",
+            },
             {
-              amount: '$14,500.00',
-              year: '2024',
-              month: 'Marzo',
-              paymentDay: '09/03/2024'
-            }, 
+              amount: "$14,500.00",
+              year: "2024",
+              month: "Marzo",
+              paymentDay: "09/03/2024",
+            },
             {
-              amount: '$14,000.00',
-              year: '2024',
-              month: 'Abril',
-              paymentDay: '09/04/2024'
-            }
-          ]
-        }
-      }
+              amount: "$14,000.00",
+              year: "2024",
+              month: "Abril",
+              paymentDay: "09/04/2024",
+            },
+          ],
+        },
+      },
     ],
     vehicles: [
       {
-        name: 'BYD-HAN', 
-        location: 'México', 
-        owners:[
+        name: "BYD-HAN",
+        location: "México",
+        owners: [
           {
-            name: 'Alberto Aldana Fariñas',
-            pct: '100%'
+            name: "Alberto Aldana Fariñas",
+            pct: "100%",
           },
-        ], 
+        ],
         taxProperty: {},
         mantainance: {},
         insurances: [
           {
-            paymentFrequency: 'Anual',
+            paymentFrequency: "Anual",
             payments: [
               {
-                amount: '$45,000.00',
-                year: '2024',
-                month: 'Enero',
-                from: '01/01/2024',
-                to: '01/01/2025',
-              }
-            ]
-          }
+                amount: "$45,000.00",
+                year: "2024",
+                month: "Enero",
+                from: "01/01/2024",
+                to: "01/01/2025",
+              },
+            ],
+          },
         ],
         debt: [],
-        rentCollecting: {}
-      }, 
+        rentCollecting: {},
+      },
       {
-        name: 'Audi-Q5', 
-        location: 'México', 
-        owners:[
+        name: "Audi-Q5",
+        location: "México",
+        owners: [
           {
-            name: 'Alberto Aldana Rios',
-            pct: '100%'
+            name: "Alberto Aldana Rios",
+            pct: "100%",
           },
-        ], 
+        ],
         taxProperty: {},
         mantainance: {},
         insurances: [
           {
-            paymentFrequency: 'Anual',
+            paymentFrequency: "Anual",
             payments: [
               {
-                amount: '$23,000.00',
-                year: '2024',
-                month: 'Enero',
-                from: '01/01/2024',
-                to: '01/01/2025',
-              }
-            ]
-          }
+                amount: "$23,000.00",
+                year: "2024",
+                month: "Enero",
+                from: "01/01/2024",
+                to: "01/01/2025",
+              },
+            ],
+          },
         ],
         debt: [],
-        rentCollecting: {}
-      }
-    ]
-  }, 
+        rentCollecting: {},
+      },
+    ],
+  },
+  otherPayments: [
+    {
+      name: "Colegiatura Maestria Ana Sofia Aldana Ríos",
+      paymentFrequency: 'Mensual',
+      currency: 'MXN', 
+      payments: [
+        {
+          amount: "$35,000.00",
+          year: "2024",
+          month: "Enero",
+          paymentDay: "01/01/2024",
+        },
+        {
+          amount: "$35,000.00",
+          year: "2024",
+          month: "Febrero",
+          paymentDay: "01/02/2024",
+        },
+        {
+          amount: "$35,000.00",
+          year: "2024",
+          month: "Marzo",
+          paymentDay: "01/01/2024",
+        },
+        {
+          amount: "$35,000.00",
+          year: "2024",
+          month: "Abril",
+          paymentDay: "01/04/2024",
+        },
+      ],
+    },
+    {
+      name: "Cutoa Country Club Cuiliacan",
+      paymentFrequency: 'Anual',
+      currency: 'MXN', 
+      payments: [
+        {
+          amount: "$50,000.00",
+          year: "2024",
+          month: "Enero",
+          paymentDay: "01/06/2024",
+        },
+      ],
+    },
+    {
+      name: "Arrendamiento Casa Calgary - Ana Sofia Aldana",
+      paymentFrequency: 'Mensual',
+      currency: 'CAD', 
+      payments: [
+        {
+          amount: "1,400.00",
+          year: "2024",
+          month: "Enero",
+          paymentDay: "01/01/2024",
+        },
+        {
+          amount: "1,400.00",
+          year: "2024",
+          month: "Febrero",
+          paymentDay: "01/02/2024",
+        },
+        {
+          amount: "1,400.00",
+          year: "2024",
+          month: "Marzo",
+          paymentDay: "01/01/2024",
+        },
+        {
+          amount: "1,400.00",
+          year: "2024",
+          month: "Abril",
+          paymentDay: "01/04/2024",
+        },
+      ],
+    }
+  ],
   investmentsAndAssets: {
     stockInvestments: [
       {
-        bank: 'Scotia Bank', 
-        accountNumber: '6641232', 
+        bank: "Scotia Bank",
+        accountNumber: "6641232",
         owners: [
           {
-            name: 'Alberto Aldana Fariñas', 
-            pct: '100%'
-          }
+            name: "Alberto Aldana Fariñas",
+            pct: "100%",
+          },
         ],
-        totalValueBeginDate: '$ 10,800,000.00',
-        totalValueEndDate: '$ 11,800,000.00',
+        totalValueBeginDate: "$ 10,800,000.00",
+        totalValueEndDate: "$ 11,800,000.00",
         valuations: [
           {
-            month: 'Enero', 
-            year: 2024, 
-            amount: '$ 10,800,000.00'
-          }, 
-          {
-            month: 'Febrero', 
-            year: 2024, 
-            amount: '$ 10,900,000.00'
+            month: "Enero",
+            year: 2024,
+            amount: "$ 10,800,000.00",
           },
           {
-            month: 'Marzo', 
-            year: 2024, 
-            amount: '$ 10,900,000.00'
+            month: "Febrero",
+            year: 2024,
+            amount: "$ 10,900,000.00",
           },
           {
-            month: 'Abril', 
-            year: 2024, 
-            amount: '$ 11,800,000.00'
+            month: "Marzo",
+            year: 2024,
+            amount: "$ 10,900,000.00",
           },
-        ]
-      }, 
+          {
+            month: "Abril",
+            year: 2024,
+            amount: "$ 11,800,000.00",
+          },
+        ],
+      },
       {
-        bank: 'Santander', 
-        accountNumber: '79441232', 
+        bank: "Santander",
+        accountNumber: "79441232",
         owners: [
           {
-            name: 'Alberto Aldana Fariñas', 
-            pct: '100%'
-          }
+            name: "Alberto Aldana Fariñas",
+            pct: "100%",
+          },
         ],
-        totalValueBeginDate: '$ 1,800,000.00',
-        totalValueEndDate: '$ 1,300,000.00',
+        totalValueBeginDate: "$ 1,800,000.00",
+        totalValueEndDate: "$ 1,300,000.00",
         valuations: [
           {
-            month: 'Enero', 
-            year: 2024, 
-            amount: '$ 1,800,000.00'
-          }, 
-          {
-            month: 'Febrero', 
-            year: 2024, 
-            amount: '$ 2,100,000.00'
+            month: "Enero",
+            year: 2024,
+            amount: "$ 1,800,000.00",
           },
           {
-            month: 'Marzo', 
-            year: 2024, 
-            amount: '$ 1,400,000.00'
+            month: "Febrero",
+            year: 2024,
+            amount: "$ 2,100,000.00",
           },
           {
-            month: 'Abril', 
-            year: 2024, 
-            amount: '$ 1,300,000.00'
+            month: "Marzo",
+            year: 2024,
+            amount: "$ 1,400,000.00",
           },
-        ]
-      }
-    ], 
+          {
+            month: "Abril",
+            year: 2024,
+            amount: "$ 1,300,000.00",
+          },
+        ],
+      },
+    ],
     bankAccountsCompanies: [
       {
-        name: 'Aldana Clima Integral',
+        name: "Aldana Clima Integral",
         accounts: [
           {
-            bank: 'Banorte',
-            accountNumber: '2402843991',
-            totalValueBeginDate: '$ 800,000.00',
-            totalValueEndDate: '$ 300,000.00',
+            bank: "Banorte",
+            currency: "MXN",
+            accountNumber: "2402843991",
+            totalValueBeginDate: "$ 800,000.00",
+            totalValueEndDate: "$ 300,000.00",
             valuations: [
               {
-                month: 'Enero', 
-                year: 2024, 
-                amount: '$ 800,000.00'
-              }, 
-              {
-                month: 'Febrero', 
-                year: 2024, 
-                amount: '$ 1,00,000.00'
+                month: "Enero",
+                year: 2024,
+                amount: "$ 800,000.00",
               },
               {
-                month: 'Marzo', 
-                year: 2024, 
-                amount: '$ 400,000.00'
+                month: "Febrero",
+                year: 2024,
+                amount: "$ 1,00,000.00",
               },
               {
-                month: 'Abril', 
-                year: 2024, 
-                amount: '$ 300,000.00'
-              },
-            ]
-          }, 
-          {
-            bank: 'HSBC',
-            accountNumber: '438392511',
-            totalValueBeginDate: '$ 100,000.00',
-            totalValueEndDate: '$ 350,000.00',
-            valuations: [
-              {
-                month: 'Enero', 
-                year: 2024, 
-                amount: '$ 100,000.00'
-              }, 
-              {
-                month: 'Febrero', 
-                year: 2024, 
-                amount: '$ 235,000.00'
+                month: "Marzo",
+                year: 2024,
+                amount: "$ 400,000.00",
               },
               {
-                month: 'Marzo', 
-                year: 2024, 
-                amount: '$ 350,000.00'
+                month: "Abril",
+                year: 2024,
+                amount: "$ 300,000.00",
               },
-              {
-                month: 'Abril', 
-                year: 2024, 
-                amount: '$ 350,000.00'
-              },
-            ]
-          }
-        ]
-      }, 
-      {
-        name: 'Celsius SA de CV',
-        accounts: [
-          {
-            bank: 'Banorte',
-            accountNumber: '241332322',
-            currency: 'MXN',
-            totalValueBeginDate: '$ 450,000.00',
-            totalValueEndDate: '$ 156,000.00',
-            valuations: [
-              {
-                month: 'Enero', 
-                year: 2024, 
-                amount: '$ 800,000.00'
-              }, 
-              {
-                month: 'Febrero', 
-                year: 2024, 
-                amount: '$ 1,00,000.00'
-              },
-              {
-                month: 'Marzo', 
-                year: 2024, 
-                amount: '$ 400,000.00'
-              },
-              {
-                month: 'Abril', 
-                year: 2024, 
-                amount: '$ 300,000.00'
-              },
-            ]
-          }, 
-          {
-            bank: 'BBVA',
-            accountNumber: '345234524344',
-            currency: 'MXN',
-            totalValueBeginDate: '$ 644,000.00',
-            totalValueEndDate: '$ 769,000.00',
-            valuations: [
-              {
-                month: 'Enero', 
-                year: 2024, 
-                amount: '$ 100,000.00'
-              }, 
-              {
-                month: 'Febrero', 
-                year: 2024, 
-                amount: '$ 235,000.00'
-              },
-              {
-                month: 'Marzo', 
-                year: 2024, 
-                amount: '$ 350,000.00'
-              },
-              {
-                month: 'Abril', 
-                year: 2024, 
-                amount: '$ 350,000.00'
-              },
-            ]
+            ],
           },
           {
-            bank: 'BBVA',
-            accountNumber: '34524344',
-            currency: 'MXN',
-            totalValueBeginDate: '$ 425,000.00',
-            totalValueEndDate: '$ 425,000.00',
+            bank: "HSBC",
+            currency: "MXN",
+            accountNumber: "438392511",
+            totalValueBeginDate: "$ 100,000.00",
+            totalValueEndDate: "$ 350,000.00",
             valuations: [
               {
-                month: 'Enero', 
-                year: 2024, 
-                amount: '$ 100,000.00'
-              }, 
-              {
-                month: 'Febrero', 
-                year: 2024, 
-                amount: '$ 235,000.00'
+                month: "Enero",
+                year: 2024,
+                amount: "$ 100,000.00",
               },
               {
-                month: 'Marzo', 
-                year: 2024, 
-                amount: '$ 350,000.00'
+                month: "Febrero",
+                year: 2024,
+                amount: "$ 235,000.00",
               },
               {
-                month: 'Abril', 
-                year: 2024, 
-                amount: '$ 350,000.00'
+                month: "Marzo",
+                year: 2024,
+                amount: "$ 350,000.00",
               },
-            ]
-          }
-        ]
-      }
-    ], 
+              {
+                month: "Abril",
+                year: 2024,
+                amount: "$ 350,000.00",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        name: "Celsius SA de CV",
+        accounts: [
+          {
+            bank: "Banorte",
+            accountNumber: "241332322",
+            currency: "MXN",
+            totalValueBeginDate: "$ 450,000.00",
+            totalValueEndDate: "$ 156,000.00",
+            valuations: [
+              {
+                month: "Enero",
+                year: 2024,
+                amount: "$ 800,000.00",
+              },
+              {
+                month: "Febrero",
+                year: 2024,
+                amount: "$ 1,00,000.00",
+              },
+              {
+                month: "Marzo",
+                year: 2024,
+                amount: "$ 400,000.00",
+              },
+              {
+                month: "Abril",
+                year: 2024,
+                amount: "$ 300,000.00",
+              },
+            ],
+          },
+          {
+            bank: "BBVA",
+            accountNumber: "345234524344",
+            currency: "USD",
+            totalValueBeginDate: "$ 644,000.00",
+            totalValueEndDate: "$ 769,000.00",
+            valuations: [
+              {
+                month: "Enero",
+                year: 2024,
+                amount: "$ 100,000.00",
+              },
+              {
+                month: "Febrero",
+                year: 2024,
+                amount: "$ 235,000.00",
+              },
+              {
+                month: "Marzo",
+                year: 2024,
+                amount: "$ 350,000.00",
+              },
+              {
+                month: "Abril",
+                year: 2024,
+                amount: "$ 350,000.00",
+              },
+            ],
+          },
+          {
+            bank: "BBVA",
+            accountNumber: "34524344",
+            currency: "MXN",
+            totalValueBeginDate: "$ 425,000.00",
+            totalValueEndDate: "$ 425,000.00",
+            valuations: [
+              {
+                month: "Enero",
+                year: 2024,
+                amount: "$ 100,000.00",
+              },
+              {
+                month: "Febrero",
+                year: 2024,
+                amount: "$ 235,000.00",
+              },
+              {
+                month: "Marzo",
+                year: 2024,
+                amount: "$ 350,000.00",
+              },
+              {
+                month: "Abril",
+                year: 2024,
+                amount: "$ 350,000.00",
+              },
+            ],
+          },
+        ],
+      },
+    ],
     bankAccountsFamilyMembers: [
       {
-        name: 'Alberto Aldana Fariñas',
+        name: "Alberto Aldana Fariñas",
         accounts: [
           {
-            bank: 'Banorte',
-            accountNumber: '2402843991',
-            totalValueBeginDate: '$ 800,000.00',
-            totalValueEndDate: '$ 300,000.00',
+            bank: "Banorte",
+            accountNumber: "2402843991",
+            currency: "MXN",
+            totalValueBeginDate: "$ 800,000.00",
+            totalValueEndDate: "$ 300,000.00",
             valuations: [
               {
-                month: 'Enero', 
-                year: 2024, 
-                amount: '$ 800,000.00'
-              }, 
-              {
-                month: 'Febrero', 
-                year: 2024, 
-                amount: '$ 1,00,000.00'
+                month: "Enero",
+                year: 2024,
+                amount: "$ 800,000.00",
               },
               {
-                month: 'Marzo', 
-                year: 2024, 
-                amount: '$ 400,000.00'
+                month: "Febrero",
+                year: 2024,
+                amount: "$ 1,00,000.00",
               },
               {
-                month: 'Abril', 
-                year: 2024, 
-                amount: '$ 300,000.00'
-              },
-            ]
-          }, 
-          {
-            bank: 'Santander',
-            accountNumber: '438392511',
-            totalValueBeginDate: '$ 100,000.00',
-            totalValueEndDate: '$ 350,000.00',
-            valuations: [
-              {
-                month: 'Enero', 
-                year: 2024, 
-                amount: '$ 100,000.00'
-              }, 
-              {
-                month: 'Febrero', 
-                year: 2024, 
-                amount: '$ 235,000.00'
+                month: "Marzo",
+                year: 2024,
+                amount: "$ 400,000.00",
               },
               {
-                month: 'Marzo', 
-                year: 2024, 
-                amount: '$ 350,000.00'
+                month: "Abril",
+                year: 2024,
+                amount: "$ 300,000.00",
               },
-              {
-                month: 'Abril', 
-                year: 2024, 
-                amount: '$ 350,000.00'
-              },
-            ]
-          }
-        ]
-      }, 
-      {
-        name: 'Patricia Ríos Collantes',
-        accounts: [
-          {
-            bank: 'Banorte',
-            accountNumber: '241332322',
-            currency: 'MXN',
-            totalValueBeginDate: '$ 450,000.00',
-            totalValueEndDate: '$ 156,000.00',
-            valuations: [
-              {
-                month: 'Enero', 
-                year: 2024, 
-                amount: '$ 800,000.00'
-              }, 
-              {
-                month: 'Febrero', 
-                year: 2024, 
-                amount: '$ 1,00,000.00'
-              },
-              {
-                month: 'Marzo', 
-                year: 2024, 
-                amount: '$ 400,000.00'
-              },
-              {
-                month: 'Abril', 
-                year: 2024, 
-                amount: '$ 300,000.00'
-              },
-            ]
-          }, 
-          {
-            bank: 'BBVA',
-            accountNumber: '345234524344',
-            currency: 'MXN',
-            totalValueBeginDate: '$ 644,000.00',
-            totalValueEndDate: '$ 769,000.00',
-            valuations: [
-              {
-                month: 'Enero', 
-                year: 2024, 
-                amount: '$ 100,000.00'
-              }, 
-              {
-                month: 'Febrero', 
-                year: 2024, 
-                amount: '$ 235,000.00'
-              },
-              {
-                month: 'Marzo', 
-                year: 2024, 
-                amount: '$ 350,000.00'
-              },
-              {
-                month: 'Abril', 
-                year: 2024, 
-                amount: '$ 350,000.00'
-              },
-            ]
+            ],
           },
           {
-            bank: 'Banamex',
-            accountNumber: '34524344',
-            currency: 'MXN',
-            totalValueBeginDate: '$ 425,000.00',
-            totalValueEndDate: '$ 425,000.00',
+            bank: "Santander",
+            accountNumber: "438392511",
+            currency: "MXN",
+            totalValueBeginDate: "$ 100,000.00",
+            totalValueEndDate: "$ 350,000.00",
             valuations: [
               {
-                month: 'Enero', 
-                year: 2024, 
-                amount: '$ 100,000.00'
-              }, 
-              {
-                month: 'Febrero', 
-                year: 2024, 
-                amount: '$ 235,000.00'
+                month: "Enero",
+                year: 2024,
+                amount: "$ 100,000.00",
               },
               {
-                month: 'Marzo', 
-                year: 2024, 
-                amount: '$ 350,000.00'
+                month: "Febrero",
+                year: 2024,
+                amount: "$ 235,000.00",
               },
               {
-                month: 'Abril', 
-                year: 2024, 
-                amount: '$ 350,000.00'
+                month: "Marzo",
+                year: 2024,
+                amount: "$ 350,000.00",
               },
-            ]
-          }
-        ]
-      }
-    ], 
+              {
+                month: "Abril",
+                year: 2024,
+                amount: "$ 350,000.00",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        name: "Patricia Ríos Collantes",
+        accounts: [
+          {
+            bank: "Banorte",
+            accountNumber: "241332322",
+            currency: "MXN",
+            totalValueBeginDate: "$ 450,000.00",
+            totalValueEndDate: "$ 156,000.00",
+            valuations: [
+              {
+                month: "Enero",
+                year: 2024,
+                amount: "$ 800,000.00",
+              },
+              {
+                month: "Febrero",
+                year: 2024,
+                amount: "$ 1,00,000.00",
+              },
+              {
+                month: "Marzo",
+                year: 2024,
+                amount: "$ 400,000.00",
+              },
+              {
+                month: "Abril",
+                year: 2024,
+                amount: "$ 300,000.00",
+              },
+            ],
+          },
+          {
+            bank: "BBVA",
+            accountNumber: "345234524344",
+            currency: "MXN",
+            totalValueBeginDate: "$ 644,000.00",
+            totalValueEndDate: "$ 769,000.00",
+            valuations: [
+              {
+                month: "Enero",
+                year: 2024,
+                amount: "$ 100,000.00",
+              },
+              {
+                month: "Febrero",
+                year: 2024,
+                amount: "$ 235,000.00",
+              },
+              {
+                month: "Marzo",
+                year: 2024,
+                amount: "$ 350,000.00",
+              },
+              {
+                month: "Abril",
+                year: 2024,
+                amount: "$ 350,000.00",
+              },
+            ],
+          },
+          {
+            bank: "Banamex",
+            accountNumber: "34524344",
+            currency: "MXN",
+            totalValueBeginDate: "$ 425,000.00",
+            totalValueEndDate: "$ 425,000.00",
+            valuations: [
+              {
+                month: "Enero",
+                year: 2024,
+                amount: "$ 100,000.00",
+              },
+              {
+                month: "Febrero",
+                year: 2024,
+                amount: "$ 235,000.00",
+              },
+              {
+                month: "Marzo",
+                year: 2024,
+                amount: "$ 350,000.00",
+              },
+              {
+                month: "Abril",
+                year: 2024,
+                amount: "$ 350,000.00",
+              },
+            ],
+          },
+        ],
+      },
+    ],
     privateEquityFunds: [
+      // {
+      //   fundName: "ABC fund",
+      //   totalReturnsBeginDate: "$ 14,000.00",
+      //   totalReturnsEndDate: "$ 19,000.00",
+      //   owners: [
+      //     {
+      //       name: "Alberto Aldana Fariñas",
+      //       pct: "100%",
+      //     },
+      //   ],
+      //   investment: "$145,000.00",
+      //   currency: "USD",
+      //   returnsInPeriod: [
+      //     {
+      //       amount: "$ 5,000.00",
+      //       month: "Febrero",
+      //       year: 2024,
+      //     },
+      //   ],
+      // },
       {
-        fundName: 'ABC fund', 
-        totalReturnsBeginDate: '$ 14,000.00',
-        totalReturnsEndDate: '$ 19,000.00',
-        owners:[
+        fundName: "Crossboard Fund",
+        totalReturnsBeginDate: "$ 50,000.00",
+        totalReturnsEndDate: "$ 150,000.00",
+        owners: [
           {
-            name: 'Alberto Aldana Fariñas',
-            pct: '100%'
+            name: "Alberto Aldana Fariñas",
+            pct: "50%",
           },
-        ], 
-        investment: '$145,000.00', 
-        currency: 'USD', 
+          {
+            name: "Alberto Aldana Rios",
+            pct: "50%",
+          },
+        ],
+        investment: "$2,800,000.00",
+        currency: "MXN",
         returnsInPeriod: [
           {
-            amount: '$ 5,000.00',
-            month: 'Febrero',
-            year: 2024
-          }
-        ]
-      }, 
-      {
-        fundName: 'Crossboard Fund', 
-        totalReturnsBeginDate: '$ 50,000.00',
-        totalReturnsEndDate: '$ 150,000.00',
-        owners:[
-          {
-            name: 'Alberto Aldana Fariñas',
-            pct: '50%'
+            amount: "$ 100,000.00",
+            month: "Abril",
+            year: 2024,
           },
-          {
-            name: 'Alberto Aldana Rios',
-            pct: '50%'
-          },
-        ], 
-        investment: '$2,800,000.00', 
-        currency: 'MXN', 
-        returnsInPeriod: [
-          {
-            amount: '$ 100,000.00',
-            month: 'Abril',
-            year: 2024
-          }
-        ]
-      }, 
+        ],
+      },
     ],
     privateEquityCapital: [
       {
-        investmentCompany: 'Restaurante Alejo', 
-        sharePercentage: '25%',
-        valuationPreMoney: '$ 1,500,000.00',
-        valuationBeginDate: '$ 5,000,000.00',
-        valuationEndDate: '$ 5,000,000.00',
-        investmentAmount: '$ 4,200,000.00',
-        owners:[
+        investmentCompany: "Restaurante Alejo",
+        sharePercentage: "25%",
+        valuationPreMoney: "$ 1,500,000.00",
+        valuationBeginDate: "$ 5,000,000.00",
+        valuationEndDate: "$ 5,000,000.00",
+        investmentAmount: "$ 4,200,000.00",
+        owners: [
           {
-            name: 'Alberto Aldana Fariñas',
-            pct: '33%'
+            name: "Alberto Aldana Fariñas",
+            pct: "33%",
           },
           {
-            name: 'Patricia Rios Collantes',
-            pct: '33%'
+            name: "Patricia Rios Collantes",
+            pct: "33%",
           },
           {
-            name: 'Alberto Aldana Ríos',
-            pct: '33%'
-          },
-        ], 
-        currency: 'MXN', 
-      },
-    ], 
-    realStateRents: [
-      {
-        propertyName: 'Departamento Victoria, Mazatlán', 
-        totalCollectingInPeriod: '$ 56,000.00',
-        collecting: [
-          {
-            month: 'Enero', 
-            year: 2024, 
-            amount: '$ 14,000.00'
-          }, 
-          {
-            month: 'Febrero', 
-            year: 2024, 
-            amount: '$ 14,00,000.00'
-          },
-          {
-            month: 'Marzo', 
-            year: 2024, 
-            amount: '$ 14,000.00'
-          },
-          {
-            month: 'Abril', 
-            year: 2024, 
-            amount: '$ 14,000.00'
+            name: "Alberto Aldana Ríos",
+            pct: "33%",
           },
         ],
-        owners:[
-          {
-            name: 'Patricia Rios Collantes',
-            pct: '100%'
-          },
-        ], 
-        currency: 'MXN', 
+        currency: "MXN",
       },
-    ]
-  }, 
+    ],
+    realStateRents: [
+      {
+        propertyName: "Departamento Victoria, Mazatlán",
+        totalCollectingInPeriod: "$ 56,000.00",
+        collecting: [
+          {
+            month: "Enero",
+            year: 2024,
+            amount: "$ 14,000.00",
+          },
+          {
+            month: "Febrero",
+            year: 2024,
+            amount: "$ 14,00,000.00",
+          },
+          {
+            month: "Marzo",
+            year: 2024,
+            amount: "$ 14,000.00",
+          },
+          {
+            month: "Abril",
+            year: 2024,
+            amount: "$ 14,000.00",
+          },
+        ],
+        owners: [
+          {
+            name: "Patricia Rios Collantes",
+            pct: "100%",
+          },
+        ],
+        currency: "MXN",
+      },
+    ],
+  },
   wealthBalance: {
-    currency: 'MXN',
+    currency: "MXN",
     realState: {
-      valuationStartDate: '$ 33,500,000.00',
-      valuationEndDate: '$ 33,500,000.00'
+      valuationStartDate: "$ 33,500,000.00",
+      valuationEndDate: "$ 33,500,000.00",
     },
     bankAccounts: {
-      valuationStartDate: '$ 4,500,000.00',
-      valuationEndDate: '$ 4,800,000.00'
+      valuationStartDate: "$ 4,500,000.00",
+      valuationEndDate: "$ 4,800,000.00",
     },
     companies: {
-      valuationStartDate: '$ 23,500,000.00',
-      valuationEndDate: '$ 23,500,000.00'
+      valuationStartDate: "$ 23,500,000.00",
+      valuationEndDate: "$ 23,500,000.00",
     },
     stockInvestments: {
-      valuationStartDate: '$ 2,500,000.00',
-      valuationEndDate: '$ 2,835,000.00' 
-    }, 
+      valuationStartDate: "$ 2,500,000.00",
+      valuationEndDate: "$ 2,835,000.00",
+    },
     vehicles: {
-      valuationStartDate: '$ 4,500,000.00',
-      valuationEndDate: '$ 4,500,000.00' 
+      valuationStartDate: "$ 4,500,000.00",
+      valuationEndDate: "$ 4,500,000.00",
     },
     artAndCollections: {
-      valuationStartDate: '$ 500,000.00',
-      valuationEndDate: '$ 500,000.00' 
+      valuationStartDate: "$ 500,000.00",
+      valuationEndDate: "$ 500,000.00",
     },
     loansCollecting: {
-      valuationStartDate: '$ 850,000.00',
-      valuationEndDate: '$ 678,500.00' 
+      valuationStartDate: "$ 850,000.00",
+      valuationEndDate: "$ 678,500.00",
     },
     privateEquityFund: {
-      valuationStartDate: '$ 850,000.00',
-      valuationEndDate: '$ 850,500.00' 
-    }, 
+      valuationStartDate: "$ 850,000.00",
+      valuationEndDate: "$ 850,500.00",
+    },
     privateEquityCapital: {
-      valuationStartDate: '$ 1,850,000.00',
-      valuationEndDate: '$ 1,850,000.00' 
-    }, 
+      valuationStartDate: "$ 1,850,000.00",
+      valuationEndDate: "$ 1,850,000.00",
+    },
     debt: {
-      valuationStartDate: '$ 8,850,000.00',
-      valuationEndDate: '$ 8,390,000.00' 
-    }
+      valuationStartDate: "$ 8,850,000.00",
+      valuationEndDate: "$ 8,390,000.00",
+    },
+    totalAssetValue: {
+      valuationStartDate: "$ 79,530,000.00",
+      valuationEndDate: "$ 89,529,410.00",
+    },
   },
   governance: {
     investmentCommittee: {
       meetings: [
         {
-          meetingName: 'Reunion # 2 de Comite de inversión - Tercer junta tercer bimestre',
-          meetingDay: '12/04/2024',
-          participants: '4/5'
-        }
-      ], 
-      voatings: [
-
-      ]
-    }, 
+          meetingName:
+            "Reunion # 2 de Comite de inversión - Tercer junta tercer bimestre",
+          meetingDay: "12/04/2024",
+          participants: "4/5",
+        },
+      ],
+      voatings: [],
+    },
     familyCouncil: {
       meetings: [
         {
-          meetingName: 'Reunion # 3 de Consejo Familiar - Tercer junta tercer bimestre',
-          meetingDay: '05/03/2024',
-          participants: '5/5'
-        }
-      ], 
+          meetingName:
+            "Reunion # 3 de Consejo Familiar - Tercer junta tercer bimestre",
+          meetingDay: "05/03/2024",
+          participants: "5/5",
+        },
+      ],
       voatings: [
         {
-          voatingName: 'Votación - Todos los miembros del comite deben presentar reporte semanal', 
-          result: 'En contra', 
-          participants: '5/5'
-        }
-      ]
-    }
-  }
+          voatingName:
+            "Votación - Todos los miembros del comite deben presentar reporte semanal",
+          result: "En contra",
+          participants: "5/5",
+        },
+      ],
+    },
+  },
 };
