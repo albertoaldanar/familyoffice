@@ -479,4 +479,87 @@ export const councilAndCommittieesData = {
       },
     ],
   },
+  virtualFamilyOffice: {
+    members: [
+      {
+        id: "23",
+        name: "Francisco Alberto Aldana Rios",
+        role: "Miembro Familiar",
+      },
+      {
+        id: "43",
+        name: "Patricia Ríos Collantes",
+        role: "Miembro Familiar",
+      },
+      {
+        id: "12",
+        name: "Alberto Aldana Ríos",
+        role: "Miembro Familiar",
+      },
+      {
+        name: "Luz Amelia Jacobo",
+        role: "Contadora Empresas",
+        id: "24",
+        providerCategory: 50,
+      },
+      {
+        name: "Sergio Salcido",
+        role: "Abogado",
+        id: "254",
+        providerCategory: 50,
+      },
+    ],
+    meetings: [
+      {
+        id: 411,
+        meetingNumber: "1",
+        status: "Finalizada",
+        title: "Junta de iniciaión de Virtual Familiy Office",
+        linkedPreviousMeeting: {
+          id: null
+        },
+        participants: [
+          {
+            name: "Francisco Aldana Fariñas",
+            role: "Miembro Familiar",
+            id: "23",
+          },
+          {
+            name: "Alberto Aldana Ríos",
+            role: "Miembro Familiar",
+            id: "12",
+          },
+          {
+            name: "Luz Amelia Jacobo",
+            role: "Contadora Empresas",
+            id: "24",
+            providerCategory: 50,
+          },
+          {
+            name: "Sergio Salcido",
+            role: "Abogado",
+            id: "254",
+            providerCategory: 50,
+          },
+        ],
+        votings: [],
+        date: "12/05/2024",
+        time: "10:00 am",
+        modality: "Presencial",
+        location: "Ofincias Aldana CLima Integral",
+        meetingSubjects: [
+          "Presentación de cada uno de los miembros del virtual Family Offiece",
+          "Declaración de intenciones y objectivos de parte del account manager",
+        ],
+        callToAction: [
+          {
+            title:
+              "Todos los miembros deben traer llenado con lo aprendido en la primera junta de Virtual Family Office",
+            result: null,
+          },
+        ],
+        reviewOfMinutes: [],
+      },
+    ],
+  },
 };

@@ -1967,14 +1967,14 @@ export default function Reports() {
               <Form.Check
                 key={index}
                 type="checkbox"
-                className="custom-checkbox"
+                // className="custom-checkbox"
                 name="administracion"
                 label={section.label}
                 checked={section.checked}
                 onChange={(e) =>
                   handleCheckboxChange(section, "Administración", e.target.checked)
                 }
-                style={{ marginLeft: 15 }}
+                style={{ marginLeft: 15, marginTop: 8 }}
               />
             ))}
           </Form.Group>
@@ -1986,13 +1986,13 @@ export default function Reports() {
               <Form.Check
                 key={index}
                 type="checkbox"
-                className="custom-checkbox"
+                // className="custom-checkbox"
                 label={section.label}
                 checked={section.checked}
                 onChange={(e) =>
                   handleCheckboxChange(section, "Inversiones", e.target.checked)
                 }
-                style={{ marginLeft: 15 }}
+                style={{ marginLeft: 15, marginTop: 8 }}
               />
             ))}
           </Form.Group >
@@ -2003,13 +2003,13 @@ export default function Reports() {
               <Form.Check
                 key={index}
                 type="checkbox"
-                className="custom-checkbox"
+                // className="custom-checkbox"
                 label={section.label}
                 checked={section.checked}
                 onChange={(e) =>
                   handleCheckboxChange(section, "Governance", e.target.checked)
                 }
-                style={{ marginLeft: 15 }}
+                style={{ marginLeft: 15, marginTop: 8 }}
               />
             ))}
           </Form.Group >
@@ -2050,7 +2050,7 @@ export default function Reports() {
               }}
             >
               <div></div>
-              <Button className="custom-button mb-1" type="submit">
+              <Button className="mb-1" type="submit">
                 Generar reporte
               </Button>
             </div>

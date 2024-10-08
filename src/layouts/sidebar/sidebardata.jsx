@@ -73,7 +73,7 @@ const MenuItems = [
         children: [
           { path: `${import.meta.env.BASE_URL}governance/familyCouncil`, type: 'link', active: false, selected: false, title: 'Consejo Familiar' },
           { path: `${import.meta.env.BASE_URL}governance/investmentCommittee`, type: 'link', active: false, selected: false, title: 'Comité de inversión' },
-          { path: `${import.meta.env.BASE_URL}governance/investmentCommittee`, type: 'link', active: false, selected: false, title: 'Virtual Family Office' },
+          { path: `${import.meta.env.BASE_URL}governance/virtualFamilyOffice`, type: 'link', active: false, selected: false, title: 'Virtual Family Office' },
 
         ]
       },

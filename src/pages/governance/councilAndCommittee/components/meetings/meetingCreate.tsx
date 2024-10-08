@@ -18,11 +18,13 @@ export default function MeetingCreate(props) {
   const params = useParams();
   const navigate = useNavigate();
   const addType =
-    params.type === "familyCouncil"
-      ? "Consejo Familiar"
-      : params.type === "investmentCommittee"
-      ? "Comite de Inversión"
-      : null;
+  params.type === "familyCouncil"
+    ? "Consejo Familiar"
+    : params.type === "investmentCommittee"
+    ? "Comite de Inversión"
+    : params.type === "virtualFamilyOffice"
+    ? "Virtual Family Office"
+    : null;
   const [platform, setPlatform] = useState("");
   const [title, setTitle] = useState("");
   const [address, setAddress] = useState("");

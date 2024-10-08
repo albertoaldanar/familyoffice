@@ -46,8 +46,15 @@ export default function CouncilAndCommitteAddMember(props) {
     );
   };
 
-  const typOfMembership = params.type === "consejoFamiliar" ? "Consejo Familiar" : "Comite de inversión"
-
+  const typOfMembership = 
+  params.type === "consejoFamiliar"
+    ? "Consejo Familiar"
+    : params.type === "comiteInversion"
+    ? "Comite de Inversión"
+    : params.type === "virtualFamilyOffice"
+    ? "Virtual Family Office"
+    : null;
+    
   return (
     <Fragment>
       <Row>

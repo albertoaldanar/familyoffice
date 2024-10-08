@@ -16,11 +16,13 @@ export default function VotingCreate(props) {
   const params = useParams();
   const navigate = useNavigate();
   const addType =
-    params.type === "familyCouncil"
-      ? "Consejo Familiar"
-      : params.type === "investmentCommittee"
-      ? "Comite de Inversión"
-      : null;
+  params.type === "familyCouncil"
+    ? "Consejo Familiar"
+    : params.type === "investmentCommittee"
+    ? "Comite de Inversión"
+    : params.type === "virtualFamilyOffice"
+    ? "Virtual Family Office"
+    : null;
   const [hideVotes, setHideVotes] = useState(false);
   const [title, setTitle] = useState("");
   const [members, setMembers] = useState([]);

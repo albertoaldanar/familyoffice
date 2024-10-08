@@ -13,7 +13,7 @@ export default function Structure(props) {
   };
 
   const renderFamilyStructure = () => {
-    const defaultViewport = { x: 100, y: -20, zoom: 0.85 };
+    const defaultViewport = { x: 100, y: -20, zoom: 0.7 };
 
     return (
       <ReactFlowProvider>

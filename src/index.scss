@@ -100,8 +100,8 @@
 }
 
 .custom-checkbox .form-check-input:checked {
-  background-color: #004745; /* Change this to your desired color */
-  border-color: #004745;     /* Change this to your desired color */
+  background-color: #99babd; /* Change this to your desired color */
+  border-color: #99babd;     /* Change this to your desired color */
 }
 
 .custom-button {
@@ -126,6 +126,16 @@
 .custom-nav .nav-link:hover {
   color: #485056;
 }
+
+// .tabs-menu1 .nav-link {
+//   color: #99babd; /* Default tab text color */
+// }
+
+// .tabs-menu1 .nav-link:hover {
+//   color: #99babd; /* Change text color on hover */
+//   border-bottom: 2px solid #99babd; /* Add border bottom on hover */
+// }
+
 .best-ticker {
   display: block;
   width: 100%;

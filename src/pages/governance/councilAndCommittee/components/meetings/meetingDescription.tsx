@@ -51,11 +51,13 @@ export default function MeetingDescription(props) {
   const membersSelected = formatMember(meetingSelected.participants);
 
   const addType =
-    params.type === "familyCouncil"
-      ? "Consejo Familiar"
-      : params.type === "investmentCommittee"
-      ? "Comite de Inversión"
-      : null;
+  params.type === "familyCouncil"
+    ? "Consejo Familiar"
+    : params.type === "investmentCommittee"
+    ? "Comite de Inversión"
+    : params.type === "virtualFamilyOffice"
+    ? "Virtual Family Office"
+    : null;
   const [platform, setPlatform] = useState("");
   const [title, setTitle] = useState(meetingSelected.title);
   const [address, setAddress] = useState(meetingSelected.location);
@@ -646,7 +648,6 @@ export default function MeetingDescription(props) {
                 </Nav>
               </div>
             </div>
-
             <Tab.Content className="panel-body">
               <Tab.Pane eventKey="first">{renderDescription()}</Tab.Pane>
               <Tab.Pane eventKey="second">
@@ -654,8 +655,12 @@ export default function MeetingDescription(props) {
                   data={meetingSelected}
                   votingType={
                     addType === "Comite de Inversión"
-                      ? "investmentCommittee"
-                      : "familyCouncil"
+                    ? "investmentCommittee"
+                    : addType === "Consejo Familiar"
+                    ? "familyCouncil"
+                    : addType === "Virtual Family Office"
+                    ? "virtualFamilyOffice"
+                    : null
                   }
                 />
               </Tab.Pane>

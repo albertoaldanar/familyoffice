@@ -79,7 +79,7 @@ export default function CouncilAndCommittee() {
             </Tab.Pane>
 
             <Tab.Pane eventKey="third-committee">
-              <Votings votingType='investmentCommittee' />
+              {/* <Votings votingType='investmentCommittee' /> */}
             </Tab.Pane>
           </Tab.Content>
         </Tab.Container>

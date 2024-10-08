@@ -59,11 +59,13 @@ export default function ProviderCreate(props) {
   });
 
   const addType =
-    params.type === "consejoFamiliar"
-      ? "Consejo Familiar"
-      : params.type === "comiteInversion"
-      ? "Comite de Inversión"
-      : null;
+  params.type === "familyCouncil"
+    ? "Consejo Familiar"
+    : params.type === "investmentCommittee"
+    ? "Comite de Inversión"
+    : params.type === "virtualFamilyOffice"
+    ? "Virtual Family Office"
+    : null;
 
   const renderSelectAssetsContained = () => {
     return (
