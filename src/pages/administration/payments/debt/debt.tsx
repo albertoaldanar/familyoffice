@@ -136,9 +136,8 @@ export default function Debt() {
             alignSelf: "flex-end",
             justifyContent: "flex-end",
           }}
-          variant="primary"
           size="sm"
-          className=" mb-1"
+          className="custom-button"
         >
           <Link
             style={{ color: "white" }}

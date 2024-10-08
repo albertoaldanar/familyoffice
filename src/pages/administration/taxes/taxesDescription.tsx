@@ -180,9 +180,8 @@ export default function Taxes() {
                     style={{
                       marginRight: 10,
                     }}
-                    variant="primary"
                     size="sm"
-                    className=" mb-1"
+                    className="custom-button"
                   >
                     {/*// @ts-ignore */}
                     <Link style={{ color: "white" }} to={`${import.meta.env.BASE_URL}administration/taxes/${taxUserSelected.id}/type/mensuales/newReport`}>
@@ -205,9 +204,8 @@ export default function Taxes() {
                     style={{
                       marginRight: 10,
                     }}
-                    variant="primary"
                     size="sm"
-                    className=" mb-1"
+                    className="custom-button"
                   >
                     {/*// @ts-ignore */}
                     <Link style={{ color: "white" }} to={`${import.meta.env.BASE_URL}administration/taxes/${taxUserSelected.id}/type/anuales/newReport`}>
@@ -236,9 +234,8 @@ export default function Taxes() {
               style={{
                 marginRight: 10,
               }}
-              variant="primary"
               size="sm"
-              className=" mb-1"
+              className="custom-button"
             >
               {/*// @ts-ignore */}
               <Link style={{ color: "white" }} to={`${import.meta.env.BASE_URL}administration/taxes/${taxUserSelected.id}/type/bimestrales/newReport`}>
@@ -264,9 +261,8 @@ export default function Taxes() {
               style={{
                 marginRight: 10,
               }}
-              variant="primary"
               size="sm"
-              className=" mb-1"
+              className="custom-button"
             >
               {/*// @ts-ignore */}
               <Link style={{ color: "white" }} to={`${import.meta.env.BASE_URL}administration/taxes/${taxUserSelected.id}/type/anuales/newReport`}>

@@ -27,12 +27,11 @@ export default function RealStateList(props) {
               alignSelf: "flex-end",
               justifyContent: "flex-end",
             }}
-            variant="default"
             size="sm"
-            className="mb-1"
+            className="custom-button"
           >
             {/*// @ts-ignore */}
-            <Link style={{ color: "black" }} to={`${import.meta.env.BASE_URL
+            <Link style={{ color: "white" }} to={`${import.meta.env.BASE_URL
               }governance/wealthItemCreate/realState`}
             >
               + Añadir propiedad

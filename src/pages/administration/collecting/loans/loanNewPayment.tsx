@@ -211,7 +211,7 @@ export default function LoanNewPayment(props) {
               }}
             >
               <div></div>
-              <Button variant="primary" className=" mb-1" type="submit">
+              <Button className="custom-button" type="submit">
                 Crear pago
               </Button>
             </div>

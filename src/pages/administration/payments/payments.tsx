@@ -16,7 +16,7 @@ export default function Payments() {
   const renderPayments = () => {
     return (
       <Tab.Container id="left-tabs-example" defaultActiveKey="first">
-        <div style={{marginLeft: 25}}>
+        <div >
           <Nav
             variant="pills"
             as="ul"
@@ -133,9 +133,9 @@ export default function Payments() {
   return (
     <Fragment>
       <Row>
-        <Card style={{ minHeight: 550, marginTop: 20 }}>
+        <div style={{ minHeight: 550}}>
           <Tab.Container id="left-tabs-example" defaultActiveKey="first">
-            <div style={{ padding: 20 }} className="tabs-menu1">
+            <div style={{ padding: 20}} className="tabs-menu1">
               <Nav as="ul" className="nav panel-tabs">
                 <Nav.Item as="li" style={{ marginRight: 10 }}>
                   <Nav.Link eventKey="first" href="#">
@@ -187,7 +187,7 @@ export default function Payments() {
               <Tab.Pane eventKey="third">{renderCompanies()}</Tab.Pane>
             </Tab.Content>
           </Tab.Container>
-        </Card>
+        </div>
       </Row>
     </Fragment>
   );

@@ -26,9 +26,8 @@ export default function BenefitsCollecting() {
             alignSelf: "flex-end",
             justifyContent: "flex-end",
           }}
-          variant="primary"
           size="sm"
-          className=" mb-1"
+          className="custom-button"        
         >
           + Añadir cobro regalias
         </Button>

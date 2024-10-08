@@ -103,9 +103,8 @@ export default function Mantainance() {
             alignSelf: "flex-end",
             justifyContent: "flex-end",
           }}
-          variant="primary"
           size="sm"
-          className=" mb-1"
+          className="custom-button"
         >
           <Link style={{ color: "white" }} 
             to={`${baseUrl}administration/mantainanceCreate/type/null/itemId/null`}

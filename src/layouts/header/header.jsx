@@ -156,7 +156,7 @@ const SideMenuIcon = () => {
         <Fragment>
 
            
-            <div className="app-header header sticky" style={{ marginBottom: '-70.7812px' }}>
+            <div className="app-header header sticky" style={{ marginBottom: '-70.7812px'}}>
                 <Container fluid className=" main-container">
                     <div className="d-flex">
                         <Link aria-label="Hide Sidebar" className="app-sidebar__toggle" data-bs-toggle="sidebar"
@@ -172,28 +172,6 @@ const SideMenuIcon = () => {
                                 alt="Sparic logo" />
                         </Link>
                        
-                        <div className="main-header-center ms-3 d-none d-lg-block">
-                            <Form.Control type="text" defaultValue ={InputValue} id="typehead" placeholder="Search for results..." 
-                                autoComplete="off" onChange={(ele => { myfunction(ele.target.value); setInputValue(ele.target.value) })} />
-                            <Button variant='' className="btn px-2 "><i className="fe fe-search" aria-hidden="true"></i></Button>
-                            {show1 ?
-							<div className="card search-result position-absolute z-index-9 search-fix  border mt-1">
-								<div className="card-header">
-									<h4 className="card-title me-2 text-break">Search result of {InputValue}</h4>
-								</div>
-								<ListGroup className='mt-2'>
-									{show2 ?
-										NavData.map((e) =>
-											<ListGroup.Item key={Math.random()} className="">
-												<Link to={`${e.path}/`} className='search-result-item' onClick={() => { setShow1(false), setInputValue("") }}>{e.title}</Link>
-											</ListGroup.Item>
-										)
-										: <b className={`${searchcolor} `}>{searchval}</b>}
-								</ListGroup>
-
-							</div>
-							: ""}
-                        </div>
                         <Navbar className="d-flex order-lg-2 ms-auto header-right-icons px-0" expand="lg">
                             <Dropdown className="d-none">
                                 <Dropdown.Toggle as="a" href="#" variant='light' className="no-caret nav-link icon " >
@@ -203,7 +181,7 @@ const SideMenuIcon = () => {
                                     <InputGroup className=" w-100 p-2">
                                         <Form.Control type="text"  placeholder="Search...." />
                                         <InputGroup.Text variant='primary' className=" btn btn-primary me-2">
-                                            <i className="fe fe-search" aria-hidden="true"></i>
+                                            <i className="fe fe-search" style={{color: 'white'}} aria-hidden="true"></i>
                                         </InputGroup.Text>
                                     </InputGroup>
                                 </Dropdown.Menu>
@@ -221,13 +199,13 @@ const SideMenuIcon = () => {
                                         <Dropdown className=" d-lg-none d-flex">
                                             <Dropdown.Toggle as='a' to="#" className=" no-caret nav-link icon"
                                                 data-bs-toggle="dropdown">
-                                                <i className="fe fe-search"></i>
+                                                <i className="fe fe-search" style={{color: 'white'}}></i>
                                             </Dropdown.Toggle>
                                             <Dropdown.Menu className=" header-search dropdown-menu-start">
                                                 <InputGroup className="w-100 p-2">
                                                     <Form.Control type="text"  placeholder="Search...." />
                                                     <InputGroup.Text className="input-group-text btn btn-primary">
-                                                        <i className="fa fa-search" aria-hidden="true"></i>
+                                                        <i className="fa fa-search" aria-hidden="true" ></i>
                                                     </InputGroup.Text>
                                                 </InputGroup>
                                             </Dropdown.Menu>

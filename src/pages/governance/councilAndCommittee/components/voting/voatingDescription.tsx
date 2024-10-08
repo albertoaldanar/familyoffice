@@ -216,7 +216,7 @@ export default function VotingDescription(props) {
           )}
 
           {!votingSelected.isVotingFinished ? (
-            <Button variant="primary" className=" mb-1" type="submit">
+            <Button className="custom-button" type="submit">
               Guardar
             </Button>
           ) : (
@@ -244,7 +244,7 @@ export default function VotingDescription(props) {
             Vover
           </Button>
         ) : (
-          <Button variant="primary" className=" mb-1" type="submit">
+          <Button className="custom-button" type="submit">
             Guardar
           </Button>
         )}

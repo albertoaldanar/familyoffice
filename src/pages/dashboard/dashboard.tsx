@@ -954,7 +954,7 @@ export default function RealStateDashboard() {
   return (
     <Fragment>
       <Row>
-        <Card style={{ minHeight: 500, marginTop: 20 }}>
+        <div style={{ minHeight: 500}}>
           <div
             style={{
               marginTop: 40,
@@ -1030,7 +1030,7 @@ export default function RealStateDashboard() {
             </div>
           </div>
           {renderViewSelected()}
-        </Card>
+        </div>
       </Row>
     </Fragment>
   );

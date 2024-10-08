@@ -119,9 +119,8 @@ export default function LoansCollecting(props) {
               alignSelf: "flex-end",
               justifyContent: "flex-end",
             }}
-            variant="primary"
             size="sm"
-            className="mb-1"
+            className="custom-button"
           >
             <Link style={{ color: "white" }} to={`${baseUrl}administration/loanCreate`}>
               + Añadir prestamo

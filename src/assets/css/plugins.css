@@ -3285,7 +3285,7 @@ svg {
 .ff_fileupload_wrap .ff_fileupload_dropzone:active {
     opacity: 1;
     background-color: #fff;
-    border-color: #f3f4f7;
+    border-color: #ffff;
 }
 
 .ff_fileupload_wrap .ff_fileupload_dropzone_tools {
@@ -3386,7 +3386,7 @@ svg {
     box-sizing: border-box;
     border: 0 none;
     padding: 0;
-    background-color: #f3f4f7;
+    background-color: #ffff;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;

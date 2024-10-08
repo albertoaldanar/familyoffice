@@ -105,9 +105,8 @@ export const Votings = ({ data, votingType }) => {
             alignSelf: "flex-end",
             justifyContent: "flex-end",
           }}
-          variant="primary"
           size="sm"
-          className=" mb-1"
+          className="custom-button"
         >
           {/*// @ts-ignore */}
           <Link style={{ color: "white" }} to={`${import.meta.env.BASE_URL}governance/councilAndCommittee/voatingCreate/${votingType}`}

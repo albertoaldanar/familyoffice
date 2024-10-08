@@ -26,7 +26,7 @@ function App() {
       <Provider store={store}>
       <div className="horizontalMenucontainer" >
         <Switcher />
-        <div className="page">
+        <div className="page"  style={{backgroundColor: 'white'}}>
           <div className="page-main">
             <Header />
             <Newsticker/>
@@ -37,7 +37,7 @@ function App() {
                   <Outlet />
                 </div>
               </div>
-            </div>
+            </div>x
           </div>
           <Rightsidebar />
           <Footer />

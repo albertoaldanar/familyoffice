@@ -635,9 +635,8 @@ export default function InsurancesDescription(props) {
               style={{
                 marginRight: 10,
               }}
-              variant="primary"
               size="sm"
-              className=" mb-1"
+              className="custom-button"
             >
               {/*// @ts-ignore */}
               <Link
@@ -740,7 +739,7 @@ export default function InsurancesDescription(props) {
       {insurance !== undefined ? (
         <>
           <Row>
-            <Card style={{ padding: 30, marginTop: 20, minHeight: 550 }}>
+            <div style={{ padding: 30, minHeight: 550 }}>
               <h4 className="mb-3 fw-semibold">
               <Link
                 style={{
@@ -833,14 +832,13 @@ export default function InsurancesDescription(props) {
                 <div></div>
                 <Button
                   style={{ position: "absolute", right: 25, bottom: 20 }}
-                  variant="primary"
-                  className=" mb-1"
+                  className="custom-button"
                   type="submit"
                 >
                   Guardar
                 </Button>
               </div>
-            </Card>
+            </div>
           </Row>
         </>
       ) : (

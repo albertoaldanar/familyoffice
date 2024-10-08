@@ -246,7 +246,7 @@ export default function FamilyStructure() {
   return (
     <Fragment>
       <Row>
-        <Card style={{ minHeight: 550, marginTop: 20 }}>
+        <div style={{ minHeight: 550}}>
           <Tab.Container id="left-tabs-example" defaultActiveKey="first">
             <div style={{ padding: 20, paddingBottom: 0, paddingLeft: 10 }}>
               <div className="tabs-menu1">
@@ -294,7 +294,7 @@ export default function FamilyStructure() {
               <Tab.Pane eventKey="third">{renderFamilyDocuments()}</Tab.Pane>
             </Tab.Content>
           </Tab.Container>
-        </Card>
+        </div>
       </Row>
     </Fragment>
   );

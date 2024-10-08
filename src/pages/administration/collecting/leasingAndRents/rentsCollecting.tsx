@@ -245,8 +245,7 @@ export default function RentPayment(props) {
               <div></div>
               <Button
                 style={{ position: "absolute", right: 25, bottom: 20 }}
-                variant="primary"
-                className=" mb-1"
+                className="custom-button"
                 type="submit"
               >
                 Guardar

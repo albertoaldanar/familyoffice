@@ -2023,12 +2023,9 @@ export default function Reports() {
   return (
     <Fragment>
       <Row>
-        <Card
+        <div
           style={{
             minHeight: 550,
-            marginTop: 20,
-            paddingRight: 20,
-            paddingLeft: 40,
           }}
         >
           <Card.Title style={{ marginTop: 30 }}>
@@ -2050,11 +2047,11 @@ export default function Reports() {
               }}
             >
               <div></div>
-              <Button className="mb-1" type="submit">
+              <Button className="custom-button" type="submit">
                 Generar reporte
               </Button>
             </div>
-        </Card>
+        </div>
       </Row>
     </Fragment>
   );

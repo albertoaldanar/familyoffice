@@ -23,9 +23,8 @@ export default function Companies() {
               alignSelf: "flex-end",
               justifyContent: "flex-end",
             }}
-            variant="primary"
             size="sm"
-            className=" mb-1"
+            className="custom-button"
           >
             {/*// @ts-ignore */}
             <Link style={{ color: "white" }} to={`${import.meta.env.BASE_URL}administration/companyCreate`}>
@@ -105,9 +104,8 @@ export default function Companies() {
               alignSelf: "flex-end",
               justifyContent: "flex-end",
             }}
-            variant="primary"
             size="sm"
-            className=" mb-1"
+            className="custom-button"
           >
             {/*// @ts-ignore */}
             <Link style={{ color: "white" }} to={`${import.meta.env.BASE_URL}administration/trustCreate`}
@@ -169,7 +167,7 @@ export default function Companies() {
   return (
     <Fragment>
       <Row>
-        <Card style={{ minHeight: 500, marginTop: 20 }}>
+        <div style={{ minHeight: 550}}>
           <Tab.Container id="left-tabs-example" defaultActiveKey="first">
             <div
               style={{
@@ -208,7 +206,7 @@ export default function Companies() {
               <Tab.Pane eventKey="second">{renderTrusts()}</Tab.Pane>
             </Tab.Content>
           </Tab.Container>
-        </Card>
+        </div>
       </Row>
     </Fragment>
   );

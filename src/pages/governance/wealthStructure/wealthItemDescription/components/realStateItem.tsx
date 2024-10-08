@@ -1059,9 +1059,8 @@ export default function RealStateItem(props) {
               marginRight: 10,
               height: 30,
             }}
-            variant="primary"
             size="sm"
-            className="mb-1"
+            className="custom-button"
           >
             <Link
               style={{ color: "white" }}
@@ -1253,8 +1252,7 @@ export default function RealStateItem(props) {
           <div></div>
           <Button
             style={{ position: "absolute", right: 25, bottom: 20 }}
-            variant="primary"
-            className=" mb-1"
+            className="custom-button"
             type="submit"
           >
             Guardar

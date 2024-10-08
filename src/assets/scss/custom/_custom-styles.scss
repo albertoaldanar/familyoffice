@@ -5417,12 +5417,12 @@ body.boxed {
 
 		a {
 			padding: 0.7rem 1rem;
-			background: #f3f4f7;
+			background: #ffff;
 			display: block;
 			text-align: center;
 
 			&.active {
-				background: $primary !important;
+				background: #ffff !important;
 				color: $white;
 				border-radius: 2px;
 				text-align: center;

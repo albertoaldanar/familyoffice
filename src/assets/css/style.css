@@ -20,9 +20,9 @@ License Details                :   https://spruko.com/licenses-details
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900&display=swap");
 
 :root {
-    --primary-bg-color: #467fcf;
-    --primary-bg-hover: #2e5d9f;
-    --primary-bg-border: #2e5d9f;
+    --primary-bg-color: #004745;
+    --primary-bg-hover: #004745;
+    --primary-bg-border: #004745;
     --primary01: rgba(70, 127, 207, 0.1);
     --primary02: rgba(70, 127, 207, 0.2);
     --primary03: rgba(70, 127, 207, 0.3);
@@ -18112,7 +18112,7 @@ body.boxed {
 
 .card-pay .tabs-menu li a {
     padding: 0.7rem 1rem;
-    background: #f3f4f7;
+    background: #ffff;
     display: block;
     text-align: center;
 }

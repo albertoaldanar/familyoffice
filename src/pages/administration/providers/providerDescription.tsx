@@ -535,9 +535,8 @@ export default function ProviderDescription() {
                 marginRight: 10,
                 height: 30
               }}
-              variant="primary"
               size="sm"
-              className="mb-1"
+              className="custom-button"
             >
               {/*// @ts-ignore */}
               <Link style={{ color: 'white' }} to={`${import.meta.env.BASE_URL}administration/providerNewService/${providerCategorySelected.id}/provider/${providerSelected.id}`}>
@@ -663,8 +662,7 @@ export default function ProviderDescription() {
 
             <Button
                 style={{ position: "absolute", right: 25, bottom: 20 }}
-                variant="primary"
-                className=" mb-1"
+                className="custom-button"
                 type="submit"
               >
                 Guardar

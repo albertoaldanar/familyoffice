@@ -554,9 +554,8 @@ export default function PrivateEquity(props) {
             style={{
               marginRight: 10,
             }}
-            variant="primary"
             size="sm"
-            className=" mb-1"
+            className="custom-button"
           >
               {/*// @ts-ignore */}
               <Link style={{color: 'white'}} to={`${import.meta.env.BASE_URL}governance/privateEquityResultCreate/${privateEquitySelected.id}`}>
@@ -921,9 +920,8 @@ export default function PrivateEquity(props) {
               marginRight: 10,
               height: 30,
             }}
-            variant="primary"
             size="sm"
-            className="mb-1"
+            className="custom-button"
           >
             <Link
               style={{ color: "white" }}
@@ -1098,8 +1096,7 @@ export default function PrivateEquity(props) {
           <div></div>
           <Button
             style={{ position: "absolute", right: 25, bottom: 20 }}
-            variant="primary"
-            className=" mb-1"
+            className="custom-button"
             type="submit"
           >
             Guardar

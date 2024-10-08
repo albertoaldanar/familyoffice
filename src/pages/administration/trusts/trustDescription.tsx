@@ -671,9 +671,8 @@ export default function TrustDescription(props) {
               marginRight: 10,
               height: 30,
             }}
-            variant="primary"
             size="sm"
-            className="mb-1"
+            className="custom-button"
           >
             <Link
               style={{ color: "white" }}
@@ -847,7 +846,7 @@ export default function TrustDescription(props) {
               }}
             >
               <div></div>
-              <Button variant="primary" className=" mb-1" type="submit">
+              <Button className="custom-button" type="submit">
                 Guardar
               </Button>
             </div>

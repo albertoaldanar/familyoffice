@@ -398,15 +398,14 @@ export default function Sidebar() {
   
 
       <div className="sticky" 
-    
        onScroll={horizontalmenusticky()}
        >
         <div className="app-sidebar"
           onMouseOver={() => Onhover()}
           onMouseOut={() => Outhover()}
         >
-          <PerfectScrollbar options={{ suppressScrollX: true, useBothWheelAxes: false }}>
-            <div className="side-header">
+          <PerfectScrollbar style={{backgroundColor: '#f8f9fb'}} options={{ suppressScrollX: true, useBothWheelAxes: false }}>
+            <div className="side-header" style={{backgroundColor: '#f8f9fb'}}>
               <Link className="header-brand1" to={`${import.meta.env.BASE_URL}homeDashboard/`} 
                     onClick={() => setSidemenu(`${import.meta.env.BASE_URL}homeDashboard`) }>
                 <img src={famhold} style={{width: 115, height: 'auto'}} className="header-brand-img main-logo" alt="Sparic logo" />

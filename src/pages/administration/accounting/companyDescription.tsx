@@ -963,7 +963,7 @@ export default function CompanyDescription() {
                   </div>
 
                   <div>
-                    <Button variant="primary" size="sm" className=" mb-1">
+                    <Button className="custom-button" size="sm">
                       {/*// @ts-ignore */}
                       <Link
                         style={{ color: "white" }}
@@ -995,7 +995,7 @@ export default function CompanyDescription() {
                 <div style={{ marginBottom: 30 }}></div>
 
                 <div style={{ marginBottom: 10 }}>
-                  <Button variant="primary" size="sm" className=" mb-1">
+                  <Button className="custom-button" size="sm">
                     {/*// @ts-ignore */}
                     <Link
                       style={{ color: "white" }}
@@ -1300,9 +1300,8 @@ export default function CompanyDescription() {
               marginRight: 10,
               height: 30,
             }}
-            variant="primary"
             size="sm"
-            className="mb-1"
+            className="custom-button"
           >
             <Link
               style={{ color: "white" }}
@@ -1388,7 +1387,7 @@ export default function CompanyDescription() {
   return (
     <Fragment>
       <Row>
-        <Card style={{ paddingBottom: 20, marginTop: 20, minHeight: 550 }}>
+        <div style={{ paddingBottom: 20, minHeight: 550 }}>
           <Card.Title
             style={{ marginLeft: 15, marginBottom: 0, marginTop: 35 }}
           >
@@ -1487,16 +1486,15 @@ export default function CompanyDescription() {
             >
               <div></div>
               <Button
-                style={{ position: "absolute", right: 25, bottom: 20 }}
-                variant="primary"
-                className=" mb-1"
+                style={{ position: "absolute", right: 25, bottom: 80 }}
+                className="custom-button"
                 type="submit"
               >
                 Guardar
               </Button>
             </div>
           </Form>
-        </Card>
+        </div>
       </Row>
     </Fragment>
   );

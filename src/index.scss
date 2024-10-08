@@ -127,14 +127,20 @@
   color: #485056;
 }
 
-// .tabs-menu1 .nav-link {
-//   color: #99babd; /* Default tab text color */
-// }
+.tabs-menu1 .nav-link {
+  color: #004745; /* Default tab text color */
+  // border-bottom: 2px solid #004745; /* Add border bottom on hover */
+}
 
-// .tabs-menu1 .nav-link:hover {
-//   color: #99babd; /* Change text color on hover */
-//   border-bottom: 2px solid #99babd; /* Add border bottom on hover */
-// }
+.tabs-menu1 .nav-link.active {
+  color: #004745; /* Default tab text color */
+  border-bottom: 3px solid #004745; /* Add border bottom on hover */
+}
+
+.tabs-menu1 .nav-link:hover {
+  color: #004745; /* Change text color on hover */
+  // border-bottom: 0px solid #004745; /* Add border bottom on hover */
+}
 
 .best-ticker {
   display: block;
