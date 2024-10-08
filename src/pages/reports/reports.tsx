@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from "react";
 import { Chart } from "chart.js";
-import { Card, Row } from "react-bootstrap";
+import { Card, Row, Form, Col, Button } from "react-bootstrap";
+import Select from "react-select";
 //@ts-ignore
 import famhold from "../../assets/images/brand/famhold.png";
 //@ts-ignore
@@ -19,8 +20,190 @@ import { reportsData } from "./reportsData";
 export default function Reports() {
   //@ts-ignore
   const baseUrl = `${import.meta.env.BASE_URL}`;
+  const currentDate = new Date();
+  const pastMonth = new Date(
+    currentDate.setMonth(currentDate.getMonth() - 1)
+  ).toLocaleString("es-ES", { month: "long" });
+  const pastMonthCapitalized =
+    pastMonth.charAt(0).toUpperCase() + pastMonth.slice(1);
+  const currentYear = new Date().getFullYear();
+
   const defaultCurrency = "MXN";
+  const accountCreationDate = { month: "Mayo", year: 2022 };
+  const months = [
+    "Enero",
+    "Febrero",
+    "Marzo",
+    "Abril",
+    "Mayo",
+    "Junio",
+    "Julio",
+    "Agosto",
+    "Septiembre",
+    "Octubre",
+    "Noviembre",
+    "Diciembre",
+  ];
+
   const [currency, setCurrency] = useState(defaultCurrency);
+  const [monthStart, setMonthStart] = useState({
+    value: pastMonthCapitalized,
+    label: pastMonthCapitalized,
+  });
+
+  const [yearStart, setYearStart] = useState({
+    value: currentYear,
+    label: currentYear,
+  });
+
+  const [monthEnd, setMonthEnd] = useState({
+    value: "",
+    label: "",
+  });
+  const [yearEnd, setYearEnd] = useState({
+    value: null,
+    label: null,
+  });
+
+  const [reportTypeSelected, setReportTypeSelected] = useState({
+    value: "Reporte mensual",
+    label: "Reporte mensual",
+  });
+
+  const [adminSections, setAdminSections] = useState([
+    { label: "Obligaciones personas morales", checked: true },
+    { label: "Obligaciones personas físicas", checked: true },
+    { label: "Obligaciones de activos", checked: true },
+    { label: "Otros pagos variado", checked: true },
+  ]);
+  
+  const [investmentSections, setInvestmentSections] = useState([
+    { label: "Balance patrimonial", checked: true },
+    { label: "Inversiones bursatiles", checked: true },
+    { label: "Capital privado", checked: true },
+    { label: "Bienes raices arrendados", checked: true },
+    { label: "Cuentas bancarias persona moral", checked: true },
+    { label: "Cuentas bancarias persona física", checked: true },
+  ]);
+  
+  const [governanceSections, setGovernanceSections] = useState([
+    { label: "Comite de inversion", checked: true },
+    { label: "Consejo Familiar", checked: true },
+    { label: "Virtual Family Office", checked: true },
+  ]);
+  
+
+  const accountCreationMonthIndex = months.indexOf(accountCreationDate.month);
+  const pastMonthIndex = months.indexOf(pastMonthCapitalized);
+
+  const OptionsStartYear = [];
+  for (let year = accountCreationDate.year; year <= currentYear; year++) {
+    OptionsStartYear.push({ label: year.toString(), value: year });
+  }
+
+  const OptionsStartMonth = [];
+  if (yearStart.value === accountCreationDate.year) {
+    if (yearStart.value === currentYear) {
+      for (let i = accountCreationMonthIndex; i <= pastMonthIndex; i++) {
+        OptionsStartMonth.push({ label: months[i], value: months[i] });
+      }
+    } else if (yearStart.value < currentYear) {
+      for (let i = accountCreationMonthIndex; i < months.length; i++) {
+        OptionsStartMonth.push({ label: months[i], value: months[i] });
+      }
+    }
+  } else if (
+    yearStart.value > accountCreationDate.year &&
+    yearStart.value < currentYear
+  ) {
+    for (let i = 0; i < months.length; i++) {
+      OptionsStartMonth.push({ label: months[i], value: months[i] });
+    }
+  } else if (
+    yearStart.value > accountCreationDate.year &&
+    yearStart.value === currentYear
+  ) {
+    for (let i = 0; i <= pastMonthIndex; i++) {
+      OptionsStartMonth.push({ label: months[i], value: months[i] });
+    }
+  }
+
+  if (
+    reportTypeSelected.value === "Reporte de periodo" &&
+    yearStart.value === currentYear
+  ) {
+    OptionsStartMonth.length = 0;
+    for (let i = 0; i <= pastMonthIndex - 1; i++) {
+      OptionsStartMonth.push({ label: months[i], value: months[i] });
+    }
+  }
+
+  const OptionsEndYear = [];
+
+  for (let i = yearStart.value; i <= currentYear; i++) {
+    OptionsEndYear.push({ label: i, value: i });
+  }
+
+  // Check if the yearStart is equal to currentYear
+  if (yearStart.value === currentYear) {
+    OptionsEndYear.length = 0; // Reset the array
+    OptionsEndYear.push({ label: currentYear, value: currentYear });
+  }
+
+  // Additional logic when monthStart is 'Diciembre'
+  else if (yearStart.value < currentYear && monthStart.value === "Diciembre") {
+    // Reset OptionsEndYear
+    OptionsEndYear.length = 0;
+
+    // Add only the years greater than yearStart.value and less than or equal to currentYear
+    for (let i = yearStart.value + 1; i <= currentYear; i++) {
+      OptionsEndYear.push({ label: i, value: i });
+    }
+  }
+
+  const OptionsEndMonth = [];
+
+  if (yearEnd.value === yearStart.value) {
+    // If the end year is the same as the start year
+    if (yearEnd.value === currentYear) {
+      // Add months from the following month of startMonth to pastMonthCapitalized
+      for (
+        let i = months.indexOf(monthStart.value) + 1;
+        i <= pastMonthIndex;
+        i++
+      ) {
+        OptionsEndMonth.push({ label: months[i], value: months[i] });
+      }
+    } else {
+      // Add months from the following month of startMonth to 'Diciembre'
+      for (
+        let i = months.indexOf(monthStart.value) + 1;
+        i < months.length;
+        i++
+      ) {
+        OptionsEndMonth.push({ label: months[i], value: months[i] });
+      }
+    }
+  } else {
+    // If the end year is different from the start year
+    if (yearEnd.value === currentYear) {
+      // Add months from 'Enero' to pastMonthCapitalized
+      for (let i = 0; i <= pastMonthIndex; i++) {
+        OptionsEndMonth.push({ label: months[i], value: months[i] });
+      }
+    } else {
+      // Add months from 'Enero' to 'Diciembre'
+      for (let i = 0; i < months.length; i++) {
+        OptionsEndMonth.push({ label: months[i], value: months[i] });
+      }
+    }
+  }
+
+  const ReportTypeOptions = [
+    { value: "Reporte mensual", label: "Reporte mensual" },
+    { value: "Reporte de periodo", label: "Reporte de periodo" },
+  ];
+
   const pdfData = {
     title: "Reporte de Familia " + reportsData.familyName,
     content: "This is the dynamically passed content for the PDF.",
@@ -992,31 +1175,29 @@ export default function Reports() {
 
             {payment.payments.length > 0 && (
               <>
-                  <View style={styles.subCategorySection}>
-                    <View>
-                      <View style={styles.tableHeader}>
-                        <Text style={styles.tableCell}>Mes</Text>
-                        <Text style={styles.tableCell}>Año</Text>
-                        <Text style={styles.tableCell}>Monto</Text>
-                        <Text style={styles.tableCell}>Dia de pago:</Text>
-                      </View>
-
-                      {payment.payments.map((transfer, reportIdx) => (
-                        <View key={reportIdx} style={styles.tableRow}>
-                          <Text style={styles.tableCell}>{transfer.month}</Text>
-                          <Text style={styles.tableCell}>
-                            {transfer.year}
-                          </Text>
-                          <Text style={styles.tableCell}>
-                            {transfer.amount} {transfer.currecny}
-                          </Text>
-                          <Text style={styles.tableCell}>
-                           {transfer.paymentDay}
-                          </Text>
-                        </View>
-                      ))}
+                <View style={styles.subCategorySection}>
+                  <View>
+                    <View style={styles.tableHeader}>
+                      <Text style={styles.tableCell}>Mes</Text>
+                      <Text style={styles.tableCell}>Año</Text>
+                      <Text style={styles.tableCell}>Monto</Text>
+                      <Text style={styles.tableCell}>Dia de pago:</Text>
                     </View>
+
+                    {payment.payments.map((transfer, reportIdx) => (
+                      <View key={reportIdx} style={styles.tableRow}>
+                        <Text style={styles.tableCell}>{transfer.month}</Text>
+                        <Text style={styles.tableCell}>{transfer.year}</Text>
+                        <Text style={styles.tableCell}>
+                          {transfer.amount} {transfer.currecny}
+                        </Text>
+                        <Text style={styles.tableCell}>
+                          {transfer.paymentDay}
+                        </Text>
+                      </View>
+                    ))}
                   </View>
+                </View>
               </>
             )}
           </View>
@@ -1331,9 +1512,7 @@ export default function Reports() {
       <View break={true}>
         <View style={styles.mainTitleContainer}>
           <Image style={styles.icon} src={famholdIcon} />
-          <Text style={styles.categoryTitle}>
-            Governanza
-          </Text>
+          <Text style={styles.categoryTitle}>Governanza</Text>
         </View>
 
         <View>
@@ -1564,6 +1743,283 @@ export default function Reports() {
     </Document>
   );
 
+  const onReportTypeChange = (valueSelected) => {
+    if (valueSelected.value === "Reporte de periodo") {
+      setMonthStart({ label: "", value: "" });
+      //@ts-ignore
+      setYearStart({ label: "", value: "" });
+    } else {
+      setYearStart({
+        label: currentYear,
+        value: currentYear,
+      });
+
+      setMonthStart({
+        value: pastMonthCapitalized,
+        label: pastMonthCapitalized,
+      });
+    }
+
+    setReportTypeSelected({
+      label: valueSelected.label,
+      value: valueSelected.value,
+    });
+    setMonthEnd({ value: "", label: "" });
+    setYearEnd({ value: "", label: "" });
+  };
+
+  const onStarYearChange = (valueSelected) => {
+    setMonthStart({ label: "", value: "" });
+    setMonthEnd({ value: "", label: "" });
+    setYearEnd({ value: "", label: "" });
+    setYearStart({ label: valueSelected.label, value: valueSelected.value });
+  };
+
+  const onStartMonthChanges = (valueSelected) => {
+    setYearEnd({ value: "", label: "" });
+    setMonthEnd({ value: "", label: "" });
+    setMonthStart({ label: valueSelected.label, value: valueSelected.value });
+  };
+
+  const renderReportFilters = () => {
+    return (
+      <>
+        <Row style={{ marginTop: 20 }}>
+          <Form.Group
+            as={Col}
+            md="8"
+            controlId="validationCustom04"
+            className="form-group"
+          >
+            <Form.Label>Tipo de reporte</Form.Label>
+            <Select
+              options={ReportTypeOptions}
+              classNamePrefix="Select2"
+              className="multi-select"
+              onChange={(value) => onReportTypeChange(value)}
+              placeholder="Año"
+              value={reportTypeSelected}
+            />
+          </Form.Group>
+        </Row>
+
+        {reportTypeSelected.value === "Reporte mensual" ? (
+          <>
+            <Form.Label style={{ marginTop: 20 }}>Fecha de reporte</Form.Label>
+            <Row style={{ marginTop: 5 }}>
+              <Form.Group
+                as={Col}
+                md="4"
+                controlId="validationCustom04"
+                className="form-group"
+              >
+                <p style={{ color: "gray", fontSize: 12 }}>Año</p>
+                <Select
+                  options={OptionsStartYear}
+                  classNamePrefix="Select2"
+                  className="multi-select"
+                  onChange={(value) => onStarYearChange(value)}
+                  placeholder="Año"
+                  value={yearStart}
+                />
+              </Form.Group>
+
+              <Form.Group
+                as={Col}
+                md="4"
+                controlId="validationCustom04"
+                className="form-group"
+              >
+                <p style={{ color: "gray", fontSize: 12 }}>Mes</p>
+                <Select
+                  options={OptionsStartMonth}
+                  classNamePrefix="Select2"
+                  className="multi-select"
+                  onChange={(value) => setMonthStart(value)}
+                  placeholder="Año"
+                  value={monthStart}
+                />
+              </Form.Group>
+            </Row>
+          </>
+        ) : (
+          <>
+            <Form.Label style={{ marginTop: 20 }}>
+              Fecha inicio periodo de reporte
+            </Form.Label>
+            <Row style={{ marginTop: 5 }}>
+              <Form.Group
+                as={Col}
+                md="4"
+                controlId="validationCustom04"
+                className="form-group"
+              >
+                <p style={{ color: "gray", fontSize: 12 }}>Año</p>
+                <Select
+                  options={OptionsStartYear}
+                  classNamePrefix="Select2"
+                  className="multi-select"
+                  onChange={(value) => onStarYearChange(value)}
+                  placeholder="Año"
+                  value={yearStart}
+                />
+              </Form.Group>
+
+              <Form.Group
+                as={Col}
+                md="4"
+                controlId="validationCustom04"
+                className="form-group"
+              >
+                <p style={{ color: "gray", fontSize: 12 }}>Mes</p>
+                <Select
+                  options={OptionsStartMonth}
+                  isDisabled={!yearStart.value}
+                  classNamePrefix="Select2"
+                  className="multi-select"
+                  onChange={(value) => onStartMonthChanges(value)}
+                  placeholder="Año"
+                  value={monthStart}
+                />
+              </Form.Group>
+            </Row>
+
+            <Form.Label style={{ marginTop: 20 }}>
+              Fecha fin periodo de reporte
+            </Form.Label>
+            <Row style={{ marginTop: 5 }}>
+              <Form.Group
+                as={Col}
+                md="4"
+                controlId="validationCustom04"
+                className="form-group"
+              >
+                <p style={{ color: "gray", fontSize: 12 }}>Año</p>
+                <Select
+                  options={OptionsEndYear}
+                  isDisabled={!(yearStart.value && monthStart.value)}
+                  classNamePrefix="Select2"
+                  className="multi-select"
+                  onChange={(value) => setYearEnd(value)}
+                  placeholder=""
+                  value={yearEnd}
+                />
+              </Form.Group>
+
+              <Form.Group
+                as={Col}
+                md="4"
+                controlId="validationCustom04"
+                className="form-group"
+              >
+                <p style={{ color: "gray", fontSize: 12 }}>Mes</p>
+                <Select
+                  options={OptionsEndMonth}
+                  isDisabled={
+                    !(yearStart.value && monthStart.value && yearEnd.value)
+                  }
+                  classNamePrefix="Select2"
+                  className="multi-select"
+                  onChange={(value) => setMonthEnd(value)}
+                  placeholder=""
+                  value={monthEnd}
+                />
+              </Form.Group>
+            </Row>
+          </>
+        )}
+      </>
+    );
+  };
+
+  const renderReportCategorySelection = () => {
+    const handleCheckboxChange = (section, category, isChecked) => {
+      if (category === "Administración") {
+        setAdminSections((prevSections) =>
+          prevSections.map((item) =>
+            item.label === section.label ? { ...item, checked: isChecked } : item
+          )
+        );
+      } else if (category === "Inversiones") {
+        setInvestmentSections((prevSections) =>
+          prevSections.map((item) =>
+            item.label === section.label ? { ...item, checked: isChecked } : item
+          )
+        );
+      } else if (category === "Governance") {
+        setGovernanceSections((prevSections) =>
+          prevSections.map((item) =>
+            item.label === section.label ? { ...item, checked: isChecked } : item
+          )
+        );
+      }
+    };
+  
+    return (
+      <>
+        <Row style={{ marginTop: 20, marginBottom: 40 }}>
+          <Form.Label style={{ marginBottom: 15 }}>
+           Secciones del reporte
+            </Form.Label>
+          <Form.Group as={Col} md="4" className="form-group">  
+            <p style={{ color: "gray", fontSize: 12 }}>Administración</p>
+            {adminSections.map((section, index) => (
+              <Form.Check
+                key={index}
+                type="checkbox"
+                className="custom-checkbox"
+                name="administracion"
+                label={section.label}
+                checked={section.checked}
+                onChange={(e) =>
+                  handleCheckboxChange(section, "Administración", e.target.checked)
+                }
+                style={{ marginLeft: 15 }}
+              />
+            ))}
+          </Form.Group>
+  
+          {/* Inversiones Column */}
+          <Form.Group as={Col} md="4" className="form-group">
+          <p style={{ color: "gray", fontSize: 12 }}>Inversiones</p>
+            {investmentSections.map((section, index) => (
+              <Form.Check
+                key={index}
+                type="checkbox"
+                className="custom-checkbox"
+                label={section.label}
+                checked={section.checked}
+                onChange={(e) =>
+                  handleCheckboxChange(section, "Inversiones", e.target.checked)
+                }
+                style={{ marginLeft: 15 }}
+              />
+            ))}
+          </Form.Group >
+          {/* Governance Column */}
+          <Form.Group as={Col} md="4" className="form-group">
+          <p style={{ color: "gray", fontSize: 12 }}>Governance</p>
+            {governanceSections.map((section, index) => (
+              <Form.Check
+                key={index}
+                type="checkbox"
+                className="custom-checkbox"
+                label={section.label}
+                checked={section.checked}
+                onChange={(e) =>
+                  handleCheckboxChange(section, "Governance", e.target.checked)
+                }
+                style={{ marginLeft: 15 }}
+              />
+            ))}
+          </Form.Group >
+        </Row>
+      </>
+    );
+  };
+  
+  
+  
   return (
     <Fragment>
       <Row>
@@ -1572,25 +2028,32 @@ export default function Reports() {
             minHeight: 550,
             marginTop: 20,
             paddingRight: 20,
-            paddingLeft: 20,
+            paddingLeft: 40,
           }}
         >
-          <Card.Title style={{ marginLeft: 15, marginTop: 30 }}>
+          <Card.Title style={{ marginTop: 30 }}>
             <i
               style={{ marginRight: 9 }}
               className="fe fe-download text-black fs-15"
             ></i>
             Reportes de resultados y actividad
           </Card.Title>
-          <PDFDownloadLink
-            document={<MyDocument data={pdfData} />}
-            fileName="dynamic.pdf"
-          >
-            {/* // @ts-ignore */}
-            {({ loading }: { loading: boolean }) => (
-              <span>{loading ? "Loading document..." : "Download PDF"}</span>
-            )}
-          </PDFDownloadLink>
+          {renderReportFilters()}
+          {renderReportCategorySelection()}
+
+          <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+                marginBottom: 40
+              }}
+            >
+              <div></div>
+              <Button className="custom-button mb-1" type="submit">
+                Generar reporte
+              </Button>
+            </div>
         </Card>
       </Row>
     </Fragment>
