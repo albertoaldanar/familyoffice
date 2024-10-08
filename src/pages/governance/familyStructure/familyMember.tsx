@@ -1042,7 +1042,7 @@ export default function FamilyMember(props) {
   return (
     <Fragment>
       <Row>
-        <Card style={{ padding: 30, marginTop: 20, minHeight: 500 }}>
+        <div style={{ padding: 30, minHeight: 550 }}>
           <Card.Title style={{ marginBottom: 10 }}>
             <Link
               style={{
@@ -1074,7 +1074,7 @@ export default function FamilyMember(props) {
               style={{
                 paddingBottom: 0,
                 paddingLeft: 10,
-                marginTop: 10,
+                marginTop: 20,
                 marginBottom: 10,
               }}
             >
@@ -1135,7 +1135,7 @@ export default function FamilyMember(props) {
                 flexDirection: "row",
                 justifyContent: "space-between",
                 position: "absolute",
-                bottom: 20,
+                bottom: 80,
                 right: 15,
               }}
             >
@@ -1145,7 +1145,7 @@ export default function FamilyMember(props) {
               </Button>
             </div>
           </Form>
-        </Card>
+        </div>
       </Row>
     </Fragment>
   );

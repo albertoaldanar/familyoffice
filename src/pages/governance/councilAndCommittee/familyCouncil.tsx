@@ -52,10 +52,9 @@ export default function FamilyCouncil() {
   return (
     <Fragment>
       <Row>
-        <Card
+        <div
           style={{
             paddingBottom: 20,
-            marginTop: 20,
             minHeight: 550,
             paddingTop: 10,
           }}
@@ -64,7 +63,7 @@ export default function FamilyCouncil() {
             Consejo familiar
           </Card.Title> */}
           {renderFamilyCouncil()}
-        </Card>
+        </div>
       </Row>
     </Fragment>
   );

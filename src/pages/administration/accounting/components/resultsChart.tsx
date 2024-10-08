@@ -41,11 +41,15 @@ const ResultsChart: React.FC<ResultsChartProps> = (props) => {
       size: 0,
       hover: { sizeOffset: 6 }
     },
-    colors: ['#5797fc', '#5eba00', '#ffc107'],
+    colors: [      
+    "#1c2b2e",
+    "#5e9975",
+    "#99babd",
+    "#7dc2ad",],
     xaxis: {
       categories: props.categories,
-      axisBorder: { show: true, color: 'rgba(119, 119, 142, 0.05)' },
-      axisTicks: { show: true, color: 'rgba(119, 119, 142, 0.05)' }
+      axisBorder: { show: false, color: 'rgba(119, 119, 142, 0.05)' },
+      axisTicks: { show: false, color: 'rgba(119, 119, 142, 0.05)' }
     },
     grid: { borderColor: 'rgba(119, 119, 142, 0.1)' }
   };

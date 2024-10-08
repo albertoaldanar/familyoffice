@@ -51,16 +51,13 @@ export default function LoansDashboard() {
       type: "donut" as "donut",
     },
     colors: [
-      "#0e0f2e",
-      "#811f09",
-      "#0c0e4b",
-      "#054e49",
-      "#3A3D40",
-      "#2E4053",
-      "#1C2833",
-      "#212F3C",
-      "#17202A",
-      "#1A1A2E",
+      "#1c2b2e",
+      "#004745",
+      "#5e9975",
+      "#7dc2ad",
+      "#2e8b57",
+      "#99babd",
+      "#0b121a",
     ],
     labels: [],
     legend: {
@@ -162,13 +159,13 @@ export default function LoansDashboard() {
       formatter: (val: number) => `$${val.toLocaleString()}`,
     },
     colors: [
-      "#0e0f2e",
-      "#811f09",
-      "#0c0e4b",
-      "#054e49",
-      "#3A3D40",
-      "#2E4053",
-      "#1C2833",
+      "#1c2b2e",
+      "#004745",
+      "#5e9975",
+      "#7dc2ad",
+      "#2e8b57",
+      "#99babd",
+      "#0b121a",
       "#212F3C",
       "#17202A",
       "#1A1A2E",
@@ -441,7 +438,7 @@ export default function LoansDashboard() {
   return (
     <Fragment>
       <Row>
-        <Card style={{ minHeight: 500, marginTop: 20 }}>
+        <div style={{ minHeight: 500}}>
           <div
             style={{
               display: "flex",
@@ -498,7 +495,7 @@ export default function LoansDashboard() {
             </Col>
           </Row>
           {renderContent()}
-        </Card>
+        </div>
       </Row>
     </Fragment>
   );

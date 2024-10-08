@@ -76,13 +76,13 @@ export default function StockInvestmentDashboard() {
       formatter: (val: number) => `$${val.toLocaleString()}`,
     },
     colors: [
-      "#0e0f2e",
-      "#811f09",
-      "#0c0e4b",
-      "#054e49",
-      "#3A3D40",
-      "#2E4053",
-      "#1C2833",
+      "#1c2b2e",
+      "#004745",
+      "#5e9975",
+      "#7dc2ad",
+      "#2e8b57",
+      "#99babd",
+      "#0b121a",
       "#212F3C",
       "#17202A",
       "#1A1A2E",
@@ -99,13 +99,13 @@ export default function StockInvestmentDashboard() {
       type: "donut" as "donut",
     },
     colors: [
-      "#0e0f2e",
-      "#811f09",
-      "#0c0e4b",
-      "#054e49",
-      "#3A3D40",
-      "#2E4053",
-      "#1C2833",
+      "#1c2b2e",
+      "#004745",
+      "#5e9975",
+      "#7dc2ad",
+      "#2e8b57",
+      "#99babd",
+      "#0b121a",
       "#212F3C",
       "#17202A",
       "#1A1A2E",
@@ -386,7 +386,7 @@ export default function StockInvestmentDashboard() {
   return (
     <Fragment>
       <Row>
-        <Card style={{ minHeight: 500, marginTop: 20 }}>
+        <div style={{ minHeight: 500}}>
           <div
             style={{
               display: "flex",
@@ -442,7 +442,7 @@ export default function StockInvestmentDashboard() {
             </Col>
           </Row>
           {renderContent()}
-        </Card>
+        </div>
       </Row>
     </Fragment>
   );

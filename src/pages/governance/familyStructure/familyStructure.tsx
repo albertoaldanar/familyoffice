@@ -257,7 +257,7 @@ export default function FamilyStructure() {
                         style={{ marginRight: 9 }}
                         className="fe fe-users text-black fs-15"
                       ></i> 
-                      Esquema familiar 
+                      Organigrama familiar 
                     </Nav.Link>
                   </Nav.Item>
                   <Nav.Item as="li" style={{ marginRight: 10 }}>

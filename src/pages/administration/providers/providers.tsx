@@ -67,10 +67,9 @@ export default function Companies() {
   return (
     <Fragment>
       <Row>
-        <Card
+        <div
           style={{
-            minHeight: 400,
-            marginTop: 20,
+            minHeight: 550,
             paddingRight: 20,
             paddingLeft: 20,
           }}
@@ -109,7 +108,7 @@ export default function Companies() {
           </div>
 
           <div>{renderTable()}</div>
-        </Card>
+        </div>
       </Row>
     </Fragment>
   );

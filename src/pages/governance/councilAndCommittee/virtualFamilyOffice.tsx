@@ -56,10 +56,9 @@ export default function VirtualFamilyOffice() {
   return (
     <Fragment>
       <Row>
-        <Card
+        <div
           style={{
             paddingBottom: 20,
-            marginTop: 20,
             minHeight: 550,
             paddingTop: 10,
           }}
@@ -68,7 +67,7 @@ export default function VirtualFamilyOffice() {
             Comite de inversión
           </Card.Title> */}
           {renderVirtualFamilyOffice()}
-        </Card>
+        </div>
       </Row>
     </Fragment>
   );
