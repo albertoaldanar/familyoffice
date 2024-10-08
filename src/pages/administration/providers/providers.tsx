@@ -48,7 +48,9 @@ export default function Companies() {
                             provider.id
                           }/provider/${proveedor.id}`}
                         >
-                          Ver
+                        <i
+                          className="fe fe-arrow-right text-black fs-15"
+                        ></i>
                         </Link>
                       </td>
                     </tr>

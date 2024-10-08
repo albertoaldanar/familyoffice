@@ -250,7 +250,9 @@ export default function StockInvestment(props) {
                   >
                     {/*// @ts-ignore */}
                     <Link to={`${import.meta.env.BASE_URL}governance/stockResult/${stockInvestmentSelected.id}/resultId/${idx.id}`}>
-                      Ver
+                      <i
+                          className="fe fe-arrow-right text-black fs-15"
+                        ></i>
                     </Link>
                   </td>
                 </tr>
@@ -602,7 +604,9 @@ export default function StockInvestment(props) {
                       <Link
                         to={`${baseUrl}administration/providerDescription/${contact.categoryCoreId}/provider/${contact.coreId}/`}
                       >
-                        Ver
+                        <i
+                          className="fe fe-arrow-right text-black fs-15"
+                        ></i>
                       </Link>
                     </td>
                   </tr>

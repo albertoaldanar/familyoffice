@@ -797,7 +797,9 @@ export default function LoansDescription(props) {
                       idx.id
                     }`}
                   >
-                    Ver
+                      <i
+                        className="fe fe-arrow-right text-black fs-15"
+                      ></i>
                   </Link>
                 </td>
               </tr>

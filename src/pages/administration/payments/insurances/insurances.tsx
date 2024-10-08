@@ -137,7 +137,9 @@ export default function InsurancePayment() {
                       <Link
                         to={`${baseUrl}administration/insuranceDescription/${insurance.id}`}
                       >
-                        Ver
+                      <i
+                        className="fe fe-arrow-right text-black fs-15"
+                      ></i>
                       </Link>
                     </td>
                   </tr>
@@ -197,7 +199,9 @@ export default function InsurancePayment() {
                       <Link
                         to={`${baseUrl}administration/insuranceDescription/${insurance.id}`}
                       >
-                        Ver
+                      <i
+                        className="fe fe-arrow-right text-black fs-15"
+                      ></i>
                       </Link>
                     </td>
                   </tr>
@@ -258,7 +262,9 @@ export default function InsurancePayment() {
                       <Link
                         to={`${baseUrl}administration/insuranceDescription/${insurance.id}`}
                       >
-                        Ver
+                      <i
+                        className="fe fe-arrow-right text-black fs-15"
+                      ></i>
                       </Link>
                     </td>
                   </tr>

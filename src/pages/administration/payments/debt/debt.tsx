@@ -190,7 +190,9 @@ export default function Debt() {
                         state={{ debt }}
                         to={`${baseUrl}administration/debtDescription/${debt.id}`}
                       >
-                        Ver
+                        <i
+                          className="fe fe-arrow-right text-black fs-15"
+                        ></i>
                       </Link>
                     </td>
                   </tr>
@@ -251,7 +253,9 @@ export default function Debt() {
                       state={{ debt }}
                       to={`${baseUrl}administration/debtDescription/${debt.id}`}
                     >
-                      Ver
+                      <i
+                        className="fe fe-arrow-right text-black fs-15"
+                      ></i>
                     </Link>
                   </td>
                 </tr>

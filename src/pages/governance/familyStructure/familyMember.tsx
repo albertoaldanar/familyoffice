@@ -474,7 +474,9 @@ export default function FamilyMember(props) {
                       <Link
                         to={`${baseUrl}administration/loanDescription/${debt.id}`}
                       >
-                        Ver
+                          <i
+                            className="fe fe-arrow-right text-black fs-15"
+                          ></i>
                       </Link>
                     </td>
                   </tr>
@@ -551,7 +553,9 @@ export default function FamilyMember(props) {
                         <Link
                           to={`${baseUrl}administration/taxes/${tax.id}`}
                         >
-                          Ver
+                          <i
+                            className="fe fe-arrow-right text-black fs-15"
+                          ></i>
                         </Link>
                       </td>
                     </tr>
@@ -658,7 +662,9 @@ export default function FamilyMember(props) {
                           <Link
                             to={`${baseUrl}administration/insuranceDescription/${insurance.id}`}
                           >
-                            Ver
+                          <i
+                            className="fe fe-arrow-right text-black fs-15"
+                          ></i>
                           </Link>
                         </td>
                       </tr>
@@ -760,7 +766,9 @@ export default function FamilyMember(props) {
                           <Link
                             to={`${baseUrl}administration/insuranceDescription/${insurance.id}`}
                           >
-                            Ver
+                          <i
+                            className="fe fe-arrow-right text-black fs-15"
+                          ></i>
                           </Link>
                         </td>
                       </tr>
@@ -866,7 +874,9 @@ export default function FamilyMember(props) {
                             `${baseUrl}administration/debtDescription/${debt.id}` 
                           }
                         >
-                          Ver
+                          <i
+                            className="fe fe-arrow-right text-black fs-15"
+                          ></i>
                         </Link>
                       </td>
                     </tr>
@@ -967,13 +977,17 @@ export default function FamilyMember(props) {
                       <Link
                         to={`${baseUrl}administration/company/${idx.id}/company`}
                       >
-                        Ver
+                          <i
+                            className="fe fe-arrow-right text-black fs-15"
+                          ></i>
                       </Link>
                     ) : (
                       <Link
                         to={`${baseUrl}governance/wealthItem/type/${idx.type}/id/${idx.id}`}
                       >
-                        Ver
+                          <i
+                            className="fe fe-arrow-right text-black fs-15"
+                          ></i>
                       </Link>
                     )}
                   </td>

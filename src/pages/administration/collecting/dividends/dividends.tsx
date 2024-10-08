@@ -66,7 +66,9 @@ export default function DividendsCollecting() {
                         color: "#5488d2",
                       }}
                     >
-                      Ver
+                      <i
+                        className="fe fe-arrow-right text-black fs-15"
+                      ></i>
                     </td>
                   </tr>
                 ))}

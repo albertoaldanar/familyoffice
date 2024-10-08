@@ -572,7 +572,9 @@ export default function ProviderDescription() {
                     >
                       {/*// @ts-ignore */}
                       <Link to={`${import.meta.env.BASE_URL}administration/providerService/${providerCategorySelected.id}/provider/${providerSelected.id}/service/${idx.id}`}>
-                        Ver
+                        <i
+                          className="fe fe-arrow-right text-black fs-15"
+                        ></i>
                       </Link>
                     </td>
                   </tr>

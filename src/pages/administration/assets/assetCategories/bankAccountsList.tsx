@@ -77,7 +77,9 @@ export default function BankAccountsList(props) {
                   {/*// @ts-ignore */}
                   <Link to={`${import.meta.env.BASE_URL}governance/wealthItem/type/bankAccount/id/${idx.id}`}
                   >
-                    Ver
+                    <i
+                      className="fe fe-arrow-right text-black fs-15"
+                    ></i>
                   </Link>
                 </td>
               </tr>

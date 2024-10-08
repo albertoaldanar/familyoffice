@@ -214,7 +214,7 @@ export default function LoansDashboard() {
           </div>
         ) : null}
         <Dropdown className="h-3">
-          <Dropdown.Toggle size="sm" color="default" type="button" className="">
+          <Dropdown.Toggle size="sm" color="default" type="button" className="custom-button">
             {currency} <span className="caret"></span>
           </Dropdown.Toggle>
           <Dropdown.Menu role="menu">
@@ -241,7 +241,7 @@ export default function LoansDashboard() {
     return (
       <div style={{ marginTop: 30, marginRight: 20 }}>
         <Dropdown className="h-3">
-          <Dropdown.Toggle size="sm" color="default" type="button" className="">
+          <Dropdown.Toggle size="sm" color="default" type="button" className="custom-button">
             {year} <span className="caret"></span>
           </Dropdown.Toggle>
           <Dropdown.Menu role="menu">

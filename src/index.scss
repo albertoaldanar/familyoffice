@@ -104,6 +104,28 @@
   border-color: #99babd;     /* Change this to your desired color */
 }
 
+.Select2__control {
+  border: none;
+  box-shadow: none; /* Removes focus outline */
+}
+
+.Select2__option {
+  color: #333; /* Default text color */
+}
+
+.Select2__option--is-focused {
+  background-color: transparent; /* Remove hover focus background */
+}
+
+.Select2__option--is-selected {
+  background-color: #004745 !important; /* Keep the selected color */
+  color: #fff; /* Change selected text color */
+}
+
+.Select2__option:hover {
+  background-color: #99babd; /* Hover color for non-selected options */
+}
+
 .custom-button {
   background-color: #004745 !important;  
   border: none; /* Remove border */

@@ -56,7 +56,9 @@ export default function Taxes() {
                 >
                   {/*// @ts-ignore */}
                   <Link to={`${import.meta.env.BASE_URL}administration/taxes/${tax.id}`}>
-                    Ver
+                    <i
+                        className="fe fe-arrow-right text-black fs-15"
+                      ></i>
                   </Link>
                 </td>
               </tr>

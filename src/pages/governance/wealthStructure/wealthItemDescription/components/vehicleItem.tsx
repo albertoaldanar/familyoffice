@@ -346,7 +346,9 @@ export default function VehicleItem(props) {
                       }}
                     >
                       <Link to={`${baseUrl}administration/rentDescription/${insurance.id}`}>
-                        Ver
+                        <i
+                          className="fe fe-arrow-right text-black fs-15"
+                        ></i>
                       </Link>
                     </td>
                   </tr>
@@ -451,7 +453,9 @@ export default function VehicleItem(props) {
                           <Link
                             to={`${baseUrl}administration/mantainanceDescription/${mantainance.id}`}
                           >
-                            Ver
+                          <i
+                            className="fe fe-arrow-right text-black fs-15"
+                          ></i>
                           </Link>
                         </td>
                       </tr>
@@ -549,7 +553,9 @@ export default function VehicleItem(props) {
                         <Link
                           to={`${baseUrl}administration/debtDescription/${debt.id}`}
                         >
-                          Ver
+                        <i
+                          className="fe fe-arrow-right text-black fs-15"
+                        ></i>
                         </Link>
                       </td>
                     </tr>
@@ -648,7 +654,9 @@ export default function VehicleItem(props) {
                           <Link
                             to={`${baseUrl}administration/insuranceDescription/${insurance.id}`}
                           >
-                            Ver
+                        <i
+                          className="fe fe-arrow-right text-black fs-15"
+                        ></i>
                           </Link>
                         </td>
                       </tr>
@@ -1022,7 +1030,9 @@ export default function VehicleItem(props) {
                       <Link
                         to={`${baseUrl}administration/providerDescription/${contact.categoryCoreId}/provider/${contact.coreId}/`}
                       >
-                        Ver
+                        <i
+                          className="fe fe-arrow-right text-black fs-15"
+                        ></i>
                       </Link>
                     </td>
                   </tr>

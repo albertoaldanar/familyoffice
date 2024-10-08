@@ -74,7 +74,9 @@ export default function Companies() {
                         idx.id
                       }/company`}
                     >
-                      Ver
+                      <i
+                        className="fe fe-arrow-right text-black fs-15"
+                      ></i>
                     </Link>
                   </td>
                 </tr>
@@ -142,17 +144,13 @@ export default function Companies() {
                       ))}
                     </div>
                   </td>
-                  <td
-                    style={{
-                      cursor: "pointer",
-                      textDecoration: "underline",
-                      color: "#5488d2",
-                    }}
-                  >
+                  <td>
                     {/*// @ts-ignore */}
                     <Link to={`${import.meta.env.BASE_URL}administration/trustDescription/${idx.id}`}
                     >
-                      Ver
+                      <i
+                        className="fe fe-arrow-right text-black fs-15"
+                      ></i>
                     </Link>
                   </td>
                 </tr>

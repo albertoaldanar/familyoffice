@@ -61,7 +61,9 @@ export default function Taxes() {
                 >
                   {/*// @ts-ignore */}
                   <Link to={`${ import.meta.env.BASE_URL}administration/taxes/${taxUserSelected.id}/type/anuales/report/${idx.id}`}>
-                    Ver
+                    <i
+                        className="fe fe-arrow-right text-black fs-15"
+                      ></i>
                   </Link>
                 </td>
               </tr>
@@ -99,7 +101,9 @@ export default function Taxes() {
                 >
                   {/*// @ts-ignore */}
                   <Link to={`${ import.meta.env.BASE_URL}administration/taxes/${taxUserSelected.id}/type/mensuales/report/${idx.id}`}>
-                    Ver
+                    <i
+                        className="fe fe-arrow-right text-black fs-15"
+                      ></i>
                   </Link>
                 </td>
               </tr>
@@ -137,7 +141,9 @@ export default function Taxes() {
                 >
                   {/*// @ts-ignore */}
                   <Link to={`${ import.meta.env.BASE_URL}administration/taxes/${taxUserSelected.id}/type/bimestrales/report/${idx.id}`}>
-                    Ver
+                    <i
+                      className="fe fe-arrow-right text-black fs-15"
+                    ></i>
                   </Link>
                 </td>
               </tr>

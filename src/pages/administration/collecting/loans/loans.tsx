@@ -173,7 +173,9 @@ export default function LoansCollecting(props) {
                       }}
                     >
                       <Link to={`${baseUrl}administration/loanDescription/${idx.id}`}>
-                        Ver
+                      <i
+                        className="fe fe-arrow-right text-black fs-15"
+                      ></i>
                       </Link>
                     </td>
                   </tr>

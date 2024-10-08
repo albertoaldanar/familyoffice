@@ -77,7 +77,9 @@ export const Meetings = ({ meetingType }) => {
                     {/*// @ts-ignore */}
                     <Link to={`${import.meta.env.BASE_URL}governance/councilAndCommittee/meetingDescription/type/${meetingType}/id/${meeting.id}`}
                     >
-                      Ver
+                          <i
+                            className="fe fe-arrow-right text-black fs-15"
+                          ></i>
                     </Link>
                   </td>
                 </tr>

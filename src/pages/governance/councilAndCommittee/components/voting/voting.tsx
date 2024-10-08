@@ -75,7 +75,9 @@ export const Votings = ({ data, votingType }) => {
                     {/*// @ts-ignore */}
                     <Link to={`${import.meta.env.BASE_URL}governance/councilAndCommittee/voatingDescription/type/${votingType}/id/${vote.id}/${data.id}`}
                     >
-                      Ver
+                          <i
+                            className="fe fe-arrow-right text-black fs-15"
+                          ></i>
                     </Link>
                   </td>
                 </tr>

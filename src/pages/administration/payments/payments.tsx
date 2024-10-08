@@ -117,7 +117,9 @@ export default function Payments() {
                       <Link to={`${import.meta.env.BASE_URL
                         }administration/company/${idx.id}/tax`}
                       >
-                        Ver
+                      <i
+                        className="fe fe-arrow-right text-black fs-15"
+                      ></i>
                       </Link>
                     </td>
                   </tr>

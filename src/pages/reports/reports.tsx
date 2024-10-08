@@ -2026,9 +2026,10 @@ export default function Reports() {
         <div
           style={{
             minHeight: 550,
+            paddingLeft: 30
           }}
         >
-          <Card.Title style={{ marginTop: 30 }}>
+          <Card.Title style={{ marginTop: 40 }}>
             <i
               style={{ marginRight: 9 }}
               className="fe fe-download text-black fs-15"

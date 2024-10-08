@@ -213,7 +213,7 @@ export default function PrivateEquityDashboard() {
           </div>
         ) : null}
         <Dropdown className="h-3">
-          <Dropdown.Toggle size="sm" color="default" type="button" className="">
+          <Dropdown.Toggle size="sm" color="default" type="button" className="custom-button">
             {currency} <span className="caret"></span>
           </Dropdown.Toggle>
           <Dropdown.Menu role="menu">

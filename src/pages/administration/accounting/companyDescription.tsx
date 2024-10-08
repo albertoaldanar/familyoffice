@@ -786,7 +786,10 @@ export default function CompanyDescription() {
                     <Link
                       to={`${baseUrl}administration/company/${companySelected.id}/report/${report.id}/type/mensuales`}
                     >
-                      Ver
+                      <i
+                        style={{ marginRight: 9 }}
+                        className="fe fe-arrow-right text-black fs-15"
+                      ></i>
                     </Link>
                   </td>
                 </tr>
@@ -903,7 +906,9 @@ export default function CompanyDescription() {
                     <Link
                       to={`${baseUrl}administration/company/${companySelected.id}/report/${report.id}/type/anuales`}
                     >
-                      Ver
+                      <i
+                        className="fe fe-arrow-right text-black fs-15"
+                      ></i>
                     </Link>
                   </td>
                 </tr>
@@ -1190,7 +1195,7 @@ export default function CompanyDescription() {
     return (
       <div>
         <Dropdown className="h-3">
-          <Dropdown.Toggle size="sm" color="default" type="button" className="">
+          <Dropdown.Toggle size="sm" color="default" type="button" className="custom-button">
             {yearSelected} <span className="caret"></span>
           </Dropdown.Toggle>
           <Dropdown.Menu role="menu">
@@ -1367,7 +1372,9 @@ export default function CompanyDescription() {
                       <Link
                         to={`${baseUrl}administration/providerDescription/${contact.categoryCoreId}/provider/${contact.coreId}/`}
                       >
-                        Ver
+                      <i
+                        className="fe fe-arrow-right text-black fs-15"
+                      ></i>
                       </Link>
                     </td>
                   </tr>

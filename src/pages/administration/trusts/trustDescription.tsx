@@ -434,12 +434,16 @@ export default function TrustDescription(props) {
                       idx.type === 'company' ? (
                         // @ts-ignore
                         <Link to={`${import.meta.env.BASE_URL}administration/company/${idx.coreId}/company`}>
-                          Ver
+                          <i
+                            className="fe fe-arrow-right text-black fs-15"
+                          ></i>
                         </Link>
                       ) : (
                         // @ts-ignore
                         <Link to={`${import.meta.env.BASE_URL}governance/wealthItem/type/${idx.type}/id/${idx.coreId}`}>
-                          Ver
+                          <i
+                            className="fe fe-arrow-right text-black fs-15"
+                          ></i>
                         </Link>
                       )
                     }
@@ -740,7 +744,9 @@ export default function TrustDescription(props) {
                       <Link
                         to={`${baseUrl}administration/providerDescription/${contact.categoryCoreId}/provider/${contact.coreId}/`}
                       >
-                        Ver
+                          <i
+                            className="fe fe-arrow-right text-black fs-15"
+                          ></i>
                       </Link>
                     </td>
                   </tr>

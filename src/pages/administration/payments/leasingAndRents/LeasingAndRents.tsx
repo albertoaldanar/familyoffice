@@ -115,7 +115,9 @@ export default function LeasingAndRents() {
                     >
                     {/*// @ts-ignore */}
                     <Link state={{ leasing }} to={`${import.meta.env.BASE_URL}administration/leasingPaymentDescription/${leasing.id}`}>
-                      Ver
+                      <i
+                        className="fe fe-arrow-right text-black fs-15"
+                      ></i>
                     </Link>
                     </td>
                   </tr>

@@ -107,7 +107,9 @@ export default function PropertyTax() {
                     >
                    {/*// @ts-ignore */}
                     <Link state={{ taxProperty }} to={`${import.meta.env.BASE_URL}administration/propertyTaxDescription/${taxProperty.id}`}>
-                      Ver
+                      <i
+                        className="fe fe-arrow-right text-black fs-15"
+                      ></i>
                     </Link>
                     </td>
                   </tr>

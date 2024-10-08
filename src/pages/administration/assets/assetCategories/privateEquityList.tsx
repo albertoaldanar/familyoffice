@@ -85,7 +85,9 @@ export default function PrivateEquityList(props) {
                         //@ts-ignore 
                         `${import.meta.env.BASE_URL}governance/wealthItem/type/privateEquity/id/${idx.id}`
                     }>
-                    Ver
+                      <i
+                        className="fe fe-arrow-right text-black fs-15"
+                      ></i>
                   </Link>
                 </td>
               </tr>

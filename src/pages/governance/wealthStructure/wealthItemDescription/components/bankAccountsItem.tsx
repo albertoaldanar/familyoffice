@@ -429,7 +429,9 @@ export default function BanksAccountsItem(props) {
                       <Link
                         to={`${baseUrl}administration/providerDescription/${contact.categoryCoreId}/provider/${contact.coreId}/`}
                       >
-                        Ver
+                          <i
+                            className="fe fe-arrow-right text-black fs-15"
+                          ></i>
                       </Link>
                     </td>
                   </tr>

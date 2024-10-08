@@ -382,7 +382,9 @@ export default function PrivateEquity(props) {
                   >
                     {/*// @ts-ignore */}
                     <Link to={`${import.meta.env.BASE_URL}governance/privateEquityResult/${privateEquitySelected.id}/returnId/${idx.id}`}>
-                      Ver
+                      <i
+                          className="fe fe-arrow-right text-black fs-15"
+                        ></i>
                     </Link>
                   </td>
                 </tr>
@@ -989,7 +991,9 @@ export default function PrivateEquity(props) {
                       <Link
                         to={`${baseUrl}administration/providerDescription/${contact.categoryCoreId}/provider/${contact.coreId}/`}
                       >
-                        Ver
+                        <i
+                          className="fe fe-arrow-right text-black fs-15"
+                        ></i>
                       </Link>
                     </td>
                   </tr>

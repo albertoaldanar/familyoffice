@@ -154,7 +154,9 @@ export default function LeasingAndRents() {
                     >
                       {/*// @ts-ignore */}
                       <Link to={`${import.meta.env.BASE_URL}administration/rentDescription/${idx.id}`}>
-                        Ver
+                        <i
+                          className="fe fe-arrow-right text-black fs-15"
+                        ></i>
                       </Link>
                     </td>
                   </tr>
