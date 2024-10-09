@@ -29,7 +29,7 @@ const FileView: React.FC<FileViewProps> = ({ fileName }) => {
           {fileName}
         </p> */}
 
-        <img src={doc} alt={fileName} style={{ width: "100px" }} />
+        <img src={doc} alt={fileName} style={{ width: 50, height: 40 }} />
         <div >
           <Dropdown className="float-end ms-auto">
             <Dropdown.Toggle

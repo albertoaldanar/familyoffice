@@ -628,6 +628,7 @@ export default function InsurancesDescription(props) {
               display: "flex",
               justifyContent: "space-between",
               flexDirection: "row",
+              marginTop: 10
             }}
           >
             <dt style={{ fontWeight: "500" }}>Registro de pagos</dt>
@@ -769,8 +770,8 @@ export default function InsurancesDescription(props) {
                   style={{
                     paddingBottom: 0,
                     paddingLeft: 10,
-                    marginTop: 10,
-                    marginBottom: 10,
+                    marginTop: 20,
+                    marginBottom: 0,
                   }}
                 >
                   <div className="tabs-menu1">
@@ -833,7 +834,7 @@ export default function InsurancesDescription(props) {
               >
                 <div></div>
                 <Button
-                  style={{ position: "absolute", right: 25, bottom: 20 }}
+                  style={{ position: "absolute", right: 25, bottom: 80 }}
                   className="custom-button"
                   type="submit"
                 >
