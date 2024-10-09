@@ -31,7 +31,7 @@ export const dashboardData = {
   ],
   activities: [
     {
-      title: "Se añadio pago a Seguro Alejandra Aldana",
+      title: "Se añadio pago a Seguro Adriana Carrasco Nieto",
       date: "2024-08-01",
       user: "Juan Pérez",
     },
@@ -51,17 +51,17 @@ export const dashboardData = {
       user: "Ana Martínez",
     },
     {
-      title: "Se añadio nuevo miembro familiar Gustavo Miranda Aldana",
+      title: "Se añadio nuevo miembro familiar Mateo Carrasco Soler",
       date: "2024-08-10",
       user: "Luis Fernández",
     },
     {
-      title: "Se añadio nueva acta de poder 2024 Aldana Clima Integral",
+      title: "Se añadio nueva acta de poder 2024 Grupo Agricola Carrasco SA de CV",
       date: "2024-08-12",
       user: "Sofía Torres",
     },
     {
-      title: "Se añadio Acta constitutiva a Celsius SA de CV",
+      title: "Se añadio Acta constitutiva a Servicios financieros del campo CN SA de CV",
       date: "2024-08-15",
       user: "Pedro Sánchez",
     },
@@ -181,7 +181,7 @@ export const dashboardData = {
   calendarItems: [
     {
       coreId: '26',
-      title: "Declaración fiscal Alberto Aldana",
+      title: "Declaración fiscal Javier Carrasco Nieto",
       start: "2024-09-01",
       end: "2024-09-01",
       type: "taxPerson",
@@ -199,7 +199,7 @@ export const dashboardData = {
     },
     {
       coreId: '21',
-      title: "Pago de seguro Alejandra Aldana",
+      title: "Pago de seguro Adriana Carrasco Nieto",
       start: "2024-09-10",
       end: "2024-09-10",
       type: "payment",
@@ -208,7 +208,7 @@ export const dashboardData = {
     },
     {
       coreId: '23',
-      title: "Declaración fiscal Aldana Clima Integral",
+      title: "Declaración fiscal Grupo Agricola Carrasco SA de CV",
       start: "2024-09-15",
       end: "2024-09-15",
       type: "taxCompany",
@@ -298,7 +298,7 @@ export const dashboardData = {
   ], 
   byOwners: [
     {
-      type: 'Alberto Aldana Fariñas', 
+      type: 'Francisco Carrasco Ramos', 
       value: [
         {
           currency: 'MXN',
@@ -315,7 +315,7 @@ export const dashboardData = {
       ]
     },
     {
-      type: 'Aldana Clima Integral',
+      type: 'Grupo Agricola Carrasco SA de CV',
       value: [
         {
           currency: 'MXN',

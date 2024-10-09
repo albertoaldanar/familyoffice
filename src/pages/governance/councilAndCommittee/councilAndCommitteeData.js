@@ -1,6 +1,6 @@
 export const currentUser = {
   id: "12",
-  name: "Alberto Aldana Ríos",
+  name: "Javier Carrasco Nieto",
   role: "Miembro Familiar",
 };
 
@@ -8,17 +8,17 @@ export const councilAndCommittieesData = {
   investmentCommittee: {
     members: [
       {
-        name: "Francisco Aldana Fariñas",
+        name: "Francisco Carrasco Ramos",
         role: "Miembro Familiar",
         id: "23",
       },
       {
-        name: "Alberto Aldana Ríos",
+        name: "Javier Carrasco Nieto",
         role: "Miembro Familiar",
         id: "12",
       },
       {
-        name: "Raul Aldana Fariñas",
+        name: "Raul Gallego León",
         role: "Asesor financiero",
         id: "34",
         providerCategory: 50,
@@ -41,17 +41,17 @@ export const councilAndCommittieesData = {
         },
         participants: [
           {
-            name: "Francisco Aldana Fariñas",
+            name: "Francisco Carrasco Ramos",
             role: "Miembro Familiar",
             id: "23",
           },
           {
-            name: "Alberto Aldana Ríos",
+            name: "Javier Carrasco Nieto",
             role: "Miembro Familiar",
             id: "12",
           },
           {
-            name: "Raul Aldana Fariñas",
+            name: "Raul Gallego León",
             role: "Asesor financiero",
             id: "34",
             providerCategory: 50,
@@ -77,19 +77,19 @@ export const councilAndCommittieesData = {
             },
             participants: [
               {
-                name: "Francisco Aldana Fariñas",
+                name: "Francisco Carrasco Ramos",
                 role: "Miembro Familiar",
                 id: "23",
                 choiceSelected: null,
               },
               {
-                name: "Alberto Aldana Ríos",
+                name: "Javier Carrasco Nieto",
                 role: "Miembro Familiar",
                 id: "12",
                 choiceSelected: "A FAVOR",
               },
               {
-                name: "Raul Aldana Fariñas",
+                name: "Raul Gallego León",
                 role: "Asesor financiero",
                 id: "34",
                 providerCategory: 50,
@@ -142,17 +142,17 @@ export const councilAndCommittieesData = {
         linkedPreviousMeeting: { id: null },
         participants: [
           {
-            name: "Francisco Aldana Fariñas",
+            name: "Francisco Carrasco Ramos",
             role: "Miembro Familiar",
             id: "23",
           },
           {
-            name: "Alberto Aldana Ríos",
+            name: "Javier Carrasco Nieto",
             role: "Miembro Familiar",
             id: "12",
           },
           {
-            name: "Raul Aldana Fariñas",
+            name: "Raul Gallego León",
             role: "Asesor financiero",
             id: "34",
             providerCategory: 50,
@@ -193,17 +193,17 @@ export const councilAndCommittieesData = {
         },
         participants: [
           {
-            name: "Francisco Aldana Fariñas",
+            name: "Francisco Carrasco Ramos",
             role: "Miembro Familiar",
             id: "23",
           },
           {
-            name: "Alberto Aldana Ríos",
+            name: "Javier Carrasco Nieto",
             role: "Miembro Familiar",
             id: "12",
           },
           {
-            name: "Raul Aldana Fariñas",
+            name: "Raul Gallego León",
             role: "Asesor financiero",
             id: "34",
             providerCategory: 50,
@@ -243,27 +243,27 @@ export const councilAndCommittieesData = {
     members: [
       {
         id: "23",
-        name: "Francisco Alberto Aldana Rios",
+        name: "Francisco Carrasco Ramos",
         role: "Miembro Familiar",
       },
       {
         id: "43",
-        name: "Patricia Ríos Collantes",
+        name: "Adriana Carrasco Nieto",
         role: "Miembro Familiar",
       },
       {
         id: "13",
-        name: "Alejandra Aldana Ríos",
+        name: "Adriana Carrasco Nieto",
         role: "Miembro Familiar",
       },
       {
         id: "12",
-        name: "Alberto Aldana Ríos",
+        name: "Javier Carrasco Nieto",
         role: "Miembro Familiar",
       },
       {
         id: "9",
-        name: "Ana Sofia Aldana Ríos",
+        name: "Sofia Carrasco Nieto",
         role: "Miembro Familiar",
       },
       {
@@ -291,12 +291,12 @@ export const councilAndCommittieesData = {
         },
         participants: [
           {
-            name: "Francisco Aldana Fariñas",
+            name: "Francisco Carrasco Ramos",
             role: "Miembro Familiar",
             id: "23",
           },
           {
-            name: "Alberto Aldana Ríos",
+            name: "Javier Carrasco Nieto",
             role: "Miembro Familiar",
             id: "12",
           },
@@ -345,31 +345,31 @@ export const councilAndCommittieesData = {
             participants: [
               {
                 id: "23",
-                name: "Francisco Alberto Aldana Rios",
+                name: "Francisco Carrasco Ramos",
                 role: "Miembro Familiar",
                 choiceSelected: "A FAVOR",
               },
               {
                 id: "43",
-                name: "Patricia Ríos Collantes",
+                name: "Adriana Carrasco Nieto",
                 role: "Miembro Familiar",
                 choiceSelected: "A FAVOR",
               },
               {
                 id: "13",
-                name: "Alejandra Aldana Ríos",
+                name: "Adriana Carrasco Nieto",
                 role: "Miembro Familiar",
                 choiceSelected: "A FAVOR",
               },
               {
                 id: "12",
-                name: "Alberto Aldana Ríos",
+                name: "Javier Carrasco Nieto",
                 role: "Miembro Familiar",
                 choiceSelected: "A FAVOR",
               },
               {
                 id: "9",
-                name: "Ana Sofia Aldana Ríos",
+                name: "Sofia Carrasco Nieto",
                 role: "Miembro Familiar",
                 choiceSelected: "EN CONTRA",
               },
@@ -397,19 +397,19 @@ export const councilAndCommittieesData = {
         ],
         participants: [
           {
-            name: "Francisco Aldana Fariñas",
+            name: "Francisco Carrasco Ramos",
             role: "Miembro Familiar",
             id: "23",
           },
           {
-            name: "Alberto Aldana Ríos",
+            name: "Javier Carrasco Nieto",
             role: "Miembro Familiar",
             id: "12",
           },
           {
             id: "43",
             role: "Miembro Familiar",
-            name: "Patricia Ríos Collantes",
+            name: "Adriana Carrasco Nieto",
           },
         ],
         date: "12/05/2024",
@@ -448,19 +448,19 @@ export const councilAndCommittieesData = {
         votings: [],
         participants: [
           {
-            name: "Francisco Aldana Fariñas",
+            name: "Francisco Carrasco Ramos",
             role: "Miembro Familiar",
             id: "23",
           },
           {
-            name: "Alberto Aldana Ríos",
+            name: "Javier Carrasco Nieto",
             role: "Miembro Familiar",
             id: "12",
           },
           {
             id: "43",
             role: "Miembro Familiar",
-            name: "Patricia Ríos Collantes",
+            name: "Adriana Carrasco Nieto",
           },
         ],
         date: "12/05/2024",
@@ -483,17 +483,17 @@ export const councilAndCommittieesData = {
     members: [
       {
         id: "23",
-        name: "Francisco Alberto Aldana Rios",
+        name: "Francisco Carrasco Ramos",
         role: "Miembro Familiar",
       },
       {
         id: "43",
-        name: "Patricia Ríos Collantes",
+        name: "Adriana Carrasco Nietos",
         role: "Miembro Familiar",
       },
       {
         id: "12",
-        name: "Alberto Aldana Ríos",
+        name: "Javier Carrasco Nieto",
         role: "Miembro Familiar",
       },
       {
@@ -520,12 +520,12 @@ export const councilAndCommittieesData = {
         },
         participants: [
           {
-            name: "Francisco Aldana Fariñas",
+            name: "Francisco Carrasco Ramos",
             role: "Miembro Familiar",
             id: "23",
           },
           {
-            name: "Alberto Aldana Ríos",
+            name: "Javier Carrasco Nieto",
             role: "Miembro Familiar",
             id: "12",
           },
@@ -546,7 +546,7 @@ export const councilAndCommittieesData = {
         date: "12/05/2024",
         time: "10:00 am",
         modality: "Presencial",
-        location: "Ofincias Aldana CLima Integral",
+        location: "Ofincias Grupo Agricola Carrasco",
         meetingSubjects: [
           "Presentación de cada uno de los miembros del virtual Family Offiece",
           "Declaración de intenciones y objectivos de parte del account manager",

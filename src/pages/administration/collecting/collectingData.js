@@ -8,7 +8,7 @@ export const prestamos = [
     country: 'México',
     porPagar: "1,500,000.00",
     creditor: {
-      name: 'Celsius SA de CV',
+      name: 'Servicios financieros del campo CN SA de CV',
       type: 'Empresa Familiar', 
       linkedItemId: 24
     },
@@ -54,16 +54,16 @@ export const prestamos = [
   },
   {
     id: 2,
-    deudor: "Alejandra Aldana Ríos",
+    deudor: "Adriana Carrasco Nieto",
     proxCobro: "10/10/2024",
     country: 'México',
     creditor: {
-      name: 'Celsius SA de CV',
+      name: 'Servicios financieros del campo CN SA de CV',
       type: 'Empresa Familiar', 
       linkedItemId: 24
     },
     debtor: {
-      name: 'Alejandra Aldana Ríos', 
+      name: 'Adriana Carrasco Nieto', 
       type: 'Miembro de la familia', 
       linkedItemId: 13
     },
@@ -109,7 +109,7 @@ export const prestamos = [
     proxCobro: "10/10/2024",
     country: 'México',
     creditor: {
-      name: 'Alberto Aldana Fariñas',
+      name: 'Francisco Carrasco Ramos',
       type: 'Miembro de la familia', 
       linkedItemId: 23
     },
@@ -197,15 +197,15 @@ export const prestamos = [
 export const dividends = [
   {
     fechaCobro: "12/02/2024",
-    sePagoA: "Alberto Aldana Fariñas",
-    empresa: "Aldana Clima Integral",
+    sePagoA: "Francisco Carrasco Ramos",
+    empresa: "Grupo Agricola Carrasco SA de CV",
     monto: "$9,000,000.00 MXN",
     proxCobro: "3 meses",
   },
   {
     fechaCobro: "12/02/2024",
-    sePagoA: "Patricia Rios Collantes",
-    empresa: "Celsius SA de CV",
+    sePagoA: "Adriana Carrasco Nieto",
+    empresa: "Servicios financieros del campo CN SA de CV",
     monto: "$2,000,000.00 MXN",
     proxCobro: "6 meses",
   },
@@ -257,7 +257,7 @@ export const arrendamientos = [
   {
     id: 8,
     tipo: "Inmobiliario",
-    arrendatario: "Aldana Clima Integral SA de CV",
+    arrendatario: "Grupo Agricola Carrasco SA de CV",
     linkedItemId: 42,
     plazo: "1 año",
     country: 'México',

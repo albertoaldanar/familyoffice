@@ -30,7 +30,7 @@ export const loansDataStats = {
   ],
   byCreditor: [
     {
-      type: 'Celsius SA de CV', 
+      type: 'Servicios financieros del campo CN SA de CV', 
       value: [
         {
           currency: 'MXN',
@@ -47,7 +47,7 @@ export const loansDataStats = {
       ]
     }, 
     {
-      type: 'Alejandra Aldana', 
+      type: 'Adriana Carrasco Nieto', 
       value: [
         {
           currency: 'MXN',

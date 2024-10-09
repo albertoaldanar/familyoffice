@@ -1,5 +1,5 @@
 export const family = {
-  lastName: 'Familia Aldana Ríos',
+  lastName: 'Familia Carrasco Nieto',
   documents:{
     vfo: {
       elp: 'https://www.google.drive/1423nger', 
@@ -37,7 +37,7 @@ export const family = {
   members: [
     {
       id: '23',
-      name: 'Francisco Aldana Fariñas',
+      name: 'Francisco Carrasco Ramos',
       dob: '06/02/1963',
       regimenFiscal: 'Regimen de Dividendos',
       generation: 1,
@@ -98,7 +98,7 @@ export const family = {
       assets: [
         {
           id: 23,
-          name: 'Aldana Clima Integral SA de CV',
+          name: 'Grupo Agricola Carrasco SA de CV',
           type: 'company',
           pct: '60',
           value: '10,000,000.00',
@@ -107,7 +107,7 @@ export const family = {
         },
         {
           id: 24,
-          name: 'Airenlinea SA de CV',
+          name: 'Servicios financieros del campo CN SA de CV',
           type: 'company',
           pct: '50',
           value: '10,000,000.00',
@@ -116,7 +116,7 @@ export const family = {
         },
         {
           id: 85,
-          name: 'Servicios de diseños de ingenieria SA de CV',
+          name: 'CN Market Transportation LLC',
           type: 'company',
           pct: '45',
           value: '10,000,000.00',
@@ -190,7 +190,7 @@ export const family = {
     },
     {
       id: '43',
-      name: 'Patricia Ríos Collantes',
+      name: 'Diana Nieto Vega',
       trusteeOf: [
         {
           name: 'Fideicomiso 0014233-Santander',
@@ -230,7 +230,7 @@ export const family = {
       assets: [
         {
           id: 23,
-          name: 'Aldana Clima Integral SA de CV',
+          name: 'Grupo Agricola Carrasco SA de CV',
           type: 'company',
           pct: '40',
           value: '10,000,000.00',
@@ -239,7 +239,7 @@ export const family = {
         },
         {
           id: 24,
-          name: 'Airenlinea SA de CV',
+          name: 'Servicios financieros del campo CN SA de CV',
           type: 'company',
           pct: '40',
           value: '10,000,000.00',
@@ -286,7 +286,7 @@ export const family = {
     },
     {
       id: '13',
-      name: 'Alejandra Aldana Ríos',
+      name: 'Adriana Carrasco Nieto',
       nationalities: ['Mexicana'],
       trusteeOf: [
         {
@@ -333,7 +333,7 @@ export const family = {
             proxPago: "10/10/2024",
             country: 'México',
             creditor: {
-              name: 'Celsius SA de CV',
+              name: 'Servicios financieros del campo CN SA de CV',
               type: 'Empresa Familiar', 
               linkedItemId: 24
             },
@@ -350,7 +350,7 @@ export const family = {
       assets: [
         {
           id: 24,
-          name: 'Airenlinea SA de CV',
+          name: 'Servicios financieros del campo CN SA de CV',
           type: 'company',
           pct: '10',
           value: '10,000,000.00',
@@ -361,7 +361,7 @@ export const family = {
     },
     {
       id: '12',
-      name: 'Alberto Aldana Ríos',
+      name: 'Javier Carrasco Nieto',
       nationalities: ['Mexicana'],
       trusteeOf: [
         {
@@ -423,7 +423,7 @@ export const family = {
     },
     {
       id: '9',
-      name: 'Ana Sofia Aldana Ríos',
+      name: 'Sofia Carrasco Nieto',
       trusteeOf: [
         {
           name: 'Fideicomiso 144002 BBVA',
@@ -468,7 +468,7 @@ export const family = {
     },
     {
       id: '19',
-      name: 'Gustavo Miranda Aldana',      
+      name: 'Mateo Carrasco Soler',      
       trusteeOf: [],
       nationalities: ['Mexicana', 'Estadounidense'],
       obligations: {
@@ -501,7 +501,7 @@ export const familyS = {
   members: [
     {
       id: '23',
-      name: 'Servando Aldana Fariñas',
+      name: 'Francisco Carrasco Ramos',
       dob: '06/02/1963',
       regimenFiscal: 'Regimen de Dividendos',
       generation: 1,

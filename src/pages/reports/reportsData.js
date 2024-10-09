@@ -11,20 +11,20 @@ export const reportsData = {
   },
   content: ["Obligaciones", "Governanza", "Inversiones y activos"],
   highlights: [
-    "Pago de seguro vida (Seguros Monterrey) Alejandra Aldana",
-    "Declaración Fiscal menusal Aldana Clima integral (4)",
-    "Delcaración fiscal menusal Celsius SA de CV (4)",
-    "Declaración Anual Aldana Clima integral",
-    "Delcaración Anual Celsius SA de CV",
-    "Cobro de prestamo Intrafamiliar Aldana Clima Integral a Alejandra Aldana (4)",
+    "Pago de seguro vida (Seguros Monterrey) Adriana Carrasco Nieto",
+    "Declaración Fiscal menusal Grupo Agricola Carrasco SA de CV (4)",
+    "Delcaración fiscal menusal Servicios financieros del campo CN SA de CV (4)",
+    "Declaración Anual Grupo Agricola Carrasco SA de CV",
+    "Delcaración Anual Servicios financieros del campo CN SA de CV",
+    "Cobro de prestamo Intrafamiliar Grupo Agricola Carrasco SA de CV a Adriana Carrasco Nieto (4)",
     "Pago de credito hipotecario - Departamento la Marina (4)",
     "Pago de mantenimento Vehicular - Departamento la Marina (2)",
-    "Pago de seguro Médico (MAPFRE) Patricia Rios Collantes",
-    "Pago de arrendamiento inmobiliario (Departamento Calgary)-Ana Sofia Aldana (4)",
+    "Pago de seguro Médico (MAPFRE) Adriana Carrasco Nieto",
+    "Pago de arrendamiento inmobiliario (Departamento Londres) - Sofia Carrasco Nieto (4)",
   ],
   companiesObligations: [
     {
-      companyName: "Aldana Clima Integral SA de CV",
+      companyName: "Grupo Agricola Carrasco SA de CV",
       taxes: [
         {
           amountTaxReportMonthly: 4,
@@ -119,9 +119,9 @@ export const reportsData = {
             },
             {
               totalDebt: "$ 1,500,000.00",
-              concept: "Prestamo Ing. Aldana para pagos de nómina",
+              concept: "Prestamo Ing. Carrasco para pagos de nómina",
               paymentFrequency: "Mensual",
-              creditor: "Alberto Aldana Fariñas",
+              creditor: "Francisco Carrasco Ramos",
               interestRate: "0",
               amountPayableBeginDate: "$ 1,300,000.00",
               amountPayableEndDate: "$ 900,000.00",
@@ -163,9 +163,9 @@ export const reportsData = {
           debt: [
             {
               totalDebt: "$ 80,000.00",
-              concept: "Prestamo personal Alejandra Aldana Ríos",
+              concept: "Prestamo personal Adriana Carrasco Nieto",
               paymentFrequency: "Mensual",
-              debtor: "Alejandra Aldana Ríos",
+              debtor: "Adriana Carrasco Nieto",
               interestRate: "0",
               amountReceivableBeginDate: "$ 70,000.00",
               amountReceivableEndDate: "$ 40,000.00",
@@ -203,7 +203,7 @@ export const reportsData = {
   ],
   familyMembersObligations: [
     {
-      familyMemberName: "Alberto Aldana Fariñas",
+      familyMemberName: "Francisco Carrasco Ramos",
       taxRegime: "Regimen de dividendos",
       taxReportFrequency: ["Anual"],
       taxes: [
@@ -273,9 +273,9 @@ export const reportsData = {
             {
               totalDebt: "$ 80,000.00",
               type: "Prestamo a tercero",
-              concept: "Prestamo personal Daniel Aldana Fariñas",
+              concept: "Prestamo personal Daniel Carrasco Ramos",
               paymentFrequency: "Mensual",
-              debtor: " Daniel Aldana Fariñas",
+              debtor: "Daniel Carrasco Ramos",
               interestRate: "0",
               amountReceivableBeginDate: "$ 80,000.00",
               amountReceivableEndDate: "$ 40,000.00",
@@ -308,10 +308,10 @@ export const reportsData = {
             },
             {
               totalDebt: "$ 100,000.00",
-              concept: "Prestamo a Alberto Aldana Ríos",
+              concept: "Prestamo a Javier Carrasco Nieto",
               paymentFrequency: "Mensual",
               type: "Intrafamiliar",
-              debtor: "Alberto Aldana Ríos",
+              debtor: "Javier Carrasco Nieto",
               interestRate: "0",
               amountReceivableBeginDate: "$ 40,000.00",
               amountReceivableEndDate: "$ 20,000.00",
@@ -399,7 +399,7 @@ export const reportsData = {
       },
     },
     {
-      familyMemberName: "Patricia Ríos Collantes",
+      familyMemberName: "Adriana Carrasco Nieto",
       taxRegime: "Regimen de dividendos",
       taxReportFrequency: ["Anual"],
       taxes: [
@@ -479,11 +479,11 @@ export const reportsData = {
         location: "México",
         owners: [
           {
-            name: "Alberto Aldana Fariñas",
+            name: "Francisco Carrasco Ramos",
             pct: "50%",
           },
           {
-            name: "Patricia Ríos Collantes",
+            name: "Adriana Carrasco Nieto",
             pct: "50%",
           },
         ],
@@ -537,7 +537,7 @@ export const reportsData = {
         location: "México",
         owners: [
           {
-            name: "Alberto Aldana Fariñas",
+            name: "Francisco Carrasco Ramos",
             pct: "100%",
           },
         ],
@@ -650,7 +650,7 @@ export const reportsData = {
         location: "México",
         owners: [
           {
-            name: "Alberto Aldana Fariñas",
+            name: "Francisco Carrasco Ramos",
             pct: "100%",
           },
         ],
@@ -678,7 +678,7 @@ export const reportsData = {
         location: "México",
         owners: [
           {
-            name: "Alberto Aldana Rios",
+            name: "Javier Carrasco Nieto",
             pct: "100%",
           },
         ],
@@ -705,7 +705,7 @@ export const reportsData = {
   },
   otherPayments: [
     {
-      name: "Colegiatura Maestria Ana Sofia Aldana Ríos",
+      name: "Colegiatura Maestria Sofia Carrasco Nieto",
       paymentFrequency: 'Mensual',
       currency: 'MXN', 
       payments: [
@@ -749,7 +749,7 @@ export const reportsData = {
       ],
     },
     {
-      name: "Arrendamiento Casa Calgary - Ana Sofia Aldana",
+      name: "Arrendamiento Departamento Londres - Sofia Carrasco Nieto",
       paymentFrequency: 'Mensual',
       currency: 'CAD', 
       payments: [
@@ -787,7 +787,7 @@ export const reportsData = {
         accountNumber: "6641232",
         owners: [
           {
-            name: "Alberto Aldana Fariñas",
+            name: "Francisco Carrasco Ramos",
             pct: "100%",
           },
         ],
@@ -821,7 +821,7 @@ export const reportsData = {
         accountNumber: "79441232",
         owners: [
           {
-            name: "Alberto Aldana Fariñas",
+            name: "Francisco Carrasco Ramos",
             pct: "100%",
           },
         ],
@@ -853,7 +853,7 @@ export const reportsData = {
     ],
     bankAccountsCompanies: [
       {
-        name: "Aldana Clima Integral",
+        name: "Grupo Agricola Carrasco SA de CV",
         accounts: [
           {
             bank: "Banorte",
@@ -916,7 +916,7 @@ export const reportsData = {
         ],
       },
       {
-        name: "Celsius SA de CV",
+        name: "Servicios financieros del campo CN SA de CV",
         accounts: [
           {
             bank: "Banorte",
@@ -1010,7 +1010,7 @@ export const reportsData = {
     ],
     bankAccountsFamilyMembers: [
       {
-        name: "Alberto Aldana Fariñas",
+        name: "Francisco Carrasco Ramos",
         accounts: [
           {
             bank: "Banorte",
@@ -1073,7 +1073,7 @@ export const reportsData = {
         ],
       },
       {
-        name: "Patricia Ríos Collantes",
+        name: "Adriana Carrasco Nieto",
         accounts: [
           {
             bank: "Banorte",
@@ -1172,7 +1172,7 @@ export const reportsData = {
       //   totalReturnsEndDate: "$ 19,000.00",
       //   owners: [
       //     {
-      //       name: "Alberto Aldana Fariñas",
+      //       name: "Francisco Carrasco Ramos",
       //       pct: "100%",
       //     },
       //   ],
@@ -1192,11 +1192,11 @@ export const reportsData = {
         totalReturnsEndDate: "$ 150,000.00",
         owners: [
           {
-            name: "Alberto Aldana Fariñas",
+            name: "Francisco Carrasco Ramos",
             pct: "50%",
           },
           {
-            name: "Alberto Aldana Rios",
+            name: "Javier Carrasco Nieto",
             pct: "50%",
           },
         ],
@@ -1221,15 +1221,15 @@ export const reportsData = {
         investmentAmount: "$ 4,200,000.00",
         owners: [
           {
-            name: "Alberto Aldana Fariñas",
+            name: "Francisco Carrasco Ramos",
             pct: "33%",
           },
           {
-            name: "Patricia Rios Collantes",
+            name: "Adriana Carrasco Nieto",
             pct: "33%",
           },
           {
-            name: "Alberto Aldana Ríos",
+            name: "Javier Carrasco Nieto",
             pct: "33%",
           },
         ],
@@ -1264,7 +1264,7 @@ export const reportsData = {
         ],
         owners: [
           {
-            name: "Patricia Rios Collantes",
+            name: "Adriana Carrasco Nieto",
             pct: "100%",
           },
         ],

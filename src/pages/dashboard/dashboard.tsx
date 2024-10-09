@@ -15,6 +15,7 @@ import timeGridPlugin from "@fullcalendar/timegrid";
 import ReactApexChart from "react-apexcharts";
 import { WorldMap } from "../../components/maps/simplemaps/data/simplemapdata";
 import listPlugin from "@fullcalendar/list";
+import { family } from "../governance/familyStructure/familyStructureData";
 // @ts-ignore
 import collectionAsset from "../../assets/images/assetsCategories/collectionAssets.jpg";
 // @ts-ignore
@@ -962,7 +963,7 @@ export default function RealStateDashboard() {
             }}
           >
             <Card.Title style={{ fontSize: 20 }}>
-              Family Office Familia Aldana Ríos
+              Virtual Family Office - {family.lastName}
             </Card.Title>
 
             <div style={{ marginRight: 40}}>

@@ -44,10 +44,10 @@ export const providers = [
       {
         id: 34,
         location: 'Culiacan, Sinaloa',
-        nombre: 'Raul Aldana Fariñas', 
+        nombre: 'Raul Gallego León', 
         empresa: 'Scotia Bank',
         telefono: '6671057068',
-        correo: 'raul@aldana.com',
+        correo: 'raul@gallegosbanca.com',
         puesto: 'Banquero privado',
         type: 'Consultor Financiero',
         isMemberIC: true,
@@ -126,7 +126,7 @@ export const providers = [
             id: 2,
             coreId: 23,
             type: 'company',
-            name: "Aldana Clima Integral SA de CV",
+            name: "Grupo Agricola Carrasco SA de CV",
           },
         ],
         registroDeServicios: [
@@ -156,7 +156,7 @@ export const providers = [
           {
             id: 12,
             fecha: '12/02/2024',
-            concepto: 'Acta constitutiva Aldana Clima Integral',
+            concepto: 'Acta constitutiva Grupo Agricola Carrasco SA de CV',
             reciboOFactura: 'https://googledrive.com/erg3440398f4fmv',
             documentoOEntrgable: 'https://googledrive.com/erg3440398f4fmv',
             descripcion: ''

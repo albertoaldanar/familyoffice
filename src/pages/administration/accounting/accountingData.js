@@ -1,19 +1,19 @@
 export const companies = [
   {
     id: 23,
-    nombre: "Aldana Clima Integral",
+    nombre: "Grupo Agricola Carrasco SA de CV",
     rfc: "BVA4930245",
     moneda: "MXN",
     contacts: [
       {
         id: 1,
-        name: 'Raul Aldana Fariñas',
+        name: 'Raul Gallego León',
         type: 'Banquero privado',
         categoryCoreId: 50,
         coreId: 34,
         number: '6691481888',
         location: 'Mazatlán, Sinaloa',
-        email: 'raul@aldana.com'
+        email: 'raul@gallegosbanca.com'
       },
       {
         id: 1,
@@ -54,7 +54,7 @@ export const companies = [
         url: '"https://www.google.drive/1423nger"',
       },
     ],
-    razonSocial: "Aldana Clima Integral SA de CV",
+    razonSocial: "Grupo Agricola Carrasco SA de CV",
     valuacion: "10,000,000.00",
     direccionFiscal: "Col Los pinos 233 Colonia Mutualismo CP 233",
     fundacion: "10/10/1995",
@@ -73,14 +73,14 @@ export const companies = [
         type: "family",
         pct: "40",
         coreId: "23",
-        name: "Patricia Ríos Collantes",
+        name: "Adriana Carrasco Nieto",
         capitalSocial: "1000000",
       },
       {
         type: "family",
         pct: "60",
         coreId: "43",
-        name: "Francisco Aldana Fariñas",
+        name: "Francisco Carrasco Ramos",
         capitalSocial: "1500000",
       },
     ],
@@ -214,20 +214,20 @@ export const companies = [
     rfc: "BVA4930245",
     moneda: "MXN",
     containedIntrusts:[],
-    razonSocial: "Airenlinea SA de CV",
+    razonSocial: "Servicios financieros del campo CN SA de CV",
     nationality: "Mexicana",
     regimenCapital: "SA de CV",
     bankAccounts: [],
     contacts: [
       {
         id: 1,
-        name: 'Raul Aldana Fariñas',
+        name: 'Raul Gallego León',
         type: 'Banquero privado',
         categoryCoreId: 50,
         coreId: 34,
         number: '6691481888',
         location: 'Mazatlán, Sinaloa',
-        email: 'raul@aldana.com'
+        email: 'raul@gallegosbanca.com'
       },
       {
         id: 1,
@@ -246,21 +246,21 @@ export const companies = [
         type: "family",
         pct: "40",
         coreId: "23",
-        name: "Patricia Rios Collantes",
+        name: "Adriana Carrasco Nieto",
         capitalSocial: "1000000",
       },
       {
         type: "family",
         pct: "50",
         coreId: "43",
-        name: "Alberto Aldana Fariñas",
+        name: "Francisco Carrasco Ramos",
         capitalSocial: "1500000",
       },
       {
         type: "family",
         pct: "10",
         coreId: "13",
-        name: "Alejandra Aldana Ríos",
+        name: "Adriana Carrasco Nieto",
         capitalSocial: "0",
       },
     ],
@@ -436,13 +436,13 @@ export const companies = [
     contacts: [
       {
         id: 1,
-        name: 'Raul Aldana Fariñas',
+        name: 'Raul Gallego León',
         type: 'Banquero privado',
         categoryCoreId: 50,
         coreId: 34,
         number: '6691481888',
         location: 'Mazatlán, Sinaloa',
-        email: 'raul@aldana.com'
+        email: 'raul@gallegosbanca.com'
       },
       {
         id: 1,
@@ -499,7 +499,7 @@ export const companies = [
         url: '"https://www.google.drive/1423nger"',
       },
     ],
-    razonSocial: "Servicios de diseños de ingenieria SA de CV",
+    razonSocial: "CN Market Transportation LLC",
     valuacion: "10,000,000.00",
     direccionFiscal: "Col Los pinos 233 Colonia Mutualismo CP 233",
     fundacion: "10/10/1995",
@@ -566,20 +566,20 @@ export const fideicomisos = [
       {
         type: "family",
         id: "12",
-        name: "Alberto Aldana Rios",
+        name: "Javier Carrasco Nieto",
       },
       {
         type: "family",
         id: "13",
-        name: "Alberto Aldana Rios",
+        name: "Javier Carrasco Nieto",
       },
       {
         type: "family",
         id: "9",
-        name: "Ana Sofia Aldana Ríos",
+        name: "Sofia Carrasco Nieto",
       },
     ],
-    trustee: 'Servendo Aldana Fariñas',
+    trustee: 'Carlos Carrasco Ramos',
     purpose: "Manejar las inversiones familiares a largo plazo",
     content: [
       {
@@ -649,20 +649,20 @@ export const fideicomisos = [
         type: "family",
         id: '12',
         type: 'artAndOthers', 
-        name: "Alberto Aldana Rios",
+        name: "Javier Carrasco Nieto",
       },
       {
         type: "family",
         id: '13',
-        name: "Alberto Aldana Rios",
+        name: "Javier Carrasco Nieto",
       },
       {
         type: "family",
         id: '9',
-        name: "Ana Sofia Aldana Ríos",
+        name: "Sofia Carrasco Nieto",
       },
     ],
-    trustee: 'Alberto Aldana Fariñas',
+    trustee: 'Francisco Carrasco Ramos',
     purpose: "Dar claridad a la suceción del testamento de la Familia Aldana Ríos",
     content: [
       {
@@ -682,7 +682,7 @@ export const fideicomisos = [
         currency: 'MXN',
         pct: 50,
         country: 'México', 
-        name: "Aldana Clima Integral SA de CV",
+        name: "Grupo Agricola Carrasco SA de CV",
         value: "10,000,000.00",
       },
     ],

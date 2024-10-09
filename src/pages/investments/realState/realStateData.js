@@ -61,7 +61,7 @@ export const realstateData = [
         type: "family",
         pct: "100",
         coreId: "43",
-        name: "Alberto Aldana Fariñas",
+        name: "Francisco Carrasco Ramos",
       },
     ],
   },
@@ -142,14 +142,14 @@ export const realstateData = [
         type: "family",
         pct: "50",
         coreId: "23",
-        name: "Patricia Rios Collantes",
+        name: "Adriana Carrasco Nieto",
         capitalSocial: "1000000",
       },
       {
         type: "family",
         pct: "50",
         coreId: "43",
-        name: "Alberto Aldana Fariñas",
+        name: "Francisco Carrasco Ramos",
         capitalSocial: "1500000",
       },
     ],
@@ -187,7 +187,7 @@ export const realstateData = [
         {
           id: 8,
           tipo: "Inmobiliario",
-          arrendatario: "Aldana Clima Integral SA de CV",
+          arrendatario: "Grupo Agricola Carrasco SA de CV",
           country: 'México',
           proxCobro: "22/09/2024",
           monto: "45,000.00",
@@ -210,7 +210,7 @@ export const realstateData = [
         type: "family",
         pct: "100",
         coreId: "23",
-        name: "Patricia Rios Collantes",
+        name: "Adriana Carrasco Nieto",
       },
     ],
     images: [
@@ -265,7 +265,7 @@ export const realStateStats = {
   ],
   byOwners: [
     {
-      type: "Alberto Aldana Fariñas",
+      type: "Francisco Carrasco Ramos",
       value: [
         { currency: "MXN", value: 4500000 },
         { currency: "USD", value: 236973.07 },
@@ -273,7 +273,7 @@ export const realStateStats = {
       ],
     },
     {
-      type: "Patricia Ríos Collantes",
+      type: "Adriana Carrasco Nieto",
       value: [
         { currency: "MXN", value: 3375000 },
         { currency: "USD", value: 177729.8 },

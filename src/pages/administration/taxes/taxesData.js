@@ -1,7 +1,7 @@
 export const taxes = [
   {
     id: 26,
-    nombre: "Alberto Aldana Ríos",
+    nombre: "Javier Carrasco Nieto",
     rfc: "NFINE324NFJ",
     regimenFiscal: "Regimen de Introducción Fiscal (RIF)",
     cdsf: "https://www.google.drive/1423nger",
@@ -38,7 +38,7 @@ export const taxes = [
   },
   {
     id: 23,
-    nombre: "Alejandra Aldana Ríos",
+    nombre: "Adriana Carrasco Nieto",
     rfc: "NFINE324NFJ",
     regimenFiscal: "Régimen Simplificado de Confianza (RESICO)",
     cdsf: "https://www.google.drive/1423nger",
@@ -97,7 +97,7 @@ export const taxes = [
   },
   {
     id: 29,
-    nombre: "Alberto Aldana Fariñas",
+    nombre: "Francisco Carrasco Ramos",
     rfc: "NFINE324NFJ",
     regimenFiscal: "Regimen de Dividendos",
     nextPayement: "10 meses (Declaración Anual)",

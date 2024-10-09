@@ -132,7 +132,7 @@ export const privateEquityStats = {
   ], 
   byOwners: [
     {
-      type: 'Alberto Aldana Fariñas', 
+      type: 'Francisco Carrasco Ramos', 
       value: [
         {
           currency: 'MXN',
@@ -149,7 +149,7 @@ export const privateEquityStats = {
       ]
     },
     {
-      type: 'Aldana Clima Integral',
+      type: 'Grupo Agricola Carrasco SA de CV',
       value: [
         {
           currency: 'MXN',

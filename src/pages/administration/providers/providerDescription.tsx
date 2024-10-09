@@ -270,7 +270,7 @@ export default function ProviderDescription() {
                       style={{
                         cursor: "pointer",
                         textDecoration: "underline",
-                        color: "#5488d2",
+                        color: "#004745",
                         marginTop: 5,
                         fontSize: 12,
                       }}
@@ -313,7 +313,7 @@ export default function ProviderDescription() {
                       style={{
                         cursor: "pointer",
                         textDecoration: "underline",
-                        color: "#5488d2",
+                        color: "#004745",
                         marginTop: 5,
                         fontSize: 12,
                       }}
@@ -358,7 +358,7 @@ export default function ProviderDescription() {
                       style={{
                         cursor: "pointer",
                         textDecoration: "underline",
-                        color: "#5488d2",
+                        color: "#004745",
                         marginTop: 5,
                         fontSize: 12,
                       }}
@@ -403,7 +403,7 @@ export default function ProviderDescription() {
                       style={{
                         cursor: "pointer",
                         textDecoration: "underline",
-                        color: "#5488d2",
+                        color: "#004745",
                         marginTop: 5,
                         fontSize: 12,
                       }}
@@ -448,7 +448,7 @@ export default function ProviderDescription() {
                       style={{
                         cursor: "pointer",
                         textDecoration: "underline",
-                        color: "#5488d2",
+                        color: "#004745",
                         marginTop: 5,
                         fontSize: 12,
                       }}
@@ -495,7 +495,7 @@ export default function ProviderDescription() {
                       style={{
                         cursor: "pointer",
                         textDecoration: "underline",
-                        color: "#5488d2",
+                        color: "#004745",
                         marginTop: 5,
                         fontSize: 12,
                       }}
@@ -567,7 +567,7 @@ export default function ProviderDescription() {
                       style={{
                         cursor: "pointer",
                         textDecoration: "underline",
-                        color: "#5488d2",
+                        color: "#004745",
                       }}
                     >
                       {/*// @ts-ignore */}

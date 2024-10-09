@@ -46,7 +46,7 @@ export const wealthStructure = {
     {
       id: 13,
       coreId: 23,
-      name: "Aldana Clima Integral SA de CV",
+      name: "Grupo Agricola Carrasco SA de CV",
       value: "10,000,000.00",
       source: 1,
     },
@@ -81,7 +81,7 @@ export const wealthStructure = {
     {
       id: 88,
       coreId: 1,
-      name: "Prestamo Celsius SA de CV",
+      name: "Servicios financieros del campo CN SA de CV",
       value: "2,000,000.00",
       source: 8,
     },
@@ -163,7 +163,7 @@ export const otherWealthData = {
           type: "family",
           pct: "100",
           coreId: "12",
-          name: "Alberto Aldana Rios",
+          name: "Javier Carrasco Nieto",
         },
       ],
       containedIntrusts: [
@@ -208,7 +208,7 @@ export const otherWealthData = {
           type: "family",
           pct: "100",
           coreId: "43",
-          name: "Francisco Aldana Fariñas",
+          name: "Francisco Carrasco Ramos",
         },
       ],
       containedIntrusts: [],
@@ -248,7 +248,7 @@ export const otherWealthData = {
           type: "company",
           pct: "50",
           coreId: 23,
-          name: "Aldana Clima Integral",
+          name: "Grupo Agricola Carrasco SA de CV",
         },
         {
           type: "trust",
@@ -282,7 +282,7 @@ export const otherWealthData = {
           type: "family",
           pct: "80",
           coreId: "43",
-          name: "Francisco Aldana Fariñas",
+          name: "Francisco Carrasco Ramos",
         },
         {
           type: "trust",
@@ -301,19 +301,19 @@ export const otherWealthData = {
           type: "Persona física",
           pct: "100",
           coreId: "43",
-          name: "Francisco Aldana Fariñas",
+          name: "Francisco Carrasco Ramos",
         },
       ],
       contacts: [
         {
           id: 1,
-          name: 'Raul Aldana Fariñas',
+          name: 'Raul Gallego León',
           type: 'Banquero privado',
           categoryCoreId: 50,
           coreId: 34,
           number: '6691481888',
           location: 'Mazatlán, Sinaloa',
-          email: 'raul@aldana.com'
+          email: 'raul@gallegosbanca.com'
         }
       ],
       bank: "Santander",
@@ -331,7 +331,7 @@ export const otherWealthData = {
           type: "Persona moral",
           pct: "100",
           coreId: 23,
-          name: "Aldana Clima Integreal",
+          name: "Grupo Agricola Carrasco SA de CV",
         },
       ],
       contacts: [],
@@ -353,13 +353,13 @@ export const otherWealthData = {
       contacts: [
         {
           id: 1,
-          name: 'Raul Aldana Fariñas',
+          name: 'Raul Gallego León',
           type: 'Banquero privado',
           categoryCoreId: 50,
           coreId: 34,
           number: '6691481888',
           location: 'Mazatlán, Sinaloa',
-          email: 'raul@aldana.com'
+          email: 'raul@gallegosbanca.com'
         }
       ],
       investmentReturns: [
@@ -410,7 +410,7 @@ export const otherWealthData = {
           type: "company",
           pct: "100",
           coreId: 23,
-          name: "Aldana Clima Integreal",
+          name: "Grupo Agricola Carrasco SA de CV",
         },
       ],
     },
@@ -440,13 +440,13 @@ export const otherWealthData = {
       contacts: [
         {
           id: 1,
-          name: 'Raul Aldana Fariñas',
+          name: 'Raul Gallego León',
           type: 'Banquero privado',
           categoryCoreId: 50,
           coreId: 34,
           number: '6691481888',
           location: 'Mazatlán, Sinaloa',
-          email: 'raul@aldana.com'
+          email: 'raul@gallegosbanca.com'
         }
       ],
       currency: "USD",
@@ -459,7 +459,7 @@ export const otherWealthData = {
           type: "family",
           pct: "100",
           coreId: 43,
-          name: "Francisco Aldana Fariñas",
+          name: "Francisco Carrasco Ramos",
         },
       ],
     },
@@ -494,7 +494,7 @@ export const otherWealthData = {
           type: "family",
           pct: "100",
           coreId: 43,
-          name: "Francisco Aldana Fariñas",
+          name: "Francisco Carrasco Ramos",
         },
       ],
     },
@@ -512,13 +512,13 @@ export const otherWealthData = {
       contacts: [
         {
           id: 1,
-          name: 'Raul Aldana Fariñas',
+          name: 'Raul Gallego León',
           type: 'Banquero privado',
           categoryCoreId: 50,
           coreId: 34,
           number: '6691481888',
           location: 'Mazatlán, Sinaloa',
-          email: 'raul@aldana.com'
+          email: 'raul@gallegosbanca.com'
         }
       ],
       owners: [
@@ -526,7 +526,7 @@ export const otherWealthData = {
           type: "family",
           pct: "50",
           coreId: "43",
-          name: "Francisco Aldana Fariñas",
+          name: "Francisco Carrasco Ramos",
         },
         {
           type: "trust",
@@ -571,13 +571,13 @@ export const otherWealthData = {
       contacts: [
         {
           id: 1,
-          name: 'Raul Aldana Fariñas',
+          name: 'Raul Gallego León',
           type: 'Banquero privado',
           categoryCoreId: 50,
           coreId: 34,
           number: '6691481888',
           location: 'Mazatlán, Sinaloa',
-          email: 'raul@aldana.com'
+          email: 'raul@gallegosbanca.com'
         }
       ],
       owners: [
@@ -585,13 +585,13 @@ export const otherWealthData = {
           type: "family",
           pct: "50",
           coreId: "43",
-          name: "Francisco Aldana Fariñas",
+          name: "Francisco Carrasco Ramos",
         },
         {
           type: "family",
           pct: "50",
           coreId: "23",
-          name: "Patricia Ríos Collantes",
+          name: "Adriana Carrasco Nieto",
         },
       ],
       resultsReports: [],
