@@ -10,7 +10,8 @@ import {
 } from "react-bootstrap";
 import Select from "react-select";
 import FileUpload from "./components/fileUpload";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
@@ -21,6 +22,7 @@ import { useParams } from "react-router-dom";
 
 export default function ProviderNewService(props) {
   const params = useParams();
+  const navigate = useNavigate();
   const providerCategorySelected = providers.find(
     (prov) => prov.id === Number(params.id)
   );
@@ -47,8 +49,26 @@ export default function ProviderNewService(props) {
   return (
     <Fragment>
       <Row>
-        <Card style={{ padding: 30, marginTop: 20 }}>
-          <Card.Title style={{ marginBottom: 50 }}>
+        <div style={{ padding: 30}}>
+          <Card.Title style={{ marginBottom: 30 }}>
+          <Link
+            style={{
+              color: "#696969",
+              fontSize: 16,
+              marginBottom: 20,
+              marginRight: 15,
+            }}
+            to={".."}
+            onClick={(e) => {
+              e.preventDefault();
+              navigate(-1);
+            }}
+          >
+            <i
+              style={{ marginRight: 9 }}
+              className="fe fe-arrow-left text-black fs-13"
+            ></i>
+          </Link>
             Nuevo registro de servicio de {providerSelected.nombre}
           </Card.Title>
           <Form noValidate validated={false} onSubmit={() => {}}>
@@ -147,7 +167,7 @@ export default function ProviderNewService(props) {
               </Button>
             </div>
           </Form>
-        </Card>
+        </div>
       </Row>
     </Fragment>
   );

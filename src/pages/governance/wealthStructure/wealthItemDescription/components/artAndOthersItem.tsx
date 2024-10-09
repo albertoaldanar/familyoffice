@@ -600,8 +600,8 @@ export default function ArtAndOthersItem(props) {
             style={{
               paddingBottom: 0,
               paddingLeft: 10,
-              marginTop: 10,
-              marginBottom: 20,
+              marginTop: 15,
+              marginBottom: 10,
             }}
           >
             <div className="tabs-menu1">
@@ -663,7 +663,7 @@ export default function ArtAndOthersItem(props) {
         >
           <div></div>
           <Button
-            style={{ position: "absolute", right: 25, bottom: 20 }}
+            style={{ position: "absolute", right: 25, bottom: 80 }}
             className="custom-button"
             type="submit"
           >

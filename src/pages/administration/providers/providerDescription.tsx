@@ -595,7 +595,7 @@ export default function ProviderDescription() {
   return (
     <Fragment>
       <Row>
-        <Card style={{ padding: 30, marginTop: 20, minHeight: 550 }}>
+        <div style={{ padding: 30, minHeight: 550 }}>
           <h4 className="mb-3 fw-semibold">
           <Link
             style={{
@@ -663,14 +663,14 @@ export default function ProviderDescription() {
             </Tab.Container>
 
             <Button
-                style={{ position: "absolute", right: 25, bottom: 20 }}
+                style={{ position: "absolute", right: 25, bottom: 80 }}
                 className="custom-button"
                 type="submit"
               >
                 Guardar
               </Button>
           </Form>
-        </Card>
+        </div>
       </Row>
     </Fragment>
   );

@@ -1190,8 +1190,8 @@ export default function RealStateItem(props) {
             style={{
               paddingBottom: 0,
               paddingLeft: 10,
-              marginTop: 10,
-              marginBottom: 10,
+              marginTop: 15,
+              marginBottom: 0,
             }}
           >
             <div className="tabs-menu1">
@@ -1263,7 +1263,7 @@ export default function RealStateItem(props) {
         >
           <div></div>
           <Button
-            style={{ position: "absolute", right: 25, bottom: 20 }}
+            style={{ position: "absolute", right: 25, bottom: 80 }}
             className="custom-button"
             type="submit"
           >

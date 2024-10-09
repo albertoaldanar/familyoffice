@@ -147,7 +147,7 @@ export default function LeasingAndRentPayment(props) {
   return (
     <Fragment>
       <Row>
-        <Card style={{ padding: 30, marginTop: 20 }}>
+        <div style={{ padding: 30 }}>
           <Card.Title style={{ marginBottom: 30 }}>
             <Link
               style={{
@@ -318,7 +318,7 @@ export default function LeasingAndRentPayment(props) {
               </Button>
             </div>
           </Form>
-        </Card>
+        </div>
       </Row>
     </Fragment>
   );

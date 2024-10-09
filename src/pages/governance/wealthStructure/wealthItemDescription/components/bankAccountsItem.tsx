@@ -484,7 +484,7 @@ export default function BanksAccountsItem(props) {
             style={{
               paddingBottom: 0,
               paddingLeft: 10,
-              marginTop: 10,
+              marginTop: 15,
               marginBottom: 10,
             }}
           >
@@ -537,7 +537,7 @@ export default function BanksAccountsItem(props) {
         >
           <div></div>
           <Button
-            style={{ position: "absolute", right: 25, bottom: 20 }}
+            style={{ position: "absolute", right: 25, bottom: 80 }}
             className="custom-button"
             type="submit"
           >

@@ -9,7 +9,7 @@ import {
   InputGroup,
 } from "react-bootstrap";
 import Select from "react-select";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import FileUpload from "../accounting/components/fileUpload";
 import FileView from "../accounting/components/fileView";
 import { taxes } from "./taxesData";
@@ -17,6 +17,7 @@ import { useParams } from "react-router-dom";
 
 export default function TaxesNewReport(props) {
   const params = useParams();
+  const navigate = useNavigate();
   const taxUserSelected = taxes.find((tax) => tax.id === Number(params.id));
 
   if (!taxUserSelected) {
@@ -212,8 +213,26 @@ export default function TaxesNewReport(props) {
   return (
     <Fragment>
       <Row>
-        <Card style={{ padding: 30, marginTop: 20 }}>
+        <div style={{ padding: 30 }}>
           <Card.Title style={{ marginBottom: 50 }}>
+            <Link
+                style={{
+                  color: "#696969",
+                  fontSize: 16,
+                  marginBottom: 20,
+                  marginRight: 15,
+                }}
+                to={".."}
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigate(-1);
+                }}
+              >
+                <i
+                  style={{ marginRight: 9 }}
+                  className="fe fe-arrow-left text-black fs-13"
+                ></i>
+            </Link>
             Nueva Declaracion {params.type} {taxUserSelected.nombre}
           </Card.Title>
           <Form noValidate validated={false} onSubmit={() => {}}>
@@ -242,7 +261,7 @@ export default function TaxesNewReport(props) {
               </Button>
             </div>
           </Form>
-        </Card>
+        </div>
       </Row>
     </Fragment>
   );

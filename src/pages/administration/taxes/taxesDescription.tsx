@@ -7,13 +7,14 @@ import {
   Tab,
   Nav,
 } from "react-bootstrap";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { taxes } from "./taxesData";
 import { taxesRules } from "./taxesUtils";
 import { daysToAnualTax, daysUntilNextMonth17, daysUntilRIFDeclarationDeadline } from "./taxesUtils";
 
 export default function Taxes() {
   const params = useParams();
+  const navigate = useNavigate();
   const taxUserSelected = taxes.find((prov) => prov.id === Number(params.id));
 
   let taxRuleForUser;
@@ -332,8 +333,26 @@ export default function Taxes() {
   return (
     <Fragment>
       <Row>
-        <Card style={{ padding: 30, marginTop: 20 }}>
+        <div style={{ padding: 30 }}>
           <h4 className="mb-3 fw-semibold">
+            <Link
+                style={{
+                  color: "#696969",
+                  fontSize: 16,
+                  marginBottom: 20,
+                  marginRight: 15,
+                }}
+                to={".."}
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigate(-1);
+                }}
+              >
+                <i
+                  style={{ marginRight: 9 }}
+                  className="fe fe-arrow-left text-black fs-13"
+                ></i>
+            </Link>
             Declaraciones {taxUserSelected.nombre}
           </h4>
 
@@ -378,7 +397,7 @@ export default function Taxes() {
             {renderNextTaxReportDate()}
           </div>
           <dl className="product-gallery-data1">{renderReport()}</dl>
-        </Card>
+        </div>
       </Row>
     </Fragment>
   );

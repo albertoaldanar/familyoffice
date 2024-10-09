@@ -767,7 +767,7 @@ export default function TrustDescription(props) {
   return (
     <Fragment>
       <Row>
-        <Card style={{ padding: 30, marginTop: 20, minHeight: 500 }}>
+        <div style={{ padding: 30, minHeight: 550 }}>
           <Card.Title style={{ marginBottom: 0 }}>
             <Link
                 style={{color: '#696969', fontSize: 16, marginBottom: 20, marginRight: 15}}
@@ -857,7 +857,7 @@ export default function TrustDescription(props) {
               </Button>
             </div>
           </Form>
-        </Card>
+        </div>
       </Row>
     </Fragment>
   );

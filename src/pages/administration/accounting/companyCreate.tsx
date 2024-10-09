@@ -309,7 +309,7 @@ export default function CompanyCreate(props) {
   return (
     <Fragment>
       <Row>
-        <Card style={{ padding: 30, marginTop: 20 }}>
+        <div style={{ padding: 30 }}>
           <Card.Title style={{ marginBottom: 35 }}>
             <Link
                 style={{color: '#696969', fontSize: 16, marginBottom: 20, marginRight: 15}}
@@ -798,7 +798,7 @@ export default function CompanyCreate(props) {
               </Button>
             </div>
           </Form>
-        </Card>
+        </div>
       </Row>
     </Fragment>
   );

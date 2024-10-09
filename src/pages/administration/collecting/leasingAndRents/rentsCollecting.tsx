@@ -81,7 +81,7 @@ export default function RentPayment(props) {
   return (
     <Fragment>
       <Row>
-        <Card style={{ padding: 30, marginTop: 20, minHeight: 500 }}>
+        <div style={{ padding: 30, minHeight: 550 }}>
           <Card.Title style={{ marginBottom: 30 }}>
             <Link
               style={{
@@ -244,7 +244,7 @@ export default function RentPayment(props) {
             >
               <div></div>
               <Button
-                style={{ position: "absolute", right: 25, bottom: 20 }}
+                style={{ position: "absolute", right: 25, bottom: 80 }}
                 className="custom-button"
                 type="submit"
               >
@@ -252,7 +252,7 @@ export default function RentPayment(props) {
               </Button>
             </div>
           </Form>
-        </Card>
+        </div>
       </Row>
     </Fragment>
   );

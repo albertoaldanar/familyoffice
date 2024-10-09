@@ -12,12 +12,13 @@ import Select from "react-select";
 import FileUpload from "../../../../../administration/accounting/components/fileUpload";
 import { otherWealthData } from "../../../wealthStructureData";
 import NotFoundSearch from "../../../../../shared/notFoundSearch";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import FileView from "../../../../../administration/accounting/components/fileView";
 
 export default function StockInvestmentReport(props) {
   const params = useParams();
+  const navigate = useNavigate();
   const stockSelected = otherWealthData.stockInvestments.find(
     (stock) => stock.id === Number(params.id)
   );
@@ -70,8 +71,26 @@ export default function StockInvestmentReport(props) {
   return (
     <Fragment>
       <Row>
-        <Card style={{ padding: 30, marginTop: 20 }}>
-          <Card.Title style={{ marginBottom: 50 }}>
+        <div style={{ padding: 30 }}>
+          <Card.Title style={{ marginBottom: 30 }}>
+          <Link
+              style={{
+                color: "#696969",
+                fontSize: 16,
+                marginBottom: 20,
+                marginRight: 15,
+              }}
+              to={".."}
+              onClick={(e) => {
+                e.preventDefault();
+                navigate(-1);
+              }}
+            >
+              <i
+                style={{ marginRight: 9 }}
+                className="fe fe-arrow-left text-black fs-13"
+              ></i>
+            </Link>
             Reporte de resultados para inversion bursatil{" "}
             {stockSelected.bank}-{stockSelected.accountNumber}
           </Card.Title>
@@ -177,7 +196,7 @@ export default function StockInvestmentReport(props) {
               </Button>
             </div>
           </Form>
-        </Card>
+        </div>
       </Row>
     </Fragment>
   );

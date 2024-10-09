@@ -82,7 +82,7 @@ export default function InsurancesPayment(props) {
   return (
     <Fragment>
       <Row>
-        <Card style={{ padding: 30, marginTop: 20 }}>
+        <div style={{ padding: 30 }}>
           <Card.Title style={{ marginBottom: 50 }}>
             <Link
                 style={{
@@ -307,7 +307,7 @@ export default function InsurancesPayment(props) {
               </Button>
             </div>
           </Form>
-        </Card>
+        </div>
       </Row>
     </Fragment>
   );

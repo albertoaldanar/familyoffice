@@ -10,7 +10,7 @@ export default function Companies() {
   const renderTable = () => {
     return (
       <Col xl={12}>
-        <Card style={{ borderWidth: 0 }}>
+        <div style={{marginBottom: 40}}>
           {providers.map((provider) => (
             <div className="table-responsive">
               <Card.Title
@@ -59,7 +59,7 @@ export default function Companies() {
               </Table>
             </div>
           ))}
-        </Card>
+        </div>
       </Col>
     );
   };

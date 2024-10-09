@@ -161,7 +161,7 @@ export default function MantainancePayment(props) {
   return (
     <Fragment>
       <Row>
-        <Card style={{ padding: 30, marginTop: 20 }}>
+        <div style={{ padding: 30, }}>
           <Card.Title style={{ marginBottom: 50 }}>
             <Link
               style={{
@@ -335,7 +335,7 @@ export default function MantainancePayment(props) {
                 display: "flex",
                 flexDirection: "row",
                 justifyContent: "space-between",
-                marginTop: 20,
+                marginTop: 80,
               }}
             >
               <div></div>
@@ -344,7 +344,7 @@ export default function MantainancePayment(props) {
               </Button>
             </div>
           </Form>
-        </Card>
+        </div>
       </Row>
     </Fragment>
   );

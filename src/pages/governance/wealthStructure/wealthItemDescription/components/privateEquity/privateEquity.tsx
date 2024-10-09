@@ -1099,7 +1099,7 @@ export default function PrivateEquity(props) {
         >
           <div></div>
           <Button
-            style={{ position: "absolute", right: 25, bottom: 20 }}
+            style={{ position: "absolute", right: 25, bottom: 80 }}
             className="custom-button"
             type="submit"
           >

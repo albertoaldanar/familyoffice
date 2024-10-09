@@ -159,7 +159,7 @@ export default function LoanCollecting(props) {
   return (
     <Fragment>
       <Row>
-        <Card style={{ padding: 30, marginTop: 20 }}>
+        <div style={{ padding: 30 }}>
           <Card.Title style={{ marginBottom: 50 }}>
             <Link
               style={{
@@ -308,7 +308,7 @@ export default function LoanCollecting(props) {
               </Button>
             </div>
           </Form>
-        </Card>
+        </div>
       </Row>
     </Fragment>
   );

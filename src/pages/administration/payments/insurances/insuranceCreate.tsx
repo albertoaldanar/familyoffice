@@ -268,7 +268,7 @@ export default function InsuranceCreate(props) {
   return (
     <Fragment>
       <Row>
-        <Card style={{ padding: 30, marginTop: 20 }}>
+        <div style={{ padding: 30 }}>
           <Card.Title style={{ marginBottom: 35 }}>
             <Link
               style={{
@@ -458,7 +458,7 @@ export default function InsuranceCreate(props) {
                 display: "flex",
                 flexDirection: "row",
                 justifyContent: "space-between",
-                marginTop: 20,
+                marginTop: 80,
               }}
             >
               <div></div>
@@ -467,7 +467,7 @@ export default function InsuranceCreate(props) {
               </Button>
             </div>
           </Form>
-        </Card>
+        </div>
       </Row>
     </Fragment>
   );

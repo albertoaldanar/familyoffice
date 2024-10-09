@@ -531,7 +531,7 @@ export default function RentDescription(props) {
   return (
     <Fragment>
       <Row>
-        <Card style={{ padding: 30, marginTop: 20, minHeight: 550 }}>
+        <div style={{ padding: 30, minHeight: 550 }}>
           <h4 className="mb-3 fw-semibold">
             <Link
               style={{
@@ -559,7 +559,7 @@ export default function RentDescription(props) {
               style={{
                 paddingBottom: 0,
                 paddingLeft: 10,
-                marginTop: 10,
+                marginTop: 20,
                 marginBottom: 10,
               }}
             >
@@ -618,7 +618,7 @@ export default function RentDescription(props) {
               Guardar
             </Button>
           </div>
-        </Card>
+        </div>
       </Row>
     </Fragment>
   );

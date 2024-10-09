@@ -321,7 +321,7 @@ export default function LoanCreate(props) {
   return (
     <Fragment>
       <Row>
-        <Card style={{ padding: 30, marginTop: 20 }}>
+        <div style={{ padding: 30 }}>
           <Card.Title style={{ marginBottom: 35 }}>
            <Link
               style={{
@@ -603,7 +603,7 @@ export default function LoanCreate(props) {
               </Button>
             </div>
           </Form>
-        </Card>
+        </div>
       </Row>
     </Fragment>
   );

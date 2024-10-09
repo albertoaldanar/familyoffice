@@ -318,7 +318,7 @@ export default function VotingDescription(props) {
   return (
     <Fragment>
       <Row>
-        <Card style={{ padding: 30, marginTop: 20 }}>
+        <div style={{ padding: 30}}>
           <div style={{ display: "flex", flexDirection: "row" }}>
             <Card.Title style={{ marginBottom: 10 }}>
             <Link
@@ -486,7 +486,7 @@ export default function VotingDescription(props) {
             ) : null}
           </Form>
           {renderVoatingActions()}
-        </Card>
+        </div>
       </Row>
     </Fragment>
   );

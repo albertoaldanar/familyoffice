@@ -58,7 +58,7 @@ export default function CouncilAndCommitteAddMember(props) {
   return (
     <Fragment>
       <Row>
-        <Card style={{ padding: 30, marginTop: 20, minHeight: 550 }}>
+        <div style={{ padding: 30, minHeight: 550 }}>
           <Card.Title style={{ marginBottom: 35 }}>
             <Link
               style={{
@@ -195,7 +195,7 @@ export default function CouncilAndCommitteAddMember(props) {
               </Button>
             </div>
           </Form>
-        </Card>
+        </div>
       </Row>
     </Fragment>
   );

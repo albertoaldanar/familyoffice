@@ -2029,7 +2029,7 @@ export default function Reports() {
             paddingLeft: 30
           }}
         >
-          <Card.Title style={{ marginTop: 40 }}>
+          <Card.Title style={{ marginTop: 40, marginBottom: 40 }}>
             <i
               style={{ marginRight: 9 }}
               className="fe fe-download text-black fs-15"

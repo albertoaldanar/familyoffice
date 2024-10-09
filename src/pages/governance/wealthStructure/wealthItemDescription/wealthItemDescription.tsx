@@ -46,16 +46,15 @@ export default function WealthDescription() {
   return (
     <Fragment>
       <Row>
-        <Card
+        <div
           style={{
             paddingBottom: 20,
-            marginTop: 20,
             minHeight: 550,
             paddingTop: 10,
           }}
         >
           <p>{componentToRender}</p>
-        </Card>
+        </div>
       </Row>
     </Fragment>
   );
