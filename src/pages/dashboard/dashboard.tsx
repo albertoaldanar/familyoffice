@@ -965,7 +965,7 @@ export default function RealStateDashboard() {
               Family Office Familia Aldana Ríos
             </Card.Title>
 
-            <div style={{ marginRight: 40, marginTop: -6 }}>
+            <div style={{ marginRight: 40}}>
               <OverlayTrigger
                 placement="top"
                 overlay={<Tooltip>Desglose patrimonial</Tooltip>}
@@ -974,9 +974,9 @@ export default function RealStateDashboard() {
                   style={{
                     cursor: "pointer",
                     marginRight: 30,
-                    color: selectedView === "stats" ? "#5488d2" : "#989898",
+                    color: selectedView === "stats" ? "#004745" : "#A9A9A9",
                   }}
-                  className="fe fe-bar-chart-2  fs-17"
+                  className="fe fe-bar-chart-2  fs-20"
                   onClick={() => setSelectedView("stats")}
                 ></i>
               </OverlayTrigger>
@@ -989,9 +989,9 @@ export default function RealStateDashboard() {
                   style={{
                     cursor: "pointer",
                     marginRight: 30,
-                    color: selectedView === "calendar" ? "#5488d2" : "#989898",
+                    color: selectedView === "calendar" ? "#004745" : "#A9A9A9",
                   }}
-                  className="fe fe-calendar  fs-17"
+                  className="fe fe-calendar  fs-20"
                   onClick={() => setSelectedView("calendar")}
                 ></i>
               </OverlayTrigger>
@@ -1004,9 +1004,9 @@ export default function RealStateDashboard() {
                     cursor: "pointer",
                     marginRight: 30,
                     color:
-                      selectedView === "opportunities" ? "#5488d2" : "#989898",
+                      selectedView === "opportunities" ? "#004745" : "#A9A9A9",
                   }}
-                  className="fe fe-activity  fs-17"
+                  className="fe fe-activity  fs-20"
                   onClick={() => setSelectedView("opportunities")}
                 ></i>
               </OverlayTrigger>
@@ -1018,9 +1018,9 @@ export default function RealStateDashboard() {
                   style={{
                     cursor: "pointer",
                     marginRight: 30,
-                    color: selectedView === "news" ? "#5488d2" : "#989898",
+                    color: selectedView === "news" ? "#004745" : "#A9A9A9",
                   }}
-                  className="fe fe-radio  fs-17"
+                  className="fe fe-radio  fs-20"
                   onClick={() => setSelectedView("news")}
                 ></i>
               </OverlayTrigger>

@@ -194,7 +194,7 @@ export default function LoansDashboard() {
               style={{
                 cursor: "pointer",
                 marginRight: 20,
-                color: isStatsView ? "#004745" : "gray",
+                color: isStatsView ? "#004745" : "#A9A9A9",
               }}
               className="fe fe-activity  fs-20"
               onClick={() => setViewSelected("stats")}
@@ -203,7 +203,7 @@ export default function LoansDashboard() {
               style={{
                 cursor: "pointer",
                 marginRight: 20,
-                color: !isStatsView ? "#004745" : "gray",
+                color: !isStatsView ? "#004745" : "#A9A9A9",
               }}
               className="fe fe-list  fs-20"
               onClick={() => setViewSelected("list")}

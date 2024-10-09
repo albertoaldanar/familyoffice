@@ -40,7 +40,7 @@ const FileView: React.FC<FileViewProps> = ({ fileName }) => {
               aria-haspopup="true"
               aria-expanded="false"
             >
-              <i style={{fontWeight: 'bold', marginLeft: -5, marginTop: -10}} className="fe fe-more-horizontal text-dark"></i>
+              <i style={{fontWeight: 'bold', marginLeft: -5, marginTop: -15}} className="fe fe-more-horizontal text-dark"></i>
             </Dropdown.Toggle>
             <Dropdown.Menu className="dropdown-menu dropdown-menu-start folder-options">
               <Dropdown.Item className="dropdown-item" href="#">
