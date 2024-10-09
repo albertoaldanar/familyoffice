@@ -135,6 +135,7 @@ export default function InsurancePayment() {
                       }}
                     >
                       <Link
+                        style={{textDecoration: "underline",}}
                         to={`${baseUrl}administration/insuranceDescription/${insurance.id}`}
                       >
                       <i

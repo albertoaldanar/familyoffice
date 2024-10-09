@@ -42,7 +42,7 @@ export default function Payments() {
           </Nav>
         </div>
 
-        <Tab.Content className="panel-body">
+        <Tab.Content style={{marginTop: 20}}>
           <Tab.Pane eventKey="first">
             <InsurancePayment />
           </Tab.Pane>

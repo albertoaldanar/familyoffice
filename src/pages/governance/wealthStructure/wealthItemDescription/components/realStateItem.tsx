@@ -787,7 +787,7 @@ export default function RealStateItem(props) {
   const renderObligationsTabs = () => {
     return (
       <Tab.Container id="left-tabs-example" defaultActiveKey="first">
-        <div style={{ marginLeft: 15, marginTop: -15 }}>
+        <div style={{ marginLeft: 15, marginTop: -2 }}>
           <Nav
             variant="pills"
             as="ul"

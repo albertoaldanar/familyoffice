@@ -446,7 +446,7 @@ export default function RealStateDashboard() {
                 </Col>
                 <Col xs={10}>
                   <p className="mb-0 fw-semibold text-muted-dark">
-                    Total en activos registrados
+                    Total valor de activos
                   </p>
                   <h4 className="mt-2 mb-1 text-dark fw-semibold">
                     $ {valueWithCurrencySelected.value}{" "}

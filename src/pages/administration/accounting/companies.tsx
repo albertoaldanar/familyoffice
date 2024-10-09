@@ -198,7 +198,7 @@ export default function Companies() {
               </div>
             </div>
 
-            <Tab.Content className="panel-body">
+            <Tab.Content style={{marginTop: 10}}>
               <Tab.Pane eventKey="first">{renderCompanies()}</Tab.Pane>
 
               <Tab.Pane eventKey="second">{renderTrusts()}</Tab.Pane>

@@ -893,7 +893,7 @@ export default function FamilyMember(props) {
   const renderObligationsTabs = () => {
     return (
       <Tab.Container id="left-tabs-example" defaultActiveKey="first">
-        <div style={{ marginLeft: 15, marginTop: -12 }}>
+        <div style={{ marginLeft: 15, marginTop: -7 }}>
           <Nav
             variant="pills"
             as="ul"
