@@ -126,7 +126,7 @@ export const providers = [
             id: 2,
             coreId: 23,
             type: 'company',
-            name: "Grupo Agricola Carrasco SA de CV",
+            name: "Agricola Carrasco SA de CV",
           },
         ],
         registroDeServicios: [
@@ -156,7 +156,7 @@ export const providers = [
           {
             id: 12,
             fecha: '12/02/2024',
-            concepto: 'Acta constitutiva Grupo Agricola Carrasco SA de CV',
+            concepto: 'Acta constitutiva Agricola Carrasco SA de CV',
             reciboOFactura: 'https://googledrive.com/erg3440398f4fmv',
             documentoOEntrgable: 'https://googledrive.com/erg3440398f4fmv',
             descripcion: ''

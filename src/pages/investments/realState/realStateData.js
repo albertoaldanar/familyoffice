@@ -142,7 +142,7 @@ export const realstateData = [
         type: "family",
         pct: "50",
         coreId: "23",
-        name: "Adriana Carrasco Nieto",
+        name: "Diana Nieto Vega",
         capitalSocial: "1000000",
       },
       {
@@ -187,7 +187,7 @@ export const realstateData = [
         {
           id: 8,
           tipo: "Inmobiliario",
-          arrendatario: "Grupo Agricola Carrasco SA de CV",
+          arrendatario: "Agricola Carrasco SA de CV",
           country: 'México',
           proxCobro: "22/09/2024",
           monto: "45,000.00",
@@ -210,7 +210,7 @@ export const realstateData = [
         type: "family",
         pct: "100",
         coreId: "23",
-        name: "Adriana Carrasco Nieto",
+        name: "Diana Nieto Vega",
       },
     ],
     images: [
@@ -273,7 +273,7 @@ export const realStateStats = {
       ],
     },
     {
-      type: "Adriana Carrasco Nieto",
+      type: "Diana Nieto Vega",
       value: [
         { currency: "MXN", value: 3375000 },
         { currency: "USD", value: 177729.8 },

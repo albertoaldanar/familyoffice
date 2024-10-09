@@ -11,12 +11,12 @@ export const reportsData = {
   },
   content: ["Obligaciones", "Governanza", "Inversiones y activos"],
   highlights: [
-    "Pago de seguro vida (Seguros Monterrey) Adriana Carrasco Nieto",
-    "Declaración Fiscal menusal Grupo Agricola Carrasco SA de CV (4)",
+    "Pago de seguro vida (Seguros Monterrey) Diana Nieto Vega",
+    "Declaración Fiscal menusal Agricola Carrasco SA de CV (4)",
     "Delcaración fiscal menusal Servicios financieros del campo CN SA de CV (4)",
-    "Declaración Anual Grupo Agricola Carrasco SA de CV",
+    "Declaración Anual Agricola Carrasco SA de CV",
     "Delcaración Anual Servicios financieros del campo CN SA de CV",
-    "Cobro de prestamo Intrafamiliar Grupo Agricola Carrasco SA de CV a Adriana Carrasco Nieto (4)",
+    "Cobro de prestamo Intrafamiliar Agricola Carrasco SA de CV a Adriana Carrasco Nieto (4)",
     "Pago de credito hipotecario - Departamento la Marina (4)",
     "Pago de mantenimento Vehicular - Departamento la Marina (2)",
     "Pago de seguro Médico (MAPFRE) Adriana Carrasco Nieto",
@@ -24,7 +24,7 @@ export const reportsData = {
   ],
   companiesObligations: [
     {
-      companyName: "Grupo Agricola Carrasco SA de CV",
+      companyName: "Agricola Carrasco SA de CV",
       taxes: [
         {
           amountTaxReportMonthly: 4,
@@ -483,7 +483,7 @@ export const reportsData = {
             pct: "50%",
           },
           {
-            name: "Adriana Carrasco Nieto",
+            name: "Diana Nieto Vega",
             pct: "50%",
           },
         ],
@@ -853,7 +853,7 @@ export const reportsData = {
     ],
     bankAccountsCompanies: [
       {
-        name: "Grupo Agricola Carrasco SA de CV",
+        name: "Agricola Carrasco SA de CV",
         accounts: [
           {
             bank: "Banorte",
@@ -1073,7 +1073,7 @@ export const reportsData = {
         ],
       },
       {
-        name: "Adriana Carrasco Nieto",
+        name: "Diana Nieto Vega",
         accounts: [
           {
             bank: "Banorte",
@@ -1225,7 +1225,7 @@ export const reportsData = {
             pct: "33%",
           },
           {
-            name: "Adriana Carrasco Nieto",
+            name: "Diana Nieto Vega",
             pct: "33%",
           },
           {

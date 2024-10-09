@@ -149,7 +149,7 @@ export const privateEquityStats = {
       ]
     },
     {
-      type: 'Grupo Agricola Carrasco SA de CV',
+      type: 'Agricola Carrasco SA de CV',
       value: [
         {
           currency: 'MXN',

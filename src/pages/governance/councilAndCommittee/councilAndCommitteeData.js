@@ -248,7 +248,7 @@ export const councilAndCommittieesData = {
       },
       {
         id: "43",
-        name: "Adriana Carrasco Nieto",
+        name: "Diana Nieto Vega",
         role: "Miembro Familiar",
       },
       {
@@ -351,7 +351,7 @@ export const councilAndCommittieesData = {
               },
               {
                 id: "43",
-                name: "Adriana Carrasco Nieto",
+                name: "Diana Nieto Vega",
                 role: "Miembro Familiar",
                 choiceSelected: "A FAVOR",
               },
@@ -409,7 +409,7 @@ export const councilAndCommittieesData = {
           {
             id: "43",
             role: "Miembro Familiar",
-            name: "Adriana Carrasco Nieto",
+            name: "Diana Nieto Vega",
           },
         ],
         date: "12/05/2024",
@@ -460,7 +460,7 @@ export const councilAndCommittieesData = {
           {
             id: "43",
             role: "Miembro Familiar",
-            name: "Adriana Carrasco Nieto",
+            name: "Diana Nieto Vega",
           },
         ],
         date: "12/05/2024",
@@ -488,7 +488,7 @@ export const councilAndCommittieesData = {
       },
       {
         id: "43",
-        name: "Adriana Carrasco Nietos",
+        name: "Diana Nieto Vega",
         role: "Miembro Familiar",
       },
       {
@@ -546,7 +546,7 @@ export const councilAndCommittieesData = {
         date: "12/05/2024",
         time: "10:00 am",
         modality: "Presencial",
-        location: "Ofincias Grupo Agricola Carrasco",
+        location: "Ofincias Agricola Carrasco",
         meetingSubjects: [
           "Presentación de cada uno de los miembros del virtual Family Offiece",
           "Declaración de intenciones y objectivos de parte del account manager",

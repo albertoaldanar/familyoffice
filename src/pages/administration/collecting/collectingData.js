@@ -198,7 +198,7 @@ export const dividends = [
   {
     fechaCobro: "12/02/2024",
     sePagoA: "Francisco Carrasco Ramos",
-    empresa: "Grupo Agricola Carrasco SA de CV",
+    empresa: "Agricola Carrasco SA de CV",
     monto: "$9,000,000.00 MXN",
     proxCobro: "3 meses",
   },
@@ -257,7 +257,7 @@ export const arrendamientos = [
   {
     id: 8,
     tipo: "Inmobiliario",
-    arrendatario: "Grupo Agricola Carrasco SA de CV",
+    arrendatario: "Agricola Carrasco SA de CV",
     linkedItemId: 42,
     plazo: "1 año",
     country: 'México',

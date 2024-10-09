@@ -32,58 +32,60 @@ export default function Companies() {
             </Link>
           </Button>
         </div>
-        <div className="table-responsive">
-          <Table className="table border text-nowrap text-md-nowrap mb-0">
-            <thead className="bg-light">
-              <tr>
-                <th>Razon social</th>
-                <th>Valuación</th>
-                <th>RFC</th>
-                <th>País</th>
-                <th>Accionistas</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              {companies.map((idx, tb8) => (
-                <tr key={tb8}>
-                  <td>{idx.razonSocial}</td>
-                  <td>
-                    ${idx.valuacion} {idx.moneda}
-                  </td>
-                  <td>{idx.rfc}</td>
-                  <td>{renderFlag(idx.nationality)}</td>
-                  <td>
-                    <div style={{ display: "flex", flexDirection: "column" }}>
-                      {idx.owners.map((owner, index) => (
-                        <div key={index} style={{ fontSize: 13 }}>
-                         - {owner.name}: {owner.pct}% <br />
-                        </div>
-                      ))}
-                    </div>
-                  </td>
-                  <td
-                    style={{
-                      cursor: "pointer",
-                      textDecoration: "underline",
-                      color: "#5488d2",
-                    }}
-                  >
-                    {/*// @ts-ignore */}
-                    <Link to={`${import.meta.env.BASE_URL}administration/company/${
-                        idx.id
-                      }/company`}
-                    >
-                      <i
-                        className="fe fe-arrow-right text-black fs-15"
-                      ></i>
-                    </Link>
-                  </td>
+        <Card>
+          <div className="table-responsive">
+            <Table className="table border text-nowrap text-md-nowrap mb-0">
+              <thead className="bg-light">
+                <tr>
+                  <th>Razon social</th>
+                  <th>Valuación</th>
+                  <th>RFC</th>
+                  <th>País</th>
+                  <th>Accionistas</th>
+                  <th></th>
                 </tr>
-              ))}
-            </tbody>
-          </Table>
-        </div>
+              </thead>
+              <tbody>
+                {companies.map((idx, tb8) => (
+                  <tr key={tb8}>
+                    <td>{idx.razonSocial}</td>
+                    <td>
+                      ${idx.valuacion} {idx.moneda}
+                    </td>
+                    <td>{idx.rfc}</td>
+                    <td>{renderFlag(idx.nationality)}</td>
+                    <td>
+                      <div style={{ display: "flex", flexDirection: "column" }}>
+                        {idx.owners.map((owner, index) => (
+                          <div key={index} style={{ fontSize: 13 }}>
+                          - {owner.name}: {owner.pct}% <br />
+                          </div>
+                        ))}
+                      </div>
+                    </td>
+                    <td
+                      style={{
+                        cursor: "pointer",
+                        textDecoration: "underline",
+                        color: "#5488d2",
+                      }}
+                    >
+                      {/*// @ts-ignore */}
+                      <Link to={`${import.meta.env.BASE_URL}administration/company/${
+                          idx.id
+                        }/company`}
+                      >
+                        <i
+                          className="fe fe-arrow-right text-black fs-15"
+                        ></i>
+                      </Link>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </Table>
+          </div>
+        </Card>
       </Col>
     );
   };
@@ -116,48 +118,51 @@ export default function Companies() {
             </Link>
           </Button>
         </div>
-        <div className="table-responsive">
-          <Table className="table border text-nowrap text-md-nowrap mb-0">
-            <thead className="bg-light">
-              <tr>
-                <th>Numero de fideicomiso</th>
-                <th>Fiduciario (Banco)</th>
-                <th>País</th>
-                <th>Fideicomisario</th>
-                <th>Fideicomitentes</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              {fideicomisos.map((idx, tb8) => (
-                <tr key={tb8}>
-                  <td>{idx.trustNumber}</td>
-                  <td>{idx.trusteeBank}</td>
-                  <td>{renderFlag(idx.country)}</td>
-                  <td>{idx.trustee}</td>
-                  <td>
-                    <div style={{ display: "flex", flexDirection: "column" }}>
-                      {idx.trustors.map((owner, index) => (
-                        <div key={index} style={{ fontSize: 13 }}>
-                         - {owner.name} <br />
-                        </div>
-                      ))}
-                    </div>
-                  </td>
-                  <td>
-                    {/*// @ts-ignore */}
-                    <Link to={`${import.meta.env.BASE_URL}administration/trustDescription/${idx.id}`}
-                    >
-                      <i
-                        className="fe fe-arrow-right text-black fs-15"
-                      ></i>
-                    </Link>
-                  </td>
+
+        <Card>
+          <div className="table-responsive">
+            <Table className="table border text-nowrap text-md-nowrap mb-0">
+              <thead className="bg-light">
+                <tr>
+                  <th>Numero de fideicomiso</th>
+                  <th>Fiduciario (Banco)</th>
+                  <th>País</th>
+                  <th>Fideicomisario</th>
+                  <th>Fideicomitentes</th>
+                  <th></th>
                 </tr>
-              ))}
-            </tbody>
-          </Table>
-        </div>
+              </thead>
+              <tbody>
+                {fideicomisos.map((idx, tb8) => (
+                  <tr key={tb8}>
+                    <td>{idx.trustNumber}</td>
+                    <td>{idx.trusteeBank}</td>
+                    <td>{renderFlag(idx.country)}</td>
+                    <td>{idx.trustee}</td>
+                    <td>
+                      <div style={{ display: "flex", flexDirection: "column" }}>
+                        {idx.trustors.map((owner, index) => (
+                          <div key={index} style={{ fontSize: 13 }}>
+                          - {owner.name} <br />
+                          </div>
+                        ))}
+                      </div>
+                    </td>
+                    <td>
+                      {/*// @ts-ignore */}
+                      <Link to={`${import.meta.env.BASE_URL}administration/trustDescription/${idx.id}`}
+                      >
+                        <i
+                          className="fe fe-arrow-right text-black fs-15"
+                        ></i>
+                      </Link>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </Table>
+          </div>
+        </Card>
       </Col>
     );
   };

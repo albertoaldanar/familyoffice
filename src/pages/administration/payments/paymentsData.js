@@ -163,7 +163,7 @@ export const creditos = [
     tipo: 'Credito de entidad financiera',
     acreedor: "BBVA",
     tipoCredito: "Empresarial",
-    concepto: "Grupo Agricola Carrasco SA de CV",
+    concepto: "Agricola Carrasco SA de CV",
     monto: "255,000.00",
     pagado: "210,000.00",
     porPagar: "45,000.00",

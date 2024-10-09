@@ -1,7 +1,194 @@
 export const companies = [
   {
+    id: 91,
+    nombre: "Grupo Carrasco Holding SA de CV",
+    rfc: "ANDNN324NS",
+    moneda: "MXN",
+    contacts: [
+      {
+        id: 1,
+        name: 'Raul Gallego León',
+        type: 'Banquero privado',
+        categoryCoreId: 50,
+        coreId: 34,
+        number: '6691481888',
+        location: 'Mazatlán, Sinaloa',
+        email: 'raul@gallegosbanca.com'
+      },
+    ],
+    containedIntrusts:[],
+    actaConstitutiva: "https://www.google.drive/1423nger",
+    actasAsamblea: [
+      {
+        name: "AAO 2024",
+        url: '"https://www.google.drive/1423nger"',
+      },
+    ],
+    actaAsambleaExtraordinaria: [],
+    poderes: [
+      {
+        name: "Poderes 2022",
+        url: '"https://www.google.drive/1423nger"',
+      },
+      {
+        name: "Poderes 2023",
+        url: '"https://www.google.drive/1423nger"',
+      },
+      {
+        name: "Poderes 2024",
+        url: '"https://www.google.drive/1423nger"',
+      },
+    ],
+    razonSocial: "Grupo Carrasco Holding SA de CV",
+    valuacion: "123,000,000.00",
+    direccionFiscal: "Col La Primaver parque industrial CP 233",
+    fundacion: "10/10/1995",
+    percentage: "100",
+    nationality: "Mexicana",
+    regimenCapital: "SA de CV",
+    bankAccounts: [
+      {
+        id: 2,
+        bank: "BBVA",
+        accountNumber: "34333311021",
+      },
+    ],
+    owners: [
+      {
+        type: "family",
+        pct: "100",
+        coreId: "43",
+        name: "Francisco Carrasco Ramos",
+        capitalSocial: "1500000",
+      },
+    ],
+    actasDividendos: [
+      {
+        name: "AD 2023",
+        url: '"https://www.google.drive/1423nger"',
+      },
+      {
+        name: "Actas dividendos 2024",
+        url: '"https://www.google.drive/1423nger"',
+      },
+    ],
+    cif: "",
+    reports: {
+      mensuales: [
+        {
+          year: "2025",
+          accounting: [
+            {
+              id: 1,
+              year: "2025",
+              month: "Enero",
+              utilidad: "495000.00",
+              ventas: "1430000.00",
+              egresos: "280000.00",
+              isr: "https://www.google.drive/1423nger",
+              iva: "https://www.google.drive/1423nger",
+              diot: "https://www.google.drive/1423nger",
+            },
+            {
+              id: 2,
+              year: "2025",
+              month: "Febrero",
+              utilidad: "385000.00",
+              ventas: "925000.00",
+              egresos: "180000.00",
+              isr: "https://www.google.drive/1423nger",
+              iva: "",
+              diot: "",
+            },
+            {
+              id: 3,
+              year: "2025",
+              month: "Marzo",
+              utilidad: "116000.00",
+              ventas: "925000.00",
+              egresos: "280000.00",
+              isr: "",
+              iva: "",
+              diot: "",
+            },
+          ],
+        },
+        {
+          year: "2023",
+          accounting: [
+            {
+              id: 4,
+              month: "Enero",
+              year: "2023",
+              utilidad: "495000.00",
+              ventas: "1430000.00",
+              egresos: "280000.00",
+              isr: "https://www.google.drive/1423nger",
+              iva: "https://www.google.drive/1423nger",
+              diot: "https://www.google.drive/1423nger",
+            },
+            {
+              id: 5,
+              year: "2023",
+              month: "Febrero",
+              utilidad: "275000.00",
+              ventas: "925000.00",
+              egresos: "280000.00",
+              isr: "https://www.google.drive/1423nger",
+              iva: "https://www.google.drive/1423nger",
+              diot: "https://www.google.drive/1423nger",
+            },
+            {
+              id: 6,
+              month: "Marzo",
+              year: "2023",
+              utilidad: "275000.00",
+              ventas: "925000.00",
+              egresos: "280000.00",
+              isr: "",
+              iva: "",
+              diot: "https://www.google.drive/1423nge",
+            },
+          ],
+        },
+      ],
+      anuales: [
+        {
+          id: 94,
+          year: "2022",
+          utilidad: "2375000.00",
+          ventas: "9245000.00",
+          egresos: "2840000.00",
+          isr: "https://www.google.drive/1423nger",
+          iva: "https://www.google.drive/1423nger",
+          diot: "https://www.google.drive/1423nger",
+        },
+        {
+          id: 97,
+          year: "2023",
+          utilidad: "1975000.00",
+          ventas: "1925000.00",
+          egresos: "1280000.00",
+          isr: "https://www.google.drive/1423nger",
+          iva: "https://www.google.drive/1423nger",
+          diot: "https://www.google.drive/1423nger",
+        },
+        {
+          id: 193,
+          year: "2024",
+          utilidad: "4275000.00",
+          ventas: "9125000.00",
+          egresos: "2180000.00",
+          isr: "https://www.google.drive/1423nger",
+          iva: "https://www.google.drive/1423nger",
+          diot: "https://www.google.drive/1423nger",
+        },
+      ],
+    },
+  },
+  {
     id: 23,
-    nombre: "Grupo Agricola Carrasco SA de CV",
+    nombre: "Agricola Carrasco SA de CV",
     rfc: "BVA4930245",
     moneda: "MXN",
     contacts: [
@@ -54,8 +241,8 @@ export const companies = [
         url: '"https://www.google.drive/1423nger"',
       },
     ],
-    razonSocial: "Grupo Agricola Carrasco SA de CV",
-    valuacion: "10,000,000.00",
+    razonSocial: "Agricola Carrasco SA de CV",
+    valuacion: "31,000,000.00",
     direccionFiscal: "Col Los pinos 233 Colonia Mutualismo CP 233",
     fundacion: "10/10/1995",
     percentage: "100",
@@ -70,10 +257,10 @@ export const companies = [
     ],
     owners: [
       {
-        type: "family",
+        type: "company",
         pct: "40",
-        coreId: "23",
-        name: "Adriana Carrasco Nieto",
+        coreId: "91",
+        name: "Grupo Carrasco Holding SA de CV",
         capitalSocial: "1000000",
       },
       {
@@ -210,7 +397,7 @@ export const companies = [
   },
   {
     id: 24,
-    nombre: "Celsius",
+    nombre: "Servicios financieros del campo CN SA de CV",
     rfc: "BVA4930245",
     moneda: "MXN",
     containedIntrusts:[],
@@ -244,24 +431,24 @@ export const companies = [
     owners: [
       {
         type: "family",
-        pct: "40",
+        pct: "30",
         coreId: "23",
-        name: "Adriana Carrasco Nieto",
+        name: "Javier Carrasco Nieto",
         capitalSocial: "1000000",
       },
       {
         type: "family",
-        pct: "50",
+        pct: "30",
         coreId: "43",
         name: "Francisco Carrasco Ramos",
         capitalSocial: "1500000",
       },
       {
-        type: "family",
-        pct: "10",
-        coreId: "13",
-        name: "Adriana Carrasco Nieto",
-        capitalSocial: "0",
+        type: "company",
+        pct: "40",
+        coreId: "91",
+        name: "Grupo Carrasco Holding SA de CV",
+        capitalSocial: "15000",
       },
     ],
     valuacion: "10,000,000.00",
@@ -429,9 +616,9 @@ export const companies = [
   },
   {
     id: 85,
-    nombre: "D&A Engineering Designs",
-    rfc: "BVA4930245",
-    moneda: "MXN",
+    nombre: "CN Market Transportation LLC",
+    rfc: "JNF932NKEW",
+    moneda: "USD",
     containedIntrusts:[],
     contacts: [
       {
@@ -500,7 +687,7 @@ export const companies = [
       },
     ],
     razonSocial: "CN Market Transportation LLC",
-    valuacion: "10,000,000.00",
+    valuacion: "200,000.00",
     direccionFiscal: "Col Los pinos 233 Colonia Mutualismo CP 233",
     fundacion: "10/10/1995",
     nationality: "USA",
@@ -515,6 +702,140 @@ export const companies = [
         name: "0014233 Santander",
         capitalSocial: "2000000",
       },
+    ],
+    percentage: "100",
+    cif: "",
+    reports: {
+      mensuales: [
+        {
+          year: "2024",
+          accounting: [
+            {
+              id: 995,
+              month: "Mayo",
+              year: "2024",
+              utilidad: "425000.00",
+              ventas: "925000.00",
+              egresos: "280000.00",
+              isr: "https://www.google.drive/1423nger",
+              iva: "https://www.google.drive/1423nger",
+              diot: "https://www.google.drive/1423nger",
+            },
+          ],
+        },
+      ],
+      anuales: [],
+    },
+  },
+  {
+    id: 53,
+    nombre: "CN Farmer trade LLC",
+    rfc: "NJF9NIEW2",
+    moneda: "USD",
+    containedIntrusts:[],
+    contacts: [
+      {
+        id: 1,
+        name: 'Raul Gallego León',
+        type: 'Banquero privado',
+        categoryCoreId: 50,
+        coreId: 34,
+        number: '6691481888',
+        location: 'Mazatlán, Sinaloa',
+        email: 'raul@gallegosbanca.com'
+      },
+      {
+        id: 1,
+        name: 'Juan Diaz Zalazar',
+        type: 'Notario',
+        categoryCoreId: 24,
+        coreId: 17,
+        number: '6671481888',
+        location: 'Culiacan, Sinaloa',
+        email: 'jaundiaz@zalazar.com'
+      }
+    ],
+    actasAsamblea: [
+      {
+        name: "AAO 2024",
+        url: '"https://www.google.drive/1423nger"',
+      },
+    ],
+    actaAsambleaExtraordinaria: [
+      {
+        name: "AAE 2022",
+        url: '"https://www.google.drive/1423nger"',
+      },
+      {
+        name: "AAE 2023",
+        url: '"https://www.google.drive/1423nger"',
+      },
+      {
+        name: "AAE 2024",
+        url: '"https://www.google.drive/1423nger"',
+      },
+    ],
+    poderes: [
+      {
+        name: "Poderes 2022",
+        url: '"https://www.google.drive/1423nger"',
+      },
+      {
+        name: "Poderes 2023",
+        url: '"https://www.google.drive/1423nger"',
+      },
+      {
+        name: "Poderes 2024",
+        url: '"https://www.google.drive/1423nger"',
+      },
+    ],
+    actasDividendos: [
+      {
+        name: "AD 2023",
+        url: '"https://www.google.drive/1423nger"',
+      },
+      {
+        name: "Actas dividendos 2024",
+        url: '"https://www.google.drive/1423nger"',
+      },
+    ],
+    razonSocial: "CN Farmer trade LLC",
+    valuacion: "1,200,000.00",
+    direccionFiscal: "901 BRUSH ST APT 323 LAS VEGAS NV 89107-4058 USA",
+    fundacion: "10/10/2022",
+    nationality: "USA",
+    regimenCapital: "LLC",
+    bankAccounts: [],
+    capitalSocial: "200,000.00",
+    owners: [
+      {
+        type: "family",
+        pct: "20",
+        coreId: "12",
+        name: "Javier Carrasco Nieto",
+        capitalSocial: "1000000",
+      },
+      {
+        type: "family",
+        pct: "20",
+        coreId: "43",
+        name: "Francisco Carrasco Ramos",
+        capitalSocial: "1500000",
+      },
+      {
+        type: "company",
+        pct: "40",
+        coreId: "91",
+        name: "Grupo Carrasco Holding SA de CV",
+        capitalSocial: "15000",
+      },
+      {
+        type: "family",
+        coreId: '13',
+        pct: "20",
+        name: 'Adriana Carrasco Nieto',
+        capitalSocial: "5000",
+      }
     ],
     percentage: "100",
     cif: "",
@@ -682,7 +1003,7 @@ export const fideicomisos = [
         currency: 'MXN',
         pct: 50,
         country: 'México', 
-        name: "Grupo Agricola Carrasco SA de CV",
+        name: "Agricola Carrasco SA de CV",
         value: "10,000,000.00",
       },
     ],

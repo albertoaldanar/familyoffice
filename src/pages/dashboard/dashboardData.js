@@ -56,7 +56,7 @@ export const dashboardData = {
       user: "Luis Fernández",
     },
     {
-      title: "Se añadio nueva acta de poder 2024 Grupo Agricola Carrasco SA de CV",
+      title: "Se añadio nueva acta de poder 2024 Agricola Carrasco SA de CV",
       date: "2024-08-12",
       user: "Sofía Torres",
     },
@@ -208,7 +208,7 @@ export const dashboardData = {
     },
     {
       coreId: '23',
-      title: "Declaración fiscal Grupo Agricola Carrasco SA de CV",
+      title: "Declaración fiscal Agricola Carrasco SA de CV",
       start: "2024-09-15",
       end: "2024-09-15",
       type: "taxCompany",
@@ -315,7 +315,7 @@ export const dashboardData = {
       ]
     },
     {
-      type: 'Grupo Agricola Carrasco SA de CV',
+      type: 'Agricola Carrasco SA de CV',
       value: [
         {
           currency: 'MXN',

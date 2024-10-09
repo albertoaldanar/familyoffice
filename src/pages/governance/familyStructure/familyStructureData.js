@@ -98,7 +98,7 @@ export const family = {
       assets: [
         {
           id: 23,
-          name: 'Grupo Agricola Carrasco SA de CV',
+          name: 'Agricola Carrasco SA de CV',
           type: 'company',
           pct: '60',
           value: '10,000,000.00',
@@ -230,7 +230,7 @@ export const family = {
       assets: [
         {
           id: 23,
-          name: 'Grupo Agricola Carrasco SA de CV',
+          name: 'Agricola Carrasco SA de CV',
           type: 'company',
           pct: '40',
           value: '10,000,000.00',
