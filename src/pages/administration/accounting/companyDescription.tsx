@@ -826,7 +826,7 @@ export default function CompanyDescription() {
           style={{
             cursor: "pointer",
             textDecoration: "underline",
-            color: "#5488d2",
+            color: "#004745",
             fontSize: 13,
           }}
         >

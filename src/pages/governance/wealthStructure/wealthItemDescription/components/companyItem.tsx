@@ -409,8 +409,8 @@ export default function CompanyItem(props) {
             style={{
               paddingBottom: 0,
               paddingLeft: 10,
-              marginTop: 10,
-              marginBottom: 20,
+              marginTop: 15,
+              marginBottom: 0,
             }}
           >
             <div className="tabs-menu1">

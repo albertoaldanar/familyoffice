@@ -196,7 +196,7 @@ export default function PrivateEquityDashboard() {
               style={{
                 cursor: "pointer",
                 marginRight: 20,
-                color: isStatsView ? "#5488d2" : "black",
+                color: isStatsView ? "#004745" : "gray",
               }}
               className="fe fe-activity  fs-20"
               onClick={() => setViewSelected("stats")}
@@ -205,7 +205,7 @@ export default function PrivateEquityDashboard() {
               style={{
                 cursor: "pointer",
                 marginRight: 20,
-                color: !isStatsView ? "#5488d2" : "black",
+                color: !isStatsView ? "#004745" : "gray",
               }}
               className="fe fe-list  fs-20"
               onClick={() => setViewSelected("list")}
@@ -432,7 +432,7 @@ export default function PrivateEquityDashboard() {
             {renderCurrencyDropdown()}
           </div>
 
-          <Row className="row">
+          <Row className="row" style={{marginTop: 10}}>
             <Col lg={4} className="col-lg-4">
               <Card.Body className="card-body">
                 <Row className="row align-items-center">

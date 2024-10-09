@@ -943,7 +943,7 @@ export default function FamilyMember(props) {
       return (
         <div
           className="table-responsive"
-          style={{ marginTop: 15, marginBottom: 50 }}
+          style={{ marginTop: 5, marginBottom: 50 }}
         >
           <Table className="table border text-nowrap text-md-nowrap  mb-0">
             <thead className="bg-light">

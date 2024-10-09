@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from "react";
 import { Chart } from "chart.js";
-import { Card, Row, Form, Col, Button } from "react-bootstrap";
+import { Card, Row, Form, Col, Button, Modal } from "react-bootstrap";
 import Select from "react-select";
 //@ts-ignore
 import famhold from "../../assets/images/brand/famhold.png";
@@ -46,6 +46,9 @@ export default function Reports() {
   ];
 
   const [currency, setCurrency] = useState(defaultCurrency);
+  const [showModal, setShowModal] = useState(false);
+  const [isReportLoading, setIsReportLoading] = useState(false);
+
   const [monthStart, setMonthStart] = useState({
     value: pastMonthCapitalized,
     label: pastMonthCapitalized,
@@ -76,7 +79,7 @@ export default function Reports() {
     { label: "Obligaciones de activos", checked: true },
     { label: "Otros pagos variado", checked: true },
   ]);
-  
+
   const [investmentSections, setInvestmentSections] = useState([
     { label: "Balance patrimonial", checked: true },
     { label: "Inversiones bursatiles", checked: true },
@@ -85,13 +88,12 @@ export default function Reports() {
     { label: "Cuentas bancarias persona moral", checked: true },
     { label: "Cuentas bancarias persona física", checked: true },
   ]);
-  
+
   const [governanceSections, setGovernanceSections] = useState([
     { label: "Comite de inversion", checked: true },
     { label: "Consejo Familiar", checked: true },
     { label: "Virtual Family Office", checked: true },
   ]);
-  
 
   const accountCreationMonthIndex = months.indexOf(accountCreationDate.month);
   const pastMonthIndex = months.indexOf(pastMonthCapitalized);
@@ -388,6 +390,19 @@ export default function Reports() {
       fontSize: 10, // Adjust font size as needed
     },
   });
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+
+  const handleOpenModal = () => {
+    setShowModal(true);
+    setIsReportLoading(true);
+
+    setTimeout(() => {
+      setIsReportLoading(false);
+    }, 5000);
+  };
 
   const generateChartImage = () => {
     const canvas = document.createElement("canvas");
@@ -1791,7 +1806,9 @@ export default function Reports() {
             controlId="validationCustom04"
             className="form-group"
           >
-            <Form.Label>Tipo de reporte</Form.Label>
+            <Form.Label style={{ marginBottom: 10 }}>
+              Tipo de reporte
+            </Form.Label>
             <Select
               options={ReportTypeOptions}
               classNamePrefix="Select2"
@@ -1937,31 +1954,37 @@ export default function Reports() {
       if (category === "Administración") {
         setAdminSections((prevSections) =>
           prevSections.map((item) =>
-            item.label === section.label ? { ...item, checked: isChecked } : item
+            item.label === section.label
+              ? { ...item, checked: isChecked }
+              : item
           )
         );
       } else if (category === "Inversiones") {
         setInvestmentSections((prevSections) =>
           prevSections.map((item) =>
-            item.label === section.label ? { ...item, checked: isChecked } : item
+            item.label === section.label
+              ? { ...item, checked: isChecked }
+              : item
           )
         );
       } else if (category === "Governance") {
         setGovernanceSections((prevSections) =>
           prevSections.map((item) =>
-            item.label === section.label ? { ...item, checked: isChecked } : item
+            item.label === section.label
+              ? { ...item, checked: isChecked }
+              : item
           )
         );
       }
     };
-  
+
     return (
       <>
         <Row style={{ marginTop: 20, marginBottom: 40 }}>
           <Form.Label style={{ marginBottom: 15 }}>
-           Secciones del reporte
-            </Form.Label>
-          <Form.Group as={Col} md="4" className="form-group">  
+            Secciones del reporte
+          </Form.Label>
+          <Form.Group as={Col} md="4" className="form-group">
             <p style={{ color: "gray", fontSize: 12 }}>Administración</p>
             {adminSections.map((section, index) => (
               <Form.Check
@@ -1972,16 +1995,20 @@ export default function Reports() {
                 label={section.label}
                 checked={section.checked}
                 onChange={(e) =>
-                  handleCheckboxChange(section, "Administración", e.target.checked)
+                  handleCheckboxChange(
+                    section,
+                    "Administración",
+                    e.target.checked
+                  )
                 }
                 style={{ marginLeft: 15, marginTop: 8 }}
               />
             ))}
           </Form.Group>
-  
+
           {/* Inversiones Column */}
           <Form.Group as={Col} md="4" className="form-group">
-          <p style={{ color: "gray", fontSize: 12 }}>Inversiones</p>
+            <p style={{ color: "gray", fontSize: 12 }}>Inversiones</p>
             {investmentSections.map((section, index) => (
               <Form.Check
                 key={index}
@@ -1995,10 +2022,10 @@ export default function Reports() {
                 style={{ marginLeft: 15, marginTop: 8 }}
               />
             ))}
-          </Form.Group >
+          </Form.Group>
           {/* Governance Column */}
           <Form.Group as={Col} md="4" className="form-group">
-          <p style={{ color: "gray", fontSize: 12 }}>Governance</p>
+            <p style={{ color: "gray", fontSize: 12 }}>Governance</p>
             {governanceSections.map((section, index) => (
               <Form.Check
                 key={index}
@@ -2012,46 +2039,99 @@ export default function Reports() {
                 style={{ marginLeft: 15, marginTop: 8 }}
               />
             ))}
-          </Form.Group >
+          </Form.Group>
         </Row>
       </>
     );
   };
-  
-  
-  
+
   return (
     <Fragment>
       <Row>
         <div
           style={{
             minHeight: 550,
-            paddingLeft: 30
+            paddingLeft: 30,
           }}
         >
-          <Card.Title style={{ marginTop: 40, marginBottom: 40 }}>
+          <Card.Title style={{ marginTop: 30, marginBottom: 40 }}>
             <i
               style={{ marginRight: 9 }}
               className="fe fe-download text-black fs-15"
             ></i>
             Reportes de resultados y actividad
           </Card.Title>
+
+          <Modal
+            onHide={handleCloseModal}
+            show={showModal}
+            aria-labelledby="contained-modal-title-vcenter"
+            centered
+          >
+            {isReportLoading ? (
+              <div>
+                <div className="sk-circle">
+                  <div className="sk-circle1 sk-child"></div>
+                  <div className="sk-circle2 sk-child"></div>
+                  <div className="sk-circle3 sk-child"></div>
+                  <div className="sk-circle4 sk-child"></div>
+                  <div className="sk-circle5 sk-child"></div>
+                  <div className="sk-circle6 sk-child"></div>
+                  <div className="sk-circle7 sk-child"></div>
+                  <div className="sk-circle8 sk-child"></div>
+                  <div className="sk-circle9 sk-child"></div>
+                  <div className="sk-circle10 sk-child"></div>
+                  <div className="sk-circle11 sk-child"></div>
+                  <div className="sk-circle12 sk-child"></div>
+                </div>
+              </div>
+            ) : (
+              <>
+                <Modal.Header closeButton>
+                  <Modal.Title id="contained-modal-title-vcenter">
+                    Reporte creado con exito!
+                  </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                  Tu reporte se ha generado con exito. Para descragarlo presiona
+                  'Descargar reporte'
+                </Modal.Body>
+                <Modal.Footer>
+                  <Button className="custom-button" onClick={handleCloseModal}>
+                    <PDFDownloadLink
+                      document={<MyDocument data={pdfData} />}
+                      fileName={`${pdfData.title} ${reportsData.from.month}-${reportsData.from.year} a ${reportsData.to.month}-${reportsData.to.year}`}
+                    >
+                      {/* // @ts-ignore */}
+                      {({ loading }: { loading: boolean }) => (
+                        <span style={{color: 'white'}}>{loading ? "Creando reporte..." : "Descargar reporte"}</span>
+                      )}
+                    </PDFDownloadLink>
+                  </Button>
+                </Modal.Footer>
+              </>
+            )}
+          </Modal>
           {renderReportFilters()}
           {renderReportCategorySelection()}
 
           <div
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: "space-between",
-                marginBottom: 40
-              }}
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+              marginBottom: 40,
+            }}
+          >
+            <div></div>
+            <Button
+              onClick={handleOpenModal}
+              className="custom-button"
+              type="submit"
             >
-              <div></div>
-              <Button className="custom-button" type="submit">
-                Generar reporte
-              </Button>
-            </div>
+              Generar reporte
+            </Button>
+          </div>
         </div>
       </Row>
     </Fragment>

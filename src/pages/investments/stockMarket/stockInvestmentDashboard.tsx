@@ -400,7 +400,7 @@ export default function StockInvestmentDashboard() {
             {renderCurrencyDropdown()}
           </div>
 
-          <Row className="row">
+          <Row className="row" style={{marginTop: 10}}>
             <Col lg={4} className="col-lg-4">
               <Card.Body className="card-body">
                 <Row className="row align-items-center">
