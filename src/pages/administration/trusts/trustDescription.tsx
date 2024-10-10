@@ -852,7 +852,11 @@ export default function TrustDescription(props) {
               }}
             >
               <div></div>
-              <Button className="custom-button" type="submit">
+              <Button
+                style={{ position: "absolute", right: 25, bottom: 80 }}
+                className="custom-button"
+                type="submit"
+              >
                 Guardar
               </Button>
             </div>

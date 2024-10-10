@@ -57,7 +57,7 @@ export const companies = [
       {
         type: "family",
         pct: "100",
-        coreId: "43",
+        coreId: "23",
         name: "Francisco Carrasco Ramos",
         capitalSocial: "1500000",
       },
@@ -266,7 +266,7 @@ export const companies = [
       {
         type: "family",
         pct: "60",
-        coreId: "43",
+        coreId: "23",
         name: "Francisco Carrasco Ramos",
         capitalSocial: "1500000",
       },
@@ -432,14 +432,14 @@ export const companies = [
       {
         type: "family",
         pct: "30",
-        coreId: "23",
+        coreId: "12",
         name: "Javier Carrasco Nieto",
         capitalSocial: "1000000",
       },
       {
         type: "family",
         pct: "30",
-        coreId: "43",
+        coreId: "23",
         name: "Francisco Carrasco Ramos",
         capitalSocial: "1500000",
       },
@@ -698,7 +698,7 @@ export const companies = [
       {
         type: "trust",
         pct: "100",
-        coreId: 90,
+        coreId: 20,
         name: "0014233 Santander",
         capitalSocial: "2000000",
       },
@@ -818,7 +818,7 @@ export const companies = [
       {
         type: "family",
         pct: "20",
-        coreId: "43",
+        coreId: "23",
         name: "Francisco Carrasco Ramos",
         capitalSocial: "1500000",
       },
@@ -934,6 +934,16 @@ export const fideicomisos = [
         value: "2,000,000.00",
       },
       {
+        id: 25,
+        coreId: 85,
+        name: 'CN Market Transportation LLC',
+        type: 'company',
+        pct: '100',
+        value: '200,000.00',
+        currency: 'USD',
+        country: 'USA'
+      },
+      {
         id: 4,
         coreId: 1,
         type: 'bankAccount', 
@@ -987,24 +997,24 @@ export const fideicomisos = [
     purpose: "Dar claridad a la suceción del testamento de la Familia Aldana Ríos",
     content: [
       {
-        id: 1,
-        coreId: 29,
-        type: 'realState',
+        id: 99,
+        coreId: 23,
+        name: 'Nissan Frontier',
+        type: 'vehicle',
+        pct: '100',
+        value: '650,000.00',
         currency: 'MXN',
-        pct: 100,
-        country: 'México', 
-        name: "Casa Colinas del parque",
-        value: "2,500,000.00",
+        country: 'México'
       },
       {
-        id: 2,
-        coreId: 23,
-        type: 'company',
+        id: 53,
+        coreId: 499,
+        name: 'Scotia Bank - 6641232',
+        type: 'stockInvestment',
+        pct: '50',
+        value: '2,000,000.00',
         currency: 'MXN',
-        pct: 50,
-        country: 'México', 
-        name: "Agricola Carrasco SA de CV",
-        value: "10,000,000.00",
+        country: 'México'
       },
     ],
     country: "México",

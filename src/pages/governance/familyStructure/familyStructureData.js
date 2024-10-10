@@ -97,6 +97,24 @@ export const family = {
       },
       assets: [
         {
+          id: 91,
+          name: 'Grupo Carrasco Holding SA de CV',
+          type: 'company',
+          pct: '100',
+          value: '123,000,000.00',
+          currency: 'MXN',
+          country: 'México'
+        },
+        {
+          id: 53,
+          name: 'CN Farmer trade LLC',
+          type: 'company',
+          pct: '20',
+          value: '11,200,000.00',
+          currency: 'USD',
+          country: 'USA'
+        },
+        {
           id: 23,
           name: 'Agricola Carrasco SA de CV',
           type: 'company',
@@ -109,7 +127,7 @@ export const family = {
           id: 24,
           name: 'Servicios financieros del campo CN SA de CV',
           type: 'company',
-          pct: '50',
+          pct: '30',
           value: '10,000,000.00',
           currency: 'MXN',
           country: 'México'
@@ -164,7 +182,7 @@ export const family = {
           name: 'Scotia Bank - 6641232',
           type: 'stockInvestment',
           pct: '50',
-          value: '20,000,000.00',
+          value: '2,000,000.00',
           currency: 'MXN',
           country: 'México'
         },
@@ -228,24 +246,6 @@ export const family = {
         loansCollecting: []
       },
       assets: [
-        {
-          id: 23,
-          name: 'Agricola Carrasco SA de CV',
-          type: 'company',
-          pct: '40',
-          value: '10,000,000.00',
-          currency: 'MXN',
-          country: 'México'
-        },
-        {
-          id: 24,
-          name: 'Servicios financieros del campo CN SA de CV',
-          type: 'company',
-          pct: '40',
-          value: '10,000,000.00',
-          currency: 'MXN',
-          country: 'México'
-        },
         {
           id: 29,
           name: 'Casa Colinas del parque',
@@ -349,13 +349,13 @@ export const family = {
       },
       assets: [
         {
-          id: 24,
-          name: 'Servicios financieros del campo CN SA de CV',
+          id: 53,
+          name: 'CN Farmer trade LLC',
           type: 'company',
-          pct: '10',
-          value: '10,000,000.00',
-          currency: 'MXN',
-          country: 'México'
+          pct: '20',
+          value: '11,200,000.00',
+          currency: 'USD',
+          country: 'USA'
         },
       ]
     },
@@ -418,6 +418,24 @@ export const family = {
           value: '650,000.00',
           currency: 'MXN',
           country: 'México'
+        },
+        {
+          id: 24,
+          name: 'Servicios financieros del campo CN SA de CV',
+          type: 'company',
+          pct: '30',
+          value: '10,000,000.00',
+          currency: 'MXN',
+          country: 'México'
+        },
+        {
+          id: 53,
+          name: 'CN Farmer trade LLC',
+          type: 'company',
+          pct: '20',
+          value: '11,200,000.00',
+          currency: 'USD',
+          country: 'USA'
         },
       ]
     },

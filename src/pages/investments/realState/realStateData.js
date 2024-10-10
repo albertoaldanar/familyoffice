@@ -60,7 +60,7 @@ export const realstateData = [
       {
         type: "family",
         pct: "100",
-        coreId: "43",
+        coreId: "23",
         name: "Francisco Carrasco Ramos",
       },
     ],
@@ -141,14 +141,14 @@ export const realstateData = [
       {
         type: "family",
         pct: "50",
-        coreId: "23",
+        coreId: "43",
         name: "Diana Nieto Vega",
         capitalSocial: "1000000",
       },
       {
         type: "family",
         pct: "50",
-        coreId: "43",
+        coreId: "23",
         name: "Francisco Carrasco Ramos",
         capitalSocial: "1500000",
       },

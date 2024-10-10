@@ -207,7 +207,7 @@ export const otherWealthData = {
         {
           type: "family",
           pct: "100",
-          coreId: "43",
+          coreId: "23",
           name: "Francisco Carrasco Ramos",
         },
       ],
@@ -281,7 +281,7 @@ export const otherWealthData = {
         {
           type: "family",
           pct: "80",
-          coreId: "43",
+          coreId: "23",
           name: "Francisco Carrasco Ramos",
         },
         {
@@ -300,7 +300,7 @@ export const otherWealthData = {
         {
           type: "Persona física",
           pct: "100",
-          coreId: "43",
+          coreId: "23",
           name: "Francisco Carrasco Ramos",
         },
       ],
@@ -458,7 +458,7 @@ export const otherWealthData = {
         {
           type: "family",
           pct: "100",
-          coreId: 43,
+          coreId: 23,
           name: "Francisco Carrasco Ramos",
         },
       ],
@@ -493,7 +493,7 @@ export const otherWealthData = {
         {
           type: "family",
           pct: "100",
-          coreId: 43,
+          coreId: 23,
           name: "Francisco Carrasco Ramos",
         },
       ],
@@ -525,7 +525,7 @@ export const otherWealthData = {
         {
           type: "family",
           pct: "50",
-          coreId: "43",
+          coreId: "23",
           name: "Francisco Carrasco Ramos",
         },
         {
@@ -584,13 +584,13 @@ export const otherWealthData = {
         {
           type: "family",
           pct: "50",
-          coreId: "43",
+          coreId: "23",
           name: "Francisco Carrasco Ramos",
         },
         {
           type: "family",
           pct: "50",
-          coreId: "23",
+          coreId: "43",
           name: "Diana Nieto Vega",
         },
       ],
