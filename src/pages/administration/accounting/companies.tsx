@@ -203,7 +203,7 @@ export default function Companies() {
               </div>
             </div>
 
-            <Tab.Content style={{marginTop: 10}}>
+            <Tab.Content style={{marginTop: 20}}>
               <Tab.Pane eventKey="first">{renderCompanies()}</Tab.Pane>
 
               <Tab.Pane eventKey="second">{renderTrusts()}</Tab.Pane>

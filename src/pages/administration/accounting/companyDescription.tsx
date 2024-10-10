@@ -381,9 +381,9 @@ export default function CompanyDescription() {
                 }}
               >
                 <div></div>
-                <Link to={`${baseUrl}administration/company/${company.value}/company`}>
+                <p style={{marginBottom: -0}}>
                   {company.label}
-                </Link>
+                </p>
               </div>
 
               <p

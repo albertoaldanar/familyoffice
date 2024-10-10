@@ -705,20 +705,20 @@ export default function RealStateDashboard() {
               let borderColor;
               switch (type) {
                 case "payment":
-                  backgroundColor = "#B22222";
-                  borderColor = "#B22222";
+                  backgroundColor = "#5e9975";
+                  borderColor = "#5e9975";
                   break;
                 case "taxPerson":
-                  backgroundColor = "#6A5ACD";
-                  borderColor = "#6A5ACD";
+                  backgroundColor = "#7dc2ad";
+                  borderColor = "#7dc2ad";
                   break;
                 case "taxCompany":
-                  backgroundColor = "#DAA520";
-                  borderColor = "#DAA520";
+                  backgroundColor = "#004745";
+                  borderColor = "#004745";
                   break;
                 case "collecting":
-                  backgroundColor = "#3CB371";
-                  borderColor = "#3CB371";
+                  backgroundColor = "#99babd";
+                  borderColor = "#99babd";
                   break;
                 default:
                   backgroundColor = "gray";
