@@ -285,7 +285,7 @@ export default function FamilyStructure() {
             <Tab.Content className="panel-body">
               <Tab.Pane eventKey="first">
                 <Row>
-                  <Card style={{ minHeight: 450}}>
+                  <Card style={{ minHeight: 520}}>
                     {renderFamilyStructure()}
                   </Card>
                 </Row>

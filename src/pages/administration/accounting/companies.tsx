@@ -7,8 +7,71 @@ import { companies, fideicomisos } from "./accountingData";
 export default function Companies() {
   const renderCompanies = () => {
     return (
+
       <Col xl={12}>
-        <div
+        <Row style={{marginBottom: 15}}>
+            <Col lg={3} className="col-lg-4">
+              <div style={{ marginBottom: 10}}>
+                <Row className="row align-items-center">
+                  <Col xs={2} className="text-center">
+                    <span>
+                      <i className="fe fe-briefcase fs-20"></i>
+                    </span>
+                  </Col>
+                  <Col xs={10}>
+                    <p className="mb-0  text-muted-dark">
+                      Total valuación de personas morales
+                    </p>
+                    <h3 className="mt-2 mb-1 text-dark ">
+                      $53,00,00.00{" "}
+                      MXN
+                    </h3>
+                  </Col>
+                </Row>
+              </div>
+            </Col>
+            <Col lg={3} className="col-lg-4">
+              <div style={{marginBottom: 10}}>
+                <Row className="row align-items-center">
+                  <Col xs={2} className="text-center">
+                    <span>
+                      <i className="fe fe-phone-outgoing fs-20"></i>
+                    </span>
+                  </Col>
+                  <Col xs={10}>
+                    <p className="mb-0  text-muted-dark">
+                      Total prestamos por cobrar
+                    </p>
+                    <h3 className="mt-2 mb-1 text-dark ">
+                      $53,00,00.00{" "}
+                      MXN
+                    </h3>
+                  </Col>
+                </Row>
+              </div>
+            </Col>
+            {/* <Col lg={3} className="col-lg-4">
+              <div style={{marginBottom: 10}}>
+                <Row className="row align-items-center">
+                  <Col xs={2} className="text-center">
+                    <span>
+                      <i className="fe fe-phone-outgoing fs-20"></i>
+                    </span>
+                  </Col>
+                  <Col xs={10}>
+                    <p className="mb-0  text-muted-dark">
+                      Total prestamos por cobrar
+                    </p>
+                    <h3 className="mt-2 mb-1 text-dark fw-semibold">
+                      $53,00,00.00{" "}
+                      MXN
+                    </h3>
+                  </Col>
+                </Row>
+              </div>
+            </Col> */}
+          </Row>
+          <div
           style={{
             justifyContent: "space-between",
             display: "flex",
@@ -41,7 +104,7 @@ export default function Companies() {
                   <th>Valuación</th>
                   <th>RFC</th>
                   <th>País</th>
-                  <th>Accionistas</th>
+                  <th>Accionistas familiares</th>
                   <th></th>
                 </tr>
               </thead>
@@ -50,15 +113,15 @@ export default function Companies() {
                   <tr key={tb8}>
                     <td>{idx.razonSocial}</td>
                     <td>
-                      ${idx.valuacion} {idx.moneda}
+                      $ {idx.valuacion} {idx.moneda}
                     </td>
                     <td>{idx.rfc}</td>
                     <td>{renderFlag(idx.nationality)}</td>
                     <td>
                       <div style={{ display: "flex", flexDirection: "column" }}>
                         {idx.owners.map((owner, index) => (
-                          <div key={index} style={{ fontSize: 13 }}>
-                          - {owner.name}: {owner.pct}% <br />
+                          <div key={index} style={{ fontSize: 12 }}>
+                          - {owner.name}: <strong>{owner.pct}</strong>% <br />
                           </div>
                         ))}
                       </div>
@@ -76,7 +139,7 @@ export default function Companies() {
                         }/company`}
                       >
                         <i
-                          className="fe fe-arrow-right text-black fs-15"
+                          className="fe fe-arrow-right fs-15"
                         ></i>
                       </Link>
                     </td>
@@ -153,7 +216,7 @@ export default function Companies() {
                       <Link to={`${import.meta.env.BASE_URL}administration/trustDescription/${idx.id}`}
                       >
                         <i
-                          className="fe fe-arrow-right text-black fs-15"
+                          className="fe fe-arrow-right fs-15"
                         ></i>
                       </Link>
                     </td>
@@ -174,7 +237,7 @@ export default function Companies() {
           <Tab.Container id="left-tabs-example" defaultActiveKey="first">
             <div
               style={{
-                paddingBottom: 0,
+                paddingBottom: 8,
                 paddingLeft: 10,
                 marginTop: 20,
               }}

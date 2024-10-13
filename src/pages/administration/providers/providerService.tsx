@@ -57,7 +57,7 @@ export default function ProviderService(props) {
 
   return (
     <Fragment>
-      <Row>|
+      <Row>
         <div style={{ padding: 30}}>
           <Card.Title style={{ marginBottom: 30 }}>
             <Link

@@ -8,7 +8,7 @@ interface ResultsChartProps {
   utilidad: number[];
 }
 
-function currencyFormat(num: number) {
+function currencyFormat(num: number, currency?: string) {
   return "$" + num.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
 }
 
@@ -21,20 +21,31 @@ const ResultsChart: React.FC<ResultsChartProps> = (props) => {
 
   const options = {
     chart: {
-      height: 450,
+      height: 550,
       type: 'line',
       zoom: { enabled: false },
       toolbar: { show: false }
     },
-    dataLabels: { enabled: true },
+    dataLabels: { enabled: false },
     stroke: {
       width: [2, 2, 2],
       curve: 'smooth',
-      dashArray: [0, 8, 5]
     },
     legend: {
       tooltipHoverFormatter: function (val: string, opts: any) {
         return val + ' ' + currencyFormat(opts.w.globals.series[opts.seriesIndex][opts.dataPointIndex]) + ' ';
+      }
+    },
+    yaxis: {
+      labels: {
+        show: false // Hides the vertical numbers
+      }
+    },
+    tooltip: {
+      y: {
+        formatter: function (val: number, opts: any) {
+          return currencyFormat(val) + ' ';  // Formatting the value on hover
+        }
       }
     },
     markers: {

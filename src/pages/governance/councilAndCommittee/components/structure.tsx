@@ -30,7 +30,7 @@ export default function Structure(props) {
 
   return (
     <Row>
-      <Card style={{ minHeight: 450}}>
+      <Card style={{ minHeight: 520}}>
         {renderFamilyStructure()}
       </Card>
     </Row>
