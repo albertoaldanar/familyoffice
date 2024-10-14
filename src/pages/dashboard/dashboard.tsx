@@ -12,6 +12,7 @@ import { Link } from "react-router-dom";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
+import ResultsChart from "./lineChartPeriods";
 import ReactApexChart from "react-apexcharts";
 import { WorldMap } from "../../components/maps/simplemaps/data/simplemapdata";
 import listPlugin from "@fullcalendar/list";
@@ -298,9 +299,7 @@ export default function RealStateDashboard() {
             </Col>
             <Col xl={4} lg={6}>
               <div style={{ padding: 10 }}>
-                <p style={{ marginBottom: 20 }}>
-                  Distribución por moneda
-                </p>
+                <p style={{ marginBottom: 20 }}>Distribución por moneda</p>
                 <ReactApexChart
                   options={{
                     ...chartOptionsPercentage,
@@ -331,7 +330,12 @@ export default function RealStateDashboard() {
         }}
       >
         <Dropdown className="h-3">
-          <Dropdown.Toggle size="sm" color="default" type="button" className="custom-button">
+          <Dropdown.Toggle
+            size="sm"
+            color="default"
+            type="button"
+            className="custom-button"
+          >
             {currency} <span className="caret"></span>
           </Dropdown.Toggle>
           <Dropdown.Menu role="menu">
@@ -358,14 +362,14 @@ export default function RealStateDashboard() {
     const isActivityEmpty = activities.length === 0;
 
     return (
-      <Card.Body style={{marginBottom: 40}}>
+      <Card.Body style={{ marginBottom: 40 }}>
         <div
           className={!isActivityEmpty ? `timeline-label` : ""}
           style={{
             maxHeight: "550px",
             overflowX: "auto",
             whiteSpace: "nowrap",
-            paddingRight: 10
+            paddingRight: 10,
           }}
         >
           {isActivityEmpty ? (
@@ -378,10 +382,12 @@ export default function RealStateDashboard() {
           ) : (
             activities.map((activity, index) => (
               <div className="sales-activity mb-4 fs-13" key={index}>
-                <span className="text-muted ms-5" style={{marginBottom: 5}}>{activity.date}</span>
-                <h6 className="my-1 ms-5" >{activity.title}</h6>
+                <span className="text-muted ms-5" style={{ marginBottom: 5 }}>
+                  {activity.date}
+                </span>
+                <h6 className="my-1 ms-5">{activity.title}</h6>
                 <p className="mb-0 ms-5 text-muted fs-12 text-azure fw-semibold p-0">
-                    {activity.user} realizó la actividad.
+                  {activity.user} realizó la actividad.
                 </p>
               </div>
             ))
@@ -520,6 +526,19 @@ export default function RealStateDashboard() {
         </Row>
 
         {renderDonutStats()}
+        <Row style={{ marginBottom: 30, marginRight: 20, marginLeft: 20 }}>
+          <p style={{ marginBottom: 0 }}>
+            Valor de activos por periodo en {currency}
+          </p>
+          <ResultsChart currency={currency} year={2024} wealthBalancebyPeriod={dashboardData.wealthBalancebyPeriod} />
+        </Row>
+
+        <Row style={{ marginBottom: 30, marginRight: 20, marginLeft: 20 }}>
+          <p style={{ marginBottom: 0 }}>
+            Total pasivos por periodo en {currency}
+          </p>
+          <ResultsChart currency={currency} year={2024} wealthBalancebyPeriod={dashboardData.totalLiabilityByPeriod} />
+        </Row>
         {renderAssetCategories()}
         {renderByCountryStats()}
       </>
@@ -786,13 +805,7 @@ export default function RealStateDashboard() {
           Noticias destacadas del dia - Sabado 10 de agosto del 2024
         </Card.Title>
         {dashboardData.news.map((news) => (
-          <Col
-            xl={6}
-            lg={6}
-            sm={6}
-            key={news.id}
-            style={{ marginBottom: 20 }}
-          >
+          <Col xl={6} lg={6} sm={6} key={news.id} style={{ marginBottom: 20 }}>
             <Card
               style={{ boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", height: 600 }}
             >
@@ -803,7 +816,9 @@ export default function RealStateDashboard() {
                 alt={news.titulo}
               />
               <Card.Body>
-                <Card.Title style={{marginBottom: 20}}>{news.title}</Card.Title>
+                <Card.Title style={{ marginBottom: 20 }}>
+                  {news.title}
+                </Card.Title>
                 <p style={{ color: "gray", fontSize: 11, marginTop: -10 }}>
                   <strong style={{ fontWeight: "bold" }}>Categoria:</strong>{" "}
                   {news.category}
@@ -945,7 +960,7 @@ export default function RealStateDashboard() {
       return renderActivitiesListAndCalendar();
     } else if (selectedView === "opportunities") {
       return InvestmentOpportunities();
-    } else if(selectedView === "news"){
+    } else if (selectedView === "news") {
       return renderNews();
     }
 
@@ -954,7 +969,7 @@ export default function RealStateDashboard() {
   return (
     <Fragment>
       <Row>
-        <div style={{ minHeight: 500}}>
+        <div style={{ minHeight: 500 }}>
           <div
             style={{
               marginTop: 40,
@@ -968,7 +983,7 @@ export default function RealStateDashboard() {
               Virtual Family Office - {family.lastName}
             </Card.Title>
 
-            <div style={{ marginRight: 40}}>
+            <div style={{ marginRight: 40 }}>
               <OverlayTrigger
                 placement="top"
                 overlay={<Tooltip>Desglose patrimonial</Tooltip>}

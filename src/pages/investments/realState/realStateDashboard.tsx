@@ -26,8 +26,6 @@ export default function RealStateDashboard() {
   );
   const [content, setContent] = useState("");
 
-  console.log('byAssets number',byAssets.categories.length )
-
   const valueWithCurrencySelected = realStateStats.totalValueOfProperties.find(
     (value) => value.currency === currency
   );
