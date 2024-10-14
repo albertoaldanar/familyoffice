@@ -18,8 +18,8 @@ function Newsticker() {
     slidesToShow: 9,
     slidesToScroll: 1,
     autoplay: true,
-    speed: 4000,
-    autoplaySpeed: 4000,
+    speed: 3000,
+    autoplaySpeed: 3000,
     cssEase: "linear",
   };
 
@@ -27,17 +27,17 @@ function Newsticker() {
     <Fragment>
       <div className="container-fluid  news-ticker">
         <div>
-          <div className="best-ticker">
-            <div className="bn-news">
+          <div className="best-ticker" style={{ boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.03), 0px 1px 3px rgba(0, 0, 0, 0.02)"}}>
+            <div className="bn-news" >
               <ul>
                 <Slider {...settings}>
                   {sliderData.map((item, index) => (
                     <li key={index} className="text-muted fs-12 fw-semibold mx-2">
-                      <span className={`mx-1 fe ${item.icon}`} style={{ color: "gray"}}></span>
-                      <span className=" mx-1 d-inline-block" style={{ color: "gray" }}>
+                      <span className={`mx-1 fe ${item.icon}`} style={{ color: "#004745"}}></span>
+                      <span className=" mx-1 d-inline-block" style={{ color: "#004745" }}>
                         {item.title}:
                       </span>
-                      <span className="bn-positive me-4" style={{ color: "gray" }}>
+                      <span className="bn-positive me-4" style={{ color: "#004745" }}>
                         {item.value}
                       </span>
                     </li>
