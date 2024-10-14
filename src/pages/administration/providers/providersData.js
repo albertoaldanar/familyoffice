@@ -15,7 +15,7 @@ export const providers = [
             id: 1,
             coreId: 29,
             type: 'realState',
-            name: "Casa Colinas del parque",
+            name: "Casa La primavera San Anselmo 2083",
           },
         ],
         telefono: '6671057068',
@@ -33,6 +33,28 @@ export const providers = [
             descripcion: ''
           }
         ]
+      }
+    ],
+  },
+  {
+    id: 98,
+    categoria: "Fiscalistas",
+    mostrar: true,
+    proveedores: [
+      {
+        id: 1,
+        nombre: 'Agustín Reyes', 
+        empresa: 'Reyes y asociados',
+        type: 'Fiscalista',
+        location: 'CDMX',
+        linkedAssets: [
+        ],
+        telefono: '5512057068',
+        correo: 'agustin@reyesyasociados.com',
+        puesto: 'Fiscalista',
+        isMemberIC: false,
+        isMemberFC: false,
+        registroDeServicios: []
       }
     ],
   },
@@ -102,7 +124,21 @@ export const providers = [
         isMemberFC: true,
         linkedAssets: [],
         registroDeServicios: []
-      } 
+      },      
+      {
+        id: 554,
+        nombre: 'Ruben Cota', 
+        empresa: 'ABC Finanzas',
+        location: 'Guadalajara, Jalisco',
+        telefono: '6671057068',
+        type: 'Consultor Financiero',
+        correo: 'santiago@ortiz.com',
+        puesto: 'Director',
+        isMemberIC: true,
+        isMemberFC: false,
+        linkedAssets: [],
+        registroDeServicios: []
+      }
     ],
   },
   {
@@ -136,7 +172,7 @@ export const providers = [
             concepto: 'Escritrura casa de la marina',
             reciboOFactura: 'https://googledrive.com/erg3440398f4fmv',
             documentoOEntrgable: 'https://googledrive.com/erg3440398f4fmv',
-            descripcion: 'Se escrituro la casa de la marina Mazatlan, Sinaloa.'
+            descripcion: 'Se escrituro Departamento Puerta Cabo Village.'
           }
         ]
       },

@@ -1222,7 +1222,7 @@ export default function CompanyDescription() {
     return (
       <div style={{ marginTop: 10 }}>
         <Tab.Container id="left-tabs-example" defaultActiveKey="first-finance">
-          <div className="tabs-menu2" style={{ marginBottom: 10 }}>
+          <div className="tabs-menu2" style={{ marginBottom: 0 }}>
             <Nav
               variant="pills"
               as="ul"
@@ -1396,7 +1396,7 @@ export default function CompanyDescription() {
       <Row>
         <div style={{ paddingBottom: 20, minHeight: 550 }}>
           <Card.Title
-            style={{ marginLeft: 15, marginBottom: 0, marginTop: 35 }}
+            style={{ marginLeft: 15, marginBottom: 10, marginTop: 35 }}
           >
             <Link
                 style={{color: '#696969', fontSize: 16, marginBottom: 20, marginRight: 15}}

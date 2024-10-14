@@ -190,7 +190,7 @@ export const dashboardData = {
     },
     {
       coreId: '21',
-      title: "Cobro de arrendamiento Marina Mazaltán",
+      title: "Cobro de arrendamiento Departamento Puerta Cabo Village",
       start: "2024-09-05",
       end: "2024-09-05",
       type: "collecting",

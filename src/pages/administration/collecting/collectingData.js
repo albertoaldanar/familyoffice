@@ -263,7 +263,7 @@ export const arrendamientos = [
     country: 'México',
     proxCobro: "22/09/2024",
     tenantPhone: '669194849',
-    concepto: "Renta oficinas Aldana",
+    concepto: "Renta oficinas Mutualismo",
     monto: "45,000.00",
     contrato: "",
     proxpago: "1 dia",

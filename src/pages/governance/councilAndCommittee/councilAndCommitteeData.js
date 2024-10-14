@@ -29,6 +29,18 @@ export const councilAndCommittieesData = {
         id: "24",
         providerCategory: 50,
       },
+      {
+        id: "254",
+        providerCategory: 50,
+        name: 'Santiago Ortiz', 
+        role: 'Consultor Financiero',
+      },
+      {
+        id: "554",
+        providerCategory: 50,
+        name: 'Ruben Cota', 
+        role: ' Director ABC Finanzas',
+      } 
     ],
     meetings: [
       {
@@ -168,7 +180,7 @@ export const councilAndCommittieesData = {
         date: "12/05/2024",
         time: "10:00 am",
         modality: "Presencial",
-        location: "Oficinas Aldana",
+        location: "Oficinas Mutualismo",
         meetingSubjects: [
           "Esta junta se realizo para presentar una oportunidad de inversion de un desarrollo inmobiliario en madrid.",
         ],
@@ -508,6 +520,12 @@ export const councilAndCommittieesData = {
         id: "254",
         providerCategory: 50,
       },
+      {
+        providerCategory: 98,
+        id: "1",
+        name: 'Agustín Reyes', 
+        role: 'Fiscalista',
+      }
     ],
     meetings: [
       {

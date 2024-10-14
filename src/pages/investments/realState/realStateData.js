@@ -1,12 +1,12 @@
 export const realstateData = [
   {
     id: 24,
-    nombre: "Departamento costa veleros la marina",
+    nombre: "Departamento Puerta Cabo Village",
     moneda: "MXN",
     escrituras: "https://www.google.drive/1423nger",
     valuacion: "3,000,000.00",
-    location: "Col la marina mazatlan camaron sabalo CP 233",
-    ciudad: "Mazatlán, Sinaloa",
+    location: "Col la marina, Los cabos, BCS CP 233",
+    ciudad: "Los cabos, BCS",
     country: "México",
     percentage: "100",
     mt2: "250",
@@ -67,13 +67,13 @@ export const realstateData = [
   },
   {
     id: 29,
-    nombre: "Casa Colinas del parque",
+    nombre: "Casa La primavera San Anselmo 2083",
     contacts: [],
     obligations: {
       popertyTaxes: [
         {
           id: 2,
-          name: "Predial - Casa Colinas del parque",
+          name: "Predial - Casa La primavera San Anselmo 2083",
           monto: "15,350.00",
           moneda: "MXN",
           proxPago: "29/09/2024",
@@ -128,7 +128,7 @@ export const realstateData = [
     valuacion: "7,500,000.00",
     country: "México",
     ciudad: "Culiacan, Sinaloa",
-    location: "Col Montebello Calle cipres 322 Privada colinas del parque",
+    location: "La primavera San Anselmo 2083",
     percentage: "100",
     mt2: "1250",
     propertyType: "Casa",
@@ -164,7 +164,7 @@ export const realstateData = [
       popertyTaxes: [
         {
           id: 2,
-          name: "Predial - Casa Colinas del parque",
+          name: "Predial - Casa La primavera San Anselmo 2083",
           monto: "15,350.00",
           moneda: "MXN",
           proxPago: "29/09/2024",
@@ -172,17 +172,7 @@ export const realstateData = [
           frecuenciaDePago: "Anual",
         },
       ],
-      mantainances: [
-        {
-          id: 12,
-          tipo: "Inmobiliario",
-          pagoA: "Administración colinas",
-          monto: "4,000.00",
-          conuntry: 'México',
-          proxPago: "12/12/2024",
-          moneda: 'MXN',
-        },
-      ],
+      mantainances: [],
       rentsCollecting: [
         {
           id: 8,
@@ -219,6 +209,154 @@ export const realstateData = [
       "https://media.istockphoto.com/id/1165384568/photo/europe-modern-complex-of-residential-buildings.jpg?s=612x612&w=0&k=20&c=iW4NBiMPKEuvaA7h8wIsPHikhS64eR-5EVPfjQ9GPOA=",
     ],
   },
+  {
+    id: 11,
+    nombre: "Casa Mission Hills",
+    ciudad: "San Diego, California",
+    contacts: [],
+    containedIntrusts: [],
+    obligations: {
+      popertyTaxes: [
+        {
+          id: 4,
+          name: "Predial - Casa Mission Hills",
+          monto: "8,350.00",
+          moneda: "USD",
+          proxPago: "29/09/2024",
+          country: "USA",
+          frecuenciaDePago: "Anual",
+        },
+      ],
+      mantainances: [],
+      rentsCollecting: [], 
+      debt: [],
+      insurances: [],
+    },
+    moneda: "USD",
+    country: "USA",
+    escrituras: "https://www.google.drive/1423nger",
+    valuacion: "1,500,000.00",
+    location: "4049 Jackdaw St San Diego, California",
+    percentage: "100",
+    mt2: "2250",
+    propertyType: "Casa",
+    owners: [
+      {
+        type: "family",
+        pct: "100",
+        coreId: "23",
+        name: "Francisco Carrasco Ramos",
+        capitalSocial: "1500000",
+      },
+    ],
+    images: [
+      "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pexels.com%2Fsearch%2Fapartment%2520building%2F&psig=AOvVaw1zYHqxmpBoPCXfkEVBI9UX&ust=1719262565828000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCNjk16XO8oYDFQAAAAAdAAAAABAE",
+      "https://img.zumpercdn.com/209027862/1280x960",
+      "https://media.istockphoto.com/id/1165384568/photo/europe-modern-complex-of-residential-buildings.jpg?s=612x612&w=0&k=20&c=iW4NBiMPKEuvaA7h8wIsPHikhS64eR-5EVPfjQ9GPOA=",
+    ],
+  },
+  {
+    "id": 12,
+    "nombre": "Casa Madrid Central",
+    "ciudad": "Madrid, España",
+    "contacts": [],
+    "containedIntrusts": [],
+    "obligations": {
+      "popertyTaxes": [
+        {
+          "id": 12,
+          "name": "IBI - Casa Madrid Central",
+          "monto": "4,200.00",
+          "moneda": "EUR",
+          "proxPago": "15/10/2024",
+          "country": "España",
+          "frecuenciaDePago": "Anual"
+        }
+      ],
+      "mantainances": [
+        {
+          "id": 28,
+          "tipo": "Inmobiliario",
+          "pagoA": "Comunidad de Propietarios",
+          "monto": "400.00",
+          "conuntry": "España",
+          "proxPago": "30/11/2024",
+          "moneda": "EUR"
+        }
+      ],
+      "rentsCollecting": [],
+      "debt": [],
+      "insurances": []
+    },
+    "moneda": "EUR",
+    "country": "España",
+    "escrituras": "https://www.google.drive/1423abc",
+    "valuacion": "1,250,000.00",
+    "location": "Calle Mayor, Madrid",
+    "percentage": "100",
+    "mt2": "1800",
+    "propertyType": "Casa",
+    "owners": [
+      {
+        "type": "family",
+        "pct": "100",
+        "coreId": "23",
+        "name": "Francisco Carrasco Ramos",
+        "capitalSocial": "1250000"
+      }
+    ],
+    "images": [
+      "https://media.istockphoto.com/id/1187636063/photo/famous-streets-in-madrid.jpg?s=612x612&w=0&k=20&c=8GTLGpgvjPZgR9ZkDdjgGmbO19BOYKefZ8UvPIWcJeQ=",
+      "https://media.istockphoto.com/id/1057131050/photo/modern-apartment-building-in-madrid.jpg?s=612x612&w=0&k=20&c=6EfE0XjrJAI6WjCoVXUmVrGhXtMkPAxdsvumGRlFlWc=",
+      "https://media.istockphoto.com/id/1179776195/photo/historic-houses-in-madrid.jpg?s=612x612&w=0&k=20&c=ARwlg1GCThlwi7x2CM3VYeFt-tdQyAvtFofojAoZ9uc="
+    ]
+  },
+  {
+    "id": 14,
+    "nombre": "Casa San Ángel",
+    "ciudad": "Ciudad de México, México",
+    "contacts": [],
+    "containedIntrusts": [],
+    "obligations": {
+      "popertyTaxes": [
+        {
+          "id": 13,
+          "name": "Predial - Casa San Ángel",
+          "monto": "95,000.00",
+          "moneda": "MXN",
+          "proxPago": "20/12/2024",
+          "country": "México",
+          "frecuenciaDePago": "Anual"
+        }
+      ],
+      "mantainances": [],
+      "rentsCollecting": [],
+      "debt": [],
+      "insurances": []
+    },
+    "moneda": "MXN",
+    "country": "México",
+    "escrituras": "https://www.google.drive/1545ghi",
+    "valuacion": "20,000,000.00",
+    "location": "Calle San Ángel 456, Ciudad de México",
+    "percentage": "100",
+    "mt2": "3000",
+    "propertyType": "Casa",
+    "owners": [
+      {
+        "type": "family",
+        "pct": "100",
+        "coreId": "23",
+        "name": "Francisco Carrasco Ramos",
+        "capitalSocial": "20000000"
+      }
+    ],
+    "images": [
+      "https://media.istockphoto.com/id/223456789/photo/san-angel-house.jpg",
+      "https://media.istockphoto.com/id/323456789/photo/modern-san-angel-mexico.jpg",
+      "https://media.istockphoto.com/id/423456789/photo/luxury-san-angel-homes.jpg"
+    ]
+  }
 ];
 
 export const realStateStats = {
@@ -307,7 +445,7 @@ export const realStateStats = {
   ],
   byAssets: [
     {
-      type: "Departamento costa veleros la marina",
+      type: "Departamento Puerta Cabo Village",
       value: [
         { currency: "MXN", value: 3000000 },
         { currency: "USD", value: 157982.04 },
@@ -323,7 +461,7 @@ export const realStateStats = {
       ],
     },
     {
-      type: "Casa Colinas del parque",
+      type: "Casa La primavera San Anselmo 2083",
       value: [
         { currency: "MXN", value: 7500000 },
         { currency: "USD", value: 394955.11 },

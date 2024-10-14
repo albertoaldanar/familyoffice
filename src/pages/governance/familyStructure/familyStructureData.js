@@ -41,7 +41,7 @@ export const family = {
       dob: '06/02/1963',
       regimenFiscal: 'Regimen de Dividendos',
       generation: 1,
-      address: 'Col Montebello Calle Cipres 233 Privada Colinas del Parque 81076',
+      address: 'Casa La primavera San Anselmo 2083',
       gender: 'Masculino',
       source: 'root',
       rfc: 'AJFNIEU',
@@ -143,7 +143,7 @@ export const family = {
         },
         {
           id: 29,
-          name: 'Casa Colinas del parque',
+          name: 'Casa La primavera San Anselmo 2083',
           type: 'realState',
           pct: '50',
           value: '7,500,000.00',
@@ -152,7 +152,7 @@ export const family = {
         },
         {
           id: 24,
-          name: 'Departamento costa veleros la marina',
+          name: 'Departamento Puerta Cabo Village',
           type: 'realState',
           pct: '100',
           value: '3,000,000.00',
@@ -220,7 +220,7 @@ export const family = {
         }
       ],
       dob: '12/07/1963',
-      address: 'Col Montebello Calle Cipres 233 Privada Colinas del Parque 81076',
+      address: 'Casa La primavera San Anselmo 2083',
       regimenFiscal: 'Regimen de Dividendos',
       generation: 1,
       gender: 'Femenino',
@@ -248,7 +248,7 @@ export const family = {
       assets: [
         {
           id: 29,
-          name: 'Casa Colinas del parque',
+          name: 'Casa La primavera San Anselmo 2083',
           type: 'realState',
           pct: '50',
           value: '7,500,000.00',
@@ -295,7 +295,7 @@ export const family = {
         }
       ],
       dob: '10/25/1991',
-      address: 'Col Montebello Calle Cipres 233 Privada Colinas del Parque 81076',
+      address: 'Casa La primavera San Anselmo 2083',
       gender: 'Femenino',
       rfc: 'AAR2313B',
       regimenFiscal: 'Régimen Simplificado de Confianza (RESICO)',
@@ -370,7 +370,7 @@ export const family = {
         }
       ],
       dob: '02/16/1994',
-      address: 'Col Montebello Calle Cipres 233 Privada Colinas del Parque 81076',
+      address: 'Casa La primavera San Anselmo 2083',
       gender: 'Masculino',
       rfc: 'AAR4Z13B',
       regimenFiscal: 'Regimen de Introducción Fiscal (RIF)',
@@ -471,7 +471,7 @@ export const family = {
         loansCollecting: []
       },
       dob: '03/18/1998',
-      address: 'Col Montebello Calle Cipres 233 Privada Colinas del Parque 81076',
+      address: 'Casa La primavera San Anselmo 2083',
       gender: 'Femenino',
       rfc: 'AAR9413B',
       regimenFiscal: 'Régimen Simplificado de Confianza (RESICO)',
@@ -497,7 +497,7 @@ export const family = {
         loansCollecting: []
       },
       gender: 'Masculino',
-      address: 'Col Montebello Calle Cipres 233 Privada Colinas del Parque 81076',
+      address: 'Casa La primavera San Anselmo 2083',
       rfc: null,
       dob: '06/05/2012',
       regimenFiscal: null,

@@ -38,7 +38,11 @@ const ResultsChart: React.FC<ResultsChartProps> = (props) => {
     },
     yaxis: {
       labels: {
-        show: false // Hides the vertical numbers
+        show: true,
+        formatter: function (value) {
+          console.log('¿', value.toFixed(2))
+          return value.toFixed(2);
+        }
       }
     },
     tooltip: {
@@ -65,7 +69,7 @@ const ResultsChart: React.FC<ResultsChartProps> = (props) => {
     grid: { borderColor: 'rgba(119, 119, 142, 0.1)' }
   };
   //@ts-ignore
-  return <ReactApexChart options={options} series={series} type="line" height={300} />;
+  return <ReactApexChart options={options} series={series} type="line" height={320} />;
 };
 
 export default ResultsChart;

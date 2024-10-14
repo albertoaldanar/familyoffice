@@ -17,8 +17,8 @@ export const reportsData = {
     "Declaración Anual Agricola Carrasco SA de CV",
     "Delcaración Anual Servicios financieros del campo CN SA de CV",
     "Cobro de prestamo Intrafamiliar Agricola Carrasco SA de CV a Adriana Carrasco Nieto (4)",
-    "Pago de credito hipotecario - Departamento la Marina (4)",
-    "Pago de mantenimento Vehicular - Departamento la Marina (2)",
+    "Pago de credito hipotecario - Departamento Cabo la Marina (4)",
+    "Pago de mantenimento Vehicular - Departamento Cabo la Marina (2)",
     "Pago de seguro Médico (MAPFRE) Adriana Carrasco Nieto",
     "Pago de arrendamiento inmobiliario (Departamento Londres) - Sofia Carrasco Nieto (4)",
   ],
@@ -475,7 +475,7 @@ export const reportsData = {
   assetsObligations: {
     realState: [
       {
-        name: "Casa Montebello Cipres",
+        name: "Casa La primavera San Anselmo 2083",
         location: "México",
         owners: [
           {
@@ -533,7 +533,7 @@ export const reportsData = {
         rentCollecting: [],
       },
       {
-        name: "Departamento La marina",
+        name: "Departamento Puerta Cabo Village",
         location: "México",
         owners: [
           {

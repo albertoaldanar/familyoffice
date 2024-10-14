@@ -74,7 +74,7 @@ export const wealthStructure = {
     {
       id: 24,
       coreId: 29,
-      name: "Casa Colinas del parque",
+      name: "Casa La primavera San Anselmo 2083",
       value: "2,500,000.00",
       source: 2,
     },
@@ -301,19 +301,19 @@ export const otherWealthData = {
           type: "Persona física",
           pct: "100",
           coreId: "23",
-          name: "Francisco Carrasco Ramos",
-        },
+          name: "Francisco Carrasco Ramos"
+        }
       ],
       contacts: [
         {
           id: 1,
-          name: 'Raul Gallego León',
-          type: 'Banquero privado',
+          name: "Raul Gallego León",
+          type: "Banquero privado",
           categoryCoreId: 50,
           coreId: 34,
-          number: '6691481888',
-          location: 'Mazatlán, Sinaloa',
-          email: 'raul@gallegosbanca.com'
+          number: "6691481888",
+          location: "Mazatlán, Sinaloa",
+          email: "raul@gallegosbanca.com"
         }
       ],
       bank: "Santander",
@@ -322,7 +322,7 @@ export const otherWealthData = {
       accountType: "Inversión",
       value: "1000000",
       currency: "MXN",
-      lastUpdate: "30/05/2024",
+      lastUpdate: "30/05/2024"
     },
     {
       id: 2,
@@ -331,8 +331,8 @@ export const otherWealthData = {
           type: "Persona moral",
           pct: "100",
           coreId: 23,
-          name: "Agricola Carrasco SA de CV",
-        },
+          name: "Agricola Carrasco SA de CV"
+        }
       ],
       contacts: [],
       bank: "BBVA",
@@ -341,8 +341,117 @@ export const otherWealthData = {
       accountType: "Corriente",
       value: "30000",
       currency: "MXN",
-      lastUpdate: "30/05/2024",
+      lastUpdate: "30/05/2024"
     },
+    {
+      id: 3,
+      owners: [
+        {
+          type: "Persona física",
+          pct: "100",
+          coreId: "23",
+          name: "Francisco Carrasco Ramos"
+        }
+      ],
+      contacts: [
+        {
+          id: 2,
+          name: "John Doe",
+          type: "Private Banker",
+          categoryCoreId: 51,
+          coreId: 35,
+          number: "1234567890",
+          location: "Los Angeles, California",
+          email: "john@usabank.com"
+        }
+      ],
+      bank: "Bank of America",
+      accountNumber: "987654321",
+      country: "USA",
+      accountType: "Investment",
+      value: "50000",
+      currency: "USD",
+      lastUpdate: "15/06/2024"
+    },
+    {
+      id: 4,
+      owners: [
+        {
+          type: "Persona física",
+          pct: "100",
+          coreId: "23",
+          name: "Francisco Carrasco Ramos"
+        }
+      ],
+      contacts: [
+        {
+          id: 3,
+          name: "Jane Smith",
+          type: "Private Banker",
+          categoryCoreId: 52,
+          coreId: 36,
+          number: "9876543210",
+          location: "New York, USA",
+          email: "jane@usabank.com"
+        }
+      ],
+      bank: "Chase",
+      accountNumber: "123987654",
+      country: "USA",
+      accountType: "Checking",
+      value: "20000",
+      currency: "USD",
+      lastUpdate: "20/06/2024"
+    },
+    {
+      id: 5,
+      owners: [
+        {
+          type: "Persona física",
+          pct: "100",
+          coreId: "23",
+          name: "Francisco Carrasco Ramos"
+        }
+      ],
+      contacts: [
+        {
+          id: 4,
+          name: "Carlos López",
+          type: "Banquero privado",
+          categoryCoreId: 53,
+          coreId: 37,
+          number: "5551234567",
+          location: "Monterrey, México",
+          email: "carlos@bancomexico.com"
+        }
+      ],
+      bank: "Scotiabank",
+      accountNumber: "765432109",
+      country: "México",
+      accountType: "Inversión",
+      value: "750000",
+      currency: "MXN",
+      lastUpdate: "05/07/2024"
+    },
+    {
+      id: 6,
+      owners: [
+        {
+          type: "Persona física",
+          pct: "100",
+          coreId: "23",
+          name: "Francisco Carrasco Ramos"
+        }
+      ],
+      contacts: [],
+      bank: "HSBC",
+      accountNumber: "555666777",
+      country: "México",
+      accountType: "Corriente",
+      value: "50000",
+      currency: "MXN",
+      lastUpdate: "12/07/2024"
+    }
   ],
   privateEquity: [
     {
