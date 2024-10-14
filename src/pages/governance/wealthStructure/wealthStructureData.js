@@ -259,6 +259,92 @@ export const otherWealthData = {
       ],
       containedIntrusts: [],
     },
+    {
+      id: 32,
+      model: "Q8",
+      brand: "Audi",
+      country: "USA",
+      value: "67000",
+      currency: "USD",
+      circulationCard: "",
+      year: "2018",
+      color: "Gris",
+      platesNumber: "N43RNB1",
+      invoice: "https://googledrive.com/erg3440398f4fmv",
+      contacts: [],
+      obligations: {
+        mantainances: [],
+        rentsCollecting: [], 
+        debt: [], 
+        insurances: [
+          {
+            id: 123,
+            anualCost: "2,000.00",
+            country: 'México',
+            proxPago: "01/11/2024",
+            nombreAseguradora: "MAPFRE",
+            moneda: "USD",
+            vigenciaDel: "12/01/2024",
+            vigenciaAl: "12/01/2024",
+          }
+        ]
+      },
+      owners: [
+        {
+          type: "company",
+          pct: "100",
+          coreId: 85,
+          name: " CN Market Transportation LLC",
+        },
+      ],
+      containedIntrusts: [],
+    },
+    {
+      id: 23,
+      model: "Frontier",
+      brand: "Nissan",
+      country: "México",
+      value: "640000",
+      currency: "MXN",
+      circulationCard: "",
+      year: "2015",
+      color: "Gris",
+      platesNumber: "AARBYNB1",
+      invoice: "https://googledrive.com/erg3440398f4fmv",
+      contacts: [],
+      obligations: {
+        mantainances: [],
+        rentsCollecting: [], 
+        debt: [], 
+        insurances: [
+          {
+            id: 24,
+            anualCost: "23,000.00",
+            country: 'México',
+            proxPago: "01/11/2024",
+            nombreAseguradora: "Seguros Monterrey",
+            moneda: "MXN",
+            vigenciaDel: "12/01/2024",
+            vigenciaAl: "12/01/2024",
+          }
+        ]
+      },
+      owners: [
+        {
+          type: "company",
+          pct: "50",
+          coreId: 23,
+          name: "Agricola Carrasco SA de CV",
+        },
+        {
+          type: "trust",
+          pct: "50",
+          coreId: 90,
+          name: "144002 BBVA",
+        },
+      ],
+      containedIntrusts: [],
+    },
   ],
   artAndOthers: [
     {
