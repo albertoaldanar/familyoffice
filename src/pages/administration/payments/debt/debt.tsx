@@ -19,7 +19,7 @@ export default function Debt() {
           {" "}
           <i
             className="fe fe-map-pin"
-            style={{ color: "gray", marginRight: 10, fontSize: 14 }}
+            style={{ color: "gray", marginRight: 10, fontSize: 14, }}
           ></i>{" "}
           {type}
         </td>
@@ -66,6 +66,7 @@ export default function Debt() {
         <td
           style={{
             fontSize: 13,
+            textDecoration: 'underline'
           }}
         >
           <Link
@@ -80,6 +81,7 @@ export default function Debt() {
         <td
           style={{
             fontSize: 13,
+            textDecoration: 'underline'
           }}
         >
           <Link
@@ -89,11 +91,12 @@ export default function Debt() {
           </Link>
         </td>
       );
-    }  else if (type === "Credito empresarial" && linkedItemId) {
+    }  else if (type === "Empresarial" && linkedItemId) {
       return (
         <td
           style={{
             fontSize: 13,
+            textDecoration: 'underline'
           }}
         >
           <Link
@@ -109,6 +112,7 @@ export default function Debt() {
       <td
         style={{
           fontSize: 13,
+          textDecoration: 'underline'
         }}
       >
         <Link to={`${baseUrl}governance/familyMember/${linkedItemId}`}>

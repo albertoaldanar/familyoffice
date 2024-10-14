@@ -53,6 +53,7 @@ export default function Mantainance() {
         <td
           style={{
             fontSize: 13,
+            textDecoration: 'underline'
           }}
         >
           <Link to={`${baseUrl}governance/wealthItem/type/realState/id/${linkedItemId}`}>
@@ -65,6 +66,7 @@ export default function Mantainance() {
         <td
           style={{
             fontSize: 13,
+            textDecoration: 'underline'
           }}
         >
           <Link to={`${baseUrl}governance/wealthItem/type/vehicle/id/${linkedItemId}`}>
@@ -78,6 +80,7 @@ export default function Mantainance() {
       <td
       style={{
         fontSize: 13,
+        textDecoration: 'underline'
       }}
       >
         {name}

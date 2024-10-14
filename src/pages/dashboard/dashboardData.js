@@ -296,6 +296,16 @@ export const dashboardData = {
       ] 
     }, 
   ], 
+  byCurrency: [
+    {
+      type: 'USD', 
+      value: 19
+    }, 
+    {
+      type: 'MXN', 
+      value: 81
+    }, 
+  ], 
   byOwners: [
     {
       type: 'Francisco Carrasco Ramos', 

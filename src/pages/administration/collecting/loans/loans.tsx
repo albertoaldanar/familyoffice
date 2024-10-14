@@ -64,6 +64,7 @@ export default function LoansCollecting(props) {
         <td
           style={{
             fontSize: 13,
+            textDecoration: 'underline'
           }}
         >
           <Link
@@ -78,6 +79,7 @@ export default function LoansCollecting(props) {
         <td
           style={{
             fontSize: 13,
+            textDecoration: 'underline'
           }}
         >
           <Link

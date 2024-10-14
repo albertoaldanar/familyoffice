@@ -20,6 +20,7 @@ export default function InsurancePayment() {
         <td
           style={{
             fontSize: 13,
+            textDecoration: 'underline'
           }}
         >
           <Link to={`${baseUrl}governance/wealthItem/type/realState/id/${linkedItemId}`}>
@@ -32,6 +33,7 @@ export default function InsurancePayment() {
         <td
           style={{
             fontSize: 13,
+            textDecoration: 'underline'
           }}
         >
           <Link to={`${baseUrl}governance/wealthItem/type/vehicle/id/${linkedItemId}`}>
@@ -44,6 +46,7 @@ export default function InsurancePayment() {
         <td
         style={{
           fontSize: 13,
+          textDecoration: 'underline'
         }}
       >
         <Link to={`${baseUrl}governance/familyMember/${linkedItemId}`}>
@@ -135,7 +138,6 @@ export default function InsurancePayment() {
                       }}
                     >
                       <Link
-                        style={{textDecoration: "underline",}}
                         to={`${baseUrl}administration/insuranceDescription/${insurance.id}`}
                       >
                       <i

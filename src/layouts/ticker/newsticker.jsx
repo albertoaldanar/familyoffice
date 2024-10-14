@@ -13,13 +13,13 @@ import { EffectFade, Navigation, Pagination } from "swiper";
 
 function Newsticker() {
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     slidesToShow: 9,
     slidesToScroll: 1,
     autoplay: true,
-    speed: 3500,
-    autoplaySpeed: 2000,
+    speed: 4000,
+    autoplaySpeed: 4000,
     cssEase: "linear",
   };
 
@@ -32,12 +32,12 @@ function Newsticker() {
               <ul>
                 <Slider {...settings}>
                   {sliderData.map((item, index) => (
-                    <li key={index} className="text-muted fs-12 fw-semibold mx-3">
-                      <span className={`mx-1 fe ${item.icon}`} style={{ color: "#1c2b2e"}}></span>
-                      <span className=" mx-1 d-inline-block" style={{ color: "#1c2b2e" }}>
+                    <li key={index} className="text-muted fs-12 fw-semibold mx-2">
+                      <span className={`mx-1 fe ${item.icon}`} style={{ color: "gray"}}></span>
+                      <span className=" mx-1 d-inline-block" style={{ color: "gray" }}>
                         {item.title}:
                       </span>
-                      <span className="bn-positive me-4" style={{ color: "#1c2b2e" }}>
+                      <span className="bn-positive me-4" style={{ color: "gray" }}>
                         {item.value}
                       </span>
                     </li>

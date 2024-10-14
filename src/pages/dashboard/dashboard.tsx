@@ -55,6 +55,8 @@ export default function RealStateDashboard() {
   const byOwner = formatByAssetForCurrency(dashboardData.byOwners, currency);
   const byTypePercentage = formatForApexChart(dashboardData.byAssetTypePct);
   const byCountry = formatByAssetForCurrency(dashboardData.byCountry, currency);
+  const byCurrency = formatForApexChart(dashboardData.byCurrency);
+
   const byAssetType = formatForApexBarChart(
     dashboardData.byAssetType,
     currency
@@ -297,14 +299,14 @@ export default function RealStateDashboard() {
             <Col xl={4} lg={6}>
               <div style={{ padding: 10 }}>
                 <p style={{ marginBottom: 20 }}>
-                  Distribución por país en {currency}
+                  Distribución por moneda
                 </p>
                 <ReactApexChart
                   options={{
-                    ...currencyChartOptions,
-                    labels: byCountry.labels,
+                    ...chartOptionsPercentage,
+                    labels: byCurrency.labels,
                   }}
-                  series={byCountry.series}
+                  series={byCurrency.series}
                   type="donut"
                   height={300}
                   width="100%"

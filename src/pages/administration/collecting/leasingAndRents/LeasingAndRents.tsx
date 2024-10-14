@@ -58,6 +58,7 @@ export default function LeasingAndRents() {
         <td
           style={{
             fontSize: 13,
+            textDecoration: 'underline'
           }}
         >
           <Link to={`${baseUrl}governance/wealthItem/type/realState/id/${linkedItemId}`}>
@@ -70,6 +71,7 @@ export default function LeasingAndRents() {
         <td
           style={{
             fontSize: 13,
+            textDecoration: 'underline'
           }}
         >
           <Link to={`${baseUrl}governance/wealthItem/type/vehicle/id/${linkedItemId}`}>
