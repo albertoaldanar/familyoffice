@@ -337,7 +337,7 @@ export const realstateData = [
     "moneda": "MXN",
     "country": "México",
     "escrituras": "https://www.google.drive/1545ghi",
-    "valuacion": "20,000,000.00",
+    "valuacion": "10,000,000.00",
     "location": "Calle San Ángel 456, Ciudad de México",
     "percentage": "100",
     "mt2": "3000",
@@ -468,6 +468,30 @@ export const realStateStats = {
         { currency: "EUR", value: 355222.63 },
       ],
     },
+    // {
+    //   type: "Casa Mission Hills",
+    //   value: [
+    //     { currency: "MXN", value: 28919790.00 },
+    //     { currency: "USD", value: 1500000.00},
+    //     { currency: "EUR", value: 1372455.00 },
+    //   ],
+    // },
+    // {
+    //   type: "Casa Madrid Central",
+    //   value: [
+    //     { currency: "MXN", value: 26349429.47 },
+    //     { currency: "USD", value: 1366165.01 },
+    //     { currency: "EUR", value: 1250000.00 },
+    //   ],
+    // },
+    // {
+    //   type: "Casa San Ángel",
+    //   value: [
+    //     { currency: "MXN", value: 10000000 },
+    //     { currency: "USD", value: 518479.92 },
+    //     { currency: "EUR", value: 474481.71 },
+    //   ],
+    // },
   ],
-  countries: ["Mexico"],
+  countries: ["Mexico", "United States", "Spain"],
 };

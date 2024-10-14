@@ -26,6 +26,8 @@ export default function RealStateDashboard() {
   );
   const [content, setContent] = useState("");
 
+  console.log('byAssets number',byAssets.categories.length )
+
   const valueWithCurrencySelected = realStateStats.totalValueOfProperties.find(
     (value) => value.currency === currency
   );
@@ -240,7 +242,7 @@ export default function RealStateDashboard() {
       <div style={{ marginLeft: 20, marginRight: 20 }}>
         {isStatsView ? (
           <>
-                      <Row style={{ marginTop: 20, marginBottom: 20 }}>
+            <Row style={{ marginTop: 20, marginBottom: 20 }}>
               <p style={{ marginBottom: -10, marginLeft: 30 }}>
                 Desglose por valor de propiedad en {currency}
               </p>

@@ -12,7 +12,7 @@ export const sliderData = [
     {
         title: 'Total valor empresas',
         value: '$ 3,700,000.00 MXN', 
-        icon: 'fe-breifcase'
+        icon: 'fe-briefcase'
     }, 
     {
         title: 'Total contenido fadeicomisos',

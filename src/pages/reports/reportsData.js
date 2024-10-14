@@ -1271,6 +1271,31 @@ export const reportsData = {
         currency: "MXN",
       },
     ],
+    collectingOverview: {
+      currency: 'MXN',
+      creditors: [
+        {
+          creditorName: "Francisco Carrasco Ramos",
+          collectingBeginDate: "$ 120,000.00",
+          collectingEndDate: "$ 105,000.00",
+        },
+        {
+          creditorName: "Grupo Carrasco Holding SA de CV",
+          collectingBeginDate: "$ 1,200,000.00",
+          collectingEndDate: "$ 900,000.00",
+        },
+        {
+          creditorName: "Diana Nieto Vega",
+          collectingBeginDate: "$ 200,000.00",
+          collectingEndDate: "$ 200,000.00",
+        },
+        {
+          creditorName: "Servicios financieros del campo CN SA de CV",
+          collectingBeginDate: "$ 450,000.00",
+          collectingEndDate: "$ 150,000.00",
+        }
+      ]
+    },
   },
   wealthBalance: {
     currency: "MXN",

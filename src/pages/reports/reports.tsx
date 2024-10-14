@@ -1518,6 +1518,44 @@ export default function Reports() {
             ))}
           </View>
         )}
+
+        {investmentData.collectingOverview.creditors.length > 0 && (
+          <View>
+            <View style={styles.subtitleContainerNoMargin}>
+              <Text style={styles.subtitle}>Prestamos por cobrar:</Text>
+            </View>
+            <View style={styles.itemContainer}>
+              <View style={styles.subCategorySection}>
+                <View style={styles.tableHeader}>
+                  <Text style={styles.tableCell}>Nombre de acreedor</Text>
+                  <Text style={styles.tableCell}>
+                    Total por cobrar inicio periodo
+                  </Text>
+                  <Text style={styles.tableCell}>
+                    Total por cobrar fin periodo
+                  </Text>
+                </View>
+                {investmentData.collectingOverview.creditors.map(
+                  (asset, idx) => (
+                    <>
+                      <View style={styles.tableRow}>
+                        <Text style={styles.tableCell}>
+                          {asset.creditorName}
+                        </Text>
+                        <Text style={styles.tableCell}>
+                          {asset.collectingBeginDate} {investmentData.collectingOverview.currency}
+                        </Text>
+                        <Text style={styles.tableCell}>
+                          {asset.collectingEndDate} {investmentData.collectingOverview.currency}
+                        </Text>
+                      </View>
+                    </>
+                  )
+                )}
+              </View>
+            </View>
+          </View>
+        )}
       </View>
     );
   };
@@ -2104,7 +2142,9 @@ export default function Reports() {
                     >
                       {/* // @ts-ignore */}
                       {({ loading }: { loading: boolean }) => (
-                        <span style={{color: 'white'}}>{loading ? "Creando reporte..." : "Descargar reporte"}</span>
+                        <span style={{ color: "white" }}>
+                          {loading ? "Creando reporte..." : "Descargar reporte"}
+                        </span>
                       )}
                     </PDFDownloadLink>
                   </Button>

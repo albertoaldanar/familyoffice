@@ -220,7 +220,7 @@ export const arrendamientos = [
     linkedItemId: 24,
     plazo: "1 año",
     country: 'México',
-    concepto: "Condominio costa veleros",
+    concepto: "Departamento Puerta Cabo Village",
     monto: "34,000.00",
     contrato: "https://googledrive.com/erg3440398f4fmv",
     proxpago: "8 dias",
