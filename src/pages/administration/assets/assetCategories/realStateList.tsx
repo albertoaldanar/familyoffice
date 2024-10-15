@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Table } from "react-bootstrap";
+import { Button, Table, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { renderFlag } from "../../accounting/companyUtils";
 
@@ -8,9 +8,53 @@ export default function RealStateList(props) {
     return <p>No hay registros</p>;
   }
 
+  const totalValue = props.numbers ? props.numbers.value.find(value => value.currency === props.currency) : null;
+  const totalRent = props.numbers ? props.numbers.rentValue.find(value => value.currency === props.currency): null ;
+
   return (
     <div>
       {!props.hideAddButton ? (
+        <>
+          <Row>
+            <Col lg={3} className="col-lg-4">
+              <div style={{ marginBottom: 10}}>
+                <Row className="row align-items-center">
+                  <Col xs={2} className="text-center">
+                    <span>
+                      <i className="fe fe-map-pin fs-20"></i>
+                    </span>
+                  </Col>
+                  <Col xs={10}>
+                    <p className="mb-0  text-muted-dark">
+                      Total valor en bienes raices
+                    </p>
+                    <h4 className="mt-2 mb-1 text-dark ">
+                      ${totalValue.value} {totalValue.currency}
+                    </h4>
+                  </Col>
+                </Row>
+              </div>
+            </Col>
+            <Col lg={3} className="col-lg-4">
+              <div style={{marginBottom: 10}}>
+                <Row className="row align-items-center">
+                  <Col xs={2} className="text-center">
+                    <span>
+                      <i className="fe fe-arrow-down-right fs-20"></i>
+                    </span>
+                  </Col>
+                  <Col xs={10}>
+                    <p className="mb-0  text-muted-dark">
+                      Total cobro mensual arrendamientos
+                    </p>
+                    <h4 className="mt-2 mb-1 text-dark ">
+                      ${totalRent.value} {totalRent.currency}
+                    </h4>
+                  </Col>
+                </Row>
+              </div>
+            </Col>
+          </Row>
         <div
           style={{
             justifyContent: "space-between",
@@ -38,6 +82,7 @@ export default function RealStateList(props) {
             </Link>
           </Button>
         </div>
+        </>
       ) : null}
 
       <div className="table-responsive">

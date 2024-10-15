@@ -526,14 +526,14 @@ export default function RealStateDashboard() {
         </Row>
 
         {renderDonutStats()}
-        <Row style={{ marginBottom: 30, marginRight: 20, marginLeft: 20 }}>
+        <Row style={{ marginBottom: 30, marginRight: 20, marginLeft: 20, marginTop: 20 }}>
           <p style={{ marginBottom: -10 }}>
             Valor de activos por periodo en {currency}
           </p>
           <ResultsChart currency={currency} year={2024} wealthBalancebyPeriod={dashboardData.wealthBalancebyPeriod} />
         </Row>
         {renderAssetCategories()}
-        <Row style={{ marginBottom: 10, marginRight: 20, marginLeft: 20 }}>
+        <Row style={{ marginBottom: 10, marginRight: 20, marginLeft: 20, marginTop: 10 }}>
           <p style={{ marginBottom: 0 }}>
             Total pasivos por periodo en {currency}
           </p>
@@ -547,7 +547,7 @@ export default function RealStateDashboard() {
   const renderAssetCategories = () => {
     return (
       <>
-        <Row style={{ marginLeft: 20, marginRight: 20, marginTop: 10 }}>
+        <Row style={{ marginLeft: 20, marginRight: 20, marginTop: 40 }}>
           <Col md={3}>
             <p style={{ fontSize: 13 }}>Inversiones bursátiles</p>
             <div className="asset-background">

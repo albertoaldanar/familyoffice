@@ -792,4 +792,161 @@ export const otherWealthData = {
       resultsReports: [],
     },
   ],
+  "totalValues": {
+    "vehicles": {
+      "value": [
+        {
+          "currency": "MXN",
+          "value": "5,450,000"
+        },
+        {
+          "currency": "USD",
+          "value": "281,077.51"
+        },
+        {
+          "currency": "EUR",
+          "value": "257,975.75"
+        }
+      ],
+      "numberOfVehicles": 6
+    },
+    "realState": {
+      "value": [
+        {
+          "currency": "MXN",
+          "value": "18,900,000"
+        },
+        {
+          "currency": "USD",
+          "value": "1,021,621.62" // 18,900,000 / 18.5
+        },
+        {
+          "currency": "EUR",
+          "value": "989,528.80" // 18,900,000 / 19.1
+        }
+      ],
+      "rentValue": [
+        {
+          "currency": "MXN",
+          "value": "67,000"
+        },
+        {
+          "currency": "USD",
+          "value": "3,621.62" // 67,000 / 18.5
+        },
+        {
+          "currency": "EUR",
+          "value": "3,508.38" // 67,000 / 19.1
+        }
+      ]
+    },
+    "bankAccounts": {
+      "companiesValue": [
+        {
+          "currency": "MXN",
+          "value": "4,500,000"
+        },
+        {
+          "currency": "USD",
+          "value": "243,243.24" // 4,500,000 / 18.5
+        },
+        {
+          "currency": "EUR",
+          "value": "235,602.09" // 4,500,000 / 19.1
+        }
+      ],
+      "familyMembersValue": [
+        {
+          "currency": "MXN",
+          "value": "2,650,000"
+        },
+        {
+          "currency": "USD",
+          "value": "143,243.24" // 2,650,000 / 18.5
+        },
+        {
+          "currency": "EUR",
+          "value": "138,743.98" // 2,650,000 / 19.1
+        }
+      ]
+    },
+    "privateEquity": {
+      "totalValueOfPrivateEquity": [
+        {
+          "currency": "MXN",
+          "value": "4,500,000.00"
+        },
+        {
+          "currency": "USD",
+          "value": "236,804.96"
+        },
+        {
+          "currency": "EUR",
+          "value": "212,906.60"
+        }
+      ],
+      "totalValueOfPrivateEquityFunds": [
+        {
+          "currency": "MXN",
+          "value": "400,000.00"
+        },
+        {
+          "currency": "USD",
+          "value": "19,804.96"
+        },
+        {
+          "currency": "EUR",
+          "value": "16,906.60"
+        }
+      ],
+      "totalValueOfPrivateEquityDirect": [
+        {
+          "currency": "MXN",
+          "value": "4,100,000.00"
+        },
+        {
+          "currency": "USD",
+          "value": "206,804.96"
+        },
+        {
+          "currency": "EUR",
+          "value": "196,906.60"
+        }
+      ]
+    },
+    "artAndCollections": {
+      "value": [
+        {
+          "currency": "MXN",
+          "value": "10,000,000.00"
+        },
+        {
+          "currency": "USD",
+          "value": "540,540.54" // 10,000,000 / 18.5
+        },
+        {
+          "currency": "EUR",
+          "value": "523,560.21" // 10,000,000 / 19.1
+        }
+      ],
+      "totalItems": 1
+    },
+    "stockInvestments": {
+      "value": [
+        {
+          "currency": "MXN",
+          "value": "2,500,000.00"
+        },
+        {
+          "currency": "USD",
+          "value": "135,135.14" // 2,500,000 / 18.5
+        },
+        {
+          "currency": "EUR",
+          "value": "130,890.05" // 2,500,000 / 19.1
+        }
+      ],
+      "totalItems": 2
+    }
+  }
 };

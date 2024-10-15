@@ -1,10 +1,16 @@
 import React from "react";
-import { Button, Table } from "react-bootstrap";
+import { Button, Table, Row, Col } from "react-bootstrap";
 import { formatCurrency } from "../../payments/paymentUtils";
 import { renderFlag } from "../../accounting/companyUtils";
 import { Link } from "react-router-dom";
 
 export default function PrivateEquityList(props) {
+
+  const totalValue = props.numbers ? props.numbers.totalValueOfPrivateEquity.find(value => value.currency === props.currency): null;
+  const fundsValue = props.numbers ? props.numbers.totalValueOfPrivateEquityFunds.find(value => value.currency === props.currency) : null;
+  const directValue = props.numbers ? props.numbers.totalValueOfPrivateEquityDirect.find(value => value.currency === props.currency) : null;
+
+
   if (!props.data || props.data.length === 0) {
     return <p>No hay registros</p>;
   }
@@ -12,6 +18,67 @@ export default function PrivateEquityList(props) {
   return (
     <div>
       {!props.hideAddButton ? (
+        <>
+           <Row style={{marginBottom: 15, marginTop: -10}}>
+            <Col lg={2} className="col-lg-4">
+              <div style={{ marginBottom: 10}}>
+                <Row className="row align-items-center">
+                  <Col xs={2} className="text-center">
+                    <span>
+                      <i className="fe fe-activity fs-20"></i>
+                    </span>
+                  </Col>
+                  <Col xs={10}>
+                    <p className="mb-0  text-muted-dark">
+                      Tatal capital privado
+                    </p>
+                    <h4 className="mt-2 mb-1 text-dark ">
+                      $ {totalValue.value} {totalValue.currency}
+                    </h4>
+                  </Col>
+                </Row>
+              </div>
+            </Col>
+            <Col lg={2} className="col-lg-4">
+              <div style={{marginBottom: 10}}>
+                <Row className="row align-items-center">
+                  <Col xs={2} className="text-center">
+                    <span>
+                      <i className="fe fe-layers fs-20"></i>
+                    </span>
+                  </Col>
+                  <Col xs={10}>
+                    <p className="mb-0  text-muted-dark">
+                     A traves de fondos
+                    </p>
+                    <h4 className="mt-2 mb-1 text-dark ">
+                      $ {fundsValue.value} {fundsValue.currency}
+                    </h4>
+                  </Col>
+                </Row>
+              </div>
+            </Col>
+
+            <Col lg={3} className="col-lg-4" style={{marginLeft: -10}}>
+              <div style={{marginBottom: 10}}>
+                <Row className="row align-items-center">
+                  <Col xs={2} className="text-center">
+                    <span>
+                      <i className="fe fe-arrow-up-right fs-20"></i>
+                    </span>
+                  </Col>
+                  <Col xs={10}>
+                    <p className="mb-0  text-muted-dark">
+                      Inversión directa
+                    </p>
+                    <h4 className="mt-2 mb-1 text-dark ">
+                      $ {directValue.value} {directValue.currency}
+                    </h4>
+                  </Col>
+                </Row>
+              </div>
+            </Col>
+          </Row>
       <div
         style={{
           justifyContent: "space-between",
@@ -25,6 +92,7 @@ export default function PrivateEquityList(props) {
         <Button
           style={{
             marginRight: 15,
+            marginTop: 20,
             alignSelf: "flex-end",
             justifyContent: "flex-end",
           }}
@@ -38,6 +106,7 @@ export default function PrivateEquityList(props) {
             </Link>
           </Button>
         </div>
+        </>
       ) : null}
       <div className="table-responsive">
         <Table className="table border text-nowrap text-md-nowrap mb-0">

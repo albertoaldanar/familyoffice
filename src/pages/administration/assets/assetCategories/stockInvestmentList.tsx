@@ -1,42 +1,91 @@
 import React from "react";
-import { Button, Table } from "react-bootstrap";
+import { Button, Table, Row, Col } from "react-bootstrap";
 import { formatCurrency } from "../../payments/paymentUtils";
 import { renderFlag } from "../../accounting/companyUtils";
 import { Link } from "react-router-dom";
 
 export default function StockInvestmentList(props) {
+  //@ts-ignore
+  const baseURl = import.meta.env.BASE_URL;
   if (!props.data || props.data.length === 0) {
     return <p>No hay registros</p>;
   }
 
+  const totalValue = props.numbers ? props.numbers.value.find(value => value.currency === props.currency) : null;
+
   return (
     <div>
-      <div
-        style={{
-          justifyContent: "space-between",
-          display: "flex",
-          flexDirection: "row",
-          marginBottom: 35,
-          marginTop: -10,
-        }}
-      >
-        <div></div>
-        <Button
-          style={{
-            marginRight: 15,
-            alignSelf: "flex-end",
-            justifyContent: "flex-end",
-          }}
-          size="sm"
-          className="custom-button"
-        >
-         {/*// @ts-ignore */}
-          <Link style={{ color: "white" }} to={`${import.meta.env.BASE_URL}governance/wealthItemCreate/stockInvestment`}
+      {!props.hideAddButton && (
+        <>
+        <Row style={{ marginTop: -10}}>
+            <Col lg={2} className="col-lg-4">
+              <div style={{ marginBottom: 10}}>
+                <Row className="row align-items-center">
+                  <Col xs={2} className="text-center">
+                    <span>
+                      <i className="fe fe-trending-up fs-20"></i>
+                    </span>
+                  </Col>
+                  <Col xs={10}>
+                    <p className="mb-0  text-muted-dark">
+                      Valor inversiones bursatiles
+                    </p>
+                    <h4 className="mt-2 mb-1 text-dark ">
+                      ${totalValue.value} {totalValue.currency}
+                    </h4>
+                  </Col>
+                </Row>
+              </div>
+            </Col>
+            <Col lg={2} className="col-lg-4">
+              <div style={{marginBottom: 10}}>
+                <Row className="row align-items-center">
+                  <Col xs={2} className="text-center">
+                    <span>
+                      <i className="fe fe-hash fs-20"></i>
+                    </span>
+                  </Col>
+                  <Col xs={10}>
+                    <p className="mb-0  text-muted-dark">
+                     Numero de inversiones bursatiles
+                    </p>
+                    <h4 className="mt-2 mb-1 text-dark ">
+                      {props.numbers.totalItems}
+                    </h4>
+                  </Col>
+                </Row>
+              </div>
+            </Col>
+          </Row>
+          <div
+            style={{
+              justifyContent: "space-between",
+              display: "flex",
+              flexDirection: "row",
+              marginBottom: 35,
+              marginTop: -10,
+            }}
           >
-            + Añadir inversión bursatil
-          </Link>
-        </Button>
-      </div>
+            <div></div>
+            <Button
+              style={{
+                marginRight: 15,
+                alignSelf: "flex-end",
+                justifyContent: "flex-end",
+              }}
+              size="sm"
+              className="custom-button"
+            >
+              <Link
+                style={{ color: "white", textDecoration: "none" }}
+                to={`${baseURl}governance/wealthItemCreate/stockInvestment`}
+              >
+                + Añadir inversión bursatil
+              </Link>
+            </Button>
+          </div>
+        </>
+      )}
       <div className="table-responsive">
         <Table className="table border text-nowrap text-md-nowrap mb-0">
           <thead className="bg-light">
@@ -51,8 +100,8 @@ export default function StockInvestmentList(props) {
             </tr>
           </thead>
           <tbody>
-            {props.data.map((idx, tb8) => (
-              <tr key={tb8}>
+            {props.data.map((idx) => (
+              <tr key={idx.id}>
                 <td>{idx.bank}</td>
                 <td>{idx.accountNumber}</td>
                 <td>{formatCurrency(idx.investmentAmount, idx.currency)}</td>
@@ -61,8 +110,8 @@ export default function StockInvestmentList(props) {
                 <td>
                   <div style={{ display: "flex", flexDirection: "column" }}>
                     {idx.owners.map((owner, index) => (
-                      <div key={index} style={{fontSize: 13}}>
-                       - {owner.name}: {owner.pct}% <br />
+                      <div key={index} style={{ fontSize: 13 }}>
+                        - {owner.name}: {owner.pct}% <br />
                       </div>
                     ))}
                   </div>
@@ -74,12 +123,10 @@ export default function StockInvestmentList(props) {
                     color: "#5488d2",
                   }}
                 >
-                  {/*// @ts-ignore */}
-                  <Link to={`${import.meta.env.BASE_URL}governance/wealthItem/type/stockInvestment/id/${idx.id}`}
+                  <Link
+                    to={`${baseURl}governance/wealthItem/type/stockInvestment/id/${idx.id}`}
                   >
-                      <i
-                        className="fe fe-arrow-right text-black fs-15"
-                      ></i>
+                    <i className="fe fe-arrow-right text-black fs-15"></i>
                   </Link>
                 </td>
               </tr>

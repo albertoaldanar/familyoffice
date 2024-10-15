@@ -50,26 +50,6 @@ export default function Companies() {
                 </Row>
               </div>
             </Col>
-            {/* <Col lg={3} className="col-lg-4">
-              <div style={{marginBottom: 10}}>
-                <Row className="row align-items-center">
-                  <Col xs={2} className="text-center">
-                    <span>
-                      <i className="fe fe-phone-outgoing fs-20"></i>
-                    </span>
-                  </Col>
-                  <Col xs={10}>
-                    <p className="mb-0  text-muted-dark">
-                      Total prestamos por cobrar
-                    </p>
-                    <h3 className="mt-2 mb-1 text-dark fw-semibold">
-                      $53,00,00.00{" "}
-                      MXN
-                    </h3>
-                  </Col>
-                </Row>
-              </div>
-            </Col> */}
           </Row>
           <div
           style={{

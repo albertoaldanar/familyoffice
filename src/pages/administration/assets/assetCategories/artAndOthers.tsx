@@ -1,15 +1,56 @@
 import React from "react";
-import { Button, Table } from "react-bootstrap";
+import { Button, Table, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { renderFlag } from "../../accounting/companyUtils";
 
 export default function ArtAndOthers(props) {
+  //@ts-ignore
+  const baseURl = import.meta.env.BASE_URL;
+
   if (!props.data || props.data.length === 0) {
     return <p>No hay registros</p>;
   }
 
+  const totalValue = props.numbers.value.find(value => value.currency === props.currency);
+
   return (
     <div>
+      <Row style={{ marginBottom: 15, marginTop: -10 }}>
+        <Col lg={2} className="col-lg-4">
+          <div style={{ marginBottom: 10 }}>
+            <Row className="row align-items-center">
+              <Col xs={2} className="text-center">
+                <span>
+                  <i className="fe fe-watch fs-20"></i>
+                </span>
+              </Col>
+              <Col xs={10}>
+                <p className="mb-0  text-muted-dark">
+                  Valor total en arte y colecciones
+                </p>
+                <h4 className="mt-2 mb-1 text-dark ">${totalValue.value} {totalValue.currency}</h4>
+              </Col>
+            </Row>
+          </div>
+        </Col>
+        <Col lg={2} className="col-lg-4">
+          <div style={{ marginBottom: 10 }}>
+            <Row className="row align-items-center">
+              <Col xs={2} className="text-center">
+                <span>
+                  <i className="fe fe-hash fs-20"></i>
+                </span>
+              </Col>
+              <Col xs={10}>
+                <p className="mb-0  text-muted-dark">
+                  Numero de articulos de arte o coleccion
+                </p>
+                <h4 className="mt-2 mb-1 text-dark ">{props.numbers.totalItems}</h4>
+              </Col>
+            </Row>
+          </div>
+        </Col>
+      </Row>
       <div
         style={{
           justifyContent: "space-between",
@@ -29,8 +70,9 @@ export default function ArtAndOthers(props) {
           size="sm"
           className="custom-button"
         >
-         {/*// @ts-ignore */}
-          <Link style={{ color: "white" }} to={`${import.meta.env.BASE_URL}governance/wealthItemCreate/artAndOthers`}
+          <Link
+            style={{ color: "white" }}
+            to={`${baseURl}governance/wealthItemCreate/artAndOthers`}
           >
             + Añadir arte, collecciones y otros
           </Link>
@@ -60,8 +102,8 @@ export default function ArtAndOthers(props) {
                 <td>
                   <div style={{ display: "flex", flexDirection: "column" }}>
                     {idx.owners.map((owner, index) => (
-                      <div key={index} style={{fontSize: 13}}>
-                       - {owner.name}: {owner.pct}% <br />
+                      <div key={index} style={{ fontSize: 13 }}>
+                        - {owner.name}: {owner.pct}% <br />
                       </div>
                     ))}
                   </div>
@@ -73,12 +115,10 @@ export default function ArtAndOthers(props) {
                     color: "#5488d2",
                   }}
                 >
-                  {/*// @ts-ignore */}
-                  <Link to={`${import.meta.env.BASE_URL}governance/wealthItem/type/artAndOthers/id/${idx.id}`}
+                  <Link
+                    to={`${baseURl}governance/wealthItem/type/artAndOthers/id/${idx.id}`}
                   >
-                    <i
-                      className="fe fe-arrow-right text-black fs-15"
-                    ></i>
+                    <i className="fe fe-arrow-right text-black fs-15"></i>
                   </Link>
                 </td>
               </tr>

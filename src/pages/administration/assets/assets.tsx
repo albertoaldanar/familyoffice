@@ -1,5 +1,5 @@
-import React, { Fragment } from "react";
-import { Card, Nav, Row, Tab, Table, Col } from "react-bootstrap";
+import React, { Fragment, useState } from "react";
+import { Nav, Row, Tab, Dropdown } from "react-bootstrap";
 import RealStateList from "./assetCategories/realStateList";
 import VechicleList from "./assetCategories/vehicleList";
 import ArtAndOthers from "./assetCategories/artAndOthers";
@@ -13,11 +13,58 @@ import { useParams } from "react-router-dom";
 export default function Assets() {
   const params = useParams();
 
+  const [currency, setCurrency] = useState({
+    value: "MXN",
+    label: "MXN",
+  });
+
+  const currencyDefault = "MXN";
+  const Optionscurrency = [
+    { value: "MXN", label: "MXN" },
+    { value: "USD", label: "USD" },
+    { value: "EUR", label: "EUR" },
+  ];
+
+  const renderCurrencyDropdown = () => {
+    return (
+      <div>
+        <Dropdown className="h-3">
+          <Dropdown.Toggle
+            size="sm"
+            color="default"
+            type="button"
+            className="custom-button"
+          >
+            {currency.value} <span className="caret"></span>
+          </Dropdown.Toggle>
+          <Dropdown.Menu role="menu">
+            <>
+              {Optionscurrency.map((currency) => {
+                return (
+                  <Dropdown.Item
+                    onClick={() => setCurrency(currency)}
+                    key={currency.value}
+                    href="#"
+                  >
+                    {currency.value}
+                  </Dropdown.Item>
+                );
+              })}
+            </>
+          </Dropdown.Menu>
+        </Dropdown>
+      </div>
+    );
+  };
+
   return (
     <Fragment>
       <Row>
         <div style={{ minHeight: 550 }}>
-          <Tab.Container id="left-tabs-example" defaultActiveKey={params.assetType}>
+          <Tab.Container
+            id="left-tabs-example"
+            defaultActiveKey={params.assetType}
+          >
             <div style={{ padding: 20 }}>
               <div className="tabs-menu1">
                 <Nav as="ul" className="nav panel-tabs">
@@ -78,25 +125,24 @@ export default function Assets() {
                 </Nav>
               </div>
             </div>
-
             <Tab.Content className="panel-body">
               <Tab.Pane eventKey="realState">
-                <RealStateList data={realstateData} />
+                <RealStateList data={realstateData} numbers={otherWealthData.totalValues.realState} currency={currency.value} />
               </Tab.Pane>
               <Tab.Pane eventKey="bankAccounts">
-                <BankAccountsList data={otherWealthData.bankAccounts} />
+                <BankAccountsList data={otherWealthData.bankAccounts} numbers={otherWealthData.totalValues.bankAccounts} currency={currency.value} />
               </Tab.Pane>
               <Tab.Pane eventKey="privateEquity">
-                <PrivateEquityList data={otherWealthData.privateEquity} />
+                <PrivateEquityList data={otherWealthData.privateEquity} numbers={otherWealthData.totalValues.privateEquity} currency={currency.value} />
               </Tab.Pane>
               <Tab.Pane eventKey="stockInvestments">
-                <StockInvestmentList data={otherWealthData.stockInvestments} />
+                <StockInvestmentList data={otherWealthData.stockInvestments} numbers={otherWealthData.totalValues.stockInvestments} currency={currency.value} />
               </Tab.Pane>
               <Tab.Pane eventKey="vehicles">
-                <VechicleList data={otherWealthData.vehicles} />
+                <VechicleList data={otherWealthData.vehicles} numbers={otherWealthData.totalValues.vehicles} currency={currency.value} />
               </Tab.Pane>
               <Tab.Pane eventKey="artAndOthers">
-                <ArtAndOthers data={otherWealthData.artAndOthers} />
+                <ArtAndOthers data={otherWealthData.artAndOthers} numbers={otherWealthData.totalValues.artAndCollections} currency={currency.value} />
               </Tab.Pane>
             </Tab.Content>
           </Tab.Container>
