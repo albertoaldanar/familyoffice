@@ -262,7 +262,7 @@ export default function RealStateDashboard() {
     return (
       <div style={{ marginLeft: 20, marginRight: 20 }}>
         <>
-          <Row style={{ marginTop: 0, marginBottom: 30 }}>
+          <Row style={{ marginTop: 0, marginBottom: 20 }}>
             <Col xl={4} lg={6}>
               <div style={{ padding: 10 }}>
                 <p style={{ marginBottom: 20 }}>
@@ -399,7 +399,7 @@ export default function RealStateDashboard() {
 
   const renderByCountryStats = () => {
     return (
-      <Row style={{ marginTop: 20, marginBottom: 50 }}>
+      <Row style={{ marginTop: 0, marginBottom: 50 }}>
         <Col xl={4} lg={6}>
           <div style={{ padding: 10 }}>
             <p style={{ marginBottom: 20 }}>
@@ -506,7 +506,7 @@ export default function RealStateDashboard() {
           </Col>
         </Row>
 
-        <Row style={{ marginBottom: 30, marginTop: -20 }}>
+        <Row style={{ marginBottom: 20, marginTop: -20 }}>
           <ReactApexChart
             options={{
               ...options,
@@ -527,19 +527,18 @@ export default function RealStateDashboard() {
 
         {renderDonutStats()}
         <Row style={{ marginBottom: 30, marginRight: 20, marginLeft: 20 }}>
-          <p style={{ marginBottom: 0 }}>
+          <p style={{ marginBottom: -10 }}>
             Valor de activos por periodo en {currency}
           </p>
           <ResultsChart currency={currency} year={2024} wealthBalancebyPeriod={dashboardData.wealthBalancebyPeriod} />
         </Row>
-
-        <Row style={{ marginBottom: 30, marginRight: 20, marginLeft: 20 }}>
+        {renderAssetCategories()}
+        <Row style={{ marginBottom: 10, marginRight: 20, marginLeft: 20 }}>
           <p style={{ marginBottom: 0 }}>
             Total pasivos por periodo en {currency}
           </p>
           <ResultsChart currency={currency} year={2024} wealthBalancebyPeriod={dashboardData.totalLiabilityByPeriod} />
         </Row>
-        {renderAssetCategories()}
         {renderByCountryStats()}
       </>
     );

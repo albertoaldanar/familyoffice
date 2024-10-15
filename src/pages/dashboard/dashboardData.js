@@ -1717,15 +1717,15 @@ export const dashboardData = {
           value: [
             {
               currency: "MXN",
-              value: 6000000, // Updated value
+              value: 4850000, // Slightly different
             },
             {
               currency: "USD",
-              value: 318000.00, // Converted value
+              value: 320500.00, // Slightly different
             },
             {
               currency: "EUR",
-              value: 290000.00, // Converted value
+              value: 293500.00, // Slightly different
             },
           ],
         },
@@ -1735,15 +1735,15 @@ export const dashboardData = {
           value: [
             {
               currency: "MXN",
-              value: 5500000, // Updated value
+              value: 4525000, // Slightly different
             },
             {
               currency: "USD",
-              value: 292000.00, // Converted value
+              value: 294300.00, // Slightly different
             },
             {
               currency: "EUR",
-              value: 265000.00, // Converted value
+              value: 267800.00, // Slightly different
             },
           ],
         },
@@ -1753,15 +1753,15 @@ export const dashboardData = {
           value: [
             {
               currency: "MXN",
-              value: 5000000, // Updated value
+              value: 4250000, // Slightly different
             },
             {
               currency: "USD",
-              value: 267000.00, // Converted value
+              value: 269500.00, // Slightly different
             },
             {
               currency: "EUR",
-              value: 242000.00, // Converted value
+              value: 245100.00, // Slightly different
             },
           ],
         },
@@ -1771,15 +1771,15 @@ export const dashboardData = {
           value: [
             {
               currency: "MXN",
-              value: 4500000, // Updated value
+              value: 4100000, // Slightly different
             },
             {
               currency: "USD",
-              value: 242000.00, // Converted value
+              value: 244200.00, // Slightly different
             },
             {
               currency: "EUR",
-              value: 219000.00, // Converted value
+              value: 221400.00, // Slightly different
             },
           ],
         },
@@ -1954,90 +1954,45 @@ export const dashboardData = {
           year: 2024,
           month: "Mayo",
           value: [
-            {
-              currency: "MXN",
-              value: 4000000, // Updated value
-            },
-            {
-              currency: "USD",
-              value: 218000.00, // Converted value
-            },
-            {
-              currency: "EUR",
-              value: 198000.00, // Converted value
-            },
+            { currency: "MXN", value: 3950000 }, // Slightly different
+            { currency: "USD", value: 215000.00 },
+            { currency: "EUR", value: 196000.00 },
           ],
         },
         {
           year: 2024,
           month: "Junio",
           value: [
-            {
-              currency: "MXN",
-              value: 4000000, // Updated value
-            },
-            {
-              currency: "USD",
-              value: 218000.00, // Converted value
-            },
-            {
-              currency: "EUR",
-              value: 198000.00, // Converted value
-            },
+            { currency: "MXN", value: 3650000 }, // Slight decrease
+            { currency: "USD", value: 199000.00 },
+            { currency: "EUR", value: 180000.00 },
           ],
         },
         {
           year: 2024,
           month: "Julio",
           value: [
-            {
-              currency: "MXN",
-              value: 4000000, // Updated value
-            },
-            {
-              currency: "USD",
-              value: 218000.00, // Converted value
-            },
-            {
-              currency: "EUR",
-              value: 198000.00, // Converted value
-            },
+            { currency: "MXN", value: 3450000 }, // Slight decrease
+            { currency: "USD", value: 185000.00 },
+            { currency: "EUR", value: 168000.00 },
           ],
         },
         {
           year: 2024,
           month: "Agosto",
           value: [
-            {
-              currency: "MXN",
-              value: 4000000, // Updated value
-            },
-            {
-              currency: "USD",
-              value: 218000.00, // Converted value
-            },
-            {
-              currency: "EUR",
-              value: 198000.00, // Converted value
-            },
+            { currency: "MXN", value: 3150000 }, // Slight decrease
+            { currency: "USD", value: 167000.00 },
+            { currency: "EUR", value: 153000.00 },
           ],
         },
         {
           year: 2024,
           month: "Septiembre",
           value: [
-            {
-              currency: "MXN",
-              value: 4000000, // Updated value
-            },
-            {
-              currency: "USD",
-              value: 218000.00, // Converted value
-            },
-            {
-              currency: "EUR",
-              value: 198000.00, // Converted value
-            },
+            { currency: "MXN", value: 2950000 }, // Slight decrease
+            { currency: "USD", value: 155000.00 },
+            { currency: "EUR", value: 142000.00 },
           ],
         },
       ],

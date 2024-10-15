@@ -51,7 +51,7 @@ const ResultsChart: React.FC<ResultsChartProps> = (props) => {
     },
     dataLabels: { enabled: false },
     stroke: {
-      width: [2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5], // Set line thickness to 2.5
+      width: [2, 2, 2, 2, 2, 2, 2, 2, 2], // Set line thickness to 2.5
       curve: 'smooth',
     },
     yaxis: {
