@@ -75,9 +75,9 @@ const ResultsChart: React.FC<ResultsChartProps> = (props) => {
     },
     colors: [
         "#1c2b2e",
+        "#7dc2ad",
         "#004745",
         "#5e9975",
-        "#7dc2ad",
         "#2e8b57",
         "#99babd",
         "#0b121a",
