@@ -198,6 +198,342 @@ export const stockInvestmentStats = {
         { currency: 'EUR', value: 709236.80 }
       ]
     },
-  ],  
+  ], 
+  valueByPeriod: [
+    {
+      name: 'Santander - 79441232',
+      values: [
+        {
+          year: 2024,
+          month: "Enero",
+          value: [
+            {
+              currency: "MXN",
+              value: 4000000,
+            },
+            {
+              currency: "USD",
+              value: 214486.78,  // Approx 1 MXN = 0.0536 USD
+            },
+            {
+              currency: "EUR",
+              value: 202036.20,  // Approx 1 MXN = 0.0505 EUR
+            },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Febrero",
+          value: [
+            {
+              currency: "MXN",
+              value: 4500000,
+            },
+            {
+              currency: "USD",
+              value: 241267.63,
+            },
+            {
+              currency: "EUR",
+              value: 227911.03,
+            },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Marzo",
+          value: [
+            {
+              currency: "MXN",
+              value: 5000000,
+            },
+            {
+              currency: "USD",
+              value: 267600.48,
+            },
+            {
+              currency: "EUR",
+              value: 253048.30,
+            },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Abril",
+          value: [
+            {
+              currency: "MXN",
+              value: 6000000,
+            },
+            {
+              currency: "USD",
+              value: 321122.96,
+            },
+            {
+              currency: "EUR",
+              value: 303697.08,
+            },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Mayo",
+          value: [
+            {
+              currency: "MXN",
+              value: 7000000,
+            },
+            {
+              currency: "USD",
+              value: 374645.44,
+            },
+            {
+              currency: "EUR",
+              value: 354346.86,
+            },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Junio",
+          value: [
+            {
+              currency: "MXN",
+              value: 7500000,
+            },
+            {
+              currency: "USD",
+              value: 398906.18,
+            },
+            {
+              currency: "EUR",
+              value: 377509.25,
+            },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Julio",
+          value: [
+            {
+              currency: "MXN",
+              value: 8000000,
+            },
+            {
+              currency: "USD",
+              value: 429145.89,
+            },
+            {
+              currency: "EUR",
+              value: 404490.02,
+            },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Agosto",
+          value: [
+            {
+              currency: "MXN",
+              value: 7500000,
+            },
+            {
+              currency: "USD",
+              value: 398906.18,
+            },
+            {
+              currency: "EUR",
+              value: 377509.25,
+            },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Septiembre",
+          value: [
+            {
+              currency: "MXN",
+              value: 7000000,
+            },
+            {
+              currency: "USD",
+              value: 374645.44,
+            },
+            {
+              currency: "EUR",
+              value: 354346.86,
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: 'Scotia Bank - 6641232',
+      values: [
+        {
+          year: 2024,
+          month: "Enero",
+          value: [
+            {
+              currency: "MXN",
+              value: 4050000,  // Slight increase
+            },
+            {
+              currency: "USD",
+              value: 217000.00,  // Approx increase based on MXN value
+            },
+            {
+              currency: "EUR",
+              value: 204000.00,  // Approx increase based on MXN value
+            },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Febrero",
+          value: [
+            {
+              currency: "MXN",
+              value: 3450000,  // Slight decrease
+            },
+            {
+              currency: "USD",
+              value: 139000.00,  // Adjusted based on MXN value
+            },
+            {
+              currency: "EUR",
+              value: 125000.00,  // Adjusted based on MXN value
+            },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Marzo",
+          value: [
+            {
+              currency: "MXN",
+              value: 5300000,  // Slight increase
+            },
+            {
+              currency: "USD",
+              value: 300000.00,  // Adjusted
+            },
+            {
+              currency: "EUR",
+              value: 285000.00,  // Adjusted
+            },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Abril",
+          value: [
+            {
+              currency: "MXN",
+              value: 5250000,  // Slight decrease
+            },
+            {
+              currency: "USD",
+              value: 299000.00,  // Adjusted
+            },
+            {
+              currency: "EUR",
+              value: 301000.00,  // Adjusted
+            },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Mayo",
+          value: [
+            {
+              currency: "MXN",
+              value: 7150000,  // Slight increase
+            },
+            {
+              currency: "USD",
+              value: 387000.00,  // Adjusted
+            },
+            {
+              currency: "EUR",
+              value: 377000.00,  // Adjusted
+            },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Junio",
+          value: [
+            {
+              currency: "MXN",
+              value: 8850000,  // Slight increase
+            },
+            {
+              currency: "USD",
+              value: 491000.00,  // Adjusted
+            },
+            {
+              currency: "EUR",
+              value: 479500.00,  // Adjusted
+            },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Julio",
+          value: [
+            {
+              currency: "MXN",
+              value: 7950000,  // Slight decrease
+            },
+            {
+              currency: "USD",
+              value: 425000.00,  // Adjusted
+            },
+            {
+              currency: "EUR",
+              value: 400000.00,  // Adjusted
+            },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Agosto",
+          value: [
+            {
+              currency: "MXN",
+              value: 7850000,  // Slight decrease
+            },
+            {
+              currency: "USD",
+              value: 426000.00,  // Adjusted
+            },
+            {
+              currency: "EUR",
+              value: 405000.00,  // Adjusted
+            },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Septiembre",
+          value: [
+            {
+              currency: "MXN",
+              value: 7150000,  // Slight decrease
+            },
+            {
+              currency: "USD",
+              value: 392000.00,  // Adjusted
+            },
+            {
+              currency: "EUR",
+              value: 373000.00,  // Adjusted
+            },
+          ],
+        },
+      ],
+    }    
+  ],
   countries: ['United States', 'Canada']
 }

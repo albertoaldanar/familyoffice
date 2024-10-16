@@ -30,9 +30,9 @@ export default function StockInvestmentList(props) {
                     <p className="mb-0  text-muted-dark">
                       Valor inversiones bursatiles
                     </p>
-                    <h4 className="mt-2 mb-1 text-dark ">
+                    <h3 className="mt-2 mb-1 text-dark ">
                       ${totalValue.value} {totalValue.currency}
-                    </h4>
+                    </h3>
                   </Col>
                 </Row>
               </div>
@@ -49,9 +49,9 @@ export default function StockInvestmentList(props) {
                     <p className="mb-0  text-muted-dark">
                      Numero de inversiones bursatiles
                     </p>
-                    <h4 className="mt-2 mb-1 text-dark ">
+                    <h3 className="mt-2 mb-1 text-dark ">
                       {props.numbers.totalItems}
-                    </h4>
+                    </h3>
                   </Col>
                 </Row>
               </div>

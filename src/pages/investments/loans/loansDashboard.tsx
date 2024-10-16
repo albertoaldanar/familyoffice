@@ -12,6 +12,7 @@ import {
   getUniqueYears,
 } from "../utils";
 import LoansCollecting from "../../administration/collecting/loans/loans";
+import ResultsChart from "../stockMarket/lineChartPeriods";
 import { WorldMap } from "../../../components/maps/simplemaps/data/simplemapdata";
 
 export default function LoansDashboard() {
@@ -308,7 +309,7 @@ export default function LoansDashboard() {
       <div style={{ marginLeft: 20, marginRight: 20 }}>
         {isStatsView ? (
           <>
-            <Row style={{ marginTop: 0, marginBottom: 30 }}>
+            {/* <Row style={{ marginTop: 0, marginBottom: 30 }}>
               <div
                 style={{
                   display: "flex",
@@ -321,7 +322,7 @@ export default function LoansDashboard() {
               </div>
 
               <p style={{ marginBottom: -10, marginLeft: 30 }}>
-                Desglose monto de cobros por mes
+                Montos a cobrar 
               </p>
               <ReactApexChart
                 options={{
@@ -339,6 +340,13 @@ export default function LoansDashboard() {
                 type="bar"
                 height={250}
               />
+            </Row> */}
+
+            <Row style={{ marginBottom: 30, marginRight: 20, marginLeft: 20, marginTop: 20 }}>
+              <p style={{ marginBottom: -10 }}>
+                Deudas por periodo en {currency}
+              </p>
+              <ResultsChart currency={currency} year={2024} wealthBalancebyPeriod={loansDataStats.debtByPeriodsFunds} />
             </Row>
             <Row style={{ marginTop: 20, marginBottom: 0 }}>
               <p style={{ marginBottom: -10, marginLeft: 30 }}>

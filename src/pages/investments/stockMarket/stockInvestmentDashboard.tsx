@@ -10,6 +10,7 @@ import {
   formatForApexChart,
   formatForApexBarChartByAssets,
 } from "../utils";
+import ResultsChart from "./lineChartPeriods";
 import StockInvestmentList from "../../administration/assets/assetCategories/stockInvestmentList";
 import { otherWealthData } from "../../governance/wealthStructure/wealthStructureData";
 
@@ -274,6 +275,12 @@ export default function StockInvestmentDashboard() {
       <div style={{ marginLeft: 20, marginRight: 20 }}>
         {isStatsView ? (
           <>
+            <Row style={{ marginBottom: 30, marginRight: 20, marginLeft: 20, marginTop: 20 }}>
+              <p style={{ marginBottom: -10 }}>
+                Valor de inversiones bursátiles por periodo en {currency}
+              </p>
+              <ResultsChart currency={currency} year={2024} wealthBalancebyPeriod={stockInvestmentStats.valueByPeriod} />
+            </Row>
             <Row style={{ marginTop: 10, marginBottom: 30 }}>
               <Col lg={4}>
                 <div style={{ padding: 10 }}>
@@ -323,8 +330,7 @@ export default function StockInvestmentDashboard() {
                 </div>
               </Col>
             </Row>
-
-            <Row style={{ marginTop: 0, marginBottom: 30 }}>
+            {/* <Row style={{ marginTop: 0, marginBottom: 30 }}>
               <p style={{ marginBottom: -10, marginLeft: 30 }}>
                 Desglose por inversiones
               </p>
@@ -344,7 +350,7 @@ export default function StockInvestmentDashboard() {
                 type="bar"
                 height={250}
               />
-            </Row>
+            </Row> */}
 
             <Row style={{ marginTop: 20, marginBottom: 50 }}>
               <Col lg={4}>

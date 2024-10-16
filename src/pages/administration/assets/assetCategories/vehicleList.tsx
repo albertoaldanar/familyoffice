@@ -27,7 +27,7 @@ export default function VechicleList(props) {
                 <p className="mb-0  text-muted-dark">
                   Valor total en vehiculos
                 </p>
-                <h4 className="mt-2 mb-1 text-dark ">$ {totalValue.value} {totalValue.currency}</h4>
+                <h3 className="mt-2 mb-1 text-dark ">$ {totalValue.value} {totalValue.currency}</h3>
               </Col>
             </Row>
           </div>
@@ -42,7 +42,7 @@ export default function VechicleList(props) {
               </Col>
               <Col xs={10}>
                 <p className="mb-0  text-muted-dark">Numero de vehiculos</p>
-                <h4 className="mt-2 mb-1 text-dark ">{props.numbers.numberOfVehicles}</h4>
+                <h3 className="mt-2 mb-1 text-dark ">{props.numbers.numberOfVehicles}</h3>
               </Col>
             </Row>
           </div>

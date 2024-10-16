@@ -483,6 +483,514 @@ export const loansDataStats = {
       year: 2024
     },
   ],
+  debtByPeriodsFunds: [
+    {
+      name: 'Raul Ortega Flores de (Francisco Carrasco Ramos)',
+      values: [
+        {
+          year: 2024,
+          month: "Enero",
+          value: [
+            {
+              currency: "MXN",
+              value: 1250000,
+            },
+            {
+              currency: "USD",
+              value: 63500.00,
+            },
+            {
+              currency: "EUR",
+              value: 58299.40,
+            },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Febrero",
+          value: [
+            {
+              currency: "MXN",
+              value: 1250000,
+            },
+            {
+              currency: "USD",
+              value: 63500.00,
+            },
+            {
+              currency: "EUR",
+              value: 58299.40,
+            },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Marzo",
+          value: [
+            {
+              currency: "MXN",
+              value: 1250000,
+            },
+            {
+              currency: "USD",
+              value: 63500.00,
+            },
+            {
+              currency: "EUR",
+              value: 58299.40,
+            },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Abril",
+          value: [
+            {
+              currency: "MXN",
+              value: 1200000,
+            },
+            {
+              currency: "USD",
+              value: 60000.00,
+            },
+            {
+              currency: "EUR",
+              value: 58000.40,
+            },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Mayo",
+          value: [
+            {
+              currency: "MXN",
+              value: 1200000,
+            },
+            {
+              currency: "USD",
+              value: 60000.00,
+            },
+            {
+              currency: "EUR",
+              value: 58000.40,
+            },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Junio",
+          value: [
+            {
+              currency: "MXN",
+              value: 1100000,
+            },
+            {
+              currency: "USD",
+              value: 55000.00,
+            },
+            {
+              currency: "EUR",
+              value: 53000.40,
+            },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Julio",
+          value: [
+            {
+              currency: "MXN",
+              value: 1100000,
+            },
+            {
+              currency: "USD",
+              value: 55000.00,
+            },
+            {
+              currency: "EUR",
+              value: 53000.40,
+            },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Agosto",
+          value: [
+            {
+              currency: "MXN",
+              value: 900000,
+            },
+            {
+              currency: "USD",
+              value: 45000.00,
+            },
+            {
+              currency: "EUR",
+              value: 43000.40,
+            },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Septiembre",
+          value: [
+            {
+              currency: "MXN",
+              value: 900000,
+            },
+            {
+              currency: "USD",
+              value: 45000.00,
+            },
+            {
+              currency: "EUR",
+              value: 43000.40,
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: 'Adriana Carrasco Nieto de (Agricola Carrasco SA de CV)',
+      values: [
+        {
+          year: 2024,
+          month: "Enero",
+          value: [
+            {
+              currency: "MXN",
+              value: 580000,
+            },
+            {
+              currency: "USD",
+              value: 40600.12,
+            },
+            {
+              currency: "EUR",
+              value: 39360.40,
+            },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Febrero",
+          value: [
+            {
+              currency: "MXN",
+              value: 570000,
+            },
+            {
+              currency: "USD",
+              value: 40100.00,
+            },
+            {
+              currency: "EUR",
+              value: 38900.30,
+            },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Marzo",
+          value: [
+            {
+              currency: "MXN",
+              value: 560000,
+            },
+            {
+              currency: "USD",
+              value: 39600.12,
+            },
+            {
+              currency: "EUR",
+              value: 38400.20,
+            },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Abril",
+          value: [
+            {
+              currency: "MXN",
+              value: 550000,
+            },
+            {
+              currency: "USD",
+              value: 39100.00,
+            },
+            {
+              currency: "EUR",
+              value: 37900.10,
+            },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Mayo",
+          value: [
+            {
+              currency: "MXN",
+              value: 540000,
+            },
+            {
+              currency: "USD",
+              value: 38600.20,
+            },
+            {
+              currency: "EUR",
+              value: 37400.00,
+            },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Junio",
+          value: [
+            {
+              currency: "MXN",
+              value: 530000,
+            },
+            {
+              currency: "USD",
+              value: 38100.00,
+            },
+            {
+              currency: "EUR",
+              value: 36900.10,
+            },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Julio",
+          value: [
+            {
+              currency: "MXN",
+              value: 520000,
+            },
+            {
+              currency: "USD",
+              value: 37600.10,
+            },
+            {
+              currency: "EUR",
+              value: 36400.20,
+            },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Agosto",
+          value: [
+            {
+              currency: "MXN",
+              value: 520000,
+            },
+            {
+              currency: "USD",
+              value: 37600.10,
+            },
+            {
+              currency: "EUR",
+              value: 36400.20,
+            },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Septiembre",
+          value: [
+            {
+              currency: "MXN",
+              value: 520000,
+            },
+            {
+              currency: "USD",
+              value: 37600.10,
+            },
+            {
+              currency: "EUR",
+              value: 36400.20,
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: 'Javier Carrasco Nieto de (Agricola Carrasco SA de CV)',
+      values: [
+        {
+          year: 2024,
+          month: "Enero",
+          value: [
+            { currency: "MXN", value: 500000 },
+            { currency: "USD", value: 25000.12 },
+            { currency: "EUR", value: 23000.40 },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Febrero",
+          value: [
+            { currency: "MXN", value: 490000 },
+            { currency: "USD", value: 24600.00 },
+            { currency: "EUR", value: 22600.00 },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Marzo",
+          value: [
+            { currency: "MXN", value: 480000 },
+            { currency: "USD", value: 24000.50 },
+            { currency: "EUR", value: 22200.20 },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Abril",
+          value: [
+            { currency: "MXN", value: 470000 },
+            { currency: "USD", value: 23500.40 },
+            { currency: "EUR", value: 21800.10 },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Mayo",
+          value: [
+            { currency: "MXN", value: 455000 },
+            { currency: "USD", value: 22800.10 },
+            { currency: "EUR", value: 21400.00 },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Junio",
+          value: [
+            { currency: "MXN", value: 440000 },
+            { currency: "USD", value: 22200.20 },
+            { currency: "EUR", value: 20900.00 },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Julio",
+          value: [
+            { currency: "MXN", value: 420000 },
+            { currency: "USD", value: 21500.30 },
+            { currency: "EUR", value: 20400.20 },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Agosto",
+          value: [
+            { currency: "MXN", value: 400000 },
+            { currency: "USD", value: 20800.50 },
+            { currency: "EUR", value: 20000.00 },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Septiembre",
+          value: [
+            { currency: "MXN", value: 380000 },
+            { currency: "USD", value: 20200.40 },
+            { currency: "EUR", value: 19500.20 },
+          ],
+        },
+      ]
+    }, 
+    {
+      name: 'Lavanderia Ricardo de (Diana Nieto Vega)',
+      values: [
+        {
+          year: 2024,
+          month: "Enero",
+          value: [
+            { currency: "MXN", value: 300000 },
+            { currency: "USD", value: 150000 },
+            { currency: "EUR", value: 130000 },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Febrero",
+          value: [
+            { currency: "MXN", value: 295000 },
+            { currency: "USD", value: 145000 },
+            { currency: "EUR", value: 128000 },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Marzo",
+          value: [
+            { currency: "MXN", value: 290000 },
+            { currency: "USD", value: 140000 },
+            { currency: "EUR", value: 125000 },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Abril",
+          value: [
+            { currency: "MXN", value: 285000 },
+            { currency: "USD", value: 135000 },
+            { currency: "EUR", value: 122000 },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Mayo",
+          value: [
+            { currency: "MXN", value: 280000 },
+            { currency: "USD", value: 130000 },
+            { currency: "EUR", value: 120000 },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Junio",
+          value: [
+            { currency: "MXN", value: 275000 },
+            { currency: "USD", value: 125000 },
+            { currency: "EUR", value: 118000 },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Julio",
+          value: [
+            { currency: "MXN", value: 270000 },
+            { currency: "USD", value: 120000 },
+            { currency: "EUR", value: 115000 },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Agosto",
+          value: [
+            { currency: "MXN", value: 265000 },
+            { currency: "USD", value: 115000 },
+            { currency: "EUR", value: 113000 },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Septiembre",
+          value: [
+            { currency: "MXN", value: 260000 },
+            { currency: "USD", value: 110000 },
+            { currency: "EUR", value: 110000 },
+          ],
+        },
+      ]
+    }
+  ],
   yearsAvailables: ['2023', '2024'],
   countries: ['Mexico', 'United States']
 }

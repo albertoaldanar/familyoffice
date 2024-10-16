@@ -493,5 +493,15 @@ export const realStateStats = {
     //   ],
     // },
   ],
+  rentsCollecting: [
+    {
+      type: 'Inversiones bursátiles',
+      value: [
+        { currency: "MXN", value: 3000000 },
+        { currency: "USD", value: 157982.04 },
+        { currency: "EUR", value: 142089.05 },
+      ],
+    },
+  ],
   countries: ["Mexico", "United States", "Spain"],
 };

@@ -254,5 +254,508 @@ export const privateEquityStats = {
       ]
     }
   ],  
+  returnsByPeriodsFunds: [
+    {
+      name: 'Fondo ABC',
+      values: [
+        {
+          year: 2024,
+          month: "Enero",
+          value: [
+            {
+              currency: "MXN",
+              value: 35000,
+            },
+            {
+              currency: "USD",
+              value: 1897.85,
+            },
+            {
+              currency: "EUR",
+              value: 1783.50,
+            },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Febrero",
+          value: [
+            {
+              currency: "MXN",
+              value: 35000,  // No change from Enero
+            },
+            {
+              currency: "USD",
+              value: 1897.85,  // No change
+            },
+            {
+              currency: "EUR",
+              value: 1783.50,  // No change
+            },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Marzo",
+          value: [
+            {
+              currency: "MXN",
+              value: 38000,
+            },
+            {
+              currency: "USD",
+              value: 2060.12,
+            },
+            {
+              currency: "EUR",
+              value: 1936.40,
+            },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Abril",
+          value: [
+            {
+              currency: "MXN",
+              value: 38000,  // No change from Marzo
+            },
+            {
+              currency: "USD",
+              value: 2060.12,  // No change
+            },
+            {
+              currency: "EUR",
+              value: 1936.40,  // No change
+            },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Mayo",
+          value: [
+            {
+              currency: "MXN",
+              value: 42000,
+            },
+            {
+              currency: "USD",
+              value: 2278.20,
+            },
+            {
+              currency: "EUR",
+              value: 2142.00,
+            },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Junio",
+          value: [
+            {
+              currency: "MXN",
+              value: 45000,
+            },
+            {
+              currency: "USD",
+              value: 2442.90,
+            },
+            {
+              currency: "EUR",
+              value: 2294.90,
+            },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Julio",
+          value: [
+            {
+              currency: "MXN",
+              value: 45000,  // No change from Junio
+            },
+            {
+              currency: "USD",
+              value: 2442.90,  // No change
+            },
+            {
+              currency: "EUR",
+              value: 2294.90,  // No change
+            },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Agosto",
+          value: [
+            {
+              currency: "MXN",
+              value: 47000,
+            },
+            {
+              currency: "USD",
+              value: 2551.53,
+            },
+            {
+              currency: "EUR",
+              value: 2395.70,
+            },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Septiembre",
+          value: [
+            {
+              currency: "MXN",
+              value: 47000,  // No change from Agosto
+            },
+            {
+              currency: "USD",
+              value: 2551.53,  // No change
+            },
+            {
+              currency: "EUR",
+              value: 2395.70,  // No change
+            },
+          ],
+        },
+      ],
+    }, 
+    {
+      name: 'RMN fund',
+      values: [
+        {
+          year: 2024,
+          month: "Enero",
+          value: [
+            {
+              currency: "MXN",
+              value: 38000,
+            },
+            {
+              currency: "USD",
+              value: 2060.12,
+            },
+            {
+              currency: "EUR",
+              value: 1936.40,
+            },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Febrero",
+          value: [
+            {
+              currency: "MXN",
+              value: 38000,  // No change from Enero
+            },
+            {
+              currency: "USD",
+              value: 2060.12,  // No change
+            },
+            {
+              currency: "EUR",
+              value: 1936.40,  // No change
+            },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Marzo",
+          value: [
+            {
+              currency: "MXN",
+              value: 41000,
+            },
+            {
+              currency: "USD",
+              value: 2225.12,
+            },
+            {
+              currency: "EUR",
+              value: 2080.10,
+            },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Abril",
+          value: [
+            {
+              currency: "MXN",
+              value: 41000,  // No change from Marzo
+            },
+            {
+              currency: "USD",
+              value: 2225.12,  // No change
+            },
+            {
+              currency: "EUR",
+              value: 2080.10,  // No change
+            },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Mayo",
+          value: [
+            {
+              currency: "MXN",
+              value: 45000,
+            },
+            {
+              currency: "USD",
+              value: 2442.90,
+            },
+            {
+              currency: "EUR",
+              value: 2294.90,
+            },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Junio",
+          value: [
+            {
+              currency: "MXN",
+              value: 47000,
+            },
+            {
+              currency: "USD",
+              value: 2551.53,
+            },
+            {
+              currency: "EUR",
+              value: 2395.70,
+            },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Julio",
+          value: [
+            {
+              currency: "MXN",
+              value: 47000,  // No change from Junio
+            },
+            {
+              currency: "USD",
+              value: 2551.53,  // No change
+            },
+            {
+              currency: "EUR",
+              value: 2395.70,  // No change
+            },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Agosto",
+          value: [
+            {
+              currency: "MXN",
+              value: 49000,
+            },
+            {
+              currency: "USD",
+              value: 2660.16,
+            },
+            {
+              currency: "EUR",
+              value: 2500.50,
+            },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Septiembre",
+          value: [
+            {
+              currency: "MXN",
+              value: 49000,  // No change from Agosto
+            },
+            {
+              currency: "USD",
+              value: 2660.16,  // No change
+            },
+            {
+              currency: "EUR",
+              value: 2500.50,  // No change
+            },
+          ],
+        },
+      ],
+    }, 
+    {
+      name: 'Fondo PQR',
+      values: [
+        {
+          year: 2024,
+          month: "Enero",
+          value: [
+            {
+              currency: "MXN",
+              value: 45000,
+            },
+            {
+              currency: "USD",
+              value: 2442.90,
+            },
+            {
+              currency: "EUR",
+              value: 2294.90,
+            },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Febrero",
+          value: [
+            {
+              currency: "MXN",
+              value: 45000,  // No change from Enero
+            },
+            {
+              currency: "USD",
+              value: 2442.90,  // No change
+            },
+            {
+              currency: "EUR",
+              value: 2294.90,  // No change
+            },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Marzo",
+          value: [
+            {
+              currency: "MXN",
+              value: 47000,
+            },
+            {
+              currency: "USD",
+              value: 2551.53,
+            },
+            {
+              currency: "EUR",
+              value: 2395.70,
+            },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Abril",
+          value: [
+            {
+              currency: "MXN",
+              value: 49000,
+            },
+            {
+              currency: "USD",
+              value: 2660.16,
+            },
+            {
+              currency: "EUR",
+              value: 2500.50,
+            },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Mayo",
+          value: [
+            {
+              currency: "MXN",
+              value: 49000,  // No change from Abril
+            },
+            {
+              currency: "USD",
+              value: 2660.16,  // No change
+            },
+            {
+              currency: "EUR",
+              value: 2500.50,  // No change
+            },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Junio",
+          value: [
+            {
+              currency: "MXN",
+              value: 50000,
+            },
+            {
+              currency: "USD",
+              value: 2714.48,
+            },
+            {
+              currency: "EUR",
+              value: 2550.00,
+            },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Julio",
+          value: [
+            {
+              currency: "MXN",
+              value: 50000,  // No change from Junio
+            },
+            {
+              currency: "USD",
+              value: 2714.48,  // No change
+            },
+            {
+              currency: "EUR",
+              value: 2550.00,  // No change
+            },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Agosto",
+          value: [
+            {
+              currency: "MXN",
+              value: 52000,
+            },
+            {
+              currency: "USD",
+              value: 2823.11,
+            },
+            {
+              currency: "EUR",
+              value: 2650.80,
+            },
+          ],
+        },
+        {
+          year: 2024,
+          month: "Septiembre",
+          value: [
+            {
+              currency: "MXN",
+              value: 52000,  // No change from Agosto
+            },
+            {
+              currency: "USD",
+              value: 2823.11,  // No change
+            },
+            {
+              currency: "EUR",
+              value: 2650.80,  // No change
+            },
+          ],
+        },
+      ],
+    }
+  ],
   countries: ['Mexico', 'Brazil']
 }

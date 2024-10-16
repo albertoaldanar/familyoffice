@@ -11,6 +11,7 @@ import {
 } from "../utils";
 import PrivateEquityList from "../../administration/assets/assetCategories/privateEquityList";
 import { otherWealthData } from "../../governance/wealthStructure/wealthStructureData";
+import ResultsChart from "../stockMarket/lineChartPeriods";
 
 export default function PrivateEquityDashboard() {
   const defaultCurrecny = "MXN";
@@ -331,6 +332,13 @@ export default function PrivateEquityDashboard() {
                   />
                 </div>
               </Col>
+            </Row>
+
+            <Row style={{ marginBottom: 30, marginRight: 20, marginLeft: 20, marginTop: 40 }}>
+              <p style={{ marginBottom: -10 }}>
+                Retornos acumulados fondos en {currency}
+              </p>
+              <ResultsChart currency={currency} year={2024} wealthBalancebyPeriod={privateEquityStats.returnsByPeriodsFunds} />
             </Row>
 
             <Row style={{ marginTop: 0, marginBottom: 30 }}>

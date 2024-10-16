@@ -28,9 +28,9 @@ export default function RealStateList(props) {
                     <p className="mb-0  text-muted-dark">
                       Total valor en bienes raices
                     </p>
-                    <h4 className="mt-2 mb-1 text-dark ">
+                    <h3 className="mt-2 mb-1 text-dark ">
                       ${totalValue.value} {totalValue.currency}
-                    </h4>
+                    </h3>
                   </Col>
                 </Row>
               </div>
@@ -47,9 +47,9 @@ export default function RealStateList(props) {
                     <p className="mb-0  text-muted-dark">
                       Total cobro mensual arrendamientos
                     </p>
-                    <h4 className="mt-2 mb-1 text-dark ">
+                    <h3 className="mt-2 mb-1 text-dark ">
                       ${totalRent.value} {totalRent.currency}
-                    </h4>
+                    </h3>
                   </Col>
                 </Row>
               </div>

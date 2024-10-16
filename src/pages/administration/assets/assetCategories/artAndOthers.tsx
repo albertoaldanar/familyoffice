@@ -28,7 +28,7 @@ export default function ArtAndOthers(props) {
                 <p className="mb-0  text-muted-dark">
                   Valor total en arte y colecciones
                 </p>
-                <h4 className="mt-2 mb-1 text-dark ">${totalValue.value} {totalValue.currency}</h4>
+                <h3 className="mt-2 mb-1 text-dark ">${totalValue.value} {totalValue.currency}</h3>
               </Col>
             </Row>
           </div>
@@ -45,7 +45,7 @@ export default function ArtAndOthers(props) {
                 <p className="mb-0  text-muted-dark">
                   Numero de articulos de arte o coleccion
                 </p>
-                <h4 className="mt-2 mb-1 text-dark ">{props.numbers.totalItems}</h4>
+                <h3 className="mt-2 mb-1 text-dark ">{props.numbers.totalItems}</h3>
               </Col>
             </Row>
           </div>
