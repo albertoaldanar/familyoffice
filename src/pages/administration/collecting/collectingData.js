@@ -5,6 +5,7 @@ export const prestamos = [
     tipo: "Prestamo a tercero",
     concepto: "Prestamo a DA Solare",
     monto: "2,000,000.00",
+    notificationTo: { id: '23', name: 'Francisco Carrasco Ramos', type: 'Family'},
     country: 'México',
     porPagar: "1,500,000.00",
     creditor: {
@@ -56,6 +57,7 @@ export const prestamos = [
     id: 2,
     deudor: "Adriana Carrasco Nieto",
     proxCobro: "10/10/2024",
+    notificationTo: { id: '24', type: 'Provider', name: 'Luz Amelia Jacobo'},
     country: 'México',
     creditor: {
       name: 'Servicios financieros del campo CN SA de CV',
@@ -113,6 +115,7 @@ export const prestamos = [
       type: 'Miembro de la familia', 
       linkedItemId: 23
     },
+    notificationTo: { id: '24', type: 'Provider', name: 'Luz Amelia Jacobo'},
     debtor: {
       name: 'Raul Quintero Flores', 
       phone: '667104822', 
@@ -227,6 +230,7 @@ export const arrendamientos = [
     tenantPhone: '667194849',
     proxCobro: "22/09/2024",
     frecuenciaDePago: "Mensual",
+    notificationTo: { id: '43', name: 'Diana Nieto Vega', type: 'Family' },
     pagos: [
       {
         id: 94,
@@ -258,6 +262,7 @@ export const arrendamientos = [
     id: 8,
     tipo: "Inmobiliario",
     arrendatario: "Agricola Carrasco SA de CV",
+    notificationTo:  { id: '43', name: 'Diana Nieto Vega', type: 'Family' },
     linkedItemId: 42,
     plazo: "1 año",
     country: 'México',
@@ -311,6 +316,7 @@ export const arrendamientos = [
     proxpago: "1 dia",
     moneda: "MXN",
     frecuenciaDePago: "Mensual",
+    notificationTo: { id: '43', name: 'Diana Nieto Vega', type: 'Family' },
     pagos: [
       {
         id: 50,

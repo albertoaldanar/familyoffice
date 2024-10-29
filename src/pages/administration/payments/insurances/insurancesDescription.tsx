@@ -32,8 +32,10 @@ import {
   calculateDaysOrMonthsLeft,
   formatRealstateData,
   formateDateForUI,
-  formatToDateString
+  formatToDateString,
+  formatUserNotification
 } from "../paymentUtils";
+import { users } from "../paymentsData";
 
 export default function InsurancesDescription(props) {
   //@ts-ignore
@@ -58,6 +60,11 @@ export default function InsurancesDescription(props) {
   const [realStateOwner, setRealStateOwner] = useState({
     label: insurance.linkedItemId ? insurance.nombre : '', 
     value: insurance.linkedItemId ? insurance.linkedItemId : ''
+  });
+
+  const [notificationTo, setNotificationTo] = useState({
+    label: insurance.notifcationTo.name,
+    value: insurance.notifcationTo.id
   });
 
   const [insuranceName, setInsuranceName] = useState(
@@ -113,6 +120,8 @@ export default function InsurancesDescription(props) {
     { value: "Mensual", label: "Mensual" },
     { value: "Anual", label: "Anual" },
   ];
+
+  const OptionsNotificationUsers = formatUserNotification(users);
 
   function addEllipsis(str: string): string {
     if (str.length > 20) {
@@ -560,6 +569,22 @@ export default function InsurancesDescription(props) {
             >
               <Form.Label>Días para proximo pago:</Form.Label>
               <p>{calculateDaysOrMonthsLeft(formatToDateString(nextPayment))}</p>
+            </Form.Group>
+            <Form.Group
+              as={Col}
+              md="4"
+              controlId="validationCustom01"
+              className="form-group"
+            >
+              <Form.Label>Usuario a notificar recordatorio:</Form.Label>
+              <Select
+                options={OptionsNotificationUsers}
+                classNamePrefix="Select2"
+                className="multi-select"
+                onChange={(value) => setNotificationTo(value)}
+                placeholder=""
+                value={notificationTo}
+              />
             </Form.Group>
           </Row>
         ) : (

@@ -24,7 +24,8 @@ import { arrendamientos } from "../paymentsData";
 import { formateDateForUI } from "../paymentUtils";
 import FileView from "../../accounting/components/fileView";
 import FileUpload from "../../accounting/components/fileUpload";
-import { calculateDaysOrMonthsLeft, formatToDateString } from "../paymentUtils";
+import { calculateDaysOrMonthsLeft, formatToDateString, formatUserNotification } from "../paymentUtils";
+import { users } from "../paymentsData";
 
 export default function LeasingAndRentPaymentDescription(props) {
   //@ts-ignore
@@ -61,6 +62,14 @@ export default function LeasingAndRentPaymentDescription(props) {
     value: leasing.moneda,
     label: leasing.moneda,
   });
+
+  const [notificationTo, setNotificationTo] = useState({
+    label: leasing.notifcationTo.name,
+    value: leasing.notifcationTo.id
+  });
+
+  const OptionsNotificationUsers = formatUserNotification(users);
+
   const Optionscurrency = [
     { value: "MXN", label: "MXN" },
     { value: "USD", label: "USD" },
@@ -368,6 +377,23 @@ export default function LeasingAndRentPaymentDescription(props) {
               <p>
                 {calculateDaysOrMonthsLeft(formatToDateString(nextPayment))}
               </p>
+            </Form.Group>
+
+            <Form.Group
+              as={Col}
+              md="4"
+              controlId="validationCustom01"
+              className="form-group"
+            >
+              <Form.Label>Usuario a notificar recordatorio:</Form.Label>
+              <Select
+                options={OptionsNotificationUsers}
+                classNamePrefix="Select2"
+                className="multi-select"
+                onChange={(value) => setNotificationTo(value)}
+                placeholder=""
+                value={notificationTo}
+              />
             </Form.Group>
           </Row>
         ) : (

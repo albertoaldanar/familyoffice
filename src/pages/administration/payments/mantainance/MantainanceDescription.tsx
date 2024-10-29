@@ -24,9 +24,8 @@ import { calculateDaysOrMonthsLeft } from "../paymentUtils";
 import { formatVehicleData } from "../paymentUtils";
 import { otherWealthData } from "../../../governance/wealthStructure/wealthStructureData";
 import { realstateData } from "../../../investments/realState/realStateData";
-import { formateDateForUI } from "../paymentUtils";
-import { formatRealstateData } from "../paymentUtils";
-import { formatToDateString } from "../paymentUtils";
+import { formatRealstateData, formatUserNotification, formatToDateString, formateDateForUI } from "../paymentUtils";
+import { users } from "../paymentsData";
 
 export default function MantainanceDescription(props) {
   //@ts-ignore
@@ -81,6 +80,11 @@ export default function MantainanceDescription(props) {
     label: mantainance.moneda,
   });
 
+  const [notificationTo, setNotificationTo] = useState({
+    label: mantainance.notifcationTo.name,
+    value: mantainance.notifcationTo.id
+  });
+
   const Optionscurrency = [
     { value: "MXN", label: "MXN" },
     { value: "USD", label: "USD" },
@@ -92,6 +96,8 @@ export default function MantainanceDescription(props) {
     { value: "Mensual no recurrente", label: "Mensual no recurrente" },
     { value: "Anual", label: "Anual" },
   ];
+  
+  const OptionsNotificationUsers = formatUserNotification(users);
 
   const handleMantainanceType = () => {
     if (mantainance.tipo === "Inmobiliario") {
@@ -371,6 +377,23 @@ export default function MantainanceDescription(props) {
               <p>
                 {calculateDaysOrMonthsLeft(formatToDateString(nextPayment))}
               </p>
+            </Form.Group>
+
+            <Form.Group
+              as={Col}
+              md="4"
+              controlId="validationCustom01"
+              className="form-group"
+            >
+              <Form.Label>Usuario a notificar recordatorio:</Form.Label>
+              <Select
+                options={OptionsNotificationUsers}
+                classNamePrefix="Select2"
+                className="multi-select"
+                onChange={(value) => setNotificationTo(value)}
+                placeholder=""
+                value={notificationTo}
+              />
             </Form.Group>
           </Row>
         ) : (

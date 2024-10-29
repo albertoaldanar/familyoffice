@@ -103,7 +103,39 @@ export const family = {
           pct: '100',
           value: '123,000,000.00',
           currency: 'MXN',
-          country: 'México'
+          country: 'México', 
+          visibility: [
+            {
+              id: '43',
+              type: 'Family',
+              name: 'Diana Nieto Vega',
+              hasVisibility: true
+            }, 
+            {
+              id: '12',
+              type: 'Family',
+              name: 'Javier Carrasco Nieto',
+              hasVisibility: true
+            }, 
+            {
+              id: '13',
+              type: 'Family',
+              name: 'Adriana Carrasco Nieto',
+              hasVisibility: false
+            },
+            {
+              id: '34',
+              type: 'Provider',
+              name: 'Raul Gallego León',
+              hasVisibility: false
+            },
+            {
+              id: '24',
+              type: 'Provider',
+              name: 'Luz Amelia Jacobo',
+              hasVisibility: false
+            }
+          ]
         },
         {
           id: 53,
@@ -112,7 +144,36 @@ export const family = {
           pct: '20',
           value: '11,200,000.00',
           currency: 'USD',
-          country: 'USA'
+          country: 'USA', 
+          visibility: [
+            {
+              id: '43',
+              name: 'Diana Nieto Vega',
+              hasVisibility: true
+            }, 
+            {
+              id: '12',
+              name: 'Javier Carrasco Nieto',
+              hasVisibility: true
+            }, 
+            {
+              id: '13',
+              name: 'Adriana Carrasco Nieto',
+              hasVisibility: true
+            }, 
+            {
+              id: '34',
+              type: 'Provider',
+              name: 'Raul Gallego León',
+              hasVisibility: false
+            },
+            {
+              id: '24',
+              type: 'Provider',
+              name: 'Luz Amelia Jacobo',
+              hasVisibility: false
+            }
+          ]
         },
         {
           id: 23,
@@ -121,7 +182,39 @@ export const family = {
           pct: '60',
           value: '10,000,000.00',
           currency: 'MXN',
-          country: 'México'
+          country: 'México', 
+          visibility: [
+            {
+              id: '43',
+              type: 'Family',
+              name: 'Diana Nieto Vega',
+              hasVisibility: true
+            }, 
+            {
+              id: '12',
+              type: 'Family',
+              name: 'Javier Carrasco Nieto',
+              hasVisibility: true
+            }, 
+            {
+              id: '13',
+              type: 'Family',
+              name: 'Adriana Carrasco Nieto',
+              hasVisibility: false
+            }, 
+            {
+              id: '34',
+              type: 'Provider',
+              name: 'Raul Gallego León',
+              hasVisibility: false
+            },
+            {
+              id: '24',
+              type: 'Provider',
+              name: 'Luz Amelia Jacobo',
+              hasVisibility: false
+            }
+          ]
         },
         {
           id: 24,
@@ -130,7 +223,39 @@ export const family = {
           pct: '30',
           value: '10,000,000.00',
           currency: 'MXN',
-          country: 'México'
+          country: 'México', 
+          visibility: [
+            {
+              id: '43',
+              type: 'Family',
+              name: 'Diana Nieto Vega',
+              hasVisibility: true
+            }, 
+            {
+              id: '12',
+              type: 'Family',
+              name: 'Javier Carrasco Nieto',
+              hasVisibility: true
+            }, 
+            {
+              id: '13',
+              type: 'Family',
+              name: 'Adriana Carrasco Nieto',
+              hasVisibility: false
+            }, 
+            {
+              id: '34',
+              type: 'Provider',
+              name: 'Raul Gallego León',
+              hasVisibility: false
+            },
+            {
+              id: '24',
+              type: 'Provider',
+              name: 'Luz Amelia Jacobo',
+              hasVisibility: false
+            }
+          ]
         },
         {
           id: 85,
@@ -139,7 +264,39 @@ export const family = {
           pct: '45',
           value: '10,000,000.00',
           currency: 'USD',
-          country: 'USA'
+          country: 'USA', 
+          visibility: [
+            {
+              id: '43',
+              type: 'Family',
+              name: 'Diana Nieto Vega',
+              hasVisibility: true
+            }, 
+            {
+              id: '12',
+              type: 'Family',
+              name: 'Javier Carrasco Nieto',
+              hasVisibility: false
+            }, 
+            {
+              id: '13',
+              type: 'Family',
+              name: 'Adriana Carrasco Nieto',
+              hasVisibility: false
+            }, 
+            {
+              id: '34',
+              type: 'Provider',
+              name: 'Raul Gallego León',
+              hasVisibility: false
+            },
+            {
+              id: '24',
+              type: 'Provider',
+              name: 'Luz Amelia Jacobo',
+              hasVisibility: false
+            }
+          ]
         },
         {
           id: 29,
@@ -148,7 +305,39 @@ export const family = {
           pct: '50',
           value: '7,500,000.00',
           currency: 'MXN',
-          country: 'México'
+          country: 'México', 
+          visibility: [
+            {
+              id: '43',
+              name: 'Diana Nieto Vega',
+              type: 'Family',
+              hasVisibility: true
+            }, 
+            {
+              id: '12',
+              name: 'Javier Carrasco Nieto',
+              type: 'Family',
+              hasVisibility: true
+            }, 
+            {
+              id: '13',
+              name: 'Adriana Carrasco Nieto',
+              type: 'Family',
+              hasVisibility: true
+            }, 
+            {
+              id: '34',
+              type: 'Provider',
+              name: 'Raul Gallego León',
+              hasVisibility: false
+            },
+            {
+              id: '24',
+              type: 'Provider',
+              name: 'Luz Amelia Jacobo',
+              hasVisibility: false
+            }
+          ]
         },
         {
           id: 24,
@@ -157,7 +346,39 @@ export const family = {
           pct: '100',
           value: '3,000,000.00',
           currency: 'MXN',
-          country: 'México'
+          country: 'México', 
+          visibility: [
+            {
+              id: '43',
+              name: 'Diana Nieto Vega',
+              type: 'Family',
+              hasVisibility: true
+            }, 
+            {
+              id: '12',
+              name: 'Javier Carrasco Nieto',
+              type: 'Family',
+              hasVisibility: true
+            }, 
+            {
+              id: '13',
+              name: 'Adriana Carrasco Nieto',
+              type: 'Family',
+              hasVisibility: true
+            }, 
+            {
+              id: '34',
+              type: 'Provider',
+              name: 'Raul Gallego León',
+              hasVisibility: false
+            },
+            {
+              id: '24',
+              type: 'Provider',
+              name: 'Luz Amelia Jacobo',
+              hasVisibility: false
+            }
+          ]
         }, 
         {
           id: 1,
@@ -166,7 +387,39 @@ export const family = {
           pct: '100',
           value: '1,000,000.00',
           currency: 'MXN',
-          country: 'México'
+          country: 'México', 
+          visibility: [
+            {
+              id: '43',
+              type: 'Family',
+              name: 'Diana Nieto Vega',
+              hasVisibility: false
+            }, 
+            {
+              id: '12',
+              type: 'Family',
+              name: 'Javier Carrasco Nieto',
+              hasVisibility: false
+            }, 
+            {
+              id: '13',
+              type: 'Family',
+              name: 'Adriana Carrasco Nieto',
+              hasVisibility: false
+            }, 
+            {
+              id: '34',
+              type: 'Provider',
+              name: 'Raul Gallego León',
+              hasVisibility: false
+            },
+            {
+              id: '24',
+              type: 'Provider',
+              name: 'Luz Amelia Jacobo',
+              hasVisibility: false
+            }
+          ]
         }, 
         {
           id: 159,
@@ -175,7 +428,39 @@ export const family = {
           pct: '50',
           value: '10,000,000.00',
           currency: 'MXN',
-          country: 'México'
+          country: 'México', 
+          visibility: [
+            {
+              id: '43',
+              type: 'Family',
+              name: 'Diana Nieto Vega',
+              hasVisibility: false
+            }, 
+            {
+              id: '12',
+              type: 'Family',
+              name: 'Javier Carrasco Nieto',
+              hasVisibility: false
+            }, 
+            {
+              id: '13',
+              type: 'Family',
+              name: 'Adriana Carrasco Nieto',
+              hasVisibility: false
+            }, 
+            {
+              id: '34',
+              type: 'Provider',
+              name: 'Raul Gallego León',
+              hasVisibility: false
+            },
+            {
+              id: '24',
+              type: 'Provider',
+              name: 'Luz Amelia Jacobo',
+              hasVisibility: false
+            }
+          ]
         }, 
         {
           id: 499,
@@ -184,7 +469,39 @@ export const family = {
           pct: '50',
           value: '2,000,000.00',
           currency: 'MXN',
-          country: 'México'
+          country: 'México', 
+          visibility: [
+            {
+              id: '43',
+              type: 'Family',
+              name: 'Diana Nieto Vega',
+              hasVisibility: false
+            }, 
+            {
+              id: '12',
+              type: 'Family',
+              name: 'Javier Carrasco Nieto',
+              hasVisibility: false
+            }, 
+            {
+              id: '13',
+              type: 'Family',
+              name: 'Adriana Carrasco Nieto',
+              hasVisibility: false
+            }, 
+            {
+              id: '34',
+              type: 'Provider',
+              name: 'Raul Gallego León',
+              hasVisibility: false
+            },
+            {
+              id: '24',
+              type: 'Provider',
+              name: 'Luz Amelia Jacobo',
+              hasVisibility: false
+            }
+          ]
         },
         {
           id: 3,
@@ -193,7 +510,39 @@ export const family = {
           pct: '100',
           value: '60,000.00',
           currency: 'USD',
-          country: 'USA'
+          country: 'USA', 
+          visibility: [
+            {
+              id: '43',
+              type: 'Family',
+              name: 'Diana Nieto Vega',
+              hasVisibility: true
+            }, 
+            {
+              id: '12',
+              type: 'Family',
+              name: 'Javier Carrasco Nieto',
+              hasVisibility: true
+            }, 
+            {
+              id: '13',
+              type: 'Family',
+              name: 'Adriana Carrasco Nieto',
+              hasVisibility: true
+            }, 
+            {
+              id: '34',
+              type: 'Provider',
+              name: 'Raul Gallego León',
+              hasVisibility: false
+            },
+            {
+              id: '24',
+              type: 'Provider',
+              name: 'Luz Amelia Jacobo',
+              hasVisibility: false
+            }
+          ]
         },
         {
           id: 43,
@@ -202,7 +551,39 @@ export const family = {
           pct: '100',
           value: '5000000.00',
           currency: 'EUR',
-          country: 'España'
+          country: 'España', 
+          visibility: [
+            {
+              id: '43',
+              name: 'Diana Nieto Vega',
+              type: 'Family',
+              hasVisibility: true
+            }, 
+            {
+              id: '12',
+              name: 'Javier Carrasco Nieto',
+              type: 'Family',
+              hasVisibility: false
+            }, 
+            {
+              id: '13',
+              name: 'Adriana Carrasco Nieto',
+              type: 'Family',
+              hasVisibility: false
+            }, 
+            {
+              id: '34',
+              type: 'Provider',
+              name: 'Raul Gallego León',
+              hasVisibility: false
+            },
+            {
+              id: '24',
+              type: 'Provider',
+              name: 'Luz Amelia Jacobo',
+              hasVisibility: false
+            }
+          ]
         },
       ]
     },

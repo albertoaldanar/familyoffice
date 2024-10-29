@@ -1107,8 +1107,8 @@ export default function FamilyMember(props) {
                       Obligaciones
                     </Nav.Link>
                   </Nav.Item>
-                  <Nav.Item as="li" style={{ marginRight: 10 }}>
-                    <Nav.Link eventKey="fourth">
+                  <Nav.Item as="li">
+                    <Nav.Link eventKey="fourth" >
                       <i
                         style={{ marginRight: 9 }}
                         className="fe fe-trending-up text-black fs-13"

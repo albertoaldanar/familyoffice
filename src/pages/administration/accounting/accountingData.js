@@ -1,4 +1,4 @@
-export const companies = [
+export const companies = [  
   {
     id: 91,
     nombre: "Grupo Carrasco Holding SA de CV",
@@ -1121,7 +1121,7 @@ export const fideicomisos = [
         name: "Sofia Carrasco Nieto",
       },
     ],
-    trustee: 'Carlos Carrasco Ramos',
+    trustee: 'Francisco Carrasco Ramos',
     purpose: "Manejar las inversiones familiares a largo plazo",
     content: [
       {

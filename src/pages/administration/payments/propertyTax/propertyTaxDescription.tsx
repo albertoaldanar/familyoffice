@@ -21,7 +21,8 @@ import { prediales } from "../paymentsData";
 import { useParams } from "react-router-dom";
 import { calculateDaysOrMonthsLeft } from "../paymentUtils";
 import { realstateData } from "../../../investments/realState/realStateData";
-import { formatToDateString, formatRealstateData, formateDateForUI } from "../paymentUtils";
+import { formatToDateString, formatRealstateData, formateDateForUI, formatUserNotification } from "../paymentUtils";
+import { users } from "../paymentsData";
 
 export default function PropertTaxDescription(props) {
   //@ts-ignore
@@ -69,6 +70,11 @@ export default function PropertTaxDescription(props) {
     value: taxProperty.frecuenciaDePago,
   });
 
+  const [notificationTo, setNotificationTo] = useState({
+    label: taxProperty.notifcationTo.name,
+    value: taxProperty.notifcationTo.id
+  });
+
   const Optionscurrency = [
     { value: "MXN", label: "MXN" },
     { value: "USD", label: "USD" },
@@ -79,6 +85,9 @@ export default function PropertTaxDescription(props) {
     { value: "Mensual", label: "Mensual" },
     { value: "Anual", label: "Anual" },
   ];
+
+  const OptionsNotificationUsers = formatUserNotification(users);
+
 
   function addEllipsis(str: string): string {
     if (str.length > 20) {
@@ -225,6 +234,22 @@ export default function PropertTaxDescription(props) {
             >
               <Form.Label>Días para proximo pago:</Form.Label>
               <p>{calculateDaysOrMonthsLeft(formatToDateString(nextPayment))}</p>
+            </Form.Group>
+            <Form.Group
+              as={Col}
+              md="4"
+              controlId="validationCustom01"
+              className="form-group"
+            >
+              <Form.Label>Usuario a notificar recordatorio:</Form.Label>
+              <Select
+                options={OptionsNotificationUsers}
+                classNamePrefix="Select2"
+                className="multi-select"
+                onChange={(value) => setNotificationTo(value)}
+                placeholder=""
+                value={notificationTo}
+              />
             </Form.Group>
           </Row>
         ) : (

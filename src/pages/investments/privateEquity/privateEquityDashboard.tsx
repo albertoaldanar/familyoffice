@@ -16,6 +16,8 @@ import ResultsChart from "../stockMarket/lineChartPeriods";
 export default function PrivateEquityDashboard() {
   const defaultCurrecny = "MXN";
   const [currency, setCurrency] = useState(defaultCurrecny);
+  const defaultYear = new Date().getFullYear();
+  const [year, setYear] = useState(defaultYear);
 
   const byStage = formatByAssetForCurrency(
     privateEquityStats.byStage,
@@ -280,6 +282,41 @@ export default function PrivateEquityDashboard() {
       );
     }
 
+    const getUniqueYears = (data): number[] => {
+      const years = data.flatMap(fund => fund.values.map(period => period.year));
+      return Array.from(new Set(years));
+    };
+    
+    const renderYearsDropdown = () => {
+      const yearsInPeriod = getUniqueYears(privateEquityStats.returnsByPeriodsFunds);
+  
+      return (
+        <div style={{ marginRight: 20, marginBottom: 20, marginTop: -6 }}>
+          <Dropdown className="h-3">
+            <Dropdown.Toggle size="sm" color="default" type="button" className="custom-button">
+              {year} <span className="caret"></span>
+            </Dropdown.Toggle>
+            <Dropdown.Menu role="menu">
+              <>
+                {yearsInPeriod.map((year) => {
+                  return (
+                    <Dropdown.Item
+                      onClick={() => setYear(Number(year))}
+                      key={year}
+                      href="#"
+                    >
+                      {year}
+                    </Dropdown.Item>
+                  );
+                })}
+              </>
+            </Dropdown.Menu>
+          </Dropdown>
+        </div>
+      );
+    };
+  
+
     return (
       <div style={{ marginLeft: 20, marginRight: 20 }}>
         {isStatsView ? (
@@ -334,10 +371,19 @@ export default function PrivateEquityDashboard() {
               </Col>
             </Row>
 
-            <Row style={{ marginBottom: 30, marginRight: 20, marginLeft: 20, marginTop: 40 }}>
+            <Row style={{ marginBottom: 30, marginRight: 20, marginLeft: 20, marginTop: 50 }}>
+              <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                  }}
+                >
               <p style={{ marginBottom: -10 }}>
                 Retornos acumulados fondos en {currency}
               </p>
+                  {renderYearsDropdown()}
+              </div>
               <ResultsChart currency={currency} year={2024} wealthBalancebyPeriod={privateEquityStats.returnsByPeriodsFunds} />
             </Row>
 

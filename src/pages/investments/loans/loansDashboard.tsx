@@ -18,9 +18,10 @@ import { WorldMap } from "../../../components/maps/simplemaps/data/simplemapdata
 export default function LoansDashboard() {
   const defaultCurrecny = "MXN";
   const defaultYear = new Date().getFullYear();
+  const [year, setYear] = useState(defaultYear);
   const [content, setContent] = useState("");
   const [currency, setCurrency] = useState(defaultCurrecny);
-  const [year, setYear] = useState(defaultYear);
+
   const [viewSelected, setViewSelected] = useState("stats");
 
   const byCreditor = formatByAssetForCurrency(
@@ -235,16 +236,23 @@ export default function LoansDashboard() {
     );
   };
 
+  const getUniqueYears = (data): number[] => {
+    const years = data.flatMap(fund => fund.values.map(period => period.year));
+    return Array.from(new Set(years));
+  };
+  
   const renderYearsDropdown = () => {
+    const yearsInPeriod = getUniqueYears(loansDataStats.debtByPeriodsFunds);
+
     return (
-      <div style={{ marginTop: 30, marginRight: 20 }}>
+      <div style={{ marginRight: 20, marginBottom: 20, marginTop: -5 }}>
         <Dropdown className="h-3">
           <Dropdown.Toggle size="sm" color="default" type="button" className="custom-button">
             {year} <span className="caret"></span>
           </Dropdown.Toggle>
           <Dropdown.Menu role="menu">
             <>
-              {loansDataStats.yearsAvailables.map((year) => {
+              {yearsInPeriod.map((year) => {
                 return (
                   <Dropdown.Item
                     onClick={() => setYear(Number(year))}
@@ -342,11 +350,20 @@ export default function LoansDashboard() {
               />
             </Row> */}
 
-            <Row style={{ marginBottom: 30, marginRight: 20, marginLeft: 20, marginTop: 20 }}>
-              <p style={{ marginBottom: -10 }}>
-                Deudas por periodo en {currency}
-              </p>
-              <ResultsChart currency={currency} year={2024} wealthBalancebyPeriod={loansDataStats.debtByPeriodsFunds} />
+            <Row style={{ marginBottom: 30, marginRight: 20, marginLeft: 20, marginTop: 30 }}>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                }}
+              >
+                <p style={{ marginBottom: -10 }}>
+                  Deudas por periodo en {currency}
+                </p>
+                {renderYearsDropdown()}
+              </div>
+              <ResultsChart currency={currency} year={year} wealthBalancebyPeriod={loansDataStats.debtByPeriodsFunds} />
             </Row>
             <Row style={{ marginTop: 20, marginBottom: 0 }}>
               <p style={{ marginBottom: -10, marginLeft: 30 }}>

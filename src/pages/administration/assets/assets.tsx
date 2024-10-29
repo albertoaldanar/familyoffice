@@ -27,7 +27,8 @@ export default function Assets() {
 
   const renderCurrencyDropdown = () => {
     return (
-      <div>
+      <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', marginTop: 20}}>
+        <div></div>
         <Dropdown className="h-3">
           <Dropdown.Toggle
             size="sm"
@@ -60,7 +61,8 @@ export default function Assets() {
   return (
     <Fragment>
       <Row>
-        <div style={{ minHeight: 550 }}>
+        <div style={{ minHeight: 550, position: 'relative' }}>
+          {/* {renderCurrencyDropdown()} */}
           <Tab.Container
             id="left-tabs-example"
             defaultActiveKey={params.assetType}

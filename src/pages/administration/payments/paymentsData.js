@@ -12,6 +12,7 @@ export const prediales = [
     vigenciaDel: "12/01/2024",
     vigenciaAl: "12/01/2024",
     pagoen: "2 meses",
+    notifcationTo: {name: 'Luz Amelia Jacobo', id: '24', type: 'Provider'},
     pagos: [
       {
         id: 1,
@@ -50,6 +51,7 @@ export const prediales = [
     vigenciaDel: "12/01/2024",
     vigenciaAl: "12/01/2024",
     pagoen: "1 meses",
+    notifcationTo: {name: 'Luz Amelia Jacobo', id: '24', type: 'Provider'},
     pagos: [
       {
         id: 4,
@@ -88,6 +90,7 @@ export const prediales = [
     vigenciaDel: "12/01/2024",
     vigenciaAl: "12/01/2024",
     pagoen: "3 dias",
+    notifcationTo: {name: 'Luz Amelia Jacobo', id: '24', type: 'Provider'},
     pagos: [
       {
         id: 9,
@@ -126,6 +129,7 @@ export const prediales = [
     vigenciaDel: "12/01/2024",
     vigenciaAl: "12/01/2024",
     pagoen: "3 dias",
+    notifcationTo: {name: 'Luz Amelia Jacobo', id: '24', type: 'Provider'},
     pagos: [
       {
         id: 9,
@@ -171,6 +175,11 @@ export const creditos = [
     pagado: "210,000",
     moneda: "MXN",
     interes: "15",
+    notifcationTo: {
+      id: '23',
+      name: 'Francisco Carrasco Ramos',
+      type: 'Family'
+    },
     pagos: [
       {
         id: 2,
@@ -213,6 +222,7 @@ export const creditos = [
     fechaDeContratacion: "22/11/2022",
     fechaVencimiento: "01/12/2027",
     frecuenciaDePago: "Mensual",
+    notifcationTo: {name: 'Luz Amelia Jacobo', id: '24', type: 'Provider'},
     pagos: [
         {
           id: 13,
@@ -253,6 +263,7 @@ export const creditos = [
     frecuenciaDePago: "Mensual",
     moneda: "MXN",
     fechaVencimiento: "01/12/2027",
+    notifcationTo: {name: 'Luz Amelia Jacobo', id: '24', type: 'Provider'},
     pagos: [
         {
           id: 23,
@@ -333,6 +344,7 @@ export const seguros = [
     vigenciaAl: "20/12/2070",
     pagoen: "2 meses",
     proxPago: "29/10/2024",
+    notifcationTo: { id: '43', name: 'Diana Nieto Vega', type: 'Family' },
     pagos: [
       {
         id: 1,
@@ -399,6 +411,7 @@ export const seguros = [
     vigenciaDel: "12/01/2024",
     vigenciaAl: "12/01/2024",
     pagoen: "1 meses",
+    notifcationTo: { id: '43', name: 'Diana Nieto Vega', type: 'Family' },
     pagos: [
       {
         id: 3,
@@ -441,6 +454,7 @@ export const seguros = [
     vigenciaDel: "12/01/2024",
     vigenciaAl: "12/01/2024",
     pagoen: "1 meses",
+    notifcationTo: { id: '43', name: 'Diana Nieto Vega', type: 'Family' },
     pagos: [
       {
         id: 3,
@@ -483,6 +497,7 @@ export const seguros = [
     vigenciaDel: "12/01/2024",
     vigenciaAl: "12/01/2024",
     pagoen: "Vencido",
+    notifcationTo: { id: '43', name: 'Diana Nieto Vega', type: 'Family' },
     pagos: [
       {
         id: 5,
@@ -525,6 +540,7 @@ export const seguros = [
     vigenciaDel: "12/01/2024",
     vigenciaAl: "12/01/2024",
     pagoen: "2 meses",
+    notifcationTo: { id: '12', name: 'Javier Carrasco Nieto', type: 'Family'},
     pagos: [
       {
         id: 7,
@@ -566,6 +582,7 @@ export const seguros = [
     vigenciaDel: "12/01/2024",
     vigenciaAl: "12/01/2024",
     pagoen: "2 meses",
+    notifcationTo: {name: 'Luz Amelia Jacobo', id: '24', type: 'Provider'},
     pagos: [
       {
         id: 9,
@@ -607,6 +624,7 @@ export const seguros = [
     vigenciaDel: "12/01/2024",
     vigenciaAl: "12/01/2024",
     pagoen: "2 meses",
+    notifcationTo: {name: 'Luz Amelia Jacobo', id: '24', type: 'Provider'},
     pagos: [
       {
         id: 11,
@@ -648,6 +666,7 @@ export const seguros = [
     vigenciaDel: "12/01/2024",
     vigenciaAl: "12/01/2024",
     pagoen: "2 meses",
+    notifcationTo: {name: 'Luz Amelia Jacobo', id: '24', type: 'Provider'},
     pagos: [
     ],
   },
@@ -666,6 +685,7 @@ export const seguros = [
     vigenciaDel: "12/01/2024",
     vigenciaAl: "12/01/2024",
     pagoen: "2 meses",
+    notifcationTo: {name: 'Luz Amelia Jacobo', id: '24', type: 'Provider'},
     pagos: [
       {
         id: 14,
@@ -707,6 +727,7 @@ export const seguros = [
     vigenciaDel: "12/01/2024",
     vigenciaAl: "12/01/2024",
     pagoen: "2 meses",
+    notifcationTo: {name: 'Luz Amelia Jacobo', id: '24', type: 'Provider'},
     pagos: [
       {
         id: 16,
@@ -785,6 +806,7 @@ export const arrendamientos = [
     contrato: "https://googledrive.com/erg3440398f4fmv",
     proxPago: "22/09/2024",
     frecuenciaDePago: "Anual",
+    notifcationTo: { id: '43', name: 'Diana Nieto Vega', type: 'Family' },
     pagos: [
       {
         id: 12, 
@@ -826,6 +848,7 @@ export const arrendamientos = [
     contrato: "https://googledrive.com/erg3440398f4fmv",
     proxPago: "15/10/2024",
     frecuenciaDePago: "Mensual",
+    notifcationTo: { id: '43', name: 'Diana Nieto Vega', type: 'Family' },
     pagos: [
       {
         id: 94,
@@ -866,6 +889,7 @@ export const arrendamientos = [
     proxPago: "01/10/2024",
     moneda: "MXN",
     frecuenciaDePago: "Mensual",
+    notifcationTo: { id: '43', name: 'Diana Nieto Vega', type: 'Family' },
     pagos: [
       {
         id: 50,
@@ -908,6 +932,7 @@ export const mantenimientos = [
     proxPago: "12/12/2024",
     moneda: 'MXN',
     frecuenciaDePago: "Mensual",
+    notifcationTo: { id: '43', name: 'Diana Nieto Vega', type: 'Family' },
     pagos: [
       {
         id: 22,
@@ -945,6 +970,7 @@ export const mantenimientos = [
     moneda: 'MXN',
     proxPago: "12/12/2024",
     frecuenciaDePago: "Mensual",
+    notifcationTo: { id: '43', name: 'Diana Nieto Vega', type: 'Family' },
     pagos: [
       {
         id: 29,
@@ -982,6 +1008,7 @@ export const mantenimientos = [
     moneda: 'EUR',
     proxPago: "12/12/2024",
     frecuenciaDePago: "Mensual",
+    notifcationTo: { id: '43', name: 'Diana Nieto Vega', type: 'Family' },
     pagos: [
       {
         id: 29,
@@ -1019,6 +1046,7 @@ export const mantenimientos = [
     monto: "7,500.00",
     proxPago: null,
     frecuenciaDePago: "Mensual no recurrente",
+    notifcationTo: { id: '43', name: 'Diana Nieto Vega', type: 'Family' },
     pagos: [
       {
         id: 86,
@@ -1046,4 +1074,13 @@ export const mantenimientos = [
   },
   // { tipo: 'Vehicular', pagoA: 'Audi agencia', concepto: 'Mantenimiento', monto: '$34,000.00', proxpago: '12/12/2024 (8 dias)' },
   // { tipo: 'Vehicular', pagoA: 'Marina Mazatlan', concepto: 'Renta espacio yate la marina', monto: '$45,000.00', proxpago: '12/12/2024 (1 dia)' },
+];
+
+export const users = [
+  { id: '23', name: 'Francisco Carrasco Ramos', type: 'Family'},
+  { id: '43', name: 'Diana Nieto Vega', type: 'Family' },
+  { id: '12', name: 'Javier Carrasco Nieto', type: 'Family'},
+  { id: '13', name: 'Adriana Carrasco Nieto', type: 'Family'},
+  { id: '34', type: 'Provider', name: 'Raul Gallego León'},
+  { id: '24', type: 'Provider', name: 'Luz Amelia Jacobo'},
 ];

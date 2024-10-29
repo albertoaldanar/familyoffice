@@ -44,6 +44,8 @@ import ReactDOM from'react-dom/client'
 const  Dashboard= React.lazy(()=>import ('../pages/dashboard/dashboard'))
 /****************************** REPORTS ****************************************/
 const  Reports = React.lazy(()=>import ('../pages/reports/reports'))
+/****************************** REPORTS ****************************************/
+const  DataSuccession = React.lazy(()=>import ('../pages/dataSuccession/dataSuccession'))
 /****************************** ADMINISTRATION ****************************************/
 const  Companies= React.lazy(()=>import ('../pages/administration/accounting/companies'))
 const  TrustCreate= React.lazy(()=>import ('../pages/administration/trusts/trustCreate'))
@@ -353,6 +355,9 @@ export const Routingdata=[
 
 /****************************** REPORTS ****************************************/
 {path:`${import.meta.env.BASE_URL}reports` ,element : <Reports/>},
+
+/****************************** DATA SUCCESSION ****************************************/
+{path:`${import.meta.env.BASE_URL}dataSuccession` ,element : <DataSuccession/>},
 
 /****************************** GOVERNANCE ****************************************/
 /* Family structure */

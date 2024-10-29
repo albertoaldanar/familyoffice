@@ -30,10 +30,11 @@ import { formateDateForUI } from "../paymentUtils";
 import { realstateData } from "../../../investments/realState/realStateData";
 import { otherWealthData } from "../../../governance/wealthStructure/wealthStructureData";
 import { formatRealstateData, formatVehicleData } from "../paymentUtils";
-import { formatFamilyMembers } from "../paymentUtils";
+import { formatFamilyMembers, formatUserNotification } from "../paymentUtils";
 import { companies } from "../../accounting/accountingData";
 import { family } from "../../../governance/familyStructure/familyStructureData";
 import { formatCompany } from "../../accounting/companyUtils";
+import { users } from "../paymentsData";
 
 export default function DebtDescription(props) {
   //@ts-ignore
@@ -104,6 +105,11 @@ export default function DebtDescription(props) {
     value: debt.tipoCredito === 'Personal'? debt.concepto : "",
   });
 
+  const [notificationTo, setNotificationTo] = useState({
+    label: debt.notifcationTo.name,
+    value: debt.notifcationTo.id
+  });
+
   const OptionsDebtSource = [
     {
       value: "Credito de entidad financiera",
@@ -123,6 +129,8 @@ export default function DebtDescription(props) {
     { value: "USD", label: "USD" },
     { value: "EUR", label: "EUR" },
   ];
+
+  const OptionsNotificationUsers = formatUserNotification(users);
 
   function addEllipsis(str: string): string {
     if (str.length > 20) {
@@ -318,6 +326,22 @@ export default function DebtDescription(props) {
               <p>
                 {calculateDaysOrMonthsLeft(formatToDateString(nextPayment))}
               </p>
+            </Form.Group>
+            <Form.Group
+              as={Col}
+              md="4"
+              controlId="validationCustom01"
+              className="form-group"
+            >
+              <Form.Label>Usuario a notificar recordatorio:</Form.Label>
+              <Select
+                options={OptionsNotificationUsers}
+                classNamePrefix="Select2"
+                className="multi-select"
+                onChange={(value) => setNotificationTo(value)}
+                placeholder=""
+                value={notificationTo}
+              />
             </Form.Group>
           </Row>
         ) : (

@@ -170,8 +170,8 @@ export default function Companies() {
                   <th>Numero de fideicomiso</th>
                   <th>Fiduciario (Banco)</th>
                   <th>País</th>
-                  <th>Fideicomisario</th>
-                  <th>Fideicomitentes</th>
+                  <th>Fideicomitente</th>
+                  <th>Fideicomisarios</th>
                   <th></th>
                 </tr>
               </thead>

@@ -38,6 +38,23 @@ const MenuItems = [
   {
     Items: [
       {
+        icon: (<i className="side-menu__icon fe fe-unlock"></i>),
+        type: 'sub',
+        Name:'',
+        active: false,
+        selected: false,
+        title: 'Sucesión de datos',
+        pathname: `${import.meta.env.BASE_URL}dataSuccession`,
+        class:'',
+        color:'',
+        badgetxt:'',
+        children: null
+      },
+    ]
+  },
+  {
+    Items: [
+      {
         icon: (<i className="side-menu__icon fe fe-calendar text-black fs-17"></i>),
         type: 'sub',
         Name:'',

@@ -17,7 +17,9 @@ import { otherWealthData } from "../../governance/wealthStructure/wealthStructur
 export default function StockInvestmentDashboard() {
   const defaultCurrecny = "MXN";
   const [currency, setCurrency] = useState(defaultCurrecny);
+  const defaultYear = new Date().getFullYear();
 
+  const [year, setYear] = useState(defaultYear);
   const byBank = formatByAssetForCurrency(
     stockInvestmentStats.byBank,
     currency
@@ -271,15 +273,58 @@ export default function StockInvestmentDashboard() {
       );
     }
 
+    const getUniqueYears = (data): number[] => {
+      const years = data.flatMap(fund => fund.values.map(period => period.year));
+      return Array.from(new Set(years));
+    };
+    
+    const renderYearsDropdown = () => {
+      const yearsInPeriod = getUniqueYears(stockInvestmentStats.valueByPeriod);
+  
+      return (
+        <div style={{ marginRight: 20, marginBottom: 20, marginTop: -5 }}>
+          <Dropdown className="h-3">
+            <Dropdown.Toggle size="sm" color="default" type="button" className="custom-button">
+              {year} <span className="caret"></span>
+            </Dropdown.Toggle>
+            <Dropdown.Menu role="menu">
+              <>
+                {yearsInPeriod.map((year) => {
+                  return (
+                    <Dropdown.Item
+                      onClick={() => setYear(Number(year))}
+                      key={year}
+                      href="#"
+                    >
+                      {year}
+                    </Dropdown.Item>
+                  );
+                })}
+              </>
+            </Dropdown.Menu>
+          </Dropdown>
+        </div>
+      );
+    };
+
     return (
       <div style={{ marginLeft: 20, marginRight: 20 }}>
         {isStatsView ? (
           <>
             <Row style={{ marginBottom: 30, marginRight: 20, marginLeft: 20, marginTop: 20 }}>
-              <p style={{ marginBottom: -10 }}>
-                Valor de inversiones bursátiles por periodo en {currency}
-              </p>
-              <ResultsChart currency={currency} year={2024} wealthBalancebyPeriod={stockInvestmentStats.valueByPeriod} />
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                }}
+              >
+                <p style={{ marginBottom: -10 }}>
+                  Valor de inversiones bursátiles por periodo en {currency}
+                </p>
+                {renderYearsDropdown()}
+              </div>
+              <ResultsChart currency={currency} year={year} wealthBalancebyPeriod={stockInvestmentStats.valueByPeriod} />
             </Row>
             <Row style={{ marginTop: 10, marginBottom: 30 }}>
               <Col lg={4}>

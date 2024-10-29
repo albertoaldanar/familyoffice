@@ -1469,6 +1469,15 @@ export default function CompanyDescription() {
                         Contactos
                       </Nav.Link>
                     </Nav.Item>
+                    <Nav.Item as="li" style={{ marginRight: 10 }}>
+                      <Nav.Link eventKey="contacts" href="#">
+                        <i
+                          style={{ marginRight: 9 }}
+                          className="fe fe-users text-black fs-13"
+                        ></i>
+                        Instrucciones Post-mortem
+                      </Nav.Link>
+                    </Nav.Item>
                   </Nav>
                 </div>
               </div>

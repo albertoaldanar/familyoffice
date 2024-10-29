@@ -206,3 +206,10 @@ export const formatToDateString = (dateInput) => {
   // Format the date to "DD/MM/YYYY"
   return dateObject.format('DD/MM/YYYY');
 };
+
+export const formatUserNotification = (data) => {
+  return data.map(item => ({
+    label: item.name,
+    value: item.id,
+  }));
+};

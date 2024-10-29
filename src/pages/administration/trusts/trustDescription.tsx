@@ -565,7 +565,7 @@ export default function TrustDescription(props) {
             className="form-group"
           >
             <p style={{ color: "gray", fontSize: 12 }}>
-              Fideicomitentes de la familia (beneficiarios)
+              Fideicomisarios de la familia (beneficiarios)
             </p>
             <MultiSelect
               options={familyList}
@@ -586,7 +586,7 @@ export default function TrustDescription(props) {
             controlId="validationCustom01"
             className="form-group"
           >
-            <p style={{ color: "gray", fontSize: 12 }}>Fideicomisario</p>
+            <p style={{ color: "gray", fontSize: 12 }}>Fideicomitente</p>
             <Form.Control
               type="numeric"
               placeholder=""
