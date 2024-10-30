@@ -53,7 +53,10 @@ export default function PrivateEquity(props) {
   const [equityPercentage, setEquityPercentage] = useState(privateEquitySelected.equityPercentage);
   const [currentValue, setCurrentValue] = useState(privateEquitySelected.currentValue);
   const [tir, setTir] = useState(privateEquitySelected.tir);
-
+  const [newInstruction, setNewInstructions] = useState("");  
+  const [instructions, setInstructions] = useState(
+    privateEquitySelected.successionInstructions || []
+  );
   const [companyStage, setCompanyStage] = useState({
     value: privateEquitySelected.companyStage,
     label: privateEquitySelected.companyStage,
@@ -119,6 +122,17 @@ export default function PrivateEquity(props) {
     { value: "Private Equity", label: "Private Equity" },
     { value: "LBO", label: "LBO" },
   ];
+
+  const handleAddSubject = () => {
+    if (newInstruction.trim()) {
+      setInstructions([...instructions, newInstruction]);
+      setNewInstructions("");
+    }
+  };
+
+  const handleRemoveSubject = (index) => {
+    setInstructions(instructions.filter((_, i) => i !== index));
+  };
 
   const handleInputChange = (memberIndex, attributeName, value, type) => {
     if (type === "family") {
@@ -1011,6 +1025,50 @@ export default function PrivateEquity(props) {
     );
   };
 
+  const renderSuccessionInstructions = () => {
+    return (
+      <Row >
+      <Form.Group as={Col} md="10" className="form-group">
+        <Form.Label style={{marginBottom: 20}}>Instrucciones y/o notas importantes de sucesión de esta inversión de capital privado</Form.Label>
+        {/* <p>Es importante añadir instrucciones de sucesión, ya que facilitaras a los sucesores de este activo</p> */}
+        <ul style={{ marginLeft: 20 }}>
+          {instructions.map((subject, index) => (
+            <li style={{ fontSize: 13, color: "gray" }} key={index}>
+              {index + 1}. {subject}
+              <Button
+                variant="link"
+                style={{
+                  fontSize: 11,
+                  marginBottom: 8,
+                  color: "black",
+                }}
+                onClick={() => handleRemoveSubject(index)}
+              >
+                X
+              </Button>
+            </li>
+          ))}
+        </ul>
+        <InputGroup style={{ marginTop: 13 }}>
+          <Form.Control
+            type="text"
+            placeholder=""
+            value={newInstruction}
+            onChange={(e) => setNewInstructions(e.target.value)}
+          />
+          <Button
+            style={{ fontSize: 12 }}
+            variant="default"
+            onClick={handleAddSubject}
+          >
+            + Agregar
+          </Button>
+        </InputGroup>
+      </Form.Group>
+    </Row>
+    )
+  }
+
   return (
     <Fragment>
       <Row style={{ padding: 20 }}>
@@ -1078,6 +1136,15 @@ export default function PrivateEquity(props) {
                     Contactos
                   </Nav.Link>
                 </Nav.Item>
+                <Nav.Item as="li" style={{ marginRight: 10 }}>
+                  <Nav.Link eventKey="six">
+                    <i
+                      style={{ marginRight: 9 }}
+                      className="fe fe-repeat text-black fs-13"
+                    ></i>
+                    Instrucciones de sucesión
+                  </Nav.Link>
+                </Nav.Item>
               </Nav>
             </div>
           </div>
@@ -1086,6 +1153,7 @@ export default function PrivateEquity(props) {
             <Tab.Pane eventKey="info">{renderInfo()}</Tab.Pane>
             <Tab.Pane eventKey="owners">{renderOwnerTypeOptions()}</Tab.Pane>
             <Tab.Pane eventKey="contacts">{renderContactList()}</Tab.Pane>
+            <Tab.Pane eventKey="six">{renderSuccessionInstructions()}</Tab.Pane>
           </Tab.Content>
         </Tab.Container>
 
@@ -1099,7 +1167,8 @@ export default function PrivateEquity(props) {
         >
           <div></div>
           <Button
-            style={{ position: "absolute", right: 25, bottom: 80 }}
+            style={{ position: "absolute", right: 25, bottom: 80
+             }}
             className="custom-button"
             type="submit"
           >

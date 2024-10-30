@@ -84,6 +84,12 @@ export default function CompanyDescription() {
     dayjs(foundationDateFormatted)
   );
 
+  const [newInstruction, setNewInstructions] = useState("");  
+
+  const [instructions, setInstructions] = useState(
+    companySelected.successionInstructions || []
+  );
+
   const [currency, setCurrency] = useState({
     value: companySelected.moneda,
     label: companySelected.moneda,
@@ -153,6 +159,17 @@ export default function CompanyDescription() {
       });
     });
   }
+
+  const handleAddSubject = () => {
+    if (newInstruction.trim()) {
+      setInstructions([...instructions, newInstruction]);
+      setNewInstructions("");
+    }
+  };
+
+  const handleRemoveSubject = (index) => {
+    setInstructions(instructions.filter((_, i) => i !== index));
+  };
 
   const accountingYears: string[] = Array.from(accountingYearsSet).sort(
     (a, b) => parseInt(a) - parseInt(b)
@@ -1391,6 +1408,50 @@ export default function CompanyDescription() {
     );
   };
 
+  const renderSuccessionInstructions = () => {
+    return (
+      <Row >
+      <Form.Group as={Col} md="10" className="form-group">
+        <Form.Label style={{marginBottom: 20}}>Instrucciones y/o notas importantes de sucesión de esta empresa</Form.Label>
+        {/* <p>Es importante añadir instrucciones de sucesión, ya que facilitaras a los sucesores de este activo</p> */}
+        <ul style={{ marginLeft: 20 }}>
+          {instructions.map((subject, index) => (
+            <li style={{ fontSize: 13, color: "gray" }} key={index}>
+              {index + 1}. {subject}
+              <Button
+                variant="link"
+                style={{
+                  fontSize: 11,
+                  marginBottom: 8,
+                  color: "black",
+                }}
+                onClick={() => handleRemoveSubject(index)}
+              >
+                X
+              </Button>
+            </li>
+          ))}
+        </ul>
+        <InputGroup style={{ marginTop: 13 }}>
+          <Form.Control
+            type="text"
+            placeholder=""
+            value={newInstruction}
+            onChange={(e) => setNewInstructions(e.target.value)}
+          />
+          <Button
+            style={{ fontSize: 12 }}
+            variant="default"
+            onClick={handleAddSubject}
+          >
+            + Agregar
+          </Button>
+        </InputGroup>
+      </Form.Group>
+    </Row>
+    )
+  }
+
   return (
     <Fragment>
       <Row>
@@ -1470,12 +1531,12 @@ export default function CompanyDescription() {
                       </Nav.Link>
                     </Nav.Item>
                     <Nav.Item as="li" style={{ marginRight: 10 }}>
-                      <Nav.Link eventKey="contacts" href="#">
+                      <Nav.Link eventKey="succession">
                         <i
                           style={{ marginRight: 9 }}
-                          className="fe fe-users text-black fs-13"
+                          className="fe fe-repeat text-black fs-13"
                         ></i>
-                        Instrucciones Post-mortem
+                        Instrucciones de sucesión
                       </Nav.Link>
                     </Nav.Item>
                   </Nav>
@@ -1488,6 +1549,7 @@ export default function CompanyDescription() {
                 <Tab.Pane eventKey="fifth">{renderMultiSelect()}</Tab.Pane>
                 <Tab.Pane eventKey="fourth">{renderDescription()}</Tab.Pane>
                 <Tab.Pane eventKey="contacts">{renderContactList()}</Tab.Pane>
+                <Tab.Pane eventKey="succession">{renderSuccessionInstructions()}</Tab.Pane>
               </Tab.Content>
             </Tab.Container>
           )}

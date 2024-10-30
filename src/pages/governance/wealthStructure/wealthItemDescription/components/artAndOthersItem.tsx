@@ -67,6 +67,12 @@ export default function ArtAndOthersItem(props) {
     label: artSelected.country,
   });
 
+  const [newInstruction, setNewInstructions] = useState("");  
+
+  const [instructions, setInstructions] = useState(
+    artSelected.successionInstructions || []
+  );
+
   const Optionscurrency = [
     { value: "MXN", label: "MXN" },
     { value: "USD", label: "USD" },
@@ -90,6 +96,17 @@ export default function ArtAndOthersItem(props) {
     label: member.name,
     value: member.id,
   }));
+
+  const handleAddSubject = () => {
+    if (newInstruction.trim()) {
+      setInstructions([...instructions, newInstruction]);
+      setNewInstructions("");
+    }
+  };
+
+  const handleRemoveSubject = (index) => {
+    setInstructions(instructions.filter((_, i) => i !== index));
+  };
 
   const renderDescription = () => {
     return (
@@ -571,6 +588,50 @@ export default function ArtAndOthersItem(props) {
     );
   };
 
+  const renderSuccessionInstructions = () => {
+    return (
+      <Row >
+      <Form.Group as={Col} md="10" className="form-group">
+        <Form.Label style={{marginBottom: 20}}>Instrucciones y/o notas importantes de sucesión de este vehiculo</Form.Label>
+        {/* <p>Es importante añadir instrucciones de sucesión, ya que facilitaras a los sucesores de este activo</p> */}
+        <ul style={{ marginLeft: 20 }}>
+          {instructions.map((subject, index) => (
+            <li style={{ fontSize: 13, color: "gray" }} key={index}>
+              {index + 1}. {subject}
+              <Button
+                variant="link"
+                style={{
+                  fontSize: 11,
+                  marginBottom: 8,
+                  color: "black",
+                }}
+                onClick={() => handleRemoveSubject(index)}
+              >
+                X
+              </Button>
+            </li>
+          ))}
+        </ul>
+        <InputGroup style={{ marginTop: 13 }}>
+          <Form.Control
+            type="text"
+            placeholder=""
+            value={newInstruction}
+            onChange={(e) => setNewInstructions(e.target.value)}
+          />
+          <Button
+            style={{ fontSize: 12 }}
+            variant="default"
+            onClick={handleAddSubject}
+          >
+            + Agregar
+          </Button>
+        </InputGroup>
+      </Form.Group>
+    </Row>
+    )
+  }
+
   return (
     <Fragment>
       <Row style={{ marginTop: 10, padding: 20 }}>
@@ -642,6 +703,15 @@ export default function ArtAndOthersItem(props) {
                     Contactos
                   </Nav.Link>
                 </Nav.Item>
+                <Nav.Item as="li" style={{ marginRight: 10 }}>
+                  <Nav.Link eventKey="six">
+                    <i
+                      style={{ marginRight: 9 }}
+                      className="fe fe-repeat text-black fs-13"
+                    ></i>
+                    Instrucciones de sucesión
+                  </Nav.Link>
+                </Nav.Item>
               </Nav>
             </div>
           </div>
@@ -651,6 +721,7 @@ export default function ArtAndOthersItem(props) {
             <Tab.Pane eventKey="second">{renderDocuments()}</Tab.Pane>
             <Tab.Pane eventKey="third">{renderOwners()}</Tab.Pane>
             <Tab.Pane eventKey="contacts">{renderContactList()}</Tab.Pane>
+            <Tab.Pane eventKey="six">{renderSuccessionInstructions()}</Tab.Pane>
           </Tab.Content>
         </Tab.Container>
         <div

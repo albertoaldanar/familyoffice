@@ -4,6 +4,7 @@ export const companies = [
     nombre: "Grupo Carrasco Holding SA de CV",
     rfc: "ANDNN324NS",
     moneda: "MXN",
+    successionInstructions: [],
     contacts: [
       {
         id: 1,
@@ -248,6 +249,7 @@ export const companies = [
     rfc: "JNF932NKEW",
     moneda: "USD",
     containedIntrusts:[],
+    successionInstructions: [],
     contacts: [
       {
         id: 1,
@@ -426,6 +428,7 @@ export const companies = [
     nombre: "Agricola Carrasco SA de CV",
     rfc: "BVA4930245",
     moneda: "MXN",
+    successionInstructions: [],
     contacts: [
       {
         id: 1,
@@ -671,6 +674,7 @@ export const companies = [
     rfc: "BVA4930245",
     moneda: "MXN",
     containedIntrusts:[],
+    successionInstructions: [],
     razonSocial: "Servicios financieros del campo CN SA de CV",
     nationality: "Mexicana",
     regimenCapital: "SA de CV",
@@ -869,14 +873,14 @@ export const companies = [
       ],
       anuales: [],
     },
-  },
-  
+  }, 
   {
     id: 53,
     nombre: "CN Farmer trade LLC",
     rfc: "NJF9NIEW2",
     moneda: "USD",
     containedIntrusts:[],
+    successionInstructions: [],
     contacts: [
       {
         id: 1,

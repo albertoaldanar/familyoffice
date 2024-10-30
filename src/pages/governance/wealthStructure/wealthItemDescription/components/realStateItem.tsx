@@ -42,7 +42,7 @@ export default function RealStateItem(props) {
   if (!realStateSelected) {
     return <NotFoundSearch />;
   }
-
+  const [newSubject, setNewSubject] = useState("");  
   const trustList = formatTrust(fideicomisos);
   const familyList = formatMember(family.members);
   const companiesList = formatCompany(companies);
@@ -55,6 +55,9 @@ export default function RealStateItem(props) {
   const [mt2, setMt2] = useState(realStateSelected.mt2);
   const [ownerFamilyMembers, setOwnerFamilyMembers] = useState(
     ownerData.family
+  );
+  const [meetingSubjects, setMeetingSubjects] = useState(
+    realStateSelected.successionInstructions || []
   );
   const [ownerCompanies, setOwnerCompanies] = useState(ownerData.company);
   const [ownerTrust, setOwnerTrust] = useState(ownerData.trust);
@@ -94,6 +97,16 @@ export default function RealStateItem(props) {
     { value: "Terreno", label: "Terreno" },
   ];
 
+  const handleAddSubject = () => {
+    if (newSubject.trim()) {
+      setMeetingSubjects([...meetingSubjects, newSubject]);
+      setNewSubject("");
+    }
+  };
+
+  const handleRemoveSubject = (index) => {
+    setMeetingSubjects(meetingSubjects.filter((_, i) => i !== index));
+  };
   const renderDescription = () => {
     return (
       <div>
@@ -1156,6 +1169,50 @@ export default function RealStateItem(props) {
     );
   };
 
+  const renderSuccessionInstructions = () => {
+    return (
+      <Row>
+      <Form.Group as={Col} md="10" className="form-group">
+        <Form.Label style={{marginBottom: 20}}>Instrucciones y/o notas importantes de sucesión de esta propiedad</Form.Label>
+        {/* <p>Es importante añadir instrucciones de sucesión, ya que facilitaras a los sucesores de este activo</p> */}
+        <ul style={{ marginLeft: 20 }}>
+          {meetingSubjects.map((subject, index) => (
+            <li style={{ fontSize: 13, color: "gray" }} key={index}>
+              {index + 1}. {subject}
+              <Button
+                variant="link"
+                style={{
+                  fontSize: 11,
+                  marginBottom: 8,
+                  color: "black",
+                }}
+                onClick={() => handleRemoveSubject(index)}
+              >
+                X
+              </Button>
+            </li>
+          ))}
+        </ul>
+        <InputGroup style={{ marginTop: 13 }}>
+          <Form.Control
+            type="text"
+            placeholder=""
+            value={newSubject}
+            onChange={(e) => setNewSubject(e.target.value)}
+          />
+          <Button
+            style={{ fontSize: 12 }}
+            variant="default"
+            onClick={handleAddSubject}
+          >
+            + Agregar
+          </Button>
+        </InputGroup>
+      </Form.Group>
+    </Row>
+    )
+  }
+
   return (
     <Fragment>
       <Row style={{ marginTop: 0, padding: 20 }}>
@@ -1241,6 +1298,15 @@ export default function RealStateItem(props) {
                     Contactos
                   </Nav.Link>
                 </Nav.Item>
+                <Nav.Item as="li" style={{ marginRight: 10 }}>
+                  <Nav.Link eventKey="six">
+                    <i
+                      style={{ marginRight: 9 }}
+                      className="fe fe-repeat text-black fs-13"
+                    ></i>
+                    Instrucciones de sucesión
+                  </Nav.Link>
+                </Nav.Item>
               </Nav>
             </div>
           </div>
@@ -1251,6 +1317,7 @@ export default function RealStateItem(props) {
             <Tab.Pane eventKey="third">{renderObligationsTabs()}</Tab.Pane>
             <Tab.Pane eventKey="fourth">{renderOwners()}</Tab.Pane>
             <Tab.Pane eventKey="fifth">{renderContactList()}</Tab.Pane>
+            <Tab.Pane eventKey="six">{renderSuccessionInstructions()}</Tab.Pane>
           </Tab.Content>
         </Tab.Container>
         <div

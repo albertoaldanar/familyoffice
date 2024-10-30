@@ -109,6 +109,9 @@ export const otherWealthData = {
       country: "México",
       platesNumber: "XBJ21NB3",
       invoice: "https://googledrive.com/erg3440398f4fmv",
+      successionInstructions: [
+        "Esta vehiculo se le dara a la empresa Agricola Carrasco SA de CV"
+      ],
       obligations: {
         mantainances: [
           {
@@ -184,6 +187,9 @@ export const otherWealthData = {
       circulationCard: "",
       currency: "USD",
       contacts: [],
+      successionInstructions: [
+        "Esta vehiculo se le heredara a mi hijo Javier Carrasco"
+      ],
       obligations: {
         mantainances: [],
         rentsCollecting: [], 
@@ -226,6 +232,9 @@ export const otherWealthData = {
       platesNumber: "AARBYNB1",
       invoice: "https://googledrive.com/erg3440398f4fmv",
       contacts: [],
+      successionInstructions: [
+        "Esta vehiculo se le heredara a mi hijo Javier Carrasco"
+      ],
       obligations: {
         mantainances: [],
         rentsCollecting: [], 
@@ -270,6 +279,9 @@ export const otherWealthData = {
       year: "2018",
       color: "Gris",
       platesNumber: "N43RNB1",
+      successionInstructions: [
+        "Esta vehiculo quedara en la casa de san diego y se podra utilizar por cualquier miembro de la familia que se este quedando ahi"
+      ],
       invoice: "https://googledrive.com/erg3440398f4fmv",
       contacts: [],
       obligations: {
@@ -312,6 +324,7 @@ export const otherWealthData = {
       platesNumber: "AARBYNB1",
       invoice: "https://googledrive.com/erg3440398f4fmv",
       contacts: [],
+      successionInstructions: [],
       obligations: {
         mantainances: [],
         rentsCollecting: [], 
@@ -358,6 +371,9 @@ export const otherWealthData = {
           name: "Fideicomiso 0014233 Santander",
         },
       ],
+      successionInstructions: [
+        "Esta coleccion de arte se encuentra en casa de San Diego Mission Valley. En caso de mi fallecimiento se heredara en partes iguales entre mis 3 hijos Javier, Adriana y Sofia."
+      ],
       value: "5000000",
       currency: "EUR",
       country: "España",
@@ -390,6 +406,10 @@ export const otherWealthData = {
           name: "Francisco Carrasco Ramos"
         }
       ],
+      successionInstructions: [
+        "La beneficiria de esta cuenta en su totalidad es Diana Nieto", 
+        "En caso del fallcimiento de Diana el monto de esta cuenta bancarias se heredara a mis 3 hijos Adrian, Sofia y Javier en partes iguales 33% a cada uno"
+      ],
       contacts: [
         {
           id: 1,
@@ -412,6 +432,7 @@ export const otherWealthData = {
     },
     {
       id: 2,
+      successionInstructions: [],
       owners: [
         {
           type: "Persona moral",
@@ -438,6 +459,10 @@ export const otherWealthData = {
           coreId: "23",
           name: "Francisco Carrasco Ramos"
         }
+      ],
+      successionInstructions: [
+        "La beneficiria de esta cuenta en su totalidad es Diana Nieto", 
+        "En caso del fallcimiento de Diana el monto de esta cuenta bancarias se heredara a mis 3 hijos Adrian, Sofia y Javier en partes iguales 33% a cada uno"
       ],
       contacts: [
         {
@@ -469,6 +494,10 @@ export const otherWealthData = {
           name: "Francisco Carrasco Ramos"
         }
       ],
+      successionInstructions: [
+        "La beneficiria de esta cuenta en su totalidad es Diana Nieto", 
+        "En caso del fallcimiento de Diana el monto de esta cuenta bancarias se heredara a mis 3 hijos Adrian, Sofia y Javier en partes iguales 33% a cada uno"
+      ],
       contacts: [
         {
           id: 3,
@@ -498,6 +527,10 @@ export const otherWealthData = {
           coreId: "23",
           name: "Francisco Carrasco Ramos"
         }
+      ],
+      successionInstructions: [
+        "La beneficiria de esta cuenta en su totalidad es Diana Nieto", 
+        "En caso del fallcimiento de Diana el monto de esta cuenta bancarias se heredara a mis 3 hijos Adrian, Sofia y Javier en partes iguales 33% a cada uno"
       ],
       contacts: [
         {
@@ -529,6 +562,10 @@ export const otherWealthData = {
           name: "Francisco Carrasco Ramos"
         }
       ],
+      successionInstructions: [
+        "La beneficiria de esta cuenta en su totalidad es Diana Nieto", 
+        "En caso del fallcimiento de Diana el monto de esta cuenta bancarias se heredara a mis 3 hijos Adrian, Sofia y Javier en partes iguales 33% a cada uno"
+      ],
       contacts: [],
       bank: "HSBC",
       accountNumber: "555666777",
@@ -545,6 +582,11 @@ export const otherWealthData = {
       fundName: "Fondo ABC",
       investment: "10000000",
       loanId: null,
+      successionInstructions: [
+        "Los rendimientos y retornos de esta inversión se depositan en la cuenta BBVA-32473", 
+        "En caso de mi fallecimiento si el fondo no se ha cerrado, la beneficiaria de esta cuenta es Diana Nieto", 
+        "En caso de impago, contactar a Raul Ortiz para solicitar pago de retornos, su contacto se encuentra en la lista de proveedores", 
+      ],
       contacts: [
         {
           id: 1,
@@ -618,6 +660,10 @@ export const otherWealthData = {
       privateEquityType: "Directo",
       directType: 'Capital',
       investmentName: "Inversión en restaurante de amigo",
+      successionInstructions: [
+        "El 20% de esta empresa se obtuvo a raiz de invertir 10,000,000 MXN en el restaurante de Raul Quintero, este 20% se le heredara a mi hijo Javier", 
+        "En caso de fallecimiento llamar a Raul Quintero arreglar la sociedad", 
+      ],
       preMoneyValue: "2000000",
       postMoneyValue: "3000000",
       equityPercentage: "20",
@@ -684,6 +730,10 @@ export const otherWealthData = {
       industry: "",
       contacts: [],
       country: "México",
+      successionInstructions: [
+        "La cobranza de este prestamo la debe de seguir llevando a cabo mi contadora Daniela Moreno",
+        "Los montos de la deuda por pagar se le otorgara a mi esposa Diana Nieto, en caso de mi fallecimiento, a mis 3 hijos en partes iguales.",
+      ],
       owners: [
         {
           type: "family",
@@ -704,6 +754,9 @@ export const otherWealthData = {
       routing: "43595932129",
       currency: "MXN",
       investmentAmount: "2000000",
+      successionInstructions: [
+        "Esta cuent se encuentra añadida en el Fideicomiso SocitiaBanke 232421, llamar a Raul Aldana"
+      ],
       contacts: [
         {
           id: 1,
@@ -759,6 +812,9 @@ export const otherWealthData = {
       figure: "Figura 2",
       bank: "Santander",
       country: "México",
+      successionInstructions: [
+        "Esta cuent se encuentra añadida en el Fideicomiso Santander 232421, llamar a Ruben Mora"
+      ],
       accountNumber: "79441232",
       routing: "00146932129",
       currency: "MXN",

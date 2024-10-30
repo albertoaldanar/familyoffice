@@ -39,11 +39,14 @@ export default function BanksAccountsItem(props) {
   if (!accountSelected) {
     return <NotFoundSearch />;
   }
+  const [newInstruction, setNewInstructions] = useState("");  
 
   const isCompanyOwned = accountSelected.owners[0].type === "Persona moral";
   const isTrustOwned = accountSelected.owners[0].type === "Fideicomiso";
   const trustList = formatTrust(fideicomisos);
-
+  const [instructions, setInstructions] = useState(
+    accountSelected.successionInstructions || []
+  );
   const membersList = formatMember(family.members);
   const companiesList = formatCompany(companies);
   const [bank, setBank] = useState(accountSelected.bank);
@@ -114,6 +117,17 @@ export default function BanksAccountsItem(props) {
     { value: "Persona moral", label: "Persona moral" },
     { value: "Fideicomiso", label: "Fideicomiso" },
   ];
+
+  const handleAddSubject = () => {
+    if (newInstruction.trim()) {
+      setInstructions([...instructions, newInstruction]);
+      setNewInstructions("");
+    }
+  };
+
+  const handleRemoveSubject = (index) => {
+    setInstructions(instructions.filter((_, i) => i !== index));
+  };
 
   const renderOwnerTypeOptions = () => {
     if (ownerAccountType.label === "Persona física") {
@@ -449,6 +463,50 @@ export default function BanksAccountsItem(props) {
     );
   };
 
+  const renderSuccessionInstructions = () => {
+    return (
+      <Row >
+      <Form.Group as={Col} md="10" className="form-group">
+        <Form.Label style={{marginBottom: 20}}>Instrucciones y/o notas importantes de sucesión de esta cuenta bancaria</Form.Label>
+        {/* <p>Es importante añadir instrucciones de sucesión, ya que facilitaras a los sucesores de este activo</p> */}
+        <ul style={{ marginLeft: 20 }}>
+          {instructions.map((subject, index) => (
+            <li style={{ fontSize: 13, color: "gray" }} key={index}>
+              {index + 1}. {subject}
+              <Button
+                variant="link"
+                style={{
+                  fontSize: 11,
+                  marginBottom: 8,
+                  color: "black",
+                }}
+                onClick={() => handleRemoveSubject(index)}
+              >
+                X
+              </Button>
+            </li>
+          ))}
+        </ul>
+        <InputGroup style={{ marginTop: 13 }}>
+          <Form.Control
+            type="text"
+            placeholder=""
+            value={newInstruction}
+            onChange={(e) => setNewInstructions(e.target.value)}
+          />
+          <Button
+            style={{ fontSize: 12 }}
+            variant="default"
+            onClick={handleAddSubject}
+          >
+            + Agregar
+          </Button>
+        </InputGroup>
+      </Form.Group>
+    </Row>
+    )
+  }
+
   return (
     <Fragment>
       <Row style={{ padding: 20 }}>
@@ -517,6 +575,16 @@ export default function BanksAccountsItem(props) {
                     Contactos
                   </Nav.Link>
                 </Nav.Item>
+
+                <Nav.Item as="li" style={{ marginRight: 10 }}>
+                  <Nav.Link eventKey="six">
+                    <i
+                      style={{ marginRight: 9 }}
+                      className="fe fe-repeat text-black fs-13"
+                    ></i>
+                    Instrucciones de sucesión
+                  </Nav.Link>
+                </Nav.Item>
               </Nav>
             </div>
           </div>
@@ -525,6 +593,7 @@ export default function BanksAccountsItem(props) {
             <Tab.Pane eventKey="info">{renderInformation()}</Tab.Pane>
             <Tab.Pane eventKey="owners">{renderAccountOwners()}</Tab.Pane>
             <Tab.Pane eventKey="contacts">{renderContactList()}</Tab.Pane>
+            <Tab.Pane eventKey="six">{renderSuccessionInstructions()}</Tab.Pane>
           </Tab.Content>
         </Tab.Container>
         <div

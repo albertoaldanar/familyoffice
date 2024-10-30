@@ -11,6 +11,10 @@ export const realstateData = [
     percentage: "100",
     mt2: "250",
     propertyType: "Departamento",
+    successionInstructions: [
+      "Esta casa se encuentra contenida en el fideicomiso 234424-ScotiaBank, es necesario llamar a Raul Aldana. El fideicomiso se encuentra en el modulo de fideicomiso y Raul Aldana en la lista de proveedores", 
+      "Esta propiedad se dividira en partes iguales 33% entre Adriana, Javier y Sofia"
+    ],
     obligations: {
       popertyTaxes: [],
       mantainances: [
@@ -69,6 +73,9 @@ export const realstateData = [
     id: 29,
     nombre: "Casa La primavera San Anselmo 2083",
     contacts: [],
+    successionInstructions: [
+      "Esta propiedad se dividira en partes iguales 33% entre Adriana, Javier y Sofia tal como se detalla en el testamento"
+    ],
     obligations: {
       popertyTaxes: [
         {
@@ -159,6 +166,9 @@ export const realstateData = [
     nombre: "Oficinas mutualismo",
     ciudad: "Culiacan, Sinaloa",
     contacts: [],
+    successionInstructions: [
+      "Esta propiedad se le heredara a mi hijo Javier Carrasco en su totalidad, tal como se detalla en mi testamento"
+    ],
     containedIntrusts: [],
     obligations: {
       popertyTaxes: [
@@ -214,6 +224,9 @@ export const realstateData = [
     nombre: "Casa Mission Hills",
     ciudad: "San Diego, California",
     contacts: [],
+    successionInstructions: [
+      "Esta propiedad se le heredara a mi hija Adriana Carrasco en su totalidad, tal como se detalla en mi testamento"
+    ],
     containedIntrusts: [],
     obligations: {
       popertyTaxes: [
@@ -261,6 +274,10 @@ export const realstateData = [
     "ciudad": "Madrid, España",
     "contacts": [],
     "containedIntrusts": [],
+    successionInstructions: [
+      "Esta propiedad se le heredara a mis 3 hijos en partes iguales",
+      "Las escrituras originales Las tiene mi asistente persona Daniela Ayala y ella se las entregara"
+    ],
     "obligations": {
       "popertyTaxes": [
         {
@@ -317,6 +334,7 @@ export const realstateData = [
     "ciudad": "Ciudad de México, México",
     "contacts": [],
     "containedIntrusts": [],
+    successionInstructions: [],
     "obligations": {
       "popertyTaxes": [
         {
