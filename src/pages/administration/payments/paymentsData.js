@@ -773,6 +773,7 @@ export const prestamosTerceros = [
         frecuenciaDePago: "Mensual",
         moneda: "MXN",
         fechaVencimiento: "01/12/2027",
+        notifcationTo: { id: '43', name: 'Diana Nieto Vega', type: 'Family' },
         pagos: [
             {
               anio: "2024",

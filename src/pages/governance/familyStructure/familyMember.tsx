@@ -474,9 +474,7 @@ export default function FamilyMember(props) {
                       <Link
                         to={`${baseUrl}administration/loanDescription/${debt.id}`}
                       >
-                          <i
-                            className="fe fe-arrow-right text-black fs-15"
-                          ></i>
+                        <i className="fe fe-arrow-right text-black fs-15"></i>
                       </Link>
                     </td>
                   </tr>
@@ -518,7 +516,9 @@ export default function FamilyMember(props) {
               marginTop: -10,
             }}
           >
-            {memberSelected.name} no tiene un regimen fiscal añadido. Para administrar sus declaraciones fiscales, añade un regimen en la pestaña de información
+            {memberSelected.name} no tiene un regimen fiscal añadido. Para
+            administrar sus declaraciones fiscales, añade un regimen en la
+            pestaña de información
           </p>
         ) : (
           <div className="table-responsive">
@@ -537,30 +537,24 @@ export default function FamilyMember(props) {
                 </tr>
               </thead>
               <tbody>
-                {memberSelected.obligations.taxes.map(
-                  (tax, tb8) => (
-                    <tr key={tb8}>
-                      <td>{tax.regimenFiscal}</td>
-                      <td>{tax.rfc}</td>
-                      <td>{renderFlag(tax.country)}</td>
-                      <td
-                        style={{
-                          cursor: "pointer",
-                          textDecoration: "underline",
-                          color: "#5488d2",
-                        }}
-                      >
-                        <Link
-                          to={`${baseUrl}administration/taxes/${tax.id}`}
-                        >
-                          <i
-                            className="fe fe-arrow-right text-black fs-15"
-                          ></i>
-                        </Link>
-                      </td>
-                    </tr>
-                  )
-                )}
+                {memberSelected.obligations.taxes.map((tax, tb8) => (
+                  <tr key={tb8}>
+                    <td>{tax.regimenFiscal}</td>
+                    <td>{tax.rfc}</td>
+                    <td>{renderFlag(tax.country)}</td>
+                    <td
+                      style={{
+                        cursor: "pointer",
+                        textDecoration: "underline",
+                        color: "#5488d2",
+                      }}
+                    >
+                      <Link to={`${baseUrl}administration/taxes/${tax.id}`}>
+                        <i className="fe fe-arrow-right text-black fs-15"></i>
+                      </Link>
+                    </td>
+                  </tr>
+                ))}
               </tbody>
             </Table>
           </div>
@@ -662,9 +656,7 @@ export default function FamilyMember(props) {
                           <Link
                             to={`${baseUrl}administration/insuranceDescription/${insurance.id}`}
                           >
-                          <i
-                            className="fe fe-arrow-right text-black fs-15"
-                          ></i>
+                            <i className="fe fe-arrow-right text-black fs-15"></i>
                           </Link>
                         </td>
                       </tr>
@@ -766,9 +758,7 @@ export default function FamilyMember(props) {
                           <Link
                             to={`${baseUrl}administration/insuranceDescription/${insurance.id}`}
                           >
-                          <i
-                            className="fe fe-arrow-right text-black fs-15"
-                          ></i>
+                            <i className="fe fe-arrow-right text-black fs-15"></i>
                           </Link>
                         </td>
                       </tr>
@@ -869,14 +859,12 @@ export default function FamilyMember(props) {
                       >
                         <Link
                           to={
-                            debt.tipo === 'Prestamo intrafamiliar' ? 
-                            `${baseUrl}administration/loanDescription/${debt.id}` : 
-                            `${baseUrl}administration/debtDescription/${debt.id}` 
+                            debt.tipo === "Prestamo intrafamiliar"
+                              ? `${baseUrl}administration/loanDescription/${debt.id}`
+                              : `${baseUrl}administration/debtDescription/${debt.id}`
                           }
                         >
-                          <i
-                            className="fe fe-arrow-right text-black fs-15"
-                          ></i>
+                          <i className="fe fe-arrow-right text-black fs-15"></i>
                         </Link>
                       </td>
                     </tr>
@@ -886,6 +874,68 @@ export default function FamilyMember(props) {
             </div>
           )}
         </div>
+      </>
+    );
+  };
+
+  const renderVisibilityAccess = () => {
+    return (
+      <>
+        <p style={{marginTop: -10, marginLeft: 15}}>Oculta o da visivilidad de toda tu información a otros usuarios de tu Family Office ya sean familiares o proveedores</p>
+        <p style={{marginBottom: 30, marginTop: -10, marginLeft: 15, fontSize: 13, color: 'gray'}}>Oculta o da visivilidad de toda tu información a los usuarios que tu decidas ya sean familiares o proveedores</p>
+        <Tab.Container id="left-tabs-example" defaultActiveKey="first">
+          <div style={{ marginLeft: 15}}>
+            <Nav
+              variant="pills"
+              as="ul"
+              className="nav panel-tabs mr-auto custom-nav"
+            >
+              <Nav.Item as="li" style={{ marginRight: 10 }}>
+                <Nav.Link eventKey="first" href="#" style={{ fontSize: 12 }}>
+                  <i
+                    style={{ marginRight: 9 }}
+                    className="fe fe-trending-up text-black fs-13"
+                  ></i>
+                  Activos y bienes
+                </Nav.Link>
+              </Nav.Item>
+              <Nav.Item as="li" style={{ marginRight: 10 }}>
+                <Nav.Link eventKey="third" style={{ fontSize: 12 }}>
+                  <i
+                    style={{ marginRight: 9 }}
+                    className="fe fe-calendar text-black fs-13"
+                  ></i>
+                  Obligaciones
+                </Nav.Link>
+              </Nav.Item>
+              <Nav.Item as="li" style={{ marginRight: 10 }}>
+                <Nav.Link eventKey="second" style={{ fontSize: 12 }}>
+                  <i
+                    style={{ marginRight: 9 }}
+                    className="fe fe-folder text-black fs-13"
+                  ></i>
+                  Fideicomisos
+                </Nav.Link>
+              </Nav.Item>
+              <Nav.Item as="li" style={{ marginRight: 10 }}>
+                <Nav.Link eventKey="fourth" style={{ fontSize: 12 }}>
+                  <i
+                    style={{ marginRight: 9 }}
+                    className="fe fe-book-open text-black fs-13"
+                  ></i>
+                  Testamento
+                </Nav.Link>
+              </Nav.Item>
+            </Nav>
+          </div>
+
+          <Tab.Content className="panel-body">
+            <Tab.Pane eventKey="first">{}</Tab.Pane>
+            <Tab.Pane eventKey="second">{}</Tab.Pane>
+            <Tab.Pane eventKey="third">{}</Tab.Pane>
+            <Tab.Pane eventKey="fourth">{}</Tab.Pane>
+          </Tab.Content>
+        </Tab.Container>
       </>
     );
   };
@@ -977,17 +1027,13 @@ export default function FamilyMember(props) {
                       <Link
                         to={`${baseUrl}administration/company/${idx.id}/company`}
                       >
-                          <i
-                            className="fe fe-arrow-right text-black fs-15"
-                          ></i>
+                        <i className="fe fe-arrow-right text-black fs-15"></i>
                       </Link>
                     ) : (
                       <Link
                         to={`${baseUrl}governance/wealthItem/type/${idx.type}/id/${idx.id}`}
                       >
-                          <i
-                            className="fe fe-arrow-right text-black fs-15"
-                          ></i>
+                        <i className="fe fe-arrow-right text-black fs-15"></i>
                       </Link>
                     )}
                   </td>
@@ -1028,10 +1074,7 @@ export default function FamilyMember(props) {
           >
             Los bienes activos se pueden crear asignar en la pestaña de
           </p>
-          <Link
-            style={{ fontSize: 12 }}
-            to={`${baseUrl}administration/assets`}
-          >
+          <Link style={{ fontSize: 12 }} to={`${baseUrl}administration/assets`}>
             Activos fijos
           </Link>
         </div>
@@ -1108,7 +1151,7 @@ export default function FamilyMember(props) {
                     </Nav.Link>
                   </Nav.Item>
                   <Nav.Item as="li">
-                    <Nav.Link eventKey="fourth" >
+                    <Nav.Link eventKey="fourth">
                       <i
                         style={{ marginRight: 9 }}
                         className="fe fe-trending-up text-black fs-13"
@@ -1116,6 +1159,17 @@ export default function FamilyMember(props) {
                       Bienes y Activos
                     </Nav.Link>
                   </Nav.Item>
+                  {memberSelected.name === "Francisco Carrasco Ramos" && (
+                    <Nav.Item as="li">
+                      <Nav.Link eventKey="view">
+                        <i
+                          style={{ marginRight: 9 }}
+                          className="fe fe-eye-off text-black fs-13"
+                        ></i>
+                        Privacidad de mi data
+                      </Nav.Link>
+                    </Nav.Item>
+                  )}
                 </Nav>
               </div>
             </div>
@@ -1126,6 +1180,9 @@ export default function FamilyMember(props) {
               <Tab.Pane eventKey="second">{renderDescription()}</Tab.Pane>
               <Tab.Pane eventKey="third">{renderObligationsTabs()}</Tab.Pane>
               <Tab.Pane eventKey="fourth">{renderAssetList()}</Tab.Pane>
+              {memberSelected.name === "Francisco Carrasco Ramos" && (
+                <Tab.Pane eventKey="view">{renderVisibilityAccess()}</Tab.Pane>
+              )}
             </Tab.Content>
           </Tab.Container>
           <Form noValidate validated={false} onSubmit={() => {}}>
