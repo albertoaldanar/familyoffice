@@ -881,8 +881,7 @@ export default function FamilyMember(props) {
   const renderVisibilityAccess = () => {
     return (
       <>
-        <p style={{marginTop: -10, marginLeft: 15}}>Oculta o da visivilidad de toda tu información a otros usuarios de tu Family Office ya sean familiares o proveedores</p>
-        <p style={{marginBottom: 30, marginTop: -10, marginLeft: 15, fontSize: 13, color: 'gray'}}>Oculta o da visivilidad de toda tu información a los usuarios que tu decidas ya sean familiares o proveedores</p>
+        <p style={{marginTop: -10, marginLeft: 15, marginBottom: 30,}}>Oculta o da visivilidad de toda tu información a otros usuarios de tu Family Office ya sean familiares o proveedores</p>
         <Tab.Container id="left-tabs-example" defaultActiveKey="first">
           <div style={{ marginLeft: 15}}>
             <Nav
