@@ -1,20 +1,74 @@
 import React, { Fragment, useState } from "react";
-import { Card, Row, Form, Col } from "react-bootstrap";
+import { Card, Row, Form, Col, Tab, Nav } from "react-bootstrap";
 import { MultiSelect } from "react-multi-select-component";
 import { family } from "../governance/familyStructure/familyStructureData";
 
 export default function DataSuccession() {
-  //@ts-ignore
-  const baseUrl = `${import.meta.env.BASE_URL}`;
-  const [selectedFamily, setSelectedFamily] = useState({});
-  const [selectedProviders, setSelectedProviders] = useState({});
+  const [assetsPostMortemVisibility, setAssetsPostMortemVisibility] = useState(
+    family.members[0].assets.map((asset) => ({
+      ...asset,
+      visibility: asset.visibility.filter((member) => !member.hasVisibility),
+    }))
+  );
+
+  const [obligationsPostMortemVisibility, setObligationsPostMortemVisibility] = useState(
+    family.members[0].obligations
+  );
+
+  const [trustorPostMortemVisibility, setTrustorPostMortemVisibility] = useState(
+    family.members[0].trustor
+  );
 
   const handleSelectionChange = (assetId, type, selected) => {
-    if (type === "Family") {
-      setSelectedFamily((prev) => ({ ...prev, [assetId]: selected }));
-    } else if (type === "Provider") {
-      setSelectedProviders((prev) => ({ ...prev, [assetId]: selected }));
-    }
+    setAssetsPostMortemVisibility((prevState) =>
+      prevState.map((asset) => {
+        if (asset.id === assetId) {
+          const updatedVisibility = asset.visibility.map((member) => {
+            const isSelected = selected.some((s) => s.value === member.id);
+            return member.type === type
+              ? { ...member, hasPostMortemVisibility: isSelected }
+              : member;
+          });
+          return { ...asset, visibility: updatedVisibility };
+        }
+        return asset;
+      })
+    );
+  };
+
+  const handleObligationChange = (obligationId, type, selected, category) => {
+    setObligationsPostMortemVisibility((prevState) => ({
+      ...prevState,
+      [category]: prevState[category].map((obligation) => {
+        if (obligation.id === obligationId) {
+          const updatedVisibility = obligation.visibility.map((member) => {
+            const isSelected = selected.some((s) => s.value === member.id);
+            return member.type === type
+              ? { ...member, hasPostMortemVisibility: isSelected }
+              : member;
+          });
+          return { ...obligation, visibility: updatedVisibility };
+        }
+        return obligation;
+      })
+    }));
+  };
+
+  const handleTrustorSelectionChange = (trustId, type, selected) => {
+    setTrustorPostMortemVisibility((prevState) =>
+      prevState.map((trust) => {
+        if (trust.id === trustId) {
+          const updatedVisibility = trust.visibility.map((member) => {
+            const isSelected = selected.some((s) => s.value === member.id);
+            return member.type === type
+              ? { ...member, hasPostMortemVisibility: isSelected }
+              : member;
+          });
+          return { ...trust, visibility: updatedVisibility };
+        }
+        return trust;
+      })
+    );
   };
 
   const renderInstructions = () => (
@@ -30,27 +84,35 @@ export default function DataSuccession() {
       </p>
       <p style={{ color: "gray", fontSize: 13 }}>
         2. A continuación podrás generar instrucciones para dar visibilidad a
-        cada activo u obligación.
+        activos, obligaciónes y Documentos.
       </p>
       <p style={{ color: "gray", fontSize: 13 }}>
         3. Estas instrucciones se guardarán de forma encriptada en la base de
-        datos y el asesor solo las ejecutará ciegamente, por seguridad.
+        datos y tu asesor de cuenta las ejecutará 'ciegamente', para asegurar la seguridad de tu información.
       </p>
     </>
   );
 
   const renderAssetVisibility = (asset) => {
     const familyOptions = asset.visibility
-      .filter((v) => v.type === "Family" && !v.hasVisibility)
+      .filter((v) => v.type === "Family")
       .map((v) => ({ label: v.name, value: v.id }));
 
     const providerOptions = asset.visibility
-      .filter((v) => v.type === "Provider" && !v.hasVisibility)
+      .filter((v) => v.type === "Provider")
+      .map((v) => ({ label: v.name, value: v.id }));
+
+    const defaultFamilySelection = asset.visibility
+      .filter((v) => v.type === "Family" && v.hasPostMortemVisibility)
+      .map((v) => ({ label: v.name, value: v.id }));
+
+    const defaultProviderSelection = asset.visibility
+      .filter((v) => v.type === "Provider" && v.hasPostMortemVisibility)
       .map((v) => ({ label: v.name, value: v.id }));
 
     return (
       <div key={asset.id} style={{ marginTop: 20 }}>
-        <p style={{fontSize: 13}}>-{asset.name}</p>
+        <p style={{ fontWeight: "bold" }}>{asset.name}</p>
         <Row>
           <Form.Group
             as={Col}
@@ -58,10 +120,12 @@ export default function DataSuccession() {
             controlId="validationCustom01"
             className="form-group"
           >
-            <p style={{color: 'gray', fontSize: 13}}>Familiares que aún no tienen visibilidad:</p>
+            <p style={{ color: "gray", fontSize: 13 }}>
+              Familiares a los que se le dará visibilidad:
+            </p>
             <MultiSelect
               options={familyOptions}
-              value={selectedFamily[asset.id] || []}
+              value={defaultFamilySelection}
               onChange={(selected) =>
                 handleSelectionChange(asset.id, "Family", selected)
               }
@@ -81,8 +145,15 @@ export default function DataSuccession() {
             controlId="validationCustom01"
             className="form-group"
           >
-            <p style={{color: 'gray', fontSize: 13}}>Proveedores que aún no tienen visibilidad:</p>
+            <p style={{ color: "gray", fontSize: 13 }}>
+              Proveedores a los que se le dará visibilidad:
+            </p>
             <MultiSelect
+              options={providerOptions}
+              value={defaultProviderSelection}
+              onChange={(selected) =>
+                handleSelectionChange(asset.id, "Provider", selected)
+              }
               labelledBy="Selecciona proveedores"
               overrideStrings={{
                 selectSomeItems: "Selecciona miembros accionistas",
@@ -90,11 +161,6 @@ export default function DataSuccession() {
                 selectAll: "Seleccionar todos",
               }}
               disableSearch
-              options={providerOptions}
-              value={selectedProviders[asset.id] || []}
-              onChange={(selected) =>
-                handleSelectionChange(asset.id, "Provider", selected)
-              }
             />
           </Form.Group>
         </Row>
@@ -102,12 +168,188 @@ export default function DataSuccession() {
     );
   };
 
-  const renderAssets = () => (
-    <div style={{ marginTop: 50, marginBottom: 200 }}>
-      <p style={{fontWeight: 'bold'}}>1. Portafolio de activos y empresas</p>
-      {family.members[0].assets.map((asset) => renderAssetVisibility(asset))}
+  const renderTrustorVisibility = (trust) => {
+    const familyOptions = trust.visibility
+      .filter((v) => v.type === "Family")
+      .map((v) => ({ label: v.name, value: v.id }));
 
-      <p style={{fontWeight: 'bold'}}>2. Portafolio de activos y empresas</p>
+    const providerOptions = trust.visibility
+      .filter((v) => v.type === "Provider")
+      .map((v) => ({ label: v.name, value: v.id }));
+
+    const defaultFamilySelection = trust.visibility
+      .filter((v) => v.type === "Family" && v.hasPostMortemVisibility)
+      .map((v) => ({ label: v.name, value: v.id }));
+
+    const defaultProviderSelection = trust.visibility
+      .filter((v) => v.type === "Provider" && v.hasPostMortemVisibility)
+      .map((v) => ({ label: v.name, value: v.id }));
+
+    return (
+      <div key={trust.id} style={{ marginTop: 20 }}>
+        <p style={{ fontWeight: "bold" }}>Fideicomiso {trust.trustNumber} - {trust.trusteeBank}</p>
+        <Row>
+          <Form.Group
+            as={Col}
+            md="5"
+            controlId="familyVisibilityTrustor"
+            className="form-group"
+          >
+            <p style={{ color: "gray", fontSize: 13 }}>
+              Familiares a los que se le dará visibilidad:
+            </p>
+            <MultiSelect
+              options={familyOptions}
+              value={defaultFamilySelection}
+              onChange={(selected) =>
+                handleTrustorSelectionChange(trust.id, "Family", selected)
+              }
+              labelledBy="Selecciona miembros familiares"
+              overrideStrings={{
+                selectSomeItems: "Selecciona miembros accionistas",
+                allItemsAreSelected: "Todos los miembros",
+                selectAll: "Seleccionar todos",
+              }}
+              disableSearch
+            />
+          </Form.Group>
+
+          <Form.Group
+            as={Col}
+            md="5"
+            controlId="providerVisibilityTrustor"
+            className="form-group"
+          >
+            <p style={{ color: "gray", fontSize: 13 }}>
+              Proveedores a los que se le dará visibilidad:
+            </p>
+            <MultiSelect
+              options={providerOptions}
+              value={defaultProviderSelection}
+              onChange={(selected) =>
+                handleTrustorSelectionChange(trust.id, "Provider", selected)
+              }
+              labelledBy="Selecciona proveedores"
+              overrideStrings={{
+                selectSomeItems: "Selecciona miembros accionistas",
+                allItemsAreSelected: "Todos los miembros",
+                selectAll: "Seleccionar todos",
+              }}
+              disableSearch
+            />
+          </Form.Group>
+        </Row>
+      </div>
+    );
+  };
+
+  const renderObligationTitle = (obligation) => {
+    if(obligation.rfc){
+      return <p style={{ fontWeight: "bold" }}>Declaraciónes fiscales {obligation.regimenFiscal} - {obligation.rfc}</p>
+    } else if(obligation.acreedor){
+      return <p style={{ fontWeight: "bold" }}>Deuda por pagar {obligation.tipo} - {obligation.acreedor}</p>
+    }  else if(obligation.deudor){
+      return <p style={{ fontWeight: "bold" }}>Deuda por cobrar {obligation.tipo} - {obligation.deudor}</p>
+    }
+    return;
+  }
+
+  const renderObligationVisibility = (obligation, category) => {
+    const familyOptions = obligation.visibility
+      .filter((v) => v.type === "Family")
+      .map((v) => ({ label: v.name, value: v.id }));
+
+    const providerOptions = obligation.visibility
+      .filter((v) => v.type === "Provider")
+      .map((v) => ({ label: v.name, value: v.id }));
+
+    const defaultFamilySelection = obligation.visibility
+      .filter((v) => v.type === "Family" && v.hasPostMortemVisibility)
+      .map((v) => ({ label: v.name, value: v.id }));
+
+    const defaultProviderSelection = obligation.visibility
+      .filter((v) => v.type === "Provider" && v.hasPostMortemVisibility)
+      .map((v) => ({ label: v.name, value: v.id }));
+
+    return (
+      <div key={obligation.id} style={{ marginTop: 20 }}>
+        {renderObligationTitle(obligation)}
+        <Row>
+          <Form.Group
+            as={Col}
+            md="5"
+            controlId="familyVisibility"
+            className="form-group"
+          >
+            <p style={{ color: "gray", fontSize: 13 }}>
+              Familiares a los que se le dará visibilidad:
+            </p>
+            <MultiSelect
+              options={familyOptions}
+              value={defaultFamilySelection}
+              onChange={(selected) =>
+                handleObligationChange(obligation.id, "Family", selected, category)
+              }
+              labelledBy="Selecciona miembros familiares"
+              overrideStrings={{
+                selectSomeItems: "Selecciona miembros accionistas",
+                allItemsAreSelected: "Todos los miembros",
+                selectAll: "Seleccionar todos",
+              }}
+              disableSearch
+            />
+          </Form.Group>
+
+          <Form.Group
+            as={Col}
+            md="5"
+            controlId="providerVisibility"
+            className="form-group"
+          >
+            <p style={{ color: "gray", fontSize: 13 }}>
+              Proveedores a los que se le dará visibilidad:
+            </p>
+            <MultiSelect
+              options={providerOptions}
+              value={defaultProviderSelection}
+              onChange={(selected) =>
+                handleObligationChange(obligation.id, "Provider", selected, category)
+              }
+              labelledBy="Selecciona proveedores"
+              overrideStrings={{
+                selectSomeItems: "Selecciona miembros accionistas",
+                allItemsAreSelected: "Todos los miembros",
+                selectAll: "Seleccionar todos",
+              }}
+              disableSearch
+            />
+          </Form.Group>
+        </Row>
+      </div>
+    );
+  };
+
+  const renderObligations = () => (
+    <div style={{ marginTop: 20, marginBottom: 200 }}>
+      {Object.entries(obligationsPostMortemVisibility).map(([category, obligations]) => (
+        obligations.length > 0 && (
+          <div key={category}>
+            {obligations.map((obligation) => renderObligationVisibility(obligation, category))}
+          </div>
+        )
+      ))}
+    </div>
+  );
+
+  const renderAssets = () => (
+    <div style={{ marginTop: 20, marginBottom: 200 }}>
+      {assetsPostMortemVisibility.map((asset) => renderAssetVisibility(asset))}
+    </div>
+  );
+
+  const renderTrustor = () => (
+    <div style={{ marginTop: 20, marginBottom: 200 }}>
+      {trustorPostMortemVisibility.map((trust) => renderTrustorVisibility(trust))}
     </div>
   );
 
@@ -130,7 +372,62 @@ export default function DataSuccession() {
 
           {renderInstructions()}
 
-          {renderAssets()}
+          <Tab.Container id="left-tabs-example" defaultActiveKey="first">
+            <div
+              style={{
+                paddingBottom: 0,
+                marginTop: 30,
+              }}
+            >
+              <div className="tabs-menu1">
+                <Nav as="ul" className="nav panel-tabs">
+                  <Nav.Item as="li" style={{ marginRight: 10 }}>
+                    <Nav.Link eventKey="first">
+                      <i
+                        style={{ marginRight: 9 }}
+                        className="fe fe-trending-up text-black fs-13"
+                      ></i>
+                      Activos y empresas
+                    </Nav.Link>
+                  </Nav.Item>
+                  <Nav.Item as="li" style={{ marginRight: 10 }}>
+                    <Nav.Link eventKey="second">
+                      <i
+                        style={{ marginRight: 9 }}
+                        className="fe fe-calendar text-black fs-13"
+                      ></i>
+                      Obligaciones
+                    </Nav.Link>
+                  </Nav.Item>
+                  <Nav.Item as="li" style={{ marginRight: 10 }}>
+                    <Nav.Link eventKey="third">
+                      <i
+                        style={{ marginRight: 9 }}
+                        className="fe fe-folder text-black fs-13"
+                      ></i>
+                      Fideicomisos
+                    </Nav.Link>
+                  </Nav.Item>
+                  <Nav.Item as="li" style={{ marginRight: 10 }}>
+                    <Nav.Link eventKey="fourth">
+                      <i
+                        style={{ marginRight: 9 }}
+                        className="fe fe-book-open text-black fs-13"
+                      ></i>
+                      Testamento
+                    </Nav.Link>
+                  </Nav.Item>
+                </Nav>
+              </div>
+            </div>
+
+            <Tab.Content className="panel-body">
+              <Tab.Pane eventKey="first">{renderAssets()}</Tab.Pane>
+              <Tab.Pane eventKey="second">{renderObligations()}</Tab.Pane>
+              <Tab.Pane eventKey="third">{renderTrustor()}</Tab.Pane>
+              <Tab.Pane eventKey="fourth">{}</Tab.Pane>
+            </Tab.Content>
+          </Tab.Container>
         </div>
       </Row>
     </Fragment>

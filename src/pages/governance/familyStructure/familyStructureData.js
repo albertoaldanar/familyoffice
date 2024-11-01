@@ -60,7 +60,44 @@ export const family = {
             id: 29,
             rfc: "NFINE324NFJ",
             regimenFiscal: "Regimen de Dividendos",
-            country: 'México'
+            country: 'México',
+            visibility: [
+              {
+                id: '43',
+                type: 'Family',
+                name: 'Diana Nieto Vega',
+                hasVisibility: true,
+                hasPostMortemVisibility: true
+              }, 
+              {
+                id: '12',
+                type: 'Family',
+                name: 'Javier Carrasco Nieto',
+                hasVisibility: false, 
+                hasPostMortemVisibility: true
+              }, 
+              {
+                id: '13',
+                type: 'Family',
+                name: 'Adriana Carrasco Nieto',
+                hasVisibility: false, 
+                hasPostMortemVisibility: true
+              },
+              {
+                id: '34',
+                type: 'Provider',
+                name: 'Raul Gallego León',
+                hasVisibility: false, 
+                hasPostMortemVisibility: false
+              },
+              {
+                id: '24',
+                type: 'Provider',
+                name: 'Luz Amelia Jacobo',
+                hasVisibility: true, 
+                hasPostMortemVisibility: true
+              }
+            ]
           }
         ], 
         debt: [
@@ -75,6 +112,43 @@ export const family = {
             proxPago: "29/12/2024",
             frecuenciaDePago: "Mensual",
             moneda: "MXN",
+            visibility: [
+              {
+                id: '43',
+                type: 'Family',
+                name: 'Diana Nieto Vega',
+                hasVisibility: true,
+                hasPostMortemVisibility: true
+              }, 
+              {
+                id: '12',
+                type: 'Family',
+                name: 'Javier Carrasco Nieto',
+                hasVisibility: true, 
+                hasPostMortemVisibility: true
+              }, 
+              {
+                id: '13',
+                type: 'Family',
+                name: 'Adriana Carrasco Nieto',
+                hasVisibility: false, 
+                hasPostMortemVisibility: true
+              },
+              {
+                id: '34',
+                type: 'Provider',
+                name: 'Raul Gallego León',
+                hasVisibility: false, 
+                hasPostMortemVisibility: false
+              },
+              {
+                id: '24',
+                type: 'Provider',
+                name: 'Luz Amelia Jacobo',
+                hasVisibility: false, 
+                hasPostMortemVisibility: true
+              }
+            ]
           }
         ], 
         loansCollecting: [
@@ -92,6 +166,43 @@ export const family = {
             pagado: "1000.00",
             moneda: "MXN",
             interes: "9",
+            visibility: [
+              {
+                id: '43',
+                type: 'Family',
+                name: 'Diana Nieto Vega',
+                hasVisibility: true,
+                hasPostMortemVisibility: true
+              }, 
+              {
+                id: '12',
+                type: 'Family',
+                name: 'Javier Carrasco Nieto',
+                hasVisibility: true, 
+                hasPostMortemVisibility: true
+              }, 
+              {
+                id: '13',
+                type: 'Family',
+                name: 'Adriana Carrasco Nieto',
+                hasVisibility: false, 
+                hasPostMortemVisibility: true
+              },
+              {
+                id: '34',
+                type: 'Provider',
+                name: 'Raul Gallego León',
+                hasVisibility: false, 
+                hasPostMortemVisibility: false
+              },
+              {
+                id: '24',
+                type: 'Provider',
+                name: 'Luz Amelia Jacobo',
+                hasVisibility: false, 
+                hasPostMortemVisibility: true
+              }
+            ]
           }
         ]
       },
@@ -109,31 +220,36 @@ export const family = {
               id: '43',
               type: 'Family',
               name: 'Diana Nieto Vega',
-              hasVisibility: true
+              hasVisibility: true,
+              hasPostMortemVisibility: true
             }, 
             {
               id: '12',
               type: 'Family',
               name: 'Javier Carrasco Nieto',
-              hasVisibility: true
+              hasVisibility: true,
+              hasPostMortemVisibility: true
             }, 
             {
               id: '13',
               type: 'Family',
               name: 'Adriana Carrasco Nieto',
-              hasVisibility: false
+              hasVisibility: false,
+              hasPostMortemVisibility: true
             },
             {
               id: '34',
               type: 'Provider',
               name: 'Raul Gallego León',
-              hasVisibility: false
+              hasVisibility: false,
+              hasPostMortemVisibility: false
             },
             {
               id: '24',
               type: 'Provider',
               name: 'Luz Amelia Jacobo',
-              hasVisibility: false
+              hasVisibility: false,
+              hasPostMortemVisibility: true
             }
           ]
         },
@@ -149,29 +265,34 @@ export const family = {
             {
               id: '43',
               name: 'Diana Nieto Vega',
-              hasVisibility: true
+              hasVisibility: true,
+              hasPostMortemVisibility: true
             }, 
             {
               id: '12',
               name: 'Javier Carrasco Nieto',
-              hasVisibility: true
+              hasVisibility: true,
+              hasPostMortemVisibility: true
             }, 
             {
               id: '13',
               name: 'Adriana Carrasco Nieto',
-              hasVisibility: true
+              hasVisibility: true,
+              hasPostMortemVisibility: true
             }, 
             {
               id: '34',
               type: 'Provider',
               name: 'Raul Gallego León',
-              hasVisibility: false
+              hasVisibility: false,
+              hasPostMortemVisibility: false
             },
             {
               id: '24',
               type: 'Provider',
               name: 'Luz Amelia Jacobo',
-              hasVisibility: false
+              hasVisibility: false,
+              hasPostMortemVisibility: true
             }
           ]
         },
@@ -188,31 +309,36 @@ export const family = {
               id: '43',
               type: 'Family',
               name: 'Diana Nieto Vega',
-              hasVisibility: true
+              hasVisibility: true,
+              hasPostMortemVisibility: true
             }, 
             {
               id: '12',
               type: 'Family',
               name: 'Javier Carrasco Nieto',
-              hasVisibility: true
+              hasVisibility: true,
+              hasPostMortemVisibility: true
             }, 
             {
               id: '13',
               type: 'Family',
               name: 'Adriana Carrasco Nieto',
-              hasVisibility: false
+              hasVisibility: false,
+              hasPostMortemVisibility: false
             }, 
             {
               id: '34',
               type: 'Provider',
               name: 'Raul Gallego León',
-              hasVisibility: false
+              hasVisibility: false,
+              hasPostMortemVisibility: false
             },
             {
               id: '24',
               type: 'Provider',
               name: 'Luz Amelia Jacobo',
-              hasVisibility: false
+              hasVisibility: false,
+              hasPostMortemVisibility: true
             }
           ]
         },
@@ -229,31 +355,36 @@ export const family = {
               id: '43',
               type: 'Family',
               name: 'Diana Nieto Vega',
-              hasVisibility: true
+              hasVisibility: true,
+              hasPostMortemVisibility: true
             }, 
             {
               id: '12',
               type: 'Family',
               name: 'Javier Carrasco Nieto',
-              hasVisibility: true
+              hasVisibility: true,
+              hasPostMortemVisibility: true
             }, 
             {
               id: '13',
               type: 'Family',
               name: 'Adriana Carrasco Nieto',
-              hasVisibility: false
+              hasVisibility: false,
+              hasPostMortemVisibility: true
             }, 
             {
               id: '34',
               type: 'Provider',
               name: 'Raul Gallego León',
-              hasVisibility: false
+              hasVisibility: false,
+              hasPostMortemVisibility: true
             },
             {
               id: '24',
               type: 'Provider',
               name: 'Luz Amelia Jacobo',
-              hasVisibility: false
+              hasVisibility: false,
+              hasPostMortemVisibility: true
             }
           ]
         },
@@ -270,31 +401,36 @@ export const family = {
               id: '43',
               type: 'Family',
               name: 'Diana Nieto Vega',
-              hasVisibility: true
+              hasVisibility: true,
+              hasPostMortemVisibility: true
             }, 
             {
               id: '12',
               type: 'Family',
               name: 'Javier Carrasco Nieto',
-              hasVisibility: false
+              hasVisibility: false,
+              hasPostMortemVisibility: true
             }, 
             {
               id: '13',
               type: 'Family',
               name: 'Adriana Carrasco Nieto',
-              hasVisibility: false
+              hasVisibility: false,
+              hasPostMortemVisibility: true
             }, 
             {
               id: '34',
               type: 'Provider',
               name: 'Raul Gallego León',
-              hasVisibility: false
+              hasVisibility: false,
+              hasPostMortemVisibility: true
             },
             {
               id: '24',
               type: 'Provider',
               name: 'Luz Amelia Jacobo',
-              hasVisibility: false
+              hasVisibility: false,
+              hasPostMortemVisibility: true
             }
           ]
         },
@@ -311,31 +447,36 @@ export const family = {
               id: '43',
               name: 'Diana Nieto Vega',
               type: 'Family',
-              hasVisibility: true
+              hasVisibility: true,
+              hasPostMortemVisibility: true
             }, 
             {
               id: '12',
               name: 'Javier Carrasco Nieto',
               type: 'Family',
-              hasVisibility: true
+              hasVisibility: true,
+              hasPostMortemVisibility: true
             }, 
             {
               id: '13',
               name: 'Adriana Carrasco Nieto',
               type: 'Family',
-              hasVisibility: true
+              hasVisibility: true,
+              hasPostMortemVisibility: true
             }, 
             {
               id: '34',
               type: 'Provider',
               name: 'Raul Gallego León',
-              hasVisibility: false
+              hasVisibility: false,
+              hasPostMortemVisibility: true
             },
             {
               id: '24',
               type: 'Provider',
               name: 'Luz Amelia Jacobo',
-              hasVisibility: false
+              hasVisibility: false,
+              hasPostMortemVisibility: true
             }
           ]
         },
@@ -352,31 +493,36 @@ export const family = {
               id: '43',
               name: 'Diana Nieto Vega',
               type: 'Family',
-              hasVisibility: true
+              hasVisibility: true,
+              hasPostMortemVisibility: true
             }, 
             {
               id: '12',
               name: 'Javier Carrasco Nieto',
               type: 'Family',
-              hasVisibility: true
+              hasVisibility: true,
+              hasPostMortemVisibility: true
             }, 
             {
               id: '13',
               name: 'Adriana Carrasco Nieto',
               type: 'Family',
-              hasVisibility: true
+              hasVisibility: true,
+              hasPostMortemVisibility: true
             }, 
             {
               id: '34',
               type: 'Provider',
               name: 'Raul Gallego León',
-              hasVisibility: false
+              hasVisibility: false,
+              hasPostMortemVisibility: true
             },
             {
               id: '24',
               type: 'Provider',
               name: 'Luz Amelia Jacobo',
-              hasVisibility: false
+              hasVisibility: false,
+              hasPostMortemVisibility: true
             }
           ]
         }, 
@@ -393,31 +539,36 @@ export const family = {
               id: '43',
               type: 'Family',
               name: 'Diana Nieto Vega',
-              hasVisibility: false
+              hasVisibility: false,
+              hasPostMortemVisibility: true
             }, 
             {
               id: '12',
               type: 'Family',
               name: 'Javier Carrasco Nieto',
-              hasVisibility: false
+              hasVisibility: false,
+              hasPostMortemVisibility: true
             }, 
             {
               id: '13',
               type: 'Family',
               name: 'Adriana Carrasco Nieto',
-              hasVisibility: false
+              hasVisibility: false,
+              hasPostMortemVisibility: true
             }, 
             {
               id: '34',
               type: 'Provider',
               name: 'Raul Gallego León',
-              hasVisibility: false
+              hasVisibility: false,
+              hasPostMortemVisibility: true
             },
             {
               id: '24',
               type: 'Provider',
               name: 'Luz Amelia Jacobo',
-              hasVisibility: false
+              hasVisibility: false,
+              hasPostMortemVisibility: false
             }
           ]
         }, 
@@ -434,31 +585,36 @@ export const family = {
               id: '43',
               type: 'Family',
               name: 'Diana Nieto Vega',
-              hasVisibility: false
+              hasVisibility: false,
+              hasPostMortemVisibility: true
             }, 
             {
               id: '12',
               type: 'Family',
               name: 'Javier Carrasco Nieto',
-              hasVisibility: false
+              hasVisibility: false,
+              hasPostMortemVisibility: true
             }, 
             {
               id: '13',
               type: 'Family',
               name: 'Adriana Carrasco Nieto',
-              hasVisibility: false
+              hasVisibility: false,
+              hasPostMortemVisibility: false
             }, 
             {
               id: '34',
               type: 'Provider',
               name: 'Raul Gallego León',
-              hasVisibility: false
+              hasVisibility: false,
+              hasPostMortemVisibility: true
             },
             {
               id: '24',
               type: 'Provider',
               name: 'Luz Amelia Jacobo',
-              hasVisibility: false
+              hasVisibility: false,
+              hasPostMortemVisibility: false
             }
           ]
         }, 
@@ -475,31 +631,36 @@ export const family = {
               id: '43',
               type: 'Family',
               name: 'Diana Nieto Vega',
-              hasVisibility: false
+              hasVisibility: false,
+              hasPostMortemVisibility: true
             }, 
             {
               id: '12',
               type: 'Family',
               name: 'Javier Carrasco Nieto',
-              hasVisibility: false
+              hasVisibility: false,
+              hasPostMortemVisibility: true
             }, 
             {
               id: '13',
               type: 'Family',
               name: 'Adriana Carrasco Nieto',
-              hasVisibility: false
+              hasVisibility: false,
+              hasPostMortemVisibility: true
             }, 
             {
               id: '34',
               type: 'Provider',
               name: 'Raul Gallego León',
-              hasVisibility: false
+              hasVisibility: false,
+              hasPostMortemVisibility: true
             },
             {
               id: '24',
               type: 'Provider',
               name: 'Luz Amelia Jacobo',
-              hasVisibility: false
+              hasVisibility: false,
+              hasPostMortemVisibility: true
             }
           ]
         },
@@ -516,31 +677,36 @@ export const family = {
               id: '43',
               type: 'Family',
               name: 'Diana Nieto Vega',
-              hasVisibility: true
+              hasVisibility: true,
+              hasPostMortemVisibility: true
             }, 
             {
               id: '12',
               type: 'Family',
               name: 'Javier Carrasco Nieto',
-              hasVisibility: true
+              hasVisibility: true,
+              hasPostMortemVisibility: true
             }, 
             {
               id: '13',
               type: 'Family',
               name: 'Adriana Carrasco Nieto',
-              hasVisibility: true
+              hasVisibility: true,
+              hasPostMortemVisibility: true
             }, 
             {
               id: '34',
               type: 'Provider',
               name: 'Raul Gallego León',
-              hasVisibility: false
+              hasVisibility: false,
+              hasPostMortemVisibility: true
             },
             {
               id: '24',
               type: 'Provider',
               name: 'Luz Amelia Jacobo',
-              hasVisibility: false
+              hasVisibility: false,
+              hasPostMortemVisibility: true
             }
           ]
         },
@@ -557,34 +723,207 @@ export const family = {
               id: '43',
               name: 'Diana Nieto Vega',
               type: 'Family',
-              hasVisibility: true
+              hasVisibility: true,
+              hasPostMortemVisibility: true
             }, 
             {
               id: '12',
               name: 'Javier Carrasco Nieto',
               type: 'Family',
-              hasVisibility: false
+              hasVisibility: false,
+              hasPostMortemVisibility: true
             }, 
             {
               id: '13',
               name: 'Adriana Carrasco Nieto',
               type: 'Family',
-              hasVisibility: false
+              hasVisibility: false,
+              hasPostMortemVisibility: true
             }, 
             {
               id: '34',
               type: 'Provider',
               name: 'Raul Gallego León',
-              hasVisibility: false
+              hasVisibility: false,
+              hasPostMortemVisibility: false
             },
             {
               id: '24',
               type: 'Provider',
               name: 'Luz Amelia Jacobo',
-              hasVisibility: false
+              hasVisibility: false,
+              hasPostMortemVisibility: false
             }
           ]
         },
+      ], 
+      trustor:[
+        {
+          id: 20,
+          trustNumber: "0014233",
+          trusteeBank: "Santander",
+          visibility: [
+            {
+              id: '43',
+              type: 'Family',
+              name: 'Diana Nieto Vega',
+              hasVisibility: false,
+              hasPostMortemVisibility: true
+            }, 
+            {
+              id: '12',
+              type: 'Family',
+              name: 'Javier Carrasco Nieto',
+              hasVisibility: false,
+              hasPostMortemVisibility: true
+            }, 
+            {
+              id: '13',
+              type: 'Family',
+              name: 'Adriana Carrasco Nieto',
+              hasVisibility: false,
+              hasPostMortemVisibility: true
+            },
+            {
+              id: '34',
+              type: 'Provider',
+              name: 'Raul Gallego León',
+              hasVisibility: false,
+              hasPostMortemVisibility: false
+            },
+            {
+              id: '24',
+              type: 'Provider',
+              name: 'Luz Amelia Jacobo',
+              hasVisibility: false,
+              hasPostMortemVisibility: false
+            }
+          ]
+        }, 
+        {
+          id: 90,
+          trustNumber: "144002",
+          trusteeBank: "BBVA",
+          visibility: [
+            {
+              id: '43',
+              type: 'Family',
+              name: 'Diana Nieto Vega',
+              hasVisibility: false,
+              hasPostMortemVisibility: true
+            }, 
+            {
+              id: '12',
+              type: 'Family',
+              name: 'Javier Carrasco Nieto',
+              hasVisibility: false,
+              hasPostMortemVisibility: true
+            }, 
+            {
+              id: '13',
+              type: 'Family',
+              name: 'Adriana Carrasco Nieto',
+              hasVisibility: false,
+              hasPostMortemVisibility: true
+            },
+            {
+              id: '34',
+              type: 'Provider',
+              name: 'Raul Gallego León',
+              hasVisibility: false,
+              hasPostMortemVisibility: false
+            },
+            {
+              id: '24',
+              type: 'Provider',
+              name: 'Luz Amelia Jacobo',
+              hasVisibility: false,
+              hasPostMortemVisibility: false
+            }
+          ]
+        },
+      ],
+      wills: [
+        {
+          name: 'Testamento Familia (México)', 
+          visibility: [
+            {
+              id: '43',
+              type: 'Family',
+              name: 'Diana Nieto Vega',
+              hasVisibility: false,
+              hasPostMortemVisibility: true
+            }, 
+            {
+              id: '12',
+              type: 'Family',
+              name: 'Javier Carrasco Nieto',
+              hasVisibility: false,
+              hasPostMortemVisibility: true
+            }, 
+            {
+              id: '13',
+              type: 'Family',
+              name: 'Adriana Carrasco Nieto',
+              hasVisibility: false,
+              hasPostMortemVisibility: true
+            },
+            {
+              id: '34',
+              type: 'Provider',
+              name: 'Raul Gallego León',
+              hasVisibility: false,
+              hasPostMortemVisibility: false
+            },
+            {
+              id: '24',
+              type: 'Provider',
+              name: 'Luz Amelia Jacobo',
+              hasVisibility: false,
+              hasPostMortemVisibility: false
+            }
+          ]
+        }, 
+        {
+          name: 'Codicilo Testamento (México)', 
+          visibility: [
+            {
+              id: '43',
+              type: 'Family',
+              name: 'Diana Nieto Vega',
+              hasVisibility: false,
+              hasPostMortemVisibility: true
+            }, 
+            {
+              id: '12',
+              type: 'Family',
+              name: 'Javier Carrasco Nieto',
+              hasVisibility: false,
+              hasPostMortemVisibility: true
+            }, 
+            {
+              id: '13',
+              type: 'Family',
+              name: 'Adriana Carrasco Nieto',
+              hasVisibility: false,
+              hasPostMortemVisibility: true
+            },
+            {
+              id: '34',
+              type: 'Provider',
+              name: 'Raul Gallego León',
+              hasVisibility: false,
+              hasPostMortemVisibility: false
+            },
+            {
+              id: '24',
+              type: 'Provider',
+              name: 'Luz Amelia Jacobo',
+              hasVisibility: false,
+              hasPostMortemVisibility: false
+            }
+          ]
+        }, 
       ]
     },
     {

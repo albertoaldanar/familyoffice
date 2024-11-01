@@ -895,7 +895,7 @@ export default function FamilyMember(props) {
                     style={{ marginRight: 9 }}
                     className="fe fe-trending-up text-black fs-13"
                   ></i>
-                  Activos y bienes
+                  Activos y empresas
                 </Nav.Link>
               </Nav.Item>
               <Nav.Item as="li" style={{ marginRight: 10 }}>
@@ -1163,9 +1163,9 @@ export default function FamilyMember(props) {
                       <Nav.Link eventKey="view">
                         <i
                           style={{ marginRight: 9 }}
-                          className="fe fe-eye-off text-black fs-13"
+                          className="fe fe-lock text-black fs-13"
                         ></i>
-                        Privacidad de mi data
+                        Privacidad de mis datos
                       </Nav.Link>
                     </Nav.Item>
                   )}
