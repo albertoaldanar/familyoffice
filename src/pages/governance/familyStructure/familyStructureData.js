@@ -845,6 +845,7 @@ export const family = {
       ],
       wills: [
         {
+          id: 23,
           name: 'Testamento Familia (México)', 
           visibility: [
             {
@@ -885,6 +886,7 @@ export const family = {
           ]
         }, 
         {
+          id: 26,
           name: 'Codicilo Testamento (México)', 
           visibility: [
             {

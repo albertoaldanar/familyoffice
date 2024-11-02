@@ -19,6 +19,13 @@ export default function DataSuccession() {
     family.members[0].trustor
   );
 
+  const [willsPostMortemVisibility, setWillsPostMortemVisibility] = useState(
+    family.members[0].wills.map((will) => ({
+      ...will,
+      visibility: will.visibility.filter((member) => !member.hasVisibility),
+    }))
+  );
+
   const handleSelectionChange = (assetId, type, selected) => {
     setAssetsPostMortemVisibility((prevState) =>
       prevState.map((asset) => {
@@ -32,6 +39,23 @@ export default function DataSuccession() {
           return { ...asset, visibility: updatedVisibility };
         }
         return asset;
+      })
+    );
+  };
+
+  const handleWillChange = (willId, type, selected) => {
+    setWillsPostMortemVisibility((prevState) =>
+      prevState.map((will) => {
+        if (will.id === willId) {
+          const updatedVisibility = will.visibility.map((member) => {
+            const isSelected = selected.some((s) => s.value === member.id);
+            return member.type === type
+              ? { ...member, hasPostMortemVisibility: isSelected }
+              : member;
+          });
+          return { ...will, visibility: updatedVisibility };
+        }
+        return will;
       })
     );
   };
@@ -153,6 +177,81 @@ export default function DataSuccession() {
               value={defaultProviderSelection}
               onChange={(selected) =>
                 handleSelectionChange(asset.id, "Provider", selected)
+              }
+              labelledBy="Selecciona proveedores"
+              overrideStrings={{
+                selectSomeItems: "Selecciona miembros accionistas",
+                allItemsAreSelected: "Todos los miembros",
+                selectAll: "Seleccionar todos",
+              }}
+              disableSearch
+            />
+          </Form.Group>
+        </Row>
+      </div>
+    );
+  };
+
+  const renderWillsVisibility = (asset) => {
+    const familyOptions = asset.visibility
+      .filter((v) => v.type === "Family")
+      .map((v) => ({ label: v.name, value: v.id }));
+
+    const providerOptions = asset.visibility
+      .filter((v) => v.type === "Provider")
+      .map((v) => ({ label: v.name, value: v.id }));
+
+    const defaultFamilySelection = asset.visibility
+      .filter((v) => v.type === "Family" && v.hasPostMortemVisibility)
+      .map((v) => ({ label: v.name, value: v.id }));
+
+    const defaultProviderSelection = asset.visibility
+      .filter((v) => v.type === "Provider" && v.hasPostMortemVisibility)
+      .map((v) => ({ label: v.name, value: v.id }));
+
+    return (
+      <div key={asset.id} style={{ marginTop: 20 }}>
+        <p style={{ fontWeight: "bold" }}>{asset.name}</p>
+        <Row>
+          <Form.Group
+            as={Col}
+            md="5"
+            controlId="validationCustom01"
+            className="form-group"
+          >
+            <p style={{ color: "gray", fontSize: 13 }}>
+              Familiares a los que se le dará visibilidad:
+            </p>
+            <MultiSelect
+              options={familyOptions}
+              value={defaultFamilySelection}
+              onChange={(selected) =>
+                handleWillChange(asset.id, "Family", selected)
+              }
+              labelledBy="Selecciona miembros familiares"
+              overrideStrings={{
+                selectSomeItems: "Selecciona miembros accionistas",
+                allItemsAreSelected: "Todos los miembros",
+                selectAll: "Seleccionar todos",
+              }}
+              disableSearch
+            />
+          </Form.Group>
+
+          <Form.Group
+            as={Col}
+            md="5"
+            controlId="validationCustom01"
+            className="form-group"
+          >
+            <p style={{ color: "gray", fontSize: 13 }}>
+              Proveedores a los que se le dará visibilidad:
+            </p>
+            <MultiSelect
+              options={providerOptions}
+              value={defaultProviderSelection}
+              onChange={(selected) =>
+                handleWillChange(asset.id, "Provider", selected)
               }
               labelledBy="Selecciona proveedores"
               overrideStrings={{
@@ -347,6 +446,12 @@ export default function DataSuccession() {
     </div>
   );
 
+  const renderWills = () => (
+    <div style={{ marginTop: 20, marginBottom: 200 }}>
+      {willsPostMortemVisibility.map((asset) => renderWillsVisibility(asset))}
+    </div>
+  );
+
   const renderTrustor = () => (
     <div style={{ marginTop: 20, marginBottom: 200 }}>
       {trustorPostMortemVisibility.map((trust) => renderTrustorVisibility(trust))}
@@ -425,7 +530,7 @@ export default function DataSuccession() {
               <Tab.Pane eventKey="first">{renderAssets()}</Tab.Pane>
               <Tab.Pane eventKey="second">{renderObligations()}</Tab.Pane>
               <Tab.Pane eventKey="third">{renderTrustor()}</Tab.Pane>
-              <Tab.Pane eventKey="fourth">{}</Tab.Pane>
+              <Tab.Pane eventKey="fourth">{renderWills()}</Tab.Pane>
             </Tab.Content>
           </Tab.Container>
         </div>
