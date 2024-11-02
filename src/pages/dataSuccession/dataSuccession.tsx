@@ -16,7 +16,10 @@ export default function DataSuccession() {
   );
 
   const [trustorPostMortemVisibility, setTrustorPostMortemVisibility] = useState(
-    family.members[0].trustor
+    family.members[0].trustor.map((trust) => ({
+      ...trust,
+      visibility: trust.visibility.filter((member) => !member.hasVisibility),
+    }))
   );
 
   const [willsPostMortemVisibility, setWillsPostMortemVisibility] = useState(
@@ -508,7 +511,7 @@ export default function DataSuccession() {
                     <Nav.Link eventKey="third">
                       <i
                         style={{ marginRight: 9 }}
-                        className="fe fe-folder text-black fs-13"
+                        className="fe fe-file-text text-black fs-13"
                       ></i>
                       Fideicomisos
                     </Nav.Link>

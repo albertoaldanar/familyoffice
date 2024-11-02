@@ -248,7 +248,7 @@ export const family = {
               id: '24',
               type: 'Provider',
               name: 'Luz Amelia Jacobo',
-              hasVisibility: false,
+              hasVisibility: true,
               hasPostMortemVisibility: true
             }
           ]
@@ -264,21 +264,24 @@ export const family = {
           visibility: [
             {
               id: '43',
+              type: 'Family',
               name: 'Diana Nieto Vega',
               hasVisibility: true,
               hasPostMortemVisibility: true
             }, 
             {
               id: '12',
+              type: 'Family',
               name: 'Javier Carrasco Nieto',
               hasVisibility: true,
               hasPostMortemVisibility: true
             }, 
             {
               id: '13',
+              type: 'Family',
               name: 'Adriana Carrasco Nieto',
-              hasVisibility: true,
-              hasPostMortemVisibility: true
+              hasVisibility: false,
+              hasPostMortemVisibility: false
             }, 
             {
               id: '34',
@@ -291,7 +294,7 @@ export const family = {
               id: '24',
               type: 'Provider',
               name: 'Luz Amelia Jacobo',
-              hasVisibility: false,
+              hasVisibility: true,
               hasPostMortemVisibility: true
             }
           ]
@@ -337,7 +340,7 @@ export const family = {
               id: '24',
               type: 'Provider',
               name: 'Luz Amelia Jacobo',
-              hasVisibility: false,
+              hasVisibility: true,
               hasPostMortemVisibility: true
             }
           ]
@@ -560,7 +563,7 @@ export const family = {
               id: '34',
               type: 'Provider',
               name: 'Raul Gallego León',
-              hasVisibility: false,
+              hasVisibility: true,
               hasPostMortemVisibility: true
             },
             {
@@ -606,7 +609,7 @@ export const family = {
               id: '34',
               type: 'Provider',
               name: 'Raul Gallego León',
-              hasVisibility: false,
+              hasVisibility: true,
               hasPostMortemVisibility: true
             },
             {
@@ -652,7 +655,7 @@ export const family = {
               id: '34',
               type: 'Provider',
               name: 'Raul Gallego León',
-              hasVisibility: false,
+              hasVisibility: true,
               hasPostMortemVisibility: true
             },
             {

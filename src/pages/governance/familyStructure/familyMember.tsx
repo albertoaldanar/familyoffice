@@ -79,6 +79,25 @@ export default function FamilyMember(props) {
     label: memberSelected.gender,
   });
 
+  const [assetsPostMortemVisibility, setAssetsPostMortemVisibility] = useState(
+    family.members[0].assets
+  );
+
+  const [obligationsPostMortemVisibility, setObligationsPostMortemVisibility] = useState(
+    family.members[0].obligations
+  );
+
+  const [trustorPostMortemVisibility, setTrustorPostMortemVisibility] = useState(
+    family.members[0].trustor
+  );
+
+  const [willsPostMortemVisibility, setWillsPostMortemVisibility] = useState(
+    family.members[0].wills.map((will) => ({
+      ...will,
+      visibility: will.visibility.filter((member) => !member.hasVisibility),
+    }))
+  );
+
   const OptionsGender = [
     { value: "Masculino", label: "Masculino" },
     { value: "Femenino", label: "Femenino" },
@@ -97,6 +116,75 @@ export default function FamilyMember(props) {
     value: rule.regimen,
     label: rule.regimen,
   }));
+
+  const handleSelectionChange = (assetId, type, selected) => {
+    setAssetsPostMortemVisibility((prevState) =>
+      prevState.map((asset) => {
+        if (asset.id === assetId) {
+          const updatedVisibility = asset.visibility.map((member) => {
+            const isSelected = selected.some((s) => s.value === member.id);
+            return member.type === type
+              ? { ...member, hasVisibility: isSelected }
+              : member;
+          });
+          return { ...asset, visibility: updatedVisibility };
+        }
+        return asset;
+      })
+    );
+  };
+
+  const handleWillChange = (willId, type, selected) => {
+    setWillsPostMortemVisibility((prevState) =>
+      prevState.map((will) => {
+        if (will.id === willId) {
+          const updatedVisibility = will.visibility.map((member) => {
+            const isSelected = selected.some((s) => s.value === member.id);
+            return member.type === type
+              ? { ...member, hasVisibility: isSelected }
+              : member;
+          });
+          return { ...will, visibility: updatedVisibility };
+        }
+        return will;
+      })
+    );
+  };
+
+  const handleObligationChange = (obligationId, type, selected, category) => {
+    setObligationsPostMortemVisibility((prevState) => ({
+      ...prevState,
+      [category]: prevState[category].map((obligation) => {
+        if (obligation.id === obligationId) {
+          const updatedVisibility = obligation.visibility.map((member) => {
+            const isSelected = selected.some((s) => s.value === member.id);
+            return member.type === type
+              ? { ...member, hasVisibility: isSelected }
+              : member;
+          });
+          return { ...obligation, visibility: updatedVisibility };
+        }
+        return obligation;
+      })
+    }));
+  };
+
+  const handleTrustorSelectionChange = (trustId, type, selected) => {
+    setTrustorPostMortemVisibility((prevState) =>
+      prevState.map((trust) => {
+        if (trust.id === trustId) {
+          const updatedVisibility = trust.visibility.map((member) => {
+            const isSelected = selected.some((s) => s.value === member.id);
+            return member.type === type
+              ? { ...member, hasVisibility: isSelected }
+              : member;
+          });
+          return { ...trust, visibility: updatedVisibility };
+        }
+        return trust;
+      })
+    );
+  };
 
   const renderTypeIcon = (type) => {
     if (type === "Tercero") {
@@ -143,6 +231,343 @@ export default function FamilyMember(props) {
         ></i>{" "}
         {type}
       </td>
+    );
+  };
+
+  const renderObligationTitle = (obligation) => {
+    if(obligation.rfc){
+      return <p style={{ fontWeight: "bold" }}>Declaraciónes fiscales {obligation.regimenFiscal} - {obligation.rfc}</p>
+    } else if(obligation.acreedor){
+      return <p style={{ fontWeight: "bold" }}>Deuda por pagar {obligation.tipo} - {obligation.acreedor}</p>
+    }  else if(obligation.deudor){
+      return <p style={{ fontWeight: "bold" }}>Deuda por cobrar {obligation.tipo} - {obligation.deudor}</p>
+    }
+    return;
+  }
+
+  const renderObligationVisibility = (obligation, category) => {
+    const familyOptions = obligation.visibility
+      .filter((v) => v.type === "Family")
+      .map((v) => ({ label: v.name, value: v.id }));
+
+    const providerOptions = obligation.visibility
+      .filter((v) => v.type === "Provider")
+      .map((v) => ({ label: v.name, value: v.id }));
+
+    const defaultFamilySelection = obligation.visibility
+      .filter((v) => v.type === "Family" && v.hasVisibility)
+      .map((v) => ({ label: v.name, value: v.id }));
+
+    const defaultProviderSelection = obligation.visibility
+      .filter((v) => v.type === "Provider" && v.hasVisibility)
+      .map((v) => ({ label: v.name, value: v.id }));
+
+    return (
+      <div key={obligation.id} style={{ marginTop: 20 }}>
+        {renderObligationTitle(obligation)}
+        <Row>
+          <Form.Group
+            as={Col}
+            md="5"
+            controlId="familyVisibility"
+            className="form-group"
+          >
+            <p style={{ color: "gray", fontSize: 13 }}>
+              Familiares a los que se le dará visibilidad:
+            </p>
+            <MultiSelect
+              options={familyOptions}
+              value={defaultFamilySelection}
+              onChange={(selected) =>
+                handleObligationChange(obligation.id, "Family", selected, category)
+              }
+              labelledBy="Selecciona miembros familiares"
+              overrideStrings={{
+                selectSomeItems: "Selecciona miembros accionistas",
+                allItemsAreSelected: "Todos los miembros",
+                selectAll: "Seleccionar todos",
+              }}
+              disableSearch
+            />
+          </Form.Group>
+
+          <Form.Group
+            as={Col}
+            md="5"
+            controlId="providerVisibility"
+            className="form-group"
+          >
+            <p style={{ color: "gray", fontSize: 13 }}>
+              Proveedores a los que se le dará visibilidad:
+            </p>
+            <MultiSelect
+              options={providerOptions}
+              value={defaultProviderSelection}
+              onChange={(selected) =>
+                handleObligationChange(obligation.id, "Provider", selected, category)
+              }
+              labelledBy="Selecciona proveedores"
+              overrideStrings={{
+                selectSomeItems: "Selecciona miembros accionistas",
+                allItemsAreSelected: "Todos los miembros",
+                selectAll: "Seleccionar todos",
+              }}
+              disableSearch
+            />
+          </Form.Group>
+        </Row>
+      </div>
+    );
+  };
+
+  const renderWillsVisibility = (asset) => {
+    const familyOptions = asset.visibility
+      .filter((v) => v.type === "Family")
+      .map((v) => ({ label: v.name, value: v.id }));
+
+    const providerOptions = asset.visibility
+      .filter((v) => v.type === "Provider")
+      .map((v) => ({ label: v.name, value: v.id }));
+
+    const defaultFamilySelection = asset.visibility
+      .filter((v) => v.type === "Family" && v.hasVisibility)
+      .map((v) => ({ label: v.name, value: v.id }));
+
+    const defaultProviderSelection = asset.visibility
+      .filter((v) => v.type === "Provider" && v.hasVisibility)
+      .map((v) => ({ label: v.name, value: v.id }));
+
+    return (
+      <div key={asset.id} style={{ marginTop: 20 }}>
+        <p style={{ fontWeight: "bold" }}>{asset.name}</p>
+        <Row>
+          <Form.Group
+            as={Col}
+            md="5"
+            controlId="validationCustom01"
+            className="form-group"
+          >
+            <p style={{ color: "gray", fontSize: 13 }}>
+              Familiares a los que se le dará visibilidad:
+            </p>
+            <MultiSelect
+              options={familyOptions}
+              value={defaultFamilySelection}
+              onChange={(selected) =>
+                handleWillChange(asset.id, "Family", selected)
+              }
+              labelledBy="Selecciona miembros familiares"
+              overrideStrings={{
+                selectSomeItems: "Selecciona miembros accionistas",
+                allItemsAreSelected: "Todos los miembros",
+                selectAll: "Seleccionar todos",
+              }}
+              disableSearch
+            />
+          </Form.Group>
+
+          <Form.Group
+            as={Col}
+            md="5"
+            controlId="validationCustom01"
+            className="form-group"
+          >
+            <p style={{ color: "gray", fontSize: 13 }}>
+              Proveedores a los que se le dará visibilidad:
+            </p>
+            <MultiSelect
+              options={providerOptions}
+              value={defaultProviderSelection}
+              onChange={(selected) =>
+                handleWillChange(asset.id, "Provider", selected)
+              }
+              labelledBy="Selecciona proveedores"
+              overrideStrings={{
+                selectSomeItems: "Selecciona miembros accionistas",
+                allItemsAreSelected: "Todos los miembros",
+                selectAll: "Seleccionar todos",
+              }}
+              disableSearch
+            />
+          </Form.Group>
+        </Row>
+      </div>
+    );
+  };
+
+
+  const renderWills = () => (
+    <div style={{ marginTop: 20, marginBottom: 200 }}>
+      {willsPostMortemVisibility.map((asset) => renderWillsVisibility(asset))}
+    </div>
+  );
+
+
+  const renderObligations = () => (
+    <div style={{ marginTop: 20, marginBottom: 200 }}>
+      {Object.entries(obligationsPostMortemVisibility).map(([category, obligations]) => (
+        obligations.length > 0 && (
+          <div key={category}>
+            {obligations.map((obligation) => renderObligationVisibility(obligation, category))}
+          </div>
+        )
+      ))}
+    </div>
+  );
+
+  const renderTrustorVisibility = (trust) => {
+    const familyOptions = trust.visibility
+      .filter((v) => v.type === "Family")
+      .map((v) => ({ label: v.name, value: v.id }));
+
+    const providerOptions = trust.visibility
+      .filter((v) => v.type === "Provider")
+      .map((v) => ({ label: v.name, value: v.id }));
+
+    const defaultFamilySelection = trust.visibility
+      .filter((v) => v.type === "Family" && v.hasVisibility)
+      .map((v) => ({ label: v.name, value: v.id }));
+
+    const defaultProviderSelection = trust.visibility
+      .filter((v) => v.type === "Provider" && v.hasVisibility)
+      .map((v) => ({ label: v.name, value: v.id }));
+
+    return (
+      <div key={trust.id} style={{ marginTop: 20 }}>
+        <p style={{ fontWeight: "bold" }}>Fideicomiso {trust.trustNumber} - {trust.trusteeBank}</p>
+        <Row>
+          <Form.Group
+            as={Col}
+            md="5"
+            controlId="familyVisibilityTrustor"
+            className="form-group"
+          >
+            <p style={{ color: "gray", fontSize: 13 }}>
+              Familiares a los que se le dará visibilidad:
+            </p>
+            <MultiSelect
+              options={familyOptions}
+              value={defaultFamilySelection}
+              onChange={(selected) =>
+                handleTrustorSelectionChange(trust.id, "Family", selected)
+              }
+              labelledBy="Selecciona miembros familiares"
+              overrideStrings={{
+                selectSomeItems: "Selecciona miembros accionistas",
+                allItemsAreSelected: "Todos los miembros",
+                selectAll: "Seleccionar todos",
+              }}
+              disableSearch
+            />
+          </Form.Group>
+
+          <Form.Group
+            as={Col}
+            md="5"
+            controlId="providerVisibilityTrustor"
+            className="form-group"
+          >
+            <p style={{ color: "gray", fontSize: 13 }}>
+              Proveedores a los que se le dará visibilidad:
+            </p>
+            <MultiSelect
+              options={providerOptions}
+              value={defaultProviderSelection}
+              onChange={(selected) =>
+                handleTrustorSelectionChange(trust.id, "Provider", selected)
+              }
+              labelledBy="Selecciona proveedores"
+              overrideStrings={{
+                selectSomeItems: "Selecciona miembros accionistas",
+                allItemsAreSelected: "Todos los miembros",
+                selectAll: "Seleccionar todos",
+              }}
+              disableSearch
+            />
+          </Form.Group>
+        </Row>
+      </div>
+    );
+  };
+
+  const renderTrustor = () => (
+    <div style={{ marginTop: 20, marginBottom: 200 }}>
+      {trustorPostMortemVisibility.map((trust) => renderTrustorVisibility(trust))}
+    </div>
+  );
+
+  const renderAssetVisibility = (asset) => {
+    const familyOptions = asset.visibility
+      .filter((v) => v.type === "Family")
+      .map((v) => ({ label: v.name, value: v.id }));
+
+    const providerOptions = asset.visibility
+      .filter((v) => v.type === "Provider")
+      .map((v) => ({ label: v.name, value: v.id }));
+
+    const defaultFamilySelection = asset.visibility
+      .filter((v) => v.type === "Family" && v.hasVisibility)
+      .map((v) => ({ label: v.name, value: v.id }));
+
+    const defaultProviderSelection = asset.visibility
+      .filter((v) => v.type === "Provider" && v.hasVisibility)
+      .map((v) => ({ label: v.name, value: v.id }));
+
+    return (
+      <div key={asset.id} style={{ marginTop: 20 }}>
+        <p style={{ fontWeight: "bold" }}>{asset.name}</p>
+        <Row>
+          <Form.Group
+            as={Col}
+            md="5"
+            controlId="validationCustom01"
+            className="form-group"
+          >
+            <p style={{ color: "gray", fontSize: 13 }}>
+              Familiares
+            </p>
+            <MultiSelect
+              options={familyOptions}
+              value={defaultFamilySelection}
+              onChange={(selected) =>
+                handleSelectionChange(asset.id, "Family", selected)
+              }
+              labelledBy="Selecciona miembros familiares"
+              overrideStrings={{
+                selectSomeItems: "Selecciona miembros accionistas",
+                allItemsAreSelected: "Todos los miembros",
+                selectAll: "Seleccionar todos",
+              }}
+              disableSearch
+            />
+          </Form.Group>
+
+          <Form.Group
+            as={Col}
+            md="5"
+            controlId="validationCustom01"
+            className="form-group"
+          >
+            <p style={{ color: "gray", fontSize: 13 }}>
+              Proveedores
+            </p>
+            <MultiSelect
+              options={providerOptions}
+              value={defaultProviderSelection}
+              onChange={(selected) =>
+                handleSelectionChange(asset.id, "Provider", selected)
+              }
+              labelledBy="Selecciona proveedores"
+              overrideStrings={{
+                selectSomeItems: "Selecciona miembros accionistas",
+                allItemsAreSelected: "Todos los miembros",
+                selectAll: "Seleccionar todos",
+              }}
+              disableSearch
+            />
+          </Form.Group>
+        </Row>
+      </div>
     );
   };
 
@@ -878,6 +1303,12 @@ export default function FamilyMember(props) {
     );
   };
 
+  const renderAssets = () => (
+    <div style={{ marginTop: 20, marginBottom: 200 }}>
+      {assetsPostMortemVisibility.map((asset) => renderAssetVisibility(asset))}
+    </div>
+  );
+
   const renderVisibilityAccess = () => {
     return (
       <>
@@ -899,7 +1330,7 @@ export default function FamilyMember(props) {
                 </Nav.Link>
               </Nav.Item>
               <Nav.Item as="li" style={{ marginRight: 10 }}>
-                <Nav.Link eventKey="third" style={{ fontSize: 12 }}>
+                <Nav.Link eventKey="second" style={{ fontSize: 12 }}>
                   <i
                     style={{ marginRight: 9 }}
                     className="fe fe-calendar text-black fs-13"
@@ -908,7 +1339,7 @@ export default function FamilyMember(props) {
                 </Nav.Link>
               </Nav.Item>
               <Nav.Item as="li" style={{ marginRight: 10 }}>
-                <Nav.Link eventKey="second" style={{ fontSize: 12 }}>
+                <Nav.Link eventKey="third" style={{ fontSize: 12 }}>
                   <i
                     style={{ marginRight: 9 }}
                     className="fe fe-folder text-black fs-13"
@@ -929,10 +1360,10 @@ export default function FamilyMember(props) {
           </div>
 
           <Tab.Content className="panel-body">
-            <Tab.Pane eventKey="first">{}</Tab.Pane>
-            <Tab.Pane eventKey="second">{}</Tab.Pane>
-            <Tab.Pane eventKey="third">{}</Tab.Pane>
-            <Tab.Pane eventKey="fourth">{}</Tab.Pane>
+            <Tab.Pane eventKey="first">{renderAssets()}</Tab.Pane>
+            <Tab.Pane eventKey="second">{renderObligations()}</Tab.Pane>
+            <Tab.Pane eventKey="third">{renderTrustor()}</Tab.Pane>
+            <Tab.Pane eventKey="fourth">{renderWills()}</Tab.Pane>
           </Tab.Content>
         </Tab.Container>
       </>
@@ -1175,7 +1606,6 @@ export default function FamilyMember(props) {
 
             <Tab.Content className="panel-body">
               <Tab.Pane eventKey="first">{renderDocuments()}</Tab.Pane>
-
               <Tab.Pane eventKey="second">{renderDescription()}</Tab.Pane>
               <Tab.Pane eventKey="third">{renderObligationsTabs()}</Tab.Pane>
               <Tab.Pane eventKey="fourth">{renderAssetList()}</Tab.Pane>
