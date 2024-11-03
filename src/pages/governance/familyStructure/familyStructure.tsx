@@ -269,7 +269,7 @@ export default function FamilyStructure() {
                       Documentos Family Office{" "}
                     </Nav.Link>
                   </Nav.Item>
-                  <Nav.Item as="li" style={{ marginRight: 10 }}>
+                  {/* <Nav.Item as="li" style={{ marginRight: 10 }}>
                     <Nav.Link eventKey="third" href="#">
                       <i
                         style={{ marginRight: 9 }}
@@ -277,7 +277,7 @@ export default function FamilyStructure() {
                       ></i>
                       Documentos familiares
                     </Nav.Link>
-                  </Nav.Item>
+                  </Nav.Item> */}
                 </Nav>
               </div>
             </div>
@@ -291,7 +291,7 @@ export default function FamilyStructure() {
                 </Row>
               </Tab.Pane>
               <Tab.Pane eventKey="second">{renderVFOCoduments()}</Tab.Pane>
-              <Tab.Pane eventKey="third">{renderFamilyDocuments()}</Tab.Pane>
+              {/* <Tab.Pane eventKey="third">{renderFamilyDocuments()}</Tab.Pane> */}
             </Tab.Content>
           </Tab.Container>
         </div>

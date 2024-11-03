@@ -45,8 +45,43 @@ export const family = {
       gender: 'Masculino',
       source: 'root',
       rfc: 'AJFNIEU',
-      pasport: 'https://www.google.drive/1423nger', 
+      driverLicence: 'https://www.google.drive/1423nger', 
+      cif: 'https://www.google.drive/1423nger', 
       birthCertificate: 'https://www.google.drive/1423nger',
+      ids:[
+        {
+          name: 'INE',
+          url:'https://www.google.drive/1423nger'
+        },
+        {
+          name: 'ID americana',
+          url:'https://www.google.drive/1423nger'
+        }
+      ],
+      passports:[
+        {
+          name: 'Paspaporte Mexicano',
+          url:'https://www.google.drive/1423nger'
+        },
+        {
+          name: 'Paspaporte USA',
+          url:'https://www.google.drive/1423nger'
+        },
+      ],
+      permits:[
+        {
+          name: 'Visa americana',
+          url:'https://www.google.drive/1423nger'
+        },
+        {
+          name: 'Global entry',
+          url:'https://www.google.drive/1423nger'
+        },
+        {
+          name: 'CLEAR',
+          url:'https://www.google.drive/1423nger'
+        },
+      ],
       coupleId: '43',
       isMemberIC: true,
       isMemberFC: true,
@@ -850,6 +885,24 @@ export const family = {
         {
           id: 23,
           name: 'Testamento Familia (México)', 
+          url: 'https://www.google.drive/1423nger',
+          notary: 'Notaria 120 Culiacan Sinaloa',
+          willLocation: 'Caja fuerte Casa la primavera',
+          lastUpdate: '12/10/2023',
+          willReason: 'Suseción de bienes de la famila',
+          country: 'México',
+          contacts: [
+            {
+              id: 1,
+              name: 'Juan Diaz Zalazar',
+              type: 'Notario',
+              categoryCoreId: 24,
+              coreId: 17,
+              number: '6671481888',
+              location: 'Culiacan, Sinaloa',
+              email: 'jaundiaz@zalazar.com'
+            }
+          ],
           visibility: [
             {
               id: '43',
@@ -891,6 +944,24 @@ export const family = {
         {
           id: 26,
           name: 'Codicilo Testamento (México)', 
+          url: 'https://www.google.drive/1423nger',
+          notary: 'Notaria 120 Culiacan Sinaloa',
+          willLocation: 'Caja fuerte Casa la primavera',
+          willReason: 'Extensión de instrucciones para el testamento para mas claridad',
+          lastUpdate: '12/10/2023',
+          country: 'México',
+          contacts: [
+            {
+              id: 5,
+              name: 'Juan Diaz Zalazar',
+              type: 'Notario',
+              categoryCoreId: 24,
+              coreId: 17,
+              number: '6671481888',
+              location: 'Culiacan, Sinaloa',
+              email: 'jaundiaz@zalazar.com'
+            }
+          ],
           visibility: [
             {
               id: '43',
@@ -934,6 +1005,7 @@ export const family = {
     {
       id: '43',
       name: 'Diana Nieto Vega',
+      cif: 'https://www.google.drive/1423nger', 
       trusteeOf: [
         {
           name: 'Fideicomiso 0014233-Santander',
@@ -944,7 +1016,42 @@ export const family = {
           coreId: 90,
         }
       ],
+      ids:[
+        {
+          name: 'INE',
+          url:'https://www.google.drive/1423nger'
+        },
+        {
+          name: 'ID americana',
+          url:'https://www.google.drive/1423nger'
+        }
+      ],
+      passports:[
+        {
+          name: 'Paspaporte Mexicano',
+          url:'https://www.google.drive/1423nger'
+        },
+        {
+          name: 'Paspaporte USA',
+          url:'https://www.google.drive/1423nger'
+        },
+      ],
+      permits:[
+        {
+          name: 'Visa americana',
+          url:'https://www.google.drive/1423nger'
+        },
+        {
+          name: 'Global entry',
+          url:'https://www.google.drive/1423nger'
+        },
+        {
+          name: 'CLEAR',
+          url:'https://www.google.drive/1423nger'
+        },
+      ],
       dob: '12/07/1963',
+      driverLicence: 'https://www.google.drive/1423nger',
       address: 'Casa La primavera San Anselmo 2083',
       regimenFiscal: 'Regimen de Dividendos',
       generation: 1,
@@ -1007,17 +1114,54 @@ export const family = {
           currency: 'MXN',
           country: 'México'
         }
-      ]
+      ],
+      wills: []
     },
     {
       id: '13',
       name: 'Adriana Carrasco Nieto',
+      driverLicence: 'https://www.google.drive/1423nger',
       nationalities: ['Mexicana'],
+      cif: 'https://www.google.drive/1423nger', 
+      ids:[
+        {
+          name: 'INE',
+          url:'https://www.google.drive/1423nger'
+        },
+        {
+          name: 'ID americana',
+          url:'https://www.google.drive/1423nger'
+        }
+      ],
       trusteeOf: [
         {
           name: 'Fideicomiso 144002 BBVA',
           coreId: 90,
         }
+      ],
+      passports:[
+        {
+          name: 'Paspaporte Mexicano',
+          url:'https://www.google.drive/1423nger'
+        },
+        {
+          name: 'Paspaporte USA',
+          url:'https://www.google.drive/1423nger'
+        },
+      ],
+      permits:[
+        {
+          name: 'Visa americana',
+          url:'https://www.google.drive/1423nger'
+        },
+        {
+          name: 'Global entry',
+          url:'https://www.google.drive/1423nger'
+        },
+        {
+          name: 'CLEAR',
+          url:'https://www.google.drive/1423nger'
+        },
       ],
       dob: '10/25/1991',
       address: 'Casa La primavera San Anselmo 2083',
@@ -1082,17 +1226,54 @@ export const family = {
           currency: 'USD',
           country: 'USA'
         },
-      ]
+      ],
+      wills: []
     },
     {
       id: '12',
       name: 'Javier Carrasco Nieto',
+      driverLicence: 'https://www.google.drive/1423nger',
       nationalities: ['Mexicana'],
+      cif: 'https://www.google.drive/1423nger', 
+      ids:[
+        {
+          name: 'INE',
+          url:'https://www.google.drive/1423nger'
+        },
+        {
+          name: 'ID americana',
+          url:'https://www.google.drive/1423nger'
+        }
+      ],
       trusteeOf: [
         {
           name: 'Fideicomiso 144002 BBVA',
           coreId: 90,
         }
+      ],
+      passports:[
+        {
+          name: 'Paspaporte Mexicano',
+          url:'https://www.google.drive/1423nger'
+        },
+        {
+          name: 'Paspaporte USA',
+          url:'https://www.google.drive/1423nger'
+        },
+      ],
+      permits:[
+        {
+          name: 'Visa americana',
+          url:'https://www.google.drive/1423nger'
+        },
+        {
+          name: 'Global entry',
+          url:'https://www.google.drive/1423nger'
+        },
+        {
+          name: 'CLEAR',
+          url:'https://www.google.drive/1423nger'
+        },
       ],
       dob: '02/16/1994',
       address: 'Casa La primavera San Anselmo 2083',
@@ -1162,16 +1343,53 @@ export const family = {
           currency: 'USD',
           country: 'USA'
         },
-      ]
+      ], 
+      wills: []
     },
     {
       id: '9',
       name: 'Sofia Carrasco Nieto',
+      driverLicence: 'https://www.google.drive/1423nger',
+      cif: 'https://www.google.drive/1423nger', 
+      ids:[
+        {
+          name: 'INE',
+          url:'https://www.google.drive/1423nger'
+        },
+        {
+          name: 'ID americana',
+          url:'https://www.google.drive/1423nger'
+        }
+      ],
       trusteeOf: [
         {
           name: 'Fideicomiso 144002 BBVA',
           coreId: 90,
         }
+      ],
+      passports:[
+        {
+          name: 'Paspaporte Mexicano',
+          url:'https://www.google.drive/1423nger'
+        },
+        {
+          name: 'Paspaporte USA',
+          url:'https://www.google.drive/1423nger'
+        },
+      ],
+      permits:[
+        {
+          name: 'Visa americana',
+          url:'https://www.google.drive/1423nger'
+        },
+        {
+          name: 'Global entry',
+          url:'https://www.google.drive/1423nger'
+        },
+        {
+          name: 'CLEAR',
+          url:'https://www.google.drive/1423nger'
+        },
       ],
       nationalities: ['Mexicana'],
       obligations: {
@@ -1207,11 +1425,48 @@ export const family = {
       coupleId: null,
       isMemberIC: false,
       isMemberFC: true,
-      assets: []
+      assets: [],
+      wills: []
     },
     {
       id: '19',
-      name: 'Mateo Carrasco Soler',      
+      name: 'Mateo Carrasco Soler',    
+      driverLicence: 'https://www.google.drive/1423nger', 
+      cif: 'https://www.google.drive/1423nger', 
+      ids:[
+        {
+          name: 'INE',
+          url:'https://www.google.drive/1423nger'
+        },
+        {
+          name: 'ID americana',
+          url:'https://www.google.drive/1423nger'
+        }
+      ],
+      passports:[
+        {
+          name: 'Paspaporte Mexicano',
+          url:'https://www.google.drive/1423nger'
+        },
+        {
+          name: 'Paspaporte USA',
+          url:'https://www.google.drive/1423nger'
+        },
+      ], 
+      permits:[
+        {
+          name: 'Visa americana',
+          url:'https://www.google.drive/1423nger'
+        },
+        {
+          name: 'Global entry',
+          url:'https://www.google.drive/1423nger'
+        },
+        {
+          name: 'CLEAR',
+          url:'https://www.google.drive/1423nger'
+        },
+      ],
       trusteeOf: [],
       nationalities: ['Mexicana', 'Estadounidense'],
       obligations: {
@@ -1233,7 +1488,8 @@ export const family = {
       coupleId: null,
       isMemberIC: false,
       isMemberFC: false,
-      assets: []
+      assets: [], 
+      wills: []
     },
   ],
 }

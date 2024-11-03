@@ -83,13 +83,11 @@ export default function FamilyMember(props) {
     family.members[0].assets
   );
 
-  const [obligationsPostMortemVisibility, setObligationsPostMortemVisibility] = useState(
-    family.members[0].obligations
-  );
+  const [obligationsPostMortemVisibility, setObligationsPostMortemVisibility] =
+    useState(family.members[0].obligations);
 
-  const [trustorPostMortemVisibility, setTrustorPostMortemVisibility] = useState(
-    family.members[0].trustor
-  );
+  const [trustorPostMortemVisibility, setTrustorPostMortemVisibility] =
+    useState(family.members[0].trustor);
 
   const [willsPostMortemVisibility, setWillsPostMortemVisibility] = useState(
     family.members[0].wills.map((will) => ({
@@ -165,7 +163,7 @@ export default function FamilyMember(props) {
           return { ...obligation, visibility: updatedVisibility };
         }
         return obligation;
-      })
+      }),
     }));
   };
 
@@ -235,15 +233,27 @@ export default function FamilyMember(props) {
   };
 
   const renderObligationTitle = (obligation) => {
-    if(obligation.rfc){
-      return <p style={{ fontWeight: "bold" }}>Declaraciónes fiscales {obligation.regimenFiscal} - {obligation.rfc}</p>
-    } else if(obligation.acreedor){
-      return <p style={{ fontWeight: "bold" }}>Deuda por pagar {obligation.tipo} - {obligation.acreedor}</p>
-    }  else if(obligation.deudor){
-      return <p style={{ fontWeight: "bold" }}>Deuda por cobrar {obligation.tipo} - {obligation.deudor}</p>
+    if (obligation.rfc) {
+      return (
+        <p style={{ fontWeight: "bold" }}>
+          Declaraciónes fiscales {obligation.regimenFiscal} - {obligation.rfc}
+        </p>
+      );
+    } else if (obligation.acreedor) {
+      return (
+        <p style={{ fontWeight: "bold" }}>
+          Deuda por pagar {obligation.tipo} - {obligation.acreedor}
+        </p>
+      );
+    } else if (obligation.deudor) {
+      return (
+        <p style={{ fontWeight: "bold" }}>
+          Deuda por cobrar {obligation.tipo} - {obligation.deudor}
+        </p>
+      );
     }
     return;
-  }
+  };
 
   const renderObligationVisibility = (obligation, category) => {
     const familyOptions = obligation.visibility
@@ -279,7 +289,12 @@ export default function FamilyMember(props) {
               options={familyOptions}
               value={defaultFamilySelection}
               onChange={(selected) =>
-                handleObligationChange(obligation.id, "Family", selected, category)
+                handleObligationChange(
+                  obligation.id,
+                  "Family",
+                  selected,
+                  category
+                )
               }
               labelledBy="Selecciona miembros familiares"
               overrideStrings={{
@@ -304,7 +319,12 @@ export default function FamilyMember(props) {
               options={providerOptions}
               value={defaultProviderSelection}
               onChange={(selected) =>
-                handleObligationChange(obligation.id, "Provider", selected, category)
+                handleObligationChange(
+                  obligation.id,
+                  "Provider",
+                  selected,
+                  category
+                )
               }
               labelledBy="Selecciona proveedores"
               overrideStrings={{
@@ -320,7 +340,7 @@ export default function FamilyMember(props) {
     );
   };
 
-  const renderWillsVisibility = (asset) => {
+  const renderWillDatasVisibility = (asset) => {
     const familyOptions = asset.visibility
       .filter((v) => v.type === "Family")
       .map((v) => ({ label: v.name, value: v.id }));
@@ -395,23 +415,26 @@ export default function FamilyMember(props) {
     );
   };
 
-
   const renderWills = () => (
     <div style={{ marginTop: 20, marginBottom: 200 }}>
-      {willsPostMortemVisibility.map((asset) => renderWillsVisibility(asset))}
+      {willsPostMortemVisibility.map((asset) =>
+        renderWillDatasVisibility(asset)
+      )}
     </div>
   );
 
-
   const renderObligations = () => (
     <div style={{ marginTop: 20, marginBottom: 200 }}>
-      {Object.entries(obligationsPostMortemVisibility).map(([category, obligations]) => (
-        obligations.length > 0 && (
-          <div key={category}>
-            {obligations.map((obligation) => renderObligationVisibility(obligation, category))}
-          </div>
-        )
-      ))}
+      {Object.entries(obligationsPostMortemVisibility).map(
+        ([category, obligations]) =>
+          obligations.length > 0 && (
+            <div key={category}>
+              {obligations.map((obligation) =>
+                renderObligationVisibility(obligation, category)
+              )}
+            </div>
+          )
+      )}
     </div>
   );
 
@@ -434,7 +457,9 @@ export default function FamilyMember(props) {
 
     return (
       <div key={trust.id} style={{ marginTop: 20 }}>
-        <p style={{ fontWeight: "bold" }}>Fideicomiso {trust.trustNumber} - {trust.trusteeBank}</p>
+        <p style={{ fontWeight: "bold" }}>
+          Fideicomiso {trust.trustNumber} - {trust.trusteeBank}
+        </p>
         <Row>
           <Form.Group
             as={Col}
@@ -492,7 +517,9 @@ export default function FamilyMember(props) {
 
   const renderTrustor = () => (
     <div style={{ marginTop: 20, marginBottom: 200 }}>
-      {trustorPostMortemVisibility.map((trust) => renderTrustorVisibility(trust))}
+      {trustorPostMortemVisibility.map((trust) =>
+        renderTrustorVisibility(trust)
+      )}
     </div>
   );
 
@@ -523,9 +550,7 @@ export default function FamilyMember(props) {
             controlId="validationCustom01"
             className="form-group"
           >
-            <p style={{ color: "gray", fontSize: 13 }}>
-              Familiares
-            </p>
+            <p style={{ color: "gray", fontSize: 13 }}>Familiares</p>
             <MultiSelect
               options={familyOptions}
               value={defaultFamilySelection}
@@ -548,9 +573,7 @@ export default function FamilyMember(props) {
             controlId="validationCustom01"
             className="form-group"
           >
-            <p style={{ color: "gray", fontSize: 13 }}>
-              Proveedores
-            </p>
+            <p style={{ color: "gray", fontSize: 13 }}>Proveedores</p>
             <MultiSelect
               options={providerOptions}
               value={defaultProviderSelection}
@@ -765,18 +788,38 @@ export default function FamilyMember(props) {
     return (
       <>
         <Row>
-          <Form.Group as={Col} md="6" className="form-group">
-            <Form.Label className="form-label my-3">Copia pasaporte</Form.Label>
-            {memberSelected.pasport ? (
-              <FileView title="pasport" fileName={memberSelected.pasport} />
+          <p
+            style={{
+              fontSize: 15,
+            }}
+          >
+            1) Licencia, acta de nacimiento y CIF:
+          </p>
+          <Form.Group as={Col} md="4" className="form-group">
+            <Form.Label
+              className="form-label my-3"
+              style={{ fontSize: 13, color: "gray" }}
+            >
+              Licencia de conducir
+            </Form.Label>
+            {memberSelected.driverLicence ? (
+              <FileView
+                title="driverLicence"
+                fileName={memberSelected.driverLicence}
+              />
             ) : (
-              <FileUpload />
+              <>
+                <FileUpload />
+              </>
             )}
           </Form.Group>
 
-          <Form.Group as={Col} md="6" className="form-group">
-            <Form.Label className="form-label my-3">
-              Copia Acta de nacimiento
+          <Form.Group as={Col} md="4" className="form-group">
+            <Form.Label
+              className="form-label my-3"
+              style={{ fontSize: 13, color: "gray" }}
+            >
+              Copia de acta de nacimiento
             </Form.Label>
             {memberSelected.birthCertificate ? (
               <FileView
@@ -784,34 +827,147 @@ export default function FamilyMember(props) {
                 fileName={memberSelected.birthCertificate}
               />
             ) : (
-              <FileUpload />
+              <>
+                <FileUpload />
+              </>
+            )}
+          </Form.Group>
+
+          <Form.Group as={Col} md="4" className="form-group">
+            <Form.Label
+              className="form-label my-3"
+              style={{ fontSize: 13, color: "gray" }}
+            >
+              Cedula de Identificación fiscal
+            </Form.Label>
+            {memberSelected.cif ? (
+              <FileView title="cif" fileName={memberSelected.cif} />
+            ) : (
+              <>
+                <FileUpload />
+              </>
             )}
           </Form.Group>
         </Row>
 
-        <Row style={{ marginTop: 20 }}>
-          <Form.Group as={Col} md="6" className="form-group">
-            <Form.Label className="form-label my-3">
-              Constancia de Identificación Fiscal
-            </Form.Label>
-            <div>
-              <FileUpload />
-            </div>
-          </Form.Group>
+        <Row>
+          <p
+            style={{
+              fontSize: 15,
+              marginTop: 50,
+            }}
+          >
+            2) Identificaciones (INE, DNI, ID)
+          </p>
+          {memberSelected.ids.length ? (
+            memberSelected.ids.map((acta, index) => (
+              <Form.Group as={Col} md="4" className="form-group">
+                <Form.Label
+                  className="form-label my-3"
+                  style={{ color: "gray", fontSize: 13 }}
+                >
+                  {" "}
+                  {acta.name}
+                </Form.Label>
+                <FileView key={index} title={acta.name} fileName={acta.url} />
+              </Form.Group>
+            ))
+          ) : (
+            <p
+              style={{
+                fontSize: 13,
+                fontStyle: "italic",
+                color: "gray",
+                textAlign: "center",
+              }}
+            ></p>
+          )}
+          <div style={{ width: "70%" }}>
+            <p style={{ fontSize: 10, color: "gray", marginBottom: -1 }}>
+              + Añadir identificaciónes
+            </p>
+            <FileUpload />
+          </div>
+        </Row>
 
-          <Form.Group as={Col} md="6" className="form-group">
-            <Form.Label className="form-label my-3">
-              Copia Acta de nacimiento
-            </Form.Label>
-            {memberSelected.birthCertificate ? (
-              <FileView
-                title="birthCertificate"
-                fileName={memberSelected.birthCertificate}
-              />
-            ) : (
-              <FileUpload />
-            )}
-          </Form.Group>
+        <Row>
+          <p
+            style={{
+              fontSize: 15,
+              marginTop: 50,
+            }}
+          >
+            3) Pasaportes
+          </p>
+          {memberSelected.passports.length ? (
+            memberSelected.passports.map((acta, index) => (
+              <Form.Group as={Col} md="4" className="form-group">
+                <Form.Label
+                  className="form-label my-3"
+                  style={{ color: "gray", fontSize: 13 }}
+                >
+                  {" "}
+                  {acta.name}
+                </Form.Label>
+                <FileView key={index} title={acta.name} fileName={acta.url} />
+              </Form.Group>
+            ))
+          ) : (
+            <p
+              style={{
+                fontSize: 13,
+                fontStyle: "italic",
+                color: "gray",
+                textAlign: "center",
+              }}
+            ></p>
+          )}
+          <div style={{ width: "70%" }}>
+            <p style={{ fontSize: 10, color: "gray", marginBottom: -1 }}>
+              + Añadir identificaciónes
+            </p>
+            <FileUpload />
+          </div>
+        </Row>
+
+        <Row>
+          <p
+            style={{
+              fontSize: 15,
+              marginTop: 50,
+            }}
+          >
+            3) Permisos (Visas, Global entry, Sentri, CLEAR etc.)
+          </p>
+          {memberSelected.permits.length ? (
+            memberSelected.permits.map((acta, index) => (
+              <Form.Group as={Col} md="4" className="form-group">
+                <Form.Label
+                  className="form-label my-3"
+                  style={{ color: "gray", fontSize: 13 }}
+                >
+                  {" "}
+                  {acta.name}
+                </Form.Label>
+                <FileView key={index} title={acta.name} fileName={acta.url} />
+              </Form.Group>
+            ))
+          ) : (
+            <p
+              style={{
+                fontSize: 13,
+                fontStyle: "italic",
+                color: "gray",
+                textAlign: "center",
+              }}
+            ></p>
+          )}
+          <div style={{ width: "70%" }}>
+            <p style={{ fontSize: 10, color: "gray", marginBottom: -1 }}>
+              + Añadir identificaciónes
+            </p>
+            <FileUpload />
+          </div>
         </Row>
       </>
     );
@@ -1312,9 +1468,12 @@ export default function FamilyMember(props) {
   const renderVisibilityAccess = () => {
     return (
       <>
-        <p style={{marginTop: -10, marginLeft: 15, marginBottom: 30,}}>Oculta o da visivilidad de toda tu información a otros usuarios de tu Family Office ya sean familiares o proveedores</p>
+        <p style={{ marginTop: -10, marginLeft: 15, marginBottom: 30 }}>
+          Oculta o da visivilidad de toda tu información a otros usuarios de tu
+          Family Office ya sean familiares o proveedores
+        </p>
         <Tab.Container id="left-tabs-example" defaultActiveKey="first">
-          <div style={{ marginLeft: 15}}>
+          <div style={{ marginLeft: 15 }}>
             <Nav
               variant="pills"
               as="ul"
@@ -1353,7 +1512,7 @@ export default function FamilyMember(props) {
                     style={{ marginRight: 9 }}
                     className="fe fe-book-open text-black fs-13"
                   ></i>
-                  Testamento
+                  Testamentos
                 </Nav.Link>
               </Nav.Item>
             </Nav>
@@ -1512,6 +1671,169 @@ export default function FamilyMember(props) {
     );
   };
 
+  const renderWillData = () => {
+    <div
+      style={{
+        justifyContent: "space-between",
+        display: "flex",
+        flexDirection: "row",
+        marginBottom: 30,
+      }}
+    >
+      <div></div>
+      <Button
+        style={{
+          marginRight: 15,
+          alignSelf: "flex-end",
+          justifyContent: "flex-end",
+        }}
+        size="sm"
+        className="custom-button"
+      >
+        <Link
+          style={{ color: "white" }}
+          to={`${baseUrl}administration/willCreate`}
+        >
+          + Añadir testamento
+        </Link>
+      </Button>
+    </div>;
+    return (
+      <div>
+        {/* Button Section */}
+        <div
+          style={{
+            justifyContent: "space-between",
+            display: "flex",
+            flexDirection: "row",
+            marginBottom: 30,
+          }}
+        >
+          <div></div>
+          <Button
+            style={{
+              marginRight: 15,
+              alignSelf: "flex-end",
+              justifyContent: "flex-end",
+            }}
+            size="sm"
+            className="custom-button"
+          >
+            <Link
+              style={{ color: "white" }}
+              to={`${baseUrl}administration/willCreate`}
+            >
+              + Añadir testamento
+            </Link>
+          </Button>
+        </div>
+
+        {/* Will Data Section */}
+        {memberSelected.wills.length > 0 ? (
+          <div
+            className="table-responsive"
+            style={{ marginTop: 5, marginBottom: 50 }}
+          >
+            <Table className="table border text-nowrap text-md-nowrap mb-0">
+              <thead className="bg-light">
+                <tr>
+                  <th>Nombre</th>
+                  <th>País</th>
+                  <th>Notaría de emisión</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                {memberSelected.wills.map((idx, tb8) => (
+                  <tr key={tb8}>
+                    <td>{idx.name}</td>
+                    <td>{renderFlag(idx.country)}</td>
+                    <td>{idx.notary}</td>
+                    <td
+                      style={{
+                        cursor: "pointer",
+                        textDecoration: "underline",
+                        color: "#5488d2",
+                      }}
+                    >
+                      <Link
+                        to={`${baseUrl}administration/willDescription/${idx.id}/userId/${memberSelected.id}`}
+                      >
+                        <i className="fe fe-arrow-right fs-15"></i>
+                      </Link>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </Table>
+          </div>
+        ) : (
+          <div
+            style={{
+              alignContent: "center",
+              alignSelf: "center",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <p
+              style={{
+                color: "gray",
+                fontSize: 12,
+                marginRight: 4,
+                marginBottom: -6,
+              }}
+            >
+              Aún no hay testamentos registrados
+            </p>
+          </div>
+        )}
+      </div>
+    );
+    // return(
+    //   <>
+    //   <Row>
+    //       <p
+    //         style={{
+    //           fontSize: 15,
+    //         }}
+    //       >
+    //         Testamentos
+    //       </p>
+    //       {memberSelected.wills.length ? (
+    //         memberSelected.wills.map((acta, index) => (
+    //           <Form.Group as={Col} md="4" className="form-group">
+    //             <Form.Label
+    //               className="form-label my-3"
+    //               style={{ color: "gray", fontSize: 13 }}
+    //             >
+    //               {" "}
+    //               {acta.name}
+    //             </Form.Label>
+    //             <FileView key={index} title={acta.name} fileName={acta.url} />
+    //           </Form.Group>
+    //         ))
+    //       ) : (
+    //         <p
+    //           style={{
+    //             fontSize: 13,
+    //             fontStyle: "italic",
+    //             color: "gray",
+    //             textAlign: "center",
+    //           }}
+    //         ></p>
+    //       )}
+    //       <div style={{ width: "70%" }}>
+    //         <p style={{ fontSize: 10, color: "gray", marginBottom: -1 }}>
+    //           + Añadir testamento
+    //         </p>
+    //         <FileUpload />
+    //       </div>
+    //     </Row>
+    //   </>
+    // )
+  };
+
   return (
     <Fragment>
       <Row>
@@ -1589,6 +1911,15 @@ export default function FamilyMember(props) {
                       Bienes y Activos
                     </Nav.Link>
                   </Nav.Item>
+                  <Nav.Item as="li">
+                    <Nav.Link eventKey="will">
+                      <i
+                        style={{ marginRight: 9 }}
+                        className="fe fe-book-open text-black fs-13"
+                      ></i>
+                      Testamentos
+                    </Nav.Link>
+                  </Nav.Item>
                   {memberSelected.name === "Francisco Carrasco Ramos" && (
                     <Nav.Item as="li">
                       <Nav.Link eventKey="view">
@@ -1609,6 +1940,7 @@ export default function FamilyMember(props) {
               <Tab.Pane eventKey="second">{renderDescription()}</Tab.Pane>
               <Tab.Pane eventKey="third">{renderObligationsTabs()}</Tab.Pane>
               <Tab.Pane eventKey="fourth">{renderAssetList()}</Tab.Pane>
+              <Tab.Pane eventKey="will">{renderWillData()}</Tab.Pane>
               {memberSelected.name === "Francisco Carrasco Ramos" && (
                 <Tab.Pane eventKey="view">{renderVisibilityAccess()}</Tab.Pane>
               )}

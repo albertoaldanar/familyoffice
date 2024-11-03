@@ -114,6 +114,9 @@ const  PrivateEquityReturnsCreate= React.lazy(()=>import ('../pages/governance/w
 const  PrivateEquityReturn= React.lazy(()=>import ('../pages/governance/wealthStructure/wealthItemDescription/components/privateEquity/returnReport'))
 const  StockResult= React.lazy(()=>import ('../pages/governance/wealthStructure/wealthItemDescription/components/stockInvestment/resultReport'))
 const  WealthItemCreate= React.lazy(()=>import ('../pages/governance/wealthStructure/wealthItemCreate/wealthItemCreate'));
+const  WillCreate= React.lazy(()=>import ('../pages/administration/wills/willCreate'))
+const  WillDescription= React.lazy(()=>import ('../pages/administration/wills/willDescription'))
+
 /****************************** INVESTMENTS ****************************************/
 const  RealStateDashboard= React.lazy(()=>import ('../pages/investments/realState/realStateDashboard'))
 const  LoansDashboard= React.lazy(()=>import ('../pages/investments/loans/loansDashboard'))
@@ -349,6 +352,8 @@ export const Routingdata=[
 {path:`${import.meta.env.BASE_URL}administration/providerDescription/:id/provider/:providerId` ,element : <ProviderDescription/>},
 {path:`${import.meta.env.BASE_URL}administration/providerNewService/:id/provider/:providerId` ,element : <ProviderNewService/>},
 {path:`${import.meta.env.BASE_URL}administration/providerService/:id/provider/:providerId/service/:serviceId` ,element : <ProviderService/>},
+{path:`${import.meta.env.BASE_URL}administration/willCreate` ,element : <WillCreate/>},
+{path:`${import.meta.env.BASE_URL}administration/willDescription/:id/userId/:userId` ,element : <WillDescription/>},
 
 /* Assets */
 {path:`${import.meta.env.BASE_URL}administration/assets/:assetType` ,element : <Assets/>},
