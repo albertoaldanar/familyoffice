@@ -63,6 +63,11 @@ export default function TrustDescription(props) {
   const [ownerFamilyMembers, setOwnerFamilyMembers] = useState(
     formatMember(trustSelected.trustors)
   );
+
+  const [trustorFamilyMember, setTrustorFamilyMember] = useState(
+    formatMember(trustSelected.trustors)
+  );
+
   const [companiesContained, setCompaniesContained] = useState(
     formatContainedAssets(trustSelected.content, "company")
   );
@@ -586,14 +591,18 @@ export default function TrustDescription(props) {
             controlId="validationCustom01"
             className="form-group"
           >
-            <p style={{ color: "gray", fontSize: 12 }}>Fideicomitente</p>
-            <Form.Control
-              type="numeric"
-              placeholder=""
-              aria-describedby="inputGroupPrepend"
-              required
-              onChange={(text) => setTrustee(text.target.value)}
-              value={trustee}
+            <p style={{ color: "gray", fontSize: 12 }}>Fideicomitentes de la familia</p>
+            <MultiSelect
+              options={familyList}
+              value={ownerFamilyMembers}
+              onChange={setOwnerFamilyMembers}
+              labelledBy="Select"
+              overrideStrings={{
+                selectSomeItems: "Selecciona miembros accionistas",
+                allItemsAreSelected: "Todos los miembros",
+                selectAll: "Seleccionar todos",
+              }}
+              disableSearch
             />
           </Form.Group>
         </Row>

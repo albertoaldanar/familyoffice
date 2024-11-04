@@ -579,5 +579,73 @@ export const councilAndCommittieesData = {
         reviewOfMinutes: [],
       },
     ],
+    tasks:[
+      {
+        id: 12,
+        description: 'Entregar un reporte fiscal del cumplimiento fiscal del año pasado y añadirlo al libro de auditorias',
+        userAsigned: {
+            name: "Luz Amelia Jacobo",
+            role: "Contadora Empresas",
+            id: "24",
+            providerCategory: 50,
+        },
+        title: 'Entregar reporte fiscal del año pasado',
+        status: 'En curso',
+        document: "https://www.google.drive/1423nger",
+        createdDate: '10/09/2024'
+      }, 
+      // {
+      //   description: 'Entregar un reporte fiscal del cumplimiento fiscal del año pasado y añadirlo al libro de auditorias',
+      //   userAsigned: {
+      //       name: "Luz Amelia Jacobo",
+      //       role: "Contadora Empresas",
+      //       id: "24",
+      //       providerCategory: 50,
+      //   },
+      //   title: 'Entregar reporte fiscal del año pasado',
+      //   status: 'En proceso',
+      //   document: "https://www.google.drive/1423nger",
+      //   createdDate: '10/09/2024'
+      // }, 
+      // {
+      //   description: 'Entregar un reporte fiscal del cumplimiento fiscal del año pasado y añadirlo al libro de auditorias',
+      //   userAsigned: {
+      //       name: "Luz Amelia Jacobo",
+      //       role: "Contadora Empresas",
+      //       id: "24",
+      //       providerCategory: 50,
+      //   },
+      //   title: 'Entregar reporte fiscal del año pasado',
+      //   status: 'En proceso',
+      //   document: "https://www.google.drive/1423nger",
+      //   createdDate: '10/09/2024'
+      // }, 
+      // {
+      //   description: 'Entregar un reporte fiscal del cumplimiento fiscal del año pasado y añadirlo al libro de auditorias',
+      //   userAsigned: {
+      //       name: "Luz Amelia Jacobo",
+      //       role: "Contadora Empresas",
+      //       id: "24",
+      //       providerCategory: 50,
+      //   },
+      //   title: 'Entregar reporte fiscal del año pasado',
+      //   status: 'En proceso',
+      //   document: "https://www.google.drive/1423nger",
+      //   createdDate: '10/09/2024'
+      // }, 
+      // {
+      //   description: 'Entregar un reporte fiscal del cumplimiento fiscal del año pasado y añadirlo al libro de auditorias',
+      //   userAsigned: {
+      //       name: "Luz Amelia Jacobo",
+      //       role: "Contadora Empresas",
+      //       id: "24",
+      //       providerCategory: 50,
+      //   },
+      //   title: 'Entregar reporte fiscal del año pasado',
+      //   status: 'En proceso',
+      //   document: "https://www.google.drive/1423nger",
+      //   createdDate: '10/09/2024'
+      // }
+    ]
   },
 };

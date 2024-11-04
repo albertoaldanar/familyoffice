@@ -102,6 +102,8 @@ const  CouncilAndCommitties= React.lazy(()=>import ('../pages/governance/council
 const  FamilyCouncil= React.lazy(()=>import ('../pages/governance/councilAndCommittee/familyCouncil'))
 const  InvestmentCommitte= React.lazy(()=>import ('../pages/governance/councilAndCommittee/investmentCommittee'))
 const  VirtualFamilyOffice= React.lazy(()=>import ('../pages/governance/councilAndCommittee/virtualFamilyOffice'))
+const  VirtualFamilyOfficeTaskDescription= React.lazy(()=>import ('../pages/governance/councilAndCommittee/components/vfoTasks/taskDescription'))
+const  VirtualFamilyOfficeTaskCreate= React.lazy(()=>import ('../pages/governance/councilAndCommittee/components/vfoTasks/taskCreate'))
 const  CouncilAndCommittiesAddMember= React.lazy(()=>import ('../pages/governance/councilAndCommittee/councilAndCommitteAddMember'))
 const  MeetingCreate= React.lazy(()=>import ('../pages/governance/councilAndCommittee/components/meetings/meetingCreate'))
 const  MeetingDescription= React.lazy(()=>import ('../pages/governance/councilAndCommittee/components/meetings/meetingDescription'))
@@ -372,6 +374,10 @@ export const Routingdata=[
 /* Councils and committees */
 {path:`${import.meta.env.BASE_URL}governance/councilAndCommittee` ,element : <CouncilAndCommitties/>},
 {path:`${import.meta.env.BASE_URL}governance/familyCouncil` ,element : <FamilyCouncil/>},
+{path:`${import.meta.env.BASE_URL}governance/virtualFamilyOffice/taskDescription/:id` ,element : <VirtualFamilyOfficeTaskDescription/>},
+{path:`${import.meta.env.BASE_URL}governance/virtualFamilyOffice/taskCreate` ,element : <VirtualFamilyOfficeTaskCreate/>},
+
+// {path:`${import.meta.env.BASE_URL}governance/virtualFamilyOffice/taskCreate` ,element : <VirtualFamilyOffice/>},
 {path:`${import.meta.env.BASE_URL}governance/virtualFamilyOffice` ,element : <VirtualFamilyOffice/>},
 {path:`${import.meta.env.BASE_URL}governance/investmentCommittee` ,element : <InvestmentCommitte/>},
 {path:`${import.meta.env.BASE_URL}governance/councilAndCommittee/addMember/:type` ,element : <CouncilAndCommittiesAddMember/>},

@@ -3,6 +3,7 @@ import { Card, Row, Tab, Nav } from "react-bootstrap";
 import Structure from "./components/structure";
 import { councilAndCommittieesData } from "./councilAndCommitteeData";
 import { Meetings } from "./components/meetings/meetings";
+import { TaskList } from "./components/vfoTasks/tasks";
 
 export default function VirtualFamilyOffice() {
   const renderVirtualFamilyOffice = () => {
@@ -29,7 +30,16 @@ export default function VirtualFamilyOffice() {
                     style={{ marginRight: 9 }}
                     className="fe fe-calendar text-black fs-15"
                   ></i>
-                  Reuniones 
+                  Reuniones y asambleas
+                </Nav.Link>
+              </Nav.Item>
+              <Nav.Item as="li" style={{ marginRight: 10 }}>
+                <Nav.Link eventKey="task-vfo">
+                  <i
+                    style={{ marginRight: 9 }}
+                    className="fe fe-clipboard text-black fs-15"
+                  ></i>
+                  Actividades del equipo 
                 </Nav.Link>
               </Nav.Item>
             </Nav>
@@ -47,6 +57,10 @@ export default function VirtualFamilyOffice() {
               <Meetings meetingType="virtualFamilyOffice" />
             </Tab.Pane>
 
+            <Tab.Pane eventKey="task-vfo">
+              <TaskList />
+            </Tab.Pane>
+          
           </Tab.Content>
         </Tab.Container>
       </div>

@@ -20,7 +20,7 @@ export default function FamilyCouncil() {
                     style={{ marginRight: 9 }}
                     className="fe fe-users text-black fs-15"
                   ></i>
-                  Miembros de cómite
+                  Miembros de cómite de inversión
                 </Nav.Link>
               </Nav.Item>
               <Nav.Item as="li" style={{ marginRight: 10 }}>
@@ -29,7 +29,7 @@ export default function FamilyCouncil() {
                     style={{ marginRight: 9 }}
                     className="fe fe-calendar text-black fs-15"
                   ></i>
-                  Reuniones 
+                  Reuniones y asambleas
                 </Nav.Link>
               </Nav.Item>
             </Nav>
