@@ -1112,12 +1112,24 @@ export const fideicomisos = [
       {
         type: "family",
         id: "12",
+        name: "Francisco Carrasco Ramos",
+      },
+      {
+        type: "company",
+        id: "91",
+        name: "Grupo Carrasco Holding SA de CV",
+      },
+    ],
+    beneficiaries: [
+      {
+        type: "family",
+        id: "12",
         name: "Javier Carrasco Nieto",
       },
       {
         type: "family",
         id: "13",
-        name: "Javier Carrasco Nieto",
+        name: "Adriana Carrasco Nieto",
       },
       {
         type: "family",
@@ -1125,7 +1137,18 @@ export const fideicomisos = [
         name: "Sofia Carrasco Nieto",
       },
     ],
-    trustee: 'Francisco Carrasco Ramos',
+    trustees: [
+      {
+        type: "family",
+        id: "12",
+        name: "Javier Carrasco Nieto",
+      },
+      {
+        type: "provider",
+        id: "34",
+        name: "Raul Gallego León",
+      },
+    ],
     purpose: "Manejar las inversiones familiares a largo plazo",
     content: [
       {
@@ -1203,23 +1226,45 @@ export const fideicomisos = [
     trustors: [
       {
         type: "family",
-        id: '12',
-        type: 'artAndOthers', 
+        id: "12",
+        name: "Francisco Carrasco Ramos",
+      },
+      {
+        type: "company",
+        id: "91",
+        name: "Grupo Carrasco Holding SA de CV",
+      },
+    ],
+    trustees: [
+      {
+        type: "family",
+        id: "12",
+        name: "Javier Carrasco Nieto",
+      },
+      {
+        type: "provider",
+        id: "34",
+        name: "Raul Gallego León",
+      },
+    ],
+    beneficiaries: [
+      {
+        type: "family",
+        id: "12",
         name: "Javier Carrasco Nieto",
       },
       {
         type: "family",
-        id: '13',
-        name: "Javier Carrasco Nieto",
+        id: "13",
+        name: "Adriana Carrasco Nieto",
       },
       {
         type: "family",
-        id: '9',
+        id: "9",
         name: "Sofia Carrasco Nieto",
       },
     ],
-    trustee: 'Francisco Carrasco Ramos',
-    purpose: "Dar claridad a la suceción del testamento de la Familia Aldana Ríos",
+    purpose: "Dar claridad a la suceción del testamento de la Familia",
     content: [
       {
         id: 99,

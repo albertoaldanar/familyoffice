@@ -26,20 +26,14 @@ import { useParams } from "react-router-dom";
 import { family } from "../../governance/familyStructure/familyStructureData";
 import { companies, fideicomisos } from "../accounting/accountingData";
 import { renderAssetTypeIcon } from "../../governance/familyStructure/familyStructureUtils";
-import { realstateData } from "../../investments/realState/realStateData";
 import { renderFlag } from "../accounting/companyUtils";
-import { otherWealthData } from "../../governance/wealthStructure/wealthStructureData";
 import { formatCompany } from "../accounting/companyUtils";
 import { formatMember } from "../../governance/councilAndCommittee/councilAndCommitteeUtils";
 import { countryOptions } from "../accounting/companyUtils";
 import { formateDateForUI } from "../payments/paymentUtils";
-import { formatRealstateData } from "../payments/paymentUtils";
-import {
-  formatBankAccounts,
-  formatPrivateEquity,
-  formatContainedAssets,
-} from "../../governance/wealthStructure/wealthStructureUtils";
-import { formatVehicleData } from "../payments/paymentUtils";
+import { formatOtherTrusts } from "./trustUtils";
+import { providers } from "../providers/providersData";
+import { formatProviderContacts } from "../providers/providersUtils";
 
 export default function TrustDescription(props) {
   //@ts-ignore
@@ -58,34 +52,48 @@ export default function TrustDescription(props) {
 
   const [trustNumber, setTrustNumber] = useState(trustSelected.trustNumber);
   const [trustBank, setTrustBank] = useState(trustSelected.trusteeBank);
-  const [trustee, setTrustee] = useState(trustSelected.trustee);
   const [purpose, setPurpose] = useState(trustSelected.purpose);
-  const [ownerFamilyMembers, setOwnerFamilyMembers] = useState(
-    formatMember(trustSelected.trustors)
+
+  //family
+  const [trustorsFamilyMembers, setTrustorsFamilyMembers] = useState(
+    formatMember(trustSelected.trustors.filter(trustor => trustor.type === 'family'))
+  );  
+
+  const [trusteesFamilyMembers, setTrusteesFamilyMembers] = useState(
+    formatMember(trustSelected.trustees.filter(trustee => trustee.type === 'family'))
+  );  
+
+  const [beneficiariesFamilyMembers, setBeneficiariesFamilyMembers] = useState(
+    formatMember(trustSelected.beneficiaries.filter(benef => benef.type === 'family'))
   );
 
-  const [trustorFamilyMember, setTrustorFamilyMember] = useState(
-    formatMember(trustSelected.trustors)
+  //companies  
+  const [trustorCompanies, setTrustorCompanies] = useState(
+    formatMember(trustSelected.trustors.filter(trustor => trustor.type === 'company'))
+  );  
+
+  const [trusteesCompanies, setTrusteesCompanies] = useState(
+    formatMember(trustSelected.trustees.filter(trustee => trustee.type === 'company'))
+  );  
+
+  const [beneficiariesCompanies, setBeneficiariesCompanies] = useState(
+    formatMember(trustSelected.beneficiaries.filter(benef => benef.type === 'company'))
   );
 
-  const [companiesContained, setCompaniesContained] = useState(
-    formatContainedAssets(trustSelected.content, "company")
-  );
-  const [realStateContained, setRealStateContained] = useState(
-    formatContainedAssets(trustSelected.content, "realState")
-  );
-  const [bankAccountsContained, setBankAccountsContained] = useState(
-    formatContainedAssets(trustSelected.content, "bankAccount")
-  );
-  const [vehiclesContained, setVehiclesContained] = useState(
-    formatContainedAssets(trustSelected.content, "vehicle")
-  );
-  const [artContained, setArtContained] = useState(
-    formatContainedAssets(trustSelected.content, "artAndOthers")
-  );
-  const [privateEquityContained, setPrivateEquityContained] = useState(
-    formatContainedAssets(trustSelected.content, "privateEquity")
-  );
+  //trusts  
+  const [trustorsTrusts, setTrustorsTrusts] = useState(
+    formatMember(trustSelected.trustors.filter(trustor => trustor.type === 'trust'))
+  );  
+
+  const [beneficiariesTrusts, setBeneficiariesTrust] = useState(
+    formatMember(trustSelected.beneficiaries.filter(benef => benef.type === 'trust'))
+  );  
+
+  //providers  
+  const [trusteesProvider, setTrusteesProvider] = useState(
+    formatMember(trustSelected.trustees.filter(trustee => trustee.type === 'provider'))
+  );  
+
   const [country, setCountry] = useState({
     label: trustSelected.country,
     value: trustSelected.country,
@@ -99,16 +107,10 @@ export default function TrustDescription(props) {
     label: trustSelected.trustType,
   });
 
-  console.log("companies container", companiesContained);
   const familyList = formatMember(family.members);
-
   const companiesList = formatCompany(companies);
-  const realStateList = formatRealstateData(realstateData);
-  const bankAccountsList = formatBankAccounts(otherWealthData.bankAccounts);
-  const vehicleList = formatVehicleData(otherWealthData.vehicles);
-  const artAndOthersList = formatMember(otherWealthData.artAndOthers);
-  const privateEquityList = formatPrivateEquity(otherWealthData.privateEquity);
-
+  const trustList = formatOtherTrusts(fideicomisos, trustSelected);
+  const providerList = formatProviderContacts(providers);
   const OptionsTrustType = [
     {
       value: "Patrimonial recovable con derecho a reversión",
@@ -117,293 +119,6 @@ export default function TrustDescription(props) {
     { value: "Testamentario", label: "Testamentario" },
     { value: "Estructurado", label: "Estructurado" },
   ];
-
-  const renderSelectAssetsContained = () => {
-    return (
-      <div>
-        <Row>
-          <Form.Group
-            as={Col}
-            md="8"
-            controlId="validationCustom01"
-            className="form-group"
-          >
-            <Form.Label>Bienes y activos contenidos en fideicomiso</Form.Label>
-          </Form.Group>
-        </Row>
-        <Row>
-          <Form.Group
-            as={Col}
-            md="4"
-            controlId="validationCustom01"
-            className="form-group"
-          >
-            <p style={{ color: "gray", fontSize: 12 }}>Empresas</p>
-            <MultiSelect
-              options={companiesList}
-              value={companiesContained}
-              onChange={setCompaniesContained}
-              labelledBy="Select"
-              overrideStrings={{
-                selectSomeItems: "Selecciona empresas accionistas",
-                allItemsAreSelected: "Todos los miembros",
-                selectAll: "Seleccionar todos",
-              }}
-              disableSearch
-            />
-            {companiesContained.length > 0
-              ? companiesContained.map((company) => {
-                  return (
-                    <p
-                      style={{
-                        cursor: "pointer",
-                        textDecoration: "underline",
-                        color: "#5488d2",
-                        marginTop: 5,
-                        fontSize: 12,
-                      }}
-                    >
-                      {/*// @ts-ignore */}
-                      <Link to={`${import.meta.env.BASE_URL
-                        }administration/company/${company.value}/company`}
-                      >
-                        {company.label}
-                      </Link>
-                    </p>
-                  );
-                })
-              : null}
-          </Form.Group>
-
-          <Form.Group
-            as={Col}
-            md="4"
-            controlId="validationCustom01"
-            className="form-group"
-          >
-            <p style={{ color: "gray", fontSize: 12 }}>Bienes raices</p>
-            <MultiSelect
-              options={realStateList}
-              value={realStateContained}
-              onChange={setRealStateContained}
-              labelledBy="Select"
-              overrideStrings={{
-                selectSomeItems: "Selecciona bienes raices",
-                allItemsAreSelected: "Todos los miembros",
-                selectAll: "Seleccionar todos",
-              }}
-              disableSearch
-            />
-            {realStateContained.length > 0
-              ? realStateContained.map((realState) => {
-                  return (
-                    <p
-                      style={{
-                        cursor: "pointer",
-                        textDecoration: "underline",
-                        color: "#5488d2",
-                        marginTop: 5,
-                        fontSize: 12,
-                      }}
-                    >
-                      {/*// @ts-ignore */}
-                      <Link to={`${import.meta.env.BASE_URL
-                        }governance/wealthItem/type/realState/id/${
-                          realState.value
-                        }`}
-                      >
-                        {realState.label}
-                      </Link>
-                    </p>
-                  );
-                })
-              : null}
-          </Form.Group>
-
-          <Form.Group
-            as={Col}
-            md="4"
-            controlId="validationCustom01"
-            className="form-group"
-          >
-            <p style={{ color: "gray", fontSize: 12 }}>Cuentas bancarias</p>
-            <MultiSelect
-              options={bankAccountsList}
-              value={bankAccountsContained}
-              onChange={setBankAccountsContained}
-              labelledBy="Select"
-              overrideStrings={{
-                selectSomeItems: "Selecciona cuentas bancarias",
-                allItemsAreSelected: "Todos los miembros",
-                selectAll: "Seleccionar todos",
-              }}
-              disableSearch
-            />
-            {bankAccountsContained.length > 0
-              ? bankAccountsContained.map((bankAccount) => {
-                  return (
-                    <p
-                      style={{
-                        cursor: "pointer",
-                        textDecoration: "underline",
-                        color: "#5488d2",
-                        marginTop: 5,
-                        fontSize: 12,
-                      }}
-                    >
-                      {/*// @ts-ignore */}
-                      <Link to={`${import.meta.env.BASE_URL
-                        }governance/wealthItem/type/bankAccount/id/${
-                          bankAccount.value
-                        }`}
-                      >
-                        {bankAccount.label}
-                      </Link>
-                    </p>
-                  );
-                })
-              : null}
-          </Form.Group>
-
-          <Form.Group
-            as={Col}
-            md="4"
-            controlId="validationCustom01"
-            className="form-group"
-          >
-            <p style={{ color: "gray", fontSize: 12 }}>Vehiculos</p>
-            <MultiSelect
-              options={vehicleList}
-              value={vehiclesContained}
-              onChange={setVehiclesContained}
-              labelledBy="Select"
-              overrideStrings={{
-                selectSomeItems: "Selecciona vehiculos",
-                allItemsAreSelected: "Todos los miembros",
-                selectAll: "Seleccionar todos",
-              }}
-              disableSearch
-            />
-            {vehiclesContained.length > 0
-              ? vehiclesContained.map((vehicle) => {
-                  return (
-                    <p
-                      style={{
-                        cursor: "pointer",
-                        textDecoration: "underline",
-                        color: "#5488d2",
-                        marginTop: 5,
-                        fontSize: 12,
-                      }}
-                    >
-                      {/*// @ts-ignore */}
-                      <Link to={`${import.meta.env.BASE_URL
-                        }governance/wealthItem/type/vehicle/id/${
-                          vehicle.value
-                        }`}
-                      >
-                        {vehicle.label}
-                      </Link>
-                    </p>
-                  );
-                })
-              : null}
-          </Form.Group>
-
-          <Form.Group
-            as={Col}
-            md="4"
-            controlId="validationCustom01"
-            className="form-group"
-          >
-            <p style={{ color: "gray", fontSize: 12 }}>Arte y otros</p>
-            <MultiSelect
-              options={artAndOthersList}
-              value={artContained}
-              onChange={setArtContained}
-              labelledBy="Select"
-              overrideStrings={{
-                selectSomeItems: "Selecciona arte y otros",
-                allItemsAreSelected: "Todos los miembros",
-                selectAll: "Seleccionar todos",
-              }}
-              disableSearch
-            />
-            {artContained.length > 0
-              ? artContained.map((artAndOthers) => {
-                  return (
-                    <p
-                      style={{
-                        cursor: "pointer",
-                        textDecoration: "underline",
-                        color: "#5488d2",
-                        marginTop: 5,
-                        fontSize: 12,
-                      }}
-                    >
-                      {/*// @ts-ignore */}
-                      <Link to={`${import.meta.env.BASE_URL
-                        }governance/wealthItem/type/artAndOthers/id/${
-                          artAndOthers.value
-                        }`}
-                      >
-                        {artAndOthers.label}
-                      </Link>
-                    </p>
-                  );
-                })
-              : null}
-          </Form.Group>
-
-          <Form.Group
-            as={Col}
-            md="4"
-            controlId="validationCustom01"
-            className="form-group"
-          >
-            <p style={{ color: "gray", fontSize: 12 }}>
-              Inversiones capital privado
-            </p>
-            <MultiSelect
-              options={privateEquityList}
-              value={privateEquityContained}
-              onChange={setPrivateEquityContained}
-              labelledBy="Select"
-              overrideStrings={{
-                selectSomeItems: "Selecciona cuentas bancarias",
-                allItemsAreSelected: "Todos los miembros",
-                selectAll: "Seleccionar todos",
-              }}
-              disableSearch
-            />
-            {privateEquityContained.length > 0
-              ? privateEquityContained.map((privateEquity) => {
-                  return (
-                    <p
-                      style={{
-                        cursor: "pointer",
-                        textDecoration: "underline",
-                        color: "#5488d2",
-                        marginTop: 5,
-                        fontSize: 12,
-                      }}
-                    >
-                      {/*// @ts-ignore */}
-                      <Link to={`${import.meta.env.BASE_URL}governance/wealthItem/type/privateEquity/id/${
-                          privateEquity.value
-                        }`}
-                      >
-                        {privateEquity.label}
-                      </Link>
-                    </p>
-                  );
-                })
-              : null}
-          </Form.Group>
-        </Row>
-      </div>
-    );
-  };
 
   const renderAssetList = () => {
     if(trustSelected.content.length > 0){
@@ -558,7 +273,7 @@ export default function TrustDescription(props) {
             controlId="validationCustom01"
             className="form-group"
           >
-            <Form.Label>Participantes en fideicomiso</Form.Label>
+            <Form.Label>Fideicomitentes</Form.Label>
           </Form.Group>
         </Row>
 
@@ -570,15 +285,15 @@ export default function TrustDescription(props) {
             className="form-group"
           >
             <p style={{ color: "gray", fontSize: 12 }}>
-              Fideicomisarios de la familia (beneficiarios)
+              Fideicomitente miembros de la familia
             </p>
             <MultiSelect
               options={familyList}
-              value={ownerFamilyMembers}
-              onChange={setOwnerFamilyMembers}
+              value={trustorsFamilyMembers}
+              onChange={setTrustorsFamilyMembers}
               labelledBy="Select"
               overrideStrings={{
-                selectSomeItems: "Selecciona miembros accionistas",
+                selectSomeItems: "Selecciona fideicomitentes de la familia",
                 allItemsAreSelected: "Todos los miembros",
                 selectAll: "Seleccionar todos",
               }}
@@ -591,14 +306,201 @@ export default function TrustDescription(props) {
             controlId="validationCustom01"
             className="form-group"
           >
-            <p style={{ color: "gray", fontSize: 12 }}>Fideicomitentes de la familia</p>
+            <p style={{ color: "gray", fontSize: 12 }}>
+              Fideicomitente empresas de la familia
+            </p>
             <MultiSelect
-              options={familyList}
-              value={ownerFamilyMembers}
-              onChange={setOwnerFamilyMembers}
+              options={companiesList}
+              value={trustorCompanies}
+              onChange={setTrustorCompanies}
               labelledBy="Select"
               overrideStrings={{
-                selectSomeItems: "Selecciona miembros accionistas",
+                selectSomeItems: "Selecciona fideicomitentes empresas",
+                allItemsAreSelected: "Todos los miembros",
+                selectAll: "Seleccionar todos",
+              }}
+              disableSearch
+            />
+          </Form.Group>
+
+          <Form.Group
+            as={Col}
+            md="4"
+            controlId="validationCustom01"
+            className="form-group"
+          >
+            <p style={{ color: "gray", fontSize: 12 }}>
+              Fideicomitentes otros fideicomisos
+            </p>
+            <MultiSelect
+              options={trustList}
+              value={trustorsTrusts}
+              onChange={setTrustorsTrusts}
+              labelledBy="Select"
+              overrideStrings={{
+                selectSomeItems: "Selecciona fideicomisos fideicomitentes",
+                allItemsAreSelected: "Todos los miembros",
+                selectAll: "Seleccionar todos",
+              }}
+              disableSearch
+            />
+          </Form.Group>
+        </Row>
+
+        <Row style={{ marginTop: 20, marginBottom: -10 }}>
+          <Form.Group
+            as={Col}
+            md="8"
+            controlId="validationCustom01"
+            className="form-group"
+          >
+            <Form.Label>Fideicomisarios</Form.Label>
+          </Form.Group>
+        </Row>
+
+        <Row>
+          <Form.Group
+            as={Col}
+            md="4"
+            controlId="validationCustom01"
+            className="form-group"
+          >
+            <p style={{ color: "gray", fontSize: 12 }}>
+              Fideicomisarios de la familia
+            </p>
+            <MultiSelect
+              options={familyList}
+              value={trusteesFamilyMembers}
+              onChange={setTrusteesFamilyMembers}
+              labelledBy="Select"
+              overrideStrings={{
+                selectSomeItems: "Selecciona fideicomisarios de la familia",
+                allItemsAreSelected: "Todos los miembros",
+                selectAll: "Seleccionar todos",
+              }}
+              disableSearch
+            />
+          </Form.Group>
+          <Form.Group
+            as={Col}
+            md="4"
+            controlId="validationCustom01"
+            className="form-group"
+          >
+            <p style={{ color: "gray", fontSize: 12 }}>
+              Fideicomisarios proveedores de servicio externos
+            </p>
+            <MultiSelect
+              options={providerList}
+              value={trusteesProvider}
+              onChange={setTrusteesProvider}
+              labelledBy="Select"
+              overrideStrings={{
+                selectSomeItems: "Selecciona fideicomisarios externos",
+                allItemsAreSelected: "Todos los miembros",
+                selectAll: "Seleccionar todos",
+              }}
+              disableSearch
+            />
+          </Form.Group>
+
+          <Form.Group
+            as={Col}
+            md="4"
+            controlId="validationCustom01"
+            className="form-group"
+          >
+            <p style={{ color: "gray", fontSize: 12 }}>
+              Fideicomisarios personas morales de la familia
+            </p>
+            <MultiSelect
+              options={companiesList}
+              value={trusteesCompanies}
+              onChange={setTrusteesCompanies}
+              labelledBy="Select"
+              overrideStrings={{
+                selectSomeItems: "Selecciona fideicomisarios empresas",
+                allItemsAreSelected: "Todos los miembros",
+                selectAll: "Seleccionar todos",
+              }}
+              disableSearch
+            />
+          </Form.Group>
+        </Row>
+
+        <Row style={{ marginTop: 20, marginBottom: -10 }}>
+          <Form.Group
+            as={Col}
+            md="8"
+            controlId="validationCustom01"
+            className="form-group"
+          >
+            <Form.Label>Beneficiarios</Form.Label>
+          </Form.Group>
+        </Row>
+
+        <Row>
+          <Form.Group
+            as={Col}
+            md="4"
+            controlId="validationCustom01"
+            className="form-group"
+          >
+            <p style={{ color: "gray", fontSize: 12 }}>
+              Beneficiarios miembros de la familia
+            </p>
+            <MultiSelect
+              options={familyList}
+              value={beneficiariesFamilyMembers}
+              onChange={setBeneficiariesFamilyMembers}
+              labelledBy="Select"
+              overrideStrings={{
+                selectSomeItems: "Selecciona beneficiarios de la familia",
+                allItemsAreSelected: "Todos los miembros",
+                selectAll: "Seleccionar todos",
+              }}
+              disableSearch
+            />
+          </Form.Group>
+          <Form.Group
+            as={Col}
+            md="4"
+            controlId="validationCustom01"
+            className="form-group"
+          >
+            <p style={{ color: "gray", fontSize: 12 }}>
+              Beneficiarios empresas de la familia
+            </p>
+            <MultiSelect
+              options={companiesList}
+              value={beneficiariesCompanies}
+              onChange={setBeneficiariesCompanies}
+              labelledBy="Select"
+              overrideStrings={{
+                selectSomeItems: "Selecciona empresas beneficiarias",
+                allItemsAreSelected: "Todos los miembros",
+                selectAll: "Seleccionar todos",
+              }}
+              disableSearch
+            />
+          </Form.Group>
+
+          <Form.Group
+            as={Col}
+            md="4"
+            controlId="validationCustom01"
+            className="form-group"
+          >
+            <p style={{ color: "gray", fontSize: 12 }}>
+              Beneficiarios otros fideicomisos
+            </p>
+            <MultiSelect
+              options={trustList}
+              value={beneficiariesTrusts}
+              onChange={setBeneficiariesTrust}
+              labelledBy="Select"
+              overrideStrings={{
+                selectSomeItems: "Selecciona fideicomisos beneficiarios",
                 allItemsAreSelected: "Todos los miembros",
                 selectAll: "Seleccionar todos",
               }}
