@@ -1920,7 +1920,7 @@ export default function FamilyMember(props) {
                       Testamentos
                     </Nav.Link>
                   </Nav.Item>
-                  {memberSelected.name === "Francisco Carrasco Ramos" && (
+                  {memberSelected.name === "Miembro 1 (Padre)" && (
                     <Nav.Item as="li">
                       <Nav.Link eventKey="view">
                         <i
@@ -1941,7 +1941,7 @@ export default function FamilyMember(props) {
               <Tab.Pane eventKey="third">{renderObligationsTabs()}</Tab.Pane>
               <Tab.Pane eventKey="fourth">{renderAssetList()}</Tab.Pane>
               <Tab.Pane eventKey="will">{renderWillData()}</Tab.Pane>
-              {memberSelected.name === "Francisco Carrasco Ramos" && (
+              {memberSelected.name === "Miembro 1 (Padre)" && (
                 <Tab.Pane eventKey="view">{renderVisibilityAccess()}</Tab.Pane>
               )}
             </Tab.Content>

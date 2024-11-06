@@ -1,6 +1,6 @@
 export const currentUser = {
   id: "12",
-  name: "Javier Carrasco Nieto",
+  name: "Miembro 3 (Hijo)",
   role: "Miembro Familiar",
 };
 
@@ -8,12 +8,12 @@ export const councilAndCommittieesData = {
   investmentCommittee: {
     members: [
       {
-        name: "Francisco Carrasco Ramos",
+        name: "Miembro 1 (Padre)",
         role: "Miembro Familiar",
         id: "23",
       },
       {
-        name: "Javier Carrasco Nieto",
+        name: "Miembro 3 (Hijo)",
         role: "Miembro Familiar",
         id: "12",
       },
@@ -53,12 +53,12 @@ export const councilAndCommittieesData = {
         },
         participants: [
           {
-            name: "Francisco Carrasco Ramos",
+            name: "Miembro 1 (Padre)",
             role: "Miembro Familiar",
             id: "23",
           },
           {
-            name: "Javier Carrasco Nieto",
+            name: "Miembro 3 (Hijo)",
             role: "Miembro Familiar",
             id: "12",
           },
@@ -89,13 +89,13 @@ export const councilAndCommittieesData = {
             },
             participants: [
               {
-                name: "Francisco Carrasco Ramos",
+                name: "Miembro 1 (Padre)",
                 role: "Miembro Familiar",
                 id: "23",
                 choiceSelected: null,
               },
               {
-                name: "Javier Carrasco Nieto",
+                name: "Miembro 3 (Hijo)",
                 role: "Miembro Familiar",
                 id: "12",
                 choiceSelected: "A FAVOR",
@@ -154,12 +154,12 @@ export const councilAndCommittieesData = {
         linkedPreviousMeeting: { id: null },
         participants: [
           {
-            name: "Francisco Carrasco Ramos",
+            name: "Miembro 1 (Padre)",
             role: "Miembro Familiar",
             id: "23",
           },
           {
-            name: "Javier Carrasco Nieto",
+            name: "Miembro 3 (Hijo)",
             role: "Miembro Familiar",
             id: "12",
           },
@@ -205,12 +205,12 @@ export const councilAndCommittieesData = {
         },
         participants: [
           {
-            name: "Francisco Carrasco Ramos",
+            name: "Miembro 1 (Padre)",
             role: "Miembro Familiar",
             id: "23",
           },
           {
-            name: "Javier Carrasco Nieto",
+            name: "Miembro 3 (Hijo)",
             role: "Miembro Familiar",
             id: "12",
           },
@@ -255,27 +255,27 @@ export const councilAndCommittieesData = {
     members: [
       {
         id: "23",
-        name: "Francisco Carrasco Ramos",
+        name: "Miembro 1 (Padre)",
         role: "Miembro Familiar",
       },
       {
         id: "43",
-        name: "Diana Nieto Vega",
+        name: "Miembro 2 (Madre)",
         role: "Miembro Familiar",
       },
       {
         id: "13",
-        name: "Adriana Carrasco Nieto",
+        name: "Miembro 4 (Hija)",
         role: "Miembro Familiar",
       },
       {
         id: "12",
-        name: "Javier Carrasco Nieto",
+        name: "Miembro 3 (Hijo)",
         role: "Miembro Familiar",
       },
       {
         id: "9",
-        name: "Sofia Carrasco Nieto",
+        name: "Miembro 5 (Hija)",
         role: "Miembro Familiar",
       },
       {
@@ -303,12 +303,12 @@ export const councilAndCommittieesData = {
         },
         participants: [
           {
-            name: "Francisco Carrasco Ramos",
+            name: "Miembro 1 (Padre)",
             role: "Miembro Familiar",
             id: "23",
           },
           {
-            name: "Javier Carrasco Nieto",
+            name: "Miembro 3 (Hijo)",
             role: "Miembro Familiar",
             id: "12",
           },
@@ -357,31 +357,31 @@ export const councilAndCommittieesData = {
             participants: [
               {
                 id: "23",
-                name: "Francisco Carrasco Ramos",
+                name: "Miembro 1 (Padre)",
                 role: "Miembro Familiar",
                 choiceSelected: "A FAVOR",
               },
               {
                 id: "43",
-                name: "Diana Nieto Vega",
+                name: "Miembro 2 (Madre)",
                 role: "Miembro Familiar",
                 choiceSelected: "A FAVOR",
               },
               {
                 id: "13",
-                name: "Adriana Carrasco Nieto",
+                name: "Miembro 4 (Hija)",
                 role: "Miembro Familiar",
                 choiceSelected: "A FAVOR",
               },
               {
                 id: "12",
-                name: "Javier Carrasco Nieto",
+                name: "Miembro 3 (Hijo)",
                 role: "Miembro Familiar",
                 choiceSelected: "A FAVOR",
               },
               {
                 id: "9",
-                name: "Sofia Carrasco Nieto",
+                name: "Miembro 5 (Hija)",
                 role: "Miembro Familiar",
                 choiceSelected: "EN CONTRA",
               },
@@ -409,19 +409,19 @@ export const councilAndCommittieesData = {
         ],
         participants: [
           {
-            name: "Francisco Carrasco Ramos",
+            name: "Miembro 1 (Padre)",
             role: "Miembro Familiar",
             id: "23",
           },
           {
-            name: "Javier Carrasco Nieto",
+            name: "Miembro 3 (Hijo)",
             role: "Miembro Familiar",
             id: "12",
           },
           {
             id: "43",
             role: "Miembro Familiar",
-            name: "Diana Nieto Vega",
+            name: "Miembro 2 (Madre)",
           },
         ],
         date: "12/05/2024",
@@ -460,19 +460,19 @@ export const councilAndCommittieesData = {
         votings: [],
         participants: [
           {
-            name: "Francisco Carrasco Ramos",
+            name: "Miembro 1 (Padre)",
             role: "Miembro Familiar",
             id: "23",
           },
           {
-            name: "Javier Carrasco Nieto",
+            name: "Miembro 3 (Hijo)",
             role: "Miembro Familiar",
             id: "12",
           },
           {
             id: "43",
             role: "Miembro Familiar",
-            name: "Diana Nieto Vega",
+            name: "Miembro 2 (Madre)",
           },
         ],
         date: "12/05/2024",
@@ -495,27 +495,27 @@ export const councilAndCommittieesData = {
     members: [
       {
         id: "23",
-        name: "Francisco Carrasco Ramos",
+        name: "Miembro 1 (Padre)",
         role: "Miembro Familiar",
       },
       {
         id: "43",
-        name: "Diana Nieto Vega",
+        name: "Miembro 2 (Madre)",
         role: "Miembro Familiar",
       },
       {
         id: "12",
-        name: "Javier Carrasco Nieto",
+        name: "Miembro 3 (Hijo)",
         role: "Miembro Familiar",
       },
       {
-        name: "Luz Amelia Jacobo",
+        name: "Contadora 1",
         role: "Contadora Empresas",
         id: "24",
         providerCategory: 50,
       },
       {
-        name: "Sergio Salcido",
+        name: "Abogado familiar",
         role: "Abogado",
         id: "254",
         providerCategory: 50,
@@ -538,23 +538,23 @@ export const councilAndCommittieesData = {
         },
         participants: [
           {
-            name: "Francisco Carrasco Ramos",
+            name: "Miembro 1 (Padre)",
             role: "Miembro Familiar",
             id: "23",
           },
           {
-            name: "Javier Carrasco Nieto",
+            name: "Miembro 3 (Hijo)",
             role: "Miembro Familiar",
             id: "12",
           },
           {
-            name: "Luz Amelia Jacobo",
+            name: "Contadora 1",
             role: "Contadora Empresas",
             id: "24",
             providerCategory: 50,
           },
           {
-            name: "Sergio Salcido",
+            name: "Abogado familiar",
             role: "Abogado",
             id: "254",
             providerCategory: 50,
@@ -564,7 +564,7 @@ export const councilAndCommittieesData = {
         date: "12/05/2024",
         time: "10:00 am",
         modality: "Presencial",
-        location: "Ofincias Agricola Carrasco",
+        location: "Ofincias Empresa Agricola",
         meetingSubjects: [
           "Presentación de cada uno de los miembros del virtual Family Offiece",
           "Declaración de intenciones y objectivos de parte del account manager",
@@ -584,7 +584,7 @@ export const councilAndCommittieesData = {
         id: 12,
         description: 'Entregar un reporte fiscal del cumplimiento fiscal del año pasado y añadirlo al libro de auditorias',
         userAsigned: {
-            name: "Luz Amelia Jacobo",
+            name: "Contadora 1",
             role: "Contadora Empresas",
             id: "24",
             providerCategory: 50,
@@ -597,7 +597,7 @@ export const councilAndCommittieesData = {
       // {
       //   description: 'Entregar un reporte fiscal del cumplimiento fiscal del año pasado y añadirlo al libro de auditorias',
       //   userAsigned: {
-      //       name: "Luz Amelia Jacobo",
+      //       name: "Contadora 1",
       //       role: "Contadora Empresas",
       //       id: "24",
       //       providerCategory: 50,

@@ -1,5 +1,5 @@
 export const reportsData = {
-  familyName: "Aldana Ríos",
+  familyName: "Familia Ejemplo Demo",
   currency: "MXN",
   from: {
     year: "2024",
@@ -11,20 +11,20 @@ export const reportsData = {
   },
   content: ["Obligaciones", "Governanza", "Inversiones y activos"],
   highlights: [
-    "Pago de seguro vida (Seguros Monterrey) Diana Nieto Vega",
-    "Declaración Fiscal menusal Agricola Carrasco SA de CV (4)",
-    "Delcaración fiscal menusal Servicios financieros del campo CN SA de CV (4)",
-    "Declaración Anual Agricola Carrasco SA de CV",
-    "Delcaración Anual Servicios financieros del campo CN SA de CV",
-    "Cobro de prestamo Intrafamiliar Agricola Carrasco SA de CV a Adriana Carrasco Nieto (4)",
+    "Pago de seguro vida (Seguros Monterrey) Miembro 2 (Madre)",
+    "Declaración Fiscal menusal Empresa Agricola SA de CV (4)",
+    "Delcaración fiscal menusal Empresa financiera SA de CV (4)",
+    "Declaración Anual Empresa Agricola SA de CV",
+    "Delcaración Anual Empresa financiera SA de CV",
+    "Cobro de prestamo Intrafamiliar Empresa Agricola SA de CV a Miembro 4 (Hija) (4)",
     "Pago de credito hipotecario - Departamento Cabo la Marina (4)",
     "Pago de mantenimento Vehicular - Departamento Cabo la Marina (2)",
-    "Pago de seguro Médico (MAPFRE) Adriana Carrasco Nieto",
-    "Pago de arrendamiento inmobiliario (Departamento Londres) - Sofia Carrasco Nieto (4)",
+    "Pago de seguro Médico (MAPFRE) Miembro 4 (Hija)",
+    "Pago de arrendamiento inmobiliario (Departamento Londres) - Miembro 5 (Hija) (4)",
   ],
   companiesObligations: [
     {
-      companyName: "Agricola Carrasco SA de CV",
+      companyName: "Empresa Agricola SA de CV",
       taxes: [
         {
           amountTaxReportMonthly: 4,
@@ -119,9 +119,9 @@ export const reportsData = {
             },
             {
               totalDebt: "$ 1,500,000.00",
-              concept: "Prestamo Ing. Carrasco para pagos de nómina",
+              concept: "Prestamo Ing para pagos de nómina",
               paymentFrequency: "Mensual",
-              creditor: "Francisco Carrasco Ramos",
+              creditor: "Miembro 1 (Padre)",
               interestRate: "0",
               amountPayableBeginDate: "$ 1,300,000.00",
               amountPayableEndDate: "$ 900,000.00",
@@ -163,9 +163,9 @@ export const reportsData = {
           debt: [
             {
               totalDebt: "$ 80,000.00",
-              concept: "Prestamo personal Adriana Carrasco Nieto",
+              concept: "Prestamo personal Miembro 4 (Hija)",
               paymentFrequency: "Mensual",
-              debtor: "Adriana Carrasco Nieto",
+              debtor: "Miembro 4 (Hija)",
               interestRate: "0",
               amountReceivableBeginDate: "$ 70,000.00",
               amountReceivableEndDate: "$ 40,000.00",
@@ -203,7 +203,7 @@ export const reportsData = {
   ],
   familyMembersObligations: [
     {
-      familyMemberName: "Francisco Carrasco Ramos",
+      familyMemberName: "Miembro 1 (Padre)",
       taxRegime: "Regimen de dividendos",
       taxReportFrequency: ["Anual"],
       taxes: [
@@ -273,9 +273,9 @@ export const reportsData = {
             {
               totalDebt: "$ 80,000.00",
               type: "Prestamo a tercero",
-              concept: "Prestamo personal Daniel Carrasco Ramos",
+              concept: "Prestamo personal Juan Amigo",
               paymentFrequency: "Mensual",
-              debtor: "Daniel Carrasco Ramos",
+              debtor: "Juan Amigo",
               interestRate: "0",
               amountReceivableBeginDate: "$ 80,000.00",
               amountReceivableEndDate: "$ 40,000.00",
@@ -308,10 +308,10 @@ export const reportsData = {
             },
             {
               totalDebt: "$ 100,000.00",
-              concept: "Prestamo a Javier Carrasco Nieto",
+              concept: "Prestamo a Miembro 3 (Hijo)",
               paymentFrequency: "Mensual",
               type: "Intrafamiliar",
-              debtor: "Javier Carrasco Nieto",
+              debtor: "Miembro 3 (Hijo)",
               interestRate: "0",
               amountReceivableBeginDate: "$ 40,000.00",
               amountReceivableEndDate: "$ 20,000.00",
@@ -399,7 +399,7 @@ export const reportsData = {
       },
     },
     {
-      familyMemberName: "Adriana Carrasco Nieto",
+      familyMemberName: "Miembro 4 (Hija)",
       taxRegime: "Regimen de dividendos",
       taxReportFrequency: ["Anual"],
       taxes: [
@@ -475,15 +475,15 @@ export const reportsData = {
   assetsObligations: {
     realState: [
       {
-        name: "Casa La primavera San Anselmo 2083",
+        name: "Casa Culiacan 322",
         location: "México",
         owners: [
           {
-            name: "Francisco Carrasco Ramos",
+            name: "Miembro 1 (Padre)",
             pct: "50%",
           },
           {
-            name: "Diana Nieto Vega",
+            name: "Miembro 2 (Madre)",
             pct: "50%",
           },
         ],
@@ -537,7 +537,7 @@ export const reportsData = {
         location: "México",
         owners: [
           {
-            name: "Francisco Carrasco Ramos",
+            name: "Miembro 1 (Padre)",
             pct: "100%",
           },
         ],
@@ -650,7 +650,7 @@ export const reportsData = {
         location: "México",
         owners: [
           {
-            name: "Francisco Carrasco Ramos",
+            name: "Miembro 1 (Padre)",
             pct: "100%",
           },
         ],
@@ -678,7 +678,7 @@ export const reportsData = {
         location: "México",
         owners: [
           {
-            name: "Javier Carrasco Nieto",
+            name: "Miembro 3 (Hijo)",
             pct: "100%",
           },
         ],
@@ -705,7 +705,7 @@ export const reportsData = {
   },
   otherPayments: [
     {
-      name: "Colegiatura Maestria Sofia Carrasco Nieto",
+      name: "Colegiatura Maestria Miembro 5 (Hija)",
       paymentFrequency: 'Mensual',
       currency: 'MXN', 
       payments: [
@@ -749,7 +749,7 @@ export const reportsData = {
       ],
     },
     {
-      name: "Arrendamiento Departamento Londres - Sofia Carrasco Nieto",
+      name: "Arrendamiento Departamento Londres - Miembro 5 (Hija)",
       paymentFrequency: 'Mensual',
       currency: 'CAD', 
       payments: [
@@ -787,7 +787,7 @@ export const reportsData = {
         accountNumber: "6641232",
         owners: [
           {
-            name: "Francisco Carrasco Ramos",
+            name: "Miembro 1 (Padre)",
             pct: "100%",
           },
         ],
@@ -821,7 +821,7 @@ export const reportsData = {
         accountNumber: "79441232",
         owners: [
           {
-            name: "Francisco Carrasco Ramos",
+            name: "Miembro 1 (Padre)",
             pct: "100%",
           },
         ],
@@ -853,7 +853,7 @@ export const reportsData = {
     ],
     bankAccountsCompanies: [
       {
-        name: "Agricola Carrasco SA de CV",
+        name: "Empresa Agricola SA de CV",
         accounts: [
           {
             bank: "Banorte",
@@ -916,7 +916,7 @@ export const reportsData = {
         ],
       },
       {
-        name: "Servicios financieros del campo CN SA de CV",
+        name: "Empresa financiera SA de CV",
         accounts: [
           {
             bank: "Banorte",
@@ -1010,7 +1010,7 @@ export const reportsData = {
     ],
     bankAccountsFamilyMembers: [
       {
-        name: "Francisco Carrasco Ramos",
+        name: "Miembro 1 (Padre)",
         accounts: [
           {
             bank: "Banorte",
@@ -1073,7 +1073,7 @@ export const reportsData = {
         ],
       },
       {
-        name: "Diana Nieto Vega",
+        name: "Miembro 2 (Madre)",
         accounts: [
           {
             bank: "Banorte",
@@ -1172,7 +1172,7 @@ export const reportsData = {
       //   totalReturnsEndDate: "$ 19,000.00",
       //   owners: [
       //     {
-      //       name: "Francisco Carrasco Ramos",
+      //       name: "Miembro 1 (Padre)",
       //       pct: "100%",
       //     },
       //   ],
@@ -1192,11 +1192,11 @@ export const reportsData = {
         totalReturnsEndDate: "$ 150,000.00",
         owners: [
           {
-            name: "Francisco Carrasco Ramos",
+            name: "Miembro 1 (Padre)",
             pct: "50%",
           },
           {
-            name: "Javier Carrasco Nieto",
+            name: "Miembro 3 (Hijo)",
             pct: "50%",
           },
         ],
@@ -1221,15 +1221,15 @@ export const reportsData = {
         investmentAmount: "$ 4,200,000.00",
         owners: [
           {
-            name: "Francisco Carrasco Ramos",
+            name: "Miembro 1 (Padre)",
             pct: "33%",
           },
           {
-            name: "Diana Nieto Vega",
+            name: "Miembro 2 (Madre)",
             pct: "33%",
           },
           {
-            name: "Javier Carrasco Nieto",
+            name: "Miembro 3 (Hijo)",
             pct: "33%",
           },
         ],
@@ -1264,7 +1264,7 @@ export const reportsData = {
         ],
         owners: [
           {
-            name: "Adriana Carrasco Nieto",
+            name: "Miembro 4 (Hija)",
             pct: "100%",
           },
         ],
@@ -1275,22 +1275,22 @@ export const reportsData = {
       currency: 'MXN',
       creditors: [
         {
-          creditorName: "Francisco Carrasco Ramos",
+          creditorName: "Miembro 1 (Padre)",
           collectingBeginDate: "$ 120,000.00",
           collectingEndDate: "$ 105,000.00",
         },
         {
-          creditorName: "Grupo Carrasco Holding SA de CV",
+          creditorName: "Empresa Holding SA de CV",
           collectingBeginDate: "$ 1,200,000.00",
           collectingEndDate: "$ 900,000.00",
         },
         {
-          creditorName: "Diana Nieto Vega",
+          creditorName: "Miembro 2 (Madre)",
           collectingBeginDate: "$ 200,000.00",
           collectingEndDate: "$ 200,000.00",
         },
         {
-          creditorName: "Servicios financieros del campo CN SA de CV",
+          creditorName: "Empresa financiera SA de CV",
           collectingBeginDate: "$ 450,000.00",
           collectingEndDate: "$ 150,000.00",
         }

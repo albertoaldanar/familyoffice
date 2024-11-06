@@ -46,7 +46,7 @@ export const wealthStructure = {
     {
       id: 13,
       coreId: 23,
-      name: "Agricola Carrasco SA de CV",
+      name: "Empresa Agricola SA de CV",
       value: "10,000,000.00",
       source: 1,
     },
@@ -74,14 +74,14 @@ export const wealthStructure = {
     {
       id: 24,
       coreId: 29,
-      name: "Casa La primavera San Anselmo 2083",
+      name: "Casa Culiacan 322",
       value: "2,500,000.00",
       source: 2,
     },
     {
       id: 88,
       coreId: 1,
-      name: "Servicios financieros del campo CN SA de CV",
+      name: "Empresa financiera SA de CV",
       value: "2,000,000.00",
       source: 8,
     },
@@ -110,7 +110,7 @@ export const otherWealthData = {
       platesNumber: "XBJ21NB3",
       invoice: "https://googledrive.com/erg3440398f4fmv",
       successionInstructions: [
-        "Esta vehiculo se le dara a la empresa Agricola Carrasco SA de CV"
+        "Esta vehiculo se le dara a la empresa Empresa Agricola SA de CV"
       ],
       obligations: {
         mantainances: [
@@ -166,7 +166,7 @@ export const otherWealthData = {
           type: "family",
           pct: "100",
           coreId: "12",
-          name: "Javier Carrasco Nieto",
+          name: "Miembro 3 (Hijo)",
         },
       ],
       containedIntrusts: [
@@ -188,7 +188,7 @@ export const otherWealthData = {
       currency: "USD",
       contacts: [],
       successionInstructions: [
-        "Esta vehiculo se le heredara a mi hijo Javier Carrasco"
+        "Esta vehiculo se le heredara a mi hijo Miembro 3 (Hijo)"
       ],
       obligations: {
         mantainances: [],
@@ -214,7 +214,7 @@ export const otherWealthData = {
           type: "family",
           pct: "100",
           coreId: "23",
-          name: "Francisco Carrasco Ramos",
+          name: "Miembro 1 (Padre)",
         },
       ],
       containedIntrusts: [],
@@ -233,7 +233,7 @@ export const otherWealthData = {
       invoice: "https://googledrive.com/erg3440398f4fmv",
       contacts: [],
       successionInstructions: [
-        "Esta vehiculo se le heredara a mi hijo Javier Carrasco"
+        "Esta vehiculo se le heredara a mi hijo Miembro 3 (Hijo)"
       ],
       obligations: {
         mantainances: [],
@@ -257,7 +257,7 @@ export const otherWealthData = {
           type: "company",
           pct: "50",
           coreId: 23,
-          name: "Agricola Carrasco SA de CV",
+          name: "Empresa Agricola SA de CV",
         },
         {
           type: "trust",
@@ -306,7 +306,7 @@ export const otherWealthData = {
           type: "company",
           pct: "100",
           coreId: 85,
-          name: " CN Market Transportation LLC",
+          name: "Empresa Transporte LLC",
         },
       ],
       containedIntrusts: [],
@@ -347,7 +347,7 @@ export const otherWealthData = {
           type: "company",
           pct: "50",
           coreId: 23,
-          name: "Agricola Carrasco SA de CV",
+          name: "Empresa Agricola SA de CV",
         },
         {
           type: "trust",
@@ -372,7 +372,7 @@ export const otherWealthData = {
         },
       ],
       successionInstructions: [
-        "Esta coleccion de arte se encuentra en casa de San Diego Mission Valley. En caso de mi fallecimiento se heredara en partes iguales entre mis 3 hijos Javier, Adriana y Sofia."
+        "Esta coleccion de arte se encuentra en casa de San Diego Mission Valley. En caso de mi fallecimiento se heredara en partes iguales entre mis 3 hijos"
       ],
       value: "5000000",
       currency: "EUR",
@@ -384,7 +384,7 @@ export const otherWealthData = {
           type: "family",
           pct: "80",
           coreId: "23",
-          name: "Francisco Carrasco Ramos",
+          name: "Miembro 1 (Padre)",
         },
         {
           type: "trust",
@@ -403,11 +403,11 @@ export const otherWealthData = {
           type: "Persona física",
           pct: "100",
           coreId: "23",
-          name: "Francisco Carrasco Ramos"
+          name: "Miembro 1 (Padre)"
         }
       ],
       successionInstructions: [
-        "La beneficiria de esta cuenta en su totalidad es Diana Nieto", 
+        "La beneficiria de esta cuenta en su totalidad es Miembro 2 (Madre)", 
         "En caso del fallcimiento de Diana el monto de esta cuenta bancarias se heredara a mis 3 hijos Adrian, Sofia y Javier en partes iguales 33% a cada uno"
       ],
       contacts: [
@@ -438,7 +438,7 @@ export const otherWealthData = {
           type: "Persona moral",
           pct: "100",
           coreId: 23,
-          name: "Agricola Carrasco SA de CV"
+          name: "Empresa Agricola SA de CV"
         }
       ],
       contacts: [],
@@ -457,11 +457,11 @@ export const otherWealthData = {
           type: "Persona física",
           pct: "100",
           coreId: "23",
-          name: "Francisco Carrasco Ramos"
+          name: "Miembro 1 (Padre)"
         }
       ],
       successionInstructions: [
-        "La beneficiria de esta cuenta en su totalidad es Diana Nieto", 
+        "La beneficiria de esta cuenta en su totalidad es Miembro 2 (Madre)", 
         "En caso del fallcimiento de Diana el monto de esta cuenta bancarias se heredara a mis 3 hijos Adrian, Sofia y Javier en partes iguales 33% a cada uno"
       ],
       contacts: [
@@ -491,11 +491,11 @@ export const otherWealthData = {
           type: "Persona física",
           pct: "100",
           coreId: "23",
-          name: "Francisco Carrasco Ramos"
+          name: "Miembro 1 (Padre)"
         }
       ],
       successionInstructions: [
-        "La beneficiria de esta cuenta en su totalidad es Diana Nieto", 
+        "La beneficiria de esta cuenta en su totalidad es Miembro 2 (Madre)", 
         "En caso del fallcimiento de Diana el monto de esta cuenta bancarias se heredara a mis 3 hijos Adrian, Sofia y Javier en partes iguales 33% a cada uno"
       ],
       contacts: [
@@ -525,11 +525,11 @@ export const otherWealthData = {
           type: "Persona física",
           pct: "100",
           coreId: "23",
-          name: "Francisco Carrasco Ramos"
+          name: "Miembro 1 (Padre)"
         }
       ],
       successionInstructions: [
-        "La beneficiria de esta cuenta en su totalidad es Diana Nieto", 
+        "La beneficiria de esta cuenta en su totalidad es Miembro 2 (Madre)", 
         "En caso del fallcimiento de Diana el monto de esta cuenta bancarias se heredara a mis 3 hijos Adrian, Sofia y Javier en partes iguales 33% a cada uno"
       ],
       contacts: [
@@ -559,11 +559,11 @@ export const otherWealthData = {
           type: "Persona física",
           pct: "100",
           coreId: "23",
-          name: "Francisco Carrasco Ramos"
+          name: "Miembro 1 (Padre)"
         }
       ],
       successionInstructions: [
-        "La beneficiria de esta cuenta en su totalidad es Diana Nieto", 
+        "La beneficiria de esta cuenta en su totalidad es Miembro 2 (Madre)", 
         "En caso del fallcimiento de Diana el monto de esta cuenta bancarias se heredara a mis 3 hijos Adrian, Sofia y Javier en partes iguales 33% a cada uno"
       ],
       contacts: [],
@@ -584,7 +584,7 @@ export const otherWealthData = {
       loanId: null,
       successionInstructions: [
         "Los rendimientos y retornos de esta inversión se depositan en la cuenta BBVA-32473", 
-        "En caso de mi fallecimiento si el fondo no se ha cerrado, la beneficiaria de esta cuenta es Diana Nieto", 
+        "En caso de mi fallecimiento si el fondo no se ha cerrado, la beneficiaria de esta cuenta es Miembro 2 (Madre)", 
         "En caso de impago, contactar a Raul Ortiz para solicitar pago de retornos, su contacto se encuentra en la lista de proveedores", 
       ],
       contacts: [
@@ -647,7 +647,7 @@ export const otherWealthData = {
           type: "company",
           pct: "100",
           coreId: 23,
-          name: "Agricola Carrasco SA de CV",
+          name: "Empresa Agricola SA de CV",
         },
       ],
     },
@@ -700,7 +700,7 @@ export const otherWealthData = {
           type: "family",
           pct: "100",
           coreId: 23,
-          name: "Francisco Carrasco Ramos",
+          name: "Miembro 1 (Padre)",
         },
       ],
     },
@@ -732,14 +732,14 @@ export const otherWealthData = {
       country: "México",
       successionInstructions: [
         "La cobranza de este prestamo la debe de seguir llevando a cabo mi contadora Daniela Moreno",
-        "Los montos de la deuda por pagar se le otorgara a mi esposa Diana Nieto, en caso de mi fallecimiento, a mis 3 hijos en partes iguales.",
+        "Los montos de la deuda por pagar se le otorgara a mi esposa Miembro 2 (Madre), en caso de mi fallecimiento, a mis 3 hijos en partes iguales.",
       ],
       owners: [
         {
           type: "family",
           pct: "100",
           coreId: 23,
-          name: "Francisco Carrasco Ramos",
+          name: "Miembro 1 (Padre)",
         },
       ],
     },
@@ -774,7 +774,7 @@ export const otherWealthData = {
           type: "family",
           pct: "50",
           coreId: "23",
-          name: "Francisco Carrasco Ramos",
+          name: "Miembro 1 (Padre)",
         },
         {
           type: "trust",
@@ -836,13 +836,13 @@ export const otherWealthData = {
           type: "family",
           pct: "50",
           coreId: "23",
-          name: "Francisco Carrasco Ramos",
+          name: "Miembro 1 (Padre)",
         },
         {
           type: "family",
           pct: "50",
           coreId: "43",
-          name: "Diana Nieto Vega",
+          name: "Miembro 2 (Madre)",
         },
       ],
       resultsReports: [],

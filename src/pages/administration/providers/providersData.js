@@ -6,8 +6,8 @@ export const providers = [
     proveedores: [
       {
         id: 1,
-        nombre: 'Cesar Tamyo', 
-        empresa: 'Cesar Tamayo bienes raices',
+        nombre: 'Inmobiliario 1', 
+        empresa: 'Empresa inmobilaria 1',
         type: 'Asesor Inmobiliario',
         location: 'Mazatlan, Sinaloa',
         linkedAssets: [
@@ -15,11 +15,11 @@ export const providers = [
             id: 1,
             coreId: 29,
             type: 'realState',
-            name: "Casa La primavera San Anselmo 2083",
+            name: "Casa Culiacan 322",
           },
         ],
         telefono: '6671057068',
-        correo: 'cesar@tamayo.com',
+        correo: 'inobiliaria@uno.com',
         puesto: 'Director',
         isMemberIC: false,
         isMemberFC: false,
@@ -148,11 +148,11 @@ export const providers = [
     proveedores: [
       {
         id: 17,
-        nombre: 'Juan Diaz Zalazar', 
-        empresa: 'Diaz Zalazar notarios',
+        nombre: 'Notario de la familia', 
+        empresa: 'Notaria 123',
         location: 'Ciudad de México, México',
         telefono: '6671057068',
-        correo: 'juan@diazzalazar.com',
+        correo: 'notria@123.com',
         type: 'Notario',
         puesto: 'Director',
         isMemberIC: false,
@@ -162,7 +162,7 @@ export const providers = [
             id: 2,
             coreId: 23,
             type: 'company',
-            name: "Agricola Carrasco SA de CV",
+            name: "Empresa Agricola SA de CV",
           },
         ],
         registroDeServicios: [
@@ -192,7 +192,7 @@ export const providers = [
           {
             id: 12,
             fecha: '12/02/2024',
-            concepto: 'Acta constitutiva Agricola Carrasco SA de CV',
+            concepto: 'Acta constitutiva Empresa Agricola SA de CV',
             reciboOFactura: 'https://googledrive.com/erg3440398f4fmv',
             documentoOEntrgable: 'https://googledrive.com/erg3440398f4fmv',
             descripcion: ''

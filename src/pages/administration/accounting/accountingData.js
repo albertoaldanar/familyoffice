@@ -1,7 +1,7 @@
 export const companies = [  
   {
     id: 91,
-    nombre: "Grupo Carrasco Holding SA de CV",
+    nombre: "Empresa Holding SA de CV",
     rfc: "ANDNN324NS",
     moneda: "MXN",
     successionInstructions: [],
@@ -40,7 +40,7 @@ export const companies = [
         url: '"https://www.google.drive/1423nger"',
       },
     ],
-    razonSocial: "Grupo Carrasco Holding SA de CV",
+    razonSocial: "Empresa Holding SA de CV",
     valuacion: "123,000,000.00",
     direccionFiscal: "Col La Primaver parque industrial CP 233",
     fundacion: "10/10/1995",
@@ -59,7 +59,7 @@ export const companies = [
         type: "family",
         pct: "100",
         coreId: "23",
-        name: "Francisco Carrasco Ramos",
+        name: "Miembro 1 (Padre)",
         capitalSocial: "1500000",
       },
     ],
@@ -245,7 +245,7 @@ export const companies = [
   },
   {
     id: 85,
-    nombre: "CN Market Transportation LLC",
+    nombre: "Empresa Transporte LLC",
     rfc: "JNF932NKEW",
     moneda: "USD",
     containedIntrusts:[],
@@ -263,13 +263,13 @@ export const companies = [
       },
       {
         id: 1,
-        name: 'Juan Diaz Zalazar',
+        name: 'Notario de la familia',
         type: 'Notario',
         categoryCoreId: 24,
         coreId: 17,
         number: '6671481888',
         location: 'Culiacan, Sinaloa',
-        email: 'jaundiaz@zalazar.com'
+        email: 'notario@familia.com'
       }
     ],
     actasAsamblea: [
@@ -316,7 +316,7 @@ export const companies = [
         url: '"https://www.google.drive/1423nger"',
       },
     ],
-    razonSocial: "CN Market Transportation LLC",
+    razonSocial: "Empresa Transporte LLC",
     valuacion: "200,000.00",
     direccionFiscal: "Col Los pinos 233 Colonia Mutualismo CP 233",
     fundacion: "10/10/1995",
@@ -425,7 +425,7 @@ export const companies = [
   },
   {
     id: 23,
-    nombre: "Agricola Carrasco SA de CV",
+    nombre: "Empresa Agricola SA de CV",
     rfc: "BVA4930245",
     moneda: "MXN",
     successionInstructions: [],
@@ -442,7 +442,7 @@ export const companies = [
       },
       {
         id: 1,
-        name: 'Juan Diaz Zalazar',
+        name: 'Notario de la familia',
         type: 'Notario',
         categoryCoreId: 24,
         coreId: 17,
@@ -479,7 +479,7 @@ export const companies = [
         url: '"https://www.google.drive/1423nger"',
       },
     ],
-    razonSocial: "Agricola Carrasco SA de CV",
+    razonSocial: "Empresa Agricola SA de CV",
     valuacion: "31,000,000.00",
     direccionFiscal: "Col Los pinos 233 Colonia Mutualismo CP 233",
     fundacion: "10/10/1995",
@@ -498,14 +498,14 @@ export const companies = [
         type: "company",
         pct: "40",
         coreId: "91",
-        name: "Grupo Carrasco Holding SA de CV",
+        name: "Empresa Holding SA de CV",
         capitalSocial: "1000000",
       },
       {
         type: "family",
         pct: "60",
         coreId: "23",
-        name: "Francisco Carrasco Ramos",
+        name: "Miembro 1 (Padre)",
         capitalSocial: "1500000",
       },
     ],
@@ -670,12 +670,12 @@ export const companies = [
   },
   {
     id: 24,
-    nombre: "Servicios financieros del campo CN SA de CV",
+    nombre: "Empresa financiera SA de CV",
     rfc: "BVA4930245",
     moneda: "MXN",
     containedIntrusts:[],
     successionInstructions: [],
-    razonSocial: "Servicios financieros del campo CN SA de CV",
+    razonSocial: "Empresa financiera SA de CV",
     nationality: "Mexicana",
     regimenCapital: "SA de CV",
     bankAccounts: [],
@@ -692,7 +692,7 @@ export const companies = [
       },
       {
         id: 1,
-        name: 'Juan Diaz Zalazar',
+        name: 'Notario de la familia',
         type: 'Notario',
         categoryCoreId: 24,
         coreId: 17,
@@ -707,21 +707,21 @@ export const companies = [
         type: "family",
         pct: "30",
         coreId: "12",
-        name: "Javier Carrasco Nieto",
+        name: "Miembro 3 (Hijo)",
         capitalSocial: "1000000",
       },
       {
         type: "family",
         pct: "30",
         coreId: "23",
-        name: "Francisco Carrasco Ramos",
+        name: "Miembro 1 (Padre)",
         capitalSocial: "1500000",
       },
       {
         type: "company",
         pct: "40",
         coreId: "91",
-        name: "Grupo Carrasco Holding SA de CV",
+        name: "Empresa Holding SA de CV",
         capitalSocial: "15000",
       },
     ],
@@ -876,7 +876,7 @@ export const companies = [
   }, 
   {
     id: 53,
-    nombre: "CN Farmer trade LLC",
+    nombre: "Empresa Comercializadora LLC",
     rfc: "NJF9NIEW2",
     moneda: "USD",
     containedIntrusts:[],
@@ -894,7 +894,7 @@ export const companies = [
       },
       {
         id: 1,
-        name: 'Juan Diaz Zalazar',
+        name: 'Notario de la familia',
         type: 'Notario',
         categoryCoreId: 24,
         coreId: 17,
@@ -947,7 +947,7 @@ export const companies = [
         url: '"https://www.google.drive/1423nger"',
       },
     ],
-    razonSocial: "CN Farmer trade LLC",
+    razonSocial: "Empresa Comercializadora LLC",
     valuacion: "1,200,000.00",
     direccionFiscal: "901 BRUSH ST APT 323 LAS VEGAS NV 89107-4058 USA",
     fundacion: "10/10/2022",
@@ -960,28 +960,28 @@ export const companies = [
         type: "family",
         pct: "20",
         coreId: "12",
-        name: "Javier Carrasco Nieto",
+        name: "Miembro 3 (Hijo)",
         capitalSocial: "1000000",
       },
       {
         type: "family",
         pct: "20",
         coreId: "23",
-        name: "Francisco Carrasco Ramos",
+        name: "Miembro 1 (Padre)",
         capitalSocial: "1500000",
       },
       {
         type: "company",
         pct: "40",
         coreId: "91",
-        name: "Grupo Carrasco Holding SA de CV",
+        name: "Empresa Holding SA de CV",
         capitalSocial: "15000",
       },
       {
         type: "family",
         coreId: '13',
         pct: "20",
-        name: 'Adriana Carrasco Nieto',
+        name: 'Miembro 4 (Hija)',
         capitalSocial: "5000",
       }
     ],
@@ -1099,7 +1099,7 @@ export const fideicomisos = [
     contacts: [
       {
         id: 1,
-        name: 'Juan Diaz Zalazar',
+        name: 'Notario de la familia',
         type: 'Notario',
         categoryCoreId: 24,
         coreId: 17,
@@ -1112,36 +1112,36 @@ export const fideicomisos = [
       {
         type: "family",
         id: "12",
-        name: "Francisco Carrasco Ramos",
+        name: "Miembro 1 (Padre)",
       },
       {
         type: "company",
         id: "91",
-        name: "Grupo Carrasco Holding SA de CV",
+        name: "Empresa Holding SA de CV",
       },
     ],
     beneficiaries: [
       {
         type: "family",
         id: "12",
-        name: "Javier Carrasco Nieto",
+        name: "Miembro 3 (Hijo)",
       },
       {
         type: "family",
         id: "13",
-        name: "Adriana Carrasco Nieto",
+        name: "Miembro 4 (Hija)",
       },
       {
         type: "family",
         id: "9",
-        name: "Sofia Carrasco Nieto",
+        name: "Miembro 5 (Hija)",
       },
     ],
     trustees: [
       {
         type: "family",
         id: "12",
-        name: "Javier Carrasco Nieto",
+        name: "Miembro 3 (Hijo)",
       },
       {
         type: "provider",
@@ -1184,7 +1184,7 @@ export const fideicomisos = [
       {
         id: 25,
         coreId: 85,
-        name: 'CN Market Transportation LLC',
+        name: 'Empresa Transporte LLC',
         type: 'company',
         pct: '100',
         value: '200,000.00',
@@ -1214,7 +1214,7 @@ export const fideicomisos = [
     contacts: [
       {
         id: 1,
-        name: 'Juan Diaz Zalazar',
+        name: 'Notario de la familia',
         type: 'Notario',
         categoryCoreId: 24,
         coreId: 17,
@@ -1227,19 +1227,19 @@ export const fideicomisos = [
       {
         type: "family",
         id: "12",
-        name: "Francisco Carrasco Ramos",
+        name: "Miembro 1 (Padre)",
       },
       {
         type: "company",
         id: "91",
-        name: "Grupo Carrasco Holding SA de CV",
+        name: "Empresa Holding SA de CV",
       },
     ],
     trustees: [
       {
         type: "family",
         id: "12",
-        name: "Javier Carrasco Nieto",
+        name: "Miembro 3 (Hijo)",
       },
       {
         type: "provider",
@@ -1251,17 +1251,17 @@ export const fideicomisos = [
       {
         type: "family",
         id: "12",
-        name: "Javier Carrasco Nieto",
+        name: "Miembro 3 (Hijo)",
       },
       {
         type: "family",
         id: "13",
-        name: "Adriana Carrasco Nieto",
+        name: "Miembro 4 (Hija)",
       },
       {
         type: "family",
         id: "9",
-        name: "Sofia Carrasco Nieto",
+        name: "Miembro 5 (Hija)",
       },
     ],
     purpose: "Dar claridad a la suceción del testamento de la Familia",

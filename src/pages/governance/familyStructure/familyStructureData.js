@@ -1,5 +1,5 @@
 export const family = {
-  lastName: 'Familia Carrasco Nieto',
+  lastName: 'Familia Ejemplo Demo',
   documents:{
     vfo: {
       elp: 'https://www.google.drive/1423nger', 
@@ -37,11 +37,11 @@ export const family = {
   members: [
     {
       id: '23',
-      name: 'Francisco Carrasco Ramos',
+      name: 'Miembro 1 (Padre)',
       dob: '06/02/1963',
       regimenFiscal: 'Regimen de Dividendos',
       generation: 1,
-      address: 'Casa La primavera San Anselmo 2083',
+      address: 'Casa Culiacan 322',
       gender: 'Masculino',
       source: 'root',
       rfc: 'AJFNIEU',
@@ -100,21 +100,21 @@ export const family = {
               {
                 id: '43',
                 type: 'Family',
-                name: 'Diana Nieto Vega',
+                name: 'Miembro 2 (Madre)',
                 hasVisibility: true,
                 hasPostMortemVisibility: true
               }, 
               {
                 id: '12',
                 type: 'Family',
-                name: 'Javier Carrasco Nieto',
+                name: 'Miembro 3 (Hijo)',
                 hasVisibility: false, 
                 hasPostMortemVisibility: true
               }, 
               {
                 id: '13',
                 type: 'Family',
-                name: 'Adriana Carrasco Nieto',
+                name: 'Miembro 4 (Hija)',
                 hasVisibility: false, 
                 hasPostMortemVisibility: true
               },
@@ -128,7 +128,7 @@ export const family = {
               {
                 id: '24',
                 type: 'Provider',
-                name: 'Luz Amelia Jacobo',
+                name: 'Contadora 1',
                 hasVisibility: true, 
                 hasPostMortemVisibility: true
               }
@@ -139,7 +139,7 @@ export const family = {
           {
             id: 28,
             tipo: 'Prestamo de tercero',
-            acreedor: "Servando Aldana F.",
+            acreedor: "Amigo de la familia",
             monto: "10,000,000.00",
             pagado: "610,000.00",
             porPagar: "45,000.00",
@@ -151,21 +151,21 @@ export const family = {
               {
                 id: '43',
                 type: 'Family',
-                name: 'Diana Nieto Vega',
+                name: 'Miembro 2 (Madre)',
                 hasVisibility: true,
                 hasPostMortemVisibility: true
               }, 
               {
                 id: '12',
                 type: 'Family',
-                name: 'Javier Carrasco Nieto',
+                name: 'Miembro 3 (Hijo)',
                 hasVisibility: true, 
                 hasPostMortemVisibility: true
               }, 
               {
                 id: '13',
                 type: 'Family',
-                name: 'Adriana Carrasco Nieto',
+                name: 'Miembro 4 (Hija)',
                 hasVisibility: false, 
                 hasPostMortemVisibility: true
               },
@@ -179,7 +179,7 @@ export const family = {
               {
                 id: '24',
                 type: 'Provider',
-                name: 'Luz Amelia Jacobo',
+                name: 'Contadora 1',
                 hasVisibility: false, 
                 hasPostMortemVisibility: true
               }
@@ -205,21 +205,21 @@ export const family = {
               {
                 id: '43',
                 type: 'Family',
-                name: 'Diana Nieto Vega',
+                name: 'Miembro 2 (Madre)',
                 hasVisibility: true,
                 hasPostMortemVisibility: true
               }, 
               {
                 id: '12',
                 type: 'Family',
-                name: 'Javier Carrasco Nieto',
+                name: 'Miembro 3 (Hijo)',
                 hasVisibility: true, 
                 hasPostMortemVisibility: true
               }, 
               {
                 id: '13',
                 type: 'Family',
-                name: 'Adriana Carrasco Nieto',
+                name: 'Miembro 4 (Hija)',
                 hasVisibility: false, 
                 hasPostMortemVisibility: true
               },
@@ -233,7 +233,7 @@ export const family = {
               {
                 id: '24',
                 type: 'Provider',
-                name: 'Luz Amelia Jacobo',
+                name: 'Contadora 1',
                 hasVisibility: false, 
                 hasPostMortemVisibility: true
               }
@@ -244,7 +244,7 @@ export const family = {
       assets: [
         {
           id: 91,
-          name: 'Grupo Carrasco Holding SA de CV',
+          name: 'Empresa Holding SA de CV',
           type: 'company',
           pct: '100',
           value: '123,000,000.00',
@@ -254,21 +254,21 @@ export const family = {
             {
               id: '43',
               type: 'Family',
-              name: 'Diana Nieto Vega',
+              name: 'Miembro 2 (Madre)',
               hasVisibility: true,
               hasPostMortemVisibility: true
             }, 
             {
               id: '12',
               type: 'Family',
-              name: 'Javier Carrasco Nieto',
+              name: 'Miembro 3 (Hijo)',
               hasVisibility: true,
               hasPostMortemVisibility: true
             }, 
             {
               id: '13',
               type: 'Family',
-              name: 'Adriana Carrasco Nieto',
+              name: 'Miembro 4 (Hija)',
               hasVisibility: false,
               hasPostMortemVisibility: true
             },
@@ -282,7 +282,7 @@ export const family = {
             {
               id: '24',
               type: 'Provider',
-              name: 'Luz Amelia Jacobo',
+              name: 'Contadora 1',
               hasVisibility: true,
               hasPostMortemVisibility: true
             }
@@ -290,7 +290,7 @@ export const family = {
         },
         {
           id: 53,
-          name: 'CN Farmer trade LLC',
+          name: 'Empresa Comercializadora LLC',
           type: 'company',
           pct: '20',
           value: '11,200,000.00',
@@ -300,21 +300,21 @@ export const family = {
             {
               id: '43',
               type: 'Family',
-              name: 'Diana Nieto Vega',
+              name: 'Miembro 2 (Madre)',
               hasVisibility: true,
               hasPostMortemVisibility: true
             }, 
             {
               id: '12',
               type: 'Family',
-              name: 'Javier Carrasco Nieto',
+              name: 'Miembro 3 (Hijo)',
               hasVisibility: true,
               hasPostMortemVisibility: true
             }, 
             {
               id: '13',
               type: 'Family',
-              name: 'Adriana Carrasco Nieto',
+              name: 'Miembro 4 (Hija)',
               hasVisibility: false,
               hasPostMortemVisibility: false
             }, 
@@ -328,7 +328,7 @@ export const family = {
             {
               id: '24',
               type: 'Provider',
-              name: 'Luz Amelia Jacobo',
+              name: 'Contadora 1',
               hasVisibility: true,
               hasPostMortemVisibility: true
             }
@@ -336,7 +336,7 @@ export const family = {
         },
         {
           id: 23,
-          name: 'Agricola Carrasco SA de CV',
+          name: 'Empresa Agricola SA de CV',
           type: 'company',
           pct: '60',
           value: '10,000,000.00',
@@ -346,21 +346,21 @@ export const family = {
             {
               id: '43',
               type: 'Family',
-              name: 'Diana Nieto Vega',
+              name: 'Miembro 2 (Madre)',
               hasVisibility: true,
               hasPostMortemVisibility: true
             }, 
             {
               id: '12',
               type: 'Family',
-              name: 'Javier Carrasco Nieto',
+              name: 'Miembro 3 (Hijo)',
               hasVisibility: true,
               hasPostMortemVisibility: true
             }, 
             {
               id: '13',
               type: 'Family',
-              name: 'Adriana Carrasco Nieto',
+              name: 'Miembro 4 (Hija)',
               hasVisibility: false,
               hasPostMortemVisibility: false
             }, 
@@ -374,7 +374,7 @@ export const family = {
             {
               id: '24',
               type: 'Provider',
-              name: 'Luz Amelia Jacobo',
+              name: 'Contadora 1',
               hasVisibility: true,
               hasPostMortemVisibility: true
             }
@@ -382,7 +382,7 @@ export const family = {
         },
         {
           id: 24,
-          name: 'Servicios financieros del campo CN SA de CV',
+          name: 'Empresa financiera SA de CV',
           type: 'company',
           pct: '30',
           value: '10,000,000.00',
@@ -392,21 +392,21 @@ export const family = {
             {
               id: '43',
               type: 'Family',
-              name: 'Diana Nieto Vega',
+              name: 'Miembro 2 (Madre)',
               hasVisibility: true,
               hasPostMortemVisibility: true
             }, 
             {
               id: '12',
               type: 'Family',
-              name: 'Javier Carrasco Nieto',
+              name: 'Miembro 3 (Hijo)',
               hasVisibility: true,
               hasPostMortemVisibility: true
             }, 
             {
               id: '13',
               type: 'Family',
-              name: 'Adriana Carrasco Nieto',
+              name: 'Miembro 4 (Hija)',
               hasVisibility: false,
               hasPostMortemVisibility: true
             }, 
@@ -420,7 +420,7 @@ export const family = {
             {
               id: '24',
               type: 'Provider',
-              name: 'Luz Amelia Jacobo',
+              name: 'Contadora 1',
               hasVisibility: false,
               hasPostMortemVisibility: true
             }
@@ -428,7 +428,7 @@ export const family = {
         },
         {
           id: 85,
-          name: 'CN Market Transportation LLC',
+          name: 'Empresa Transporte LLC',
           type: 'company',
           pct: '45',
           value: '10,000,000.00',
@@ -438,21 +438,21 @@ export const family = {
             {
               id: '43',
               type: 'Family',
-              name: 'Diana Nieto Vega',
+              name: 'Miembro 2 (Madre)',
               hasVisibility: true,
               hasPostMortemVisibility: true
             }, 
             {
               id: '12',
               type: 'Family',
-              name: 'Javier Carrasco Nieto',
+              name: 'Miembro 3 (Hijo)',
               hasVisibility: false,
               hasPostMortemVisibility: true
             }, 
             {
               id: '13',
               type: 'Family',
-              name: 'Adriana Carrasco Nieto',
+              name: 'Miembro 4 (Hija)',
               hasVisibility: false,
               hasPostMortemVisibility: true
             }, 
@@ -466,7 +466,7 @@ export const family = {
             {
               id: '24',
               type: 'Provider',
-              name: 'Luz Amelia Jacobo',
+              name: 'Contadora 1',
               hasVisibility: false,
               hasPostMortemVisibility: true
             }
@@ -474,7 +474,7 @@ export const family = {
         },
         {
           id: 29,
-          name: 'Casa La primavera San Anselmo 2083',
+          name: 'Casa Culiacan 322',
           type: 'realState',
           pct: '50',
           value: '7,500,000.00',
@@ -483,21 +483,21 @@ export const family = {
           visibility: [
             {
               id: '43',
-              name: 'Diana Nieto Vega',
+              name: 'Miembro 2 (Madre)',
               type: 'Family',
               hasVisibility: true,
               hasPostMortemVisibility: true
             }, 
             {
               id: '12',
-              name: 'Javier Carrasco Nieto',
+              name: 'Miembro 3 (Hijo)',
               type: 'Family',
               hasVisibility: true,
               hasPostMortemVisibility: true
             }, 
             {
               id: '13',
-              name: 'Adriana Carrasco Nieto',
+              name: 'Miembro 4 (Hija)',
               type: 'Family',
               hasVisibility: true,
               hasPostMortemVisibility: true
@@ -512,7 +512,7 @@ export const family = {
             {
               id: '24',
               type: 'Provider',
-              name: 'Luz Amelia Jacobo',
+              name: 'Contadora 1',
               hasVisibility: false,
               hasPostMortemVisibility: true
             }
@@ -529,21 +529,21 @@ export const family = {
           visibility: [
             {
               id: '43',
-              name: 'Diana Nieto Vega',
+              name: 'Miembro 2 (Madre)',
               type: 'Family',
               hasVisibility: true,
               hasPostMortemVisibility: true
             }, 
             {
               id: '12',
-              name: 'Javier Carrasco Nieto',
+              name: 'Miembro 3 (Hijo)',
               type: 'Family',
               hasVisibility: true,
               hasPostMortemVisibility: true
             }, 
             {
               id: '13',
-              name: 'Adriana Carrasco Nieto',
+              name: 'Miembro 4 (Hija)',
               type: 'Family',
               hasVisibility: true,
               hasPostMortemVisibility: true
@@ -558,7 +558,7 @@ export const family = {
             {
               id: '24',
               type: 'Provider',
-              name: 'Luz Amelia Jacobo',
+              name: 'Contadora 1',
               hasVisibility: false,
               hasPostMortemVisibility: true
             }
@@ -576,21 +576,21 @@ export const family = {
             {
               id: '43',
               type: 'Family',
-              name: 'Diana Nieto Vega',
+              name: 'Miembro 2 (Madre)',
               hasVisibility: false,
               hasPostMortemVisibility: true
             }, 
             {
               id: '12',
               type: 'Family',
-              name: 'Javier Carrasco Nieto',
+              name: 'Miembro 3 (Hijo)',
               hasVisibility: false,
               hasPostMortemVisibility: true
             }, 
             {
               id: '13',
               type: 'Family',
-              name: 'Adriana Carrasco Nieto',
+              name: 'Miembro 4 (Hija)',
               hasVisibility: false,
               hasPostMortemVisibility: true
             }, 
@@ -604,7 +604,7 @@ export const family = {
             {
               id: '24',
               type: 'Provider',
-              name: 'Luz Amelia Jacobo',
+              name: 'Contadora 1',
               hasVisibility: false,
               hasPostMortemVisibility: false
             }
@@ -622,21 +622,21 @@ export const family = {
             {
               id: '43',
               type: 'Family',
-              name: 'Diana Nieto Vega',
+              name: 'Miembro 2 (Madre)',
               hasVisibility: false,
               hasPostMortemVisibility: true
             }, 
             {
               id: '12',
               type: 'Family',
-              name: 'Javier Carrasco Nieto',
+              name: 'Miembro 3 (Hijo)',
               hasVisibility: false,
               hasPostMortemVisibility: true
             }, 
             {
               id: '13',
               type: 'Family',
-              name: 'Adriana Carrasco Nieto',
+              name: 'Miembro 4 (Hija)',
               hasVisibility: false,
               hasPostMortemVisibility: false
             }, 
@@ -650,7 +650,7 @@ export const family = {
             {
               id: '24',
               type: 'Provider',
-              name: 'Luz Amelia Jacobo',
+              name: 'Contadora 1',
               hasVisibility: false,
               hasPostMortemVisibility: false
             }
@@ -668,21 +668,21 @@ export const family = {
             {
               id: '43',
               type: 'Family',
-              name: 'Diana Nieto Vega',
+              name: 'Miembro 2 (Madre)',
               hasVisibility: false,
               hasPostMortemVisibility: true
             }, 
             {
               id: '12',
               type: 'Family',
-              name: 'Javier Carrasco Nieto',
+              name: 'Miembro 3 (Hijo)',
               hasVisibility: false,
               hasPostMortemVisibility: true
             }, 
             {
               id: '13',
               type: 'Family',
-              name: 'Adriana Carrasco Nieto',
+              name: 'Miembro 4 (Hija)',
               hasVisibility: false,
               hasPostMortemVisibility: true
             }, 
@@ -696,7 +696,7 @@ export const family = {
             {
               id: '24',
               type: 'Provider',
-              name: 'Luz Amelia Jacobo',
+              name: 'Contadora 1',
               hasVisibility: false,
               hasPostMortemVisibility: true
             }
@@ -714,21 +714,21 @@ export const family = {
             {
               id: '43',
               type: 'Family',
-              name: 'Diana Nieto Vega',
+              name: 'Miembro 2 (Madre)',
               hasVisibility: true,
               hasPostMortemVisibility: true
             }, 
             {
               id: '12',
               type: 'Family',
-              name: 'Javier Carrasco Nieto',
+              name: 'Miembro 3 (Hijo)',
               hasVisibility: true,
               hasPostMortemVisibility: true
             }, 
             {
               id: '13',
               type: 'Family',
-              name: 'Adriana Carrasco Nieto',
+              name: 'Miembro 4 (Hija)',
               hasVisibility: true,
               hasPostMortemVisibility: true
             }, 
@@ -742,7 +742,7 @@ export const family = {
             {
               id: '24',
               type: 'Provider',
-              name: 'Luz Amelia Jacobo',
+              name: 'Contadora 1',
               hasVisibility: false,
               hasPostMortemVisibility: true
             }
@@ -759,21 +759,21 @@ export const family = {
           visibility: [
             {
               id: '43',
-              name: 'Diana Nieto Vega',
+              name: 'Miembro 2 (Madre)',
               type: 'Family',
               hasVisibility: true,
               hasPostMortemVisibility: true
             }, 
             {
               id: '12',
-              name: 'Javier Carrasco Nieto',
+              name: 'Miembro 3 (Hijo)',
               type: 'Family',
               hasVisibility: false,
               hasPostMortemVisibility: true
             }, 
             {
               id: '13',
-              name: 'Adriana Carrasco Nieto',
+              name: 'Miembro 4 (Hija)',
               type: 'Family',
               hasVisibility: false,
               hasPostMortemVisibility: true
@@ -788,7 +788,7 @@ export const family = {
             {
               id: '24',
               type: 'Provider',
-              name: 'Luz Amelia Jacobo',
+              name: 'Contadora 1',
               hasVisibility: false,
               hasPostMortemVisibility: false
             }
@@ -804,21 +804,21 @@ export const family = {
             {
               id: '43',
               type: 'Family',
-              name: 'Diana Nieto Vega',
+              name: 'Miembro 2 (Madre)',
               hasVisibility: false,
               hasPostMortemVisibility: true
             }, 
             {
               id: '12',
               type: 'Family',
-              name: 'Javier Carrasco Nieto',
+              name: 'Miembro 3 (Hijo)',
               hasVisibility: false,
               hasPostMortemVisibility: true
             }, 
             {
               id: '13',
               type: 'Family',
-              name: 'Adriana Carrasco Nieto',
+              name: 'Miembro 4 (Hija)',
               hasVisibility: false,
               hasPostMortemVisibility: true
             },
@@ -832,7 +832,7 @@ export const family = {
             {
               id: '24',
               type: 'Provider',
-              name: 'Luz Amelia Jacobo',
+              name: 'Contadora 1',
               hasVisibility: false,
               hasPostMortemVisibility: false
             }
@@ -846,21 +846,21 @@ export const family = {
             {
               id: '43',
               type: 'Family',
-              name: 'Diana Nieto Vega',
+              name: 'Miembro 2 (Madre)',
               hasVisibility: false,
               hasPostMortemVisibility: true
             }, 
             {
               id: '12',
               type: 'Family',
-              name: 'Javier Carrasco Nieto',
+              name: 'Miembro 3 (Hijo)',
               hasVisibility: false,
               hasPostMortemVisibility: true
             }, 
             {
               id: '13',
               type: 'Family',
-              name: 'Adriana Carrasco Nieto',
+              name: 'Miembro 4 (Hija)',
               hasVisibility: false,
               hasPostMortemVisibility: true
             },
@@ -874,7 +874,7 @@ export const family = {
             {
               id: '24',
               type: 'Provider',
-              name: 'Luz Amelia Jacobo',
+              name: 'Contadora 1',
               hasVisibility: false,
               hasPostMortemVisibility: false
             }
@@ -894,7 +894,7 @@ export const family = {
           contacts: [
             {
               id: 1,
-              name: 'Juan Diaz Zalazar',
+              name: 'Notario de la familia',
               type: 'Notario',
               categoryCoreId: 24,
               coreId: 17,
@@ -907,21 +907,21 @@ export const family = {
             {
               id: '43',
               type: 'Family',
-              name: 'Diana Nieto Vega',
+              name: 'Miembro 2 (Madre)',
               hasVisibility: false,
               hasPostMortemVisibility: true
             }, 
             {
               id: '12',
               type: 'Family',
-              name: 'Javier Carrasco Nieto',
+              name: 'Miembro 3 (Hijo)',
               hasVisibility: false,
               hasPostMortemVisibility: true
             }, 
             {
               id: '13',
               type: 'Family',
-              name: 'Adriana Carrasco Nieto',
+              name: 'Miembro 4 (Hija)',
               hasVisibility: false,
               hasPostMortemVisibility: true
             },
@@ -935,7 +935,7 @@ export const family = {
             {
               id: '24',
               type: 'Provider',
-              name: 'Luz Amelia Jacobo',
+              name: 'Contadora 1',
               hasVisibility: false,
               hasPostMortemVisibility: false
             }
@@ -953,7 +953,7 @@ export const family = {
           contacts: [
             {
               id: 5,
-              name: 'Juan Diaz Zalazar',
+              name: 'Notario de la familia',
               type: 'Notario',
               categoryCoreId: 24,
               coreId: 17,
@@ -966,21 +966,21 @@ export const family = {
             {
               id: '43',
               type: 'Family',
-              name: 'Diana Nieto Vega',
+              name: 'Miembro 2 (Madre)',
               hasVisibility: false,
               hasPostMortemVisibility: true
             }, 
             {
               id: '12',
               type: 'Family',
-              name: 'Javier Carrasco Nieto',
+              name: 'Miembro 3 (Hijo)',
               hasVisibility: false,
               hasPostMortemVisibility: true
             }, 
             {
               id: '13',
               type: 'Family',
-              name: 'Adriana Carrasco Nieto',
+              name: 'Miembro 4 (Hija)',
               hasVisibility: false,
               hasPostMortemVisibility: true
             },
@@ -994,7 +994,7 @@ export const family = {
             {
               id: '24',
               type: 'Provider',
-              name: 'Luz Amelia Jacobo',
+              name: 'Contadora 1',
               hasVisibility: false,
               hasPostMortemVisibility: false
             }
@@ -1004,7 +1004,7 @@ export const family = {
     },
     {
       id: '43',
-      name: 'Diana Nieto Vega',
+      name: 'Miembro 2 (Madre)',
       cif: 'https://www.google.drive/1423nger', 
       trusteeOf: [
         {
@@ -1052,7 +1052,7 @@ export const family = {
       ],
       dob: '12/07/1963',
       driverLicence: 'https://www.google.drive/1423nger',
-      address: 'Casa La primavera San Anselmo 2083',
+      address: 'Casa Culiacan 322',
       regimenFiscal: 'Regimen de Dividendos',
       generation: 1,
       gender: 'Femenino',
@@ -1080,7 +1080,7 @@ export const family = {
       assets: [
         {
           id: 29,
-          name: 'Casa La primavera San Anselmo 2083',
+          name: 'Casa Culiacan 322',
           type: 'realState',
           pct: '50',
           value: '7,500,000.00',
@@ -1119,7 +1119,7 @@ export const family = {
     },
     {
       id: '13',
-      name: 'Adriana Carrasco Nieto',
+      name: 'Miembro 4 (Hija)',
       driverLicence: 'https://www.google.drive/1423nger',
       nationalities: ['Mexicana'],
       cif: 'https://www.google.drive/1423nger', 
@@ -1164,7 +1164,7 @@ export const family = {
         },
       ],
       dob: '10/25/1991',
-      address: 'Casa La primavera San Anselmo 2083',
+      address: 'Casa Culiacan 322',
       gender: 'Femenino',
       rfc: 'AAR2313B',
       regimenFiscal: 'Régimen Simplificado de Confianza (RESICO)',
@@ -1202,7 +1202,7 @@ export const family = {
             proxPago: "10/10/2024",
             country: 'México',
             creditor: {
-              name: 'Servicios financieros del campo CN SA de CV',
+              name: 'Empresa financiera SA de CV',
               type: 'Empresa Familiar', 
               linkedItemId: 24
             },
@@ -1219,7 +1219,7 @@ export const family = {
       assets: [
         {
           id: 53,
-          name: 'CN Farmer trade LLC',
+          name: 'Empresa Comercializadora LLC',
           type: 'company',
           pct: '20',
           value: '11,200,000.00',
@@ -1231,7 +1231,7 @@ export const family = {
     },
     {
       id: '12',
-      name: 'Javier Carrasco Nieto',
+      name: 'Miembro 3 (Hijo)',
       driverLicence: 'https://www.google.drive/1423nger',
       nationalities: ['Mexicana'],
       cif: 'https://www.google.drive/1423nger', 
@@ -1276,7 +1276,7 @@ export const family = {
         },
       ],
       dob: '02/16/1994',
-      address: 'Casa La primavera San Anselmo 2083',
+      address: 'Casa Culiacan 322',
       gender: 'Masculino',
       rfc: 'AAR4Z13B',
       regimenFiscal: 'Regimen de Introducción Fiscal (RIF)',
@@ -1327,7 +1327,7 @@ export const family = {
         },
         {
           id: 24,
-          name: 'Servicios financieros del campo CN SA de CV',
+          name: 'Empresa financiera SA de CV',
           type: 'company',
           pct: '30',
           value: '10,000,000.00',
@@ -1336,7 +1336,7 @@ export const family = {
         },
         {
           id: 53,
-          name: 'CN Farmer trade LLC',
+          name: 'Empresa Comercializadora LLC',
           type: 'company',
           pct: '20',
           value: '11,200,000.00',
@@ -1348,7 +1348,7 @@ export const family = {
     },
     {
       id: '9',
-      name: 'Sofia Carrasco Nieto',
+      name: 'Miembro 5 (Hija)',
       driverLicence: 'https://www.google.drive/1423nger',
       cif: 'https://www.google.drive/1423nger', 
       ids:[
@@ -1414,7 +1414,7 @@ export const family = {
         loansCollecting: []
       },
       dob: '03/18/1998',
-      address: 'Casa La primavera San Anselmo 2083',
+      address: 'Casa Culiacan 322',
       gender: 'Femenino',
       rfc: 'AAR9413B',
       regimenFiscal: 'Régimen Simplificado de Confianza (RESICO)',
@@ -1430,7 +1430,7 @@ export const family = {
     },
     {
       id: '19',
-      name: 'Mateo Carrasco Soler',    
+      name: 'Miembro 6 (Nieto)',    
       driverLicence: 'https://www.google.drive/1423nger', 
       cif: 'https://www.google.drive/1423nger', 
       ids:[
@@ -1477,7 +1477,7 @@ export const family = {
         loansCollecting: []
       },
       gender: 'Masculino',
-      address: 'Casa La primavera San Anselmo 2083',
+      address: 'Casa Culiacan 322',
       rfc: null,
       dob: '06/05/2012',
       regimenFiscal: null,
@@ -1500,7 +1500,7 @@ export const familyS = {
   members: [
     {
       id: '23',
-      name: 'Francisco Carrasco Ramos',
+      name: 'Miembro 1 (Padre)',
       dob: '06/02/1963',
       regimenFiscal: 'Regimen de Dividendos',
       generation: 1,

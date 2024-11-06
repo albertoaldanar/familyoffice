@@ -13,7 +13,7 @@ export const realstateData = [
     propertyType: "Departamento",
     successionInstructions: [
       "Esta casa se encuentra contenida en el fideicomiso 234424-ScotiaBank, es necesario llamar a Raul Aldana. El fideicomiso se encuentra en el modulo de fideicomiso y Raul Aldana en la lista de proveedores", 
-      "Esta propiedad se dividira en partes iguales 33% entre Adriana, Javier y Sofia"
+      "Esta propiedad se dividira en partes iguales 33% entre mis hijos"
     ],
     obligations: {
       popertyTaxes: [],
@@ -65,22 +65,22 @@ export const realstateData = [
         type: "family",
         pct: "100",
         coreId: "23",
-        name: "Francisco Carrasco Ramos",
+        name: "Miembro 1 (Padre)",
       },
     ],
   },
   {
     id: 29,
-    nombre: "Casa La primavera San Anselmo 2083",
+    nombre: "Casa Culiacan 322",
     contacts: [],
     successionInstructions: [
-      "Esta propiedad se dividira en partes iguales 33% entre Adriana, Javier y Sofia tal como se detalla en el testamento"
+      "Esta propiedad se dividira en partes iguales 33% entre mis 3 hijos tal como se detalla en el testamento"
     ],
     obligations: {
       popertyTaxes: [
         {
           id: 2,
-          name: "Predial - Casa La primavera San Anselmo 2083",
+          name: "Predial - Casa Culiacan 322",
           monto: "15,350.00",
           moneda: "MXN",
           proxPago: "29/09/2024",
@@ -149,14 +149,14 @@ export const realstateData = [
         type: "family",
         pct: "50",
         coreId: "43",
-        name: "Diana Nieto Vega",
+        name: "Miembro 2 (Madre)",
         capitalSocial: "1000000",
       },
       {
         type: "family",
         pct: "50",
         coreId: "23",
-        name: "Francisco Carrasco Ramos",
+        name: "Miembro 1 (Padre)",
         capitalSocial: "1500000",
       },
     ],
@@ -167,14 +167,14 @@ export const realstateData = [
     ciudad: "Culiacan, Sinaloa",
     contacts: [],
     successionInstructions: [
-      "Esta propiedad se le heredara a mi hijo Javier Carrasco en su totalidad, tal como se detalla en mi testamento"
+      "Esta propiedad se le heredara a mi hijo Miembro 3 (Hijo) en su totalidad, tal como se detalla en mi testamento"
     ],
     containedIntrusts: [],
     obligations: {
       popertyTaxes: [
         {
           id: 2,
-          name: "Predial - Casa La primavera San Anselmo 2083",
+          name: "Predial - Casa Culiacan 322",
           monto: "15,350.00",
           moneda: "MXN",
           proxPago: "29/09/2024",
@@ -187,7 +187,7 @@ export const realstateData = [
         {
           id: 8,
           tipo: "Inmobiliario",
-          arrendatario: "Agricola Carrasco SA de CV",
+          arrendatario: "Empresa Agricola SA de CV",
           country: 'México',
           proxCobro: "22/09/2024",
           monto: "45,000.00",
@@ -210,7 +210,7 @@ export const realstateData = [
         type: "family",
         pct: "100",
         coreId: "23",
-        name: "Diana Nieto Vega",
+        name: "Miembro 2 (Madre)",
       },
     ],
     images: [
@@ -225,7 +225,7 @@ export const realstateData = [
     ciudad: "San Diego, California",
     contacts: [],
     successionInstructions: [
-      "Esta propiedad se le heredara a mi hija Adriana Carrasco en su totalidad, tal como se detalla en mi testamento"
+      "Esta propiedad se le heredara a mi hija Miembro 4 (Hija) en su totalidad, tal como se detalla en mi testamento"
     ],
     containedIntrusts: [],
     obligations: {
@@ -258,7 +258,7 @@ export const realstateData = [
         type: "family",
         pct: "100",
         coreId: "23",
-        name: "Francisco Carrasco Ramos",
+        name: "Miembro 1 (Padre)",
         capitalSocial: "1500000",
       },
     ],
@@ -318,7 +318,7 @@ export const realstateData = [
         "type": "family",
         "pct": "100",
         "coreId": "23",
-        "name": "Francisco Carrasco Ramos",
+        "name": "Miembro 1 (Padre)",
         "capitalSocial": "1250000"
       }
     ],
@@ -365,7 +365,7 @@ export const realstateData = [
         "type": "family",
         "pct": "100",
         "coreId": "23",
-        "name": "Francisco Carrasco Ramos",
+        "name": "Miembro 1 (Padre)",
         "capitalSocial": "20000000"
       }
     ],
@@ -421,7 +421,7 @@ export const realStateStats = {
   ],
   byOwners: [
     {
-      type: "Francisco Carrasco Ramos",
+      type: "Miembro 1 (Padre)",
       value: [
         { currency: "MXN", value: 4500000 },
         { currency: "USD", value: 236973.07 },
@@ -429,7 +429,7 @@ export const realStateStats = {
       ],
     },
     {
-      type: "Diana Nieto Vega",
+      type: "Miembro 2 (Madre)",
       value: [
         { currency: "MXN", value: 3375000 },
         { currency: "USD", value: 177729.8 },
@@ -479,7 +479,7 @@ export const realStateStats = {
       ],
     },
     {
-      type: "Casa La primavera San Anselmo 2083",
+      type: "Casa Culiacan 322",
       value: [
         { currency: "MXN", value: 7500000 },
         { currency: "USD", value: 394955.11 },

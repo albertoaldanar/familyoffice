@@ -132,7 +132,7 @@ export const privateEquityStats = {
   ], 
   byOwners: [
     {
-      type: 'Francisco Carrasco Ramos', 
+      type: 'Miembro 1 (Padre)', 
       value: [
         {
           currency: 'MXN',
@@ -149,7 +149,7 @@ export const privateEquityStats = {
       ]
     },
     {
-      type: 'Agricola Carrasco SA de CV',
+      type: 'Empresa Agricola SA de CV',
       value: [
         {
           currency: 'MXN',

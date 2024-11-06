@@ -1,7 +1,7 @@
 export const taxes = [
   {
     id: 26,
-    nombre: "Javier Carrasco Nieto",
+    nombre: "Miembro 3 (Hijo)",
     rfc: "NFINE324NFJ",
     regimenFiscal: "Regimen de Introducción Fiscal (RIF)",
     cdsf: "https://www.google.drive/1423nger",
@@ -38,7 +38,7 @@ export const taxes = [
   },
   {
     id: 23,
-    nombre: "Adriana Carrasco Nieto",
+    nombre: "Miembro 4 (Hija)",
     rfc: "NFINE324NFJ",
     regimenFiscal: "Régimen Simplificado de Confianza (RESICO)",
     cdsf: "https://www.google.drive/1423nger",
@@ -97,7 +97,7 @@ export const taxes = [
   },
   {
     id: 29,
-    nombre: "Francisco Carrasco Ramos",
+    nombre: "Miembro 1 (Padre)",
     rfc: "NFINE324NFJ",
     regimenFiscal: "Regimen de Dividendos",
     nextPayement: "10 meses (Declaración Anual)",

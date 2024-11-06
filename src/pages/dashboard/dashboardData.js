@@ -31,7 +31,7 @@ export const dashboardData = {
   ],
   activities: [
     {
-      title: "Se añadio pago a Seguro Adriana Carrasco Nieto",
+      title: "Se añadio pago a Seguro Miembro 4 (Hija)",
       date: "2024-08-01",
       user: "Juan Pérez",
     },
@@ -51,18 +51,18 @@ export const dashboardData = {
       user: "Ana Martínez",
     },
     {
-      title: "Se añadio nuevo miembro familiar Mateo Carrasco Soler",
+      title: "Se añadio nuevo miembro familiar Miembro 6 (Nieto)",
       date: "2024-08-10",
       user: "Luis Fernández",
     },
     {
-      title: "Se añadio nueva acta de poder 2024 Agricola Carrasco SA de CV",
+      title: "Se añadio nueva acta de poder 2024 Empresa Agricola SA de CV",
       date: "2024-08-12",
       user: "Sofía Torres",
     },
     {
       title:
-        "Se añadio Acta constitutiva a Servicios financieros del campo CN SA de CV",
+        "Se añadio Acta constitutiva a Empresa financiera SA de CV",
       date: "2024-08-15",
       user: "Pedro Sánchez",
     },
@@ -220,7 +220,7 @@ export const dashboardData = {
   calendarItems: [
     {
       coreId: "26",
-      title: "Declaración fiscal Javier Carrasco Nieto",
+      title: "Declaración fiscal Miembro 3 (Hijo)",
       start: "2024-09-01",
       end: "2024-09-01",
       type: "taxPerson",
@@ -238,7 +238,7 @@ export const dashboardData = {
     },
     {
       coreId: "21",
-      title: "Pago de seguro Adriana Carrasco Nieto",
+      title: "Pago de seguro Miembro 4 (Hija)",
       start: "2024-09-10",
       end: "2024-09-10",
       type: "payment",
@@ -247,7 +247,7 @@ export const dashboardData = {
     },
     {
       coreId: "23",
-      title: "Declaración fiscal Agricola Carrasco SA de CV",
+      title: "Declaración fiscal Empresa Agricola SA de CV",
       start: "2024-09-15",
       end: "2024-09-15",
       type: "taxCompany",
@@ -256,7 +256,7 @@ export const dashboardData = {
     },
     {
       coreId: "24",
-      title: "Declaración fiscal Servicios financieros del campo CN SA de CV",
+      title: "Declaración fiscal Empresa financiera SA de CV",
       start: "2024-09-15",
       end: "2024-09-15",
       type: "taxCompany",
@@ -347,7 +347,7 @@ export const dashboardData = {
   ],
   byOwners: [
     {
-      type: "Francisco Carrasco Ramos",
+      type: "Miembro 1 (Padre)",
       value: [
         {
           currency: "MXN",
@@ -364,7 +364,7 @@ export const dashboardData = {
       ],
     },
     {
-      type: "Agricola Carrasco SA de CV",
+      type: "Empresa Agricola SA de CV",
       value: [
         {
           currency: "MXN",

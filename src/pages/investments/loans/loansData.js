@@ -30,7 +30,7 @@ export const loansDataStats = {
   ],
   byCreditor: [
     {
-      type: 'Servicios financieros del campo CN SA de CV', 
+      type: 'Empresa financiera SA de CV', 
       value: [
         {
           currency: 'MXN',
@@ -47,7 +47,7 @@ export const loansDataStats = {
       ]
     }, 
     {
-      type: 'Adriana Carrasco Nieto', 
+      type: 'Miembro 4 (Hija)', 
       value: [
         {
           currency: 'MXN',
@@ -485,7 +485,7 @@ export const loansDataStats = {
   ],
   debtByPeriodsFunds: [
     {
-      name: 'Raul Ortega Flores de (Francisco Carrasco Ramos)',
+      name: 'Raul Ortega Flores de (Miembro 1 (Padre))',
       values: [
         {
           year: 2024,
@@ -652,7 +652,7 @@ export const loansDataStats = {
       ],
     },
     {
-      name: 'Adriana Carrasco Nieto de (Agricola Carrasco SA de CV)',
+      name: 'Miembro 4 (Hija) de (Empresa Agricola SA de CV)',
       values: [
         {
           year: 2024,
@@ -819,7 +819,7 @@ export const loansDataStats = {
       ],
     },
     {
-      name: 'Javier Carrasco Nieto de (Agricola Carrasco SA de CV)',
+      name: 'Miembro 3 (Hijo) de (Empresa Agricola SA de CV)',
       values: [
         {
           year: 2024,
@@ -905,7 +905,7 @@ export const loansDataStats = {
       ]
     }, 
     {
-      name: 'Lavanderia Ricardo de (Diana Nieto Vega)',
+      name: 'Lavanderia Ricardo de (Miembro 2 (Madre))',
       values: [
         {
           year: 2024,

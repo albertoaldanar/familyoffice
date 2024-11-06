@@ -102,7 +102,7 @@ export default function DataSuccession() {
     <>
       <p style={{ fontWeight: "bold", marginBottom: 30 }}>
         El protocolo de sucesión de datos te permitirá hacer visible toda tu
-        información después de tu fallecimiento (Francisco Carrasco Ramos)
+        información después de tu fallecimiento (Miembro 1 (Padre))
       </p>
       <p style={{ color: "gray", fontSize: 13 }}>
         1. Esta funcionalidad te permitirá suceder y hacer visible toda tu

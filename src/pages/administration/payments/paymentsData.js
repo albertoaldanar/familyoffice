@@ -1,18 +1,18 @@
 export const prediales = [
   {
     id: 2,
-    nombre: "Casa La primavera San Anselmo 2083",
-    direccion: "Casa La primavera San Anselmo 2083",
+    nombre: "Casa Culiacan 322",
+    direccion: "Casa Culiacan 322",
     monto: "15,350.00",
     moneda: 'MXN',
     country: 'México',
     frecuenciaDePago: "Anual",
-    proxPago: "29/09/2024",
+    proxPago: "10/12/2024",
     linkedItemId: 29,
     vigenciaDel: "12/01/2024",
     vigenciaAl: "12/01/2024",
     pagoen: "2 meses",
-    notifcationTo: {name: 'Luz Amelia Jacobo', id: '24', type: 'Provider'},
+    notifcationTo: {name: 'Contadora 1', id: '24', type: 'Provider'},
     pagos: [
       {
         id: 1,
@@ -51,7 +51,7 @@ export const prediales = [
     vigenciaDel: "12/01/2024",
     vigenciaAl: "12/01/2024",
     pagoen: "1 meses",
-    notifcationTo: {name: 'Luz Amelia Jacobo', id: '24', type: 'Provider'},
+    notifcationTo: {name: 'Contadora 1', id: '24', type: 'Provider'},
     pagos: [
       {
         id: 4,
@@ -90,7 +90,7 @@ export const prediales = [
     vigenciaDel: "12/01/2024",
     vigenciaAl: "12/01/2024",
     pagoen: "3 dias",
-    notifcationTo: {name: 'Luz Amelia Jacobo', id: '24', type: 'Provider'},
+    notifcationTo: {name: 'Contadora 1', id: '24', type: 'Provider'},
     pagos: [
       {
         id: 9,
@@ -129,7 +129,7 @@ export const prediales = [
     vigenciaDel: "12/01/2024",
     vigenciaAl: "12/01/2024",
     pagoen: "3 dias",
-    notifcationTo: {name: 'Luz Amelia Jacobo', id: '24', type: 'Provider'},
+    notifcationTo: {name: 'Contadora 1', id: '24', type: 'Provider'},
     pagos: [
       {
         id: 9,
@@ -164,7 +164,7 @@ export const creditos = [
     tipo: 'Credito de entidad financiera',
     tipoCredito: "Hipotecario",
     linkedItemId: 29,
-    concepto: "Casa La primavera San Anselmo 2083",
+    concepto: "Casa Culiacan 322",
     monto: "10,000,000.00",
     proxPago: "29/12/2024",
     porPagar: "9,790,000.00",
@@ -177,7 +177,7 @@ export const creditos = [
     interes: "15",
     notifcationTo: {
       id: '23',
-      name: 'Francisco Carrasco Ramos',
+      name: 'Miembro 1 (Padre)',
       type: 'Family'
     },
     pagos: [
@@ -210,7 +210,7 @@ export const creditos = [
     tipo: 'Credito de entidad financiera',
     acreedor: "BBVA",
     tipoCredito: "Empresarial",
-    concepto: "Agricola Carrasco SA de CV",
+    concepto: "Empresa Agricola SA de CV",
     monto: "255,000.00",
     pagado: "210,000.00",
     porPagar: "45,000.00",
@@ -222,7 +222,7 @@ export const creditos = [
     fechaDeContratacion: "22/11/2022",
     fechaVencimiento: "01/12/2027",
     frecuenciaDePago: "Mensual",
-    notifcationTo: {name: 'Luz Amelia Jacobo', id: '24', type: 'Provider'},
+    notifcationTo: {name: 'Contadora 1', id: '24', type: 'Provider'},
     pagos: [
         {
           id: 13,
@@ -263,7 +263,7 @@ export const creditos = [
     frecuenciaDePago: "Mensual",
     moneda: "MXN",
     fechaVencimiento: "01/12/2027",
-    notifcationTo: {name: 'Luz Amelia Jacobo', id: '24', type: 'Provider'},
+    notifcationTo: {name: 'Contadora 1', id: '24', type: 'Provider'},
     pagos: [
         {
           id: 23,
@@ -290,10 +290,10 @@ export const creditos = [
   {
     id: 28,
     tipo: 'Prestamo de tercero',
-    acreedor: "Servando Aldana F.",
+    acreedor: "Amigo familia ejemplo",
     tipoCredito: "Personal",
     linkedItemId: 23,
-    concepto: "Francisco Carrasco Ramos",
+    concepto: "Miembro 1 (Padre)",
     monto: "10,000,000.00",
     pagado: "610,000.00",
     porPagar: "45,000.00",
@@ -333,7 +333,7 @@ export const seguros = [
     id: 20,
     tipo: "Vida",
     frecuenciaDePago: "Anual",
-    nombre: "Javier Carrasco Nieto",
+    nombre: "Miembro 3 (Hijo)",
     linkedItemId: 12,
     poliza: "https://googledrive.com/erg3440398f4fmv",
     nombreAseguradora: "Seguros Monterrey",
@@ -343,8 +343,8 @@ export const seguros = [
     vigenciaDel: "20/12/2022",
     vigenciaAl: "20/12/2070",
     pagoen: "2 meses",
-    proxPago: "29/10/2024",
-    notifcationTo: { id: '43', name: 'Diana Nieto Vega', type: 'Family' },
+    proxPago: "29/11/2024",
+    notifcationTo: { id: '43', name: 'Miembro 2 (Madre)', type: 'Family' },
     pagos: [
       {
         id: 1,
@@ -399,11 +399,11 @@ export const seguros = [
   {
     id: 21,
     tipo: "Vida",
-    nombre: "Adriana Carrasco Nieto",
+    nombre: "Miembro 4 (Hija)",
     anualCost: "58,000.00",
     country: 'México',
     poliza: "https://googledrive.com/erg3440398f4fmv",
-    proxPago: "10/10/2024",
+    proxPago: "12/11/2024",
     linkedItemId: 13,
     frecuenciaDePago: "Anual",
     nombreAseguradora: "Seguros Monterrey",
@@ -411,7 +411,7 @@ export const seguros = [
     vigenciaDel: "12/01/2024",
     vigenciaAl: "12/01/2024",
     pagoen: "1 meses",
-    notifcationTo: { id: '43', name: 'Diana Nieto Vega', type: 'Family' },
+    notifcationTo: { id: '43', name: 'Miembro 2 (Madre)', type: 'Family' },
     pagos: [
       {
         id: 3,
@@ -446,7 +446,7 @@ export const seguros = [
     anualCost: "58,000.00",
     country: 'México',
     poliza: "https://googledrive.com/erg3440398f4fmv",
-    proxPago: "30/10/2024",
+    proxPago: "30/12/2024",
     linkedItemId: null,
     frecuenciaDePago: "Anual",
     nombreAseguradora: "Seguros Monterrey",
@@ -454,7 +454,7 @@ export const seguros = [
     vigenciaDel: "12/01/2024",
     vigenciaAl: "12/01/2024",
     pagoen: "1 meses",
-    notifcationTo: { id: '43', name: 'Diana Nieto Vega', type: 'Family' },
+    notifcationTo: { id: '43', name: 'Miembro 2 (Madre)', type: 'Family' },
     pagos: [
       {
         id: 3,
@@ -485,8 +485,8 @@ export const seguros = [
   {
     id: 22,
     tipo: "Vida",
-    nombre: "Sofia Carrasco Nieto",
-    proxPago: "29/09/2024",
+    nombre: "Miembro 5 (Hija)",
+    proxPago: "19/10/2024",
     anualCost: "58,000.00",
     frecuenciaDePago: "Anual",
     poliza: "https://googledrive.com/erg3440398f4fmv",
@@ -497,7 +497,7 @@ export const seguros = [
     vigenciaDel: "12/01/2024",
     vigenciaAl: "12/01/2024",
     pagoen: "Vencido",
-    notifcationTo: { id: '43', name: 'Diana Nieto Vega', type: 'Family' },
+    notifcationTo: { id: '43', name: 'Miembro 2 (Madre)', type: 'Family' },
     pagos: [
       {
         id: 5,
@@ -540,7 +540,7 @@ export const seguros = [
     vigenciaDel: "12/01/2024",
     vigenciaAl: "12/01/2024",
     pagoen: "2 meses",
-    notifcationTo: { id: '12', name: 'Javier Carrasco Nieto', type: 'Family'},
+    notifcationTo: { id: '12', name: 'Miembro 3 (Hijo)', type: 'Family'},
     pagos: [
       {
         id: 7,
@@ -574,7 +574,7 @@ export const seguros = [
     anualCost: "23,000.00",
     nombre: "Nissan - Frontier",
     country: 'México',
-    proxPago: "01/11/2024",
+    proxPago: "01/12/2024",
     poliza: "https://googledrive.com/erg3440398f4fmv",
     frecuenciaDePago: "Anual",
     nombreAseguradora: "Seguros Monterrey",
@@ -582,7 +582,7 @@ export const seguros = [
     vigenciaDel: "12/01/2024",
     vigenciaAl: "12/01/2024",
     pagoen: "2 meses",
-    notifcationTo: {name: 'Luz Amelia Jacobo', id: '24', type: 'Provider'},
+    notifcationTo: {name: 'Contadora 1', id: '24', type: 'Provider'},
     pagos: [
       {
         id: 9,
@@ -613,7 +613,7 @@ export const seguros = [
   {
     id: 25,
     tipo: "Vehicular",
-    proxPago: "28/09/2024",
+    proxPago: "13/11/2024",
     anualCost: "43,000.00",
     nombre: "BYD - HAN",
     country: 'México',
@@ -624,7 +624,7 @@ export const seguros = [
     vigenciaDel: "12/01/2024",
     vigenciaAl: "12/01/2024",
     pagoen: "2 meses",
-    notifcationTo: {name: 'Luz Amelia Jacobo', id: '24', type: 'Provider'},
+    notifcationTo: {name: 'Contadora 1', id: '24', type: 'Provider'},
     pagos: [
       {
         id: 11,
@@ -666,7 +666,7 @@ export const seguros = [
     vigenciaDel: "12/01/2024",
     vigenciaAl: "12/01/2024",
     pagoen: "2 meses",
-    notifcationTo: {name: 'Luz Amelia Jacobo', id: '24', type: 'Provider'},
+    notifcationTo: {name: 'Contadora 1', id: '24', type: 'Provider'},
     pagos: [
     ],
   },
@@ -675,7 +675,7 @@ export const seguros = [
     tipo: "Inmobiliario",
     proxPago: "11/09/2024",
     anualCost: "19,000.00",
-    nombre: "Casa La primavera San Anselmo 2083",
+    nombre: "Casa Culiacan 322",
     frecuenciaDePago: 'Mensual',
     poliza: "https://googledrive.com/erg3440398f4fmv",
     country: 'México',
@@ -685,7 +685,7 @@ export const seguros = [
     vigenciaDel: "12/01/2024",
     vigenciaAl: "12/01/2024",
     pagoen: "2 meses",
-    notifcationTo: {name: 'Luz Amelia Jacobo', id: '24', type: 'Provider'},
+    notifcationTo: {name: 'Contadora 1', id: '24', type: 'Provider'},
     pagos: [
       {
         id: 14,
@@ -727,7 +727,7 @@ export const seguros = [
     vigenciaDel: "12/01/2024",
     vigenciaAl: "12/01/2024",
     pagoen: "2 meses",
-    notifcationTo: {name: 'Luz Amelia Jacobo', id: '24', type: 'Provider'},
+    notifcationTo: {name: 'Contadora 1', id: '24', type: 'Provider'},
     pagos: [
       {
         id: 16,
@@ -760,7 +760,7 @@ export const seguros = [
 export const prestamosTerceros = [
     {
         id: 28,
-        acreedor: "Servando Aldana F.",
+        acreedor: "Amigo familia ejemplo",
         tipoCredito: "Intrafamiliar",
         concepto: "Prestamo para obra Aldana",
         monto: "10,000,000.00",
@@ -773,7 +773,7 @@ export const prestamosTerceros = [
         frecuenciaDePago: "Mensual",
         moneda: "MXN",
         fechaVencimiento: "01/12/2027",
-        notifcationTo: { id: '43', name: 'Diana Nieto Vega', type: 'Family' },
+        notifcationTo: { id: '43', name: 'Miembro 2 (Madre)', type: 'Family' },
         pagos: [
             {
               anio: "2024",
@@ -807,7 +807,7 @@ export const arrendamientos = [
     contrato: "https://googledrive.com/erg3440398f4fmv",
     proxPago: "22/09/2024",
     frecuenciaDePago: "Anual",
-    notifcationTo: { id: '43', name: 'Diana Nieto Vega', type: 'Family' },
+    notifcationTo: { id: '43', name: 'Miembro 2 (Madre)', type: 'Family' },
     pagos: [
       {
         id: 12, 
@@ -849,7 +849,7 @@ export const arrendamientos = [
     contrato: "https://googledrive.com/erg3440398f4fmv",
     proxPago: "15/10/2024",
     frecuenciaDePago: "Mensual",
-    notifcationTo: { id: '43', name: 'Diana Nieto Vega', type: 'Family' },
+    notifcationTo: { id: '43', name: 'Miembro 2 (Madre)', type: 'Family' },
     pagos: [
       {
         id: 94,
@@ -890,7 +890,7 @@ export const arrendamientos = [
     proxPago: "01/10/2024",
     moneda: "MXN",
     frecuenciaDePago: "Mensual",
-    notifcationTo: { id: '43', name: 'Diana Nieto Vega', type: 'Family' },
+    notifcationTo: { id: '43', name: 'Miembro 2 (Madre)', type: 'Family' },
     pagos: [
       {
         id: 50,
@@ -924,16 +924,16 @@ export const mantenimientos = [
   {
     id: 12,
     tipo: "Inmobiliario",
-    mantainanceTo: "Casa La primavera San Anselmo 2083",
+    mantainanceTo: "Casa Culiacan 322",
     pagoA: "Administración colinas",
-    concepto: "Mantenimiento Casa La primavera San Anselmo 2083",
+    concepto: "Mantenimiento Casa Culiacan 322",
     monto: "4,000.00",
     conuntry: 'México',
     linkedItemId: 29,
     proxPago: "12/12/2024",
     moneda: 'MXN',
     frecuenciaDePago: "Mensual",
-    notifcationTo: { id: '43', name: 'Diana Nieto Vega', type: 'Family' },
+    notifcationTo: { id: '43', name: 'Miembro 2 (Madre)', type: 'Family' },
     pagos: [
       {
         id: 22,
@@ -971,7 +971,7 @@ export const mantenimientos = [
     moneda: 'MXN',
     proxPago: "12/12/2024",
     frecuenciaDePago: "Mensual",
-    notifcationTo: { id: '43', name: 'Diana Nieto Vega', type: 'Family' },
+    notifcationTo: { id: '43', name: 'Miembro 2 (Madre)', type: 'Family' },
     pagos: [
       {
         id: 29,
@@ -1009,7 +1009,7 @@ export const mantenimientos = [
     moneda: 'EUR',
     proxPago: "12/12/2024",
     frecuenciaDePago: "Mensual",
-    notifcationTo: { id: '43', name: 'Diana Nieto Vega', type: 'Family' },
+    notifcationTo: { id: '43', name: 'Miembro 2 (Madre)', type: 'Family' },
     pagos: [
       {
         id: 29,
@@ -1047,7 +1047,7 @@ export const mantenimientos = [
     monto: "7,500.00",
     proxPago: null,
     frecuenciaDePago: "Mensual no recurrente",
-    notifcationTo: { id: '43', name: 'Diana Nieto Vega', type: 'Family' },
+    notifcationTo: { id: '43', name: 'Miembro 2 (Madre)', type: 'Family' },
     pagos: [
       {
         id: 86,
@@ -1078,10 +1078,10 @@ export const mantenimientos = [
 ];
 
 export const users = [
-  { id: '23', name: 'Francisco Carrasco Ramos', type: 'Family'},
-  { id: '43', name: 'Diana Nieto Vega', type: 'Family' },
-  { id: '12', name: 'Javier Carrasco Nieto', type: 'Family'},
-  { id: '13', name: 'Adriana Carrasco Nieto', type: 'Family'},
+  { id: '23', name: 'Miembro 1 (Padre)', type: 'Family'},
+  { id: '43', name: 'Miembro 2 (Madre)', type: 'Family' },
+  { id: '12', name: 'Miembro 3 (Hijo)', type: 'Family'},
+  { id: '13', name: 'Miembro 4 (Hija)', type: 'Family'},
   { id: '34', type: 'Provider', name: 'Raul Gallego León'},
-  { id: '24', type: 'Provider', name: 'Luz Amelia Jacobo'},
+  { id: '24', type: 'Provider', name: 'Contadora 1'},
 ];
