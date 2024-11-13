@@ -38,7 +38,7 @@ const ResultsChart: React.FC<ResultsChartProps> = (props) => {
     },
     yaxis: {
       labels: {
-        show: true,
+        show: false,
         formatter: function (value) {
           console.log('¿', value.toFixed(2))
           return value.toFixed(2);

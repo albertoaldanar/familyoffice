@@ -26,6 +26,8 @@ const Error403 = lazy(() => import('./components/authentication/errorpages/error
 const Error404 = lazy(() => import('./components/authentication/errorpages/error404/error404'))
 const Error500 = lazy(() => import('./components/authentication/errorpages/error500/Error500'))
 const Error503 = lazy(() => import('./components/authentication/errorpages/error503/Error503'))
+const AccountManagerDashboard = lazy(() => import('./pages/accountManager/accountManagerDashboard')) 
+const AccountManagerUserDescription = lazy(() => import('./pages/accountManager/accountManagerUserDescription')) 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Fragment>
@@ -51,9 +53,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             <Route path={`${import.meta.env.BASE_URL}pages/switcherpage`} element={<Customswitcher />} />
           </Route>
 
-        
+          <Route path={`${import.meta.env.BASE_URL}accountManager/accountManagerDashboard`} element={<AccountManagerDashboard />} />
+          <Route path={`${import.meta.env.BASE_URL}accountManager/accountManagerUserDescription/familyId/:familyId/user/:userId`} element={<AccountManagerUserDescription />} />
           <Route path={`${import.meta.env.BASE_URL}`} element={<Authenticationlayout />}>
-
+            <Route path={`${import.meta.env.BASE_URL}authentication/login`} element={<Login />} />
             <Route path={`${import.meta.env.BASE_URL}authentication/login`} element={<Login />} />
             <Route path={`${import.meta.env.BASE_URL}authentication/register`} element={<Register />} />
             <Route path={`${import.meta.env.BASE_URL}authentication/forgotpassword`} element={<ForgotPassword />} />

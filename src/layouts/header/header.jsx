@@ -560,7 +560,7 @@ const SideMenuIcon = () => {
                                                 <Dropdown.Item className="text-dark fw-semibold" href={`${import.meta.env.BASE_URL}pages/extension/settings`}>
                                                     <i className="dropdown-icon fe fe-settings"></i> Settings
                                                 </Dropdown.Item>
-                                                <Dropdown.Item className="text-dark fw-semibold" href={`${import.meta.env.BASE_URL}pages/extension/faqs`} >
+                                                <Dropdown.Item className="text-dark fw-semibold" href={`${import.meta.env.BASE_URL}accountManager/accountManagerDashboard`} >
                                                     <i className="dropdown-icon fe fe-alert-triangle"></i>
                                                     Support ?
                                                 </Dropdown.Item>
